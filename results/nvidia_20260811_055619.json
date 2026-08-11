@@ -1,0 +1,507 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T05:56:19",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b1",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 1,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=1",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 1.577181,
+        "cosine_similarity": 0.999991,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 35.2903,
+          "median_ms": 35.1328,
+          "min_ms": 35.0668,
+          "max_ms": 37.6903,
+          "p99_ms": 37.6903,
+          "std_ms": 0.4113
+        },
+        "wall_time": {
+          "mean_ms": 37.7774,
+          "median_ms": 37.6094,
+          "min_ms": 37.5114,
+          "max_ms": 39.9085,
+          "p99_ms": 39.9085,
+          "std_ms": 0.3924
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b4",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 4,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=4",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 1.4,
+        "cosine_similarity": 0.999992,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 65.481,
+          "median_ms": 65.2893,
+          "min_ms": 63.7161,
+          "max_ms": 69.8773,
+          "p99_ms": 69.8773,
+          "std_ms": 0.9533
+        },
+        "wall_time": {
+          "mean_ms": 67.9637,
+          "median_ms": 67.9517,
+          "min_ms": 67.6818,
+          "max_ms": 68.4766,
+          "p99_ms": 68.4766,
+          "std_ms": 0.2649
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b8",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 8,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=8",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.28125,
+        "max_rel_error": 136.1046,
+        "cosine_similarity": 0.999992,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.614,
+          "median_ms": 80.5594,
+          "min_ms": 80.2947,
+          "max_ms": 81.2169,
+          "p99_ms": 81.2169,
+          "std_ms": 0.2524
+        },
+        "wall_time": {
+          "mean_ms": 82.9787,
+          "median_ms": 82.9605,
+          "min_ms": 81.6472,
+          "max_ms": 85.3188,
+          "p99_ms": 85.3188,
+          "std_ms": 0.6926
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b16",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 16,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=16",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.5,
+        "max_rel_error": 274.3614,
+        "cosine_similarity": 0.999991,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.6272,
+          "median_ms": 80.5915,
+          "min_ms": 80.2943,
+          "max_ms": 81.347,
+          "p99_ms": 81.347,
+          "std_ms": 0.268
+        },
+        "wall_time": {
+          "mean_ms": 83.095,
+          "median_ms": 83.0903,
+          "min_ms": 82.7376,
+          "max_ms": 83.8139,
+          "p99_ms": 83.8139,
+          "std_ms": 0.2953
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b32",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 32,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=32",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.5,
+        "max_rel_error": 578.9646,
+        "cosine_similarity": 0.999993,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.5196,
+          "median_ms": 80.4605,
+          "min_ms": 78.5271,
+          "max_ms": 84.5575,
+          "p99_ms": 84.5575,
+          "std_ms": 0.9247
+        },
+        "wall_time": {
+          "mean_ms": 83.1417,
+          "median_ms": 83.0249,
+          "min_ms": 82.747,
+          "max_ms": 85.2961,
+          "p99_ms": 85.2961,
+          "std_ms": 0.42
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s64",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 64,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=64",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 61.625,
+        "max_rel_error": 727.1777,
+        "cosine_similarity": 0.99544,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.5946,
+          "median_ms": 80.5597,
+          "min_ms": 80.2949,
+          "max_ms": 81.2799,
+          "p99_ms": 81.2799,
+          "std_ms": 0.2556
+        },
+        "wall_time": {
+          "mean_ms": 83.0475,
+          "median_ms": 82.8946,
+          "min_ms": 81.5803,
+          "max_ms": 86.4288,
+          "p99_ms": 86.4288,
+          "std_ms": 0.8402
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s128",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 128,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=128",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.5,
+        "max_rel_error": 66.51648,
+        "cosine_similarity": 0.999994,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.6075,
+          "median_ms": 80.5602,
+          "min_ms": 80.2964,
+          "max_ms": 81.3482,
+          "p99_ms": 81.3482,
+          "std_ms": 0.2646
+        },
+        "wall_time": {
+          "mean_ms": 82.9895,
+          "median_ms": 82.993,
+          "min_ms": 81.5142,
+          "max_ms": 83.8125,
+          "p99_ms": 83.8125,
+          "std_ms": 0.4511
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s256",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 256,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=256",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.75,
+        "max_rel_error": 461.5944,
+        "cosine_similarity": 0.999986,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.574,
+          "median_ms": 80.5593,
+          "min_ms": 80.2946,
+          "max_ms": 81.0854,
+          "p99_ms": 81.0854,
+          "std_ms": 0.2291
+        },
+        "wall_time": {
+          "mean_ms": 83.0958,
+          "median_ms": 83.0231,
+          "min_ms": 82.7571,
+          "max_ms": 85.5817,
+          "p99_ms": 85.5817,
+          "std_ms": 0.4504
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s512",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 512,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=512",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.5,
+        "max_rel_error": 1350.258,
+        "cosine_similarity": 0.999981,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.5994,
+          "median_ms": 80.5592,
+          "min_ms": 79.0527,
+          "max_ms": 82.5923,
+          "p99_ms": 82.5923,
+          "std_ms": 0.7447
+        },
+        "wall_time": {
+          "mean_ms": 83.0696,
+          "median_ms": 83.0265,
+          "min_ms": 82.7567,
+          "max_ms": 83.7478,
+          "p99_ms": 83.7478,
+          "std_ms": 0.263
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s1024",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 1024,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=1024",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 33.25,
+        "max_rel_error": 647.8712,
+        "cosine_similarity": 0.999802,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.614,
+          "median_ms": 80.6271,
+          "min_ms": 80.2995,
+          "max_ms": 81.2835,
+          "p99_ms": 81.2835,
+          "std_ms": 0.266
+        },
+        "wall_time": {
+          "mean_ms": 83.0091,
+          "median_ms": 82.9597,
+          "min_ms": 81.6474,
+          "max_ms": 87.0198,
+          "p99_ms": 87.0198,
+          "std_ms": 0.8912
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s2048",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 2048,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=2048",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 53.625,
+        "max_rel_error": 91435.45,
+        "cosine_similarity": 0.998813,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 80.594,
+          "median_ms": 80.5993,
+          "min_ms": 80.3037,
+          "max_ms": 81.2208,
+          "p99_ms": 81.2208,
+          "std_ms": 0.2426
+        },
+        "wall_time": {
+          "mean_ms": 82.9355,
+          "median_ms": 83.0244,
+          "min_ms": 81.0523,
+          "max_ms": 84.9203,
+          "p99_ms": 84.9203,
+          "std_ms": 0.6444
+        }
+      }
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s4096",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "expert_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "num_tokens": 4096,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=4096",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 51.9375,
+        "max_rel_error": 3121.762,
+        "cosine_similarity": 0.999438,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 81.9669,
+          "median_ms": 81.2646,
+          "min_ms": 80.7715,
+          "max_ms": 83.5272,
+          "p99_ms": 83.5272,
+          "std_ms": 1.0504
+        },
+        "wall_time": {
+          "mean_ms": 84.5987,
+          "median_ms": 85.0532,
+          "min_ms": 83.2194,
+          "max_ms": 86.1028,
+          "p99_ms": 86.1028,
+          "std_ms": 1.0873
+        }
+      }
+    }
+  ]
+}

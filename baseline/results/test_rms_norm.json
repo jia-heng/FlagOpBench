@@ -1,0 +1,517 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T02:53:06",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 14,
+  "passed": 14,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "rms_norm",
+      "scenario": "llama31_8b_rmsnorm_decode",
+      "params": {
+        "phase": "decode",
+        "num_tokens": 1,
+        "hidden_size": 4096,
+        "source": "flashinfer-trace/rmsnorm_h4096 (Llama-3.1-8B)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.008,
+          "median_ms": 0.008,
+          "min_ms": 0.0078,
+          "max_ms": 0.0084,
+          "p99_ms": 0.0084,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3537,
+          "median_ms": 2.3534,
+          "min_ms": 2.3505,
+          "max_ms": 2.3981,
+          "p99_ms": 2.3981,
+          "std_ms": 0.0045
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "llama31_8b_rmsnorm_prefill_128",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 128,
+        "hidden_size": 4096,
+        "source": "flashinfer-trace/rmsnorm_h4096 (Llama-3.1-8B)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999954,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0085,
+          "median_ms": 0.0085,
+          "min_ms": 0.0084,
+          "max_ms": 0.0088,
+          "p99_ms": 0.0088,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3535,
+          "median_ms": 2.3534,
+          "min_ms": 2.31,
+          "max_ms": 2.4205,
+          "p99_ms": 2.4205,
+          "std_ms": 0.0081
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "llama31_8b_rmsnorm_prefill_512",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 512,
+        "hidden_size": 4096,
+        "source": "flashinfer-trace/rmsnorm_h4096 (Llama-3.1-8B)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999895,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0092,
+          "median_ms": 0.0092,
+          "min_ms": 0.009,
+          "max_ms": 0.0094,
+          "p99_ms": 0.0094,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3529,
+          "median_ms": 2.3534,
+          "min_ms": 2.3087,
+          "max_ms": 2.3543,
+          "p99_ms": 2.3543,
+          "std_ms": 0.0045
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "llama31_8b_rmsnorm_prefill_2048",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 2048,
+        "hidden_size": 4096,
+        "source": "flashinfer-trace/rmsnorm_h4096 (Llama-3.1-8B)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.006410256,
+        "cosine_similarity": 1.000142,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0171,
+          "median_ms": 0.0172,
+          "min_ms": 0.0168,
+          "max_ms": 0.0178,
+          "p99_ms": 0.0178,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4187,
+          "median_ms": 2.4189,
+          "min_ms": 2.405,
+          "max_ms": 2.4204,
+          "p99_ms": 2.4204,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "deepseek_v3_rmsnorm_decode",
+      "params": {
+        "phase": "decode",
+        "num_tokens": 1,
+        "hidden_size": 7168,
+        "source": "flashinfer-trace/rmsnorm_h7168 (DeepSeek-V3)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0103,
+          "median_ms": 0.0104,
+          "min_ms": 0.0102,
+          "max_ms": 0.0106,
+          "p99_ms": 0.0106,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3539,
+          "median_ms": 2.3534,
+          "min_ms": 2.3517,
+          "max_ms": 2.4071,
+          "p99_ms": 2.4071,
+          "std_ms": 0.0054
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "deepseek_v3_rmsnorm_prefill_256",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 256,
+        "hidden_size": 7168,
+        "source": "flashinfer-trace/rmsnorm_h7168 (DeepSeek-V3)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999899,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0112,
+          "median_ms": 0.0112,
+          "min_ms": 0.011,
+          "max_ms": 0.0113,
+          "p99_ms": 0.0113,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3538,
+          "median_ms": 2.3534,
+          "min_ms": 2.3517,
+          "max_ms": 2.4063,
+          "p99_ms": 2.4063,
+          "std_ms": 0.0053
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "deepseek_v3_rmsnorm_prefill_1024",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 1024,
+        "hidden_size": 7168,
+        "source": "flashinfer-trace/rmsnorm_h7168 (DeepSeek-V3)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.007462686,
+        "cosine_similarity": 1.000101,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0162,
+          "median_ms": 0.0162,
+          "min_ms": 0.016,
+          "max_ms": 0.0165,
+          "p99_ms": 0.0165,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4187,
+          "median_ms": 2.4189,
+          "min_ms": 2.4059,
+          "max_ms": 2.4198,
+          "p99_ms": 2.4198,
+          "std_ms": 0.0014
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "deepseek_v3_rmsnorm_prefill_4096",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 4096,
+        "hidden_size": 7168,
+        "source": "flashinfer-trace/rmsnorm_h7168 (DeepSeek-V3)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.004347826,
+        "cosine_similarity": 1.003109,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0609,
+          "median_ms": 0.0608,
+          "min_ms": 0.0596,
+          "max_ms": 0.0622,
+          "p99_ms": 0.0622,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 2.4186,
+          "median_ms": 2.4189,
+          "min_ms": 2.4021,
+          "max_ms": 2.421,
+          "p99_ms": 2.421,
+          "std_ms": 0.002
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "rmsnorm_h2048_decode",
+      "params": {
+        "phase": "decode",
+        "num_tokens": 1,
+        "hidden_size": 2048,
+        "source": "flashinfer-trace/rmsnorm_h2048"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0067,
+          "median_ms": 0.0067,
+          "min_ms": 0.0064,
+          "max_ms": 0.0069,
+          "p99_ms": 0.0069,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3532,
+          "median_ms": 2.3533,
+          "min_ms": 2.3412,
+          "max_ms": 2.3545,
+          "p99_ms": 2.3545,
+          "std_ms": 0.0013
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "rmsnorm_h2048_prefill_512",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 512,
+        "hidden_size": 2048,
+        "source": "flashinfer-trace/rmsnorm_h2048"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999939,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0074,
+          "median_ms": 0.0074,
+          "min_ms": 0.0073,
+          "max_ms": 0.0077,
+          "p99_ms": 0.0077,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3532,
+          "median_ms": 2.3534,
+          "min_ms": 2.341,
+          "max_ms": 2.3542,
+          "p99_ms": 2.3542,
+          "std_ms": 0.0014
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "rmsnorm_h1536_decode",
+      "params": {
+        "phase": "decode",
+        "num_tokens": 1,
+        "hidden_size": 1536,
+        "source": "flashinfer-trace/rmsnorm_h1536"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0063,
+          "median_ms": 0.0062,
+          "min_ms": 0.0062,
+          "max_ms": 0.0065,
+          "p99_ms": 0.0065,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3531,
+          "median_ms": 2.3532,
+          "min_ms": 2.3401,
+          "max_ms": 2.3561,
+          "p99_ms": 2.3561,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "rmsnorm_h1536_prefill_256",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 256,
+        "hidden_size": 1536,
+        "source": "flashinfer-trace/rmsnorm_h1536"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999964,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0067,
+          "median_ms": 0.0067,
+          "min_ms": 0.0066,
+          "max_ms": 0.0069,
+          "p99_ms": 0.0069,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3531,
+          "median_ms": 2.3533,
+          "min_ms": 2.3388,
+          "max_ms": 2.3547,
+          "p99_ms": 2.3547,
+          "std_ms": 0.0016
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "rmsnorm_h512_decode",
+      "params": {
+        "phase": "decode",
+        "num_tokens": 1,
+        "hidden_size": 512,
+        "source": "flashinfer-trace/rmsnorm_h512"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0056,
+          "median_ms": 0.0056,
+          "min_ms": 0.0055,
+          "max_ms": 0.0058,
+          "p99_ms": 0.0058,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3533,
+          "median_ms": 2.3535,
+          "min_ms": 2.341,
+          "max_ms": 2.3545,
+          "p99_ms": 2.3545,
+          "std_ms": 0.0013
+        }
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "rmsnorm_h128_prefill_64",
+      "params": {
+        "phase": "prefill",
+        "num_tokens": 64,
+        "hidden_size": 128,
+        "source": "flashinfer-trace/rmsnorm_h128"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0056,
+          "median_ms": 0.0057,
+          "min_ms": 0.0055,
+          "max_ms": 0.0059,
+          "p99_ms": 0.0059,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3532,
+          "median_ms": 2.3533,
+          "min_ms": 2.3406,
+          "max_ms": 2.3558,
+          "p99_ms": 2.3558,
+          "std_ms": 0.0014
+        }
+      }
+    }
+  ]
+}

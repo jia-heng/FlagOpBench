@@ -1,0 +1,328 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-09T17:04:21",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 7,
+  "passed": 7,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.004716981,
+        "cosine_similarity": 1.000638,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3284,
+          "median_ms": 0.3284,
+          "min_ms": 0.3262,
+          "max_ms": 0.3317,
+          "p99_ms": 0.3317,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.3318,
+          "median_ms": 0.3319,
+          "min_ms": 0.3298,
+          "max_ms": 0.3339,
+          "p99_ms": 0.3339,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.18,
+        "achieved_bandwidth_tb_s": 0.179,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.5,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_seq4096",
+      "params": {
+        "M": 4096,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.006134969,
+        "cosine_similarity": 1.003121,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5997,
+          "median_ms": 0.5996,
+          "min_ms": 0.5972,
+          "max_ms": 0.6045,
+          "p99_ms": 0.6045,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.6034,
+          "median_ms": 0.6035,
+          "min_ms": 0.6007,
+          "max_ms": 0.6075,
+          "p99_ms": 0.6075,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.2,
+        "achieved_bandwidth_tb_s": 0.196,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.9,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_decode",
+      "params": {
+        "M": 1,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0719,
+          "median_ms": 0.0716,
+          "min_ms": 0.0706,
+          "max_ms": 0.0802,
+          "p99_ms": 0.0802,
+          "std_ms": 0.0014
+        },
+        "wall_time": {
+          "mean_ms": 0.0694,
+          "median_ms": 0.0691,
+          "min_ms": 0.0683,
+          "max_ms": 0.0753,
+          "p99_ms": 0.0753,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.001,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.7,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_batch128",
+      "params": {
+        "M": 128,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999938,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0799,
+          "median_ms": 0.0726,
+          "min_ms": 0.0713,
+          "max_ms": 0.1061,
+          "p99_ms": 0.1061,
+          "std_ms": 0.0107
+        },
+        "wall_time": {
+          "mean_ms": 0.0702,
+          "median_ms": 0.0701,
+          "min_ms": 0.0688,
+          "max_ms": 0.081,
+          "p99_ms": 0.081,
+          "std_ms": 0.0014
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.05,
+        "achieved_bandwidth_tb_s": 0.046,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 1.2,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_batch512",
+      "params": {
+        "M": 512,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999864,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0943,
+          "median_ms": 0.0939,
+          "min_ms": 0.0927,
+          "max_ms": 0.1028,
+          "p99_ms": 0.1028,
+          "std_ms": 0.0014
+        },
+        "wall_time": {
+          "mean_ms": 0.0975,
+          "median_ms": 0.0975,
+          "min_ms": 0.0964,
+          "max_ms": 0.1034,
+          "p99_ms": 0.1034,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.16,
+        "achieved_bandwidth_tb_s": 0.156,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 3.9,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_4096_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 4096,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.004016064,
+        "cosine_similarity": 1.000143,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1945,
+          "median_ms": 0.1945,
+          "min_ms": 0.1928,
+          "max_ms": 0.1975,
+          "p99_ms": 0.1975,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 0.198,
+          "median_ms": 0.198,
+          "min_ms": 0.1969,
+          "max_ms": 0.2036,
+          "p99_ms": 0.2036,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 0.173,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.3,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_fp16",
+      "params": {
+        "M": 2048,
+        "hidden_size": 7168,
+        "dtype": "fp16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.001953125,
+        "max_rel_error": 0.0009737099,
+        "cosine_similarity": 1.001172,
+        "tolerance": 0.001
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3271,
+          "median_ms": 0.327,
+          "min_ms": 0.3248,
+          "max_ms": 0.3339,
+          "p99_ms": 0.3339,
+          "std_ms": 0.0014
+        },
+        "wall_time": {
+          "mean_ms": 0.3305,
+          "median_ms": 0.3304,
+          "min_ms": 0.3286,
+          "max_ms": 0.3346,
+          "p99_ms": 0.3346,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.18,
+        "achieved_bandwidth_tb_s": 0.18,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.5,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    }
+  ]
+}

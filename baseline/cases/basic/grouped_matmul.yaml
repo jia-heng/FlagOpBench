@@ -1,0 +1,111 @@
+# Definition: grouped_matmul_h32_kv4_d128
+# Operator: grouped_matmul
+# Source: FlashInfer-Trace, Qwen3-30B-A3B GQA attention (grouped QKV projection)
+# Workloads: 15 (covering decode and prefill phases)
+
+definition: grouped_matmul_h32_kv4_d128
+operator: grouped_matmul
+level: basic
+source: flashinfer-trace/definitions/gqa_ragged/gqa_ragged_prefill_causal_h32_kv4_d128.json
+
+const_axes:
+  num_heads: 32
+  num_kv_heads: 4
+  head_dim: 128
+  hidden_size: 4096  # 32 * 128
+  expert_size: 512  # Output dimension for grouped matmul
+  num_experts: 8
+
+warmup: 10
+iters: 100
+
+workloads:
+  # ========== Decode Phase (num_tokens=1) ==========
+  - name: "qwen3_30b_grouped_mm_decode_b1"
+    num_tokens: 1
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), decode, batch=1"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "decode"
+
+  - name: "qwen3_30b_grouped_mm_decode_b4"
+    num_tokens: 4
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), decode, batch=4"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "decode"
+
+  - name: "qwen3_30b_grouped_mm_decode_b8"
+    num_tokens: 8
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), decode, batch=8"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "decode"
+
+  - name: "qwen3_30b_grouped_mm_decode_b16"
+    num_tokens: 16
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), decode, batch=16"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "decode"
+
+  # ========== Prefill Phase (num_tokens > 1) ==========
+  - name: "qwen3_30b_grouped_mm_prefill_s128"
+    num_tokens: 128
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=128"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "prefill"
+
+  - name: "qwen3_30b_grouped_mm_prefill_s256"
+    num_tokens: 256
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=256"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "prefill"
+
+  - name: "qwen3_30b_grouped_mm_prefill_s512"
+    num_tokens: 512
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=512"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "prefill"
+
+  - name: "qwen3_30b_grouped_mm_prefill_s1024"
+    num_tokens: 1024
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=1024"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "prefill"
+
+  - name: "qwen3_30b_grouped_mm_prefill_s2048"
+    num_tokens: 2048
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=2048"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "prefill"
+
+  - name: "qwen3_30b_grouped_mm_prefill_s4096"
+    num_tokens: 4096
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=4096"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "prefill"
+
+  - name: "qwen3_30b_grouped_mm_prefill_s8192"
+    num_tokens: 8192
+    num_groups: 4
+    dtype: bf16
+    source: "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=8192"
+    model: "Qwen/Qwen3-30B-A3B"
+    phase: "prefill"

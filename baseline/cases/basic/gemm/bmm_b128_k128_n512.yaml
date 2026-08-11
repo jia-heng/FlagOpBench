@@ -1,0 +1,20 @@
+# Definition: bmm_b128_k128_n512
+# Operator: bmm
+# Workloads: 1
+
+definition: bmm_b128_k128_n512
+operator: bmm
+level: basic
+source: manual
+const_axes:
+  batch: 128
+  K: 128
+  N: 512
+warmup: 10
+iters: 100
+workloads:
+- name: attention_score_128heads_seq512
+  M: 512
+  dtype: bf16
+  phase: mixed
+  source: unknown, attention_score_128heads_seq512

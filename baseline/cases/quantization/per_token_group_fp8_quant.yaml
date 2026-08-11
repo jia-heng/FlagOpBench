@@ -1,0 +1,92 @@
+# Per-token Group FP8 Quantization 测试用例
+# 对应算子列表 #48: per_token_group_fp8_quant
+# 来源: 通用 FP8 量化 (per-token dynamic quantization with group scaling)
+
+operator: per_token_group_fp8_quant
+level: basic
+warmup: 10
+iters: 100
+
+workloads:
+  # ========== Decode Phase ==========
+  - name: "fp8_quant_decode_b1_h7168"
+    num_tokens: 1
+    hidden_size: 7168  # DeepSeek-V3
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, decode, batch=1"
+    model: "Generic FP8"
+    phase: "decode"
+
+  - name: "fp8_quant_decode_b4_h7168"
+    num_tokens: 4
+    hidden_size: 7168
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, decode, batch=4"
+    model: "Generic FP8"
+    phase: "decode"
+
+  - name: "fp8_quant_decode_b8_h4096"
+    num_tokens: 8
+    hidden_size: 4096  # Llama-3.1-8B
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, decode, batch=8"
+    model: "Generic FP8"
+    phase: "decode"
+
+  # ========== Prefill Phase ==========
+  - name: "fp8_quant_prefill_s64_h7168"
+    num_tokens: 64
+    hidden_size: 7168
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, prefill, seq=64"
+    model: "Generic FP8"
+    phase: "prefill"
+
+  - name: "fp8_quant_prefill_s128_h4096"
+    num_tokens: 128
+    hidden_size: 4096
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, prefill, seq=128"
+    model: "Generic FP8"
+    phase: "prefill"
+
+  - name: "fp8_quant_prefill_s256_h7168"
+    num_tokens: 256
+    hidden_size: 7168
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, prefill, seq=256"
+    model: "Generic FP8"
+    phase: "prefill"
+
+  - name: "fp8_quant_prefill_s512_h4096"
+    num_tokens: 512
+    hidden_size: 4096
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, prefill, seq=512"
+    model: "Generic FP8"
+    phase: "prefill"
+
+  - name: "fp8_quant_prefill_s1024_h7168"
+    num_tokens: 1024
+    hidden_size: 7168
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, prefill, seq=1024"
+    model: "Generic FP8"
+    phase: "prefill"
+
+  - name: "fp8_quant_prefill_s2048_h4096"
+    num_tokens: 2048
+    hidden_size: 4096
+    group_size: 128
+    dtype: bf16
+    source: "FP8 quantization, prefill, seq=2048"
+    model: "Generic FP8"
+    phase: "prefill"

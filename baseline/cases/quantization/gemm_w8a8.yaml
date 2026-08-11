@@ -1,0 +1,92 @@
+# W8A8 GEMM 测试用例
+# 对应算子列表 #26: gemm_w8a8
+# 来源: INT8 quantized matmul (当前测试 BF16 baseline)
+
+operator: gemm_w8a8
+level: quantization
+warmup: 10
+iters: 100
+
+workloads:
+  # ========== Decode Phase ==========
+  - name: "llama31_8b_w8a8_decode_b1"
+    M: 1
+    N: 4096   # Llama-3.1-8B hidden_size
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, decode, batch=1"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_w8a8_decode_b4"
+    M: 4
+    N: 4096
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, decode, batch=4"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_w8a8_decode_b8"
+    M: 8
+    N: 4096
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, decode, batch=8"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  # ========== Prefill Phase ==========
+  - name: "llama31_8b_w8a8_prefill_s64"
+    M: 64
+    N: 4096
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, prefill, seq=64"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_w8a8_prefill_s128"
+    M: 128
+    N: 4096
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, prefill, seq=128"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_w8a8_prefill_s256"
+    M: 256
+    N: 4096
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, prefill, seq=256"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_w8a8_prefill_s512"
+    M: 512
+    N: 4096
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, prefill, seq=512"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_w8a8_prefill_s1024"
+    M: 1024
+    N: 4096
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, prefill, seq=1024"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_w8a8_prefill_s2048"
+    M: 2048
+    N: 4096
+    K: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B W8A8 GEMM, prefill, seq=2048"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"

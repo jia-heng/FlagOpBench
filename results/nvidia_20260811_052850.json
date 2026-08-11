@@ -1,0 +1,202 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T05:28:50",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 5,
+  "passed": 5,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "deepseek_v3_router_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 7168,
+        "num_experts": 160,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0001220703,
+        "max_rel_error": 0.04727273,
+        "cosine_similarity": 1.000004,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3326,
+          "median_ms": 0.3326,
+          "min_ms": 0.3316,
+          "max_ms": 0.3337,
+          "p99_ms": 0.3337,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 2.6805,
+          "median_ms": 2.6807,
+          "min_ms": 2.5877,
+          "max_ms": 2.727,
+          "p99_ms": 2.727,
+          "std_ms": 0.0111
+        }
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "deepseek_v3_router_decode",
+      "params": {
+        "num_tokens": 1,
+        "hidden_size": 7168,
+        "num_experts": 160,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 5.340576e-05,
+        "max_rel_error": 3.673068e-06,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0188,
+          "median_ms": 0.0188,
+          "min_ms": 0.0183,
+          "max_ms": 0.0192,
+          "p99_ms": 0.0192,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4185,
+          "median_ms": 2.4187,
+          "min_ms": 2.404,
+          "max_ms": 2.42,
+          "p99_ms": 2.42,
+          "std_ms": 0.0016
+        }
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "deepseek_v3_router_batch128",
+      "params": {
+        "num_tokens": 128,
+        "hidden_size": 7168,
+        "num_experts": 160,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0001525879,
+        "max_rel_error": 0.266055,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0451,
+          "median_ms": 0.0451,
+          "min_ms": 0.0446,
+          "max_ms": 0.0461,
+          "p99_ms": 0.0461,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4186,
+          "median_ms": 2.4187,
+          "min_ms": 2.4052,
+          "max_ms": 2.4215,
+          "p99_ms": 2.4215,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "moe_64experts_router",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 4096,
+        "num_experts": 64,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0001449585,
+        "max_rel_error": 0.01386322,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1233,
+          "median_ms": 0.1233,
+          "min_ms": 0.1216,
+          "max_ms": 0.1243,
+          "p99_ms": 0.1243,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 2.4839,
+          "median_ms": 2.4842,
+          "min_ms": 2.4683,
+          "max_ms": 2.488,
+          "p99_ms": 2.488,
+          "std_ms": 0.0022
+        }
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "moe_8experts_router",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 4096,
+        "num_experts": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 6.866455e-05,
+        "max_rel_error": 0.0007573992,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0896,
+          "median_ms": 0.0896,
+          "min_ms": 0.0887,
+          "max_ms": 0.0906,
+          "p99_ms": 0.0906,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 2.484,
+          "median_ms": 2.4843,
+          "min_ms": 2.4696,
+          "max_ms": 2.4871,
+          "p99_ms": 2.4871,
+          "std_ms": 0.0017
+        }
+      }
+    }
+  ]
+}

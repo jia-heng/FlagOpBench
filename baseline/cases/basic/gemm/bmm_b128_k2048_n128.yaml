@@ -1,0 +1,20 @@
+# Definition: bmm_b128_k2048_n128
+# Operator: bmm
+# Workloads: 1
+
+definition: bmm_b128_k2048_n128
+operator: bmm
+level: basic
+source: manual
+const_axes:
+  batch: 128
+  K: 2048
+  N: 128
+warmup: 10
+iters: 100
+workloads:
+- name: attention_output_128heads_seq2048
+  M: 2048
+  dtype: bf16
+  phase: mixed
+  source: unknown, attention_output_128heads_seq2048

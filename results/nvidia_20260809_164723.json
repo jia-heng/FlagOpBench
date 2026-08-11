@@ -1,0 +1,5030 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-09T16:47:23",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 23,
+  "total_scenarios": 114,
+  "passed": 113,
+  "failed": 1,
+  "results": [
+    {
+      "operator": "add_rmsnorm_bias",
+      "scenario": "deepseek_v3_residual_norm_prefill",
+      "params": {
+        "M": 2048,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.006369427,
+        "cosine_similarity": 1.000629,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4203,
+          "median_ms": 0.4198,
+          "min_ms": 0.4173,
+          "max_ms": 0.4668,
+          "p99_ms": 0.4668,
+          "std_ms": 0.0048
+        },
+        "wall_time": {
+          "mean_ms": 0.4244,
+          "median_ms": 0.4245,
+          "min_ms": 0.4217,
+          "max_ms": 0.4276,
+          "p99_ms": 0.4276,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.21,
+        "achieved_bandwidth_tb_s": 0.21,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 5.2,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "add_rmsnorm_bias",
+      "scenario": "deepseek_v3_residual_norm_decode",
+      "params": {
+        "M": 1,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0876,
+          "median_ms": 0.0875,
+          "min_ms": 0.0844,
+          "max_ms": 0.1009,
+          "p99_ms": 0.1009,
+          "std_ms": 0.0025
+        },
+        "wall_time": {
+          "mean_ms": 0.0833,
+          "median_ms": 0.0831,
+          "min_ms": 0.0822,
+          "max_ms": 0.0885,
+          "p99_ms": 0.0885,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.001,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.6,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "add_rmsnorm_bias",
+      "scenario": "deepseek_v3_residual_norm_batch128",
+      "params": {
+        "M": 128,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999937,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0945,
+          "median_ms": 0.0871,
+          "min_ms": 0.0855,
+          "max_ms": 0.1302,
+          "p99_ms": 0.1302,
+          "std_ms": 0.0121
+        },
+        "wall_time": {
+          "mean_ms": 0.0851,
+          "median_ms": 0.0849,
+          "min_ms": 0.0838,
+          "max_ms": 0.091,
+          "p99_ms": 0.091,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.06,
+        "achieved_bandwidth_tb_s": 0.059,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 1.5,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "add_rmsnorm_bias",
+      "scenario": "deepseek_v3_residual_norm_large",
+      "params": {
+        "M": 4096,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.007407407,
+        "cosine_similarity": 1.003124,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.776,
+          "median_ms": 0.776,
+          "min_ms": 0.774,
+          "max_ms": 0.778,
+          "p99_ms": 0.778,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.7805,
+          "median_ms": 0.7804,
+          "min_ms": 0.7781,
+          "max_ms": 0.7864,
+          "p99_ms": 0.7864,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.23,
+        "achieved_bandwidth_tb_s": 0.227,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 5.7,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "add_rmsnorm_bias",
+      "scenario": "llama_residual_norm",
+      "params": {
+        "M": 2048,
+        "hidden_size": 4096,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000138,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2404,
+          "median_ms": 0.2404,
+          "min_ms": 0.2381,
+          "max_ms": 0.2438,
+          "p99_ms": 0.2438,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.2442,
+          "median_ms": 0.2442,
+          "min_ms": 0.2424,
+          "max_ms": 0.2497,
+          "p99_ms": 0.2497,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.21,
+        "achieved_bandwidth_tb_s": 0.209,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 5.2,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "attention_score_128heads_seq2048",
+      "params": {
+        "batch": 128,
+        "M": 2048,
+        "K": 128,
+        "N": 2048,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 715255.8,
+        "cosine_similarity": 1.225631,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0749,
+          "median_ms": 1.0748,
+          "min_ms": 1.0735,
+          "max_ms": 1.0827,
+          "p99_ms": 1.0827,
+          "std_ms": 0.0012
+        },
+        "wall_time": {
+          "mean_ms": 1.0786,
+          "median_ms": 1.0784,
+          "min_ms": 1.0772,
+          "max_ms": 1.0812,
+          "p99_ms": 1.0812,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 127.86,
+        "achieved_bandwidth_tb_s": 1.124,
+        "compute_efficiency_pct": 86.4,
+        "memory_efficiency_pct": 28.1,
+        "arithmetic_intensity": 113.8,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "attention_output_128heads_seq2048",
+      "params": {
+        "batch": 128,
+        "M": 2048,
+        "K": 2048,
+        "N": 128,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 10252000.0,
+        "cosine_similarity": 1.00331,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.1411,
+          "median_ms": 1.1408,
+          "min_ms": 1.1391,
+          "max_ms": 1.1484,
+          "p99_ms": 1.1484,
+          "std_ms": 0.0013
+        },
+        "wall_time": {
+          "mean_ms": 1.1445,
+          "median_ms": 1.1443,
+          "min_ms": 1.1428,
+          "max_ms": 1.1489,
+          "p99_ms": 1.1489,
+          "std_ms": 0.0009
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 120.44,
+        "achieved_bandwidth_tb_s": 1.059,
+        "compute_efficiency_pct": 81.4,
+        "memory_efficiency_pct": 26.5,
+        "arithmetic_intensity": 113.8,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "attention_score_128heads_decode",
+      "params": {
+        "batch": 128,
+        "M": 1,
+        "K": 128,
+        "N": 4096,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.125,
+        "max_rel_error": 0.01052632,
+        "cosine_similarity": 0.999969,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0551,
+          "median_ms": 0.0555,
+          "min_ms": 0.0525,
+          "max_ms": 0.0597,
+          "p99_ms": 0.0597,
+          "std_ms": 0.0016
+        },
+        "wall_time": {
+          "mean_ms": 0.057,
+          "median_ms": 0.0567,
+          "min_ms": 0.056,
+          "max_ms": 0.0616,
+          "p99_ms": 0.0616,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 2.44,
+        "achieved_bandwidth_tb_s": 2.456,
+        "compute_efficiency_pct": 1.6,
+        "memory_efficiency_pct": 61.4,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "attention_score_128heads_seq512",
+      "params": {
+        "batch": 128,
+        "M": 512,
+        "K": 128,
+        "N": 512,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 953674.3,
+        "cosine_similarity": 1.003313,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.09,
+          "median_ms": 0.0899,
+          "min_ms": 0.0889,
+          "max_ms": 0.1009,
+          "p99_ms": 0.1009,
+          "std_ms": 0.0012
+        },
+        "wall_time": {
+          "mean_ms": 0.0933,
+          "median_ms": 0.0932,
+          "min_ms": 0.0926,
+          "max_ms": 0.0979,
+          "p99_ms": 0.0979,
+          "std_ms": 0.0006
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 95.44,
+        "achieved_bandwidth_tb_s": 1.118,
+        "compute_efficiency_pct": 64.5,
+        "memory_efficiency_pct": 28.0,
+        "arithmetic_intensity": 85.3,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "causal_conv1d_decode",
+      "scenario": "mamba_2.8b_decode_single",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0328,
+          "median_ms": 0.0332,
+          "min_ms": 0.0258,
+          "max_ms": 0.0448,
+          "p99_ms": 0.0448,
+          "std_ms": 0.0033
+        },
+        "wall_time": {
+          "mean_ms": 0.024,
+          "median_ms": 0.0239,
+          "min_ms": 0.0234,
+          "max_ms": 0.0301,
+          "p99_ms": 0.0301,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.001,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "causal_conv1d_decode",
+      "scenario": "mamba_2.8b_decode_batch8",
+      "params": {
+        "batch": 8,
+        "hidden_size": 2560,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000002,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0313,
+          "median_ms": 0.0266,
+          "min_ms": 0.0256,
+          "max_ms": 0.0775,
+          "p99_ms": 0.0775,
+          "std_ms": 0.0081
+        },
+        "wall_time": {
+          "mean_ms": 0.0241,
+          "median_ms": 0.024,
+          "min_ms": 0.0235,
+          "max_ms": 0.0278,
+          "p99_ms": 0.0278,
+          "std_ms": 0.0006
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.01,
+        "achieved_bandwidth_tb_s": 0.007,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.2,
+        "arithmetic_intensity": 0.7,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "causal_conv1d_decode",
+      "scenario": "mamba_2.8b_decode_batch32",
+      "params": {
+        "batch": 32,
+        "hidden_size": 2560,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0287,
+          "median_ms": 0.0264,
+          "min_ms": 0.0256,
+          "max_ms": 0.0541,
+          "p99_ms": 0.0541,
+          "std_ms": 0.0055
+        },
+        "wall_time": {
+          "mean_ms": 0.0248,
+          "median_ms": 0.0246,
+          "min_ms": 0.0242,
+          "max_ms": 0.032,
+          "p99_ms": 0.032,
+          "std_ms": 0.0009
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.02,
+        "achieved_bandwidth_tb_s": 0.029,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.7,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "causal_conv1d_decode",
+      "scenario": "mamba_decode_kernel8",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "kernel_size": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0327,
+          "median_ms": 0.0333,
+          "min_ms": 0.0259,
+          "max_ms": 0.0398,
+          "p99_ms": 0.0398,
+          "std_ms": 0.0027
+        },
+        "wall_time": {
+          "mean_ms": 0.0245,
+          "median_ms": 0.0243,
+          "min_ms": 0.0237,
+          "max_ms": 0.0339,
+          "p99_ms": 0.0339,
+          "std_ms": 0.0011
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.003,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.1,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_2.8b_prefill",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "seq_len": 2048,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000102,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1265,
+          "median_ms": 0.1259,
+          "min_ms": 0.1253,
+          "max_ms": 0.1353,
+          "p99_ms": 0.1353,
+          "std_ms": 0.0016
+        },
+        "wall_time": {
+          "mean_ms": 0.1291,
+          "median_ms": 0.1289,
+          "min_ms": 0.1284,
+          "max_ms": 0.1338,
+          "p99_ms": 0.1338,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.33,
+        "achieved_bandwidth_tb_s": 0.166,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 4.1,
+        "arithmetic_intensity": 2.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_2.8b_prefill_large",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "seq_len": 4096,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000566,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2472,
+          "median_ms": 0.247,
+          "min_ms": 0.2462,
+          "max_ms": 0.2526,
+          "p99_ms": 0.2526,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.2507,
+          "median_ms": 0.2507,
+          "min_ms": 0.25,
+          "max_ms": 0.2548,
+          "p99_ms": 0.2548,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.34,
+        "achieved_bandwidth_tb_s": 0.17,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 4.2,
+        "arithmetic_intensity": 2.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_batch8",
+      "params": {
+        "batch": 8,
+        "hidden_size": 2560,
+        "seq_len": 1024,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.002392,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4897,
+          "median_ms": 0.4895,
+          "min_ms": 0.4885,
+          "max_ms": 0.4935,
+          "p99_ms": 0.4935,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 0.4933,
+          "median_ms": 0.4933,
+          "min_ms": 0.4924,
+          "max_ms": 0.4943,
+          "p99_ms": 0.4943,
+          "std_ms": 0.0004
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.34,
+        "achieved_bandwidth_tb_s": 0.171,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 4.3,
+        "arithmetic_intensity": 2.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_kernel8",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "seq_len": 2048,
+        "kernel_size": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999997,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1392,
+          "median_ms": 0.139,
+          "min_ms": 0.1384,
+          "max_ms": 0.1438,
+          "p99_ms": 0.1438,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 0.1421,
+          "median_ms": 0.142,
+          "min_ms": 0.1416,
+          "max_ms": 0.1439,
+          "p99_ms": 0.1439,
+          "std_ms": 0.0004
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.6,
+        "achieved_bandwidth_tb_s": 0.151,
+        "compute_efficiency_pct": 0.4,
+        "memory_efficiency_pct": 3.8,
+        "arithmetic_intensity": 4.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "fp8_einsum",
+      "scenario": "bmm_128heads_seq2048",
+      "params": {
+        "batch": 128,
+        "M": 2048,
+        "K": 128,
+        "N": 2048,
+        "dtype": "bf16",
+        "equation": "bik,bkj->bij"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 1430512.0,
+        "cosine_similarity": 1.225374,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0848,
+          "median_ms": 1.0845,
+          "min_ms": 1.0833,
+          "max_ms": 1.094,
+          "p99_ms": 1.094,
+          "std_ms": 0.0014
+        },
+        "wall_time": {
+          "mean_ms": 1.0878,
+          "median_ms": 1.0877,
+          "min_ms": 1.0862,
+          "max_ms": 1.0921,
+          "p99_ms": 1.0921,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 126.7,
+        "achieved_bandwidth_tb_s": 1.114,
+        "compute_efficiency_pct": 85.6,
+        "memory_efficiency_pct": 27.8,
+        "arithmetic_intensity": 113.8,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "fp8_einsum",
+      "scenario": "bmm_128heads_decode",
+      "params": {
+        "batch": 128,
+        "M": 1,
+        "K": 128,
+        "N": 4096,
+        "dtype": "bf16",
+        "equation": "bik,bkj->bij"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.125,
+        "max_rel_error": 0.01449275,
+        "cosine_similarity": 0.999968,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0666,
+          "median_ms": 0.0682,
+          "min_ms": 0.0624,
+          "max_ms": 0.075,
+          "p99_ms": 0.075,
+          "std_ms": 0.0033
+        },
+        "wall_time": {
+          "mean_ms": 0.0666,
+          "median_ms": 0.0662,
+          "min_ms": 0.0653,
+          "max_ms": 0.0723,
+          "p99_ms": 0.0723,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 2.02,
+        "achieved_bandwidth_tb_s": 2.032,
+        "compute_efficiency_pct": 1.4,
+        "memory_efficiency_pct": 50.8,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "fp8_einsum",
+      "scenario": "bmm_32heads_seq2048",
+      "params": {
+        "batch": 32,
+        "M": 2048,
+        "K": 128,
+        "N": 2048,
+        "dtype": "bf16",
+        "equation": "bik,bkj->bij"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 953674.3,
+        "cosine_similarity": 1.029639,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.295,
+          "median_ms": 0.2949,
+          "min_ms": 0.2934,
+          "max_ms": 0.3023,
+          "p99_ms": 0.3023,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.2981,
+          "median_ms": 0.2979,
+          "min_ms": 0.2971,
+          "max_ms": 0.3035,
+          "p99_ms": 0.3035,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 116.47,
+        "achieved_bandwidth_tb_s": 1.024,
+        "compute_efficiency_pct": 78.7,
+        "memory_efficiency_pct": 25.6,
+        "arithmetic_intensity": 113.8,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "fp8_einsum",
+      "scenario": "bmm_large_batch",
+      "params": {
+        "batch": 256,
+        "M": 1024,
+        "K": 64,
+        "N": 1024,
+        "dtype": "bf16",
+        "equation": "bik,bkj->bij"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.125,
+        "max_rel_error": 238418.6,
+        "cosine_similarity": 1.082338,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2935,
+          "median_ms": 0.2933,
+          "min_ms": 0.2924,
+          "max_ms": 0.3009,
+          "p99_ms": 0.3009,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.2963,
+          "median_ms": 0.2963,
+          "min_ms": 0.2954,
+          "max_ms": 0.2989,
+          "p99_ms": 0.2989,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 117.07,
+        "achieved_bandwidth_tb_s": 2.058,
+        "compute_efficiency_pct": 79.1,
+        "memory_efficiency_pct": 51.4,
+        "arithmetic_intensity": 56.9,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "scenario": "deepseek_v3_mla_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "q_dim": 1536,
+        "kv_dim": 512,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.007194245,
+        "cosine_similarity": 0.99986,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1433,
+          "median_ms": 0.1403,
+          "min_ms": 0.1383,
+          "max_ms": 0.1989,
+          "p99_ms": 0.1989,
+          "std_ms": 0.0114
+        },
+        "wall_time": {
+          "mean_ms": 0.1385,
+          "median_ms": 0.1382,
+          "min_ms": 0.1369,
+          "max_ms": 0.1475,
+          "p99_ms": 0.1475,
+          "std_ms": 0.0015
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.12,
+        "achieved_bandwidth_tb_s": 0.117,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 2.9,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "scenario": "deepseek_v3_mla_decode",
+      "params": {
+        "num_tokens": 1,
+        "q_dim": 1536,
+        "kv_dim": 512,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1396,
+          "median_ms": 0.139,
+          "min_ms": 0.1368,
+          "max_ms": 0.1489,
+          "p99_ms": 0.1489,
+          "std_ms": 0.0021
+        },
+        "wall_time": {
+          "mean_ms": 0.1361,
+          "median_ms": 0.1357,
+          "min_ms": 0.1344,
+          "max_ms": 0.1446,
+          "p99_ms": 0.1446,
+          "std_ms": 0.0016
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.0,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.7,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "scenario": "deepseek_v3_mla_batch128",
+      "params": {
+        "num_tokens": 128,
+        "q_dim": 1536,
+        "kv_dim": 512,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999989,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.141,
+          "median_ms": 0.14,
+          "min_ms": 0.1378,
+          "max_ms": 0.1543,
+          "p99_ms": 0.1543,
+          "std_ms": 0.0033
+        },
+        "wall_time": {
+          "mean_ms": 0.1373,
+          "median_ms": 0.1365,
+          "min_ms": 0.135,
+          "max_ms": 0.1469,
+          "p99_ms": 0.1469,
+          "std_ms": 0.002
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.01,
+        "achieved_bandwidth_tb_s": 0.007,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.2,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "scenario": "deepseek_v3_mla_large",
+      "params": {
+        "num_tokens": 4096,
+        "q_dim": 1536,
+        "kv_dim": 512,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.007092198,
+        "cosine_similarity": 1.000136,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2032,
+          "median_ms": 0.2031,
+          "min_ms": 0.2007,
+          "max_ms": 0.2078,
+          "p99_ms": 0.2078,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.207,
+          "median_ms": 0.207,
+          "min_ms": 0.2048,
+          "max_ms": 0.2093,
+          "p99_ms": 0.2093,
+          "std_ms": 0.0009
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 0.165,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.1,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "scenario": "standard_attn_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "q_dim": 4096,
+        "kv_dim": 4096,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.006944444,
+        "cosine_similarity": 1.000703,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4047,
+          "median_ms": 0.4047,
+          "min_ms": 0.4023,
+          "max_ms": 0.4084,
+          "p99_ms": 0.4084,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.4096,
+          "median_ms": 0.4095,
+          "min_ms": 0.4074,
+          "max_ms": 0.4134,
+          "p99_ms": 0.4134,
+          "std_ms": 0.0011
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 0.166,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.1,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gelu",
+      "scenario": "ffn_intermediate_seq2048",
+      "params": {
+        "M": 2048,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 3.814697e-06,
+        "max_rel_error": 0.1249999,
+        "cosine_similarity": 1.0156,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0933,
+          "median_ms": 0.0933,
+          "min_ms": 0.0925,
+          "max_ms": 0.0972,
+          "p99_ms": 0.0972,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 0.0974,
+          "median_ms": 0.0973,
+          "min_ms": 0.0967,
+          "max_ms": 0.1028,
+          "p99_ms": 0.1028,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 3.24,
+        "achieved_bandwidth_tb_s": 1.618,
+        "compute_efficiency_pct": 2.2,
+        "memory_efficiency_pct": 40.5,
+        "arithmetic_intensity": 2.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gelu",
+      "scenario": "ffn_intermediate_seq4096",
+      "params": {
+        "M": 4096,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 3.814697e-06,
+        "max_rel_error": 0.3333326,
+        "cosine_similarity": 1.022771,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1776,
+          "median_ms": 0.1776,
+          "min_ms": 0.177,
+          "max_ms": 0.1807,
+          "p99_ms": 0.1807,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 0.1817,
+          "median_ms": 0.1817,
+          "min_ms": 0.1811,
+          "max_ms": 0.1841,
+          "p99_ms": 0.1841,
+          "std_ms": 0.0004
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 3.4,
+        "achieved_bandwidth_tb_s": 1.7,
+        "compute_efficiency_pct": 2.3,
+        "memory_efficiency_pct": 42.5,
+        "arithmetic_intensity": 2.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gelu",
+      "scenario": "ffn_intermediate_decode",
+      "params": {
+        "M": 1,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "median_ms": 0.0176,
+          "min_ms": 0.0139,
+          "max_ms": 0.0908,
+          "p99_ms": 0.0908,
+          "std_ms": 0.0094
+        },
+        "wall_time": {
+          "mean_ms": 0.0124,
+          "median_ms": 0.0121,
+          "min_ms": 0.0117,
+          "max_ms": 0.0193,
+          "p99_ms": 0.0193,
+          "std_ms": 0.0013
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.01,
+        "achieved_bandwidth_tb_s": 0.004,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.1,
+        "arithmetic_intensity": 2.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gelu",
+      "scenario": "ffn_intermediate_batch128",
+      "params": {
+        "M": 128,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 3.814697e-06,
+        "max_rel_error": 0.02040816,
+        "cosine_similarity": 0.999936,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0181,
+          "median_ms": 0.0179,
+          "min_ms": 0.0173,
+          "max_ms": 0.0331,
+          "p99_ms": 0.0331,
+          "std_ms": 0.0016
+        },
+        "wall_time": {
+          "mean_ms": 0.0166,
+          "median_ms": 0.0164,
+          "min_ms": 0.0162,
+          "max_ms": 0.0202,
+          "p99_ms": 0.0202,
+          "std_ms": 0.0006
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.04,
+        "achieved_bandwidth_tb_s": 0.521,
+        "compute_efficiency_pct": 0.7,
+        "memory_efficiency_pct": 13.0,
+        "arithmetic_intensity": 2.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gelu",
+      "scenario": "hidden_size_seq2048",
+      "params": {
+        "M": 2048,
+        "N": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 3.814697e-06,
+        "max_rel_error": 0.1249999,
+        "cosine_similarity": 1.006112,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0415,
+          "median_ms": 0.0415,
+          "min_ms": 0.0408,
+          "max_ms": 0.0453,
+          "p99_ms": 0.0453,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 0.0455,
+          "median_ms": 0.0454,
+          "min_ms": 0.0449,
+          "max_ms": 0.0488,
+          "p99_ms": 0.0488,
+          "std_ms": 0.0004
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 2.83,
+        "achieved_bandwidth_tb_s": 1.415,
+        "compute_efficiency_pct": 1.9,
+        "memory_efficiency_pct": 35.4,
+        "arithmetic_intensity": 2.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gemma_rms_norm",
+      "scenario": "gemma_2b_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 2048,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999861,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0961,
+          "median_ms": 0.0945,
+          "min_ms": 0.0931,
+          "max_ms": 0.1192,
+          "p99_ms": 0.1192,
+          "std_ms": 0.0042
+        },
+        "wall_time": {
+          "mean_ms": 0.0982,
+          "median_ms": 0.0982,
+          "min_ms": 0.0969,
+          "max_ms": 0.1017,
+          "p99_ms": 0.1017,
+          "std_ms": 0.0006
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 0.175,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.4,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gemma_rms_norm",
+      "scenario": "gemma_7b_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 3072,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.005780347,
+        "cosine_similarity": 1.000051,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1443,
+          "median_ms": 0.144,
+          "min_ms": 0.1428,
+          "max_ms": 0.1524,
+          "p99_ms": 0.1524,
+          "std_ms": 0.0012
+        },
+        "wall_time": {
+          "mean_ms": 0.1482,
+          "median_ms": 0.148,
+          "min_ms": 0.1458,
+          "max_ms": 0.156,
+          "p99_ms": 0.156,
+          "std_ms": 0.0011
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 0.174,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.4,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gemma_rms_norm",
+      "scenario": "gemma_27b_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 4608,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 0.005494506,
+        "cosine_similarity": 1.000268,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2209,
+          "median_ms": 0.2208,
+          "min_ms": 0.2188,
+          "max_ms": 0.2236,
+          "p99_ms": 0.2236,
+          "std_ms": 0.0008
+        },
+        "wall_time": {
+          "mean_ms": 0.2247,
+          "median_ms": 0.2247,
+          "min_ms": 0.2231,
+          "max_ms": 0.2274,
+          "p99_ms": 0.2274,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 0.171,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.3,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gemma_rms_norm",
+      "scenario": "gemma_decode",
+      "params": {
+        "M": 1,
+        "hidden_size": 3072,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0781,
+          "median_ms": 0.0778,
+          "min_ms": 0.0767,
+          "max_ms": 0.0851,
+          "p99_ms": 0.0851,
+          "std_ms": 0.0013
+        },
+        "wall_time": {
+          "mean_ms": 0.0751,
+          "median_ms": 0.0748,
+          "min_ms": 0.0737,
+          "max_ms": 0.0806,
+          "p99_ms": 0.0806,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.0,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.7,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "gemma_rms_norm",
+      "scenario": "gemma_large_batch",
+      "params": {
+        "M": 4096,
+        "hidden_size": 3072,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 0.006369427,
+        "cosine_similarity": 1.000516,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2781,
+          "median_ms": 0.2781,
+          "min_ms": 0.2762,
+          "max_ms": 0.2806,
+          "p99_ms": 0.2806,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.2819,
+          "median_ms": 0.2818,
+          "min_ms": 0.2801,
+          "max_ms": 0.2905,
+          "p99_ms": 0.2905,
+          "std_ms": 0.0011
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.18,
+        "achieved_bandwidth_tb_s": 0.181,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.5,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "deepseek_v3_grouped_matmul_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 7168,
+        "expert_size": 18432,
+        "num_experts": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 40.25,
+        "cosine_similarity": 1.004136,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.7715,
+          "median_ms": 5.7676,
+          "min_ms": 5.7435,
+          "max_ms": 5.877,
+          "p99_ms": 5.877,
+          "std_ms": 0.019
+        },
+        "wall_time": {
+          "mean_ms": 5.7668,
+          "median_ms": 5.7656,
+          "min_ms": 5.7433,
+          "max_ms": 5.7912,
+          "p99_ms": 5.7912,
+          "std_ms": 0.0099
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 93.77,
+        "achieved_bandwidth_tb_s": 0.384,
+        "compute_efficiency_pct": 63.4,
+        "memory_efficiency_pct": 9.6,
+        "arithmetic_intensity": 243.9,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "deepseek_v3_grouped_matmul_decode",
+      "params": {
+        "num_tokens": 1,
+        "hidden_size": 7168,
+        "expert_size": 18432,
+        "num_experts": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 0.007751938,
+        "cosine_similarity": 1.000003,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2459,
+          "median_ms": 0.2444,
+          "min_ms": 0.2388,
+          "max_ms": 0.3137,
+          "p99_ms": 0.3137,
+          "std_ms": 0.008
+        },
+        "wall_time": {
+          "mean_ms": 0.239,
+          "median_ms": 0.2375,
+          "min_ms": 0.2314,
+          "max_ms": 0.2833,
+          "p99_ms": 0.2833,
+          "std_ms": 0.0063
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.07,
+        "achieved_bandwidth_tb_s": 8.597,
+        "compute_efficiency_pct": 0.7,
+        "memory_efficiency_pct": 214.9,
+        "arithmetic_intensity": 0.1,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "deepseek_v3_grouped_matmul_batch128",
+      "params": {
+        "num_tokens": 128,
+        "hidden_size": 7168,
+        "expert_size": 18432,
+        "num_experts": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1.308219,
+        "cosine_similarity": 0.999888,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.4601,
+          "median_ms": 1.46,
+          "min_ms": 1.4422,
+          "max_ms": 1.4899,
+          "p99_ms": 1.4899,
+          "std_ms": 0.0084
+        },
+        "wall_time": {
+          "mean_ms": 1.451,
+          "median_ms": 1.4514,
+          "min_ms": 1.4339,
+          "max_ms": 1.4678,
+          "p99_ms": 1.4678,
+          "std_ms": 0.007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 23.16,
+        "achieved_bandwidth_tb_s": 1.452,
+        "compute_efficiency_pct": 15.7,
+        "memory_efficiency_pct": 36.3,
+        "arithmetic_intensity": 16.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "grouped_matmul_4experts",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 4096,
+        "expert_size": 11008,
+        "num_experts": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 53.33332,
+        "cosine_similarity": 1.002168,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.2041,
+          "median_ms": 2.1957,
+          "min_ms": 2.1777,
+          "max_ms": 2.9169,
+          "p99_ms": 2.9169,
+          "std_ms": 0.0729
+        },
+        "wall_time": {
+          "mean_ms": 2.197,
+          "median_ms": 2.1947,
+          "min_ms": 2.1784,
+          "max_ms": 2.3538,
+          "p99_ms": 2.3538,
+          "std_ms": 0.0177
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 83.79,
+        "achieved_bandwidth_tb_s": 0.192,
+        "compute_efficiency_pct": 56.6,
+        "memory_efficiency_pct": 4.8,
+        "arithmetic_intensity": 437.0,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "grouped_matmul_16experts",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 4096,
+        "expert_size": 11008,
+        "num_experts": 16,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 146.9998,
+        "cosine_similarity": 1.002163,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.7792,
+          "median_ms": 3.7792,
+          "min_ms": 3.7531,
+          "max_ms": 3.8081,
+          "p99_ms": 3.8081,
+          "std_ms": 0.01
+        },
+        "wall_time": {
+          "mean_ms": 3.775,
+          "median_ms": 3.7744,
+          "min_ms": 3.745,
+          "max_ms": 3.8307,
+          "p99_ms": 3.8307,
+          "std_ms": 0.0107
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 48.87,
+        "achieved_bandwidth_tb_s": 0.398,
+        "compute_efficiency_pct": 33.0,
+        "memory_efficiency_pct": 10.0,
+        "arithmetic_intensity": 122.7,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "layernorm",
+      "scenario": "hidden_7168_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.03614411,
+        "cosine_similarity": 1.000624,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0536,
+          "median_ms": 0.0534,
+          "min_ms": 0.0524,
+          "max_ms": 0.0603,
+          "p99_ms": 0.0603,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.0575,
+          "median_ms": 0.0573,
+          "min_ms": 0.0562,
+          "max_ms": 0.0618,
+          "p99_ms": 0.0618,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.37,
+        "achieved_bandwidth_tb_s": 1.096,
+        "compute_efficiency_pct": 0.9,
+        "memory_efficiency_pct": 27.4,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "layernorm",
+      "scenario": "hidden_7168_seq4096",
+      "params": {
+        "M": 4096,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.1675242,
+        "cosine_similarity": 1.003112,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0876,
+          "median_ms": 0.0876,
+          "min_ms": 0.0867,
+          "max_ms": 0.0915,
+          "p99_ms": 0.0915,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 0.0915,
+          "median_ms": 0.0914,
+          "min_ms": 0.0907,
+          "max_ms": 0.0928,
+          "p99_ms": 0.0928,
+          "std_ms": 0.0004
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.68,
+        "achieved_bandwidth_tb_s": 1.341,
+        "compute_efficiency_pct": 1.1,
+        "memory_efficiency_pct": 33.5,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "layernorm",
+      "scenario": "hidden_7168_decode",
+      "params": {
+        "M": 1,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "median_ms": 0.0201,
+          "min_ms": 0.0194,
+          "max_ms": 0.0235,
+          "p99_ms": 0.0235,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 0.0235,
+          "median_ms": 0.0233,
+          "min_ms": 0.023,
+          "max_ms": 0.0301,
+          "p99_ms": 0.0301,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.003,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.1,
+        "arithmetic_intensity": 0.6,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "layernorm",
+      "scenario": "hidden_7168_batch128",
+      "params": {
+        "M": 128,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0004882812,
+        "max_rel_error": 0.00729927,
+        "cosine_similarity": 0.999937,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.025,
+          "median_ms": 0.0247,
+          "min_ms": 0.0235,
+          "max_ms": 0.0411,
+          "p99_ms": 0.0411,
+          "std_ms": 0.0018
+        },
+        "wall_time": {
+          "mean_ms": 0.0243,
+          "median_ms": 0.0241,
+          "min_ms": 0.0238,
+          "max_ms": 0.028,
+          "p99_ms": 0.028,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.18,
+        "achieved_bandwidth_tb_s": 0.148,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 3.7,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "layernorm",
+      "scenario": "hidden_4096_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 4096,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.01507534,
+        "cosine_similarity": 1.000152,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0354,
+          "median_ms": 0.0353,
+          "min_ms": 0.0347,
+          "max_ms": 0.039,
+          "p99_ms": 0.039,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 0.0387,
+          "median_ms": 0.0386,
+          "min_ms": 0.0381,
+          "max_ms": 0.0405,
+          "p99_ms": 0.0405,
+          "std_ms": 0.0003
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.18,
+        "achieved_bandwidth_tb_s": 0.948,
+        "compute_efficiency_pct": 0.8,
+        "memory_efficiency_pct": 23.7,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "layernorm",
+      "scenario": "hidden_7168_fp16",
+      "params": {
+        "M": 2048,
+        "hidden_size": 7168,
+        "dtype": "fp16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.001953125,
+        "max_rel_error": 0.01538461,
+        "cosine_similarity": 1.001189,
+        "tolerance": 0.001
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0537,
+          "median_ms": 0.0535,
+          "min_ms": 0.0526,
+          "max_ms": 0.0598,
+          "p99_ms": 0.0598,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.0575,
+          "median_ms": 0.0574,
+          "min_ms": 0.0565,
+          "max_ms": 0.0625,
+          "p99_ms": 0.0625,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.37,
+        "achieved_bandwidth_tb_s": 1.094,
+        "compute_efficiency_pct": 0.9,
+        "memory_efficiency_pct": 27.4,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "mm",
+      "scenario": "deepseek_v3_ffn_up",
+      "params": {
+        "M": 2048,
+        "K": 7168,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 115.0,
+        "cosine_similarity": 1.004144,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.2508,
+          "median_ms": 4.2506,
+          "min_ms": 4.2488,
+          "max_ms": 4.2589,
+          "p99_ms": 4.2589,
+          "std_ms": 0.0014
+        },
+        "wall_time": {
+          "mean_ms": 4.2545,
+          "median_ms": 4.2542,
+          "min_ms": 4.2519,
+          "max_ms": 4.2667,
+          "p99_ms": 4.2667,
+          "std_ms": 0.0018
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 127.31,
+        "achieved_bandwidth_tb_s": 0.087,
+        "compute_efficiency_pct": 86.0,
+        "memory_efficiency_pct": 2.2,
+        "arithmetic_intensity": 1466.2,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "mm",
+      "scenario": "deepseek_v3_ffn_down",
+      "params": {
+        "M": 2048,
+        "K": 18432,
+        "N": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 4.0,
+        "max_rel_error": 471.3999,
+        "cosine_similarity": 1.000493,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.3578,
+          "median_ms": 4.3576,
+          "min_ms": 4.3533,
+          "max_ms": 4.3914,
+          "p99_ms": 4.3914,
+          "std_ms": 0.0038
+        },
+        "wall_time": {
+          "mean_ms": 4.3611,
+          "median_ms": 4.3611,
+          "min_ms": 4.3575,
+          "max_ms": 4.3698,
+          "p99_ms": 4.3698,
+          "std_ms": 0.002
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 124.18,
+        "achieved_bandwidth_tb_s": 0.085,
+        "compute_efficiency_pct": 83.9,
+        "memory_efficiency_pct": 2.1,
+        "arithmetic_intensity": 1466.2,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "mm",
+      "scenario": "deepseek_v3_qkv_proj",
+      "params": {
+        "M": 2048,
+        "K": 7168,
+        "N": 1536,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 3.944444,
+        "cosine_similarity": 0.999915,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.368,
+          "median_ms": 0.3676,
+          "min_ms": 0.3669,
+          "max_ms": 0.3941,
+          "p99_ms": 0.3941,
+          "std_ms": 0.0027
+        },
+        "wall_time": {
+          "mean_ms": 0.3713,
+          "median_ms": 0.3713,
+          "min_ms": 0.3705,
+          "max_ms": 0.3739,
+          "p99_ms": 0.3739,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 122.55,
+        "achieved_bandwidth_tb_s": 0.157,
+        "compute_efficiency_pct": 82.8,
+        "memory_efficiency_pct": 3.9,
+        "arithmetic_intensity": 782.0,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "mm",
+      "scenario": "deepseek_v3_o_proj",
+      "params": {
+        "M": 2048,
+        "K": 16384,
+        "N": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 4.0,
+        "max_rel_error": 91.66666,
+        "cosine_similarity": 1.00064,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.8751,
+          "median_ms": 3.875,
+          "min_ms": 3.8717,
+          "max_ms": 3.9088,
+          "p99_ms": 3.9088,
+          "std_ms": 0.0037
+        },
+        "wall_time": {
+          "mean_ms": 3.8786,
+          "median_ms": 3.8787,
+          "min_ms": 3.8755,
+          "max_ms": 3.8851,
+          "p99_ms": 3.8851,
+          "std_ms": 0.0016
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 124.14,
+        "achieved_bandwidth_tb_s": 0.086,
+        "compute_efficiency_pct": 83.9,
+        "memory_efficiency_pct": 2.1,
+        "arithmetic_intensity": 1451.7,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "mm",
+      "scenario": "deepseek_v3_decode_ffn_up",
+      "params": {
+        "M": 1,
+        "K": 7168,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 0.03643725,
+        "cosine_similarity": 1.000003,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1043,
+          "median_ms": 0.0908,
+          "min_ms": 0.0887,
+          "max_ms": 0.1829,
+          "p99_ms": 0.1829,
+          "std_ms": 0.0226
+        },
+        "wall_time": {
+          "mean_ms": 0.0942,
+          "median_ms": 0.094,
+          "min_ms": 0.0929,
+          "max_ms": 0.0997,
+          "p99_ms": 0.0997,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 2.53,
+        "achieved_bandwidth_tb_s": 2.534,
+        "compute_efficiency_pct": 1.7,
+        "memory_efficiency_pct": 63.3,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "mm",
+      "scenario": "deepseek_v3_batch128_ffn_up",
+      "params": {
+        "M": 128,
+        "K": 7168,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 5.627451,
+        "cosine_similarity": 0.999888,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2985,
+          "median_ms": 0.2983,
+          "min_ms": 0.297,
+          "max_ms": 0.3046,
+          "p99_ms": 0.3046,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.302,
+          "median_ms": 0.302,
+          "min_ms": 0.3014,
+          "max_ms": 0.3035,
+          "p99_ms": 0.3035,
+          "std_ms": 0.0003
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 113.31,
+        "achieved_bandwidth_tb_s": 0.907,
+        "compute_efficiency_pct": 76.6,
+        "memory_efficiency_pct": 22.7,
+        "arithmetic_intensity": 124.9,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "mm",
+      "scenario": "deepseek_v3_prefill4096_ffn_up",
+      "params": {
+        "M": 4096,
+        "K": 7168,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 188.9999,
+        "cosine_similarity": 1.012742,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 8.4812,
+          "median_ms": 8.4803,
+          "min_ms": 8.4766,
+          "max_ms": 8.5356,
+          "p99_ms": 8.5356,
+          "std_ms": 0.0064
+        },
+        "wall_time": {
+          "mean_ms": 8.4945,
+          "median_ms": 8.4849,
+          "min_ms": 8.479,
+          "max_ms": 9.3675,
+          "p99_ms": 9.3675,
+          "std_ms": 0.0883
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 127.62,
+        "achieved_bandwidth_tb_s": 0.056,
+        "compute_efficiency_pct": 86.2,
+        "memory_efficiency_pct": 1.4,
+        "arithmetic_intensity": 2283.6,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "mm",
+      "scenario": "deepseek_v3_ffn_up_fp16",
+      "params": {
+        "M": 2048,
+        "K": 7168,
+        "N": 18432,
+        "dtype": "fp16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 105381000.0,
+        "cosine_similarity": 1.004425,
+        "tolerance": 0.001
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.2537,
+          "median_ms": 4.2525,
+          "min_ms": 4.2492,
+          "max_ms": 4.2913,
+          "p99_ms": 4.2913,
+          "std_ms": 0.0056
+        },
+        "wall_time": {
+          "mean_ms": 4.2578,
+          "median_ms": 4.2566,
+          "min_ms": 4.2534,
+          "max_ms": 4.2999,
+          "p99_ms": 4.2999,
+          "std_ms": 0.0055
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 127.22,
+        "achieved_bandwidth_tb_s": 0.087,
+        "compute_efficiency_pct": 86.0,
+        "memory_efficiency_pct": 2.2,
+        "arithmetic_intensity": 1466.2,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "scenario": "deepseek_v3_moe_sum_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 8,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 885009800.0,
+        "cosine_similarity": 1.000764,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6728,
+          "median_ms": 0.6726,
+          "min_ms": 0.6708,
+          "max_ms": 0.6827,
+          "p99_ms": 0.6827,
+          "std_ms": 0.0016
+        },
+        "wall_time": {
+          "mean_ms": 0.6768,
+          "median_ms": 0.6767,
+          "min_ms": 0.6749,
+          "max_ms": 0.6815,
+          "p99_ms": 0.6815,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.35,
+        "achieved_bandwidth_tb_s": 0.393,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 9.8,
+        "arithmetic_intensity": 0.9,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "scenario": "deepseek_v3_moe_sum_decode",
+      "params": {
+        "num_tokens": 1,
+        "num_experts": 8,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 2.636364,
+        "cosine_similarity": 0.999998,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0256,
+          "median_ms": 0.0252,
+          "min_ms": 0.0244,
+          "max_ms": 0.0383,
+          "p99_ms": 0.0383,
+          "std_ms": 0.0018
+        },
+        "wall_time": {
+          "mean_ms": 0.0235,
+          "median_ms": 0.0234,
+          "min_ms": 0.0229,
+          "max_ms": 0.0285,
+          "p99_ms": 0.0285,
+          "std_ms": 0.0006
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.005,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.1,
+        "arithmetic_intensity": 0.9,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "scenario": "deepseek_v3_moe_sum_batch128",
+      "params": {
+        "num_tokens": 128,
+        "num_experts": 8,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 704.9971,
+        "cosine_similarity": 0.999936,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.054,
+          "median_ms": 0.0539,
+          "min_ms": 0.0532,
+          "max_ms": 0.0563,
+          "p99_ms": 0.0563,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 0.0571,
+          "median_ms": 0.0571,
+          "min_ms": 0.0565,
+          "max_ms": 0.0581,
+          "p99_ms": 0.0581,
+          "std_ms": 0.0003
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.27,
+        "achieved_bandwidth_tb_s": 0.306,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 7.6,
+        "arithmetic_intensity": 0.9,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "scenario": "deepseek_v3_moe_sum_batch512",
+      "params": {
+        "num_tokens": 512,
+        "num_experts": 8,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 768.9995,
+        "cosine_similarity": 0.999876,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1818,
+          "median_ms": 0.1817,
+          "min_ms": 0.1798,
+          "max_ms": 0.1912,
+          "p99_ms": 0.1912,
+          "std_ms": 0.0012
+        },
+        "wall_time": {
+          "mean_ms": 0.1848,
+          "median_ms": 0.1848,
+          "min_ms": 0.1833,
+          "max_ms": 0.1872,
+          "p99_ms": 0.1872,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.32,
+        "achieved_bandwidth_tb_s": 0.363,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 9.1,
+        "arithmetic_intensity": 0.9,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "scenario": "moe_4experts_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 4,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 1220703000.0,
+        "cosine_similarity": 1.000908,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3725,
+          "median_ms": 0.3723,
+          "min_ms": 0.3711,
+          "max_ms": 0.384,
+          "p99_ms": 0.384,
+          "std_ms": 0.0013
+        },
+        "wall_time": {
+          "mean_ms": 0.3765,
+          "median_ms": 0.3762,
+          "min_ms": 0.3754,
+          "max_ms": 0.3833,
+          "p99_ms": 0.3833,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.32,
+        "achieved_bandwidth_tb_s": 0.394,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 9.9,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "large_k_64",
+      "params": {
+        "num_tokens": 2048,
+        "N": 4096,
+        "k": 64,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999998,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1821,
+          "median_ms": 0.182,
+          "min_ms": 0.1805,
+          "max_ms": 0.189,
+          "p99_ms": 0.189,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.1855,
+          "median_ms": 0.1852,
+          "min_ms": 0.1838,
+          "max_ms": 0.1931,
+          "p99_ms": 0.1931,
+          "std_ms": 0.0011
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.05,
+        "achieved_bandwidth_tb_s": 0.096,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 2.4,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "large_k_128",
+      "params": {
+        "num_tokens": 2048,
+        "N": 8192,
+        "k": 128,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999943,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2866,
+          "median_ms": 0.2862,
+          "min_ms": 0.2826,
+          "max_ms": 0.2939,
+          "p99_ms": 0.2939,
+          "std_ms": 0.0018
+        },
+        "wall_time": {
+          "mean_ms": 0.2903,
+          "median_ms": 0.2902,
+          "min_ms": 0.2864,
+          "max_ms": 0.2937,
+          "p99_ms": 0.2937,
+          "std_ms": 0.0013
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.06,
+        "achieved_bandwidth_tb_s": 0.123,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 3.1,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "large_k_256",
+      "params": {
+        "num_tokens": 1024,
+        "N": 16384,
+        "k": 256,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999946,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3173,
+          "median_ms": 0.3171,
+          "min_ms": 0.3095,
+          "max_ms": 0.324,
+          "p99_ms": 0.324,
+          "std_ms": 0.0034
+        },
+        "wall_time": {
+          "mean_ms": 0.3198,
+          "median_ms": 0.3196,
+          "min_ms": 0.3141,
+          "max_ms": 0.3279,
+          "p99_ms": 0.3279,
+          "std_ms": 0.003
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.05,
+        "achieved_bandwidth_tb_s": 0.111,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 2.8,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "vocab_topk",
+      "params": {
+        "num_tokens": 128,
+        "N": 129280,
+        "k": 100,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000009,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2769,
+          "median_ms": 0.2768,
+          "min_ms": 0.2711,
+          "max_ms": 0.2844,
+          "p99_ms": 0.2844,
+          "std_ms": 0.0029
+        },
+        "wall_time": {
+          "mean_ms": 0.281,
+          "median_ms": 0.2809,
+          "min_ms": 0.2736,
+          "max_ms": 0.2885,
+          "p99_ms": 0.2885,
+          "std_ms": 0.0029
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.06,
+        "achieved_bandwidth_tb_s": 0.12,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 3.0,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.005524862,
+        "cosine_similarity": 1.000636,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3279,
+          "median_ms": 0.3278,
+          "min_ms": 0.3258,
+          "max_ms": 0.3312,
+          "p99_ms": 0.3312,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.332,
+          "median_ms": 0.3315,
+          "min_ms": 0.3296,
+          "max_ms": 0.3385,
+          "p99_ms": 0.3385,
+          "std_ms": 0.0017
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.18,
+        "achieved_bandwidth_tb_s": 0.179,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.5,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_seq4096",
+      "params": {
+        "M": 4096,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.007633588,
+        "cosine_similarity": 1.00313,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5994,
+          "median_ms": 0.599,
+          "min_ms": 0.5966,
+          "max_ms": 0.6167,
+          "p99_ms": 0.6167,
+          "std_ms": 0.0021
+        },
+        "wall_time": {
+          "mean_ms": 0.6033,
+          "median_ms": 0.6032,
+          "min_ms": 0.6005,
+          "max_ms": 0.6056,
+          "p99_ms": 0.6056,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.2,
+        "achieved_bandwidth_tb_s": 0.196,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.9,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_decode",
+      "params": {
+        "M": 1,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0701,
+          "median_ms": 0.0696,
+          "min_ms": 0.0682,
+          "max_ms": 0.0825,
+          "p99_ms": 0.0825,
+          "std_ms": 0.0018
+        },
+        "wall_time": {
+          "mean_ms": 0.0677,
+          "median_ms": 0.0673,
+          "min_ms": 0.066,
+          "max_ms": 0.0846,
+          "p99_ms": 0.0846,
+          "std_ms": 0.0021
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.001,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.7,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_batch128",
+      "params": {
+        "M": 128,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.99994,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0781,
+          "median_ms": 0.0703,
+          "min_ms": 0.0688,
+          "max_ms": 0.1041,
+          "p99_ms": 0.1041,
+          "std_ms": 0.0105
+        },
+        "wall_time": {
+          "mean_ms": 0.0674,
+          "median_ms": 0.067,
+          "min_ms": 0.0658,
+          "max_ms": 0.0743,
+          "p99_ms": 0.0743,
+          "std_ms": 0.0015
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.05,
+        "achieved_bandwidth_tb_s": 0.047,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 1.2,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_batch512",
+      "params": {
+        "M": 512,
+        "hidden_size": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999859,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0958,
+          "median_ms": 0.0952,
+          "min_ms": 0.094,
+          "max_ms": 0.1106,
+          "p99_ms": 0.1106,
+          "std_ms": 0.002
+        },
+        "wall_time": {
+          "mean_ms": 0.0989,
+          "median_ms": 0.0989,
+          "min_ms": 0.0976,
+          "max_ms": 0.1041,
+          "p99_ms": 0.1041,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.15,
+        "achieved_bandwidth_tb_s": 0.153,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 3.8,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_4096_seq2048",
+      "params": {
+        "M": 2048,
+        "hidden_size": 4096,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.005780347,
+        "cosine_similarity": 1.000139,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.194,
+          "median_ms": 0.194,
+          "min_ms": 0.1921,
+          "max_ms": 0.1977,
+          "p99_ms": 0.1977,
+          "std_ms": 0.0008
+        },
+        "wall_time": {
+          "mean_ms": 0.1977,
+          "median_ms": 0.1977,
+          "min_ms": 0.1964,
+          "max_ms": 0.2058,
+          "p99_ms": 0.2058,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 0.173,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.3,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_7168_fp16",
+      "params": {
+        "M": 2048,
+        "hidden_size": 7168,
+        "dtype": "fp16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.001953125,
+        "max_rel_error": 0.0009615385,
+        "cosine_similarity": 1.00118,
+        "tolerance": 0.001
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3269,
+          "median_ms": 0.3268,
+          "min_ms": 0.3245,
+          "max_ms": 0.3331,
+          "p99_ms": 0.3331,
+          "std_ms": 0.0012
+        },
+        "wall_time": {
+          "mean_ms": 0.3306,
+          "median_ms": 0.3304,
+          "min_ms": 0.3286,
+          "max_ms": 0.3384,
+          "p99_ms": 0.3384,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.18,
+        "achieved_bandwidth_tb_s": 0.18,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 4.5,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rope",
+      "scenario": "deepseek_v3_rope_prefill",
+      "params": {
+        "batch": 1,
+        "seq_len": 2048,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 255.0,
+        "cosine_similarity": 1.010454,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.727,
+          "median_ms": 0.7264,
+          "min_ms": 0.7247,
+          "max_ms": 0.7512,
+          "p99_ms": 0.7512,
+          "std_ms": 0.0036
+        },
+        "wall_time": {
+          "mean_ms": 0.7308,
+          "median_ms": 0.7307,
+          "min_ms": 0.7287,
+          "max_ms": 0.7344,
+          "p99_ms": 0.7344,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.28,
+        "achieved_bandwidth_tb_s": 0.554,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 13.8,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rope",
+      "scenario": "deepseek_v3_rope_decode",
+      "params": {
+        "batch": 1,
+        "seq_len": 1,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 8.846154,
+        "cosine_similarity": 0.999999,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0464,
+          "median_ms": 0.0441,
+          "min_ms": 0.0432,
+          "max_ms": 0.0694,
+          "p99_ms": 0.0694,
+          "std_ms": 0.0062
+        },
+        "wall_time": {
+          "mean_ms": 0.0426,
+          "median_ms": 0.0423,
+          "min_ms": 0.0414,
+          "max_ms": 0.057,
+          "p99_ms": 0.057,
+          "std_ms": 0.0019
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.004,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.1,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rope",
+      "scenario": "deepseek_v3_rope_batch8",
+      "params": {
+        "batch": 8,
+        "seq_len": 1024,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.125,
+        "max_rel_error": 255.0,
+        "cosine_similarity": 1.063844,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.8326,
+          "median_ms": 2.8318,
+          "min_ms": 2.8281,
+          "max_ms": 2.8716,
+          "p99_ms": 2.8716,
+          "std_ms": 0.0049
+        },
+        "wall_time": {
+          "mean_ms": 2.8365,
+          "median_ms": 2.8363,
+          "min_ms": 2.8322,
+          "max_ms": 2.8435,
+          "p99_ms": 2.8435,
+          "std_ms": 0.0019
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.28,
+        "achieved_bandwidth_tb_s": 0.569,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 14.2,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rope",
+      "scenario": "llama_rope_prefill",
+      "params": {
+        "batch": 1,
+        "seq_len": 2048,
+        "num_heads": 32,
+        "head_dim": 128,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.125,
+        "max_rel_error": 127.0,
+        "cosine_similarity": 1.000362,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1338,
+          "median_ms": 0.1336,
+          "min_ms": 0.1325,
+          "max_ms": 0.1395,
+          "p99_ms": 0.1395,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.1372,
+          "median_ms": 0.1371,
+          "min_ms": 0.1361,
+          "max_ms": 0.1391,
+          "p99_ms": 0.1391,
+          "std_ms": 0.0006
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.25,
+        "achieved_bandwidth_tb_s": 0.502,
+        "compute_efficiency_pct": 0.2,
+        "memory_efficiency_pct": 12.5,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "rope",
+      "scenario": "llama_rope_decode",
+      "params": {
+        "batch": 1,
+        "seq_len": 1,
+        "num_heads": 32,
+        "head_dim": 128,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 0.999997,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0447,
+          "median_ms": 0.0445,
+          "min_ms": 0.0438,
+          "max_ms": 0.0506,
+          "p99_ms": 0.0506,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.0427,
+          "median_ms": 0.0425,
+          "min_ms": 0.0417,
+          "max_ms": 0.051,
+          "p99_ms": 0.051,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.001,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.5,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "deepseek_v3_router_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 7168,
+        "num_experts": 160,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0001220703,
+        "max_rel_error": 0.125,
+        "cosine_similarity": 1.000003,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3349,
+          "median_ms": 0.3348,
+          "min_ms": 0.3337,
+          "max_ms": 0.339,
+          "p99_ms": 0.339,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 0.3387,
+          "median_ms": 0.3385,
+          "min_ms": 0.3376,
+          "max_ms": 0.3411,
+          "p99_ms": 0.3411,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 14.03,
+        "achieved_bandwidth_tb_s": 0.098,
+        "compute_efficiency_pct": 9.5,
+        "memory_efficiency_pct": 2.5,
+        "arithmetic_intensity": 142.5,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "deepseek_v3_router_decode",
+      "params": {
+        "num_tokens": 1,
+        "hidden_size": 7168,
+        "num_experts": 160,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 5.340576e-05,
+        "max_rel_error": 5.661642e-06,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0401,
+          "median_ms": 0.0418,
+          "min_ms": 0.0324,
+          "max_ms": 0.0712,
+          "p99_ms": 0.0712,
+          "std_ms": 0.0052
+        },
+        "wall_time": {
+          "mean_ms": 0.0331,
+          "median_ms": 0.033,
+          "min_ms": 0.0325,
+          "max_ms": 0.0391,
+          "p99_ms": 0.0391,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.06,
+        "achieved_bandwidth_tb_s": 0.058,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 1.4,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "deepseek_v3_router_batch128",
+      "params": {
+        "num_tokens": 128,
+        "hidden_size": 7168,
+        "num_experts": 160,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 9.155273e-05,
+        "max_rel_error": 0.001113586,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0591,
+          "median_ms": 0.0572,
+          "min_ms": 0.0564,
+          "max_ms": 0.0764,
+          "p99_ms": 0.0764,
+          "std_ms": 0.004
+        },
+        "wall_time": {
+          "mean_ms": 0.0603,
+          "median_ms": 0.0602,
+          "min_ms": 0.0595,
+          "max_ms": 0.0625,
+          "p99_ms": 0.0625,
+          "std_ms": 0.0006
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 4.97,
+        "achieved_bandwidth_tb_s": 0.071,
+        "compute_efficiency_pct": 3.4,
+        "memory_efficiency_pct": 1.8,
+        "arithmetic_intensity": 69.7,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "moe_64experts_router",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 4096,
+        "num_experts": 64,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0001296997,
+        "max_rel_error": 0.007403751,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1256,
+          "median_ms": 0.1255,
+          "min_ms": 0.1245,
+          "max_ms": 0.1331,
+          "p99_ms": 0.1331,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.1293,
+          "median_ms": 0.1292,
+          "min_ms": 0.128,
+          "max_ms": 0.1349,
+          "p99_ms": 0.1349,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 8.55,
+        "achieved_bandwidth_tb_s": 0.142,
+        "compute_efficiency_pct": 5.8,
+        "memory_efficiency_pct": 3.5,
+        "arithmetic_intensity": 60.2,
+        "ridge_point": 37.0,
+        "bound": "compute"
+      }
+    },
+    {
+      "operator": "router_gemm_bf16_fp32",
+      "scenario": "moe_8experts_router",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 4096,
+        "num_experts": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 7.629395e-05,
+        "max_rel_error": 0.00889328,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0922,
+          "median_ms": 0.092,
+          "min_ms": 0.0911,
+          "max_ms": 0.0987,
+          "p99_ms": 0.0987,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.0957,
+          "median_ms": 0.0956,
+          "min_ms": 0.0947,
+          "max_ms": 0.1002,
+          "p99_ms": 0.1002,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.46,
+        "achieved_bandwidth_tb_s": 0.183,
+        "compute_efficiency_pct": 1.0,
+        "memory_efficiency_pct": 4.6,
+        "arithmetic_intensity": 7.9,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "silu_and_mul",
+      "scenario": "ffn_gate_seq2048",
+      "params": {
+        "M": 2048,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 1.008865,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3548,
+          "median_ms": 0.3547,
+          "min_ms": 0.3537,
+          "max_ms": 0.3593,
+          "p99_ms": 0.3593,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 0.3586,
+          "median_ms": 0.3585,
+          "min_ms": 0.3575,
+          "max_ms": 0.3643,
+          "p99_ms": 0.3643,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.64,
+        "achieved_bandwidth_tb_s": 0.638,
+        "compute_efficiency_pct": 0.4,
+        "memory_efficiency_pct": 16.0,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "silu_and_mul",
+      "scenario": "ffn_gate_seq4096",
+      "params": {
+        "M": 4096,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 1.020392,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6908,
+          "median_ms": 0.6906,
+          "min_ms": 0.6897,
+          "max_ms": 0.6973,
+          "p99_ms": 0.6973,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.6947,
+          "median_ms": 0.6947,
+          "min_ms": 0.694,
+          "max_ms": 0.6975,
+          "p99_ms": 0.6975,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.66,
+        "achieved_bandwidth_tb_s": 0.656,
+        "compute_efficiency_pct": 0.4,
+        "memory_efficiency_pct": 16.4,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "silu_and_mul",
+      "scenario": "ffn_gate_decode",
+      "params": {
+        "M": 1,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 0.999996,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0281,
+          "median_ms": 0.0258,
+          "min_ms": 0.0248,
+          "max_ms": 0.0486,
+          "p99_ms": 0.0486,
+          "std_ms": 0.0047
+        },
+        "wall_time": {
+          "mean_ms": 0.0236,
+          "median_ms": 0.0235,
+          "min_ms": 0.023,
+          "max_ms": 0.0291,
+          "p99_ms": 0.0291,
+          "std_ms": 0.0006
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.004,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.1,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "silu_and_mul",
+      "scenario": "ffn_gate_batch128",
+      "params": {
+        "M": 128,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 1.000152,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0375,
+          "median_ms": 0.0383,
+          "min_ms": 0.0347,
+          "max_ms": 0.049,
+          "p99_ms": 0.049,
+          "std_ms": 0.002
+        },
+        "wall_time": {
+          "mean_ms": 0.0383,
+          "median_ms": 0.0382,
+          "min_ms": 0.0378,
+          "max_ms": 0.0407,
+          "p99_ms": 0.0407,
+          "std_ms": 0.0004
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.38,
+        "achieved_bandwidth_tb_s": 0.377,
+        "compute_efficiency_pct": 0.3,
+        "memory_efficiency_pct": 9.4,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "silu_and_mul",
+      "scenario": "ffn_gate_with_clamp",
+      "params": {
+        "M": 2048,
+        "N": 18432,
+        "dtype": "bf16",
+        "clamp_value": 10.0
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 1.008886,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4087,
+          "median_ms": 0.4082,
+          "min_ms": 0.4069,
+          "max_ms": 0.4253,
+          "p99_ms": 0.4253,
+          "std_ms": 0.0023
+        },
+        "wall_time": {
+          "mean_ms": 0.4119,
+          "median_ms": 0.4118,
+          "min_ms": 0.4108,
+          "max_ms": 0.4202,
+          "p99_ms": 0.4202,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.55,
+        "achieved_bandwidth_tb_s": 0.554,
+        "compute_efficiency_pct": 0.4,
+        "memory_efficiency_pct": 13.9,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "softmax",
+      "scenario": "attention_seq2048",
+      "params": {
+        "M": 2048,
+        "N": 2048,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 7.629395e-06,
+        "max_rel_error": 0.006622517,
+        "cosine_similarity": 1.000211,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0261,
+          "median_ms": 0.0261,
+          "min_ms": 0.0254,
+          "max_ms": 0.0289,
+          "p99_ms": 0.0289,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 0.0294,
+          "median_ms": 0.0294,
+          "min_ms": 0.0287,
+          "max_ms": 0.0336,
+          "p99_ms": 0.0336,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.8,
+        "achieved_bandwidth_tb_s": 0.643,
+        "compute_efficiency_pct": 0.5,
+        "memory_efficiency_pct": 16.1,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "softmax",
+      "scenario": "attention_seq4096",
+      "params": {
+        "M": 4096,
+        "N": 4096,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 7.629395e-06,
+        "max_rel_error": 0.007751937,
+        "cosine_similarity": 1.00339,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1036,
+          "median_ms": 0.1036,
+          "min_ms": 0.1029,
+          "max_ms": 0.1068,
+          "p99_ms": 0.1068,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 0.1071,
+          "median_ms": 0.1071,
+          "min_ms": 0.1066,
+          "max_ms": 0.108,
+          "p99_ms": 0.108,
+          "std_ms": 0.0002
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.81,
+        "achieved_bandwidth_tb_s": 0.648,
+        "compute_efficiency_pct": 0.5,
+        "memory_efficiency_pct": 16.2,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "softmax",
+      "scenario": "attention_decode_kv4096",
+      "params": {
+        "M": 1,
+        "N": 4096,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.014,
+          "median_ms": 0.0139,
+          "min_ms": 0.0133,
+          "max_ms": 0.0176,
+          "p99_ms": 0.0176,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 0.0134,
+          "median_ms": 0.0134,
+          "min_ms": 0.013,
+          "max_ms": 0.0173,
+          "p99_ms": 0.0173,
+          "std_ms": 0.0004
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.001,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "softmax",
+      "scenario": "vocab_logits",
+      "params": {
+        "M": 2048,
+        "N": 129280,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 3.814697e-06,
+        "max_rel_error": 0.007812498,
+        "cosine_similarity": 1.093588,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8488,
+          "median_ms": 0.8484,
+          "min_ms": 0.8449,
+          "max_ms": 0.854,
+          "p99_ms": 0.854,
+          "std_ms": 0.002
+        },
+        "wall_time": {
+          "mean_ms": 0.8535,
+          "median_ms": 0.8534,
+          "min_ms": 0.8486,
+          "max_ms": 0.8619,
+          "p99_ms": 0.8619,
+          "std_ms": 0.0023
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.56,
+        "achieved_bandwidth_tb_s": 1.248,
+        "compute_efficiency_pct": 1.1,
+        "memory_efficiency_pct": 31.2,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "softmax",
+      "scenario": "attention_seq512",
+      "params": {
+        "M": 512,
+        "N": 512,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999979,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0184,
+          "median_ms": 0.0179,
+          "min_ms": 0.0173,
+          "max_ms": 0.0297,
+          "p99_ms": 0.0297,
+          "std_ms": 0.002
+        },
+        "wall_time": {
+          "mean_ms": 0.0146,
+          "median_ms": 0.0138,
+          "min_ms": 0.0133,
+          "max_ms": 0.0169,
+          "p99_ms": 0.0169,
+          "std_ms": 0.0011
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.07,
+        "achieved_bandwidth_tb_s": 0.057,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 1.4,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "softmax",
+      "scenario": "attention_seq2048_fp16",
+      "params": {
+        "M": 2048,
+        "N": 2048,
+        "dtype": "fp16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.907349e-06,
+        "max_rel_error": 0.003436426,
+        "cosine_similarity": 1.000349,
+        "tolerance": 0.001
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0272,
+          "median_ms": 0.0268,
+          "min_ms": 0.0257,
+          "max_ms": 0.0309,
+          "p99_ms": 0.0309,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.0296,
+          "median_ms": 0.0296,
+          "min_ms": 0.029,
+          "max_ms": 0.0336,
+          "p99_ms": 0.0336,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.77,
+        "achieved_bandwidth_tb_s": 0.617,
+        "compute_efficiency_pct": 0.5,
+        "memory_efficiency_pct": 15.4,
+        "arithmetic_intensity": 1.2,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "scenario": "ffn_intermediate_seq2048",
+      "params": {
+        "M": 2048,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 1.008888,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1386,
+          "median_ms": 0.1386,
+          "min_ms": 0.1371,
+          "max_ms": 0.1427,
+          "p99_ms": 0.1427,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.1423,
+          "median_ms": 0.1421,
+          "min_ms": 0.141,
+          "max_ms": 0.1453,
+          "p99_ms": 0.1453,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.36,
+        "achieved_bandwidth_tb_s": 1.634,
+        "compute_efficiency_pct": 0.9,
+        "memory_efficiency_pct": 40.9,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "scenario": "ffn_intermediate_seq4096",
+      "params": {
+        "M": 4096,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 1.020421,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2628,
+          "median_ms": 0.2626,
+          "min_ms": 0.2612,
+          "max_ms": 0.2682,
+          "p99_ms": 0.2682,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.2663,
+          "median_ms": 0.2662,
+          "min_ms": 0.2649,
+          "max_ms": 0.2678,
+          "p99_ms": 0.2678,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.44,
+        "achieved_bandwidth_tb_s": 1.724,
+        "compute_efficiency_pct": 1.0,
+        "memory_efficiency_pct": 43.1,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "scenario": "ffn_intermediate_decode",
+      "params": {
+        "M": 1,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 0.999996,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "median_ms": 0.0199,
+          "min_ms": 0.0191,
+          "max_ms": 0.0394,
+          "p99_ms": 0.0394,
+          "std_ms": 0.0044
+        },
+        "wall_time": {
+          "mean_ms": 0.0185,
+          "median_ms": 0.0183,
+          "min_ms": 0.0178,
+          "max_ms": 0.0297,
+          "p99_ms": 0.0297,
+          "std_ms": 0.0012
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.005,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.1,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "scenario": "ffn_intermediate_batch128",
+      "params": {
+        "M": 128,
+        "N": 18432,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 1.000155,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0253,
+          "median_ms": 0.0257,
+          "min_ms": 0.0196,
+          "max_ms": 0.0324,
+          "p99_ms": 0.0324,
+          "std_ms": 0.0021
+        },
+        "wall_time": {
+          "mean_ms": 0.0198,
+          "median_ms": 0.0197,
+          "min_ms": 0.0194,
+          "max_ms": 0.0214,
+          "p99_ms": 0.0214,
+          "std_ms": 0.0002
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.47,
+        "achieved_bandwidth_tb_s": 0.56,
+        "compute_efficiency_pct": 0.3,
+        "memory_efficiency_pct": 14.0,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "scenario": "ffn_hidden_seq2048",
+      "params": {
+        "M": 2048,
+        "N": 7168,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 0.0078125,
+        "cosine_similarity": 1.002742,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.062,
+          "median_ms": 0.062,
+          "min_ms": 0.0602,
+          "max_ms": 0.0644,
+          "p99_ms": 0.0644,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 0.0654,
+          "median_ms": 0.0653,
+          "min_ms": 0.0647,
+          "max_ms": 0.067,
+          "p99_ms": 0.067,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.18,
+        "achieved_bandwidth_tb_s": 1.421,
+        "compute_efficiency_pct": 0.8,
+        "memory_efficiency_pct": 35.5,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "scenario": "deepseek_v3_topk_decode_single",
+      "params": {
+        "num_tokens": 1,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "median_ms": 0.0221,
+          "min_ms": 0.0216,
+          "max_ms": 0.0278,
+          "p99_ms": 0.0278,
+          "std_ms": 0.0008
+        },
+        "wall_time": {
+          "mean_ms": 0.0225,
+          "median_ms": 0.0224,
+          "min_ms": 0.0221,
+          "max_ms": 0.0281,
+          "p99_ms": 0.0281,
+          "std_ms": 0.0007
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.0,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "scenario": "deepseek_v3_topk_decode_batch8",
+      "params": {
+        "num_tokens": 8,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "median_ms": 0.0223,
+          "min_ms": 0.0216,
+          "max_ms": 0.028,
+          "p99_ms": 0.028,
+          "std_ms": 0.0008
+        },
+        "wall_time": {
+          "mean_ms": 0.0238,
+          "median_ms": 0.0238,
+          "min_ms": 0.0234,
+          "max_ms": 0.0266,
+          "p99_ms": 0.0266,
+          "std_ms": 0.0003
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.0,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "scenario": "deepseek_v3_topk_decode_batch32",
+      "params": {
+        "num_tokens": 32,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "median_ms": 0.0223,
+          "min_ms": 0.0217,
+          "max_ms": 0.027,
+          "p99_ms": 0.027,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 0.0242,
+          "median_ms": 0.0242,
+          "min_ms": 0.0238,
+          "max_ms": 0.0248,
+          "p99_ms": 0.0248,
+          "std_ms": 0.0002
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.001,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "scenario": "moe_64experts_decode",
+      "params": {
+        "num_tokens": 1,
+        "num_experts": 64,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0219,
+          "median_ms": 0.0217,
+          "min_ms": 0.0211,
+          "max_ms": 0.0291,
+          "p99_ms": 0.0291,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.0219,
+          "median_ms": 0.0219,
+          "min_ms": 0.0215,
+          "max_ms": 0.0231,
+          "p99_ms": 0.0231,
+          "std_ms": 0.0002
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.0,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "scenario": "deepseek_v3_topk_prefill_2048",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000011,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0471,
+          "median_ms": 0.0465,
+          "min_ms": 0.0457,
+          "max_ms": 0.0545,
+          "p99_ms": 0.0545,
+          "std_ms": 0.0016
+        },
+        "wall_time": {
+          "mean_ms": 0.0497,
+          "median_ms": 0.0497,
+          "min_ms": 0.049,
+          "max_ms": 0.0517,
+          "p99_ms": 0.0517,
+          "std_ms": 0.0003
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.01,
+        "achieved_bandwidth_tb_s": 0.016,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.4,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "scenario": "deepseek_v3_topk_prefill_4096",
+      "params": {
+        "num_tokens": 4096,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000013,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0742,
+          "median_ms": 0.0741,
+          "min_ms": 0.0733,
+          "max_ms": 0.081,
+          "p99_ms": 0.081,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.0775,
+          "median_ms": 0.0772,
+          "min_ms": 0.0765,
+          "max_ms": 0.0905,
+          "p99_ms": 0.0905,
+          "std_ms": 0.0018
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.01,
+        "achieved_bandwidth_tb_s": 0.02,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.5,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "scenario": "moe_64experts_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 64,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.00001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0307,
+          "median_ms": 0.03,
+          "min_ms": 0.0296,
+          "max_ms": 0.038,
+          "p99_ms": 0.038,
+          "std_ms": 0.0017
+        },
+        "wall_time": {
+          "mean_ms": 0.0334,
+          "median_ms": 0.0333,
+          "min_ms": 0.0328,
+          "max_ms": 0.0373,
+          "p99_ms": 0.0373,
+          "std_ms": 0.0004
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.012,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.3,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "scenario": "topk_large_batch",
+      "params": {
+        "num_tokens": 8192,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000009,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1322,
+          "median_ms": 0.1321,
+          "min_ms": 0.1315,
+          "max_ms": 0.1377,
+          "p99_ms": 0.1377,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 0.1354,
+          "median_ms": 0.1354,
+          "min_ms": 0.1347,
+          "max_ms": 0.1369,
+          "p99_ms": 0.1369,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.01,
+        "achieved_bandwidth_tb_s": 0.023,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.6,
+        "arithmetic_intensity": 0.4,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "deepseek_v3_selector_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 160,
+        "hidden_size": 7168,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": false,
+        "max_abs_error": 7.453125,
+        "max_rel_error": 609375000000.0,
+        "cosine_similarity": 0.982647,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7092,
+          "median_ms": 0.709,
+          "min_ms": 0.7074,
+          "max_ms": 0.7158,
+          "p99_ms": 0.7158,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.7126,
+          "median_ms": 0.7125,
+          "min_ms": 0.7115,
+          "max_ms": 0.7186,
+          "p99_ms": 0.7186,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 6.956,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 173.9,
+        "arithmetic_intensity": 0.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "deepseek_v3_selector_decode",
+      "params": {
+        "num_tokens": 1,
+        "num_experts": 160,
+        "hidden_size": 7168,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000005,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0357,
+          "median_ms": 0.0331,
+          "min_ms": 0.0323,
+          "max_ms": 0.0549,
+          "p99_ms": 0.0549,
+          "std_ms": 0.0052
+        },
+        "wall_time": {
+          "mean_ms": 0.0311,
+          "median_ms": 0.031,
+          "min_ms": 0.0304,
+          "max_ms": 0.0413,
+          "p99_ms": 0.0413,
+          "std_ms": 0.0011
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.067,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 1.7,
+        "arithmetic_intensity": 0.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "moe_selector_batch128",
+      "params": {
+        "num_tokens": 128,
+        "num_experts": 64,
+        "hidden_size": 4096,
+        "k": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999889,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0435,
+          "median_ms": 0.0454,
+          "min_ms": 0.0387,
+          "max_ms": 0.0643,
+          "p99_ms": 0.0643,
+          "std_ms": 0.004
+        },
+        "wall_time": {
+          "mean_ms": 0.0424,
+          "median_ms": 0.0423,
+          "min_ms": 0.0419,
+          "max_ms": 0.0462,
+          "p99_ms": 0.0462,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.05,
+        "achieved_bandwidth_tb_s": 1.64,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 41.0,
+        "arithmetic_intensity": 0.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "moe_selector_large",
+      "params": {
+        "num_tokens": 4096,
+        "num_experts": 160,
+        "hidden_size": 7168,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 7.03125,
+        "max_rel_error": 6202181.0,
+        "cosine_similarity": 1.032061,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.3999,
+          "median_ms": 1.3999,
+          "min_ms": 1.3982,
+          "max_ms": 1.4038,
+          "p99_ms": 1.4038,
+          "std_ms": 0.0008
+        },
+        "wall_time": {
+          "mean_ms": 1.4038,
+          "median_ms": 1.4038,
+          "min_ms": 1.4021,
+          "max_ms": 1.4088,
+          "p99_ms": 1.4088,
+          "std_ms": 0.0008
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.17,
+        "achieved_bandwidth_tb_s": 7.048,
+        "compute_efficiency_pct": 0.1,
+        "memory_efficiency_pct": 176.2,
+        "arithmetic_intensity": 0.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "deepseek_v3_router_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.0137931,
+        "cosine_similarity": 1.000005,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0606,
+          "median_ms": 0.0595,
+          "min_ms": 0.0587,
+          "max_ms": 0.0881,
+          "p99_ms": 0.0881,
+          "std_ms": 0.0036
+        },
+        "wall_time": {
+          "mean_ms": 0.0632,
+          "median_ms": 0.0629,
+          "min_ms": 0.0622,
+          "max_ms": 0.098,
+          "p99_ms": 0.098,
+          "std_ms": 0.0035
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.01,
+        "achieved_bandwidth_tb_s": 0.011,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.3,
+        "arithmetic_intensity": 0.6,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "deepseek_v3_router_decode",
+      "params": {
+        "num_tokens": 1,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.00390625,
+        "max_rel_error": 0.007692308,
+        "cosine_similarity": 0.999995,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0481,
+          "median_ms": 0.0479,
+          "min_ms": 0.047,
+          "max_ms": 0.0638,
+          "p99_ms": 0.0638,
+          "std_ms": 0.0018
+        },
+        "wall_time": {
+          "mean_ms": 0.0456,
+          "median_ms": 0.0454,
+          "min_ms": 0.0445,
+          "max_ms": 0.0542,
+          "p99_ms": 0.0542,
+          "std_ms": 0.001
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.0,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.6,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "deepseek_v3_router_batch128",
+      "params": {
+        "num_tokens": 128,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.01123596,
+        "cosine_similarity": 0.999994,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.048,
+          "median_ms": 0.0477,
+          "min_ms": 0.0466,
+          "max_ms": 0.0628,
+          "p99_ms": 0.0628,
+          "std_ms": 0.0018
+        },
+        "wall_time": {
+          "mean_ms": 0.0458,
+          "median_ms": 0.0454,
+          "min_ms": 0.0443,
+          "max_ms": 0.0622,
+          "p99_ms": 0.0622,
+          "std_ms": 0.0022
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.001,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.6,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "moe_64experts_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 64,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.01388889,
+        "cosine_similarity": 1.000006,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0495,
+          "median_ms": 0.0477,
+          "min_ms": 0.0467,
+          "max_ms": 0.0912,
+          "p99_ms": 0.0912,
+          "std_ms": 0.0072
+        },
+        "wall_time": {
+          "mean_ms": 0.0467,
+          "median_ms": 0.0465,
+          "min_ms": 0.0459,
+          "max_ms": 0.0586,
+          "p99_ms": 0.0586,
+          "std_ms": 0.0014
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.006,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.1,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "moe_64experts_decode",
+      "params": {
+        "num_tokens": 1,
+        "num_experts": 64,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.00390625,
+        "max_rel_error": 0.007042253,
+        "cosine_similarity": 0.999996,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0478,
+          "median_ms": 0.0476,
+          "min_ms": 0.0464,
+          "max_ms": 0.0581,
+          "p99_ms": 0.0581,
+          "std_ms": 0.0012
+        },
+        "wall_time": {
+          "mean_ms": 0.0455,
+          "median_ms": 0.0452,
+          "min_ms": 0.0443,
+          "max_ms": 0.0575,
+          "p99_ms": 0.0575,
+          "std_ms": 0.0017
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 0.0,
+        "achieved_bandwidth_tb_s": 0.0,
+        "compute_efficiency_pct": 0.0,
+        "memory_efficiency_pct": 0.0,
+        "arithmetic_intensity": 0.8,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    }
+  ]
+}

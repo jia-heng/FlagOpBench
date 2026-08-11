@@ -1,0 +1,219 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T02:53:44",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 12,
+  "passed": 0,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_decode_b1",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_decode_b1",
+        "batch_size": 1,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=1",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_decode_b2",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_decode_b2",
+        "batch_size": 2,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=2",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_decode_b4",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_decode_b4",
+        "batch_size": 4,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=4",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_decode_b8",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_decode_b8",
+        "batch_size": 8,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=8",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_decode_b16",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_decode_b16",
+        "batch_size": 16,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=16",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_decode_b32",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_decode_b32",
+        "batch_size": 32,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=32",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_decode_b64",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_decode_b64",
+        "batch_size": 64,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=64",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_prefill_b128",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_prefill_b128",
+        "batch_size": 128,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=128",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_prefill_b256",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_prefill_b256",
+        "batch_size": 256,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=256",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_prefill_b512",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_prefill_b512",
+        "batch_size": 512,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=512",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_prefill_b1024",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_prefill_b1024",
+        "batch_size": 1024,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=1024",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    },
+    {
+      "operator": "persistent_topk",
+      "scenario": "llama31_8b_topkp_prefill_b2048",
+      "params": {
+        "vocab_size": 128256,
+        "k": 50,
+        "p": 0.9,
+        "dtype": "bf16",
+        "name": "llama31_8b_topkp_prefill_b2048",
+        "batch_size": 2048,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-k+top-p, batch=2048",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "error": "PersistentTopKOperator.prepare_inputs() missing 2 required positional arguments: 'num_tokens' and 'N'"
+    }
+  ]
+}

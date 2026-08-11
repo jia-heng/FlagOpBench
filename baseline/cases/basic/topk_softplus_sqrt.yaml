@@ -1,0 +1,38 @@
+# TopK Softplus Sqrt 测试用例
+# 对应算子列表 #6
+operator: topk_softplus_sqrt
+level: basic
+warmup: 10
+iters: 100
+scenarios:
+  # DeepSeek-V3: 160 experts, top-8
+  - name: "deepseek_v3_router_prefill"
+    num_tokens: 2048
+    num_experts: 160
+    k: 8
+    dtype: bf16
+
+  - name: "deepseek_v3_router_decode"
+    num_tokens: 1
+    num_experts: 160
+    k: 8
+    dtype: bf16
+
+  - name: "deepseek_v3_router_batch128"
+    num_tokens: 128
+    num_experts: 160
+    k: 8
+    dtype: bf16
+
+  # 64 experts
+  - name: "moe_64experts_prefill"
+    num_tokens: 2048
+    num_experts: 64
+    k: 8
+    dtype: bf16
+
+  - name: "moe_64experts_decode"
+    num_tokens: 1
+    num_experts: 64
+    k: 8
+    dtype: bf16

@@ -1,0 +1,92 @@
+# SwiGLU 测试用例
+# 对应算子列表 #7: swiglu
+# 来源: Llama-3.1-8B FFN 激活函数 (SiLU * Linear gate)
+
+operator: swiglu
+level: basic
+warmup: 10
+iters: 100
+
+workloads:
+  # ========== Decode Phase (小 batch) ==========
+  - name: "llama31_8b_swiglu_decode_b1"
+    M: 1
+    N: 14336  # Llama-3.1-8B intermediate_size / 2
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, decode, batch=1"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_swiglu_decode_b4"
+    M: 4
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, decode, batch=4"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_swiglu_decode_b8"
+    M: 8
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, decode, batch=8"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  # ========== Prefill Phase (中等 seq_len) ==========
+  - name: "llama31_8b_swiglu_prefill_s64"
+    M: 64
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, prefill, seq=64"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_swiglu_prefill_s128"
+    M: 128
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, prefill, seq=128"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_swiglu_prefill_s256"
+    M: 256
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, prefill, seq=256"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_swiglu_prefill_s512"
+    M: 512
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, prefill, seq=512"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  # ========== Prefill Phase (大 seq_len) ==========
+  - name: "llama31_8b_swiglu_prefill_s1024"
+    M: 1024
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, prefill, seq=1024"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_swiglu_prefill_s2048"
+    M: 2048
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, prefill, seq=2048"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_swiglu_prefill_s4096"
+    M: 4096
+    N: 14336
+    dtype: bf16
+    source: "Llama-3.1-8B FFN, prefill, seq=4096"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"

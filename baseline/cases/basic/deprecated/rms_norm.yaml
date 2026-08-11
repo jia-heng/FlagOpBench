@@ -1,0 +1,41 @@
+# RMSNorm 测试用例
+# 对应算子列表 #50: rms_norm
+operator: rms_norm
+level: basic
+warmup: 10
+iters: 100
+scenarios:
+  - name: "hidden_7168_seq2048"
+    M: 2048
+    hidden_size: 7168
+    dtype: bf16
+
+  - name: "hidden_7168_seq4096"
+    M: 4096
+    hidden_size: 7168
+    dtype: bf16
+
+  - name: "hidden_7168_decode"
+    M: 1
+    hidden_size: 7168
+    dtype: bf16
+
+  - name: "hidden_7168_batch128"
+    M: 128
+    hidden_size: 7168
+    dtype: bf16
+
+  - name: "hidden_7168_batch512"
+    M: 512
+    hidden_size: 7168
+    dtype: bf16
+
+  - name: "hidden_4096_seq2048"
+    M: 2048
+    hidden_size: 4096
+    dtype: bf16
+
+  - name: "hidden_7168_fp16"
+    M: 2048
+    hidden_size: 7168
+    dtype: fp16

@@ -1,0 +1,378 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T05:44:40",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 9,
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b1_s64",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "seq_len": 64,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=1, seq=64",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999992,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0146,
+          "median_ms": 0.0145,
+          "min_ms": 0.0142,
+          "max_ms": 0.0159,
+          "p99_ms": 0.0159,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.4186,
+          "median_ms": 2.4188,
+          "min_ms": 2.4027,
+          "max_ms": 2.4217,
+          "p99_ms": 2.4217,
+          "std_ms": 0.0018
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b1_s128",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "seq_len": 128,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=1, seq=128",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999978,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0187,
+          "median_ms": 0.0178,
+          "min_ms": 0.0174,
+          "max_ms": 0.0226,
+          "p99_ms": 0.0226,
+          "std_ms": 0.0015
+        },
+        "wall_time": {
+          "mean_ms": 2.4186,
+          "median_ms": 2.4188,
+          "min_ms": 2.4063,
+          "max_ms": 2.4213,
+          "p99_ms": 2.4213,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b1_s256",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "seq_len": 256,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=1, seq=256",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999954,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0245,
+          "median_ms": 0.0246,
+          "min_ms": 0.0244,
+          "max_ms": 0.0248,
+          "p99_ms": 0.0248,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4185,
+          "median_ms": 2.4188,
+          "min_ms": 2.3759,
+          "max_ms": 2.4369,
+          "p99_ms": 2.4369,
+          "std_ms": 0.0049
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b4_s512",
+      "params": {
+        "batch": 4,
+        "hidden_size": 2560,
+        "seq_len": 512,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=4, seq=512",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000081,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1206,
+          "median_ms": 0.1205,
+          "min_ms": 0.1202,
+          "max_ms": 0.1218,
+          "p99_ms": 0.1218,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 3.1796,
+          "median_ms": 2.4848,
+          "min_ms": 2.4714,
+          "max_ms": 4.8093,
+          "p99_ms": 4.8093,
+          "std_ms": 1.0387
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b4_s1024",
+      "params": {
+        "batch": 4,
+        "hidden_size": 2560,
+        "seq_len": 1024,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=4, seq=1024",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.00062,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2441,
+          "median_ms": 0.2441,
+          "min_ms": 0.243,
+          "max_ms": 0.2454,
+          "p99_ms": 0.2454,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 2.6152,
+          "median_ms": 2.6155,
+          "min_ms": 2.5988,
+          "max_ms": 2.6176,
+          "p99_ms": 2.6176,
+          "std_ms": 0.0021
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b1_s2048",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "seq_len": 2048,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=1, seq=2048",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000085,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1207,
+          "median_ms": 0.1206,
+          "min_ms": 0.12,
+          "max_ms": 0.1219,
+          "p99_ms": 0.1219,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 3.1862,
+          "median_ms": 2.4848,
+          "min_ms": 2.4707,
+          "max_ms": 4.802,
+          "p99_ms": 4.802,
+          "std_ms": 1.0444
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b1_s4096",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "seq_len": 4096,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=1, seq=4096",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000636,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2436,
+          "median_ms": 0.2437,
+          "min_ms": 0.2427,
+          "max_ms": 0.2456,
+          "p99_ms": 0.2456,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 2.6153,
+          "median_ms": 2.6154,
+          "min_ms": 2.6043,
+          "max_ms": 2.6183,
+          "p99_ms": 2.6183,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b8_s512",
+      "params": {
+        "batch": 8,
+        "hidden_size": 2560,
+        "seq_len": 512,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=8, seq=512",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000645,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2444,
+          "median_ms": 0.2443,
+          "min_ms": 0.2433,
+          "max_ms": 0.2458,
+          "p99_ms": 0.2458,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 2.6153,
+          "median_ms": 2.6154,
+          "min_ms": 2.6021,
+          "max_ms": 2.6189,
+          "p99_ms": 2.6189,
+          "std_ms": 0.0018
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_prefill",
+      "scenario": "mamba_conv1d_prefill_b8_s1024",
+      "params": {
+        "batch": 8,
+        "hidden_size": 2560,
+        "seq_len": 1024,
+        "kernel_size": 4,
+        "dtype": "bf16",
+        "source": "Mamba-2.8B conv1d, prefill, batch=8, seq=1024",
+        "model": "state-spaces/mamba-2.8b",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.002354,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4859,
+          "median_ms": 0.4859,
+          "min_ms": 0.4846,
+          "max_ms": 0.4876,
+          "p99_ms": 0.4876,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 2.8775,
+          "median_ms": 2.8776,
+          "min_ms": 2.8655,
+          "max_ms": 2.8794,
+          "p99_ms": 2.8794,
+          "std_ms": 0.0015
+        }
+      }
+    }
+  ]
+}

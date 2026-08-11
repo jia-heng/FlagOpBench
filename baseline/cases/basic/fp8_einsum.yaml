@@ -1,0 +1,110 @@
+# FP8 Einsum 测试用例
+# 对应算子列表 #30: fp8_einsum
+# 来源: DeepSeek-V3 FP8 batched matmul (当前测试 bf16 baseline)
+
+operator: fp8_einsum
+level: basic
+warmup: 10
+iters: 100
+
+workloads:
+  # ========== Decode Phase ==========
+  - name: "deepseek_v3_einsum_decode_b1"
+    batch: 128  # num_heads
+    M: 1
+    K: 128      # head_dim
+    N: 1024     # kv_seq_len
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, decode, batch=1"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_einsum_decode_b4"
+    batch: 128
+    M: 4
+    K: 128
+    N: 1024
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, decode, batch=4"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_einsum_decode_b8"
+    batch: 128
+    M: 8
+    K: 128
+    N: 1024
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, decode, batch=8"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  # ========== Prefill Phase ==========
+  - name: "deepseek_v3_einsum_prefill_s64"
+    batch: 128
+    M: 64
+    K: 128
+    N: 64
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, prefill, seq=64"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_einsum_prefill_s128"
+    batch: 128
+    M: 128
+    K: 128
+    N: 128
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, prefill, seq=128"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_einsum_prefill_s256"
+    batch: 128
+    M: 256
+    K: 128
+    N: 256
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, prefill, seq=256"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_einsum_prefill_s512"
+    batch: 64
+    M: 512
+    K: 128
+    N: 512
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, prefill, seq=512"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_einsum_prefill_s1024"
+    batch: 32
+    M: 1024
+    K: 128
+    N: 1024
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, prefill, seq=1024"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_einsum_prefill_s2048"
+    batch: 32
+    M: 2048
+    K: 128
+    N: 2048
+    dtype: bf16
+    equation: "bik,bkj->bij"
+    source: "DeepSeek-V3 attention einsum, prefill, seq=2048"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"

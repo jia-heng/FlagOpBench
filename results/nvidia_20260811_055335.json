@@ -1,0 +1,231 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T05:53:35",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 12,
+  "passed": 0,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b1",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_decode_b1",
+        "num_tokens": 1,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=1",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b4",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_decode_b4",
+        "num_tokens": 4,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=4",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b8",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_decode_b8",
+        "num_tokens": 8,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=8",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b16",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_decode_b16",
+        "num_tokens": 16,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=16",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_decode_b32",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_decode_b32",
+        "num_tokens": 32,
+        "source": "DeepSeek-V3 Marlin MoE, decode, batch=32",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s64",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_prefill_s64",
+        "num_tokens": 64,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=64",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s128",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_prefill_s128",
+        "num_tokens": 128,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=128",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s256",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_prefill_s256",
+        "num_tokens": 256,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=256",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s512",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_prefill_s512",
+        "num_tokens": 512,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=512",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s1024",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_prefill_s1024",
+        "num_tokens": 1024,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=1024",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s2048",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_prefill_s2048",
+        "num_tokens": 2048,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=2048",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    },
+    {
+      "operator": "fused_marlin_moe",
+      "scenario": "deepseek_v3_marlin_moe_prefill_s4096",
+      "params": {
+        "num_experts": 8,
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "top_k": 2,
+        "dtype": "bf16",
+        "name": "deepseek_v3_marlin_moe_prefill_s4096",
+        "num_tokens": 4096,
+        "source": "DeepSeek-V3 Marlin MoE, prefill, seq=4096",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "error": "FusedMarlinMoEOperator.prepare_inputs() missing 1 required positional argument: 'expert_size'"
+    }
+  ]
+}

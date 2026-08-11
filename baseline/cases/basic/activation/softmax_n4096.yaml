@@ -1,0 +1,23 @@
+# Definition: softmax_n4096
+# Operator: softmax
+# Workloads: 2
+
+definition: softmax_n4096
+operator: softmax
+level: basic
+source: manual
+const_axes:
+  N: 4096
+warmup: 10
+iters: 100
+workloads:
+- name: attention_seq4096
+  M: 4096
+  dtype: bf16
+  phase: mixed
+  source: unknown, attention_seq4096
+- name: attention_decode_kv4096
+  M: 1
+  dtype: bf16
+  phase: decode
+  source: unknown, attention_decode_kv4096

@@ -1,0 +1,32 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-10T03:13:12",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 1,
+  "passed": 0,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "sparse_attention",
+      "scenario": "error",
+      "error": "\"Operator 'sparse_attention' not registered. Available: ['bmm', 'mm', 'grouped_matmul', 'layernorm', 'rms_norm', 'gemma_rms_norm', 'add_rmsnorm_bias', 'fused_q_kv_rmsnorm', 'gelu', 'softmax', 'silu_and_mul', 'swiglu', 'rope', 'causal_conv1d_prefill', 'causal_conv1d_decode', 'top_k_per_row_prefill', 'top_k_per_row_decode', 'persistent_topk', 'topk_selector', 'moe_sum', 'router_gemm_bf16_fp32', 'fp8_einsum', 'silu_and_mul_with_clamp', 'flashattention', 'fused_moe', 'moe_align_block_size', 'gemm_w8a8', 'per_token_group_fp8_quant', 'topk_softplus_sqrt']\""
+    }
+  ]
+}

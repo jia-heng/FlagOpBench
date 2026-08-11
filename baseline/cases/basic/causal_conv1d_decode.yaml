@@ -1,0 +1,31 @@
+# Causal Conv1D Decode 测试用例
+# 对应算子列表 #23
+operator: causal_conv1d_decode
+level: basic
+warmup: 10
+iters: 100
+scenarios:
+  # Mamba decode: single token with history
+  - name: "mamba_2.8b_decode_single"
+    batch: 1
+    hidden_size: 2560
+    kernel_size: 4
+    dtype: bf16
+
+  - name: "mamba_2.8b_decode_batch8"
+    batch: 8
+    hidden_size: 2560
+    kernel_size: 4
+    dtype: bf16
+
+  - name: "mamba_2.8b_decode_batch32"
+    batch: 32
+    hidden_size: 2560
+    kernel_size: 4
+    dtype: bf16
+
+  - name: "mamba_decode_kernel8"
+    batch: 1
+    hidden_size: 2560
+    kernel_size: 8
+    dtype: bf16

@@ -1,0 +1,369 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T05:53:21",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 9,
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_decode_b1",
+      "params": {
+        "M": 1,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, decode, batch=1",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 0.007633588,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0135,
+          "median_ms": 0.0133,
+          "min_ms": 0.0131,
+          "max_ms": 0.0148,
+          "p99_ms": 0.0148,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 2.5168,
+          "median_ms": 2.4843,
+          "min_ms": 2.3535,
+          "max_ms": 3.7667,
+          "p99_ms": 3.7667,
+          "std_ms": 0.1676
+        }
+      }
+    },
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_decode_b4",
+      "params": {
+        "M": 4,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, decode, batch=4",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 0.03726708,
+        "cosine_similarity": 1.000004,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0128,
+          "median_ms": 0.0127,
+          "min_ms": 0.0124,
+          "max_ms": 0.0156,
+          "p99_ms": 0.0156,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 2.492,
+          "median_ms": 2.4843,
+          "min_ms": 2.3536,
+          "max_ms": 2.6822,
+          "p99_ms": 2.6822,
+          "std_ms": 0.0327
+        }
+      }
+    },
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_decode_b8",
+      "params": {
+        "M": 8,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, decode, batch=8",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 0.05,
+        "cosine_similarity": 1.000004,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0126,
+          "median_ms": 0.0125,
+          "min_ms": 0.0122,
+          "max_ms": 0.0157,
+          "p99_ms": 0.0157,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 2.5005,
+          "median_ms": 2.4842,
+          "min_ms": 2.4697,
+          "max_ms": 3.2051,
+          "p99_ms": 3.2051,
+          "std_ms": 0.0755
+        }
+      }
+    },
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_prefill_s64",
+      "params": {
+        "M": 64,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, prefill, seq=64",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 0.09793814,
+        "cosine_similarity": 0.999988,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0276,
+          "median_ms": 0.0274,
+          "min_ms": 0.0268,
+          "max_ms": 0.0292,
+          "p99_ms": 0.0292,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 2.5515,
+          "median_ms": 2.5498,
+          "min_ms": 2.5328,
+          "max_ms": 2.7453,
+          "p99_ms": 2.7453,
+          "std_ms": 0.0197
+        }
+      }
+    },
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_prefill_s128",
+      "params": {
+        "M": 128,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, prefill, seq=128",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.684211,
+        "cosine_similarity": 0.999951,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0494,
+          "median_ms": 0.0494,
+          "min_ms": 0.0484,
+          "max_ms": 0.0505,
+          "p99_ms": 0.0505,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 2.5575,
+          "median_ms": 2.5498,
+          "min_ms": 2.5356,
+          "max_ms": 2.7463,
+          "p99_ms": 2.7463,
+          "std_ms": 0.0329
+        }
+      }
+    },
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_prefill_s256",
+      "params": {
+        "M": 256,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, prefill, seq=256",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 5.125,
+        "cosine_similarity": 0.999937,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0884,
+          "median_ms": 0.0882,
+          "min_ms": 0.0876,
+          "max_ms": 0.0897,
+          "p99_ms": 0.0897,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 2.6376,
+          "median_ms": 2.6151,
+          "min_ms": 2.5881,
+          "max_ms": 4.7122,
+          "p99_ms": 4.7122,
+          "std_ms": 0.2107
+        }
+      }
+    },
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_prefill_s512",
+      "params": {
+        "M": 512,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, prefill, seq=512",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 5.088235,
+        "cosine_similarity": 0.999893,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1694,
+          "median_ms": 0.1691,
+          "min_ms": 0.1684,
+          "max_ms": 0.1714,
+          "p99_ms": 0.1714,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 2.7237,
+          "median_ms": 2.6809,
+          "min_ms": 2.6687,
+          "max_ms": 4.3198,
+          "p99_ms": 4.3198,
+          "std_ms": 0.2297
+        }
+      }
+    },
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_prefill_s1024",
+      "params": {
+        "M": 1024,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, prefill, seq=1024",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 2.869565,
+        "cosine_similarity": 0.999856,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3115,
+          "median_ms": 0.3113,
+          "min_ms": 0.3106,
+          "max_ms": 0.3132,
+          "p99_ms": 0.3132,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 2.8261,
+          "median_ms": 2.8119,
+          "min_ms": 2.7934,
+          "max_ms": 3.7289,
+          "p99_ms": 3.7289,
+          "std_ms": 0.0948
+        }
+      }
+    },
+    {
+      "operator": "gemm_w8a8",
+      "scenario": "llama31_8b_w8a8_prefill_s2048",
+      "params": {
+        "M": 2048,
+        "N": 4096,
+        "K": 4096,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B W8A8 GEMM, prefill, seq=2048",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 34.49999,
+        "cosine_similarity": 1.000142,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5524,
+          "median_ms": 0.5523,
+          "min_ms": 0.5511,
+          "max_ms": 0.5543,
+          "p99_ms": 0.5543,
+          "std_ms": 0.0008
+        },
+        "wall_time": {
+          "mean_ms": 3.0934,
+          "median_ms": 3.074,
+          "min_ms": 3.0704,
+          "max_ms": 4.7606,
+          "p99_ms": 4.7606,
+          "std_ms": 0.1697
+        }
+      }
+    }
+  ]
+}

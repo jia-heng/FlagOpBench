@@ -1,0 +1,369 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T05:42:43",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 9,
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "deepseek_v3_inv_rope_decode_b1",
+      "params": {
+        "num_tokens": 1,
+        "num_heads": 128,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "DeepSeek-V3 inverse RoPE + FP8, decode, batch=1",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 0.999964,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0404,
+          "median_ms": 0.0392,
+          "min_ms": 0.0386,
+          "max_ms": 0.0443,
+          "p99_ms": 0.0443,
+          "std_ms": 0.0021
+        },
+        "wall_time": {
+          "mean_ms": 2.4183,
+          "median_ms": 2.4186,
+          "min_ms": 2.3984,
+          "max_ms": 2.4197,
+          "p99_ms": 2.4197,
+          "std_ms": 0.0021
+        }
+      }
+    },
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "deepseek_v3_inv_rope_decode_b4",
+      "params": {
+        "num_tokens": 4,
+        "num_heads": 128,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "DeepSeek-V3 inverse RoPE + FP8, decode, batch=4",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 0.999963,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0407,
+          "median_ms": 0.0408,
+          "min_ms": 0.0401,
+          "max_ms": 0.0412,
+          "p99_ms": 0.0412,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4219,
+          "median_ms": 2.4186,
+          "min_ms": 2.4021,
+          "max_ms": 2.6323,
+          "p99_ms": 2.6323,
+          "std_ms": 0.0249
+        }
+      }
+    },
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "llama31_8b_inv_rope_decode_b8",
+      "params": {
+        "num_tokens": 8,
+        "num_heads": 8,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B inverse RoPE + FP8, decode, batch=8",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 0.999961,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0411,
+          "median_ms": 0.0427,
+          "min_ms": 0.0382,
+          "max_ms": 0.044,
+          "p99_ms": 0.044,
+          "std_ms": 0.0023
+        },
+        "wall_time": {
+          "mean_ms": 2.4183,
+          "median_ms": 2.4186,
+          "min_ms": 2.4041,
+          "max_ms": 2.424,
+          "p99_ms": 2.424,
+          "std_ms": 0.002
+        }
+      }
+    },
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "deepseek_v3_inv_rope_prefill_s64",
+      "params": {
+        "num_tokens": 64,
+        "num_heads": 128,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "DeepSeek-V3 inverse RoPE + FP8, prefill, seq=64",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 1.000347,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0674,
+          "median_ms": 0.0674,
+          "min_ms": 0.0668,
+          "max_ms": 0.068,
+          "p99_ms": 0.068,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.4184,
+          "median_ms": 2.4186,
+          "min_ms": 2.4044,
+          "max_ms": 2.4205,
+          "p99_ms": 2.4205,
+          "std_ms": 0.0017
+        }
+      }
+    },
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "deepseek_v3_inv_rope_prefill_s128",
+      "params": {
+        "num_tokens": 128,
+        "num_heads": 128,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "DeepSeek-V3 inverse RoPE + FP8, prefill, seq=128",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 1.000073,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1004,
+          "median_ms": 0.1004,
+          "min_ms": 0.0995,
+          "max_ms": 0.1023,
+          "p99_ms": 0.1023,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 2.484,
+          "median_ms": 2.4842,
+          "min_ms": 2.4698,
+          "max_ms": 2.4885,
+          "p99_ms": 2.4885,
+          "std_ms": 0.0017
+        }
+      }
+    },
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "deepseek_v3_inv_rope_prefill_s256",
+      "params": {
+        "num_tokens": 256,
+        "num_heads": 128,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "DeepSeek-V3 inverse RoPE + FP8, prefill, seq=256",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 0.999782,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1706,
+          "median_ms": 0.1706,
+          "min_ms": 0.1684,
+          "max_ms": 0.1725,
+          "p99_ms": 0.1725,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 2.5495,
+          "median_ms": 2.5498,
+          "min_ms": 2.532,
+          "max_ms": 2.5529,
+          "p99_ms": 2.5529,
+          "std_ms": 0.0024
+        }
+      }
+    },
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "llama31_8b_inv_rope_prefill_s512",
+      "params": {
+        "num_tokens": 512,
+        "num_heads": 8,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "Llama-3.1-8B inverse RoPE + FP8, prefill, seq=512",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 1.000318,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.053,
+          "median_ms": 0.0527,
+          "min_ms": 0.0504,
+          "max_ms": 0.0558,
+          "p99_ms": 0.0558,
+          "std_ms": 0.0021
+        },
+        "wall_time": {
+          "mean_ms": 2.5988,
+          "median_ms": 2.4187,
+          "min_ms": 2.4153,
+          "max_ms": 4.7121,
+          "p99_ms": 4.7121,
+          "std_ms": 0.6146
+        }
+      }
+    },
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "deepseek_v3_inv_rope_prefill_s1024",
+      "params": {
+        "num_tokens": 1024,
+        "num_heads": 128,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "DeepSeek-V3 inverse RoPE + FP8, prefill, seq=1024",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 0.999976,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6383,
+          "median_ms": 0.6384,
+          "min_ms": 0.6363,
+          "max_ms": 0.6408,
+          "p99_ms": 0.6408,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 3.0082,
+          "median_ms": 3.0086,
+          "min_ms": 2.9917,
+          "max_ms": 3.0166,
+          "p99_ms": 3.0166,
+          "std_ms": 0.0026
+        }
+      }
+    },
+    {
+      "operator": "fused_inv_rope_fp8_quant",
+      "scenario": "deepseek_v3_inv_rope_prefill_s2048",
+      "params": {
+        "num_tokens": 2048,
+        "num_heads": 128,
+        "head_dim": 128,
+        "dtype": "bf16",
+        "source": "DeepSeek-V3 inverse RoPE + FP8, prefill, seq=2048",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 1000000000000.0,
+        "cosine_similarity": 1.00286,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2326,
+          "median_ms": 1.2325,
+          "min_ms": 1.2296,
+          "max_ms": 1.2352,
+          "p99_ms": 1.2352,
+          "std_ms": 0.0013
+        },
+        "wall_time": {
+          "mean_ms": 3.5992,
+          "median_ms": 3.598,
+          "min_ms": 3.5812,
+          "max_ms": 3.7253,
+          "p99_ms": 3.7253,
+          "std_ms": 0.013
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-10T02:50:39",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 1,
+  "passed": 1,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "rms_norm",
+      "scenario": "hidden_4096_seq2048",
+      "params": {
+        "hidden_size": 4096,
+        "batch_size": 2048,
+        "dtype": "bf16",
+        "phase": "mixed",
+        "source": "unknown, hidden_4096_seq2048"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 0.005714286,
+        "cosine_similarity": 1.000145,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0243,
+          "median_ms": 0.024,
+          "min_ms": 0.0234,
+          "max_ms": 0.0407,
+          "p99_ms": 0.0407,
+          "std_ms": 0.0018
+        },
+        "wall_time": {
+          "mean_ms": 0.0272,
+          "median_ms": 0.0271,
+          "min_ms": 0.0267,
+          "max_ms": 0.031,
+          "p99_ms": 0.031,
+          "std_ms": 0.0005
+        }
+      },
+      "roofline": {
+        "achieved_tflops": 1.38,
+        "achieved_bandwidth_tb_s": 1.381,
+        "compute_efficiency_pct": 0.9,
+        "memory_efficiency_pct": 34.5,
+        "arithmetic_intensity": 1.0,
+        "ridge_point": 37.0,
+        "bound": "memory"
+      }
+    }
+  ]
+}

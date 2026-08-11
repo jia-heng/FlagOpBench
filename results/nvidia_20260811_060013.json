@@ -1,0 +1,202 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T06:00:13",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 5,
+  "passed": 5,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "deepseek_v3_router_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.0137931,
+        "cosine_similarity": 1.000005,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0544,
+          "median_ms": 0.0544,
+          "min_ms": 0.0538,
+          "max_ms": 0.0551,
+          "p99_ms": 0.0551,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.4804,
+          "median_ms": 2.4188,
+          "min_ms": 2.3817,
+          "max_ms": 8.6469,
+          "p99_ms": 8.6469,
+          "std_ms": 0.6229
+        }
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "deepseek_v3_router_decode",
+      "params": {
+        "num_tokens": 1,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.001953125,
+        "max_rel_error": 0.004237288,
+        "cosine_similarity": 0.999998,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0252,
+          "median_ms": 0.0252,
+          "min_ms": 0.0246,
+          "max_ms": 0.0267,
+          "p99_ms": 0.0267,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.4166,
+          "median_ms": 2.4185,
+          "min_ms": 0.7061,
+          "max_ms": 4.086,
+          "p99_ms": 4.086,
+          "std_ms": 0.2403
+        }
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "deepseek_v3_router_batch128",
+      "params": {
+        "num_tokens": 128,
+        "num_experts": 160,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.01098901,
+        "cosine_similarity": 0.999993,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0285,
+          "median_ms": 0.0284,
+          "min_ms": 0.0279,
+          "max_ms": 0.0289,
+          "p99_ms": 0.0289,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4183,
+          "median_ms": 2.4186,
+          "min_ms": 2.3989,
+          "max_ms": 2.4217,
+          "p99_ms": 2.4217,
+          "std_ms": 0.0024
+        }
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "moe_64experts_prefill",
+      "params": {
+        "num_tokens": 2048,
+        "num_experts": 64,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 0.01282051,
+        "cosine_similarity": 1.000006,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0381,
+          "median_ms": 0.0381,
+          "min_ms": 0.0377,
+          "max_ms": 0.0387,
+          "p99_ms": 0.0387,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4185,
+          "median_ms": 2.4187,
+          "min_ms": 2.4017,
+          "max_ms": 2.4208,
+          "p99_ms": 2.4208,
+          "std_ms": 0.0019
+        }
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "scenario": "moe_64experts_decode",
+      "params": {
+        "num_tokens": 1,
+        "num_experts": 64,
+        "k": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.00390625,
+        "max_rel_error": 0.007633588,
+        "cosine_similarity": 0.999996,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.024,
+          "median_ms": 0.0239,
+          "min_ms": 0.0232,
+          "max_ms": 0.0244,
+          "p99_ms": 0.0244,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.4185,
+          "median_ms": 2.4188,
+          "min_ms": 2.4032,
+          "max_ms": 2.4204,
+          "p99_ms": 2.4204,
+          "std_ms": 0.0018
+        }
+      }
+    }
+  ]
+}

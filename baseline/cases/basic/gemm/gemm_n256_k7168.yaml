@@ -1,0 +1,134 @@
+# Definition: gemm_n256_k7168
+# Operator: mm
+# Source: FlashInfer-Trace, DeepSeek-V3 MoE gate projection
+# Workloads: 30 (covering decode and prefill phases)
+
+definition: gemm_n256_k7168
+operator: mm
+level: basic
+source: flashinfer-trace/definitions/gemm/gemm_n256_k7168.json
+
+# const 轴（固定）
+const_axes:
+  N: 256    # output features (num_experts)
+  K: 7168   # input features (hidden size)
+
+# 测试配置
+warmup: 10
+iters: 100
+
+# Workloads（var 轴: M = batch_size × seq_len）
+workloads:
+  # ========== Decode Phase (seq_len=1) ==========
+  - name: "deepseek_v3_moe_gate_decode_bs1"
+    M: 1
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, decode, batch=1"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_gate_decode_bs2"
+    M: 2
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, decode, batch=2"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_gate_decode_bs4"
+    M: 4
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, decode, batch=4"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_gate_decode_bs8"
+    M: 8
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, decode, batch=8"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_gate_decode_bs16"
+    M: 16
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, decode, batch=16"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_gate_decode_bs32"
+    M: 32
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, decode, batch=32"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  # ========== Prefill Phase (seq_len > 1) ==========
+  - name: "deepseek_v3_moe_gate_prefill_bs8"
+    M: 8
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=8"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs16"
+    M: 16
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=16"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs32"
+    M: 32
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=32"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs64"
+    M: 64
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=64"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs128"
+    M: 128
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=128"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs256"
+    M: 256
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=256"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs512"
+    M: 512
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=512"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs1024"
+    M: 1024
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=1024"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs2048"
+    M: 2048
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=2048"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_gate_prefill_bs4096"
+    M: 4096
+    dtype: bf16
+    source: "DeepSeek-V3, MoE gate projection, prefill, seq=4096"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"

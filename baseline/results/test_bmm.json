@@ -1,0 +1,434 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T02:52:35",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 11,
+  "passed": 11,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "bmm",
+      "scenario": "llama31_8b_attn_qk_decode",
+      "params": {
+        "phase": "decode",
+        "batch": 32,
+        "M": 1,
+        "K": 128,
+        "N": 1024,
+        "source": "Llama-3.1-8B attention Q@K^T decode (seq=1, kv_len=1024)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 0.005555556,
+        "cosine_similarity": 1.000005,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0113,
+          "median_ms": 0.0113,
+          "min_ms": 0.011,
+          "max_ms": 0.0116,
+          "p99_ms": 0.0116,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3537,
+          "median_ms": 2.3533,
+          "min_ms": 2.3491,
+          "max_ms": 2.3965,
+          "p99_ms": 2.3965,
+          "std_ms": 0.0044
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "llama31_8b_attn_qk_prefill_128",
+      "params": {
+        "phase": "prefill",
+        "batch": 32,
+        "M": 128,
+        "K": 128,
+        "N": 128,
+        "source": "Llama-3.1-8B attention Q@K^T prefill (seq=128)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.125,
+        "max_rel_error": 0.3209876,
+        "cosine_similarity": 0.999968,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.008,
+          "median_ms": 0.008,
+          "min_ms": 0.0078,
+          "max_ms": 0.0082,
+          "p99_ms": 0.0082,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3537,
+          "median_ms": 2.3533,
+          "min_ms": 2.351,
+          "max_ms": 2.4026,
+          "p99_ms": 2.4026,
+          "std_ms": 0.005
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "llama31_8b_attn_qk_prefill_512",
+      "params": {
+        "phase": "prefill",
+        "batch": 32,
+        "M": 512,
+        "K": 128,
+        "N": 512,
+        "source": "Llama-3.1-8B attention Q@K^T prefill (seq=512)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 0.4999998,
+        "cosine_similarity": 0.999965,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0264,
+          "median_ms": 0.0263,
+          "min_ms": 0.0262,
+          "max_ms": 0.0267,
+          "p99_ms": 0.0267,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4186,
+          "median_ms": 2.4188,
+          "min_ms": 2.4007,
+          "max_ms": 2.4203,
+          "p99_ms": 2.4203,
+          "std_ms": 0.0019
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "llama31_8b_attn_qk_prefill_1024",
+      "params": {
+        "phase": "prefill",
+        "batch": 32,
+        "M": 1024,
+        "K": 128,
+        "N": 1024,
+        "source": "Llama-3.1-8B attention Q@K^T prefill (seq=1024)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 0.7499996,
+        "cosine_similarity": 1.003323,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0812,
+          "median_ms": 0.0809,
+          "min_ms": 0.0803,
+          "max_ms": 0.0825,
+          "p99_ms": 0.0825,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 2.4842,
+          "median_ms": 2.4844,
+          "min_ms": 2.4682,
+          "max_ms": 2.4861,
+          "p99_ms": 2.4861,
+          "std_ms": 0.0018
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "llama31_8b_attn_av_decode",
+      "params": {
+        "phase": "decode",
+        "batch": 32,
+        "M": 1,
+        "K": 1024,
+        "N": 128,
+        "source": "Llama-3.1-8B attention Attn@V decode (seq=1, kv_len=1024)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 0.006289308,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0079,
+          "median_ms": 0.0079,
+          "min_ms": 0.0077,
+          "max_ms": 0.0081,
+          "p99_ms": 0.0081,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.353,
+          "median_ms": 2.3532,
+          "min_ms": 2.3418,
+          "max_ms": 2.3542,
+          "p99_ms": 2.3542,
+          "std_ms": 0.0013
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "llama31_8b_attn_av_prefill_512",
+      "params": {
+        "phase": "prefill",
+        "batch": 32,
+        "M": 512,
+        "K": 512,
+        "N": 128,
+        "source": "Llama-3.1-8B attention Attn@V prefill (seq=512)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 0.5859374,
+        "cosine_similarity": 0.999895,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0277,
+          "median_ms": 0.0277,
+          "min_ms": 0.0275,
+          "max_ms": 0.028,
+          "p99_ms": 0.028,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4186,
+          "median_ms": 2.4188,
+          "min_ms": 2.406,
+          "max_ms": 2.4199,
+          "p99_ms": 2.4199,
+          "std_ms": 0.0014
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "deepseek_v3_attn_qk_decode",
+      "params": {
+        "phase": "decode",
+        "batch": 128,
+        "M": 1,
+        "K": 128,
+        "N": 1024,
+        "source": "DeepSeek-V3 attention Q@K^T decode (128 heads, seq=1, kv_len=1024)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.125,
+        "max_rel_error": 0.01606426,
+        "cosine_similarity": 1.000002,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0226,
+          "median_ms": 0.0224,
+          "min_ms": 0.0221,
+          "max_ms": 0.0238,
+          "p99_ms": 0.0238,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 2.4176,
+          "median_ms": 2.4187,
+          "min_ms": 0.681,
+          "max_ms": 4.0703,
+          "p99_ms": 4.0703,
+          "std_ms": 0.2409
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "deepseek_v3_attn_qk_prefill_512",
+      "params": {
+        "phase": "prefill",
+        "batch": 128,
+        "M": 512,
+        "K": 128,
+        "N": 512,
+        "source": "DeepSeek-V3 attention Q@K^T prefill (128 heads, seq=512)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 1.999997,
+        "cosine_similarity": 1.003316,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0816,
+          "median_ms": 0.0813,
+          "min_ms": 0.0809,
+          "max_ms": 0.0829,
+          "p99_ms": 0.0829,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 2.4841,
+          "median_ms": 2.4843,
+          "min_ms": 2.47,
+          "max_ms": 2.4867,
+          "p99_ms": 2.4867,
+          "std_ms": 0.0018
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "deepseek_v3_attn_qk_prefill_2048",
+      "params": {
+        "phase": "prefill",
+        "batch": 128,
+        "M": 2048,
+        "K": 128,
+        "N": 2048,
+        "source": "DeepSeek-V3 attention Q@K^T prefill (128 heads, seq=2048)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 1907349.0,
+        "cosine_similarity": 1.225687,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0672,
+          "median_ms": 1.0668,
+          "min_ms": 1.0652,
+          "max_ms": 1.0701,
+          "p99_ms": 1.0701,
+          "std_ms": 0.0013
+        },
+        "wall_time": {
+          "mean_ms": 3.4671,
+          "median_ms": 3.4672,
+          "min_ms": 3.4516,
+          "max_ms": 3.4702,
+          "p99_ms": 3.4702,
+          "std_ms": 0.0019
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "deepseek_v3_attn_av_decode",
+      "params": {
+        "phase": "decode",
+        "batch": 128,
+        "M": 1,
+        "K": 1024,
+        "N": 128,
+        "source": "DeepSeek-V3 attention Attn@V decode (128 heads, seq=1, kv_len=1024)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 0.006711409,
+        "cosine_similarity": 1.000004,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0116,
+          "median_ms": 0.0116,
+          "min_ms": 0.0113,
+          "max_ms": 0.0119,
+          "p99_ms": 0.0119,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3532,
+          "median_ms": 2.3532,
+          "min_ms": 0.5259,
+          "max_ms": 4.1415,
+          "p99_ms": 4.1415,
+          "std_ms": 0.257
+        }
+      }
+    },
+    {
+      "operator": "bmm",
+      "scenario": "deepseek_v3_attn_av_prefill_2048",
+      "params": {
+        "phase": "prefill",
+        "batch": 128,
+        "M": 2048,
+        "K": 2048,
+        "N": 128,
+        "source": "DeepSeek-V3 attention Attn@V prefill (128 heads, seq=2048)"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 10.66666,
+        "cosine_similarity": 1.003298,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.1329,
+          "median_ms": 1.1329,
+          "min_ms": 1.1308,
+          "max_ms": 1.1357,
+          "p99_ms": 1.1357,
+          "std_ms": 0.0012
+        },
+        "wall_time": {
+          "mean_ms": 3.5326,
+          "median_ms": 3.533,
+          "min_ms": 3.5084,
+          "max_ms": 3.5356,
+          "p99_ms": 3.5356,
+          "std_ms": 0.0027
+        }
+      }
+    }
+  ]
+}

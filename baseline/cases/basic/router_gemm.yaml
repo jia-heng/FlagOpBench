@@ -1,0 +1,37 @@
+# Router GEMM bf16_fp32 测试用例
+# 对应算子列表 #52
+operator: router_gemm_bf16_fp32
+level: basic
+warmup: 10
+iters: 100
+scenarios:
+  # DeepSeek-V3: 160 experts, hidden 7168
+  - name: "deepseek_v3_router_prefill"
+    num_tokens: 2048
+    hidden_size: 7168
+    num_experts: 160
+    dtype: bf16
+
+  - name: "deepseek_v3_router_decode"
+    num_tokens: 1
+    hidden_size: 7168
+    num_experts: 160
+    dtype: bf16
+
+  - name: "deepseek_v3_router_batch128"
+    num_tokens: 128
+    hidden_size: 7168
+    num_experts: 160
+    dtype: bf16
+
+  - name: "moe_64experts_router"
+    num_tokens: 2048
+    hidden_size: 4096
+    num_experts: 64
+    dtype: bf16
+
+  - name: "moe_8experts_router"
+    num_tokens: 2048
+    hidden_size: 4096
+    num_experts: 8
+    dtype: bf16

@@ -1,0 +1,17 @@
+# Definition: softmax_n129280
+# Operator: softmax
+# Workloads: 1
+
+definition: softmax_n129280
+operator: softmax
+level: basic
+source: manual
+const_axes:
+  N: 129280
+warmup: 10
+iters: 100
+workloads:
+- name: vocab_logits
+  M: 2048
+  dtype: bf16
+  source: unknown, vocab_logits

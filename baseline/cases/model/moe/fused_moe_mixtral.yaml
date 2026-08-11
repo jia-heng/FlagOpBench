@@ -1,0 +1,47 @@
+name: fused_moe
+backend: nvidia
+platform: nvidia_h20
+
+definition:
+  const_axes:
+    hidden_size: 4096  # Mixtral-8x7B
+    expert_size: 14336  # FFN intermediate size
+    num_experts: 8
+    top_k: 2
+  var_axes:
+    - num_tokens
+  params:
+    dtype: bf16
+
+workloads:
+  # Decode 场景
+  - name: decode_b1
+    num_tokens: 1
+  - name: decode_b8
+    num_tokens: 8
+  - name: decode_b16
+    num_tokens: 16
+  - name: decode_b32
+    num_tokens: 32
+
+  # Small prefill
+  - name: prefill_b64
+    num_tokens: 64
+  - name: prefill_b128
+    num_tokens: 128
+  - name: prefill_b256
+    num_tokens: 256
+  - name: prefill_b512
+    num_tokens: 512
+
+  # Medium prefill
+  - name: prefill_b1024
+    num_tokens: 1024
+  - name: prefill_b2048
+    num_tokens: 2048
+  - name: prefill_b4096
+    num_tokens: 4096
+
+  # Large prefill
+  - name: prefill_b8192
+    num_tokens: 8192

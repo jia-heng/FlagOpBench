@@ -1,0 +1,19 @@
+# Definition: gemm_n1536_k7168
+# Operator: mm
+# Workloads: 1
+
+definition: gemm_n1536_k7168
+operator: mm
+level: basic
+source: manual
+const_axes:
+  N: 1536
+  K: 7168
+warmup: 10
+iters: 100
+workloads:
+- name: deepseek_v3_qkv_proj
+  M: 2048
+  dtype: bf16
+  model: DeepSeek-V3
+  source: DeepSeek-V3, deepseek_v3_qkv_proj

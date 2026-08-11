@@ -1,0 +1,77 @@
+# Definition: fused_moe_deepseek_v3_e32_h7168_i2048
+# Operator: fused_moe
+# Source: FlashInfer-Trace, DeepSeek-V3/R1 FP8 MoE with routing
+# Workloads: 15 (covering decode and prefill phases)
+
+definition: fused_moe_deepseek_v3_e32_h7168_i2048
+operator: fused_moe
+level: model
+source: flashinfer-trace/definitions/moe/moe_fp8_block_scale_ds_routing_topk8_ng8_kg4_e32_h7168_i2048.json
+
+const_axes:
+  num_experts: 8  # Reduced for testing (real: 32 local, 256 total)
+  hidden_size: 2048  # Reduced from 7168 for feasible golden computation
+  expert_size: 512  # Reduced from 2048
+  top_k: 2  # Reduced from 8 for faster golden
+
+warmup: 10
+iters: 50
+
+workloads:
+  # ========== Decode Phase (num_tokens=1) ==========
+  - name: "deepseek_v3_moe_decode_b1"
+    num_tokens: 1
+    dtype: bf16
+    source: "DeepSeek-V3, FP8 MoE, decode, batch=1"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_decode_b4"
+    num_tokens: 4
+    dtype: bf16
+    source: "DeepSeek-V3, FP8 MoE, decode, batch=4"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_decode_b8"
+    num_tokens: 8
+    dtype: bf16
+    source: "DeepSeek-V3, FP8 MoE, decode, batch=8"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_decode_b16"
+    num_tokens: 16
+    dtype: bf16
+    source: "DeepSeek-V3, FP8 MoE, decode, batch=16"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  - name: "deepseek_v3_moe_decode_b32"
+    num_tokens: 32
+    dtype: bf16
+    source: "DeepSeek-V3, FP8 MoE, decode, batch=32"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "decode"
+
+  # ========== Prefill Phase (num_tokens > 1) ==========
+  - name: "deepseek_v3_moe_prefill_s64"
+    num_tokens: 64
+    dtype: bf16
+    source: "DeepSeek-V3, FP8 MoE, prefill, seq=64"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_prefill_s128"
+    num_tokens: 128
+    dtype: bf16
+    source: "DeepSeek-V3, FP8 MoE, prefill, seq=128"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"
+
+  - name: "deepseek_v3_moe_prefill_s256"
+    num_tokens: 256
+    dtype: bf16
+    source: "DeepSeek-V3, FP8 MoE, prefill, seq=256"
+    model: "deepseek-ai/DeepSeek-V3"
+    phase: "prefill"

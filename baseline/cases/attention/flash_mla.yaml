@@ -1,0 +1,77 @@
+operator: flash_mla
+description: "Flash MLA - DeepSeek Multi-Head Latent Attention"
+
+const_axes:
+  dtype: "bf16"
+  causal: true
+  num_heads: 128
+  num_kv_heads: 16
+  head_dim: 128
+  kv_lora_rank: 512
+
+warmup: 5
+iters: 50
+
+workloads:
+  - name: deepseek_v3_mla_decode_b1_cache1k
+    phase: decode
+    batch: 1
+    seq_len: 1
+    kv_seq_len: 1024
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA decode, 1K cache"
+
+  - name: deepseek_v3_mla_decode_b1_cache4k
+    phase: decode
+    batch: 1
+    seq_len: 1
+    kv_seq_len: 4096
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA decode, 4K cache"
+
+  - name: deepseek_v3_mla_decode_b4_cache1k
+    phase: decode
+    batch: 4
+    seq_len: 1
+    kv_seq_len: 1024
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA decode, batch=4"
+
+  - name: deepseek_v3_mla_decode_b16_cache1k
+    phase: decode
+    batch: 16
+    seq_len: 1
+    kv_seq_len: 1024
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA decode, batch=16"
+
+  - name: deepseek_v3_mla_prefill_s128
+    phase: prefill
+    batch: 1
+    seq_len: 128
+    kv_seq_len: 128
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA prefill short"
+
+  - name: deepseek_v3_mla_prefill_s512
+    phase: prefill
+    batch: 1
+    seq_len: 512
+    kv_seq_len: 512
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA prefill medium"
+
+  - name: deepseek_v3_mla_prefill_s1024
+    phase: prefill
+    batch: 1
+    seq_len: 1024
+    kv_seq_len: 1024
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA prefill 1K"
+
+  - name: deepseek_v3_mla_prefill_s2048
+    phase: prefill
+    batch: 1
+    seq_len: 2048
+    kv_seq_len: 2048
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA prefill 2K"
+
+  - name: deepseek_v3_mla_prefill_s4096
+    phase: prefill
+    batch: 1
+    seq_len: 4096
+    kv_seq_len: 4096
+    source: "FlashInfer-Trace, DeepSeek-V3 MLA prefill 4K"

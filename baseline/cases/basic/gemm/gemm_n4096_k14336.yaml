@@ -1,0 +1,149 @@
+# Definition: gemm_n4096_k14336
+# Operator: mm
+# Source: FlashInfer-Trace, Llama-3.1-8B MLP down projection
+# Workloads: 30 (covering decode and prefill phases)
+
+definition: gemm_n4096_k14336
+operator: mm
+level: basic
+source: flashinfer-trace/definitions/gemm/gemm_n4096_k14336.json
+
+# const 轴（固定）
+const_axes:
+  N: 4096   # output features (hidden size)
+  K: 14336  # input features (MLP intermediate size)
+
+# 测试配置
+warmup: 10
+iters: 100
+
+# Workloads（var 轴: M = batch_size × seq_len）
+workloads:
+  # ========== Decode Phase (seq_len=1) ==========
+  - name: "llama31_8b_mlp_down_decode_bs1"
+    M: 1
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, decode, batch=1"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_mlp_down_decode_bs2"
+    M: 2
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, decode, batch=2"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_mlp_down_decode_bs4"
+    M: 4
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, decode, batch=4"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_mlp_down_decode_bs8"
+    M: 8
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, decode, batch=8"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_mlp_down_decode_bs16"
+    M: 16
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, decode, batch=16"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  - name: "llama31_8b_mlp_down_decode_bs32"
+    M: 32
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, decode, batch=32"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "decode"
+
+  # ========== Prefill Phase (seq_len > 1) ==========
+  - name: "llama31_8b_mlp_down_prefill_bs8"
+    M: 8
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=8"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs16"
+    M: 16
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=16"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs32"
+    M: 32
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=32"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs64"
+    M: 64
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=64"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs128"
+    M: 128
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=128"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs256"
+    M: 256
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=256"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs512"
+    M: 512
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=512"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs1024"
+    M: 1024
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=1024"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs2048"
+    M: 2048
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=2048"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs4096"
+    M: 4096
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=4096"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  # ========== Long Context Prefill ==========
+  - name: "llama31_8b_mlp_down_prefill_bs8192"
+    M: 8192
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=8192"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
+
+  - name: "llama31_8b_mlp_down_prefill_bs16384"
+    M: 16384
+    dtype: bf16
+    source: "Llama-3.1-8B, MLP down projection, prefill, seq=16384"
+    model: "meta-llama/Llama-3.1-8B"
+    phase: "prefill"
