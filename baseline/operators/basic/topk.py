@@ -190,9 +190,11 @@ class TopKSelectorOperator(BaseOperator):
 
     def compute_golden(self, scores: torch.Tensor, hidden_states: torch.Tensor,
                        k: int = 8, **kwargs) -> torch.Tensor:
-        s_fp32 = scores.float().cpu()
-        h_fp32 = hidden_states.float().cpu()
+        # Keep on GPU to ensure topk tie-breaking matches forward()
+        # (CPU/GPU have different stable sort behavior for equal values)
+        s_fp32 = scores.float()
+        h_fp32 = hidden_states.float()
         _, indices = torch.topk(s_fp32, k, dim=-1)
         indices_expanded = indices.unsqueeze(-1).expand(-1, -1, h_fp32.shape[-1])
         selected = torch.gather(h_fp32, 1, indices_expanded)
-        return selected.to(scores.dtype).to(scores.device)
+        return selected.to(scores.dtype)

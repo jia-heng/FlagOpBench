@@ -1,0 +1,405 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T12:32:30",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 9,
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_decode_b1_cache1k",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "decode",
+        "batch": 1,
+        "seq_len": 1,
+        "kv_seq_len": 1024,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA decode, 1K cache"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0004882812,
+        "max_rel_error": 151.3973,
+        "cosine_similarity": 0.999999,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3126,
+          "median_ms": 0.3125,
+          "min_ms": 0.3115,
+          "max_ms": 0.3139,
+          "p99_ms": 0.3139,
+          "std_ms": 0.0005
+        },
+        "wall_time": {
+          "mean_ms": 2.6796,
+          "median_ms": 2.681,
+          "min_ms": 2.656,
+          "max_ms": 2.6874,
+          "p99_ms": 2.6874,
+          "std_ms": 0.0054
+        }
+      }
+    },
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_decode_b1_cache4k",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "decode",
+        "batch": 1,
+        "seq_len": 1,
+        "kv_seq_len": 4096,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA decode, 4K cache"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0002441406,
+        "max_rel_error": 72.73584,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.1626,
+          "median_ms": 1.1624,
+          "min_ms": 1.161,
+          "max_ms": 1.1643,
+          "p99_ms": 1.1643,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 3.5325,
+          "median_ms": 3.5329,
+          "min_ms": 3.5099,
+          "max_ms": 3.5358,
+          "p99_ms": 3.5358,
+          "std_ms": 0.0035
+        }
+      }
+    },
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_decode_b4_cache1k",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "decode",
+        "batch": 4,
+        "seq_len": 1,
+        "kv_seq_len": 1024,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA decode, batch=4"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0004882812,
+        "max_rel_error": 51.60271,
+        "cosine_similarity": 0.999997,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0904,
+          "median_ms": 1.0904,
+          "min_ms": 1.0887,
+          "max_ms": 1.0921,
+          "p99_ms": 1.0921,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 3.4649,
+          "median_ms": 3.467,
+          "min_ms": 3.4311,
+          "max_ms": 3.4836,
+          "p99_ms": 3.4836,
+          "std_ms": 0.0084
+        }
+      }
+    },
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_decode_b16_cache1k",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "decode",
+        "batch": 16,
+        "seq_len": 1,
+        "kv_seq_len": 1024,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA decode, batch=16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0004882812,
+        "max_rel_error": 251.7561,
+        "cosine_similarity": 0.999975,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 9.114,
+          "median_ms": 9.1135,
+          "min_ms": 9.1089,
+          "max_ms": 9.1205,
+          "p99_ms": 9.1205,
+          "std_ms": 0.0026
+        },
+        "wall_time": {
+          "mean_ms": 11.4623,
+          "median_ms": 11.4631,
+          "min_ms": 11.4501,
+          "max_ms": 11.4691,
+          "p99_ms": 11.4691,
+          "std_ms": 0.0037
+        }
+      }
+    },
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_prefill_s128",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "prefill",
+        "batch": 1,
+        "seq_len": 128,
+        "kv_seq_len": 128,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA prefill short"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 3771.383,
+        "cosine_similarity": 1.000154,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0572,
+          "median_ms": 0.0572,
+          "min_ms": 0.0569,
+          "max_ms": 0.0592,
+          "p99_ms": 0.0592,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.4187,
+          "median_ms": 2.419,
+          "min_ms": 2.4054,
+          "max_ms": 2.426,
+          "p99_ms": 2.426,
+          "std_ms": 0.0025
+        }
+      }
+    },
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_prefill_s512",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "prefill",
+        "batch": 1,
+        "seq_len": 512,
+        "kv_seq_len": 512,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA prefill medium"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 13856.07,
+        "cosine_similarity": 1.00148,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2743,
+          "median_ms": 0.2741,
+          "min_ms": 0.2657,
+          "max_ms": 0.2812,
+          "p99_ms": 0.2812,
+          "std_ms": 0.0032
+        },
+        "wall_time": {
+          "mean_ms": 2.6727,
+          "median_ms": 2.6798,
+          "min_ms": 2.4343,
+          "max_ms": 2.858,
+          "p99_ms": 2.858,
+          "std_ms": 0.0469
+        }
+      }
+    },
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_prefill_s1024",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "prefill",
+        "batch": 1,
+        "seq_len": 1024,
+        "kv_seq_len": 1024,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA prefill 1K"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 29824.97,
+        "cosine_similarity": 1.003946,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7329,
+          "median_ms": 0.7318,
+          "min_ms": 0.714,
+          "max_ms": 0.7481,
+          "p99_ms": 0.7481,
+          "std_ms": 0.008
+        },
+        "wall_time": {
+          "mean_ms": 3.12,
+          "median_ms": 3.1275,
+          "min_ms": 3.0679,
+          "max_ms": 3.1554,
+          "p99_ms": 3.1554,
+          "std_ms": 0.0257
+        }
+      }
+    },
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_prefill_s2048",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "prefill",
+        "batch": 1,
+        "seq_len": 2048,
+        "kv_seq_len": 2048,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA prefill 2K"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 70800.98,
+        "cosine_similarity": 1.012591,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.7408,
+          "median_ms": 4.7412,
+          "min_ms": 4.706,
+          "max_ms": 4.7763,
+          "p99_ms": 4.7763,
+          "std_ms": 0.0146
+        },
+        "wall_time": {
+          "mean_ms": 7.1139,
+          "median_ms": 7.1166,
+          "min_ms": 7.0548,
+          "max_ms": 7.171,
+          "p99_ms": 7.171,
+          "std_ms": 0.0284
+        }
+      }
+    },
+    {
+      "operator": "flash_mla",
+      "scenario": "deepseek_v3_mla_prefill_s4096",
+      "params": {
+        "dtype": "bf16",
+        "causal": true,
+        "num_heads": 128,
+        "num_kv_heads": 16,
+        "head_dim": 128,
+        "kv_lora_rank": 512,
+        "phase": "prefill",
+        "batch": 1,
+        "seq_len": 4096,
+        "kv_seq_len": 4096,
+        "source": "FlashInfer-Trace, DeepSeek-V3 MLA prefill 4K"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 33140180.0,
+        "cosine_similarity": 1.040785,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 15.2459,
+          "median_ms": 15.2418,
+          "min_ms": 15.1923,
+          "max_ms": 15.2991,
+          "p99_ms": 15.2991,
+          "std_ms": 0.0254
+        },
+        "wall_time": {
+          "mean_ms": 17.6231,
+          "median_ms": 17.6276,
+          "min_ms": 17.5546,
+          "max_ms": 17.6774,
+          "p99_ms": 17.6774,
+          "std_ms": 0.0303
+        }
+      }
+    }
+  ]
+}

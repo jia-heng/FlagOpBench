@@ -1,0 +1,500 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T13:29:23",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 1,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 11,
+  "passed": 11,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_decode_b1",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 1,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), decode, batch=1",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 0.005649718,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0375,
+          "median_ms": 0.0369,
+          "min_ms": 0.0356,
+          "max_ms": 0.0618,
+          "p99_ms": 0.0618,
+          "std_ms": 0.003
+        },
+        "wall_time": {
+          "mean_ms": 0.0335,
+          "median_ms": 0.0331,
+          "min_ms": 0.0326,
+          "max_ms": 0.0427,
+          "p99_ms": 0.0427,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_decode_b4",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 4,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), decode, batch=4",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.5,
+        "max_rel_error": 0.006410256,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0336,
+          "median_ms": 0.0333,
+          "min_ms": 0.0327,
+          "max_ms": 0.0425,
+          "p99_ms": 0.0425,
+          "std_ms": 0.0012
+        },
+        "wall_time": {
+          "mean_ms": 0.0342,
+          "median_ms": 0.0341,
+          "min_ms": 0.0336,
+          "max_ms": 0.0383,
+          "p99_ms": 0.0383,
+          "std_ms": 0.0005
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_decode_b8",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 8,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), decode, batch=8",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.25,
+        "max_rel_error": 0.008264462,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0402,
+          "median_ms": 0.0399,
+          "min_ms": 0.0393,
+          "max_ms": 0.0484,
+          "p99_ms": 0.0484,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 0.0433,
+          "median_ms": 0.0431,
+          "min_ms": 0.0423,
+          "max_ms": 0.0473,
+          "p99_ms": 0.0473,
+          "std_ms": 0.0006
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_decode_b16",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 16,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), decode, batch=16",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.5,
+        "max_rel_error": 0.02542373,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0702,
+          "median_ms": 0.0699,
+          "min_ms": 0.0686,
+          "max_ms": 0.0767,
+          "p99_ms": 0.0767,
+          "std_ms": 0.0015
+        },
+        "wall_time": {
+          "mean_ms": 0.0733,
+          "median_ms": 0.0733,
+          "min_ms": 0.0719,
+          "max_ms": 0.078,
+          "p99_ms": 0.078,
+          "std_ms": 0.0008
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_prefill_s128",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 128,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=128",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 0.0754717,
+        "cosine_similarity": 1.000007,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4065,
+          "median_ms": 0.4064,
+          "min_ms": 0.4043,
+          "max_ms": 0.414,
+          "p99_ms": 0.414,
+          "std_ms": 0.0014
+        },
+        "wall_time": {
+          "mean_ms": 0.4104,
+          "median_ms": 0.41,
+          "min_ms": 0.4075,
+          "max_ms": 0.4194,
+          "p99_ms": 0.4194,
+          "std_ms": 0.0017
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_prefill_s256",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 256,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=256",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 0.3811659,
+        "cosine_similarity": 0.999994,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7392,
+          "median_ms": 0.7387,
+          "min_ms": 0.7367,
+          "max_ms": 0.7493,
+          "p99_ms": 0.7493,
+          "std_ms": 0.0019
+        },
+        "wall_time": {
+          "mean_ms": 0.7433,
+          "median_ms": 0.743,
+          "min_ms": 0.7403,
+          "max_ms": 0.747,
+          "p99_ms": 0.747,
+          "std_ms": 0.0014
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_prefill_s512",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 512,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=512",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 3.0,
+        "cosine_similarity": 0.99999,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.3713,
+          "median_ms": 1.3712,
+          "min_ms": 1.3675,
+          "max_ms": 1.3781,
+          "p99_ms": 1.3781,
+          "std_ms": 0.0019
+        },
+        "wall_time": {
+          "mean_ms": 1.3758,
+          "median_ms": 1.3755,
+          "min_ms": 1.3711,
+          "max_ms": 1.3812,
+          "p99_ms": 1.3812,
+          "std_ms": 0.0018
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_prefill_s1024",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 1024,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=1024",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 0.7957746,
+        "cosine_similarity": 0.99995,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.7178,
+          "median_ms": 2.7178,
+          "min_ms": 2.7074,
+          "max_ms": 2.774,
+          "p99_ms": 2.774,
+          "std_ms": 0.0079
+        },
+        "wall_time": {
+          "mean_ms": 2.7244,
+          "median_ms": 2.7238,
+          "min_ms": 2.7185,
+          "max_ms": 2.735,
+          "p99_ms": 2.735,
+          "std_ms": 0.0032
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_prefill_s2048",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 2048,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=2048",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 3.5,
+        "cosine_similarity": 0.999934,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.4251,
+          "median_ms": 5.4231,
+          "min_ms": 5.401,
+          "max_ms": 5.5062,
+          "p99_ms": 5.5062,
+          "std_ms": 0.0126
+        },
+        "wall_time": {
+          "mean_ms": 5.8575,
+          "median_ms": 5.6644,
+          "min_ms": 5.4154,
+          "max_ms": 6.5935,
+          "p99_ms": 6.5935,
+          "std_ms": 0.4266
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_prefill_s4096",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 4096,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=4096",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.707865,
+        "cosine_similarity": 0.99989,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 11.2585,
+          "median_ms": 10.838,
+          "min_ms": 10.8001,
+          "max_ms": 12.9083,
+          "p99_ms": 12.9083,
+          "std_ms": 0.7142
+        },
+        "wall_time": {
+          "mean_ms": 11.2924,
+          "median_ms": 10.9558,
+          "min_ms": 10.8175,
+          "max_ms": 12.4262,
+          "p99_ms": 12.4262,
+          "std_ms": 0.5436
+        }
+      }
+    },
+    {
+      "operator": "grouped_matmul",
+      "scenario": "qwen3_30b_grouped_mm_prefill_s8192",
+      "params": {
+        "num_heads": 32,
+        "num_kv_heads": 4,
+        "head_dim": 128,
+        "hidden_size": 4096,
+        "expert_size": 512,
+        "num_experts": 8,
+        "num_tokens": 8192,
+        "num_groups": 4,
+        "dtype": "bf16",
+        "source": "Qwen3-30B-A3B, Grouped matmul (GQA), prefill, seq=8192",
+        "model": "Qwen/Qwen3-30B-A3B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 2.0,
+        "max_rel_error": 19.70588,
+        "cosine_similarity": 0.999853,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 22.5818,
+          "median_ms": 21.8451,
+          "min_ms": 21.5764,
+          "max_ms": 26.4644,
+          "p99_ms": 26.4644,
+          "std_ms": 1.3087
+        },
+        "wall_time": {
+          "mean_ms": 22.7471,
+          "median_ms": 22.4118,
+          "min_ms": 21.6581,
+          "max_ms": 24.5634,
+          "p99_ms": 24.5634,
+          "std_ms": 0.8648
+        }
+      }
+    }
+  ]
+}

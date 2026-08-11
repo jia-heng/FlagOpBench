@@ -117,6 +117,9 @@ class KVRMSNormRopeCacheOperator(BaseOperator):
                        head_dim: int, cache_len: int = 128,
                        dtype: str = "bf16", eps: float = 1e-6,
                        **kwargs) -> dict:
+        # eps 可能从 YAML 传入为字符串，强制转为 float
+        eps = float(eps)
+
         torch_dtype = self.get_dtype(dtype)
         k = torch.randn(num_tokens, num_kv_heads, head_dim,
                        device=self.device, dtype=torch_dtype)

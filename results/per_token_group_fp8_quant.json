@@ -1,0 +1,369 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T12:40:36",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 9,
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_decode_b1_h7168",
+      "params": {
+        "num_tokens": 1,
+        "hidden_size": 7168,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, decode, batch=1",
+        "model": "Generic FP8",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 0.999975,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.024,
+          "median_ms": 0.024,
+          "min_ms": 0.0236,
+          "max_ms": 0.0243,
+          "p99_ms": 0.0243,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4179,
+          "median_ms": 2.4191,
+          "min_ms": 0.7804,
+          "max_ms": 3.9679,
+          "p99_ms": 3.9679,
+          "std_ms": 0.2266
+        }
+      }
+    },
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_decode_b4_h7168",
+      "params": {
+        "num_tokens": 4,
+        "hidden_size": 7168,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, decode, batch=4",
+        "model": "Generic FP8",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 0.999976,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0241,
+          "median_ms": 0.024,
+          "min_ms": 0.024,
+          "max_ms": 0.0244,
+          "p99_ms": 0.0244,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.419,
+          "median_ms": 2.4191,
+          "min_ms": 2.4038,
+          "max_ms": 2.4204,
+          "p99_ms": 2.4204,
+          "std_ms": 0.0016
+        }
+      }
+    },
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_decode_b8_h4096",
+      "params": {
+        "num_tokens": 8,
+        "hidden_size": 4096,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, decode, batch=8",
+        "model": "Generic FP8",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 0.999976,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0245,
+          "median_ms": 0.0245,
+          "min_ms": 0.0243,
+          "max_ms": 0.0247,
+          "p99_ms": 0.0247,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4191,
+          "median_ms": 2.4191,
+          "min_ms": 2.4054,
+          "max_ms": 2.4202,
+          "p99_ms": 2.4202,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_prefill_s64_h7168",
+      "params": {
+        "num_tokens": 64,
+        "hidden_size": 7168,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, prefill, seq=64",
+        "model": "Generic FP8",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 1.000253,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0282,
+          "median_ms": 0.0282,
+          "min_ms": 0.0279,
+          "max_ms": 0.0286,
+          "p99_ms": 0.0286,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4191,
+          "median_ms": 2.4192,
+          "min_ms": 2.4048,
+          "max_ms": 2.4203,
+          "p99_ms": 2.4203,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_prefill_s128_h4096",
+      "params": {
+        "num_tokens": 128,
+        "hidden_size": 4096,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, prefill, seq=128",
+        "model": "Generic FP8",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 1.000255,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0299,
+          "median_ms": 0.0299,
+          "min_ms": 0.0296,
+          "max_ms": 0.0301,
+          "p99_ms": 0.0301,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.419,
+          "median_ms": 2.4192,
+          "min_ms": 2.406,
+          "max_ms": 2.4201,
+          "p99_ms": 2.4201,
+          "std_ms": 0.0014
+        }
+      }
+    },
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_prefill_s256_h7168",
+      "params": {
+        "num_tokens": 256,
+        "hidden_size": 7168,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, prefill, seq=256",
+        "model": "Generic FP8",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 1.000049,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0513,
+          "median_ms": 0.0513,
+          "min_ms": 0.0509,
+          "max_ms": 0.0517,
+          "p99_ms": 0.0517,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4189,
+          "median_ms": 2.4193,
+          "min_ms": 1.2004,
+          "max_ms": 3.6222,
+          "p99_ms": 3.6222,
+          "std_ms": 0.1721
+        }
+      }
+    },
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_prefill_s512_h4096",
+      "params": {
+        "num_tokens": 512,
+        "hidden_size": 4096,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, prefill, seq=512",
+        "model": "Generic FP8",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 1.000016,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0562,
+          "median_ms": 0.0562,
+          "min_ms": 0.0558,
+          "max_ms": 0.0566,
+          "p99_ms": 0.0566,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4191,
+          "median_ms": 2.4193,
+          "min_ms": 2.4049,
+          "max_ms": 2.4204,
+          "p99_ms": 2.4204,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_prefill_s1024_h7168",
+      "params": {
+        "num_tokens": 1024,
+        "hidden_size": 7168,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, prefill, seq=1024",
+        "model": "Generic FP8",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 0.999239,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1448,
+          "median_ms": 0.1447,
+          "min_ms": 0.1441,
+          "max_ms": 0.1457,
+          "p99_ms": 0.1457,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.5501,
+          "median_ms": 2.5503,
+          "min_ms": 2.5348,
+          "max_ms": 2.5516,
+          "p99_ms": 2.5516,
+          "std_ms": 0.0017
+        }
+      }
+    },
+    {
+      "operator": "per_token_group_fp8_quant",
+      "scenario": "fp8_quant_prefill_s2048_h4096",
+      "params": {
+        "num_tokens": 2048,
+        "hidden_size": 4096,
+        "group_size": 128,
+        "dtype": "bf16",
+        "source": "FP8 quantization, prefill, seq=2048",
+        "model": "Generic FP8",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 1.0,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 0.999185,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1637,
+          "median_ms": 0.1637,
+          "min_ms": 0.163,
+          "max_ms": 0.1646,
+          "p99_ms": 0.1646,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 2.5499,
+          "median_ms": 2.5502,
+          "min_ms": 2.5363,
+          "max_ms": 2.5524,
+          "p99_ms": 2.5524,
+          "std_ms": 0.0017
+        }
+      }
+    }
+  ]
+}

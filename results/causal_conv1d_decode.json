@@ -1,0 +1,167 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T12:36:05",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 4,
+  "passed": 4,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "causal_conv1d_decode",
+      "scenario": "mamba_2.8b_decode_single",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0097,
+          "median_ms": 0.0097,
+          "min_ms": 0.0094,
+          "max_ms": 0.0101,
+          "p99_ms": 0.0101,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3541,
+          "median_ms": 2.3539,
+          "min_ms": 2.3468,
+          "max_ms": 2.3992,
+          "p99_ms": 2.3992,
+          "std_ms": 0.0047
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_decode",
+      "scenario": "mamba_2.8b_decode_batch8",
+      "params": {
+        "batch": 8,
+        "hidden_size": 2560,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000003,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0099,
+          "median_ms": 0.0099,
+          "min_ms": 0.0099,
+          "max_ms": 0.0101,
+          "p99_ms": 0.0101,
+          "std_ms": 0.0
+        },
+        "wall_time": {
+          "mean_ms": 2.3541,
+          "median_ms": 2.3538,
+          "min_ms": 2.3496,
+          "max_ms": 2.3962,
+          "p99_ms": 2.3962,
+          "std_ms": 0.0043
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_decode",
+      "scenario": "mamba_2.8b_decode_batch32",
+      "params": {
+        "batch": 32,
+        "hidden_size": 2560,
+        "kernel_size": 4,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0127,
+          "median_ms": 0.0127,
+          "min_ms": 0.0125,
+          "max_ms": 0.0129,
+          "p99_ms": 0.0129,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3766,
+          "median_ms": 2.3554,
+          "min_ms": 2.3501,
+          "max_ms": 2.4231,
+          "p99_ms": 2.4231,
+          "std_ms": 0.0304
+        }
+      }
+    },
+    {
+      "operator": "causal_conv1d_decode",
+      "scenario": "mamba_decode_kernel8",
+      "params": {
+        "batch": 1,
+        "hidden_size": 2560,
+        "kernel_size": 8,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0105,
+          "median_ms": 0.0105,
+          "min_ms": 0.0103,
+          "max_ms": 0.0108,
+          "p99_ms": 0.0108,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3542,
+          "median_ms": 2.3538,
+          "min_ms": 2.3482,
+          "max_ms": 2.4062,
+          "p99_ms": 2.4062,
+          "std_ms": 0.0053
+        }
+      }
+    }
+  ]
+}

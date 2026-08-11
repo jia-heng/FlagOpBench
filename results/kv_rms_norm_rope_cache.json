@@ -1,0 +1,387 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T13:27:58",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 9,
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "llama31_8b_kv_cache_decode_b1_c1024",
+      "params": {
+        "num_tokens": 1,
+        "num_kv_heads": 8,
+        "head_dim": 128,
+        "cache_len": 1024,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "Llama-3.1-8B KV cache, decode, batch=1, cache=1024",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 0.6202531,
+        "cosine_similarity": 0.999936,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0278,
+          "median_ms": 0.0278,
+          "min_ms": 0.0275,
+          "max_ms": 0.0283,
+          "p99_ms": 0.0283,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.418,
+          "median_ms": 2.4193,
+          "min_ms": 0.794,
+          "max_ms": 3.9569,
+          "p99_ms": 3.9569,
+          "std_ms": 0.2249
+        }
+      }
+    },
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "llama31_8b_kv_cache_decode_b4_c2048",
+      "params": {
+        "num_tokens": 4,
+        "num_kv_heads": 8,
+        "head_dim": 128,
+        "cache_len": 2048,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "Llama-3.1-8B KV cache, decode, batch=4, cache=2048",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03125,
+        "max_rel_error": 1.0,
+        "cosine_similarity": 0.999892,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0313,
+          "median_ms": 0.0313,
+          "min_ms": 0.0309,
+          "max_ms": 0.0317,
+          "p99_ms": 0.0317,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4191,
+          "median_ms": 2.4193,
+          "min_ms": 2.4044,
+          "max_ms": 2.4247,
+          "p99_ms": 2.4247,
+          "std_ms": 0.0019
+        }
+      }
+    },
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "deepseek_v3_kv_cache_decode_b8_c1024",
+      "params": {
+        "num_tokens": 8,
+        "num_kv_heads": 128,
+        "head_dim": 128,
+        "cache_len": 1024,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "DeepSeek-V3 KV cache, decode, batch=8, cache=1024",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 65534.8,
+        "cosine_similarity": 1.000756,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0739,
+          "median_ms": 0.074,
+          "min_ms": 0.0726,
+          "max_ms": 0.0763,
+          "p99_ms": 0.0763,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 2.4748,
+          "median_ms": 2.4842,
+          "min_ms": 2.4201,
+          "max_ms": 2.4869,
+          "p99_ms": 2.4869,
+          "std_ms": 0.0226
+        }
+      }
+    },
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "llama31_8b_kv_cache_prefill_s64_c128",
+      "params": {
+        "num_tokens": 64,
+        "num_kv_heads": 8,
+        "head_dim": 128,
+        "cache_len": 128,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "Llama-3.1-8B KV cache, prefill, seq=64, cache=128",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 1953125000.0,
+        "cosine_similarity": 0.999995,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0286,
+          "median_ms": 0.0286,
+          "min_ms": 0.0283,
+          "max_ms": 0.0289,
+          "p99_ms": 0.0289,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.419,
+          "median_ms": 2.4192,
+          "min_ms": 2.403,
+          "max_ms": 2.4222,
+          "p99_ms": 2.4222,
+          "std_ms": 0.0018
+        }
+      }
+    },
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "llama31_8b_kv_cache_prefill_s128_c512",
+      "params": {
+        "num_tokens": 128,
+        "num_kv_heads": 8,
+        "head_dim": 128,
+        "cache_len": 512,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "Llama-3.1-8B KV cache, prefill, seq=128, cache=512",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 67.33199,
+        "cosine_similarity": 0.999958,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0306,
+          "median_ms": 0.0306,
+          "min_ms": 0.0302,
+          "max_ms": 0.031,
+          "p99_ms": 0.031,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4189,
+          "median_ms": 2.4193,
+          "min_ms": 1.4619,
+          "max_ms": 3.3658,
+          "p99_ms": 3.3658,
+          "std_ms": 0.1353
+        }
+      }
+    },
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "deepseek_v3_kv_cache_prefill_s256_c1024",
+      "params": {
+        "num_tokens": 256,
+        "num_kv_heads": 128,
+        "head_dim": 128,
+        "cache_len": 1024,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "DeepSeek-V3 KV cache, prefill, seq=256, cache=1024",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 7812500000.0,
+        "cosine_similarity": 1.001448,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2149,
+          "median_ms": 0.2147,
+          "min_ms": 0.2133,
+          "max_ms": 0.2172,
+          "p99_ms": 0.2172,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 2.6156,
+          "median_ms": 2.6157,
+          "min_ms": 2.6008,
+          "max_ms": 2.6186,
+          "p99_ms": 2.6186,
+          "std_ms": 0.002
+        }
+      }
+    },
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "llama31_8b_kv_cache_prefill_s512_c2048",
+      "params": {
+        "num_tokens": 512,
+        "num_kv_heads": 8,
+        "head_dim": 128,
+        "cache_len": 2048,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "Llama-3.1-8B KV cache, prefill, seq=512, cache=2048",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 1953125000.0,
+        "cosine_similarity": 0.999916,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0472,
+          "median_ms": 0.0472,
+          "min_ms": 0.0467,
+          "max_ms": 0.0494,
+          "p99_ms": 0.0494,
+          "std_ms": 0.0004
+        },
+        "wall_time": {
+          "mean_ms": 2.4189,
+          "median_ms": 2.4191,
+          "min_ms": 2.404,
+          "max_ms": 2.4226,
+          "p99_ms": 2.4226,
+          "std_ms": 0.0019
+        }
+      }
+    },
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "deepseek_v3_kv_cache_prefill_s1024_c4096",
+      "params": {
+        "num_tokens": 1024,
+        "num_kv_heads": 128,
+        "head_dim": 128,
+        "cache_len": 4096,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "DeepSeek-V3 KV cache, prefill, seq=1024, cache=4096",
+        "model": "deepseek-ai/DeepSeek-V3",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 15625000000.0,
+        "cosine_similarity": 1.014209,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8038,
+          "median_ms": 0.8037,
+          "min_ms": 0.8016,
+          "max_ms": 0.8065,
+          "p99_ms": 0.8065,
+          "std_ms": 0.001
+        },
+        "wall_time": {
+          "mean_ms": 3.2053,
+          "median_ms": 3.2055,
+          "min_ms": 3.1817,
+          "max_ms": 3.2094,
+          "p99_ms": 3.2094,
+          "std_ms": 0.0027
+        }
+      }
+    },
+    {
+      "operator": "kv_rms_norm_rope_cache",
+      "scenario": "llama31_8b_kv_cache_prefill_s2048_c4096",
+      "params": {
+        "num_tokens": 2048,
+        "num_kv_heads": 8,
+        "head_dim": 128,
+        "cache_len": 4096,
+        "dtype": "bf16",
+        "eps": "1e-6",
+        "source": "Llama-3.1-8B KV cache, prefill, seq=2048, cache=4096",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0625,
+        "max_rel_error": 7812500000.0,
+        "cosine_similarity": 1.000007,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1103,
+          "median_ms": 0.1103,
+          "min_ms": 0.1091,
+          "max_ms": 0.1122,
+          "p99_ms": 0.1122,
+          "std_ms": 0.0008
+        },
+        "wall_time": {
+          "mean_ms": 2.4845,
+          "median_ms": 2.4846,
+          "min_ms": 2.4703,
+          "max_ms": 2.4887,
+          "p99_ms": 2.4887,
+          "std_ms": 0.0023
+        }
+      }
+    }
+  ]
+}

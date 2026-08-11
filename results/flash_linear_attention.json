@@ -1,0 +1,369 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T12:32:42",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 9,
+  "passed": 9,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_decode_b1",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 1,
+        "seq_len": 1,
+        "phase": "decode",
+        "source": "GLA model decode, single token, fused_recurrent kernel"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.0,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0085,
+          "median_ms": 0.0085,
+          "min_ms": 0.0084,
+          "max_ms": 0.0088,
+          "p99_ms": 0.0088,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3526,
+          "median_ms": 2.353,
+          "min_ms": 2.3341,
+          "max_ms": 2.354,
+          "p99_ms": 2.354,
+          "std_ms": 0.0028
+        }
+      }
+    },
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_decode_b4",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 4,
+        "seq_len": 1,
+        "phase": "decode",
+        "source": "GLA model decode, batch=4, fused_recurrent kernel"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0088,
+          "median_ms": 0.0088,
+          "min_ms": 0.0086,
+          "max_ms": 0.0091,
+          "p99_ms": 0.0091,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3529,
+          "median_ms": 2.3532,
+          "min_ms": 2.3403,
+          "max_ms": 2.3589,
+          "p99_ms": 2.3589,
+          "std_ms": 0.0023
+        }
+      }
+    },
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_decode_b8",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 8,
+        "seq_len": 1,
+        "phase": "decode",
+        "source": "GLA model decode, batch=8, fused_recurrent kernel"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.009,
+          "median_ms": 0.0091,
+          "min_ms": 0.0088,
+          "max_ms": 0.0094,
+          "p99_ms": 0.0094,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3542,
+          "median_ms": 2.3532,
+          "min_ms": 2.3495,
+          "max_ms": 2.4062,
+          "p99_ms": 2.4062,
+          "std_ms": 0.0076
+        }
+      }
+    },
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_prefill_s128",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 1,
+        "seq_len": 128,
+        "phase": "prefill",
+        "source": "GLA model prefill, chunk kernel"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.03979492,
+        "max_rel_error": 1164.625,
+        "cosine_similarity": 0.999853,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0421,
+          "median_ms": 0.0421,
+          "min_ms": 0.0419,
+          "max_ms": 0.0426,
+          "p99_ms": 0.0426,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4174,
+          "median_ms": 2.4177,
+          "min_ms": 2.4027,
+          "max_ms": 2.4189,
+          "p99_ms": 2.4189,
+          "std_ms": 0.0022
+        }
+      }
+    },
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_prefill_s512",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 1,
+        "seq_len": 512,
+        "phase": "prefill",
+        "source": "GLA model prefill, chunk kernel"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.07617188,
+        "max_rel_error": 1645.431,
+        "cosine_similarity": 0.999656,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.056,
+          "median_ms": 0.056,
+          "min_ms": 0.0556,
+          "max_ms": 0.0563,
+          "p99_ms": 0.0563,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4174,
+          "median_ms": 2.4177,
+          "min_ms": 2.4033,
+          "max_ms": 2.4194,
+          "p99_ms": 2.4194,
+          "std_ms": 0.0022
+        }
+      }
+    },
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_prefill_s1024",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 1,
+        "seq_len": 1024,
+        "phase": "prefill",
+        "source": "GLA model prefill, chunk kernel"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.1002808,
+        "max_rel_error": 9490.737,
+        "cosine_similarity": 0.99972,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0889,
+          "median_ms": 0.0888,
+          "min_ms": 0.0885,
+          "max_ms": 0.0905,
+          "p99_ms": 0.0905,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.483,
+          "median_ms": 2.4832,
+          "min_ms": 2.4701,
+          "max_ms": 2.489,
+          "p99_ms": 2.489,
+          "std_ms": 0.0023
+        }
+      }
+    },
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_prefill_s2048",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 1,
+        "seq_len": 2048,
+        "phase": "prefill",
+        "source": "GLA model prefill, chunk kernel, 2K context"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.06665039,
+        "max_rel_error": 11066.18,
+        "cosine_similarity": 0.999832,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1519,
+          "median_ms": 0.152,
+          "min_ms": 0.1503,
+          "max_ms": 0.1534,
+          "p99_ms": 0.1534,
+          "std_ms": 0.0007
+        },
+        "wall_time": {
+          "mean_ms": 2.5485,
+          "median_ms": 2.5486,
+          "min_ms": 2.5341,
+          "max_ms": 2.5524,
+          "p99_ms": 2.5524,
+          "std_ms": 0.0026
+        }
+      }
+    },
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_prefill_s4096",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 1,
+        "seq_len": 4096,
+        "phase": "prefill",
+        "source": "GLA model prefill, chunk kernel, 4K context"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.08203125,
+        "max_rel_error": 40663.31,
+        "cosine_similarity": 1.000071,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2706,
+          "median_ms": 0.2706,
+          "min_ms": 0.2693,
+          "max_ms": 0.2727,
+          "p99_ms": 0.2727,
+          "std_ms": 0.0006
+        },
+        "wall_time": {
+          "mean_ms": 2.6703,
+          "median_ms": 2.6791,
+          "min_ms": 2.6159,
+          "max_ms": 2.6822,
+          "p99_ms": 2.6822,
+          "std_ms": 0.022
+        }
+      }
+    },
+    {
+      "operator": "flash_linear_attention",
+      "scenario": "gla_prefill_s8192",
+      "params": {
+        "num_heads": 16,
+        "head_dim": 64,
+        "dtype": "bf16",
+        "batch": 1,
+        "seq_len": 8192,
+        "phase": "prefill",
+        "source": "GLA model prefill, chunk kernel, 8K context"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.07275391,
+        "max_rel_error": 20785.97,
+        "cosine_similarity": 1.000581,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5177,
+          "median_ms": 0.5176,
+          "min_ms": 0.5157,
+          "max_ms": 0.5199,
+          "p99_ms": 0.5199,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 2.8761,
+          "median_ms": 2.8765,
+          "min_ms": 2.8607,
+          "max_ms": 2.88,
+          "p99_ms": 2.88,
+          "std_ms": 0.0026
+        }
+      }
+    }
+  ]
+}

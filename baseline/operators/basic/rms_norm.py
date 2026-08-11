@@ -95,6 +95,9 @@ class RMSNormOperator(BaseOperator):
         if batch is None:
             raise ValueError("Must specify either 'num_tokens', 'M' or 'batch_size'")
 
+        # eps 可能从 YAML 传入为字符串，强制转为 float
+        eps = float(eps)
+
         torch_dtype = self.get_dtype(dtype)
         x = torch.randn(batch, hidden_size, device=self.device, dtype=torch_dtype)
         weight = torch.ones(hidden_size, device=self.device, dtype=torch_dtype)

@@ -302,6 +302,7 @@ result = torch.einsum('enh,ne->nh', expert_outputs, weights)
 
 ### 核心文档 ⭐⭐⭐
 - [`PROGRESS.md`](PROGRESS.md) - **项目当前进展和下一步计划** ⭐⭐⭐
+- [`算子实现进展.md`](算子实现进展.md) - **55 算子实现状态(以代码为准)** ⭐⭐⭐
 - [`docs/archive/FlashInfer复用执行计划.md`](docs/archive/FlashInfer复用执行计划.md) - FlashInfer workload 迁移计划(已归档)
 - [`baseline/REGRESSION_REPORT.md`](baseline/REGRESSION_REPORT.md) - 回归测试详细报告 ⭐⭐⭐
 - [`Definition与Workload设计规范.md`](Definition与Workload设计规范.md) - **Definition/Workload 模式** ⭐⭐

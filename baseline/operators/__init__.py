@@ -29,6 +29,7 @@ from baseline.operators.basic import silu_and_mul_with_clamp
 from baseline.operators.attention import flashattention
 from baseline.operators.attention import flash_mla
 from baseline.operators.attention import sparse_attention
+from baseline.operators.attention import flash_linear_attention
 
 # MoE operators
 from baseline.operators.moe import fused_moe

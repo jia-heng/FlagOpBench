@@ -57,8 +57,14 @@ class Reporter:
         report = self.generate_report()
 
         if output_path is None:
-            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_path = f"results/{self.backend_name}_{timestamp}.json"
+            operators = list(set(r["operator"] for r in self.results))
+            if len(operators) == 1:
+                # 单算子：文件名直接用算子名，方便查找，每次覆盖保留最新结果
+                output_path = f"results/{operators[0]}.json"
+            else:
+                # 多算子：回退到 backend_timestamp 避免冲突
+                timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+                output_path = f"results/{self.backend_name}_{timestamp}.json"
 
         path = Path(output_path)
         path.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,249 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T12:32:11",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 6,
+  "passed": 6,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "sparse_attention",
+      "scenario": "decode_b1_s1_h32_d128",
+      "params": {
+        "batch_size": 1,
+        "seq_len": 1,
+        "num_heads": 32,
+        "head_dim": 128,
+        "causal": true,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000001,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0121,
+          "median_ms": 0.0121,
+          "min_ms": 0.0118,
+          "max_ms": 0.0124,
+          "p99_ms": 0.0124,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.3556,
+          "median_ms": 2.3539,
+          "min_ms": 2.3505,
+          "max_ms": 2.4182,
+          "p99_ms": 2.4182,
+          "std_ms": 0.0101
+        }
+      }
+    },
+    {
+      "operator": "sparse_attention",
+      "scenario": "decode_b8_s1_h32_d128",
+      "params": {
+        "batch_size": 8,
+        "seq_len": 1,
+        "num_heads": 32,
+        "head_dim": 128,
+        "causal": true,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000004,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.025,
+          "median_ms": 0.025,
+          "min_ms": 0.0248,
+          "max_ms": 0.0252,
+          "p99_ms": 0.0252,
+          "std_ms": 0.0001
+        },
+        "wall_time": {
+          "mean_ms": 2.4191,
+          "median_ms": 2.4194,
+          "min_ms": 2.3968,
+          "max_ms": 2.4222,
+          "p99_ms": 2.4222,
+          "std_ms": 0.0024
+        }
+      }
+    },
+    {
+      "operator": "sparse_attention",
+      "scenario": "prefill_b1_s512_h32_d128",
+      "params": {
+        "batch_size": 1,
+        "seq_len": 512,
+        "num_heads": 32,
+        "head_dim": 128,
+        "causal": true,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 4046.501,
+        "cosine_similarity": 0.999959,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0749,
+          "median_ms": 0.0748,
+          "min_ms": 0.0744,
+          "max_ms": 0.0756,
+          "p99_ms": 0.0756,
+          "std_ms": 0.0002
+        },
+        "wall_time": {
+          "mean_ms": 2.4199,
+          "median_ms": 2.4193,
+          "min_ms": 2.4175,
+          "max_ms": 2.4703,
+          "p99_ms": 2.4703,
+          "std_ms": 0.0051
+        }
+      }
+    },
+    {
+      "operator": "sparse_attention",
+      "scenario": "prefill_b1_s1024_h32_d128",
+      "params": {
+        "batch_size": 1,
+        "seq_len": 1024,
+        "num_heads": 32,
+        "head_dim": 128,
+        "causal": true,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0078125,
+        "max_rel_error": 7911.341,
+        "cosine_similarity": 1.000068,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1951,
+          "median_ms": 0.1933,
+          "min_ms": 0.1778,
+          "max_ms": 0.209,
+          "p99_ms": 0.209,
+          "std_ms": 0.0072
+        },
+        "wall_time": {
+          "mean_ms": 2.5536,
+          "median_ms": 2.5507,
+          "min_ms": 2.5288,
+          "max_ms": 2.6107,
+          "p99_ms": 2.6107,
+          "std_ms": 0.015
+        }
+      }
+    },
+    {
+      "operator": "sparse_attention",
+      "scenario": "prefill_b1_s2048_h32_d128",
+      "params": {
+        "batch_size": 1,
+        "seq_len": 2048,
+        "num_heads": 32,
+        "head_dim": 128,
+        "causal": true,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 6142.686,
+        "cosine_similarity": 1.000723,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5859,
+          "median_ms": 0.5848,
+          "min_ms": 0.5491,
+          "max_ms": 0.6147,
+          "p99_ms": 0.6147,
+          "std_ms": 0.0138
+        },
+        "wall_time": {
+          "mean_ms": 2.955,
+          "median_ms": 2.9501,
+          "min_ms": 2.8891,
+          "max_ms": 3.0222,
+          "p99_ms": 3.0222,
+          "std_ms": 0.0238
+        }
+      }
+    },
+    {
+      "operator": "sparse_attention",
+      "scenario": "mixed_b4_s256_h32_d128",
+      "params": {
+        "batch_size": 4,
+        "seq_len": 256,
+        "num_heads": 32,
+        "head_dim": 128,
+        "causal": true,
+        "dtype": "bf16"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.015625,
+        "max_rel_error": 2101.972,
+        "cosine_similarity": 1.000069,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0626,
+          "median_ms": 0.0627,
+          "min_ms": 0.062,
+          "max_ms": 0.0636,
+          "p99_ms": 0.0636,
+          "std_ms": 0.0003
+        },
+        "wall_time": {
+          "mean_ms": 2.419,
+          "median_ms": 2.4192,
+          "min_ms": 2.4027,
+          "max_ms": 2.4211,
+          "p99_ms": 2.4211,
+          "std_ms": 0.0019
+        }
+      }
+    }
+  ]
+}

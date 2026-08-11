@@ -9,7 +9,7 @@
 
 ## 🎯 FlashInfer 算子迁移完成汇总
 
-**总计**: 16 算子, 183 workloads, **100% 通过验证**
+**总计**: 17 算子, 192 workloads, **100% 通过验证**
 
 ### Phase 1: Basic Operators (12 算子, 149 workloads)
 
@@ -36,9 +36,79 @@
 | flashattention (GQA) | F.scaled_dot_product_attention | 11 | Llama-3.1-8B | ✅ | Grouped-Query Attention |
 | sparse_attention | F.scaled_dot_product_attention | 6 | Qwen3-30B-A3B | ✅ | Block-sparse attention |
 | flash_mla | PyTorch SDPA + Low-rank | 9 | DeepSeek-V3 | ✅ | ⭐ 修复 causal mask |
+| flash_linear_attention | vLLM Triton kernel | 9 | GLA/Falcon-H1 | ✅ | ⭐ 新增, Gated Delta Rule |
 | fused_moe | PyTorch (custom) | 8 | DeepSeek-V3 | ✅ | FP8 MoE with routing |
 
-**Phase 2 小计**: 34 workloads, 100% 通过
+**Phase 2 小计**: 43 workloads, 100% 通过
+
+---
+
+## ⚡ Flash Linear Attention 测试结果 (新增)
+
+**算子**: `flash_linear_attention` — Gated Delta Rule  
+**实现**: vLLM Triton kernel (`vllm.third_party.flash_linear_attention`)  
+**模型**: GLA, Falcon-H1 等线性注意力模型  
+**配置**: num_heads=16, head_dim=64, bf16
+
+### 核心算法
+
+```
+S_t = exp(g_t) * S_{t-1} + β_t * (v_t - S_{t-1} @ k_t) ⊗ k_t   (state update)
+o_t = q_t @ S_t                                                    (output query)
+```
+
+### 测试结果
+
+| Workload | Phase | Batch | Seq_Len | 时间 (ms) | Kernel 路径 |
+|----------|-------|-------|---------|-----------|-------------|
+| gla_decode_b1 | decode | 1 | 1 | 0.0083 | fused_recurrent |
+| gla_decode_b4 | decode | 4 | 1 | 0.0085 | fused_recurrent |
+| gla_decode_b8 | decode | 8 | 1 | 0.0109 | fused_recurrent |
+| gla_prefill_s128 | prefill | 1 | 128 | 0.0410 | chunk_gated_delta_rule |
+| gla_prefill_s512 | prefill | 1 | 512 | 0.0550 | chunk_gated_delta_rule |
+| gla_prefill_s1024 | prefill | 1 | 1024 | 0.0878 | chunk_gated_delta_rule |
+| gla_prefill_s2048 | prefill | 1 | 2048 | 0.1512 | chunk_gated_delta_rule |
+| gla_prefill_s4096 | prefill | 1 | 4096 | 0.2702 | chunk_gated_delta_rule |
+| gla_prefill_s8192 | prefill | 1 | 8192 | 0.5181 | chunk_gated_delta_rule |
+
+**通过率**: 9/9 ✅  
+**精度**: Cosine Similarity ≥ 0.9998 (vs FP32 CPU Golden Reference)
+
+### 实现细节
+
+| 特性 | 说明 |
+|------|------|
+| forward 实现 | `forward_vllm()` — 调用 vLLM Triton kernel |
+| Decode 路径 | `fused_recurrent_gated_delta_rule` (token-level 融合 kernel) |
+| Prefill 路径 | `chunk_gated_delta_rule` (chunk-parallel, chunk_size=64) |
+| Golden Reference | FP32 CPU 逐 token 递推 (数值精确) |
+| 复杂度 | O(T × d²) — 线性于序列长度 |
+| 参数 | q, k, v (B,T,H,D) + g (B,T,H) 衰减 + beta (B,T,H) 学习率 |
+
+### 性能对比: vLLM Triton vs PyTorch Loop
+
+| Workload | PyTorch Loop | vLLM Triton | 加速比 |
+|----------|-------------|-------------|--------|
+| decode_b1 (T=1) | 0.044 ms | 0.008 ms | **5.5x** |
+| prefill_s512 | 82.3 ms | 0.055 ms | **1496x** |
+| prefill_s2048 | 333.6 ms | 0.151 ms | **2210x** |
+| prefill_s8192 | (超时) | 0.518 ms | **∞** |
+
+### 参考代码路径
+
+```
+vllm/third_party/flash_linear_attention/
+├── ops/
+│   ├── fused_recurrent.py    # Decode kernel (Triton)
+│   ├── chunk.py              # Prefill kernel (chunk-parallel)
+│   ├── chunk_delta_h.py      # Hidden state propagation
+│   ├── chunk_o.py            # Output computation
+│   ├── chunk_scaled_dot_kkt.py
+│   ├── cumsum.py             # Chunk-local cumsum
+│   ├── l2norm.py             # QK normalization
+│   ├── solve_tril.py         # Triangular solve
+│   └── wy_fast.py            # WY representation
+```
 
 ---
 
@@ -73,6 +143,7 @@
 - **DeepSeek-V3**: Flash MLA, Fused MoE, Q/KV RMSNorm, Router GEMM, Fused Add+RMSNorm
 - **Qwen3-30B-A3B**: Grouped GEMM, Sparse Attention
 - **Gemma-2-9B**: RMSNorm variants
+- **GLA/Falcon-H1**: Flash Linear Attention (Gated Delta Rule)
 
 ### 测试场景
 | 场景 | Batch/SeqLen 范围 | 用途 |
@@ -109,6 +180,7 @@
 | FlashAttention GQA | Llama-3.1-8B | 32 | 0.008-0.012 ms | 0.026-0.028 ms | - |
 | Flash MLA | DeepSeek-V3 | 128 | 0.021-0.037 ms | - | 1.2-2.4 ms |
 | Sparse Attention | Qwen3 | - | 0.015 ms | 0.12 ms | 0.48 ms |
+| Flash Linear Attention | GLA/Falcon-H1 | 16 | 0.008-0.011 ms | 0.055 ms | 0.15 ms |
 
 ### MoE 性能
 | 算子 | 场景 | 时间 (ms) | 备注 |
@@ -150,14 +222,16 @@ baseline/
 │   ├── attention/
 │   │   ├── flashattention_gqa_h32_kv4_d128.yaml  # GQA (11)
 │   │   ├── sparse_attention.yaml                 # Sparse (6)
-│   │   └── flash_mla.yaml                        # MLA (9) ⭐ 修复
+│   │   ├── flash_mla.yaml                        # MLA (9) ⭐ 修复
+│   │   └── flash_linear_attention.yaml           # GLA (9) ⭐ 新增
 │   └── model/moe/
 │       └── fused_moe_deepseek_v3.yaml            # MoE (8)
 └── operators/
     ├── gemm/
     ├── norm/
     ├── attention/
-    │   └── flash_mla.py             # ⭐ 修复 causal mask 逻辑
+    │   ├── flash_mla.py             # ⭐ 修复 causal mask 逻辑
+    │   └── flash_linear_attention.py # ⭐ 新增, vLLM Triton kernel
     └── moe/
         └── fused_moe.py
 ```
@@ -201,6 +275,6 @@ baseline/
 
 ---
 
-**生成时间**: 2026-08-11 05:15:00  
-**报告版本**: 3.0 (FlashInfer 迁移完成版)  
-**迁移状态**: ✅ Phase 1 + Phase 2 全部完成 (16/16 算子, 100% 通过率)
+**生成时间**: 2026-08-11 07:42:00  
+**报告版本**: 3.1 (新增 Flash Linear Attention)  
+**迁移状态**: ✅ Phase 1 + Phase 2 全部完成 (17/17 算子, 100% 通过率)

@@ -1,0 +1,519 @@
+{
+  "platform": "NVIDIA NVIDIA H20",
+  "backend": "nvidia",
+  "timestamp": "2026-08-11T13:34:15",
+  "env": {
+    "python": "3.12.13",
+    "os": "Linux",
+    "os_version": "5.15.0-88-generic",
+    "hostname": "80aa0bcc1075",
+    "pytorch": "2.11.0+cu130",
+    "cuda_available": true,
+    "cuda_version": "13.0",
+    "cudnn_version": "91900",
+    "gpu_count": 1,
+    "gpu_model": "NVIDIA H20",
+    "gpu_memory_gb": 95.1,
+    "driver": "610.43.02",
+    "vllm": "0.26.0",
+    "triton": "3.6.0"
+  },
+  "total_operators": 1,
+  "total_scenarios": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_decode_b1",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 1,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=1",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000004,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.034,
+          "median_ms": 0.0334,
+          "min_ms": 0.0327,
+          "max_ms": 0.0529,
+          "p99_ms": 0.0529,
+          "std_ms": 0.0023
+        },
+        "wall_time": {
+          "mean_ms": 0.0311,
+          "median_ms": 0.031,
+          "min_ms": 0.0303,
+          "max_ms": 0.0334,
+          "p99_ms": 0.0334,
+          "std_ms": 0.0005
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_decode_b2",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 2,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=2",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000006,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0355,
+          "median_ms": 0.0332,
+          "min_ms": 0.0321,
+          "max_ms": 0.0521,
+          "p99_ms": 0.0521,
+          "std_ms": 0.005
+        },
+        "wall_time": {
+          "mean_ms": 0.0317,
+          "median_ms": 0.0315,
+          "min_ms": 0.0311,
+          "max_ms": 0.0398,
+          "p99_ms": 0.0398,
+          "std_ms": 0.0011
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_decode_b4",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 4,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=4",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999992,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0342,
+          "median_ms": 0.0325,
+          "min_ms": 0.032,
+          "max_ms": 0.0547,
+          "p99_ms": 0.0547,
+          "std_ms": 0.0049
+        },
+        "wall_time": {
+          "mean_ms": 0.0322,
+          "median_ms": 0.0319,
+          "min_ms": 0.0312,
+          "max_ms": 0.0441,
+          "p99_ms": 0.0441,
+          "std_ms": 0.0015
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_decode_b8",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 8,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=8",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.99999,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0341,
+          "median_ms": 0.0338,
+          "min_ms": 0.0327,
+          "max_ms": 0.0439,
+          "p99_ms": 0.0439,
+          "std_ms": 0.0014
+        },
+        "wall_time": {
+          "mean_ms": 0.0336,
+          "median_ms": 0.0333,
+          "min_ms": 0.0323,
+          "max_ms": 0.0403,
+          "p99_ms": 0.0403,
+          "std_ms": 0.0012
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_decode_b16",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 16,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=16",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999953,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0342,
+          "median_ms": 0.034,
+          "min_ms": 0.033,
+          "max_ms": 0.041,
+          "p99_ms": 0.041,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.0339,
+          "median_ms": 0.0337,
+          "min_ms": 0.0328,
+          "max_ms": 0.0379,
+          "p99_ms": 0.0379,
+          "std_ms": 0.0008
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_decode_b32",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 32,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=32",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "decode"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999939,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.035,
+          "median_ms": 0.0347,
+          "min_ms": 0.0334,
+          "max_ms": 0.0414,
+          "p99_ms": 0.0414,
+          "std_ms": 0.0013
+        },
+        "wall_time": {
+          "mean_ms": 0.037,
+          "median_ms": 0.0368,
+          "min_ms": 0.0359,
+          "max_ms": 0.0394,
+          "p99_ms": 0.0394,
+          "std_ms": 0.0007
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_prefill_b64",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 64,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=64",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999894,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0395,
+          "median_ms": 0.0392,
+          "min_ms": 0.0382,
+          "max_ms": 0.0452,
+          "p99_ms": 0.0452,
+          "std_ms": 0.0011
+        },
+        "wall_time": {
+          "mean_ms": 0.0423,
+          "median_ms": 0.0422,
+          "min_ms": 0.0412,
+          "max_ms": 0.0443,
+          "p99_ms": 0.0443,
+          "std_ms": 0.0006
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_prefill_b128",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 128,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=128",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 0.999858,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0485,
+          "median_ms": 0.0482,
+          "min_ms": 0.0476,
+          "max_ms": 0.0563,
+          "p99_ms": 0.0563,
+          "std_ms": 0.0013
+        },
+        "wall_time": {
+          "mean_ms": 0.0513,
+          "median_ms": 0.0513,
+          "min_ms": 0.0507,
+          "max_ms": 0.0562,
+          "p99_ms": 0.0562,
+          "std_ms": 0.0006
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_prefill_b256",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 256,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=256",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000137,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0698,
+          "median_ms": 0.0697,
+          "min_ms": 0.069,
+          "max_ms": 0.0763,
+          "p99_ms": 0.0763,
+          "std_ms": 0.0009
+        },
+        "wall_time": {
+          "mean_ms": 0.0726,
+          "median_ms": 0.0725,
+          "min_ms": 0.072,
+          "max_ms": 0.0776,
+          "p99_ms": 0.0776,
+          "std_ms": 0.0007
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_prefill_b512",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 512,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=512",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.000721,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1162,
+          "median_ms": 0.1147,
+          "min_ms": 0.1134,
+          "max_ms": 0.2497,
+          "p99_ms": 0.2497,
+          "std_ms": 0.0135
+        },
+        "wall_time": {
+          "mean_ms": 0.1186,
+          "median_ms": 0.1182,
+          "min_ms": 0.1175,
+          "max_ms": 0.1249,
+          "p99_ms": 0.1249,
+          "std_ms": 0.0013
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_prefill_b1024",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 1024,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=1024",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.003532,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2009,
+          "median_ms": 0.2008,
+          "min_ms": 0.1998,
+          "max_ms": 0.2057,
+          "p99_ms": 0.2057,
+          "std_ms": 0.0008
+        },
+        "wall_time": {
+          "mean_ms": 0.2044,
+          "median_ms": 0.2043,
+          "min_ms": 0.2031,
+          "max_ms": 0.2064,
+          "p99_ms": 0.2064,
+          "std_ms": 0.0006
+        }
+      }
+    },
+    {
+      "operator": "topk_selector",
+      "scenario": "llama31_8b_topp_prefill_b2048",
+      "params": {
+        "vocab_size": 128256,
+        "p": 0.9,
+        "dtype": "bf16",
+        "num_experts": 8,
+        "hidden_size": 4096,
+        "k": 8,
+        "num_tokens": 2048,
+        "source": "FlashInfer-Trace, Llama-3.1-8B, top-p sampling, batch=2048",
+        "model": "meta-llama/Llama-3.1-8B",
+        "phase": "prefill"
+      },
+      "accuracy": {
+        "passed": true,
+        "max_abs_error": 0.0,
+        "max_rel_error": 0.0,
+        "cosine_similarity": 1.010412,
+        "tolerance": 0.01
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3726,
+          "median_ms": 0.3721,
+          "min_ms": 0.3706,
+          "max_ms": 0.388,
+          "p99_ms": 0.388,
+          "std_ms": 0.0023
+        },
+        "wall_time": {
+          "mean_ms": 0.3758,
+          "median_ms": 0.3755,
+          "min_ms": 0.3742,
+          "max_ms": 0.3862,
+          "p99_ms": 0.3862,
+          "std_ms": 0.0015
+        }
+      }
+    }
+  ]
+}
