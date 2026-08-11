@@ -1,17 +1,14 @@
-name: fused_moe
-backend: nvidia
-platform: nvidia_h20
+operator: fused_moe
+level: model
+warmup: 10
+iters: 50
 
-definition:
-  const_axes:
-    hidden_size: 4096  # Mixtral-8x7B
-    expert_size: 14336  # FFN intermediate size
-    num_experts: 8
-    top_k: 2
-  var_axes:
-    - num_tokens
-  params:
-    dtype: bf16
+const_axes:
+  hidden_size: 4096  # Mixtral-8x7B
+  expert_size: 14336  # FFN intermediate size
+  num_experts: 8
+  top_k: 2
+  dtype: bf16
 
 workloads:
   # Decode 场景

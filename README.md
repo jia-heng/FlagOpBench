@@ -71,8 +71,8 @@ cat PROGRESS.md
 # 查看回归测试报告
 cat baseline/REGRESSION_REPORT.md
 
-# 查看 FlashInfer 执行计划
-cat FlashInfer复用执行计划.md
+# 查看 FlashInfer 执行计划(已归档)
+cat docs/archive/FlashInfer复用执行计划.md
 ```
 
 ---
@@ -302,7 +302,7 @@ result = torch.einsum('enh,ne->nh', expert_outputs, weights)
 
 ### 核心文档 ⭐⭐⭐
 - [`PROGRESS.md`](PROGRESS.md) - **项目当前进展和下一步计划** ⭐⭐⭐
-- [`FlashInfer复用执行计划.md`](FlashInfer复用执行计划.md) - FlashInfer workload 迁移计划 ⭐⭐⭐
+- [`docs/archive/FlashInfer复用执行计划.md`](docs/archive/FlashInfer复用执行计划.md) - FlashInfer workload 迁移计划(已归档)
 - [`baseline/REGRESSION_REPORT.md`](baseline/REGRESSION_REPORT.md) - 回归测试详细报告 ⭐⭐⭐
 - [`Definition与Workload设计规范.md`](Definition与Workload设计规范.md) - **Definition/Workload 模式** ⭐⭐
 - [`55算子FlashInfer映射表.md`](55算子FlashInfer映射表.md) - 算子与 FlashInfer 映射关系 ⭐⭐
@@ -477,9 +477,6 @@ python baseline/run.py run --backend nvidia \
 ### 快速帮助
 
 ```bash
-# 查看所有命令
-./快速参考.sh
-
 # 查看 CLI 帮助
 python baseline/run.py --help
 ```
@@ -488,7 +485,7 @@ python baseline/run.py --help
 
 - 🚀 快速开始: 本 README
 - 📊 当前进展: [`PROGRESS.md`](PROGRESS.md) - **推荐首先阅读**
-- 📋 执行计划: [`FlashInfer复用执行计划.md`](FlashInfer复用执行计划.md)
+- 📋 执行计划: [`docs/archive/FlashInfer复用执行计划.md`](docs/archive/FlashInfer复用执行计划.md)(已归档)
 - 📈 回归测试: [`baseline/REGRESSION_REPORT.md`](baseline/REGRESSION_REPORT.md)
 - 🔧 设计规范: [`Definition与Workload设计规范.md`](Definition与Workload设计规范.md)
 - 📚 历史文档: [`docs/archive/`](docs/archive/)
