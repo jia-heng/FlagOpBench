@@ -1,0 +1,77 @@
+operator: paged_attention_decode
+description: PAGED_ATTENTION_DECODE - Traced from qwen3.8_27b
+source: traced
+definition:
+  const_axes:
+    dtype: bf16
+  var_axes:
+    batch:
+    - 1
+    - 4
+    - 8
+    - 16
+    - 32
+    - 64
+    num_qo_heads:
+    - 24
+    num_kv_heads:
+    - 4
+    head_dim:
+    - 256
+    kv_len:
+    - 2048
+workloads:
+- name: qwen3.8_27b_decode_1
+  batch: 1
+  num_qo_heads: 24
+  num_kv_heads: 4
+  head_dim: 256
+  kv_len: 2048
+  dtype: bf16
+  phase: decode
+  source: qwen3.8_27b/full_attn/attention_decode
+- name: qwen3.8_27b_decode_2
+  batch: 4
+  num_qo_heads: 24
+  num_kv_heads: 4
+  head_dim: 256
+  kv_len: 2048
+  dtype: bf16
+  phase: decode
+  source: qwen3.8_27b/full_attn/attention_decode
+- name: qwen3.8_27b_decode_3
+  batch: 8
+  num_qo_heads: 24
+  num_kv_heads: 4
+  head_dim: 256
+  kv_len: 2048
+  dtype: bf16
+  phase: decode
+  source: qwen3.8_27b/full_attn/attention_decode
+- name: qwen3.8_27b_decode_4
+  batch: 16
+  num_qo_heads: 24
+  num_kv_heads: 4
+  head_dim: 256
+  kv_len: 2048
+  dtype: bf16
+  phase: decode
+  source: qwen3.8_27b/full_attn/attention_decode
+- name: qwen3.8_27b_decode_5
+  batch: 32
+  num_qo_heads: 24
+  num_kv_heads: 4
+  head_dim: 256
+  kv_len: 2048
+  dtype: bf16
+  phase: decode
+  source: qwen3.8_27b/full_attn/attention_decode
+- name: qwen3.8_27b_decode_6
+  batch: 64
+  num_qo_heads: 24
+  num_kv_heads: 4
+  head_dim: 256
+  kv_len: 2048
+  dtype: bf16
+  phase: decode
+  source: qwen3.8_27b/full_attn/attention_decode

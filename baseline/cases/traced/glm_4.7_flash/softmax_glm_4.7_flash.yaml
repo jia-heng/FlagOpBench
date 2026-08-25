@@ -1,0 +1,102 @@
+operator: softmax
+description: SOFTMAX - Traced from glm_4.7_flash
+source: traced
+definition:
+  const_axes:
+    dtype: bf16
+  var_axes:
+    M:
+    - 1
+    - 4
+    - 8
+    - 16
+    - 32
+    - 64
+    - 128
+    - 256
+    - 512
+    - 1024
+    - 2048
+    - 4096
+    - 8192
+    N:
+    - 64
+workloads:
+- name: glm_4.7_flash_decode_1
+  M: 1
+  N: 64
+  dtype: bf16
+  phase: decode
+  source: glm_4.7_flash/moe_softmax/decode
+- name: glm_4.7_flash_decode_2
+  M: 4
+  N: 64
+  dtype: bf16
+  phase: decode
+  source: glm_4.7_flash/moe_softmax/decode
+- name: glm_4.7_flash_decode_3
+  M: 8
+  N: 64
+  dtype: bf16
+  phase: decode
+  source: glm_4.7_flash/moe_softmax/decode
+- name: glm_4.7_flash_decode_4
+  M: 16
+  N: 64
+  dtype: bf16
+  phase: decode
+  source: glm_4.7_flash/moe_softmax/decode
+- name: glm_4.7_flash_decode_5
+  M: 32
+  N: 64
+  dtype: bf16
+  phase: decode
+  source: glm_4.7_flash/moe_softmax/decode
+- name: glm_4.7_flash_decode_6
+  M: 64
+  N: 64
+  dtype: bf16
+  phase: decode
+  source: glm_4.7_flash/moe_softmax/decode
+- name: glm_4.7_flash_prefill_7
+  M: 128
+  N: 64
+  dtype: bf16
+  phase: prefill
+  source: glm_4.7_flash/moe_softmax/prefill
+- name: glm_4.7_flash_prefill_8
+  M: 256
+  N: 64
+  dtype: bf16
+  phase: prefill
+  source: glm_4.7_flash/moe_softmax/prefill
+- name: glm_4.7_flash_prefill_9
+  M: 512
+  N: 64
+  dtype: bf16
+  phase: prefill
+  source: glm_4.7_flash/moe_softmax/prefill
+- name: glm_4.7_flash_prefill_10
+  M: 1024
+  N: 64
+  dtype: bf16
+  phase: prefill
+  source: glm_4.7_flash/moe_softmax/prefill
+- name: glm_4.7_flash_prefill_11
+  M: 2048
+  N: 64
+  dtype: bf16
+  phase: prefill
+  source: glm_4.7_flash/moe_softmax/prefill
+- name: glm_4.7_flash_prefill_12
+  M: 4096
+  N: 64
+  dtype: bf16
+  phase: prefill
+  source: glm_4.7_flash/moe_softmax/prefill
+- name: glm_4.7_flash_prefill_13
+  M: 8192
+  N: 64
+  dtype: bf16
+  phase: prefill
+  source: glm_4.7_flash/moe_softmax/prefill

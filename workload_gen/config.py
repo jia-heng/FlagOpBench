@@ -31,24 +31,44 @@ class ModelConfig:
     num_experts_per_tok: Optional[int] = None
     moe_intermediate_size: Optional[int] = None
 
-    # MLA 参数（可选，DeepSeek-V3）
+    # MLA 参数（可选，DeepSeek-V4 / GLM / Kimi）
     q_lora_rank: Optional[int] = None
     kv_lora_rank: Optional[int] = None
     qk_rope_head_dim: Optional[int] = None
     v_head_dim: Optional[int] = None
+
+    # Hybrid Attention 参数（可选，Qwen3.5/3.6）
+    full_attention_interval: int = 1  # 1 = 全部 full attention
+    head_dim_override: Optional[int] = None  # 显式 head_dim (如 Qwen 用 256)
+
+    # Shared Expert（MoE 模型可选）
+    n_shared_experts: int = 0
+    shared_expert_intermediate_size: Optional[int] = None
 
     # 其他
     rms_norm_eps: float = 1e-6
 
     @classmethod
     def from_json(cls, path: str) -> "ModelConfig":
-        """从 JSON 配置文件加载"""
+        """从 JSON 配置文件加载
+
+        支持两种格式：
+        1. 平铺格式（Llama/DeepSeek）：所有字段在顶层
+        2. 嵌套格式（Qwen3.5/Gemma4/Kimi）：核心参数在 text_config 下
+        """
         with open(path) as f:
-            data = json.load(f)
+            raw = json.load(f)
+
+        # 处理嵌套结构：text_config 优先
+        data = raw.get("text_config", raw)
+
+        # model_type 和 model_name 始终从顶层取
+        model_type = raw.get("model_type", data.get("model_type", "llama"))
+        model_name = raw.get("model_name", Path(path).stem)
 
         return cls(
-            model_name=data.get("model_name", Path(path).stem),
-            model_type=data.get("model_type", "llama"),
+            model_name=model_name,
+            model_type=model_type,
             hidden_size=data["hidden_size"],
             num_attention_heads=data["num_attention_heads"],
             num_key_value_heads=data.get("num_key_value_heads", data["num_attention_heads"]),
@@ -57,19 +77,30 @@ class ModelConfig:
             vocab_size=data.get("vocab_size", 32000),
             rope_theta=data.get("rope_theta", 10000.0),
             max_position_embeddings=data.get("max_position_embeddings", 4096),
-            num_experts=data.get("num_experts"),
+            # MoE 参数（兼容不同命名）
+            num_experts=data.get("num_experts") or data.get("n_routed_experts"),
             num_experts_per_tok=data.get("num_experts_per_tok"),
             moe_intermediate_size=data.get("moe_intermediate_size"),
+            # MLA 参数
             q_lora_rank=data.get("q_lora_rank"),
             kv_lora_rank=data.get("kv_lora_rank"),
             qk_rope_head_dim=data.get("qk_rope_head_dim"),
-            v_head_dim=data.get("v_head_dim"),
+            v_head_dim=data.get("v_head_dim") or data.get("head_dim"),
+            # Hybrid Attention
+            full_attention_interval=data.get("full_attention_interval", 1),
+            head_dim_override=data.get("head_dim"),
+            # Shared Expert
+            n_shared_experts=data.get("n_shared_experts", 0),
+            shared_expert_intermediate_size=data.get("shared_expert_intermediate_size"),
+            # 其他
             rms_norm_eps=data.get("rms_norm_eps", 1e-6),
         )
 
     @property
     def head_dim(self) -> int:
         """计算 head dimension"""
+        if self.head_dim_override:
+            return self.head_dim_override
         return self.hidden_size // self.num_attention_heads
 
     @property
@@ -79,7 +110,7 @@ class ModelConfig:
 
     @property
     def is_mla(self) -> bool:
-        """判断是否为 MLA 架构（DeepSeek-V3）"""
+        """判断是否为 MLA 架构"""
         return self.q_lora_rank is not None
 
 

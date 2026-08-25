@@ -1,0 +1,102 @@
+operator: softmax
+description: SOFTMAX - Traced from kimi_k2.6
+source: traced
+definition:
+  const_axes:
+    dtype: bf16
+  var_axes:
+    M:
+    - 1
+    - 4
+    - 8
+    - 16
+    - 32
+    - 64
+    - 128
+    - 256
+    - 512
+    - 1024
+    - 2048
+    - 4096
+    - 8192
+    N:
+    - 384
+workloads:
+- name: kimi_k2.6_decode_1
+  M: 1
+  N: 384
+  dtype: bf16
+  phase: decode
+  source: kimi_k2.6/moe_softmax/decode
+- name: kimi_k2.6_decode_2
+  M: 4
+  N: 384
+  dtype: bf16
+  phase: decode
+  source: kimi_k2.6/moe_softmax/decode
+- name: kimi_k2.6_decode_3
+  M: 8
+  N: 384
+  dtype: bf16
+  phase: decode
+  source: kimi_k2.6/moe_softmax/decode
+- name: kimi_k2.6_decode_4
+  M: 16
+  N: 384
+  dtype: bf16
+  phase: decode
+  source: kimi_k2.6/moe_softmax/decode
+- name: kimi_k2.6_decode_5
+  M: 32
+  N: 384
+  dtype: bf16
+  phase: decode
+  source: kimi_k2.6/moe_softmax/decode
+- name: kimi_k2.6_decode_6
+  M: 64
+  N: 384
+  dtype: bf16
+  phase: decode
+  source: kimi_k2.6/moe_softmax/decode
+- name: kimi_k2.6_prefill_7
+  M: 128
+  N: 384
+  dtype: bf16
+  phase: prefill
+  source: kimi_k2.6/moe_softmax/prefill
+- name: kimi_k2.6_prefill_8
+  M: 256
+  N: 384
+  dtype: bf16
+  phase: prefill
+  source: kimi_k2.6/moe_softmax/prefill
+- name: kimi_k2.6_prefill_9
+  M: 512
+  N: 384
+  dtype: bf16
+  phase: prefill
+  source: kimi_k2.6/moe_softmax/prefill
+- name: kimi_k2.6_prefill_10
+  M: 1024
+  N: 384
+  dtype: bf16
+  phase: prefill
+  source: kimi_k2.6/moe_softmax/prefill
+- name: kimi_k2.6_prefill_11
+  M: 2048
+  N: 384
+  dtype: bf16
+  phase: prefill
+  source: kimi_k2.6/moe_softmax/prefill
+- name: kimi_k2.6_prefill_12
+  M: 4096
+  N: 384
+  dtype: bf16
+  phase: prefill
+  source: kimi_k2.6/moe_softmax/prefill
+- name: kimi_k2.6_prefill_13
+  M: 8192
+  N: 384
+  dtype: bf16
+  phase: prefill
+  source: kimi_k2.6/moe_softmax/prefill
