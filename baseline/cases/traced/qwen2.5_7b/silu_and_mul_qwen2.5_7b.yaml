@@ -1,0 +1,102 @@
+operator: silu_and_mul
+description: SILU_AND_MUL - Traced from qwen2.5_7b
+source: traced
+definition:
+  const_axes:
+    dtype: bf16
+  var_axes:
+    M:
+    - 1
+    - 4
+    - 8
+    - 16
+    - 32
+    - 64
+    - 128
+    - 256
+    - 512
+    - 1024
+    - 2048
+    - 4096
+    - 8192
+    N:
+    - 18944
+workloads:
+- name: qwen2.5_7b_decode_1
+  M: 1
+  N: 18944
+  dtype: bf16
+  phase: decode
+  source: qwen2.5_7b/silu_and_mul/decode
+- name: qwen2.5_7b_decode_2
+  M: 4
+  N: 18944
+  dtype: bf16
+  phase: decode
+  source: qwen2.5_7b/silu_and_mul/decode
+- name: qwen2.5_7b_decode_3
+  M: 8
+  N: 18944
+  dtype: bf16
+  phase: decode
+  source: qwen2.5_7b/silu_and_mul/decode
+- name: qwen2.5_7b_decode_4
+  M: 16
+  N: 18944
+  dtype: bf16
+  phase: decode
+  source: qwen2.5_7b/silu_and_mul/decode
+- name: qwen2.5_7b_decode_5
+  M: 32
+  N: 18944
+  dtype: bf16
+  phase: decode
+  source: qwen2.5_7b/silu_and_mul/decode
+- name: qwen2.5_7b_decode_6
+  M: 64
+  N: 18944
+  dtype: bf16
+  phase: decode
+  source: qwen2.5_7b/silu_and_mul/decode
+- name: qwen2.5_7b_prefill_7
+  M: 128
+  N: 18944
+  dtype: bf16
+  phase: prefill
+  source: qwen2.5_7b/silu_and_mul/prefill
+- name: qwen2.5_7b_prefill_8
+  M: 256
+  N: 18944
+  dtype: bf16
+  phase: prefill
+  source: qwen2.5_7b/silu_and_mul/prefill
+- name: qwen2.5_7b_prefill_9
+  M: 512
+  N: 18944
+  dtype: bf16
+  phase: prefill
+  source: qwen2.5_7b/silu_and_mul/prefill
+- name: qwen2.5_7b_prefill_10
+  M: 1024
+  N: 18944
+  dtype: bf16
+  phase: prefill
+  source: qwen2.5_7b/silu_and_mul/prefill
+- name: qwen2.5_7b_prefill_11
+  M: 2048
+  N: 18944
+  dtype: bf16
+  phase: prefill
+  source: qwen2.5_7b/silu_and_mul/prefill
+- name: qwen2.5_7b_prefill_12
+  M: 4096
+  N: 18944
+  dtype: bf16
+  phase: prefill
+  source: qwen2.5_7b/silu_and_mul/prefill
+- name: qwen2.5_7b_prefill_13
+  M: 8192
+  N: 18944
+  dtype: bf16
+  phase: prefill
+  source: qwen2.5_7b/silu_and_mul/prefill

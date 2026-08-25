@@ -1,0 +1,86 @@
+operator: flash_attention
+description: FLASH_ATTENTION - Traced from qwen2.5_7b
+source: traced
+definition:
+  const_axes:
+    dtype: bf16
+    causal: true
+  var_axes:
+    batch:
+    - 1
+    seq_len:
+    - 128
+    - 256
+    - 512
+    - 1024
+    - 2048
+    - 4096
+    - 8192
+    num_heads:
+    - 28
+    head_dim:
+    - 128
+workloads:
+- name: qwen2.5_7b_prefill_1
+  batch: 1
+  seq_len: 128
+  num_heads: 28
+  head_dim: 128
+  dtype: bf16
+  causal: true
+  phase: prefill
+  source: qwen2.5_7b/attention_prefill
+- name: qwen2.5_7b_prefill_2
+  batch: 1
+  seq_len: 256
+  num_heads: 28
+  head_dim: 128
+  dtype: bf16
+  causal: true
+  phase: prefill
+  source: qwen2.5_7b/attention_prefill
+- name: qwen2.5_7b_prefill_3
+  batch: 1
+  seq_len: 512
+  num_heads: 28
+  head_dim: 128
+  dtype: bf16
+  causal: true
+  phase: prefill
+  source: qwen2.5_7b/attention_prefill
+- name: qwen2.5_7b_prefill_4
+  batch: 1
+  seq_len: 1024
+  num_heads: 28
+  head_dim: 128
+  dtype: bf16
+  causal: true
+  phase: prefill
+  source: qwen2.5_7b/attention_prefill
+- name: qwen2.5_7b_prefill_5
+  batch: 1
+  seq_len: 2048
+  num_heads: 28
+  head_dim: 128
+  dtype: bf16
+  causal: true
+  phase: prefill
+  source: qwen2.5_7b/attention_prefill
+- name: qwen2.5_7b_prefill_6
+  batch: 1
+  seq_len: 4096
+  num_heads: 28
+  head_dim: 128
+  dtype: bf16
+  causal: true
+  phase: prefill
+  source: qwen2.5_7b/attention_prefill
+- name: qwen2.5_7b_prefill_7
+  batch: 1
+  seq_len: 8192
+  num_heads: 28
+  head_dim: 128
+  dtype: bf16
+  causal: true
+  phase: prefill
+  source: qwen2.5_7b/attention_prefill
