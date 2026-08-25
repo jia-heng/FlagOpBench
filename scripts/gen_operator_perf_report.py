@@ -4,16 +4,20 @@ Aggregate FlagOpBench operator performance reports into a CSV.
 
 Reads all per-operator JSON reports under the results directory (e.g. mm.json,
 grouped_matmul.json, add_rmsnorm_bias.json) and flattens them into a single CSV
-with operator name, scenario, parameters, accuracy status, and timing metrics.
+with operator name, scenario, timing metrics, parameters, source and accuracy.
+
+The output filename includes platform and backend by default, e.g.:
+    operator_report_nvidia_h20.csv
 
 Usage:
     python gen_operator_perf_report.py
-    python gen_operator_perf_report.py --input-dir ../results --output ../results/operator_performance_report.csv
+    python gen_operator_perf_report.py --input-dir ../results --output ../results/my_report.csv
 """
 
 import argparse
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -22,10 +26,9 @@ def parse_args() -> argparse.Namespace:
     default_script_dir = Path(__file__).resolve().parent
     default_root = default_script_dir.parent
     default_input = default_root / "results"
-    default_output = default_root / "results" / "operator_performance_report.csv"
 
     parser = argparse.ArgumentParser(
-        description="Aggregate FlagOpBench baseline regression JSON reports into CSV."
+        description="Aggregate FlagOpBench operator performance JSON reports into CSV."
     )
     parser.add_argument(
         "--input-dir",
@@ -36,13 +39,35 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=default_output,
-        help="Output CSV path (default: ../results/operator_performance_report.csv).",
+        default=None,
+        help="Output CSV path (default: ../results/operator_report_<platform>_<backend>.csv).",
     )
     return parser.parse_args()
 
 
-def flatten_regression(data: dict, result: dict) -> dict:
+def slugify(text: str) -> str:
+    """Convert a platform/backend string to a safe filename token."""
+    text = text.lower().strip()
+    text = re.sub(r"[^a-z0-9]+", "_", text)
+    text = re.sub(r"_+", "_", text)
+    return text.strip("_")
+
+
+def extract_gpu_name(platform: str, backend: str) -> str:
+    """Extract a short GPU identifier from the platform string.
+
+    Examples:
+        platform='NVIDIA NVIDIA H20', backend='nvidia' -> 'H20'
+        platform='NVIDIA H100', backend='nvidia'       -> 'H100'
+    """
+    clean = platform
+    if platform.lower().startswith(backend.lower()):
+        clean = platform[len(backend):].strip()
+    parts = clean.split()
+    return parts[-1] if parts else clean
+
+
+def flatten_regression(result: dict) -> dict:
     """Flatten one JSON result object into a CSV row."""
     params = result.get("params", {})
     perf = result.get("performance", {})
@@ -51,29 +76,13 @@ def flatten_regression(data: dict, result: dict) -> dict:
     accuracy = result.get("accuracy", {})
 
     return {
-        "platform": data.get("platform", ""),
-        "backend": data.get("backend", ""),
-        "timestamp": data.get("timestamp", ""),
         "operator": result.get("operator", ""),
         "scenario": result.get("scenario", ""),
-        "phase": params.get("phase", ""),
-        "M": params.get("M", ""),
-        "N": params.get("N", ""),
-        "K": params.get("K", ""),
-        "num_tokens": params.get("num_tokens", ""),
-        "hidden_size": params.get("hidden_size", ""),
-        "eps": params.get("eps", ""),
-        "dtype": params.get("dtype", ""),
-        "source": params.get("source", ""),
         "device_time_mean_ms": device_time.get("mean_ms", ""),
-        "device_time_median_ms": device_time.get("median_ms", ""),
-        "device_time_min_ms": device_time.get("min_ms", ""),
-        "device_time_max_ms": device_time.get("max_ms", ""),
-        "device_time_p99_ms": device_time.get("p99_ms", ""),
-        "device_time_std_ms": device_time.get("std_ms", ""),
         "wall_time_mean_ms": wall_time.get("mean_ms", ""),
+        "params_json": json.dumps(params, ensure_ascii=False, separators=(",", ":")),
+        "source": params.get("source", ""),
         "accuracy_passed": accuracy.get("passed", ""),
-        "error": result.get("error", ""),
     }
 
 
@@ -108,12 +117,14 @@ def main() -> int:
 
     rows = []
     skipped_files = []
+    platform_backend_pairs = set()
     for f in report_files:
         try:
             with f.open("r", encoding="utf-8") as fp:
                 data = json.load(fp)
+            platform_backend_pairs.add((data.get("platform", "unknown"), data.get("backend", "unknown")))
             for r in data.get("results", []):
-                rows.append(flatten_regression(data, r))
+                rows.append(flatten_regression(r))
         except (json.JSONDecodeError, OSError) as e:
             skipped_files.append((f.name, str(e)))
             continue
@@ -124,12 +135,19 @@ def main() -> int:
             print(f"  {name}: {err}", file=sys.stderr)
 
     fieldnames = [
-        "platform", "backend", "timestamp", "operator", "scenario",
-        "phase", "M", "N", "K", "num_tokens", "hidden_size", "eps", "dtype", "source",
-        "device_time_mean_ms", "device_time_median_ms", "device_time_min_ms",
-        "device_time_max_ms", "device_time_p99_ms", "device_time_std_ms",
-        "wall_time_mean_ms", "accuracy_passed", "error",
+        "operator", "scenario", "device_time_mean_ms", "wall_time_mean_ms",
+        "params_json", "source", "accuracy_passed",
     ]
+
+    if args.output is None:
+        # Derive default filename from backend and GPU model.
+        if len(platform_backend_pairs) == 1:
+            platform, backend = platform_backend_pairs.pop()
+        else:
+            platform, backend = "unknown", "unknown"
+        gpu = extract_gpu_name(platform, backend)
+        filename = f"operator_report_{slugify(backend)}_{slugify(gpu)}.csv"
+        args.output = args.input_dir / filename
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w", newline="", encoding="utf-8") as fp:

@@ -1,0 +1,35 @@
+算子名,框架,厂商软硬件信息,测试用例来源
+add_rmsnorm_bias (Fused Add+RMSNorm),vllm_ops,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",DeepSeek-V3 (14 workloads)
+bmm (Batch matrix multiply),torch.bmm,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900","Llama-3.1-8B, DeepSeek-V3 (11 workloads)"
+causal_conv1d_decode (Causal 1D conv decode),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(4 workloads)
+causal_conv1d_prefill (Causal 1D conv prefill),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Mamba-2.8B (9 workloads)
+flash_linear_attention (Gated Delta Rule),vLLM Triton kernel,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",GLA (9 workloads)
+flash_mla (Flash MLA),PyTorch SDPA + Low-rank,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",DeepSeek-V3 (9 workloads)
+flashattention (FlashAttention GQA),F.scaled_dot_product_attention,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Qwen3-30B-A3B (11 workloads)
+fp8_einsum (FP8 einsum),torch.einsum,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",DeepSeek-V3 (9 workloads)
+fused_inv_rope_fp8_quant (Inverse RoPE + FP8 quant),vllm_ops,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900","DeepSeek-V3, Llama-3.1-8B (9 workloads)"
+fused_marlin_moe (Marlin MoE),vllm_ops,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",DeepSeek-V3 (12 workloads)
+fused_moe (FP8 MoE with routing),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",DeepSeek-V3 (8 workloads)
+fused_q_kv_rmsnorm (Q/KV RMSNorm),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",DeepSeek-V3 (14 workloads)
+gelu (Gelu),torch,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(5 workloads)
+gemm_w8a8 (W8A8 GEMM),torch.mm,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Llama-3.1-8B (9 workloads)
+gemma_rms_norm (Gemma RMSNorm),F.rms_norm,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Gemma-2-9B (14 workloads)
+grouped_matmul (Grouped GEMM (GQA)),torch.bmm,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Qwen3-30B-A3B (11 workloads)
+kv_rms_norm_rope_cache (KV cache RMSNorm + RoPE),vllm_ops,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900","Llama-3.1-8B, DeepSeek-V3 (9 workloads)"
+layernorm (Layer normalization),F.layer_norm,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(6 workloads)
+mm (GEMM NT/NN),torch.mm,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900","Qwen3-30B-A3B, Llama-3.1-8B, DeepSeek-V3 (13 workloads)"
+moe_align_block_size (MoE token alignment),vllm_ops,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900","Mixtral, DeepSeek-V3 (9 workloads)"
+moe_sum (MoE sum),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",DeepSeek-V3 (9 workloads)
+per_token_group_fp8_quant (Per-token group FP8 quant),vllm_ops,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(9 workloads)
+persistent_topk (Sampling operator),torch.topk,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Llama-3.1-8B (12 workloads)
+rms_norm (Standard normalization),F.rms_norm,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Llama-3.1-8B (15 workloads)
+rope (Positional encoding),vllm_ops.rotary_embedding,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(5 workloads)
+router_gemm_bf16_fp32 (Router GEMM),torch.mm (bf16→fp32),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(5 workloads)
+silu_and_mul (SiLU + Mul FFN),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(5 workloads)
+silu_and_mul_with_clamp (SiLU + Mul FFN with clamp),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Gemma-2-9B (9 workloads)
+sparse_attention (Block-sparse attention),F.scaled_dot_product_attention,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(6 workloads)
+swiglu (SwiGLU FFN),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Llama-3.1-8B (10 workloads)
+top_k_per_row_decode (Per-row sampling decode),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Llama-3.1-8B (8 workloads)
+top_k_per_row_prefill (Per-row sampling prefill),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Llama-3.1-8B (14 workloads)
+topk_selector (Top-K mask logits),torch.topk + gather,"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",Llama-3.1-8B (12 workloads)
+topk_softplus_sqrt (Top-P renorm),PyTorch (custom),"NVIDIA NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0; cuDNN 91900",(5 workloads)
