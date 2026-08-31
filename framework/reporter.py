@@ -111,7 +111,16 @@ class Reporter:
         elif self.platform == "ascend":
             env["cann_version"] = self._get_ascend_version()
             env["device_name"] = self._get_ascend_device_name()
-        elif self.platform in ("metax", "mthreads", "iluvatar"):
+        elif self.platform == "metax":
+            # 沐曦通过 torch.cuda 接口暴露设备
+            if torch.cuda.is_available():
+                env["device_name"] = torch.cuda.get_device_name(0)
+                env["device_count"] = torch.cuda.device_count()
+                props = torch.cuda.get_device_properties(0)
+                env["device_memory_gb"] = round(props.total_memory / (1024**3), 1)
+            else:
+                env["device_name"] = "metax device (torch.cuda unavailable)"
+        elif self.platform in ("mthreads", "iluvatar"):
             env["device_name"] = f"{self.platform} device (info pending)"
         else:
             env["device_name"] = "unknown"

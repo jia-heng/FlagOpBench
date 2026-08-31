@@ -1,28 +1,22 @@
-"""MetaX Provider (预留)
+"""MetaX Provider
 
-沐曦平台最优性能基线Provider。
-优先使用vllm-metax kernels，fallback到torch (torch_metax注册的aten ops)。
+沐曦平台性能基线Provider。
 
-后续在沐曦平台环境下继续开发。
+vllm-metax 是上游 vLLM 的 fork，模块路径与 NV 一致（vllm._custom_ops、
+vllm.model_executor.layers.* 等），因此直接复用 NvidiaProvider 的 impl_map
+与全部 _load_xxx 加载方法。NvidiaProvider.setup() 中每个子模块都是独立
+try/except，vllm-metax 未包含的模块会保持为 None，对应算子在 Runner 侧
+自动 [SKIP]，从而暴露该平台的算子覆盖缺口。
 """
-from typing import Tuple, Callable, Dict, Optional
-
 import torch
 
-from framework.base_operator import BaseOperator
-from .base_provider import BaseProvider
+from .nvidia_provider import NvidiaProvider
 from .registry import register_provider
 
 
 @register_provider("metax", platform="metax", is_default=True)
-class MetaxProvider(BaseProvider):
-    """沐曦平台算子实现加载器（vllm-metax优先，torch_metax fallback）
-
-    预留接口，后续在沐曦平台开发。
-    """
-
-    def __init__(self):
-        self._vllm = None
+class MetaxProvider(NvidiaProvider):
+    """沐曦平台算子实现加载器（vllm-metax 优先，torch fallback）"""
 
     @property
     def name(self) -> str:
@@ -33,41 +27,29 @@ class MetaxProvider(BaseProvider):
         return "metax"
 
     def get_device(self) -> torch.device:
-        return torch.device("cuda:0")  # metax 通常兼容 cuda 接口
+        # MACA 复用 torch.cuda 接口，设备选择由 MACA_VISIBLE_DEVICES 控制
+        return torch.device("cuda:0")
 
     def synchronize(self) -> None:
         torch.cuda.synchronize()
 
     def is_available(self) -> bool:
-        try:
-            import torch_metax
-            return True
-        except ImportError:
-            return False
+        # 沐曦 MACA 栈通过 torch.cuda 暴露设备，torch_metax 并非所有镜像都提供，
+        # 因此以 torch.cuda 是否可用为准。
+        return torch.cuda.is_available()
 
     def setup(self):
         try:
-            import torch_metax
-            print(f"  Loaded torch_metax")
-        except ImportError as e:
-            print(f"  [WARN] Failed to import torch_metax: {e}")
+            import torch_metax  # noqa: F401
+            print("  Loaded torch_metax")
+        except ImportError:
+            print("  [INFO] torch_metax not present, using torch.cuda interface")
 
-        try:
-            import vllm
-            self._vllm = vllm
-            print(f"  Loaded vllm-metax: {vllm.__version__}")
-        except ImportError as e:
-            print(f"  [WARN] Failed to import vllm (metax): {e}")
+        super().setup()
 
-    def get_impl(
-        self,
-        op_name: str,
-        operator: BaseOperator
-    ) -> Tuple[Optional[Callable], Dict[str, str]]:
-        """预留: 后续在沐曦平台实现"""
-        return None, {
-            "error": f"MetaxProvider: {op_name} not implemented yet."
-        }
-
-    def teardown(self):
-        pass
+    def get_impl(self, op_name, operator):
+        impl_fn, impl_info = super().get_impl(op_name, operator)
+        # source 沿用 NV 的模块路径命名，这里标注实际来源平台，避免报告中混淆
+        if impl_fn is not None:
+            impl_info = {**impl_info, "platform": "metax"}
+        return impl_fn, impl_info

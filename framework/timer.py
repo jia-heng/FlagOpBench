@@ -103,18 +103,13 @@ class AscendTimer(BaseTimer):
         )
 
 
-class MetaxTimer(BaseTimer):
-    """沐曦计时器（预留，后续在沐曦平台开发）"""
+class MetaxTimer(CudaTimer):
+    """沐曦计时器
 
-    def measure(
-        self,
-        fn: Callable,
-        inputs: Dict[str, Any],
-    ) -> TimingResult:
-        raise NotImplementedError(
-            "MetaxTimer: 需要在沐曦平台环境下实现，"
-            "使用 torch_metax 同步机制进行计时"
-        )
+    MACA 复用 torch.cuda 接口，torch.cuda.Event(enable_timing=True) 与
+    torch.cuda.synchronize() 在沐曦平台可用，因此计时逻辑与 CudaTimer 一致。
+    """
+    pass
 
 
 # 保持向后兼容: Timer 作为 CudaTimer 的别名
