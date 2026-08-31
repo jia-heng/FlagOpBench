@@ -157,8 +157,8 @@ def _load_swiglu(self):
 ## 文件清单
 
 - `providers/vllm_provider.py` - 完整实现 (470+ 行)
-- `Flagtests/OPERATOR_STATUS.md` - vLLM 对照表更新
-- `Flagtests/VLLM_PROVIDER_SUMMARY.md` - 本文档
+- `FlagOpBench/OPERATOR_STATUS.md` - vLLM 对照表更新
+- `FlagOpBench/VLLM_PROVIDER_SUMMARY.md` - 本文档
 
 ---
 

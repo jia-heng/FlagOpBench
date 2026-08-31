@@ -2,10 +2,10 @@
 
 ## 集成完成
 
-成功将 `flash_attn_varlen_func` 添加到 Flagtests 框架：
+成功将 `flash_attn_varlen_func` 添加到 FlagOpBench 框架：
 
 ### 1. 算子实现
-- **位置**：`Flagtests/operators/flash_attn_varlen_func/`
+- **位置**：`FlagOpBench/operators/flash_attn_varlen_func/`
 - **operator.py**：实现了 BaseOperator 接口
   - `prepare_inputs()`: 生成 q/k/v/cu_seqlens_q/cu_seqlens_k
   - `compute_flops()`: 计算注意力机制的理论 FLOPs

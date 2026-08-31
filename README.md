@@ -1,4 +1,4 @@
-# Flagtests — FlagOS 单算子性能测试框架
+# FlagOpBench — FlagOS 单算子性能测试框架
 
 对比 FlagOS 算子库（FlagGems-vllm / FlagAttention / FlagGems）与 vLLM 原生实现的单算子性能。
 在同一台 GPU 上，分别通过两个 provider 加载实现，跑相同 workload，生成 JSON 结果后做对比。
@@ -13,7 +13,7 @@
 ## 目录结构
 
 ```
-Flagtests/
+FlagOpBench/
 ├── run.py                  # 执行 benchmark
 ├── compare.py              # 对比结果，生成 compare JSON
 ├── gen_cases.py            # 从模型配置自动生成 workload YAML
@@ -54,7 +54,7 @@ Flagtests/
 ## 快速开始
 
 ```bash
-cd /data/jianheng/works/Flagos/Flagtests
+cd /data/jianheng/works/Flagos/FlagOpBench
 
 # 1. 生成 case（首次或模型/算子变动后执行）
 python gen_cases.py

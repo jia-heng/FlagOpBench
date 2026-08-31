@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Flagtests - 单算子性能测试CLI
+"""FlagOpBench - 单算子性能测试CLI
 
 Usage:
     # NV平台最优基线
@@ -138,7 +138,7 @@ def run_compare(platform, case_path, case_dir, warmup, repeat, output):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Flagtests - 单算子性能测试")
+    parser = argparse.ArgumentParser(description="FlagOpBench - 单算子性能测试")
 
     # 新用法参数
     parser.add_argument(

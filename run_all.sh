@@ -31,7 +31,7 @@ fi
 LOGFILE="results/run_all_${PLATFORM}.log"
 mkdir -p results
 
-echo "=== Flagtests Batch Run $(date) ===" > "$LOGFILE"
+echo "=== FlagOpBench Batch Run $(date) ===" > "$LOGFILE"
 echo "  Platform: $PLATFORM" | tee -a "$LOGFILE"
 echo "  Mode: $MODE" | tee -a "$LOGFILE"
 echo "" | tee -a "$LOGFILE"

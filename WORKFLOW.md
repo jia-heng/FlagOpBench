@@ -911,7 +911,7 @@ for c in comps[-5:]:
 ### 单算子流程
 
 ```bash
-cd /data/jianheng/works/Flagos/Flagtests
+cd /data/jianheng/works/Flagos/FlagOpBench
 
 # 1. 生成 case
 python gen_cases.py --operators your_op_name --merged
@@ -931,7 +931,7 @@ python scripts/gen_compare_result.py \
 ### 批量跑所有算子
 
 ```bash
-cd /data/jianheng/works/Flagos/Flagtests
+cd /data/jianheng/works/Flagos/FlagOpBench
 
 # 1. 生成所有算子的 case
 python gen_cases.py --operators all --merged

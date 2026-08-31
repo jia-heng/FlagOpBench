@@ -1,4 +1,4 @@
-# Flagtests 算子集成状态报告
+# FlagOpBench 算子集成状态报告
 
 ## 算子 Benchmark 进展总览
 
@@ -199,7 +199,7 @@ torch.ops._C.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert
 | gated_delta_rule_prefill | Gated Delta Rule prefill (Qwen3.5/GDN) | flag_attn 有实现，待接入 |
 | chunk_gated_delta_rule | Chunk Gated Delta Rule | flag_attn 有实现，待接入 |
 
-## FlagOS 已实现但 Flagtests 尚未接入的算子
+## FlagOS 已实现但 FlagOpBench 尚未接入的算子
 
 ### flag_gems (FlagGems)
 
