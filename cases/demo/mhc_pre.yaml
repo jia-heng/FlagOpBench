@@ -1,0 +1,44 @@
+# MHC Pre算子测试用例
+# Multi-Head Cache Pre-processing，用于MLA架构
+
+definition_name: mhc_pre
+operator: mhc_pre
+library: flaggems_vllm
+
+# hc通常固定为4，sinkhorn参数为模型超参
+const_axes:
+  hc: 4
+  rms_eps: 1.0e-5
+  hc_pre_eps: 1.0e-3
+  hc_sinkhorn_eps: 1.0e-3
+  hc_post_mult_value: 1.0
+  sinkhorn_repeat: 5
+
+workloads:
+  - name: "deepseek_decode_batch1"
+    source: "DeepSeek-V3, decode阶段, batch=1, H=7168"
+    var_axes:
+      N: 1
+      H: 7168
+    dtype: bfloat16
+
+  - name: "deepseek_decode_batch32"
+    source: "DeepSeek-V3, decode阶段, batch=32, H=7168"
+    var_axes:
+      N: 32
+      H: 7168
+    dtype: bfloat16
+
+  - name: "deepseek_decode_batch128"
+    source: "DeepSeek-V3, decode阶段, batch=128, H=7168"
+    var_axes:
+      N: 128
+      H: 7168
+    dtype: bfloat16
+
+  - name: "deepseek_prefill_seq1024"
+    source: "DeepSeek-V3, prefill阶段, seq=1024, H=7168"
+    var_axes:
+      N: 1024
+      H: 7168
+    dtype: bfloat16

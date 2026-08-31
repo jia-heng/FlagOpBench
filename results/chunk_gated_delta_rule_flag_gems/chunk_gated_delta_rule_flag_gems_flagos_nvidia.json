@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T08:51:47.568234",
+    "provider": "flagos",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 5
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.186,
+          "std_ms": 0.0024,
+          "min_ms": 0.1827,
+          "max_ms": 0.1974
+        },
+        "throughput": {
+          "gflops": 2181.22,
+          "bandwidth_gb_s": 34.08
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.chunk_gated_delta_rule",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1854,
+          "std_ms": 0.0018,
+          "min_ms": 0.1832,
+          "max_ms": 0.1953
+        },
+        "throughput": {
+          "gflops": 2188.28,
+          "bandwidth_gb_s": 34.19
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.chunk_gated_delta_rule",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1879,
+          "std_ms": 0.0072,
+          "min_ms": 0.184,
+          "max_ms": 0.2186
+        },
+        "throughput": {
+          "gflops": 2160.12,
+          "bandwidth_gb_s": 33.75
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.chunk_gated_delta_rule",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1855,
+          "std_ms": 0.0014,
+          "min_ms": 0.1834,
+          "max_ms": 0.1919
+        },
+        "throughput": {
+          "gflops": 2187.59,
+          "bandwidth_gb_s": 34.18
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.chunk_gated_delta_rule",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3255,
+          "std_ms": 0.0021,
+          "min_ms": 0.3223,
+          "max_ms": 0.3347
+        },
+        "throughput": {
+          "gflops": 2493.41,
+          "bandwidth_gb_s": 38.96
+        },
+        "theory": {
+          "flops": 811597824,
+          "bytes": 12681216,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.chunk_gated_delta_rule",
+        "type": "triton"
+      }
+    }
+  ]
+}

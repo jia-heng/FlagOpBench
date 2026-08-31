@@ -1,0 +1,40 @@
+# Combine TopK SWA Indices算子测试用例
+# DeepSeek V4 sparse attention prefill的topk+sliding window索引合并
+
+definition_name: combine_topk_swa_indices
+operator: combine_topk_swa_indices
+library: flaggems_vllm
+
+const_axes:
+  topk: 64
+  window_size: 128
+  compress_ratio: 4
+
+workloads:
+  - name: "prefill_4reqs_seq1024"
+    source: "DeepSeek-V4, prefill, 4 reqs, seq=1024"
+    var_axes:
+      num_reqs: 4
+      seq_len: 1024
+    dtype: int32
+
+  - name: "prefill_8reqs_seq1024"
+    source: "DeepSeek-V4, prefill, 8 reqs, seq=1024"
+    var_axes:
+      num_reqs: 8
+      seq_len: 1024
+    dtype: int32
+
+  - name: "prefill_4reqs_seq4096"
+    source: "DeepSeek-V4, prefill, 4 reqs, seq=4096"
+    var_axes:
+      num_reqs: 4
+      seq_len: 4096
+    dtype: int32
+
+  - name: "prefill_8reqs_seq4096"
+    source: "DeepSeek-V4, prefill, 8 reqs, seq=4096"
+    var_axes:
+      num_reqs: 8
+      seq_len: 4096
+    dtype: int32

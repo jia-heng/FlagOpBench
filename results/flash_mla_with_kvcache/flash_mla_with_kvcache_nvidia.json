@@ -1,0 +1,1833 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T08:56:36.255686",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 49
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v3.2_decode_b1_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0547,
+          "std_ms": 0.0013,
+          "min_ms": 0.0533,
+          "max_ms": 0.0637
+        },
+        "throughput": {
+          "gflops": 10455.42,
+          "bandwidth_gb_s": 48.24
+        },
+        "theory": {
+          "flops": 571736064,
+          "bytes": 2637956,
+          "arithmetic_intensity": 216.73
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v3.2_decode_b8_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0914,
+          "std_ms": 0.001,
+          "min_ms": 0.0899,
+          "max_ms": 0.0967
+        },
+        "throughput": {
+          "gflops": 50056.56,
+          "bandwidth_gb_s": 230.96
+        },
+        "theory": {
+          "flops": 4573888512,
+          "bytes": 21103648,
+          "arithmetic_intensity": 216.73
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v3.2_decode_b32_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2199,
+          "std_ms": 0.0007,
+          "min_ms": 0.218,
+          "max_ms": 0.2239
+        },
+        "throughput": {
+          "gflops": 83213.29,
+          "bandwidth_gb_s": 383.94
+        },
+        "theory": {
+          "flops": 18295554048,
+          "bytes": 84414592,
+          "arithmetic_intensity": 216.73
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v3.2_decode_b32_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3667,
+          "std_ms": 0.0009,
+          "min_ms": 0.3655,
+          "max_ms": 0.371
+        },
+        "throughput": {
+          "gflops": 99777.94,
+          "bandwidth_gb_s": 436.07
+        },
+        "theory": {
+          "flops": 36591108096,
+          "bytes": 159916160,
+          "arithmetic_intensity": 228.81
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v3.2_decode_b64_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6774,
+          "std_ms": 0.0018,
+          "min_ms": 0.6739,
+          "max_ms": 0.6845
+        },
+        "throughput": {
+          "gflops": 108035.87,
+          "bandwidth_gb_s": 472.16
+        },
+        "theory": {
+          "flops": 73182216192,
+          "bytes": 319832320,
+          "arithmetic_intensity": 228.81
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v3.2_decode_b64_max_seq8192",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2639,
+          "std_ms": 0.0018,
+          "min_ms": 1.2608,
+          "max_ms": 1.27
+        },
+        "throughput": {
+          "gflops": 115806.99,
+          "bandwidth_gb_s": 492.01
+        },
+        "theory": {
+          "flops": 146364432384,
+          "bytes": 621838592,
+          "arithmetic_intensity": 235.37
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v3.2_decode_b128_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2778,
+          "std_ms": 0.0022,
+          "min_ms": 1.2728,
+          "max_ms": 1.2845
+        },
+        "throughput": {
+          "gflops": 114540.76,
+          "bandwidth_gb_s": 500.58
+        },
+        "theory": {
+          "flops": 146364432384,
+          "bytes": 639664640,
+          "arithmetic_intensity": 228.81
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_flash_decode_b1_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0598,
+          "std_ms": 0.0005,
+          "min_ms": 0.0587,
+          "max_ms": 0.0625
+        },
+        "throughput": {
+          "gflops": 4779.81,
+          "bandwidth_gb_s": 41.78
+        },
+        "theory": {
+          "flops": 285868032,
+          "bytes": 2498692,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_flash_decode_b8_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0779,
+          "std_ms": 0.0011,
+          "min_ms": 0.0766,
+          "max_ms": 0.0873
+        },
+        "throughput": {
+          "gflops": 29356.41,
+          "bandwidth_gb_s": 256.6
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 19989536,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1461,
+          "std_ms": 0.0012,
+          "min_ms": 0.1444,
+          "max_ms": 0.152
+        },
+        "throughput": {
+          "gflops": 62602.22,
+          "bandwidth_gb_s": 547.19
+        },
+        "theory": {
+          "flops": 9147777024,
+          "bytes": 79958144,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2175,
+          "std_ms": 0.0009,
+          "min_ms": 0.2154,
+          "max_ms": 0.2215
+        },
+        "throughput": {
+          "gflops": 84117.55,
+          "bandwidth_gb_s": 714.76
+        },
+        "theory": {
+          "flops": 18295554048,
+          "bytes": 155459712,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3769,
+          "std_ms": 0.0011,
+          "min_ms": 0.3749,
+          "max_ms": 0.3837
+        },
+        "throughput": {
+          "gflops": 97083.03,
+          "bandwidth_gb_s": 824.93
+        },
+        "theory": {
+          "flops": 36591108096,
+          "bytes": 310919424,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq8192",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6724,
+          "std_ms": 0.0011,
+          "min_ms": 0.6703,
+          "max_ms": 0.6765
+        },
+        "throughput": {
+          "gflops": 108844.11,
+          "bandwidth_gb_s": 911.61
+        },
+        "theory": {
+          "flops": 73182216192,
+          "bytes": 612925696,
+          "arithmetic_intensity": 119.4
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_flash_decode_b128_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6862,
+          "std_ms": 0.0011,
+          "min_ms": 0.684,
+          "max_ms": 0.6912
+        },
+        "throughput": {
+          "gflops": 106644.44,
+          "bandwidth_gb_s": 906.17
+        },
+        "theory": {
+          "flops": 73182216192,
+          "bytes": 621838848,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_pro_decode_b1_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0535,
+          "std_ms": 0.0005,
+          "min_ms": 0.0527,
+          "max_ms": 0.0572
+        },
+        "throughput": {
+          "gflops": 10688.67,
+          "bandwidth_gb_s": 49.32
+        },
+        "theory": {
+          "flops": 571736064,
+          "bytes": 2637956,
+          "arithmetic_intensity": 216.73
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_pro_decode_b8_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.091,
+          "std_ms": 0.0011,
+          "min_ms": 0.0891,
+          "max_ms": 0.1007
+        },
+        "throughput": {
+          "gflops": 50249.26,
+          "bandwidth_gb_s": 231.85
+        },
+        "theory": {
+          "flops": 4573888512,
+          "bytes": 21103648,
+          "arithmetic_intensity": 216.73
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2195,
+          "std_ms": 0.0007,
+          "min_ms": 0.2182,
+          "max_ms": 0.2234
+        },
+        "throughput": {
+          "gflops": 83337.86,
+          "bandwidth_gb_s": 384.52
+        },
+        "theory": {
+          "flops": 18295554048,
+          "bytes": 84414592,
+          "arithmetic_intensity": 216.73
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3653,
+          "std_ms": 0.0006,
+          "min_ms": 0.3641,
+          "max_ms": 0.3673
+        },
+        "throughput": {
+          "gflops": 100158.81,
+          "bandwidth_gb_s": 437.73
+        },
+        "theory": {
+          "flops": 36591108096,
+          "bytes": 159916160,
+          "arithmetic_intensity": 228.81
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6734,
+          "std_ms": 0.0014,
+          "min_ms": 0.6707,
+          "max_ms": 0.679
+        },
+        "throughput": {
+          "gflops": 108673.32,
+          "bandwidth_gb_s": 474.94
+        },
+        "theory": {
+          "flops": 73182216192,
+          "bytes": 319832320,
+          "arithmetic_intensity": 228.81
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq8192",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2591,
+          "std_ms": 0.0016,
+          "min_ms": 1.2555,
+          "max_ms": 1.2647
+        },
+        "throughput": {
+          "gflops": 116243.2,
+          "bandwidth_gb_s": 493.87
+        },
+        "theory": {
+          "flops": 146364432384,
+          "bytes": 621838592,
+          "arithmetic_intensity": 235.37
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "deepseek_v4_pro_decode_b128_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.272,
+          "std_ms": 0.0018,
+          "min_ms": 1.2688,
+          "max_ms": 1.2773
+        },
+        "throughput": {
+          "gflops": 115062.44,
+          "bandwidth_gb_s": 502.86
+        },
+        "theory": {
+          "flops": 146364432384,
+          "bytes": 639664640,
+          "arithmetic_intensity": 228.81
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_4.7_flash_decode_b1_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0586,
+          "std_ms": 0.0004,
+          "min_ms": 0.058,
+          "max_ms": 0.0609
+        },
+        "throughput": {
+          "gflops": 1523.19,
+          "bandwidth_gb_s": 40.97
+        },
+        "theory": {
+          "flops": 89333760,
+          "bytes": 2402948,
+          "arithmetic_intensity": 37.18
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_4.7_flash_decode_b8_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0736,
+          "std_ms": 0.0005,
+          "min_ms": 0.0727,
+          "max_ms": 0.0755
+        },
+        "throughput": {
+          "gflops": 9706.69,
+          "bandwidth_gb_s": 261.1
+        },
+        "theory": {
+          "flops": 714670080,
+          "bytes": 19223584,
+          "arithmetic_intensity": 37.18
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_4.7_flash_decode_b32_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1433,
+          "std_ms": 0.002,
+          "min_ms": 0.1412,
+          "max_ms": 0.155
+        },
+        "throughput": {
+          "gflops": 19950.99,
+          "bandwidth_gb_s": 536.65
+        },
+        "theory": {
+          "flops": 2858680320,
+          "bytes": 76894336,
+          "arithmetic_intensity": 37.18
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_4.7_flash_decode_b32_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2132,
+          "std_ms": 0.0011,
+          "min_ms": 0.212,
+          "max_ms": 0.2192
+        },
+        "throughput": {
+          "gflops": 26819.87,
+          "bandwidth_gb_s": 714.88
+        },
+        "theory": {
+          "flops": 5717360640,
+          "bytes": 152395904,
+          "arithmetic_intensity": 37.52
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_4.7_flash_decode_b64_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3717,
+          "std_ms": 0.001,
+          "min_ms": 0.3703,
+          "max_ms": 0.3785
+        },
+        "throughput": {
+          "gflops": 30761.63,
+          "bandwidth_gb_s": 819.95
+        },
+        "theory": {
+          "flops": 11434721280,
+          "bytes": 304791808,
+          "arithmetic_intensity": 37.52
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_4.7_flash_decode_b64_max_seq8192",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6672,
+          "std_ms": 0.0012,
+          "min_ms": 0.6654,
+          "max_ms": 0.6739
+        },
+        "throughput": {
+          "gflops": 34275.59,
+          "bandwidth_gb_s": 909.44
+        },
+        "theory": {
+          "flops": 22869442560,
+          "bytes": 606798080,
+          "arithmetic_intensity": 37.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_4.7_flash_decode_b128_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6807,
+          "std_ms": 0.0015,
+          "min_ms": 0.678,
+          "max_ms": 0.6914
+        },
+        "throughput": {
+          "gflops": 33596.86,
+          "bandwidth_gb_s": 895.52
+        },
+        "theory": {
+          "flops": 22869442560,
+          "bytes": 609583616,
+          "arithmetic_intensity": 37.52
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_5.2_decode_b1_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.06,
+          "std_ms": 0.0005,
+          "min_ms": 0.059,
+          "max_ms": 0.0617
+        },
+        "throughput": {
+          "gflops": 4766.88,
+          "bandwidth_gb_s": 41.67
+        },
+        "theory": {
+          "flops": 285868032,
+          "bytes": 2498692,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_5.2_decode_b8_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.078,
+          "std_ms": 0.0007,
+          "min_ms": 0.0767,
+          "max_ms": 0.0799
+        },
+        "throughput": {
+          "gflops": 29323.77,
+          "bandwidth_gb_s": 256.31
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 19989536,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_5.2_decode_b32_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1457,
+          "std_ms": 0.001,
+          "min_ms": 0.144,
+          "max_ms": 0.1498
+        },
+        "throughput": {
+          "gflops": 62777.92,
+          "bandwidth_gb_s": 548.72
+        },
+        "theory": {
+          "flops": 9147777024,
+          "bytes": 79958144,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_5.2_decode_b32_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2177,
+          "std_ms": 0.0007,
+          "min_ms": 0.2164,
+          "max_ms": 0.22
+        },
+        "throughput": {
+          "gflops": 84052.13,
+          "bandwidth_gb_s": 714.2
+        },
+        "theory": {
+          "flops": 18295554048,
+          "bytes": 155459712,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_5.2_decode_b64_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3779,
+          "std_ms": 0.0013,
+          "min_ms": 0.3749,
+          "max_ms": 0.3862
+        },
+        "throughput": {
+          "gflops": 96837.53,
+          "bandwidth_gb_s": 822.84
+        },
+        "theory": {
+          "flops": 36591108096,
+          "bytes": 310919424,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_5.2_decode_b64_max_seq8192",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6722,
+          "std_ms": 0.0013,
+          "min_ms": 0.6703,
+          "max_ms": 0.6777
+        },
+        "throughput": {
+          "gflops": 108876.18,
+          "bandwidth_gb_s": 911.87
+        },
+        "theory": {
+          "flops": 73182216192,
+          "bytes": 612925696,
+          "arithmetic_intensity": 119.4
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "glm_5.2_decode_b128_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6873,
+          "std_ms": 0.0022,
+          "min_ms": 0.6845,
+          "max_ms": 0.7044
+        },
+        "throughput": {
+          "gflops": 106479.69,
+          "bandwidth_gb_s": 904.77
+        },
+        "theory": {
+          "flops": 73182216192,
+          "bytes": 621838848,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k2.6_decode_b1_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.06,
+          "std_ms": 0.0008,
+          "min_ms": 0.0589,
+          "max_ms": 0.0655
+        },
+        "throughput": {
+          "gflops": 4761.78,
+          "bandwidth_gb_s": 41.62
+        },
+        "theory": {
+          "flops": 285868032,
+          "bytes": 2498692,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k2.6_decode_b8_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.078,
+          "std_ms": 0.0006,
+          "min_ms": 0.0765,
+          "max_ms": 0.0798
+        },
+        "throughput": {
+          "gflops": 29328.94,
+          "bandwidth_gb_s": 256.36
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 19989536,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k2.6_decode_b32_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1457,
+          "std_ms": 0.0012,
+          "min_ms": 0.1439,
+          "max_ms": 0.154
+        },
+        "throughput": {
+          "gflops": 62777.23,
+          "bandwidth_gb_s": 548.72
+        },
+        "theory": {
+          "flops": 9147777024,
+          "bytes": 79958144,
+          "arithmetic_intensity": 114.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k2.6_decode_b32_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2178,
+          "std_ms": 0.0006,
+          "min_ms": 0.2161,
+          "max_ms": 0.2197
+        },
+        "throughput": {
+          "gflops": 83996.44,
+          "bandwidth_gb_s": 713.73
+        },
+        "theory": {
+          "flops": 18295554048,
+          "bytes": 155459712,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k2.6_decode_b64_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3777,
+          "std_ms": 0.0012,
+          "min_ms": 0.3759,
+          "max_ms": 0.3843
+        },
+        "throughput": {
+          "gflops": 96885.37,
+          "bandwidth_gb_s": 823.25
+        },
+        "theory": {
+          "flops": 36591108096,
+          "bytes": 310919424,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k2.6_decode_b64_max_seq8192",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6729,
+          "std_ms": 0.0019,
+          "min_ms": 0.6705,
+          "max_ms": 0.6841
+        },
+        "throughput": {
+          "gflops": 108754.31,
+          "bandwidth_gb_s": 910.85
+        },
+        "theory": {
+          "flops": 73182216192,
+          "bytes": 612925696,
+          "arithmetic_intensity": 119.4
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k2.6_decode_b128_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6863,
+          "std_ms": 0.0014,
+          "min_ms": 0.6841,
+          "max_ms": 0.6952
+        },
+        "throughput": {
+          "gflops": 106631.42,
+          "bandwidth_gb_s": 906.06
+        },
+        "theory": {
+          "flops": 73182216192,
+          "bytes": 621838848,
+          "arithmetic_intensity": 117.69
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k3_decode_b1_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0533,
+          "std_ms": 0.0007,
+          "min_ms": 0.0524,
+          "max_ms": 0.0588
+        },
+        "throughput": {
+          "gflops": 8038.58,
+          "bandwidth_gb_s": 48.15
+        },
+        "theory": {
+          "flops": 428802048,
+          "bytes": 2568324,
+          "arithmetic_intensity": 166.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k3_decode_b8_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0907,
+          "std_ms": 0.0005,
+          "min_ms": 0.0899,
+          "max_ms": 0.0918
+        },
+        "throughput": {
+          "gflops": 37836.59,
+          "bandwidth_gb_s": 226.62
+        },
+        "theory": {
+          "flops": 3430416384,
+          "bytes": 20546592,
+          "arithmetic_intensity": 166.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k3_decode_b32_max_seq2048",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2181,
+          "std_ms": 0.0011,
+          "min_ms": 0.2171,
+          "max_ms": 0.228
+        },
+        "throughput": {
+          "gflops": 62904.55,
+          "bandwidth_gb_s": 376.77
+        },
+        "theory": {
+          "flops": 13721665536,
+          "bytes": 82186368,
+          "arithmetic_intensity": 166.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k3_decode_b32_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3639,
+          "std_ms": 0.0007,
+          "min_ms": 0.3623,
+          "max_ms": 0.3667
+        },
+        "throughput": {
+          "gflops": 75424.47,
+          "bandwidth_gb_s": 433.39
+        },
+        "theory": {
+          "flops": 27443331072,
+          "bytes": 157687936,
+          "arithmetic_intensity": 174.04
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k3_decode_b64_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.671,
+          "std_ms": 0.0009,
+          "min_ms": 0.6683,
+          "max_ms": 0.674
+        },
+        "throughput": {
+          "gflops": 81792.45,
+          "bandwidth_gb_s": 469.98
+        },
+        "theory": {
+          "flops": 54886662144,
+          "bytes": 315375872,
+          "arithmetic_intensity": 174.04
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k3_decode_b64_max_seq8192",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2548,
+          "std_ms": 0.0023,
+          "min_ms": 1.2526,
+          "max_ms": 1.2735
+        },
+        "throughput": {
+          "gflops": 87480.32,
+          "bandwidth_gb_s": 492.0
+        },
+        "theory": {
+          "flops": 109773324288,
+          "bytes": 617382144,
+          "arithmetic_intensity": 177.8
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache",
+      "definition": "flash_mla_with_kvcache",
+      "workload": "kimi_k3_decode_b128_max_seq4096",
+      "provider": "nvidia",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2667,
+          "std_ms": 0.0015,
+          "min_ms": 1.2637,
+          "max_ms": 1.2736
+        },
+        "throughput": {
+          "gflops": 86659.65,
+          "bandwidth_gb_s": 497.94
+        },
+        "theory": {
+          "flops": 109773324288,
+          "bytes": 630751744,
+          "arithmetic_intensity": 174.04
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted)",
+        "type": "cuda"
+      }
+    }
+  ]
+}

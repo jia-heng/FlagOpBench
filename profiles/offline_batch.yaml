@@ -1,0 +1,36 @@
+# 离线批处理 / 长上下文场景
+name: offline_batch
+description: "离线推理、长上下文处理场景"
+
+var_axes:
+  num_tokens:
+    - 2048
+    - 4096
+    - 8192
+    - 16384
+    - 32768
+
+  moe_dispatch:
+    - {num_groups: 64, tokens_per_group: 64}
+    - {num_groups: 64, tokens_per_group: 128}
+    - {num_groups: 128, tokens_per_group: 64}
+    - {num_groups: 128, tokens_per_group: 128}
+    - {num_groups: 256, tokens_per_group: 64}
+
+  batch_seq_decode:
+    - {b: 128, max_seq: 8192}
+    - {b: 128, max_seq: 16384}
+    - {b: 256, max_seq: 8192}
+    - {b: 256, max_seq: 16384}
+
+  batch_seq_prefill:
+    - {batch_size: 1, seqlen_q: 8192, seqlen_k: 8192}
+    - {batch_size: 1, seqlen_q: 16384, seqlen_k: 16384}
+    - {batch_size: 1, seqlen_q: 32768, seqlen_k: 32768}
+    - {batch_size: 4, seqlen_q: 8192, seqlen_k: 8192}
+
+  batch_seq:
+    - {batch_size: 1, seqlen_q: 8192, seqlen_k: 8192}
+    - {batch_size: 1, seqlen_q: 16384, seqlen_k: 16384}
+    - {batch_size: 1, seqlen_q: 32768, seqlen_k: 32768}
+    - {batch_size: 128, seqlen_q: 1, seqlen_k: 16384}

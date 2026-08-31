@@ -1,0 +1,37 @@
+# SwiGLU算子测试用例（示例）
+
+definition_name: swiglu
+operator: swiglu
+library: flaggems_vllm
+
+# SwiGLU没有模型相关的const轴，N由FFN中间维度决定但每层可能不同
+# 这里不设置const_axes，把N也放到var_axes中
+
+workloads:
+  - name: "llama3_ffn_small_batch"
+    source: "Llama-3.1-8B, FFN层, batch=1, seq=128"
+    var_axes:
+      M: 128        # batch * seq_len
+      N: 7168       # intermediate_size / 2
+    dtype: bfloat16
+
+  - name: "llama3_ffn_large_batch"
+    source: "Llama-3.1-8B, FFN层, batch=16, seq=128"
+    var_axes:
+      M: 2048       # 16 * 128
+      N: 7168
+    dtype: bfloat16
+
+  - name: "qwen_ffn_prefill"
+    source: "Qwen2.5-7B, FFN层, prefill, seq=1024"
+    var_axes:
+      M: 1024
+      N: 5504       # 11008 / 2
+    dtype: bfloat16
+
+  - name: "qwen_ffn_decode"
+    source: "Qwen2.5-7B, FFN层, decode, batch=32"
+    var_axes:
+      M: 32
+      N: 5504
+    dtype: bfloat16

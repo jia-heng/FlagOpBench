@@ -1,0 +1,730 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T08:55:21.231558",
+    "type": "compare",
+    "platform": "nvidia",
+    "baseline_provider": "nvidia",
+    "flagos_provider": "flagos",
+    "num_workloads": 20,
+    "baseline_file": "results/chunk_gated_delta_rule_flaggems_vllm/chunk_gated_delta_rule_flaggems_vllm_nvidia.json",
+    "flagos_file": "results/chunk_gated_delta_rule_flaggems_vllm/chunk_gated_delta_rule_flaggems_vllm_flagos_nvidia.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "summary": {
+    "total": 20,
+    "faster": 10,
+    "slower": 5,
+    "on_par": 5,
+    "avg_speedup": 1.0603
+  },
+  "comparisons": [
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.1864,
+        "std_ms": 0.0034,
+        "min_ms": 0.1833,
+        "max_ms": 0.209,
+        "bandwidth_gb_s": 34.01,
+        "gflops": 2176.79,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2016,
+        "std_ms": 0.0042,
+        "min_ms": 0.1942,
+        "max_ms": 0.22,
+        "bandwidth_gb_s": 31.45,
+        "gflops": 2012.68,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9246,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.1858,
+        "std_ms": 0.0017,
+        "min_ms": 0.1836,
+        "max_ms": 0.1946,
+        "bandwidth_gb_s": 34.12,
+        "gflops": 2183.55,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2007,
+        "std_ms": 0.0033,
+        "min_ms": 0.1946,
+        "max_ms": 0.2183,
+        "bandwidth_gb_s": 31.6,
+        "gflops": 2022.25,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9258,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.185,
+        "std_ms": 0.0014,
+        "min_ms": 0.1827,
+        "max_ms": 0.1928,
+        "bandwidth_gb_s": 34.28,
+        "gflops": 2193.73,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2002,
+        "std_ms": 0.0028,
+        "min_ms": 0.1948,
+        "max_ms": 0.205,
+        "bandwidth_gb_s": 31.67,
+        "gflops": 2026.84,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9241,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.1851,
+        "std_ms": 0.0015,
+        "min_ms": 0.1828,
+        "max_ms": 0.1944,
+        "bandwidth_gb_s": 34.26,
+        "gflops": 2192.36,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1999,
+        "std_ms": 0.0033,
+        "min_ms": 0.1926,
+        "max_ms": 0.2082,
+        "bandwidth_gb_s": 31.72,
+        "gflops": 2030.22,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.926,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.3258,
+        "std_ms": 0.002,
+        "min_ms": 0.3224,
+        "max_ms": 0.3369,
+        "bandwidth_gb_s": 38.92,
+        "gflops": 2490.82,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3534,
+        "std_ms": 0.0049,
+        "min_ms": 0.3386,
+        "max_ms": 0.3642,
+        "bandwidth_gb_s": 35.89,
+        "gflops": 2296.71,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9219,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.212,
+        "std_ms": 0.0064,
+        "min_ms": 0.2023,
+        "max_ms": 0.2414,
+        "bandwidth_gb_s": 119.62,
+        "gflops": 7655.73,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1906,
+        "std_ms": 0.0056,
+        "min_ms": 0.185,
+        "max_ms": 0.2199,
+        "bandwidth_gb_s": 133.07,
+        "gflops": 8516.61,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.1123,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.2832,
+        "std_ms": 0.0035,
+        "min_ms": 0.2776,
+        "max_ms": 0.2931,
+        "bandwidth_gb_s": 179.12,
+        "gflops": 11463.89,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2594,
+        "std_ms": 0.0029,
+        "min_ms": 0.2562,
+        "max_ms": 0.2718,
+        "bandwidth_gb_s": 195.52,
+        "gflops": 12513.26,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.0918,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.4659,
+        "std_ms": 0.0061,
+        "min_ms": 0.4596,
+        "max_ms": 0.4878,
+        "bandwidth_gb_s": 217.73,
+        "gflops": 13934.85,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4163,
+        "std_ms": 0.0033,
+        "min_ms": 0.4115,
+        "max_ms": 0.4292,
+        "bandwidth_gb_s": 243.7,
+        "gflops": 15596.8,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.1191,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.8513,
+        "std_ms": 0.0114,
+        "min_ms": 0.8405,
+        "max_ms": 0.8952,
+        "bandwidth_gb_s": 238.35,
+        "gflops": 15254.28,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.7479,
+        "std_ms": 0.0027,
+        "min_ms": 0.7446,
+        "max_ms": 0.7607,
+        "bandwidth_gb_s": 271.28,
+        "gflops": 17361.94,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.1383,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 1.6251,
+        "std_ms": 0.0284,
+        "min_ms": 1.6042,
+        "max_ms": 1.7214,
+        "bandwidth_gb_s": 249.71,
+        "gflops": 15981.45,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.418,
+        "std_ms": 0.0071,
+        "min_ms": 1.4123,
+        "max_ms": 1.4727,
+        "bandwidth_gb_s": 286.17,
+        "gflops": 18315.0,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.1461,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.1975,
+        "std_ms": 0.0018,
+        "min_ms": 0.1947,
+        "max_ms": 0.2041,
+        "bandwidth_gb_s": 24.08,
+        "gflops": 2740.13,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2006,
+        "std_ms": 0.0014,
+        "min_ms": 0.1975,
+        "max_ms": 0.2074,
+        "bandwidth_gb_s": 23.71,
+        "gflops": 2697.38,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9845,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.1966,
+        "std_ms": 0.0018,
+        "min_ms": 0.1935,
+        "max_ms": 0.2065,
+        "bandwidth_gb_s": 24.19,
+        "gflops": 2752.37,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2004,
+        "std_ms": 0.0016,
+        "min_ms": 0.1978,
+        "max_ms": 0.2067,
+        "bandwidth_gb_s": 23.73,
+        "gflops": 2699.58,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.981,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.1975,
+        "std_ms": 0.0021,
+        "min_ms": 0.1944,
+        "max_ms": 0.2066,
+        "bandwidth_gb_s": 24.07,
+        "gflops": 2738.96,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1998,
+        "std_ms": 0.0011,
+        "min_ms": 0.1977,
+        "max_ms": 0.2024,
+        "bandwidth_gb_s": 23.8,
+        "gflops": 2707.77,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9885,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.1974,
+        "std_ms": 0.0019,
+        "min_ms": 0.1941,
+        "max_ms": 0.2031,
+        "bandwidth_gb_s": 24.09,
+        "gflops": 2740.78,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2002,
+        "std_ms": 0.0028,
+        "min_ms": 0.1973,
+        "max_ms": 0.2247,
+        "bandwidth_gb_s": 23.76,
+        "gflops": 2703.12,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.986,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.348,
+        "std_ms": 0.0017,
+        "min_ms": 0.3443,
+        "max_ms": 0.3544,
+        "bandwidth_gb_s": 27.33,
+        "gflops": 3109.81,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3496,
+        "std_ms": 0.0021,
+        "min_ms": 0.3461,
+        "max_ms": 0.3591,
+        "bandwidth_gb_s": 27.21,
+        "gflops": 3095.61,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9954,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.215,
+        "std_ms": 0.0045,
+        "min_ms": 0.2101,
+        "max_ms": 0.2341,
+        "bandwidth_gb_s": 88.47,
+        "gflops": 10065.91,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1875,
+        "std_ms": 0.0047,
+        "min_ms": 0.1826,
+        "max_ms": 0.2175,
+        "bandwidth_gb_s": 101.48,
+        "gflops": 11545.75,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.1467,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.3437,
+        "std_ms": 0.0029,
+        "min_ms": 0.3363,
+        "max_ms": 0.3545,
+        "bandwidth_gb_s": 110.69,
+        "gflops": 12593.76,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2913,
+        "std_ms": 0.0029,
+        "min_ms": 0.2859,
+        "max_ms": 0.3033,
+        "bandwidth_gb_s": 130.6,
+        "gflops": 14859.63,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.1799,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.5843,
+        "std_ms": 0.0031,
+        "min_ms": 0.578,
+        "max_ms": 0.594,
+        "bandwidth_gb_s": 130.22,
+        "gflops": 14816.6,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4774,
+        "std_ms": 0.0023,
+        "min_ms": 0.4736,
+        "max_ms": 0.486,
+        "bandwidth_gb_s": 159.38,
+        "gflops": 18133.7,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.2239,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 1.0749,
+        "std_ms": 0.0049,
+        "min_ms": 1.062,
+        "max_ms": 1.0897,
+        "bandwidth_gb_s": 141.58,
+        "gflops": 16108.22,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.8669,
+        "std_ms": 0.0035,
+        "min_ms": 0.8616,
+        "max_ms": 0.883,
+        "bandwidth_gb_s": 175.53,
+        "gflops": 19971.53,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.2399,
+      "verdict": "faster"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flaggems_vllm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 2.0522,
+        "std_ms": 0.0086,
+        "min_ms": 2.0294,
+        "max_ms": 2.0707,
+        "bandwidth_gb_s": 148.31,
+        "gflops": 16873.99,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.6409,
+        "std_ms": 0.0033,
+        "min_ms": 1.6342,
+        "max_ms": 1.6507,
+        "bandwidth_gb_s": 185.47,
+        "gflops": 21102.73,
+        "impl_source": "flaggems_vllm.chunk_gated_delta_rule"
+      },
+      "speedup": 1.2507,
+      "verdict": "faster"
+    }
+  ]
+}

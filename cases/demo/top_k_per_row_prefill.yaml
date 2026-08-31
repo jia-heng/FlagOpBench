@@ -1,0 +1,45 @@
+# Top-K Per Row Prefill算子测试用例
+# DeepSeek V4 sparse attention prefill阶段的top-k选择
+
+definition_name: top_k_per_row_prefill
+operator: top_k_per_row_prefill
+library: flaggems_vllm
+
+const_axes:
+  top_k: 8
+
+workloads:
+  - name: "sparse_attn_256experts_batch32"
+    source: "DeepSeek-V4, sparse attention, 256 experts, 32 tokens"
+    var_axes:
+      num_rows: 32
+      vocab_size: 256
+    dtype: float32
+
+  - name: "sparse_attn_256experts_batch128"
+    source: "DeepSeek-V4, sparse attention, 256 experts, 128 tokens"
+    var_axes:
+      num_rows: 128
+      vocab_size: 256
+    dtype: float32
+
+  - name: "sparse_attn_256experts_seq1024"
+    source: "DeepSeek-V4, sparse attention, 256 experts, prefill 1024"
+    var_axes:
+      num_rows: 1024
+      vocab_size: 256
+    dtype: float32
+
+  - name: "sparse_attn_256experts_seq4096"
+    source: "DeepSeek-V4, sparse attention, 256 experts, prefill 4096"
+    var_axes:
+      num_rows: 4096
+      vocab_size: 256
+    dtype: float32
+
+  - name: "sparse_attn_large_vocab_seq1024"
+    source: "Large vocab scenario, 65536 vocab, prefill 1024"
+    var_axes:
+      num_rows: 1024
+      vocab_size: 65536
+    dtype: float32

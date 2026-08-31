@@ -1,0 +1,38 @@
+# Flash MLA with KVCache算子测试用例 (Dense BF16)
+# q(bf16) + k_cache(bf16), paged attention via block_table
+
+definition_name: flash_mla_with_kvcache
+operator: flash_mla_with_kvcache
+library: flaggems_vllm
+
+const_axes:
+  s_q: 1
+  h_q: 128
+  head_dim_k: 576
+  head_dim_v: 512
+  block_size: 64
+
+workloads:
+  - name: "b4_seq4096"
+    source: "DeepSeek-V4, dense decode, batch=4, seq=4096"
+    var_axes:
+      b: 4
+      max_seq: 4096
+
+  - name: "b16_seq4096"
+    source: "DeepSeek-V4, dense decode, batch=16, seq=4096"
+    var_axes:
+      b: 16
+      max_seq: 4096
+
+  - name: "b4_seq16384"
+    source: "DeepSeek-V4, dense decode, batch=4, seq=16384"
+    var_axes:
+      b: 4
+      max_seq: 16384
+
+  - name: "b16_seq16384"
+    source: "DeepSeek-V4, dense decode, batch=16, seq=16384"
+    var_axes:
+      b: 16
+      max_seq: 16384

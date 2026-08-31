@@ -1,0 +1,60 @@
+# 在线推理场景 — 覆盖 decode 和 prefill 的典型负载
+name: online_serving
+description: "在线推理服务的典型负载 (decode + prefill 混合)"
+
+var_axes:
+  # 通用 token 数量 (用于 MoE、FFN、Norm 等逐 token 算子)
+  num_tokens:
+    - 1
+    - 8
+    - 32
+    - 64
+    - 128
+    - 256
+    - 512
+    - 1024
+    - 2048
+    - 4096
+
+  # MoE dispatch 场景: {num_groups, tokens_per_group}
+  # 模拟不同负载下 expert 分配情况
+  moe_dispatch:
+    - {num_groups: 8, tokens_per_group: 4}
+    - {num_groups: 8, tokens_per_group: 16}
+    - {num_groups: 8, tokens_per_group: 64}
+    - {num_groups: 32, tokens_per_group: 4}
+    - {num_groups: 32, tokens_per_group: 16}
+    - {num_groups: 32, tokens_per_group: 64}
+    - {num_groups: 64, tokens_per_group: 4}
+    - {num_groups: 64, tokens_per_group: 16}
+    - {num_groups: 128, tokens_per_group: 8}
+    - {num_groups: 128, tokens_per_group: 32}
+
+  # Attention decode: batch 变化, seq_len 为 KV cache 长度
+  batch_seq_decode:
+    - {b: 1, max_seq: 2048}
+    - {b: 8, max_seq: 2048}
+    - {b: 32, max_seq: 2048}
+    - {b: 32, max_seq: 4096}
+    - {b: 64, max_seq: 4096}
+    - {b: 64, max_seq: 8192}
+    - {b: 128, max_seq: 4096}
+
+  # Attention prefill: batch 通常较小, seq_len 变化
+  batch_seq_prefill:
+    - {batch_size: 1, seqlen_q: 512, seqlen_k: 512}
+    - {batch_size: 1, seqlen_q: 2048, seqlen_k: 2048}
+    - {batch_size: 1, seqlen_q: 4096, seqlen_k: 4096}
+    - {batch_size: 4, seqlen_q: 2048, seqlen_k: 2048}
+    - {batch_size: 4, seqlen_q: 4096, seqlen_k: 4096}
+    - {batch_size: 1, seqlen_q: 8192, seqlen_k: 8192}
+
+  # 通用 batch + seq (FA varlen 等)
+  batch_seq:
+    - {batch_size: 1, seqlen_q: 1, seqlen_k: 2048}
+    - {batch_size: 32, seqlen_q: 1, seqlen_k: 2048}
+    - {batch_size: 64, seqlen_q: 1, seqlen_k: 4096}
+    - {batch_size: 1, seqlen_q: 512, seqlen_k: 512}
+    - {batch_size: 1, seqlen_q: 2048, seqlen_k: 2048}
+    - {batch_size: 1, seqlen_q: 4096, seqlen_k: 4096}
+    - {batch_size: 4, seqlen_q: 2048, seqlen_k: 2048}

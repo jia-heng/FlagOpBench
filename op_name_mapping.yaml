@@ -1,0 +1,172 @@
+# 算子名映射: keyoplist标准名 → 各平台vllm/SDK中的实际名字
+# 用于各平台Provider加载kernel时的名称转换
+# null 表示该平台尚未集成该算子
+
+# ===== FlagGems-vllm 算子 =====
+swiglu:
+  nvidia: silu_and_mul
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+silu_and_mul_with_clamp:
+  nvidia: silu_and_mul_with_clamp
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+fused_moe:
+  nvidia: outplace_fused_experts
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+moe_sum:
+  nvidia: moe_sum
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+group_gemm:
+  nvidia: _grouped_mm
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+topk_softplus_sqrt:
+  nvidia: topk_hash_softplus_sqrt
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+grouped_topk:
+  nvidia: grouped_topk
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+top_k_per_row_decode:
+  nvidia: top_k_per_row_decode
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+top_k_per_row_prefill:
+  nvidia: top_k_per_row_prefill
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+flash_mla:
+  nvidia: null  # vLLM无单算子等价
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+flash_mla_with_kvcache:
+  nvidia: flash_mla_with_kvcache
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+flash_mla_with_kvcache_fp8:
+  nvidia: flash_mla_with_kvcache_fp8
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert:
+  nvidia: fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+combine_topk_swa_indices:
+  nvidia: combine_topk_swa_indices
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+compute_global_topk_indices_and_lens:
+  nvidia: compute_global_topk_indices_and_lens
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+fused_q_kv_rmsnorm:
+  nvidia: fused_q_kv_rmsnorm
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+mhc_pre:
+  nvidia: mhc_pre
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+mhc_post:
+  nvidia: mhc_post
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+pack_seq_triton:
+  nvidia: pack_seq_triton
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+unpack_seq_triton:
+  nvidia: unpack_seq_triton
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+indexer_k_quant_and_cache:
+  nvidia: indexer_k_quant_and_cache
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+cp_gather_indexer_k_quant_cache:
+  nvidia: cp_gather_indexer_k_quant_cache
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+fp8_fp4_paged_mqa_logits:
+  nvidia: fp8_fp4_paged_mqa_logits
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null
+
+flash_attn_varlen_func:
+  nvidia: flash_attn_varlen_func
+  ascend: null
+  metax: null
+  mthreads: null
+  iluvatar: null

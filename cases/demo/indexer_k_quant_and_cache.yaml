@@ -1,0 +1,34 @@
+# Indexer K Quant and Cache算子测试用例
+# 将K tensor量化为FP8并写入paged KV cache
+
+definition_name: indexer_k_quant_and_cache
+operator: indexer_k_quant_and_cache
+library: flaggems_vllm
+
+const_axes:
+  head_dim: 576
+  block_size: 16
+  quant_block_size: 64
+  num_blocks: 256
+  scale_fmt: "e4m3"
+
+workloads:
+  - name: "decode_32tokens"
+    source: "DeepSeek-V4, decode, 32 tokens"
+    var_axes:
+      num_tokens: 32
+
+  - name: "decode_128tokens"
+    source: "DeepSeek-V4, decode, 128 tokens"
+    var_axes:
+      num_tokens: 128
+
+  - name: "prefill_512tokens"
+    source: "DeepSeek-V4, prefill, 512 tokens"
+    var_axes:
+      num_tokens: 512
+
+  - name: "prefill_2048tokens"
+    source: "DeepSeek-V4, prefill, 2048 tokens"
+    var_axes:
+      num_tokens: 2048

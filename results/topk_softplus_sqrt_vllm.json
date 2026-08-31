@@ -1,0 +1,198 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-24T03:28:42.830504",
+    "provider": "vllm",
+    "num_operators": 1,
+    "num_workloads": 5
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "cuda_version": "13.0",
+    "gpu_name": "NVIDIA H20",
+    "gpu_count": 8,
+    "gpu_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "topk_softplus_sqrt",
+      "definition": "topk_softplus_sqrt",
+      "workload": "deepseek_decode_batch1",
+      "provider": "vllm",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "renormalize": true,
+        "routed_scaling_factor": 1.0,
+        "num_tokens": 1,
+        "dtype": "float32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0167,
+          "std_ms": 0.026,
+          "min_ms": 0.008,
+          "max_ms": 0.2736
+        },
+        "throughput": {
+          "gflops": 0.09,
+          "bandwidth_gb_s": 0.07
+        },
+        "theory": {
+          "flops": 1560,
+          "bytes": 1120,
+          "arithmetic_intensity": 1.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.topk_hash_softplus_sqrt",
+        "type": "cuda",
+        "note": "vLLM function name: topk_hash_softplus_sqrt"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "definition": "topk_softplus_sqrt",
+      "workload": "deepseek_decode_batch32",
+      "provider": "vllm",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "renormalize": true,
+        "routed_scaling_factor": 1.0,
+        "num_tokens": 32,
+        "dtype": "float32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0171,
+          "std_ms": 0.0258,
+          "min_ms": 0.0134,
+          "max_ms": 0.2728
+        },
+        "throughput": {
+          "gflops": 2.91,
+          "bandwidth_gb_s": 2.09
+        },
+        "theory": {
+          "flops": 49920,
+          "bytes": 35840,
+          "arithmetic_intensity": 1.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.topk_hash_softplus_sqrt",
+        "type": "cuda",
+        "note": "vLLM function name: topk_hash_softplus_sqrt"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "definition": "topk_softplus_sqrt",
+      "workload": "deepseek_decode_batch128",
+      "provider": "vllm",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "renormalize": true,
+        "routed_scaling_factor": 1.0,
+        "num_tokens": 128,
+        "dtype": "float32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.014,
+          "std_ms": 0.0019,
+          "min_ms": 0.0085,
+          "max_ms": 0.0192
+        },
+        "throughput": {
+          "gflops": 14.3,
+          "bandwidth_gb_s": 10.27
+        },
+        "theory": {
+          "flops": 199680,
+          "bytes": 143360,
+          "arithmetic_intensity": 1.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.topk_hash_softplus_sqrt",
+        "type": "cuda",
+        "note": "vLLM function name: topk_hash_softplus_sqrt"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "definition": "topk_softplus_sqrt",
+      "workload": "deepseek_prefill_seq1024",
+      "provider": "vllm",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "renormalize": true,
+        "routed_scaling_factor": 1.0,
+        "num_tokens": 1024,
+        "dtype": "float32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "std_ms": 0.0443,
+          "min_ms": 0.0106,
+          "max_ms": 0.2804
+        },
+        "throughput": {
+          "gflops": 71.87,
+          "bandwidth_gb_s": 51.6
+        },
+        "theory": {
+          "flops": 1597440,
+          "bytes": 1146880,
+          "arithmetic_intensity": 1.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.topk_hash_softplus_sqrt",
+        "type": "cuda",
+        "note": "vLLM function name: topk_hash_softplus_sqrt"
+      }
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "definition": "topk_softplus_sqrt",
+      "workload": "deepseek_prefill_seq4096",
+      "provider": "vllm",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "renormalize": true,
+        "routed_scaling_factor": 1.0,
+        "num_tokens": 4096,
+        "dtype": "float32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0234,
+          "std_ms": 0.0006,
+          "min_ms": 0.0199,
+          "max_ms": 0.0243
+        },
+        "throughput": {
+          "gflops": 273.5,
+          "bandwidth_gb_s": 196.36
+        },
+        "theory": {
+          "flops": 6389760,
+          "bytes": 4587520,
+          "arithmetic_intensity": 1.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.topk_hash_softplus_sqrt",
+        "type": "cuda",
+        "note": "vLLM function name: topk_hash_softplus_sqrt"
+      }
+    }
+  ]
+}

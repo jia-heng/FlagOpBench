@@ -1,0 +1,236 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-28T03:12:09.950568",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 6
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "nvidia",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0401,
+          "std_ms": 0.0037,
+          "min_ms": 0.0365,
+          "max_ms": 0.0657
+        },
+        "throughput": {
+          "gflops": 55.52,
+          "bandwidth_gb_s": 215.62
+        },
+        "theory": {
+          "flops": 2228224,
+          "bytes": 8652812,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.deepseek_v4_ops.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0391,
+          "std_ms": 0.0016,
+          "min_ms": 0.0368,
+          "max_ms": 0.0486
+        },
+        "throughput": {
+          "gflops": 228.07,
+          "bandwidth_gb_s": 885.64
+        },
+        "theory": {
+          "flops": 8912896,
+          "bytes": 34611212,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.deepseek_v4_ops.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0388,
+          "std_ms": 0.0019,
+          "min_ms": 0.0366,
+          "max_ms": 0.0475
+        },
+        "throughput": {
+          "gflops": 459.04,
+          "bandwidth_gb_s": 1782.57
+        },
+        "theory": {
+          "flops": 17825792,
+          "bytes": 69222412,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.deepseek_v4_ops.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0492,
+          "std_ms": 0.001,
+          "min_ms": 0.0473,
+          "max_ms": 0.0535
+        },
+        "throughput": {
+          "gflops": 723.92,
+          "bandwidth_gb_s": 2811.2
+        },
+        "theory": {
+          "flops": 35651584,
+          "bytes": 138444848,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.deepseek_v4_ops.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0852,
+          "std_ms": 0.0008,
+          "min_ms": 0.0837,
+          "max_ms": 0.0892
+        },
+        "throughput": {
+          "gflops": 837.17,
+          "bandwidth_gb_s": 3250.97
+        },
+        "theory": {
+          "flops": 71303168,
+          "bytes": 276889648,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.deepseek_v4_ops.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "provider": "nvidia",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0383,
+          "std_ms": 0.0015,
+          "min_ms": 0.0362,
+          "max_ms": 0.0459
+        },
+        "throughput": {
+          "gflops": 931.17,
+          "bandwidth_gb_s": 3615.97
+        },
+        "theory": {
+          "flops": 35651584,
+          "bytes": 138444812,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "vllm.v1.attention.ops.deepseek_v4_ops.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    }
+  ]
+}

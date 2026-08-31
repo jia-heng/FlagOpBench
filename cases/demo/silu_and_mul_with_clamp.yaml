@@ -1,0 +1,38 @@
+# SiLU and Mul with Clamp算子测试用例
+# 融合的SiLU激活 + 逐元素乘法 + Clamp，常用于MoE的门控FFN
+
+definition_name: silu_and_mul_with_clamp
+operator: silu_and_mul_with_clamp
+library: flaggems_vllm
+
+const_axes:
+  limit: 10.0
+
+workloads:
+  - name: "deepseek_decode_batch1"
+    source: "DeepSeek-V3, decode阶段, batch=1, intermediate=18432"
+    var_axes:
+      M: 1
+      N: 18432
+    dtype: bfloat16
+
+  - name: "deepseek_decode_batch32"
+    source: "DeepSeek-V3, decode阶段, batch=32, intermediate=18432"
+    var_axes:
+      M: 32
+      N: 18432
+    dtype: bfloat16
+
+  - name: "deepseek_decode_batch128"
+    source: "DeepSeek-V3, decode阶段, batch=128, intermediate=18432"
+    var_axes:
+      M: 128
+      N: 18432
+    dtype: bfloat16
+
+  - name: "deepseek_prefill_seq1024"
+    source: "DeepSeek-V3, prefill阶段, seq=1024, intermediate=18432"
+    var_axes:
+      M: 1024
+      N: 18432
+    dtype: bfloat16

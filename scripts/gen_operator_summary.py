@@ -1,250 +1,179 @@
 #!/usr/bin/env python3
 """
-Generate a high-level operator summary CSV from FlagOpBench JSON reports.
+Generate an operator-level summary CSV comparing FlagOS vs vLLM performance.
 
 Output columns:
-    算子名, 框架, 厂商软硬件信息, 测试用例来源
+    算子名, 来源(impl), FlagOS平均耗时(ms), vLLM平均耗时(ms), 平均加速比, 用例数, 环境
 
-Example row:
-    add_rmsnorm_bias (Fused Add+RMSNorm), vllm_ops,
-    NVIDIA H20 (95.1 GB, Driver 610.43.02); PyTorch 2.11.0+cu130; CUDA 13.0, cuDNN 91900,
-    DeepSeek-V3 (14 workloads)
+The script pairs *_flagos.json and *_vllm.json files by operator name,
+computes per-workload speedup (vllm_time / flagos_time), and reports
+the geometric mean speedup for each operator.
 
 Usage:
     python gen_operator_summary.py
-    python gen_operator_summary.py --input-dir ../results --output ../results/operator_summary_nvidia_h20.csv
+    python gen_operator_summary.py --input-dir ../results --output summary.csv
 """
 
 import argparse
 import csv
 import json
-import re
+import math
 import sys
-from collections import defaultdict
 from pathlib import Path
 
 
-# Known operator metadata. Used for framework and description labels.
-OPERATOR_META = {
-    "mm": {"framework": "torch.mm", "description": "GEMM NT/NN"},
-    "grouped_matmul": {"framework": "torch.bmm", "description": "Grouped GEMM (GQA)"},
-    "rms_norm": {"framework": "F.rms_norm", "description": "Standard normalization"},
-    "add_rmsnorm_bias": {"framework": "vllm_ops", "description": "Fused Add+RMSNorm"},
-    "rope": {"framework": "vllm_ops.rotary_embedding", "description": "Positional encoding"},
-    "fused_q_kv_rmsnorm": {"framework": "PyTorch (custom)", "description": "Q/KV RMSNorm"},
-    "persistent_topk": {"framework": "torch.topk", "description": "Sampling operator"},
-    "topk_softplus_sqrt": {"framework": "PyTorch (custom)", "description": "Top-P renorm"},
-    "topk_selector": {"framework": "torch.topk + gather", "description": "Top-K mask logits"},
-    "top_k_per_row_decode": {"framework": "PyTorch (custom)", "description": "Per-row sampling decode"},
-    "top_k_per_row_prefill": {"framework": "PyTorch (custom)", "description": "Per-row sampling prefill"},
-    "router_gemm_bf16_fp32": {"framework": "torch.mm (bf16→fp32)", "description": "Router GEMM"},
-    "flashattention": {"framework": "F.scaled_dot_product_attention", "description": "FlashAttention GQA"},
-    "sparse_attention": {"framework": "F.scaled_dot_product_attention", "description": "Block-sparse attention"},
-    "flash_mla": {"framework": "PyTorch SDPA + Low-rank", "description": "Flash MLA"},
-    "flash_linear_attention": {"framework": "vLLM Triton kernel", "description": "Gated Delta Rule"},
-    "fused_moe": {"framework": "PyTorch (custom)", "description": "FP8 MoE with routing"},
-    "bmm": {"framework": "torch.bmm", "description": "Batch matrix multiply"},
-    "gemma_rms_norm": {"framework": "F.rms_norm", "description": "Gemma RMSNorm"},
-    "layernorm": {"framework": "F.layer_norm", "description": "Layer normalization"},
-    "silu_and_mul": {"framework": "PyTorch (custom)", "description": "SiLU + Mul FFN"},
-    "silu_and_mul_with_clamp": {"framework": "PyTorch (custom)", "description": "SiLU + Mul FFN with clamp"},
-    "swiglu": {"framework": "PyTorch (custom)", "description": "SwiGLU FFN"},
-    "gemm_w8a8": {"framework": "torch.mm", "description": "W8A8 GEMM"},
-    "fused_marlin_moe": {"framework": "vllm_ops", "description": "Marlin MoE"},
-    "moe_align_block_size": {"framework": "vllm_ops", "description": "MoE token alignment"},
-    "moe_sum": {"framework": "PyTorch (custom)", "description": "MoE sum"},
-    "per_token_group_fp8_quant": {"framework": "vllm_ops", "description": "Per-token group FP8 quant"},
-    "fused_inv_rope_fp8_quant": {"framework": "vllm_ops", "description": "Inverse RoPE + FP8 quant"},
-    "fp8_einsum": {"framework": "torch.einsum", "description": "FP8 einsum"},
-    "kv_rms_norm_rope_cache": {"framework": "vllm_ops", "description": "KV cache RMSNorm + RoPE"},
-    "causal_conv1d_decode": {"framework": "PyTorch (custom)", "description": "Causal 1D conv decode"},
-    "causal_conv1d_prefill": {"framework": "PyTorch (custom)", "description": "Causal 1D conv prefill"},
-}
-
-# Models whose names may appear in the source string.
-MODEL_PATTERNS = [
-    r"Llama-3\.1-8B",
-    r"DeepSeek-V3",
-    r"Qwen3-30B-A3B",
-    r"Gemma-2-9B",
-    r"Mixtral",
-    r"Mamba-2\.8B",
-    r"Falcon-H1",
-    r"GLA",
-]
-
-
 def parse_args() -> argparse.Namespace:
-    default_script_dir = Path(__file__).resolve().parent
-    default_root = default_script_dir.parent
-    default_input = default_root / "results"
+    default_input = Path(__file__).resolve().parent.parent / "results"
 
     parser = argparse.ArgumentParser(
-        description="Generate a high-level operator summary CSV from FlagOpBench JSON reports."
+        description="Generate operator summary CSV (FlagOS vs vLLM)."
     )
     parser.add_argument(
-        "--input-dir",
-        type=Path,
-        default=default_input,
-        help="Directory containing per-operator *.json files (default: ../results).",
+        "--input-dir", type=Path, default=default_input,
+        help="Directory containing *_flagos.json / *_vllm.json files.",
     )
     parser.add_argument(
-        "--output",
-        type=Path,
-        default=None,
-        help="Output CSV path (default: ../results/operator_summary_<backend>_<gpu>.csv).",
+        "--output", type=Path, default=None,
+        help="Output CSV path (default: <input-dir>/operator_summary.csv).",
     )
     return parser.parse_args()
 
 
-def slugify(text: str) -> str:
-    """Convert a string to a safe filename token."""
-    text = text.lower().strip()
-    text = re.sub(r"[^a-z0-9]+", "_", text)
-    text = re.sub(r"_+", "_", text)
-    return text.strip("_")
+def load_json(path: Path) -> dict | None:
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
 
 
-def extract_gpu_name(platform: str, backend: str) -> str:
-    """Extract a short GPU identifier from the platform string."""
-    clean = platform
-    if platform.lower().startswith(backend.lower()):
-        clean = platform[len(backend):].strip()
-    parts = clean.split()
-    return parts[-1] if parts else clean
+def build_workload_map(data: dict) -> dict:
+    """Map workload name -> device_time mean_ms."""
+    mapping = {}
+    for r in data.get("results", []):
+        wl = r.get("workload", "")
+        mean_ms = r.get("performance", {}).get("device_time", {}).get("mean_ms")
+        if wl and mean_ms is not None:
+            mapping[wl] = mean_ms
+    return mapping
 
 
-def format_env_info(data: dict) -> str:
-    """Format platform/backend/env into a single hardware/software string."""
-    env = data.get("env", {})
-    gpu = data.get("platform", env.get("gpu_model", "Unknown GPU"))
-    gpu_mem = env.get("gpu_memory_gb", "")
-    driver = env.get("driver", "")
-    pytorch = env.get("pytorch", "")
+def geo_mean(values: list[float]) -> float:
+    """Geometric mean of positive values."""
+    if not values:
+        return float("nan")
+    log_sum = sum(math.log(v) for v in values if v > 0)
+    n = sum(1 for v in values if v > 0)
+    if n == 0:
+        return float("nan")
+    return math.exp(log_sum / n)
+
+
+def format_env(data: dict) -> str:
+    env = data.get("environment", {})
+    gpu = env.get("gpu_name", "Unknown")
+    mem = env.get("gpu_memory_gb", "")
     cuda = env.get("cuda_version", "")
-    cudnn = env.get("cudnn_version", "")
-
-    parts = [f"{gpu} ({gpu_mem} GB, Driver {driver})"]
-    if pytorch:
-        parts.append(f"PyTorch {pytorch}")
+    torch_ver = env.get("torch_version", "")
+    parts = [gpu]
+    if mem:
+        parts[0] += f" ({mem}GB)"
+    if torch_ver:
+        parts.append(f"PyTorch {torch_ver}")
     if cuda:
         parts.append(f"CUDA {cuda}")
-    if cudnn:
-        parts.append(f"cuDNN {cudnn}")
-
     return "; ".join(parts)
-
-
-def extract_models(source: str) -> list:
-    """Extract model names from a source string."""
-    if not source:
-        return []
-    found = []
-    for pattern in MODEL_PATTERNS:
-        for match in re.finditer(pattern, source):
-            if match.group(0) not in found:
-                found.append(match.group(0))
-    return found
-
-
-def infer_framework(operator: str, source: str) -> str:
-    """Infer framework label for unknown operators."""
-    if "vllm" in operator.lower() or "vllm" in source.lower():
-        return "vllm_ops"
-    return "torch"
-
-
-def infer_description(operator: str) -> str:
-    """Infer a short description for unknown operators."""
-    return operator.replace("_", " ").title()
 
 
 def main() -> int:
     args = parse_args()
+    input_dir = args.input_dir
 
-    if not args.input_dir.is_dir():
-        print(f"Error: input directory not found: {args.input_dir}", file=sys.stderr)
+    if not input_dir.is_dir():
+        print(f"Error: directory not found: {input_dir}", file=sys.stderr)
         return 1
 
-    skipped_prefixes = ("nvidia_", "test_")
-    report_files = []
-    for f in sorted(args.input_dir.glob("*.json")):
-        if f.name.startswith(skipped_prefixes):
-            continue
-        try:
-            with f.open("r", encoding="utf-8") as fp:
-                data = json.load(fp)
-        except (json.JSONDecodeError, OSError):
-            continue
-        if isinstance(data.get("results"), list) and data["results"]:
-            first = data["results"][0]
-            if isinstance(first, dict) and "operator" in first and "scenario" in first:
-                report_files.append((f, data))
+    # Discover operator names that have flagos results
+    flagos_files = sorted(input_dir.glob("*_flagos.json"))
+    if not flagos_files:
+        print(f"No *_flagos.json files found in {input_dir}", file=sys.stderr)
+        return 1
 
-    if not report_files:
-        print(f"Warning: no valid operator report *.json files found in {args.input_dir}", file=sys.stderr)
-        return 0
-
-    # Per-operator aggregation.
-    op_info = {}
-    op_models = defaultdict(list)
-    op_workload_count = defaultdict(int)
-    env_info_str = ""
-    platform_backend_pairs = set()
-
-    for f, data in report_files:
-        platform_backend_pairs.add((data.get("platform", "unknown"), data.get("backend", "unknown")))
-        if not env_info_str:
-            env_info_str = format_env_info(data)
-
-        for r in data.get("results", []):
-            op = r.get("operator", "")
-            if not op:
-                continue
-            if op not in op_info:
-                meta = OPERATOR_META.get(op, {})
-                framework = meta.get("framework", infer_framework(op, r.get("params", {}).get("source", "")))
-                description = meta.get("description", infer_description(op))
-                op_info[op] = {"framework": framework, "description": description}
-
-            op_workload_count[op] += 1
-            for model in extract_models(r.get("params", {}).get("source", "")):
-                if model not in op_models[op]:
-                    op_models[op].append(model)
-
+    env_str = ""
     rows = []
-    for op in sorted(op_info.keys()):
-        info = op_info[op]
-        models = op_models.get(op, [])
-        count = op_workload_count[op]
-        if models:
-            source_str = f"{', '.join(models)} ({count} workloads)"
-        else:
-            source_str = f"({count} workloads)"
+
+    for flagos_path in flagos_files:
+        op_name = flagos_path.stem.replace("_flagos", "")
+        vllm_path = input_dir / f"{op_name}_vllm.json"
+
+        flagos_data = load_json(flagos_path)
+        if flagos_data is None:
+            continue
+
+        if not env_str:
+            env_str = format_env(flagos_data)
+
+        flagos_map = build_workload_map(flagos_data)
+
+        # Get impl source from first result
+        flagos_impl = ""
+        if flagos_data.get("results"):
+            flagos_impl = flagos_data["results"][0].get("impl_info", {}).get("source", "")
+
+        # If vllm counterpart exists, compute speedup
+        vllm_data = load_json(vllm_path) if vllm_path.exists() else None
+        vllm_map = build_workload_map(vllm_data) if vllm_data else {}
+
+        vllm_impl = ""
+        if vllm_data and vllm_data.get("results"):
+            vllm_impl = vllm_data["results"][0].get("impl_info", {}).get("source", "")
+
+        speedups = []
+        flagos_times = []
+        vllm_times = []
+
+        for wl, flagos_t in flagos_map.items():
+            flagos_times.append(flagos_t)
+            if wl in vllm_map:
+                vllm_t = vllm_map[wl]
+                vllm_times.append(vllm_t)
+                if flagos_t > 0:
+                    speedups.append(vllm_t / flagos_t)
+
+        avg_flagos = sum(flagos_times) / len(flagos_times) if flagos_times else float("nan")
+        avg_vllm = sum(vllm_times) / len(vllm_times) if vllm_times else float("nan")
+        avg_speedup = geo_mean(speedups) if speedups else float("nan")
+
         rows.append({
-            "算子名": f"{op} ({info['description']})" if info["description"] else op,
-            "框架": info["framework"],
-            "厂商软硬件信息": env_info_str,
-            "测试用例来源": source_str,
+            "算子名": op_name,
+            "FlagOS来源": flagos_impl,
+            "vLLM来源": vllm_impl,
+            "FlagOS平均耗时(ms)": f"{avg_flagos:.4f}" if not math.isnan(avg_flagos) else "N/A",
+            "vLLM平均耗时(ms)": f"{avg_vllm:.4f}" if not math.isnan(avg_vllm) else "N/A",
+            "平均加速比": f"{avg_speedup:.4f}" if not math.isnan(avg_speedup) else "N/A",
+            "用例数": len(flagos_times),
+            "环境": env_str,
         })
 
-    if args.output is None:
-        if len(platform_backend_pairs) == 1:
-            platform, backend = platform_backend_pairs.pop()
-        else:
-            platform, backend = "unknown", "unknown"
-        gpu = extract_gpu_name(platform, backend)
-        filename = f"operator_summary_{slugify(backend)}_{slugify(gpu)}.csv"
-        args.output = args.input_dir / filename
+    # Sort by speedup descending (N/A last)
+    def sort_key(r):
+        try:
+            return -float(r["平均加速比"])
+        except (ValueError, TypeError):
+            return 0.0
+    rows.sort(key=sort_key)
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    with args.output.open("w", newline="", encoding="utf-8") as fp:
-        writer = csv.DictWriter(fp, fieldnames=["算子名", "框架", "厂商软硬件信息", "测试用例来源"])
+    output_path = args.output or (input_dir / "operator_summary.csv")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    fieldnames = ["算子名", "FlagOS来源", "vLLM来源", "FlagOS平均耗时(ms)", "vLLM平均耗时(ms)", "平均加速比", "用例数", "环境"]
+    with output_path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
 
-    print(f"Generated: {args.output}", file=sys.stderr)
-    print(f"Total operators: {len(rows)}", file=sys.stderr)
+    print(f"Generated: {output_path}", file=sys.stderr)
+    print(f"Operators: {len(rows)}", file=sys.stderr)
     return 0
 
 

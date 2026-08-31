@@ -1,0 +1,1670 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T07:44:14.957664",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 50
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.023,
+          "std_ms": 0.0028,
+          "min_ms": 0.0212,
+          "max_ms": 0.0438
+        },
+        "throughput": {
+          "gflops": 11.2,
+          "bandwidth_gb_s": 5.6
+        },
+        "theory": {
+          "flops": 258048,
+          "bytes": 129104,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "std_ms": 0.001,
+          "min_ms": 0.0214,
+          "max_ms": 0.0296
+        },
+        "throughput": {
+          "gflops": 91.98,
+          "bandwidth_gb_s": 46.02
+        },
+        "theory": {
+          "flops": 2064384,
+          "bytes": 1032832,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0225,
+          "std_ms": 0.001,
+          "min_ms": 0.0214,
+          "max_ms": 0.0284
+        },
+        "throughput": {
+          "gflops": 366.98,
+          "bandwidth_gb_s": 183.61
+        },
+        "theory": {
+          "flops": 8257536,
+          "bytes": 4131328,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "std_ms": 0.001,
+          "min_ms": 0.0214,
+          "max_ms": 0.0299
+        },
+        "throughput": {
+          "gflops": 743.69,
+          "bandwidth_gb_s": 372.07
+        },
+        "theory": {
+          "flops": 16515072,
+          "bytes": 8262656,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.023,
+          "std_ms": 0.0011,
+          "min_ms": 0.022,
+          "max_ms": 0.0319
+        },
+        "throughput": {
+          "gflops": 1435.69,
+          "bandwidth_gb_s": 718.29
+        },
+        "theory": {
+          "flops": 33030144,
+          "bytes": 16525312,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0274,
+          "std_ms": 0.0007,
+          "min_ms": 0.0263,
+          "max_ms": 0.0324
+        },
+        "throughput": {
+          "gflops": 2411.3,
+          "bandwidth_gb_s": 1206.4
+        },
+        "theory": {
+          "flops": 66060288,
+          "bytes": 33050624,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0401,
+          "std_ms": 0.0008,
+          "min_ms": 0.0385,
+          "max_ms": 0.0451
+        },
+        "throughput": {
+          "gflops": 3293.21,
+          "bandwidth_gb_s": 1647.63
+        },
+        "theory": {
+          "flops": 132120576,
+          "bytes": 66101248,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0587,
+          "std_ms": 0.0014,
+          "min_ms": 0.0567,
+          "max_ms": 0.0671
+        },
+        "throughput": {
+          "gflops": 4503.43,
+          "bandwidth_gb_s": 2253.11
+        },
+        "theory": {
+          "flops": 264241152,
+          "bytes": 132202496,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.095,
+          "std_ms": 0.0012,
+          "min_ms": 0.0928,
+          "max_ms": 0.1025
+        },
+        "throughput": {
+          "gflops": 5565.43,
+          "bandwidth_gb_s": 2784.44
+        },
+        "theory": {
+          "flops": 528482304,
+          "bytes": 264404992,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 7168,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1677,
+          "std_ms": 0.0013,
+          "min_ms": 0.166,
+          "max_ms": 0.1746
+        },
+        "throughput": {
+          "gflops": 6301.08,
+          "bandwidth_gb_s": 3152.49
+        },
+        "theory": {
+          "flops": 1056964608,
+          "bytes": 528809984,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "std_ms": 0.0014,
+          "min_ms": 0.0212,
+          "max_ms": 0.033
+        },
+        "throughput": {
+          "gflops": 6.58,
+          "bandwidth_gb_s": 3.3
+        },
+        "theory": {
+          "flops": 147456,
+          "bytes": 73808,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.001,
+          "min_ms": 0.0209,
+          "max_ms": 0.0274
+        },
+        "throughput": {
+          "gflops": 53.44,
+          "bandwidth_gb_s": 26.75
+        },
+        "theory": {
+          "flops": 1179648,
+          "bytes": 590464,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.001,
+          "min_ms": 0.0208,
+          "max_ms": 0.0285
+        },
+        "throughput": {
+          "gflops": 213.93,
+          "bandwidth_gb_s": 107.08
+        },
+        "theory": {
+          "flops": 4718592,
+          "bytes": 2361856,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0008,
+          "min_ms": 0.021,
+          "max_ms": 0.0269
+        },
+        "throughput": {
+          "gflops": 426.64,
+          "bandwidth_gb_s": 213.55
+        },
+        "theory": {
+          "flops": 9437184,
+          "bytes": 4723712,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0005,
+          "min_ms": 0.0213,
+          "max_ms": 0.0247
+        },
+        "throughput": {
+          "gflops": 852.72,
+          "bandwidth_gb_s": 426.82
+        },
+        "theory": {
+          "flops": 18874368,
+          "bytes": 9447424,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0232,
+          "std_ms": 0.0007,
+          "min_ms": 0.0221,
+          "max_ms": 0.0284
+        },
+        "throughput": {
+          "gflops": 1628.11,
+          "bandwidth_gb_s": 814.94
+        },
+        "theory": {
+          "flops": 37748736,
+          "bytes": 18894848,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0269,
+          "std_ms": 0.0003,
+          "min_ms": 0.0263,
+          "max_ms": 0.0284
+        },
+        "throughput": {
+          "gflops": 2810.19,
+          "bandwidth_gb_s": 1406.62
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 37789696,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.041,
+          "std_ms": 0.0005,
+          "min_ms": 0.0399,
+          "max_ms": 0.0434
+        },
+        "throughput": {
+          "gflops": 3684.53,
+          "bandwidth_gb_s": 1844.26
+        },
+        "theory": {
+          "flops": 150994944,
+          "bytes": 75579392,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0627,
+          "std_ms": 0.0008,
+          "min_ms": 0.0613,
+          "max_ms": 0.0666
+        },
+        "throughput": {
+          "gflops": 4815.38,
+          "bandwidth_gb_s": 2410.3
+        },
+        "theory": {
+          "flops": 301989888,
+          "bytes": 151158784,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 4096,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1057,
+          "std_ms": 0.0011,
+          "min_ms": 0.1044,
+          "max_ms": 0.115
+        },
+        "throughput": {
+          "gflops": 5711.58,
+          "bandwidth_gb_s": 2858.89
+        },
+        "theory": {
+          "flops": 603979776,
+          "bytes": 302317568,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0016,
+          "min_ms": 0.0209,
+          "max_ms": 0.0333
+        },
+        "throughput": {
+          "gflops": 3.34,
+          "bandwidth_gb_s": 1.67
+        },
+        "theory": {
+          "flops": 73728,
+          "bytes": 36944,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0216,
+          "std_ms": 0.0008,
+          "min_ms": 0.0208,
+          "max_ms": 0.0276
+        },
+        "throughput": {
+          "gflops": 27.34,
+          "bandwidth_gb_s": 13.7
+        },
+        "theory": {
+          "flops": 589824,
+          "bytes": 295552,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0216,
+          "std_ms": 0.0007,
+          "min_ms": 0.0208,
+          "max_ms": 0.0267
+        },
+        "throughput": {
+          "gflops": 109.17,
+          "bandwidth_gb_s": 54.7
+        },
+        "theory": {
+          "flops": 2359296,
+          "bytes": 1182208,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0007,
+          "min_ms": 0.0207,
+          "max_ms": 0.0252
+        },
+        "throughput": {
+          "gflops": 219.42,
+          "bandwidth_gb_s": 109.95
+        },
+        "theory": {
+          "flops": 4718592,
+          "bytes": 2364416,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0216,
+          "std_ms": 0.0007,
+          "min_ms": 0.0203,
+          "max_ms": 0.0259
+        },
+        "throughput": {
+          "gflops": 436.09,
+          "bandwidth_gb_s": 218.52
+        },
+        "theory": {
+          "flops": 9437184,
+          "bytes": 4728832,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0218,
+          "std_ms": 0.0005,
+          "min_ms": 0.0207,
+          "max_ms": 0.0242
+        },
+        "throughput": {
+          "gflops": 867.52,
+          "bandwidth_gb_s": 434.7
+        },
+        "theory": {
+          "flops": 18874368,
+          "bytes": 9457664,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "std_ms": 0.001,
+          "min_ms": 0.0214,
+          "max_ms": 0.0313
+        },
+        "throughput": {
+          "gflops": 1688.47,
+          "bandwidth_gb_s": 846.07
+        },
+        "theory": {
+          "flops": 37748736,
+          "bytes": 18915328,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.026,
+          "std_ms": 0.0008,
+          "min_ms": 0.0251,
+          "max_ms": 0.0306
+        },
+        "throughput": {
+          "gflops": 2898.5,
+          "bandwidth_gb_s": 1452.4
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 37830656,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0379,
+          "std_ms": 0.0005,
+          "min_ms": 0.0368,
+          "max_ms": 0.0391
+        },
+        "throughput": {
+          "gflops": 3989.14,
+          "bandwidth_gb_s": 1998.9
+        },
+        "theory": {
+          "flops": 150994944,
+          "bytes": 75661312,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 2048,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0592,
+          "std_ms": 0.0037,
+          "min_ms": 0.0577,
+          "max_ms": 0.0954
+        },
+        "throughput": {
+          "gflops": 5100.77,
+          "bandwidth_gb_s": 2555.92
+        },
+        "theory": {
+          "flops": 301989888,
+          "bytes": 151322624,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.002,
+          "min_ms": 0.0208,
+          "max_ms": 0.0345
+        },
+        "throughput": {
+          "gflops": 10.02,
+          "bandwidth_gb_s": 5.02
+        },
+        "theory": {
+          "flops": 221184,
+          "bytes": 110672,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0008,
+          "min_ms": 0.0206,
+          "max_ms": 0.0266
+        },
+        "throughput": {
+          "gflops": 82.3,
+          "bandwidth_gb_s": 41.18
+        },
+        "theory": {
+          "flops": 1769472,
+          "bytes": 885376,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0216,
+          "std_ms": 0.0006,
+          "min_ms": 0.0208,
+          "max_ms": 0.0257
+        },
+        "throughput": {
+          "gflops": 328.01,
+          "bandwidth_gb_s": 164.12
+        },
+        "theory": {
+          "flops": 7077888,
+          "bytes": 3541504,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0006,
+          "min_ms": 0.0207,
+          "max_ms": 0.0249
+        },
+        "throughput": {
+          "gflops": 659.23,
+          "bandwidth_gb_s": 329.85
+        },
+        "theory": {
+          "flops": 14155776,
+          "bytes": 7083008,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "std_ms": 0.0007,
+          "min_ms": 0.0211,
+          "max_ms": 0.0268
+        },
+        "throughput": {
+          "gflops": 1273.94,
+          "bandwidth_gb_s": 637.43
+        },
+        "theory": {
+          "flops": 28311552,
+          "bytes": 14166016,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0256,
+          "std_ms": 0.0009,
+          "min_ms": 0.0248,
+          "max_ms": 0.0318
+        },
+        "throughput": {
+          "gflops": 2208.36,
+          "bandwidth_gb_s": 1104.98
+        },
+        "theory": {
+          "flops": 56623104,
+          "bytes": 28332032,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0362,
+          "std_ms": 0.0006,
+          "min_ms": 0.035,
+          "max_ms": 0.0398
+        },
+        "throughput": {
+          "gflops": 3124.51,
+          "bandwidth_gb_s": 1563.38
+        },
+        "theory": {
+          "flops": 113246208,
+          "bytes": 56664064,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0522,
+          "std_ms": 0.0009,
+          "min_ms": 0.0507,
+          "max_ms": 0.0564
+        },
+        "throughput": {
+          "gflops": 4338.08,
+          "bandwidth_gb_s": 2170.61
+        },
+        "theory": {
+          "flops": 226492416,
+          "bytes": 113328128,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0834,
+          "std_ms": 0.0011,
+          "min_ms": 0.0815,
+          "max_ms": 0.0917
+        },
+        "throughput": {
+          "gflops": 5434.16,
+          "bandwidth_gb_s": 2719.05
+        },
+        "theory": {
+          "flops": 452984832,
+          "bytes": 226656256,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 6144,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1456,
+          "std_ms": 0.0007,
+          "min_ms": 0.144,
+          "max_ms": 0.1488
+        },
+        "throughput": {
+          "gflops": 6224.06,
+          "bandwidth_gb_s": 3114.28
+        },
+        "theory": {
+          "flops": 905969664,
+          "bytes": 453312512,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "std_ms": 0.0015,
+          "min_ms": 0.0211,
+          "max_ms": 0.0336
+        },
+        "throughput": {
+          "gflops": 13.15,
+          "bandwidth_gb_s": 6.58
+        },
+        "theory": {
+          "flops": 294912,
+          "bytes": 147536,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0007,
+          "min_ms": 0.0211,
+          "max_ms": 0.0259
+        },
+        "throughput": {
+          "gflops": 106.57,
+          "bandwidth_gb_s": 53.31
+        },
+        "theory": {
+          "flops": 2359296,
+          "bytes": 1180288,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0007,
+          "min_ms": 0.0212,
+          "max_ms": 0.0275
+        },
+        "throughput": {
+          "gflops": 426.27,
+          "bandwidth_gb_s": 213.25
+        },
+        "theory": {
+          "flops": 9437184,
+          "bytes": 4721152,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0007,
+          "min_ms": 0.0213,
+          "max_ms": 0.028
+        },
+        "throughput": {
+          "gflops": 854.64,
+          "bandwidth_gb_s": 427.55
+        },
+        "theory": {
+          "flops": 18874368,
+          "bytes": 9442304,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0232,
+          "std_ms": 0.0007,
+          "min_ms": 0.0222,
+          "max_ms": 0.0268
+        },
+        "throughput": {
+          "gflops": 1628.2,
+          "bandwidth_gb_s": 814.54
+        },
+        "theory": {
+          "flops": 37748736,
+          "bytes": 18884608,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.029,
+          "std_ms": 0.0016,
+          "min_ms": 0.0281,
+          "max_ms": 0.0438
+        },
+        "throughput": {
+          "gflops": 2603.53,
+          "bandwidth_gb_s": 1302.47
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 37769216,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0437,
+          "std_ms": 0.0045,
+          "min_ms": 0.042,
+          "max_ms": 0.0865
+        },
+        "throughput": {
+          "gflops": 3452.29,
+          "bandwidth_gb_s": 1727.08
+        },
+        "theory": {
+          "flops": 150994944,
+          "bytes": 75538432,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0649,
+          "std_ms": 0.0013,
+          "min_ms": 0.0623,
+          "max_ms": 0.0708
+        },
+        "throughput": {
+          "gflops": 4656.2,
+          "bandwidth_gb_s": 2329.36
+        },
+        "theory": {
+          "flops": 301989888,
+          "bytes": 151076864,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1051,
+          "std_ms": 0.0008,
+          "min_ms": 0.103,
+          "max_ms": 0.1085
+        },
+        "throughput": {
+          "gflops": 5744.63,
+          "bandwidth_gb_s": 2873.87
+        },
+        "theory": {
+          "flops": 603979776,
+          "bytes": 302153728,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    },
+    {
+      "operator": "mhc_post",
+      "definition": "mhc_post",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "H": 8192,
+        "hc": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1876,
+          "std_ms": 0.0009,
+          "min_ms": 0.1853,
+          "max_ms": 0.1901
+        },
+        "throughput": {
+          "gflops": 6437.82,
+          "bandwidth_gb_s": 3220.66
+        },
+        "theory": {
+          "flops": 1207959552,
+          "bytes": 604307456,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.model_executor.layers.mhc.mhc_post",
+        "type": "tilelang"
+      }
+    }
+  ]
+}

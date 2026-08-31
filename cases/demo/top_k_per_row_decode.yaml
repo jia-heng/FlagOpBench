@@ -1,0 +1,31 @@
+# Top-K Per Row Decode算子测试用例
+# DeepSeek-V4 decode阶段从logits中选top_k indices
+
+definition_name: top_k_per_row_decode
+operator: top_k_per_row_decode
+library: flaggems_vllm
+
+const_axes:
+  vocab_size: 256
+  top_k: 8
+
+workloads:
+  - name: "single_row"
+    source: "DeepSeek-V4, decode, 1 row"
+    var_axes:
+      num_rows: 1
+
+  - name: "batch_4"
+    source: "DeepSeek-V4, decode, 4 rows"
+    var_axes:
+      num_rows: 4
+
+  - name: "batch_16"
+    source: "DeepSeek-V4, decode, 16 rows"
+    var_axes:
+      num_rows: 16
+
+  - name: "batch_64"
+    source: "DeepSeek-V4, decode, 64 rows"
+    var_axes:
+      num_rows: 64

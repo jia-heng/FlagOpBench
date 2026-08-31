@@ -1,0 +1,34 @@
+# CP Gather Indexer K Quant Cache算子测试用例
+# Context-Parallel场景下gather FP8 K数据写入paged cache
+
+definition_name: cp_gather_indexer_k_quant_cache
+operator: cp_gather_indexer_k_quant_cache
+library: flaggems_vllm
+
+const_axes:
+  batch_size: 4
+  head_dim: 576
+  block_size: 16
+  quant_block_size: 64
+  max_seq_len: 2048
+
+workloads:
+  - name: "decode_32tokens"
+    source: "DeepSeek-V4, decode, 32 tokens"
+    var_axes:
+      num_tokens: 32
+
+  - name: "decode_128tokens"
+    source: "DeepSeek-V4, decode, 128 tokens"
+    var_axes:
+      num_tokens: 128
+
+  - name: "prefill_512tokens"
+    source: "DeepSeek-V4, prefill, 512 tokens"
+    var_axes:
+      num_tokens: 512
+
+  - name: "prefill_2048tokens"
+    source: "DeepSeek-V4, prefill, 2048 tokens"
+    var_axes:
+      num_tokens: 2048

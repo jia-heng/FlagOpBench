@@ -1,0 +1,2660 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T09:13:42.498389",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 80
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0162,
+          "std_ms": 0.002,
+          "min_ms": 0.0148,
+          "max_ms": 0.0336
+        },
+        "throughput": {
+          "gflops": 3.11,
+          "bandwidth_gb_s": 7.99
+        },
+        "theory": {
+          "flops": 50176,
+          "bytes": 129024,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0157,
+          "std_ms": 0.0004,
+          "min_ms": 0.0149,
+          "max_ms": 0.0181
+        },
+        "throughput": {
+          "gflops": 25.63,
+          "bandwidth_gb_s": 65.9
+        },
+        "theory": {
+          "flops": 401408,
+          "bytes": 1032192,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0155,
+          "std_ms": 0.0009,
+          "min_ms": 0.0148,
+          "max_ms": 0.0222
+        },
+        "throughput": {
+          "gflops": 103.37,
+          "bandwidth_gb_s": 265.81
+        },
+        "theory": {
+          "flops": 1605632,
+          "bytes": 4128768,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0159,
+          "std_ms": 0.0009,
+          "min_ms": 0.0152,
+          "max_ms": 0.0229
+        },
+        "throughput": {
+          "gflops": 201.98,
+          "bandwidth_gb_s": 519.39
+        },
+        "theory": {
+          "flops": 3211264,
+          "bytes": 8257536,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0176,
+          "std_ms": 0.0004,
+          "min_ms": 0.0172,
+          "max_ms": 0.0205
+        },
+        "throughput": {
+          "gflops": 365.74,
+          "bandwidth_gb_s": 940.48
+        },
+        "theory": {
+          "flops": 6422528,
+          "bytes": 16515072,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0245,
+          "std_ms": 0.0006,
+          "min_ms": 0.0238,
+          "max_ms": 0.0304
+        },
+        "throughput": {
+          "gflops": 524.22,
+          "bandwidth_gb_s": 1348.0
+        },
+        "theory": {
+          "flops": 12845056,
+          "bytes": 33030144,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0439,
+          "std_ms": 0.0055,
+          "min_ms": 0.0422,
+          "max_ms": 0.0979
+        },
+        "throughput": {
+          "gflops": 584.81,
+          "bandwidth_gb_s": 1503.8
+        },
+        "theory": {
+          "flops": 25690112,
+          "bytes": 66060288,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0739,
+          "std_ms": 0.0005,
+          "min_ms": 0.0732,
+          "max_ms": 0.076
+        },
+        "throughput": {
+          "gflops": 694.93,
+          "bandwidth_gb_s": 1786.97
+        },
+        "theory": {
+          "flops": 51380224,
+          "bytes": 132120576,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1367,
+          "std_ms": 0.0008,
+          "min_ms": 0.1346,
+          "max_ms": 0.1425
+        },
+        "throughput": {
+          "gflops": 751.8,
+          "bandwidth_gb_s": 1933.19
+        },
+        "theory": {
+          "flops": 102760448,
+          "bytes": 264241152,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2617,
+          "std_ms": 0.0007,
+          "min_ms": 0.2591,
+          "max_ms": 0.2638
+        },
+        "throughput": {
+          "gflops": 785.48,
+          "bandwidth_gb_s": 2019.79
+        },
+        "theory": {
+          "flops": 205520896,
+          "bytes": 528482304,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0151,
+          "std_ms": 0.0005,
+          "min_ms": 0.0146,
+          "max_ms": 0.0192
+        },
+        "throughput": {
+          "gflops": 1.36,
+          "bandwidth_gb_s": 3.79
+        },
+        "theory": {
+          "flops": 20480,
+          "bytes": 57344,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0151,
+          "std_ms": 0.0003,
+          "min_ms": 0.0146,
+          "max_ms": 0.0167
+        },
+        "throughput": {
+          "gflops": 10.84,
+          "bandwidth_gb_s": 30.35
+        },
+        "theory": {
+          "flops": 163840,
+          "bytes": 458752,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0153,
+          "std_ms": 0.0005,
+          "min_ms": 0.0148,
+          "max_ms": 0.0192
+        },
+        "throughput": {
+          "gflops": 42.78,
+          "bandwidth_gb_s": 119.78
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 1835008,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0153,
+          "std_ms": 0.0007,
+          "min_ms": 0.0148,
+          "max_ms": 0.0213
+        },
+        "throughput": {
+          "gflops": 85.52,
+          "bandwidth_gb_s": 239.44
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 3670016,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.016,
+          "std_ms": 0.0007,
+          "min_ms": 0.015,
+          "max_ms": 0.0217
+        },
+        "throughput": {
+          "gflops": 164.35,
+          "bandwidth_gb_s": 460.19
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 7340032,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0186,
+          "std_ms": 0.0003,
+          "min_ms": 0.018,
+          "max_ms": 0.0192
+        },
+        "throughput": {
+          "gflops": 282.59,
+          "bandwidth_gb_s": 791.24
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 14680064,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0262,
+          "std_ms": 0.0005,
+          "min_ms": 0.0258,
+          "max_ms": 0.0308
+        },
+        "throughput": {
+          "gflops": 400.81,
+          "bandwidth_gb_s": 1122.26
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 29360128,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0494,
+          "std_ms": 0.0004,
+          "min_ms": 0.0488,
+          "max_ms": 0.0512
+        },
+        "throughput": {
+          "gflops": 424.44,
+          "bandwidth_gb_s": 1188.43
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 58720256,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0879,
+          "std_ms": 0.0004,
+          "min_ms": 0.0873,
+          "max_ms": 0.0903
+        },
+        "throughput": {
+          "gflops": 477.08,
+          "bandwidth_gb_s": 1335.82
+        },
+        "theory": {
+          "flops": 41943040,
+          "bytes": 117440512,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1637,
+          "std_ms": 0.0007,
+          "min_ms": 0.1625,
+          "max_ms": 0.1684
+        },
+        "throughput": {
+          "gflops": 512.4,
+          "bandwidth_gb_s": 1434.72
+        },
+        "theory": {
+          "flops": 83886080,
+          "bytes": 234881024,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0152,
+          "std_ms": 0.0002,
+          "min_ms": 0.0147,
+          "max_ms": 0.016
+        },
+        "throughput": {
+          "gflops": 2.35,
+          "bandwidth_gb_s": 6.59
+        },
+        "theory": {
+          "flops": 35840,
+          "bytes": 100352,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0152,
+          "std_ms": 0.0007,
+          "min_ms": 0.0144,
+          "max_ms": 0.0209
+        },
+        "throughput": {
+          "gflops": 18.9,
+          "bandwidth_gb_s": 52.91
+        },
+        "theory": {
+          "flops": 286720,
+          "bytes": 802816,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0166,
+          "std_ms": 0.0122,
+          "min_ms": 0.0147,
+          "max_ms": 0.1366
+        },
+        "throughput": {
+          "gflops": 68.92,
+          "bandwidth_gb_s": 192.97
+        },
+        "theory": {
+          "flops": 1146880,
+          "bytes": 3211264,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0158,
+          "std_ms": 0.0008,
+          "min_ms": 0.0151,
+          "max_ms": 0.023
+        },
+        "throughput": {
+          "gflops": 145.46,
+          "bandwidth_gb_s": 407.3
+        },
+        "theory": {
+          "flops": 2293760,
+          "bytes": 6422528,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0002,
+          "min_ms": 0.0169,
+          "max_ms": 0.0183
+        },
+        "throughput": {
+          "gflops": 264.44,
+          "bandwidth_gb_s": 740.44
+        },
+        "theory": {
+          "flops": 4587520,
+          "bytes": 12845056,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0242,
+          "std_ms": 0.0002,
+          "min_ms": 0.0238,
+          "max_ms": 0.0253
+        },
+        "throughput": {
+          "gflops": 379.21,
+          "bandwidth_gb_s": 1061.8
+        },
+        "theory": {
+          "flops": 9175040,
+          "bytes": 25690112,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0443,
+          "std_ms": 0.0004,
+          "min_ms": 0.0437,
+          "max_ms": 0.0451
+        },
+        "throughput": {
+          "gflops": 414.09,
+          "bandwidth_gb_s": 1159.45
+        },
+        "theory": {
+          "flops": 18350080,
+          "bytes": 51380224,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0778,
+          "std_ms": 0.0004,
+          "min_ms": 0.0767,
+          "max_ms": 0.0791
+        },
+        "throughput": {
+          "gflops": 471.55,
+          "bandwidth_gb_s": 1320.35
+        },
+        "theory": {
+          "flops": 36700160,
+          "bytes": 102760448,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1433,
+          "std_ms": 0.0005,
+          "min_ms": 0.1425,
+          "max_ms": 0.1457
+        },
+        "throughput": {
+          "gflops": 512.07,
+          "bandwidth_gb_s": 1433.79
+        },
+        "theory": {
+          "flops": 73400320,
+          "bytes": 205520896,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2764,
+          "std_ms": 0.0012,
+          "min_ms": 0.275,
+          "max_ms": 0.2868
+        },
+        "throughput": {
+          "gflops": 531.09,
+          "bandwidth_gb_s": 1487.05
+        },
+        "theory": {
+          "flops": 146800640,
+          "bytes": 411041792,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.012,
+          "std_ms": 0.0009,
+          "min_ms": 0.0113,
+          "max_ms": 0.0194
+        },
+        "throughput": {
+          "gflops": 0.51,
+          "bandwidth_gb_s": 1.71
+        },
+        "theory": {
+          "flops": 6144,
+          "bytes": 20480,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.012,
+          "std_ms": 0.0003,
+          "min_ms": 0.0115,
+          "max_ms": 0.0132
+        },
+        "throughput": {
+          "gflops": 4.09,
+          "bandwidth_gb_s": 13.64
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 163840,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0119,
+          "std_ms": 0.0002,
+          "min_ms": 0.0112,
+          "max_ms": 0.0125
+        },
+        "throughput": {
+          "gflops": 16.57,
+          "bandwidth_gb_s": 55.23
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 655360,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0118,
+          "std_ms": 0.0004,
+          "min_ms": 0.0114,
+          "max_ms": 0.015
+        },
+        "throughput": {
+          "gflops": 33.26,
+          "bandwidth_gb_s": 110.87
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 1310720,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.012,
+          "std_ms": 0.0004,
+          "min_ms": 0.0115,
+          "max_ms": 0.0145
+        },
+        "throughput": {
+          "gflops": 65.63,
+          "bandwidth_gb_s": 218.75
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 2621440,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0122,
+          "std_ms": 0.0002,
+          "min_ms": 0.0118,
+          "max_ms": 0.0127
+        },
+        "throughput": {
+          "gflops": 128.79,
+          "bandwidth_gb_s": 429.31
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 5242880,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0124,
+          "std_ms": 0.0007,
+          "min_ms": 0.0116,
+          "max_ms": 0.0183
+        },
+        "throughput": {
+          "gflops": 253.41,
+          "bandwidth_gb_s": 844.69
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 10485760,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0003,
+          "min_ms": 0.015,
+          "max_ms": 0.0163
+        },
+        "throughput": {
+          "gflops": 403.73,
+          "bandwidth_gb_s": 1345.76
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 20971520,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0265,
+          "std_ms": 0.0006,
+          "min_ms": 0.0259,
+          "max_ms": 0.0319
+        },
+        "throughput": {
+          "gflops": 474.73,
+          "bandwidth_gb_s": 1582.42
+        },
+        "theory": {
+          "flops": 12582912,
+          "bytes": 41943040,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0559,
+          "std_ms": 0.0004,
+          "min_ms": 0.0551,
+          "max_ms": 0.0566
+        },
+        "throughput": {
+          "gflops": 449.97,
+          "bandwidth_gb_s": 1499.9
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 83886080,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0152,
+          "std_ms": 0.0008,
+          "min_ms": 0.0144,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 2.83,
+          "bandwidth_gb_s": 7.27
+        },
+        "theory": {
+          "flops": 43008,
+          "bytes": 110592,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0152,
+          "std_ms": 0.0006,
+          "min_ms": 0.0144,
+          "max_ms": 0.0199
+        },
+        "throughput": {
+          "gflops": 22.71,
+          "bandwidth_gb_s": 58.39
+        },
+        "theory": {
+          "flops": 344064,
+          "bytes": 884736,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0152,
+          "std_ms": 0.0007,
+          "min_ms": 0.0146,
+          "max_ms": 0.0212
+        },
+        "throughput": {
+          "gflops": 90.78,
+          "bandwidth_gb_s": 233.43
+        },
+        "theory": {
+          "flops": 1376256,
+          "bytes": 3538944,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0003,
+          "min_ms": 0.0149,
+          "max_ms": 0.0165
+        },
+        "throughput": {
+          "gflops": 176.71,
+          "bandwidth_gb_s": 454.41
+        },
+        "theory": {
+          "flops": 2752512,
+          "bytes": 7077888,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0166,
+          "std_ms": 0.0002,
+          "min_ms": 0.0161,
+          "max_ms": 0.0179
+        },
+        "throughput": {
+          "gflops": 332.62,
+          "bandwidth_gb_s": 855.31
+        },
+        "theory": {
+          "flops": 5505024,
+          "bytes": 14155776,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0225,
+          "std_ms": 0.0006,
+          "min_ms": 0.0219,
+          "max_ms": 0.0275
+        },
+        "throughput": {
+          "gflops": 490.4,
+          "bandwidth_gb_s": 1261.03
+        },
+        "theory": {
+          "flops": 11010048,
+          "bytes": 28311552,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0386,
+          "std_ms": 0.0005,
+          "min_ms": 0.038,
+          "max_ms": 0.0426
+        },
+        "throughput": {
+          "gflops": 571.14,
+          "bandwidth_gb_s": 1468.65
+        },
+        "theory": {
+          "flops": 22020096,
+          "bytes": 56623104,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0652,
+          "std_ms": 0.0004,
+          "min_ms": 0.0641,
+          "max_ms": 0.0667
+        },
+        "throughput": {
+          "gflops": 675.1,
+          "bandwidth_gb_s": 1735.97
+        },
+        "theory": {
+          "flops": 44040192,
+          "bytes": 113246208,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.119,
+          "std_ms": 0.0008,
+          "min_ms": 0.1166,
+          "max_ms": 0.1208
+        },
+        "throughput": {
+          "gflops": 740.02,
+          "bandwidth_gb_s": 1902.9
+        },
+        "theory": {
+          "flops": 88080384,
+          "bytes": 226492416,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2254,
+          "std_ms": 0.0011,
+          "min_ms": 0.2219,
+          "max_ms": 0.2298
+        },
+        "throughput": {
+          "gflops": 781.63,
+          "bandwidth_gb_s": 2009.9
+        },
+        "theory": {
+          "flops": 176160768,
+          "bytes": 452984832,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0153,
+          "std_ms": 0.0006,
+          "min_ms": 0.0148,
+          "max_ms": 0.0205
+        },
+        "throughput": {
+          "gflops": 7.03,
+          "bandwidth_gb_s": 15.94
+        },
+        "theory": {
+          "flops": 107520,
+          "bytes": 243712,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0153,
+          "std_ms": 0.0003,
+          "min_ms": 0.0146,
+          "max_ms": 0.0164
+        },
+        "throughput": {
+          "gflops": 56.21,
+          "bandwidth_gb_s": 127.4
+        },
+        "theory": {
+          "flops": 860160,
+          "bytes": 1949696,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0002,
+          "min_ms": 0.015,
+          "max_ms": 0.0166
+        },
+        "throughput": {
+          "gflops": 221.14,
+          "bandwidth_gb_s": 501.25
+        },
+        "theory": {
+          "flops": 3440640,
+          "bytes": 7798784,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0162,
+          "std_ms": 0.0006,
+          "min_ms": 0.0154,
+          "max_ms": 0.0197
+        },
+        "throughput": {
+          "gflops": 425.43,
+          "bandwidth_gb_s": 964.3
+        },
+        "theory": {
+          "flops": 6881280,
+          "bytes": 15597568,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0198,
+          "std_ms": 0.0003,
+          "min_ms": 0.0187,
+          "max_ms": 0.0208
+        },
+        "throughput": {
+          "gflops": 695.69,
+          "bandwidth_gb_s": 1576.89
+        },
+        "theory": {
+          "flops": 13762560,
+          "bytes": 31195136,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0368,
+          "std_ms": 0.0006,
+          "min_ms": 0.036,
+          "max_ms": 0.0416
+        },
+        "throughput": {
+          "gflops": 747.67,
+          "bandwidth_gb_s": 1694.72
+        },
+        "theory": {
+          "flops": 27525120,
+          "bytes": 62390272,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0605,
+          "std_ms": 0.0007,
+          "min_ms": 0.0585,
+          "max_ms": 0.0618
+        },
+        "throughput": {
+          "gflops": 909.86,
+          "bandwidth_gb_s": 2062.35
+        },
+        "theory": {
+          "flops": 55050240,
+          "bytes": 124780544,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1072,
+          "std_ms": 0.0014,
+          "min_ms": 0.1043,
+          "max_ms": 0.1138
+        },
+        "throughput": {
+          "gflops": 1026.71,
+          "bandwidth_gb_s": 2327.21
+        },
+        "theory": {
+          "flops": 110100480,
+          "bytes": 249561088,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1993,
+          "std_ms": 0.0021,
+          "min_ms": 0.1936,
+          "max_ms": 0.2021
+        },
+        "throughput": {
+          "gflops": 1105.02,
+          "bandwidth_gb_s": 2504.71
+        },
+        "theory": {
+          "flops": 220200960,
+          "bytes": 499122176,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.386,
+          "std_ms": 0.0046,
+          "min_ms": 0.3727,
+          "max_ms": 0.3939
+        },
+        "throughput": {
+          "gflops": 1141.06,
+          "bandwidth_gb_s": 2586.39
+        },
+        "theory": {
+          "flops": 440401920,
+          "bytes": 998244352,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0153,
+          "std_ms": 0.0003,
+          "min_ms": 0.0148,
+          "max_ms": 0.0164
+        },
+        "throughput": {
+          "gflops": 0.94,
+          "bandwidth_gb_s": 2.41
+        },
+        "theory": {
+          "flops": 14336,
+          "bytes": 36864,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0153,
+          "std_ms": 0.0007,
+          "min_ms": 0.0145,
+          "max_ms": 0.0208
+        },
+        "throughput": {
+          "gflops": 7.48,
+          "bandwidth_gb_s": 19.24
+        },
+        "theory": {
+          "flops": 114688,
+          "bytes": 294912,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0151,
+          "std_ms": 0.0004,
+          "min_ms": 0.0145,
+          "max_ms": 0.0188
+        },
+        "throughput": {
+          "gflops": 30.42,
+          "bandwidth_gb_s": 78.22
+        },
+        "theory": {
+          "flops": 458752,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0151,
+          "std_ms": 0.0006,
+          "min_ms": 0.0146,
+          "max_ms": 0.021
+        },
+        "throughput": {
+          "gflops": 60.7,
+          "bandwidth_gb_s": 156.08
+        },
+        "theory": {
+          "flops": 917504,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0152,
+          "std_ms": 0.0002,
+          "min_ms": 0.0147,
+          "max_ms": 0.0163
+        },
+        "throughput": {
+          "gflops": 120.85,
+          "bandwidth_gb_s": 310.76
+        },
+        "theory": {
+          "flops": 1835008,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0157,
+          "std_ms": 0.0003,
+          "min_ms": 0.0151,
+          "max_ms": 0.0169
+        },
+        "throughput": {
+          "gflops": 234.23,
+          "bandwidth_gb_s": 602.3
+        },
+        "theory": {
+          "flops": 3670016,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0184,
+          "std_ms": 0.0002,
+          "min_ms": 0.018,
+          "max_ms": 0.0189
+        },
+        "throughput": {
+          "gflops": 397.97,
+          "bandwidth_gb_s": 1023.36
+        },
+        "theory": {
+          "flops": 7340032,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0267,
+          "std_ms": 0.0007,
+          "min_ms": 0.0263,
+          "max_ms": 0.033
+        },
+        "throughput": {
+          "gflops": 549.17,
+          "bandwidth_gb_s": 1412.14
+        },
+        "theory": {
+          "flops": 14680064,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0475,
+          "std_ms": 0.0003,
+          "min_ms": 0.0467,
+          "max_ms": 0.0486
+        },
+        "throughput": {
+          "gflops": 618.08,
+          "bandwidth_gb_s": 1589.35
+        },
+        "theory": {
+          "flops": 29360128,
+          "bytes": 75497472,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0834,
+          "std_ms": 0.0004,
+          "min_ms": 0.0825,
+          "max_ms": 0.0844
+        },
+        "throughput": {
+          "gflops": 704.3,
+          "bandwidth_gb_s": 1811.06
+        },
+        "theory": {
+          "flops": 58720256,
+          "bytes": 150994944,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0151,
+          "std_ms": 0.0006,
+          "min_ms": 0.0145,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 4.9,
+          "bandwidth_gb_s": 11.97
+        },
+        "theory": {
+          "flops": 73728,
+          "bytes": 180224,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0152,
+          "std_ms": 0.0007,
+          "min_ms": 0.0145,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 38.84,
+          "bandwidth_gb_s": 94.93
+        },
+        "theory": {
+          "flops": 589824,
+          "bytes": 1441792,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0154,
+          "std_ms": 0.0005,
+          "min_ms": 0.0147,
+          "max_ms": 0.0203
+        },
+        "throughput": {
+          "gflops": 152.81,
+          "bandwidth_gb_s": 373.53
+        },
+        "theory": {
+          "flops": 2359296,
+          "bytes": 5767168,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0159,
+          "std_ms": 0.0006,
+          "min_ms": 0.0152,
+          "max_ms": 0.0209
+        },
+        "throughput": {
+          "gflops": 296.85,
+          "bandwidth_gb_s": 725.64
+        },
+        "theory": {
+          "flops": 4718592,
+          "bytes": 11534336,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0197,
+          "std_ms": 0.0002,
+          "min_ms": 0.0193,
+          "max_ms": 0.0208
+        },
+        "throughput": {
+          "gflops": 479.67,
+          "bandwidth_gb_s": 1172.53
+        },
+        "theory": {
+          "flops": 9437184,
+          "bytes": 23068672,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0313,
+          "std_ms": 0.0003,
+          "min_ms": 0.0306,
+          "max_ms": 0.0328
+        },
+        "throughput": {
+          "gflops": 603.68,
+          "bandwidth_gb_s": 1475.67
+        },
+        "theory": {
+          "flops": 18874368,
+          "bytes": 46137344,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0588,
+          "std_ms": 0.0007,
+          "min_ms": 0.0578,
+          "max_ms": 0.0643
+        },
+        "throughput": {
+          "gflops": 642.44,
+          "bandwidth_gb_s": 1570.41
+        },
+        "theory": {
+          "flops": 37748736,
+          "bytes": 92274688,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1066,
+          "std_ms": 0.0005,
+          "min_ms": 0.1053,
+          "max_ms": 0.1076
+        },
+        "throughput": {
+          "gflops": 708.2,
+          "bandwidth_gb_s": 1731.14
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 184549376,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2001,
+          "std_ms": 0.0008,
+          "min_ms": 0.1974,
+          "max_ms": 0.2043
+        },
+        "throughput": {
+          "gflops": 754.73,
+          "bandwidth_gb_s": 1844.91
+        },
+        "theory": {
+          "flops": 150994944,
+          "bytes": 369098752,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3862,
+          "std_ms": 0.0012,
+          "min_ms": 0.383,
+          "max_ms": 0.3884
+        },
+        "throughput": {
+          "gflops": 781.88,
+          "bandwidth_gb_s": 1911.25
+        },
+        "theory": {
+          "flops": 301989888,
+          "bytes": 738197504,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda"
+      }
+    }
+  ]
+}

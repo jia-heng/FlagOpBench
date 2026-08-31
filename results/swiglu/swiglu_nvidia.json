@@ -1,0 +1,1940 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T06:21:04.991430",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 60
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "std_ms": 0.0073,
+          "min_ms": 0.0175,
+          "max_ms": 0.0414
+        },
+        "throughput": {
+          "gflops": 0.46,
+          "bandwidth_gb_s": 0.55
+        },
+        "theory": {
+          "flops": 10240,
+          "bytes": 12288,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0186,
+          "std_ms": 0.0014,
+          "min_ms": 0.0173,
+          "max_ms": 0.0216
+        },
+        "throughput": {
+          "gflops": 4.4,
+          "bandwidth_gb_s": 5.28
+        },
+        "theory": {
+          "flops": 81920,
+          "bytes": 98304,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0176,
+          "std_ms": 0.0004,
+          "min_ms": 0.0171,
+          "max_ms": 0.0183
+        },
+        "throughput": {
+          "gflops": 18.57,
+          "bandwidth_gb_s": 22.29
+        },
+        "theory": {
+          "flops": 327680,
+          "bytes": 393216,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0175,
+          "std_ms": 0.0005,
+          "min_ms": 0.0168,
+          "max_ms": 0.0185
+        },
+        "throughput": {
+          "gflops": 37.48,
+          "bandwidth_gb_s": 44.98
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 786432,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0006,
+          "min_ms": 0.0172,
+          "max_ms": 0.019
+        },
+        "throughput": {
+          "gflops": 74.1,
+          "bandwidth_gb_s": 88.91
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 1572864,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0007,
+          "min_ms": 0.0167,
+          "max_ms": 0.0194
+        },
+        "throughput": {
+          "gflops": 148.06,
+          "bandwidth_gb_s": 177.67
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 3145728,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0003,
+          "min_ms": 0.0173,
+          "max_ms": 0.0183
+        },
+        "throughput": {
+          "gflops": 295.53,
+          "bandwidth_gb_s": 354.63
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 6291456,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0182,
+          "std_ms": 0.0005,
+          "min_ms": 0.0175,
+          "max_ms": 0.0193
+        },
+        "throughput": {
+          "gflops": 574.68,
+          "bandwidth_gb_s": 689.61
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 12582912,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0203,
+          "std_ms": 0.0007,
+          "min_ms": 0.0196,
+          "max_ms": 0.022
+        },
+        "throughput": {
+          "gflops": 1033.36,
+          "bandwidth_gb_s": 1240.04
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 25165824,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.028,
+          "std_ms": 0.0008,
+          "min_ms": 0.027,
+          "max_ms": 0.0296
+        },
+        "throughput": {
+          "gflops": 1500.37,
+          "bandwidth_gb_s": 1800.44
+        },
+        "theory": {
+          "flops": 41943040,
+          "bytes": 50331648,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0175,
+          "std_ms": 0.0003,
+          "min_ms": 0.0171,
+          "max_ms": 0.0182
+        },
+        "throughput": {
+          "gflops": 0.88,
+          "bandwidth_gb_s": 1.05
+        },
+        "theory": {
+          "flops": 15360,
+          "bytes": 18432,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0184,
+          "std_ms": 0.0019,
+          "min_ms": 0.0172,
+          "max_ms": 0.0235
+        },
+        "throughput": {
+          "gflops": 6.68,
+          "bandwidth_gb_s": 8.02
+        },
+        "theory": {
+          "flops": 122880,
+          "bytes": 147456,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0007,
+          "min_ms": 0.0168,
+          "max_ms": 0.0186
+        },
+        "throughput": {
+          "gflops": 28.33,
+          "bandwidth_gb_s": 34.0
+        },
+        "theory": {
+          "flops": 491520,
+          "bytes": 589824,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0171,
+          "std_ms": 0.0004,
+          "min_ms": 0.0165,
+          "max_ms": 0.0179
+        },
+        "throughput": {
+          "gflops": 57.36,
+          "bandwidth_gb_s": 68.83
+        },
+        "theory": {
+          "flops": 983040,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0171,
+          "std_ms": 0.0004,
+          "min_ms": 0.0165,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 114.82,
+          "bandwidth_gb_s": 137.78
+        },
+        "theory": {
+          "flops": 1966080,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0004,
+          "min_ms": 0.0169,
+          "max_ms": 0.0179
+        },
+        "throughput": {
+          "gflops": 226.34,
+          "bandwidth_gb_s": 271.61
+        },
+        "theory": {
+          "flops": 3932160,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0181,
+          "std_ms": 0.0006,
+          "min_ms": 0.0172,
+          "max_ms": 0.0191
+        },
+        "throughput": {
+          "gflops": 435.2,
+          "bandwidth_gb_s": 522.25
+        },
+        "theory": {
+          "flops": 7864320,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0186,
+          "std_ms": 0.0004,
+          "min_ms": 0.018,
+          "max_ms": 0.019
+        },
+        "throughput": {
+          "gflops": 847.89,
+          "bandwidth_gb_s": 1017.46
+        },
+        "theory": {
+          "flops": 15728640,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0234,
+          "std_ms": 0.0004,
+          "min_ms": 0.0228,
+          "max_ms": 0.0241
+        },
+        "throughput": {
+          "gflops": 1347.18,
+          "bandwidth_gb_s": 1616.62
+        },
+        "theory": {
+          "flops": 31457280,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0368,
+          "std_ms": 0.0006,
+          "min_ms": 0.0361,
+          "max_ms": 0.0381
+        },
+        "throughput": {
+          "gflops": 1709.04,
+          "bandwidth_gb_s": 2050.85
+        },
+        "theory": {
+          "flops": 62914560,
+          "bytes": 75497472,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0005,
+          "min_ms": 0.0169,
+          "max_ms": 0.0184
+        },
+        "throughput": {
+          "gflops": 0.44,
+          "bandwidth_gb_s": 0.53
+        },
+        "theory": {
+          "flops": 7680,
+          "bytes": 9216,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0004,
+          "min_ms": 0.0166,
+          "max_ms": 0.018
+        },
+        "throughput": {
+          "gflops": 3.58,
+          "bandwidth_gb_s": 4.29
+        },
+        "theory": {
+          "flops": 61440,
+          "bytes": 73728,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0004,
+          "min_ms": 0.0166,
+          "max_ms": 0.0179
+        },
+        "throughput": {
+          "gflops": 14.29,
+          "bandwidth_gb_s": 17.15
+        },
+        "theory": {
+          "flops": 245760,
+          "bytes": 294912,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0178,
+          "std_ms": 0.0009,
+          "min_ms": 0.0168,
+          "max_ms": 0.02
+        },
+        "throughput": {
+          "gflops": 27.69,
+          "bandwidth_gb_s": 33.22
+        },
+        "theory": {
+          "flops": 491520,
+          "bytes": 589824,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.017,
+          "std_ms": 0.0004,
+          "min_ms": 0.0165,
+          "max_ms": 0.0176
+        },
+        "throughput": {
+          "gflops": 57.79,
+          "bandwidth_gb_s": 69.35
+        },
+        "theory": {
+          "flops": 983040,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0004,
+          "min_ms": 0.0166,
+          "max_ms": 0.0178
+        },
+        "throughput": {
+          "gflops": 113.99,
+          "bandwidth_gb_s": 136.79
+        },
+        "theory": {
+          "flops": 1966080,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0169,
+          "std_ms": 0.0003,
+          "min_ms": 0.0166,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 232.99,
+          "bandwidth_gb_s": 279.59
+        },
+        "theory": {
+          "flops": 3932160,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0178,
+          "std_ms": 0.0003,
+          "min_ms": 0.0174,
+          "max_ms": 0.0183
+        },
+        "throughput": {
+          "gflops": 440.67,
+          "bandwidth_gb_s": 528.8
+        },
+        "theory": {
+          "flops": 7864320,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0186,
+          "std_ms": 0.0004,
+          "min_ms": 0.0181,
+          "max_ms": 0.0194
+        },
+        "throughput": {
+          "gflops": 845.84,
+          "bandwidth_gb_s": 1015.01
+        },
+        "theory": {
+          "flops": 15728640,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0235,
+          "std_ms": 0.0002,
+          "min_ms": 0.0233,
+          "max_ms": 0.024
+        },
+        "throughput": {
+          "gflops": 1336.38,
+          "bandwidth_gb_s": 1603.65
+        },
+        "theory": {
+          "flops": 31457280,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0003,
+          "min_ms": 0.0169,
+          "max_ms": 0.0178
+        },
+        "throughput": {
+          "gflops": 1.79,
+          "bandwidth_gb_s": 2.14
+        },
+        "theory": {
+          "flops": 30720,
+          "bytes": 36864,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0003,
+          "min_ms": 0.017,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 14.13,
+          "bandwidth_gb_s": 16.95
+        },
+        "theory": {
+          "flops": 245760,
+          "bytes": 294912,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0171,
+          "std_ms": 0.0003,
+          "min_ms": 0.0166,
+          "max_ms": 0.0175
+        },
+        "throughput": {
+          "gflops": 57.59,
+          "bandwidth_gb_s": 69.11
+        },
+        "theory": {
+          "flops": 983040,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0171,
+          "std_ms": 0.0004,
+          "min_ms": 0.0164,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 114.73,
+          "bandwidth_gb_s": 137.68
+        },
+        "theory": {
+          "flops": 1966080,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.017,
+          "std_ms": 0.0004,
+          "min_ms": 0.0164,
+          "max_ms": 0.0178
+        },
+        "throughput": {
+          "gflops": 231.67,
+          "bandwidth_gb_s": 278.01
+        },
+        "theory": {
+          "flops": 3932160,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0179,
+          "std_ms": 0.0004,
+          "min_ms": 0.0173,
+          "max_ms": 0.0186
+        },
+        "throughput": {
+          "gflops": 440.04,
+          "bandwidth_gb_s": 528.04
+        },
+        "theory": {
+          "flops": 7864320,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0185,
+          "std_ms": 0.0005,
+          "min_ms": 0.0181,
+          "max_ms": 0.0196
+        },
+        "throughput": {
+          "gflops": 852.0,
+          "bandwidth_gb_s": 1022.4
+        },
+        "theory": {
+          "flops": 15728640,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0242,
+          "std_ms": 0.0002,
+          "min_ms": 0.0238,
+          "max_ms": 0.0245
+        },
+        "throughput": {
+          "gflops": 1300.32,
+          "bandwidth_gb_s": 1560.38
+        },
+        "theory": {
+          "flops": 31457280,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0416,
+          "std_ms": 0.0004,
+          "min_ms": 0.0411,
+          "max_ms": 0.0425
+        },
+        "throughput": {
+          "gflops": 1512.95,
+          "bandwidth_gb_s": 1815.54
+        },
+        "theory": {
+          "flops": 62914560,
+          "bytes": 75497472,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0691,
+          "std_ms": 0.0003,
+          "min_ms": 0.0684,
+          "max_ms": 0.0695
+        },
+        "throughput": {
+          "gflops": 1821.63,
+          "bandwidth_gb_s": 2185.95
+        },
+        "theory": {
+          "flops": 125829120,
+          "bytes": 150994944,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0175,
+          "std_ms": 0.0005,
+          "min_ms": 0.017,
+          "max_ms": 0.0188
+        },
+        "throughput": {
+          "gflops": 2.48,
+          "bandwidth_gb_s": 2.98
+        },
+        "theory": {
+          "flops": 43520,
+          "bytes": 52224,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0169,
+          "std_ms": 0.0003,
+          "min_ms": 0.0165,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 20.61,
+          "bandwidth_gb_s": 24.73
+        },
+        "theory": {
+          "flops": 348160,
+          "bytes": 417792,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.017,
+          "std_ms": 0.0003,
+          "min_ms": 0.0164,
+          "max_ms": 0.0175
+        },
+        "throughput": {
+          "gflops": 81.99,
+          "bandwidth_gb_s": 98.39
+        },
+        "theory": {
+          "flops": 1392640,
+          "bytes": 1671168,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0176,
+          "std_ms": 0.001,
+          "min_ms": 0.0167,
+          "max_ms": 0.0201
+        },
+        "throughput": {
+          "gflops": 158.28,
+          "bandwidth_gb_s": 189.94
+        },
+        "theory": {
+          "flops": 2785280,
+          "bytes": 3342336,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0264,
+          "std_ms": 0.0204,
+          "min_ms": 0.0176,
+          "max_ms": 0.0828
+        },
+        "throughput": {
+          "gflops": 210.85,
+          "bandwidth_gb_s": 253.02
+        },
+        "theory": {
+          "flops": 5570560,
+          "bytes": 6684672,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0191,
+          "std_ms": 0.0003,
+          "min_ms": 0.0187,
+          "max_ms": 0.0196
+        },
+        "throughput": {
+          "gflops": 582.99,
+          "bandwidth_gb_s": 699.58
+        },
+        "theory": {
+          "flops": 11141120,
+          "bytes": 13369344,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0227,
+          "std_ms": 0.0002,
+          "min_ms": 0.0224,
+          "max_ms": 0.0231
+        },
+        "throughput": {
+          "gflops": 983.09,
+          "bandwidth_gb_s": 1179.7
+        },
+        "theory": {
+          "flops": 22282240,
+          "bytes": 26738688,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0355,
+          "std_ms": 0.0005,
+          "min_ms": 0.0348,
+          "max_ms": 0.0362
+        },
+        "throughput": {
+          "gflops": 1257.01,
+          "bandwidth_gb_s": 1508.41
+        },
+        "theory": {
+          "flops": 44564480,
+          "bytes": 53477376,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0578,
+          "std_ms": 0.0004,
+          "min_ms": 0.0572,
+          "max_ms": 0.0587
+        },
+        "throughput": {
+          "gflops": 1542.58,
+          "bandwidth_gb_s": 1851.09
+        },
+        "theory": {
+          "flops": 89128960,
+          "bytes": 106954752,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1019,
+          "std_ms": 0.0008,
+          "min_ms": 0.1012,
+          "max_ms": 0.1033
+        },
+        "throughput": {
+          "gflops": 1749.05,
+          "bandwidth_gb_s": 2098.86
+        },
+        "theory": {
+          "flops": 178257920,
+          "bytes": 213909504,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0004,
+          "min_ms": 0.0169,
+          "max_ms": 0.0183
+        },
+        "throughput": {
+          "gflops": 0.14,
+          "bandwidth_gb_s": 0.17
+        },
+        "theory": {
+          "flops": 2560,
+          "bytes": 3072,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0004,
+          "min_ms": 0.0164,
+          "max_ms": 0.0178
+        },
+        "throughput": {
+          "gflops": 1.19,
+          "bandwidth_gb_s": 1.43
+        },
+        "theory": {
+          "flops": 20480,
+          "bytes": 24576,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0004,
+          "min_ms": 0.0168,
+          "max_ms": 0.018
+        },
+        "throughput": {
+          "gflops": 4.77,
+          "bandwidth_gb_s": 5.72
+        },
+        "theory": {
+          "flops": 81920,
+          "bytes": 98304,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0003,
+          "min_ms": 0.0169,
+          "max_ms": 0.0178
+        },
+        "throughput": {
+          "gflops": 9.48,
+          "bandwidth_gb_s": 11.37
+        },
+        "theory": {
+          "flops": 163840,
+          "bytes": 196608,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0171,
+          "std_ms": 0.0004,
+          "min_ms": 0.0166,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 19.2,
+          "bandwidth_gb_s": 23.04
+        },
+        "theory": {
+          "flops": 327680,
+          "bytes": 393216,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.017,
+          "std_ms": 0.0003,
+          "min_ms": 0.0164,
+          "max_ms": 0.0175
+        },
+        "throughput": {
+          "gflops": 38.49,
+          "bandwidth_gb_s": 46.19
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 786432,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0171,
+          "std_ms": 0.0004,
+          "min_ms": 0.0166,
+          "max_ms": 0.018
+        },
+        "throughput": {
+          "gflops": 76.52,
+          "bandwidth_gb_s": 91.82
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 1572864,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0166,
+          "std_ms": 0.0002,
+          "min_ms": 0.0163,
+          "max_ms": 0.0169
+        },
+        "throughput": {
+          "gflops": 158.02,
+          "bandwidth_gb_s": 189.63
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 3145728,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.017,
+          "std_ms": 0.0003,
+          "min_ms": 0.0165,
+          "max_ms": 0.0175
+        },
+        "throughput": {
+          "gflops": 308.9,
+          "bandwidth_gb_s": 370.68
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 6291456,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0178,
+          "std_ms": 0.0008,
+          "min_ms": 0.017,
+          "max_ms": 0.0197
+        },
+        "throughput": {
+          "gflops": 590.31,
+          "bandwidth_gb_s": 708.37
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 12582912,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul (adapted)",
+        "type": "cuda"
+      }
+    }
+  ]
+}

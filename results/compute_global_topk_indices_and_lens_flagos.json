@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-24T03:21:32.826022",
+    "provider": "flagos",
+    "num_operators": 1,
+    "num_workloads": 4
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "cuda_version": "13.0",
+    "gpu_name": "NVIDIA H20",
+    "gpu_count": 8,
+    "gpu_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "decode_small_batch",
+      "provider": "flagos",
+      "parameters": {
+        "block_size": 16,
+        "valid_ratio": 0.9,
+        "num_tokens": 32,
+        "num_reqs": 32,
+        "topk": 64,
+        "max_blocks": 256,
+        "dtype": "int32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0522,
+          "std_ms": 0.0038,
+          "min_ms": 0.0485,
+          "max_ms": 0.076
+        },
+        "throughput": {
+          "gflops": 0.2,
+          "bandwidth_gb_s": 0.95
+        },
+        "theory": {
+          "flops": 10240,
+          "bytes": 49536,
+          "arithmetic_intensity": 0.21
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.compute_global_topk_indices_and_lens",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "decode_medium_batch",
+      "provider": "flagos",
+      "parameters": {
+        "block_size": 16,
+        "valid_ratio": 0.9,
+        "num_tokens": 128,
+        "num_reqs": 128,
+        "topk": 64,
+        "max_blocks": 256,
+        "dtype": "int32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0508,
+          "std_ms": 0.0025,
+          "min_ms": 0.0478,
+          "max_ms": 0.0687
+        },
+        "throughput": {
+          "gflops": 0.81,
+          "bandwidth_gb_s": 3.9
+        },
+        "theory": {
+          "flops": 40960,
+          "bytes": 198144,
+          "arithmetic_intensity": 0.21
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.compute_global_topk_indices_and_lens",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "prefill_large",
+      "provider": "flagos",
+      "parameters": {
+        "block_size": 16,
+        "valid_ratio": 0.9,
+        "num_tokens": 2048,
+        "num_reqs": 16,
+        "topk": 128,
+        "max_blocks": 512,
+        "dtype": "int32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0537,
+          "std_ms": 0.0085,
+          "min_ms": 0.0485,
+          "max_ms": 0.0892
+        },
+        "throughput": {
+          "gflops": 24.43,
+          "bandwidth_gb_s": 40.16
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 2154496,
+          "arithmetic_intensity": 0.61
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.compute_global_topk_indices_and_lens",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "chunked_prefill_large_topk",
+      "provider": "flagos",
+      "parameters": {
+        "block_size": 16,
+        "valid_ratio": 0.9,
+        "num_tokens": 4096,
+        "num_reqs": 32,
+        "topk": 256,
+        "max_blocks": 1024,
+        "dtype": "int32"
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0512,
+          "std_ms": 0.0022,
+          "min_ms": 0.0479,
+          "max_ms": 0.0628
+        },
+        "throughput": {
+          "gflops": 102.35,
+          "bandwidth_gb_s": 167.28
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 8568832,
+          "arithmetic_intensity": 0.61
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.compute_global_topk_indices_and_lens",
+        "type": "triton"
+      }
+    }
+  ]
+}

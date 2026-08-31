@@ -1,0 +1,1875 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T08:42:03.975244",
+    "provider": "flagos",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 53
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4219,
+          "std_ms": 0.0146,
+          "min_ms": 0.3947,
+          "max_ms": 0.4622
+        },
+        "throughput": {
+          "gflops": 1670.29,
+          "bandwidth_gb_s": 1670.36
+        },
+        "theory": {
+          "flops": 704643072,
+          "bytes": 704671808,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.6462,
+          "std_ms": 0.0085,
+          "min_ms": 1.6337,
+          "max_ms": 1.6804
+        },
+        "throughput": {
+          "gflops": 3424.26,
+          "bandwidth_gb_s": 3424.4
+        },
+        "theory": {
+          "flops": 5637144576,
+          "bytes": 5637374464,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.0243,
+          "std_ms": 0.0526,
+          "min_ms": 3.9412,
+          "max_ms": 4.1241
+        },
+        "throughput": {
+          "gflops": 5603.16,
+          "bandwidth_gb_s": 5603.39
+        },
+        "theory": {
+          "flops": 22548578304,
+          "bytes": 22549497856,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.9399,
+          "std_ms": 0.6872,
+          "min_ms": 5.4923,
+          "max_ms": 9.3341
+        },
+        "throughput": {
+          "gflops": 7592.2,
+          "bandwidth_gb_s": 3796.41
+        },
+        "theory": {
+          "flops": 45097156608,
+          "bytes": 22550417408,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.4669,
+          "std_ms": 0.208,
+          "min_ms": 6.3217,
+          "max_ms": 7.0025
+        },
+        "throughput": {
+          "gflops": 13947.07,
+          "bandwidth_gb_s": 3487.34
+        },
+        "theory": {
+          "flops": 90194313216,
+          "bytes": 22552256512,
+          "arithmetic_intensity": 4.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.9516,
+          "std_ms": 0.1207,
+          "min_ms": 6.8367,
+          "max_ms": 7.4026
+        },
+        "throughput": {
+          "gflops": 25949.14,
+          "bandwidth_gb_s": 3244.7
+        },
+        "theory": {
+          "flops": 180388626432,
+          "bytes": 22555934720,
+          "arithmetic_intensity": 8.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 8.9308,
+          "std_ms": 0.2623,
+          "min_ms": 8.586,
+          "max_ms": 9.7764
+        },
+        "throughput": {
+          "gflops": 40397.11,
+          "bandwidth_gb_s": 2526.47
+        },
+        "theory": {
+          "flops": 360777252864,
+          "bytes": 22563291136,
+          "arithmetic_intensity": 15.99
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 11.789,
+          "std_ms": 0.0542,
+          "min_ms": 11.7498,
+          "max_ms": 12.1883
+        },
+        "throughput": {
+          "gflops": 61205.59,
+          "bandwidth_gb_s": 1915.17
+        },
+        "theory": {
+          "flops": 721554505728,
+          "bytes": 22578003968,
+          "arithmetic_intensity": 31.96
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 16.9664,
+          "std_ms": 0.0558,
+          "min_ms": 16.915,
+          "max_ms": 17.3223
+        },
+        "throughput": {
+          "gflops": 85056.64,
+          "bandwidth_gb_s": 1332.48
+        },
+        "theory": {
+          "flops": 1443109011456,
+          "bytes": 22607429632,
+          "arithmetic_intensity": 63.83
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4176,
+          "std_ms": 0.0178,
+          "min_ms": 0.3876,
+          "max_ms": 0.4587
+        },
+        "throughput": {
+          "gflops": 723.13,
+          "bandwidth_gb_s": 723.17
+        },
+        "theory": {
+          "flops": 301989888,
+          "bytes": 302006320,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7998,
+          "std_ms": 0.0084,
+          "min_ms": 0.7879,
+          "max_ms": 0.8265
+        },
+        "throughput": {
+          "gflops": 3020.81,
+          "bandwidth_gb_s": 3020.98
+        },
+        "theory": {
+          "flops": 2415919104,
+          "bytes": 2416050560,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.0094,
+          "std_ms": 0.0259,
+          "min_ms": 1.9753,
+          "max_ms": 2.0924
+        },
+        "throughput": {
+          "gflops": 4809.26,
+          "bandwidth_gb_s": 4809.52
+        },
+        "theory": {
+          "flops": 9663676416,
+          "bytes": 9664202240,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.8443,
+          "std_ms": 0.0138,
+          "min_ms": 2.817,
+          "max_ms": 2.8763
+        },
+        "throughput": {
+          "gflops": 6795.06,
+          "bandwidth_gb_s": 4530.41
+        },
+        "theory": {
+          "flops": 19327352832,
+          "bytes": 12885953536,
+          "arithmetic_intensity": 1.5
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.8661,
+          "std_ms": 0.2154,
+          "min_ms": 3.5705,
+          "max_ms": 4.6873
+        },
+        "throughput": {
+          "gflops": 9998.5,
+          "bandwidth_gb_s": 3333.38
+        },
+        "theory": {
+          "flops": 38654705664,
+          "bytes": 12887005184,
+          "arithmetic_intensity": 3.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.8825,
+          "std_ms": 0.0291,
+          "min_ms": 3.8245,
+          "max_ms": 3.9619
+        },
+        "throughput": {
+          "gflops": 19912.34,
+          "bandwidth_gb_s": 3319.81
+        },
+        "theory": {
+          "flops": 77309411328,
+          "bytes": 12889108480,
+          "arithmetic_intensity": 6.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.33,
+          "std_ms": 0.131,
+          "min_ms": 3.9879,
+          "max_ms": 4.8206
+        },
+        "throughput": {
+          "gflops": 35708.64,
+          "bandwidth_gb_s": 2977.66
+        },
+        "theory": {
+          "flops": 154618822656,
+          "bytes": 12893315072,
+          "arithmetic_intensity": 11.99
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.8858,
+          "std_ms": 0.0166,
+          "min_ms": 6.8565,
+          "max_ms": 6.9563
+        },
+        "throughput": {
+          "gflops": 44909.57,
+          "bandwidth_gb_s": 1873.68
+        },
+        "theory": {
+          "flops": 309237645312,
+          "bytes": 12901728256,
+          "arithmetic_intensity": 23.97
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.9654,
+          "std_ms": 0.0357,
+          "min_ms": 6.9329,
+          "max_ms": 7.2755
+        },
+        "throughput": {
+          "gflops": 88792.93,
+          "bandwidth_gb_s": 1854.68
+        },
+        "theory": {
+          "flops": 618475290624,
+          "bytes": 12918554624,
+          "arithmetic_intensity": 47.87
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 3072,
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4235,
+          "std_ms": 0.0184,
+          "min_ms": 0.3966,
+          "max_ms": 0.5254
+        },
+        "throughput": {
+          "gflops": 1871.72,
+          "bandwidth_gb_s": 1871.79
+        },
+        "theory": {
+          "flops": 792723456,
+          "bytes": 792752176,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 3072,
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.8245,
+          "std_ms": 0.0085,
+          "min_ms": 1.8119,
+          "max_ms": 1.8589
+        },
+        "throughput": {
+          "gflops": 3475.99,
+          "bandwidth_gb_s": 3476.12
+        },
+        "theory": {
+          "flops": 6341787648,
+          "bytes": 6342017408,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 3072,
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.7747,
+          "std_ms": 0.0323,
+          "min_ms": 5.7245,
+          "max_ms": 5.8679
+        },
+        "throughput": {
+          "gflops": 4392.82,
+          "bandwidth_gb_s": 4392.98
+        },
+        "theory": {
+          "flops": 25367150592,
+          "bytes": 25368069632,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 3072,
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 9.4477,
+          "std_ms": 0.9067,
+          "min_ms": 8.8721,
+          "max_ms": 13.4267
+        },
+        "throughput": {
+          "gflops": 5369.99,
+          "bandwidth_gb_s": 5370.19
+        },
+        "theory": {
+          "flops": 50734301184,
+          "bytes": 50736139264,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4076,
+          "std_ms": 0.0166,
+          "min_ms": 0.3804,
+          "max_ms": 0.4578
+        },
+        "throughput": {
+          "gflops": 185.21,
+          "bandwidth_gb_s": 185.23
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 75505696,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3773,
+          "std_ms": 0.0125,
+          "min_ms": 0.3586,
+          "max_ms": 0.4106
+        },
+        "throughput": {
+          "gflops": 1600.7,
+          "bandwidth_gb_s": 1600.87
+        },
+        "theory": {
+          "flops": 603979776,
+          "bytes": 604045568,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.519,
+          "std_ms": 0.0104,
+          "min_ms": 0.5031,
+          "max_ms": 0.5547
+        },
+        "throughput": {
+          "gflops": 4654.86,
+          "bandwidth_gb_s": 2327.93
+        },
+        "theory": {
+          "flops": 2415919104,
+          "bytes": 1208222720,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.559,
+          "std_ms": 0.0106,
+          "min_ms": 0.5424,
+          "max_ms": 0.5937
+        },
+        "throughput": {
+          "gflops": 8643.78,
+          "bandwidth_gb_s": 2161.89
+        },
+        "theory": {
+          "flops": 4831838208,
+          "bytes": 1208485888,
+          "arithmetic_intensity": 4.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5887,
+          "std_ms": 0.0118,
+          "min_ms": 0.5699,
+          "max_ms": 0.6228
+        },
+        "throughput": {
+          "gflops": 16413.89,
+          "bandwidth_gb_s": 2053.52
+        },
+        "theory": {
+          "flops": 9663676416,
+          "bytes": 1209012224,
+          "arithmetic_intensity": 7.99
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6428,
+          "std_ms": 0.0117,
+          "min_ms": 0.6263,
+          "max_ms": 0.6918
+        },
+        "throughput": {
+          "gflops": 30067.89,
+          "bandwidth_gb_s": 1882.52
+        },
+        "theory": {
+          "flops": 19327352832,
+          "bytes": 1210064896,
+          "arithmetic_intensity": 15.97
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8693,
+          "std_ms": 0.011,
+          "min_ms": 0.8539,
+          "max_ms": 0.9012
+        },
+        "throughput": {
+          "gflops": 44467.4,
+          "bandwidth_gb_s": 1394.45
+        },
+        "theory": {
+          "flops": 38654705664,
+          "bytes": 1212170240,
+          "arithmetic_intensity": 31.89
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2395,
+          "std_ms": 0.0327,
+          "min_ms": 1.2177,
+          "max_ms": 1.5421
+        },
+        "throughput": {
+          "gflops": 62373.39,
+          "bandwidth_gb_s": 981.38
+        },
+        "theory": {
+          "flops": 77309411328,
+          "bytes": 1216380928,
+          "arithmetic_intensity": 63.56
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.298,
+          "std_ms": 0.0116,
+          "min_ms": 2.2783,
+          "max_ms": 2.3322
+        },
+        "throughput": {
+          "gflops": 67284.35,
+          "bandwidth_gb_s": 532.99
+        },
+        "theory": {
+          "flops": 154618822656,
+          "bytes": 1224802304,
+          "arithmetic_intensity": 126.24
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 1536,
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.456,
+          "std_ms": 0.0113,
+          "min_ms": 3.4394,
+          "max_ms": 3.4813
+        },
+        "throughput": {
+          "gflops": 89478.47,
+          "bandwidth_gb_s": 359.27
+        },
+        "theory": {
+          "flops": 309237645312,
+          "bytes": 1241645056,
+          "arithmetic_intensity": 249.05
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4108,
+          "std_ms": 0.0172,
+          "min_ms": 0.3809,
+          "max_ms": 0.4555
+        },
+        "throughput": {
+          "gflops": 1470.26,
+          "bandwidth_gb_s": 1470.32
+        },
+        "theory": {
+          "flops": 603979776,
+          "bytes": 604004416,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.4201,
+          "std_ms": 0.0078,
+          "min_ms": 1.4061,
+          "max_ms": 1.4392
+        },
+        "throughput": {
+          "gflops": 3402.4,
+          "bandwidth_gb_s": 3402.53
+        },
+        "theory": {
+          "flops": 4831838208,
+          "bytes": 4832035328,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.6502,
+          "std_ms": 0.0527,
+          "min_ms": 3.5884,
+          "max_ms": 4.0556
+        },
+        "throughput": {
+          "gflops": 5294.89,
+          "bandwidth_gb_s": 5295.11
+        },
+        "theory": {
+          "flops": 19327352832,
+          "bytes": 19328141312,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.2716,
+          "std_ms": 0.3352,
+          "min_ms": 4.8066,
+          "max_ms": 5.9691
+        },
+        "throughput": {
+          "gflops": 7332.61,
+          "bandwidth_gb_s": 3666.6
+        },
+        "theory": {
+          "flops": 38654705664,
+          "bytes": 19328929792,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.5947,
+          "std_ms": 0.1646,
+          "min_ms": 5.3643,
+          "max_ms": 6.3072
+        },
+        "throughput": {
+          "gflops": 13818.24,
+          "bandwidth_gb_s": 3455.12
+        },
+        "theory": {
+          "flops": 77309411328,
+          "bytes": 19330506752,
+          "arithmetic_intensity": 4.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.9341,
+          "std_ms": 0.0568,
+          "min_ms": 5.8238,
+          "max_ms": 6.1022
+        },
+        "throughput": {
+          "gflops": 26055.91,
+          "bandwidth_gb_s": 3258.05
+        },
+        "theory": {
+          "flops": 154618822656,
+          "bytes": 19333660672,
+          "arithmetic_intensity": 8.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 7.7895,
+          "std_ms": 0.2727,
+          "min_ms": 7.3191,
+          "max_ms": 8.6812
+        },
+        "throughput": {
+          "gflops": 39699.12,
+          "bandwidth_gb_s": 2482.81
+        },
+        "theory": {
+          "flops": 309237645312,
+          "bytes": 19339968512,
+          "arithmetic_intensity": 15.99
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.1451,
+          "std_ms": 0.0166,
+          "min_ms": 10.1172,
+          "max_ms": 10.1954
+        },
+        "throughput": {
+          "gflops": 60962.89,
+          "bandwidth_gb_s": 1907.58
+        },
+        "theory": {
+          "flops": 618475290624,
+          "bytes": 19352584192,
+          "arithmetic_intensity": 31.96
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "intermediate_size": 2048,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.2485,
+          "std_ms": 0.0421,
+          "min_ms": 14.2123,
+          "max_ms": 14.6102
+        },
+        "throughput": {
+          "gflops": 86812.49,
+          "bandwidth_gb_s": 1359.99
+        },
+        "theory": {
+          "flops": 1236950581248,
+          "bytes": 19377815552,
+          "arithmetic_intensity": 63.83
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "intermediate_size": 2048,
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4147,
+          "std_ms": 0.0152,
+          "min_ms": 0.3883,
+          "max_ms": 0.4659
+        },
+        "throughput": {
+          "gflops": 1699.17,
+          "bandwidth_gb_s": 1699.24
+        },
+        "theory": {
+          "flops": 704643072,
+          "bytes": 704671808,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4112,
+          "std_ms": 0.0177,
+          "min_ms": 0.3812,
+          "max_ms": 0.4555
+        },
+        "throughput": {
+          "gflops": 122.41,
+          "bandwidth_gb_s": 122.43
+        },
+        "theory": {
+          "flops": 50331648,
+          "bytes": 50339904,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4112,
+          "std_ms": 0.0194,
+          "min_ms": 0.3831,
+          "max_ms": 0.5046
+        },
+        "throughput": {
+          "gflops": 979.22,
+          "bandwidth_gb_s": 979.38
+        },
+        "theory": {
+          "flops": 402653184,
+          "bytes": 402719232,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.532,
+          "std_ms": 0.0107,
+          "min_ms": 0.5158,
+          "max_ms": 0.5597
+        },
+        "throughput": {
+          "gflops": 3027.62,
+          "bandwidth_gb_s": 3028.12
+        },
+        "theory": {
+          "flops": 1610612736,
+          "bytes": 1610876928,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6217,
+          "std_ms": 0.0119,
+          "min_ms": 0.6014,
+          "max_ms": 0.6507
+        },
+        "throughput": {
+          "gflops": 5180.93,
+          "bandwidth_gb_s": 2591.31
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 1611141120,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6836,
+          "std_ms": 0.0395,
+          "min_ms": 0.6601,
+          "max_ms": 1.0562
+        },
+        "throughput": {
+          "gflops": 9424.15,
+          "bandwidth_gb_s": 2357.58
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 1611669504,
+          "arithmetic_intensity": 4.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7057,
+          "std_ms": 0.0105,
+          "min_ms": 0.6897,
+          "max_ms": 0.7399
+        },
+        "throughput": {
+          "gflops": 18259.49,
+          "bandwidth_gb_s": 2285.43
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 1612726272,
+          "arithmetic_intensity": 7.99
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.801,
+          "std_ms": 0.0101,
+          "min_ms": 0.7826,
+          "max_ms": 0.8249
+        },
+        "throughput": {
+          "gflops": 32173.02,
+          "bandwidth_gb_s": 2016.09
+        },
+        "theory": {
+          "flops": 25769803776,
+          "bytes": 1614839808,
+          "arithmetic_intensity": 15.96
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.1032,
+          "std_ms": 0.0106,
+          "min_ms": 1.0847,
+          "max_ms": 1.1308
+        },
+        "throughput": {
+          "gflops": 46718.71,
+          "bandwidth_gb_s": 1467.62
+        },
+        "theory": {
+          "flops": 51539607552,
+          "bytes": 1619066880,
+          "arithmetic_intensity": 31.83
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.5029,
+          "std_ms": 0.0098,
+          "min_ms": 1.488,
+          "max_ms": 1.5262
+        },
+        "throughput": {
+          "gflops": 68588.15,
+          "bandwidth_gb_s": 1082.94
+        },
+        "theory": {
+          "flops": 103079215104,
+          "bytes": 1627521024,
+          "arithmetic_intensity": 63.34
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "intermediate_size": 512,
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.9152,
+          "std_ms": 0.0136,
+          "min_ms": 2.8872,
+          "max_ms": 2.9552
+        },
+        "throughput": {
+          "gflops": 70719.27,
+          "bandwidth_gb_s": 564.09
+        },
+        "theory": {
+          "flops": 206158430208,
+          "bytes": 1644429312,
+          "arithmetic_intensity": 125.37
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_moe",
+      "definition": "fused_moe",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "intermediate_size": 2048,
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4518,
+          "std_ms": 0.0085,
+          "min_ms": 0.4379,
+          "max_ms": 0.4946
+        },
+        "throughput": {
+          "gflops": 2227.91,
+          "bandwidth_gb_s": 2227.98
+        },
+        "theory": {
+          "flops": 1006632960,
+          "bytes": 1006665808,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.outplace_fused_experts",
+        "type": "triton"
+      }
+    }
+  ]
+}

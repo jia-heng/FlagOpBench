@@ -1,0 +1,47 @@
+# Compute Global TopK Indices and Lens算子测试用例
+# 将local topk索引通过block_table映射为全局物理slot索引
+
+definition_name: compute_global_topk_indices_and_lens
+operator: compute_global_topk_indices_and_lens
+library: flaggems_vllm
+
+const_axes:
+  block_size: 16
+  valid_ratio: 0.9
+
+workloads:
+  - name: "decode_small_batch"
+    source: "DeepSeek-V4, decode, 32 tokens, topk=64"
+    var_axes:
+      num_tokens: 32
+      num_reqs: 32
+      topk: 64
+      max_blocks: 256
+    dtype: int32
+
+  - name: "decode_medium_batch"
+    source: "DeepSeek-V4, decode, 128 tokens, topk=64"
+    var_axes:
+      num_tokens: 128
+      num_reqs: 128
+      topk: 64
+      max_blocks: 256
+    dtype: int32
+
+  - name: "prefill_large"
+    source: "DeepSeek-V4, prefill, 2048 tokens, topk=128"
+    var_axes:
+      num_tokens: 2048
+      num_reqs: 16
+      topk: 128
+      max_blocks: 512
+    dtype: int32
+
+  - name: "chunked_prefill_large_topk"
+    source: "DeepSeek-V4, chunked prefill, 4096 tokens, topk=256"
+    var_axes:
+      num_tokens: 4096
+      num_reqs: 32
+      topk: 256
+      max_blocks: 1024
+    dtype: int32

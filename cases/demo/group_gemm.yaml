@@ -1,0 +1,52 @@
+# Group GEMM 测试用例
+# 模拟 MoE 场景中 expert 级别的 grouped matmul
+# FlagGems (Triton) vs torch._grouped_mm (CUTLASS)
+
+definition_name: group_gemm
+operator: group_gemm
+library: flag_gems
+
+const_axes:
+  K: 7168
+  N: 2048
+  dtype: bf16
+
+workloads:
+  # 典型 MoE decode: 少 token 多 expert
+  - name: "moe_8experts_32tokens"
+    source: "MoE decode, 8 experts × 32 tokens"
+    var_axes:
+      num_groups: 8
+      tokens_per_group: 32
+
+  - name: "moe_8experts_64tokens"
+    source: "MoE decode, 8 experts × 64 tokens"
+    var_axes:
+      num_groups: 8
+      tokens_per_group: 64
+
+  - name: "moe_8experts_128tokens"
+    source: "MoE prefill, 8 experts × 128 tokens"
+    var_axes:
+      num_groups: 8
+      tokens_per_group: 128
+
+  # 多 expert 场景 (DeepSeek-V3: 256 experts, topk=8)
+  - name: "moe_32experts_16tokens"
+    source: "MoE decode, 32 active experts × 16 tokens"
+    var_axes:
+      num_groups: 32
+      tokens_per_group: 16
+
+  - name: "moe_32experts_64tokens"
+    source: "MoE prefill, 32 active experts × 64 tokens"
+    var_axes:
+      num_groups: 32
+      tokens_per_group: 64
+
+  # Decode 典型: 极少 token 多 expert
+  - name: "moe_64experts_4tokens"
+    source: "MoE decode, 64 active experts × 4 tokens"
+    var_axes:
+      num_groups: 64
+      tokens_per_group: 4

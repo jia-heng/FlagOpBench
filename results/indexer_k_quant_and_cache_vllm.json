@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-24T03:26:03.684485",
+    "provider": "vllm",
+    "num_operators": 1,
+    "num_workloads": 4
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "cuda_version": "13.0",
+    "gpu_name": "NVIDIA H20",
+    "gpu_count": 8,
+    "gpu_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "decode_32tokens",
+      "provider": "vllm",
+      "parameters": {
+        "head_dim": 576,
+        "block_size": 16,
+        "quant_block_size": 64,
+        "num_blocks": 256,
+        "scale_fmt": "e4m3",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0135,
+          "std_ms": 0.0018,
+          "min_ms": 0.0123,
+          "max_ms": 0.029
+        },
+        "throughput": {
+          "gflops": 4.09,
+          "bandwidth_gb_s": 4.2
+        },
+        "theory": {
+          "flops": 55296,
+          "bytes": 56704,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "decode_128tokens",
+      "provider": "vllm",
+      "parameters": {
+        "head_dim": 576,
+        "block_size": 16,
+        "quant_block_size": 64,
+        "num_blocks": 256,
+        "scale_fmt": "e4m3",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0133,
+          "std_ms": 0.0004,
+          "min_ms": 0.0126,
+          "max_ms": 0.0158
+        },
+        "throughput": {
+          "gflops": 16.66,
+          "bandwidth_gb_s": 17.08
+        },
+        "theory": {
+          "flops": 221184,
+          "bytes": 226816,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "prefill_512tokens",
+      "provider": "vllm",
+      "parameters": {
+        "head_dim": 576,
+        "block_size": 16,
+        "quant_block_size": 64,
+        "num_blocks": 256,
+        "scale_fmt": "e4m3",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.013,
+          "std_ms": 0.0003,
+          "min_ms": 0.0124,
+          "max_ms": 0.0138
+        },
+        "throughput": {
+          "gflops": 67.94,
+          "bandwidth_gb_s": 69.67
+        },
+        "theory": {
+          "flops": 884736,
+          "bytes": 907264,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "prefill_2048tokens",
+      "provider": "vllm",
+      "parameters": {
+        "head_dim": 576,
+        "block_size": 16,
+        "quant_block_size": 64,
+        "num_blocks": 256,
+        "scale_fmt": "e4m3",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0149,
+          "std_ms": 0.0008,
+          "min_ms": 0.0144,
+          "max_ms": 0.0218
+        },
+        "throughput": {
+          "gflops": 236.81,
+          "bandwidth_gb_s": 242.84
+        },
+        "theory": {
+          "flops": 3538944,
+          "bytes": 3629056,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# Fused Q/KV RMSNorm算子测试用例
+# DeepSeek-V4 MLA: Q和KV latent分别做RMSNorm
+
+definition_name: fused_q_kv_rmsnorm
+operator: fused_q_kv_rmsnorm
+library: flaggems_vllm
+
+const_axes:
+  q_size: 24576
+  kv_size: 512
+  eps: 1.0e-6
+  dtype: bf16
+
+workloads:
+  - name: "decode_32tokens"
+    source: "DeepSeek-V4, decode, 32 tokens"
+    var_axes:
+      num_tokens: 32
+
+  - name: "decode_128tokens"
+    source: "DeepSeek-V4, decode, 128 tokens"
+    var_axes:
+      num_tokens: 128
+
+  - name: "prefill_512tokens"
+    source: "DeepSeek-V4, prefill, 512 tokens"
+    var_axes:
+      num_tokens: 512
+
+  - name: "prefill_2048tokens"
+    source: "DeepSeek-V4, prefill, 2048 tokens"
+    var_axes:
+      num_tokens: 2048

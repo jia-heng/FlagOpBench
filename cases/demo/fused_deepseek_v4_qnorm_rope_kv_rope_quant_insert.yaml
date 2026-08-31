@@ -1,0 +1,41 @@
+# Fused DeepSeek-V4 QNorm + RoPE + KV RoPE + Quant + Insert算子测试用例
+# 水平融合MLA: Q RMSNorm+RoPE, KV RoPE+FP8量化+paged cache写入
+
+definition_name: fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert
+operator: fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert
+library: flaggems_vllm
+
+const_axes:
+  num_heads: 128
+  cache_block_size: 64
+  max_pos: 8192
+  eps: 1.0e-6
+
+workloads:
+  - name: "decode_32tokens"
+    source: "DeepSeek-V4, decode, 32 tokens"
+    var_axes:
+      num_tokens: 32
+      num_blocks: 256
+    dtype: bf16
+
+  - name: "decode_128tokens"
+    source: "DeepSeek-V4, decode, 128 tokens"
+    var_axes:
+      num_tokens: 128
+      num_blocks: 512
+    dtype: bf16
+
+  - name: "prefill_512tokens"
+    source: "DeepSeek-V4, prefill, 512 tokens"
+    var_axes:
+      num_tokens: 512
+      num_blocks: 1024
+    dtype: bf16
+
+  - name: "prefill_2048tokens"
+    source: "DeepSeek-V4, prefill, 2048 tokens"
+    var_axes:
+      num_tokens: 2048
+      num_blocks: 2048
+    dtype: bf16

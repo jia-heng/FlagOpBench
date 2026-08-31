@@ -1,0 +1,43 @@
+# TopK Softplus Sqrt算子测试用例
+# 融合的TopK + Softplus + Sqrt，用于MoE门控（DeepSeek-V3）
+
+definition_name: topk_softplus_sqrt
+operator: topk_softplus_sqrt
+library: flaggems_vllm
+
+const_axes:
+  num_experts: 256
+  topk: 8
+  renormalize: true
+  routed_scaling_factor: 1.0
+
+workloads:
+  - name: "deepseek_decode_batch1"
+    source: "DeepSeek-V3, decode阶段, batch=1, 256 experts, topk=8"
+    var_axes:
+      num_tokens: 1
+    dtype: float32
+
+  - name: "deepseek_decode_batch32"
+    source: "DeepSeek-V3, decode阶段, batch=32, 256 experts, topk=8"
+    var_axes:
+      num_tokens: 32
+    dtype: float32
+
+  - name: "deepseek_decode_batch128"
+    source: "DeepSeek-V3, decode阶段, batch=128, 256 experts, topk=8"
+    var_axes:
+      num_tokens: 128
+    dtype: float32
+
+  - name: "deepseek_prefill_seq1024"
+    source: "DeepSeek-V3, prefill阶段, seq=1024, 256 experts, topk=8"
+    var_axes:
+      num_tokens: 1024
+    dtype: float32
+
+  - name: "deepseek_prefill_seq4096"
+    source: "DeepSeek-V3, prefill阶段, seq=4096, 256 experts, topk=8"
+    var_axes:
+      num_tokens: 4096
+    dtype: float32

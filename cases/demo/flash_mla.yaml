@@ -1,0 +1,51 @@
+# Flash MLA算子测试用例
+# Flash Multi-head Latent Attention，DeepSeek-V3 MLA decode
+
+definition_name: flash_mla
+operator: flash_mla
+library: flaggems_vllm
+
+# DeepSeek-V3 MLA参数
+const_axes:
+  s_q: 1
+  h_q: 128
+  h_kv: 1
+  d: 576
+  dv: 512
+  block_size: 64
+
+workloads:
+  - name: "decode_batch1_seq2048"
+    source: "DeepSeek-V3, decode, batch=1, KV len=2048"
+    var_axes:
+      b: 1
+      max_seq: 2048
+    dtype: bfloat16
+
+  - name: "decode_batch8_seq2048"
+    source: "DeepSeek-V3, decode, batch=8, KV len=2048"
+    var_axes:
+      b: 8
+      max_seq: 2048
+    dtype: bfloat16
+
+  - name: "decode_batch32_seq2048"
+    source: "DeepSeek-V3, decode, batch=32, KV len=2048"
+    var_axes:
+      b: 32
+      max_seq: 2048
+    dtype: bfloat16
+
+  - name: "decode_batch32_seq4096"
+    source: "DeepSeek-V3, decode, batch=32, KV len=4096"
+    var_axes:
+      b: 32
+      max_seq: 4096
+    dtype: bfloat16
+
+  - name: "decode_batch64_seq4096"
+    source: "DeepSeek-V3, decode, batch=64, KV len=4096"
+    var_axes:
+      b: 64
+      max_seq: 4096
+    dtype: bfloat16

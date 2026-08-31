@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-24T03:23:32.907826",
+    "provider": "flagos",
+    "num_operators": 1,
+    "num_workloads": 4
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "cuda_version": "13.0",
+    "gpu_name": "NVIDIA H20",
+    "gpu_count": 8,
+    "gpu_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "b4_topk64",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "head_dim_k": 512,
+        "head_dim_v": 512,
+        "num_kv_tokens": 8192,
+        "b": 4,
+        "topk": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1061,
+          "std_ms": 0.0022,
+          "min_ms": 0.1036,
+          "max_ms": 0.1188
+        },
+        "throughput": {
+          "gflops": 633.95,
+          "bandwidth_gb_s": 11.3
+        },
+        "theory": {
+          "flops": 67272704,
+          "bytes": 1199104,
+          "arithmetic_intensity": 56.1
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "b16_topk64",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "head_dim_k": 512,
+        "head_dim_v": 512,
+        "num_kv_tokens": 8192,
+        "b": 16,
+        "topk": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1064,
+          "std_ms": 0.0015,
+          "min_ms": 0.1043,
+          "max_ms": 0.1148
+        },
+        "throughput": {
+          "gflops": 2529.69,
+          "bandwidth_gb_s": 45.09
+        },
+        "theory": {
+          "flops": 269090816,
+          "bytes": 4796416,
+          "arithmetic_intensity": 56.1
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "b4_topk128",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "head_dim_k": 512,
+        "head_dim_v": 512,
+        "num_kv_tokens": 8192,
+        "b": 4,
+        "topk": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1443,
+          "std_ms": 0.0025,
+          "min_ms": 0.1421,
+          "max_ms": 0.1602
+        },
+        "throughput": {
+          "gflops": 932.33,
+          "bandwidth_gb_s": 9.35
+        },
+        "theory": {
+          "flops": 134545408,
+          "bytes": 1349632,
+          "arithmetic_intensity": 99.69
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "b16_topk128",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "head_dim_k": 512,
+        "head_dim_v": 512,
+        "num_kv_tokens": 8192,
+        "b": 16,
+        "topk": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.143,
+          "std_ms": 0.0009,
+          "min_ms": 0.1414,
+          "max_ms": 0.1473
+        },
+        "throughput": {
+          "gflops": 3762.19,
+          "bandwidth_gb_s": 37.74
+        },
+        "theory": {
+          "flops": 538181632,
+          "bytes": 5398528,
+          "arithmetic_intensity": 99.69
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    }
+  ]
+}

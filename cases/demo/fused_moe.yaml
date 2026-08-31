@@ -1,0 +1,34 @@
+# Fused MoE算子测试用例
+# DeepSeek-V4 MoE层: 256 experts, topk=8, SiLU激活
+
+definition_name: fused_moe
+operator: fused_moe
+library: flaggems_vllm
+
+const_axes:
+  hidden_size: 7168
+  intermediate_size: 2048
+  num_experts: 256
+  topk: 8
+  dtype: bf16
+
+workloads:
+  - name: "decode_32tokens"
+    source: "DeepSeek-V4, decode, 32 tokens"
+    var_axes:
+      num_tokens: 32
+
+  - name: "decode_128tokens"
+    source: "DeepSeek-V4, decode, 128 tokens"
+    var_axes:
+      num_tokens: 128
+
+  - name: "prefill_512tokens"
+    source: "DeepSeek-V4, prefill, 512 tokens"
+    var_axes:
+      num_tokens: 512
+
+  - name: "prefill_2048tokens"
+    source: "DeepSeek-V4, prefill, 2048 tokens"
+    var_axes:
+      num_tokens: 2048

@@ -1,0 +1,42 @@
+# Shape用例模板
+#
+# 请按此格式提供真实模型的shape用例
+#
+# 说明：
+# - definition_name: 算子名 + const轴描述
+# - operator: 算子名称（与keyoplist.md中一致）
+# - library: 所属库（flaggems / flaggems_vllm / flagattention）
+# - const_axes: 模型架构决定的固定参数（如 hidden_size, num_heads）
+# - workloads: 具体测试用例列表
+#   - name: 用例名称
+#   - source: 来源说明（模型名、阶段、场景）
+#   - var_axes: 运行时变化的参数（如 batch, seq_len）
+#   - dtype: 数据类型
+
+definition_name: {operator}_{const_description}
+operator: {operator_name}
+library: {flaggems / flaggems_vllm / flagattention}
+
+# 固定参数（模型架构决定）
+const_axes:
+  # 示例：
+  # hidden_size: 4096
+  # num_heads: 32
+  # head_dim: 128
+
+# 测试用例列表
+workloads:
+  - name: "{model}_{stage}_{scenario}"
+    source: "模型名 + 版本, prefill/decode, 具体场景描述"
+    var_axes:
+      # 示例：
+      # batch: 1
+      # seq_len: 2048
+      # M: 4096
+    dtype: bfloat16
+
+  - name: "{model}_{stage}_{scenario}_2"
+    source: "..."
+    var_axes:
+      # ...
+    dtype: bfloat16

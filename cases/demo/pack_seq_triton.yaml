@@ -1,0 +1,35 @@
+# Pack Seq Triton算子测试用例
+# 变长序列打包为padded batch tensor
+
+definition_name: pack_seq_triton
+operator: pack_seq_triton
+library: flaggems_vllm
+
+const_axes:
+  hidden_size: 512
+  dtype: bf16
+
+workloads:
+  - name: "decode_large_batch"
+    source: "DeepSeek-V4, decode, B=512, seq=1"
+    var_axes:
+      batch_size: 512
+      seq_len: 1
+
+  - name: "prefill_32reqs_seq128"
+    source: "DeepSeek-V4, prefill, B=32, seq=128"
+    var_axes:
+      batch_size: 32
+      seq_len: 128
+
+  - name: "prefill_16reqs_seq512"
+    source: "DeepSeek-V4, prefill, B=16, seq=512"
+    var_axes:
+      batch_size: 16
+      seq_len: 512
+
+  - name: "prefill_8reqs_seq2048"
+    source: "DeepSeek-V4, prefill, B=8, seq=2048"
+    var_axes:
+      batch_size: 8
+      seq_len: 2048

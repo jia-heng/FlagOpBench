@@ -1,0 +1,1820 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-28T01:35:09.520005",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 50
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0018,
+          "min_ms": 0.0159,
+          "max_ms": 0.0343
+        },
+        "throughput": {
+          "gflops": 0.12,
+          "bandwidth_gb_s": 0.12
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 2112,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0175,
+          "std_ms": 0.0006,
+          "min_ms": 0.0166,
+          "max_ms": 0.0207
+        },
+        "throughput": {
+          "gflops": 0.94,
+          "bandwidth_gb_s": 0.56
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 9728,
+          "arithmetic_intensity": 1.68
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0176,
+          "std_ms": 0.0005,
+          "min_ms": 0.0166,
+          "max_ms": 0.0206
+        },
+        "throughput": {
+          "gflops": 3.73,
+          "bandwidth_gb_s": 2.04
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 35840,
+          "arithmetic_intensity": 1.83
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0003,
+          "min_ms": 0.0167,
+          "max_ms": 0.0186
+        },
+        "throughput": {
+          "gflops": 7.56,
+          "bandwidth_gb_s": 4.08
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 70656,
+          "arithmetic_intensity": 1.86
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0006,
+          "min_ms": 0.0166,
+          "max_ms": 0.0219
+        },
+        "throughput": {
+          "gflops": 15.04,
+          "bandwidth_gb_s": 8.05
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 140288,
+          "arithmetic_intensity": 1.87
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0178,
+          "std_ms": 0.0004,
+          "min_ms": 0.0172,
+          "max_ms": 0.0207
+        },
+        "throughput": {
+          "gflops": 29.53,
+          "bandwidth_gb_s": 15.75
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 279552,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.018,
+          "std_ms": 0.0007,
+          "min_ms": 0.0172,
+          "max_ms": 0.0228
+        },
+        "throughput": {
+          "gflops": 58.16,
+          "bandwidth_gb_s": 30.95
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 558080,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0188,
+          "std_ms": 0.0004,
+          "min_ms": 0.0181,
+          "max_ms": 0.0214
+        },
+        "throughput": {
+          "gflops": 111.66,
+          "bandwidth_gb_s": 59.38
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 1115136,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0233,
+          "std_ms": 0.0002,
+          "min_ms": 0.0229,
+          "max_ms": 0.024
+        },
+        "throughput": {
+          "gflops": 179.66,
+          "bandwidth_gb_s": 95.49
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 2229248,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0325,
+          "std_ms": 0.0003,
+          "min_ms": 0.0319,
+          "max_ms": 0.0346
+        },
+        "throughput": {
+          "gflops": 257.74,
+          "bandwidth_gb_s": 136.96
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 4457472,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0003,
+          "min_ms": 0.0167,
+          "max_ms": 0.0184
+        },
+        "throughput": {
+          "gflops": 0.02,
+          "bandwidth_gb_s": 0.03
+        },
+        "theory": {
+          "flops": 384,
+          "bytes": 544,
+          "arithmetic_intensity": 0.71
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0175,
+          "std_ms": 0.0009,
+          "min_ms": 0.0166,
+          "max_ms": 0.0232
+        },
+        "throughput": {
+          "gflops": 0.18,
+          "bandwidth_gb_s": 0.15
+        },
+        "theory": {
+          "flops": 3072,
+          "bytes": 2560,
+          "arithmetic_intensity": 1.2
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0005,
+          "min_ms": 0.0167,
+          "max_ms": 0.0214
+        },
+        "throughput": {
+          "gflops": 0.71,
+          "bandwidth_gb_s": 0.55
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 9472,
+          "arithmetic_intensity": 1.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0005,
+          "min_ms": 0.0166,
+          "max_ms": 0.0209
+        },
+        "throughput": {
+          "gflops": 1.41,
+          "bandwidth_gb_s": 1.07
+        },
+        "theory": {
+          "flops": 24576,
+          "bytes": 18688,
+          "arithmetic_intensity": 1.32
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0003,
+          "min_ms": 0.0166,
+          "max_ms": 0.0181
+        },
+        "throughput": {
+          "gflops": 2.84,
+          "bandwidth_gb_s": 2.14
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 37120,
+          "arithmetic_intensity": 1.32
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0012,
+          "min_ms": 0.0168,
+          "max_ms": 0.0269
+        },
+        "throughput": {
+          "gflops": 5.56,
+          "bandwidth_gb_s": 4.18
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 73984,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0004,
+          "min_ms": 0.0166,
+          "max_ms": 0.0207
+        },
+        "throughput": {
+          "gflops": 11.34,
+          "bandwidth_gb_s": 8.52
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 147712,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0179,
+          "std_ms": 0.0007,
+          "min_ms": 0.017,
+          "max_ms": 0.0229
+        },
+        "throughput": {
+          "gflops": 21.96,
+          "bandwidth_gb_s": 16.48
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 295168,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0188,
+          "std_ms": 0.0008,
+          "min_ms": 0.0181,
+          "max_ms": 0.0258
+        },
+        "throughput": {
+          "gflops": 41.89,
+          "bandwidth_gb_s": 31.43
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 590080,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0237,
+          "std_ms": 0.0006,
+          "min_ms": 0.0232,
+          "max_ms": 0.0287
+        },
+        "throughput": {
+          "gflops": 66.26,
+          "bandwidth_gb_s": 49.7
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1179904,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0005,
+          "min_ms": 0.0167,
+          "max_ms": 0.0204
+        },
+        "throughput": {
+          "gflops": 0.12,
+          "bandwidth_gb_s": 0.12
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 2112,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0173,
+          "std_ms": 0.0003,
+          "min_ms": 0.0168,
+          "max_ms": 0.018
+        },
+        "throughput": {
+          "gflops": 0.94,
+          "bandwidth_gb_s": 0.56
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 9728,
+          "arithmetic_intensity": 1.68
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0175,
+          "std_ms": 0.0006,
+          "min_ms": 0.0168,
+          "max_ms": 0.0225
+        },
+        "throughput": {
+          "gflops": 3.75,
+          "bandwidth_gb_s": 2.05
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 35840,
+          "arithmetic_intensity": 1.83
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0004,
+          "min_ms": 0.0168,
+          "max_ms": 0.02
+        },
+        "throughput": {
+          "gflops": 7.52,
+          "bandwidth_gb_s": 4.05
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 70656,
+          "arithmetic_intensity": 1.86
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0179,
+          "std_ms": 0.0006,
+          "min_ms": 0.0172,
+          "max_ms": 0.0231
+        },
+        "throughput": {
+          "gflops": 14.65,
+          "bandwidth_gb_s": 7.84
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 140288,
+          "arithmetic_intensity": 1.87
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0179,
+          "std_ms": 0.0004,
+          "min_ms": 0.017,
+          "max_ms": 0.02
+        },
+        "throughput": {
+          "gflops": 29.36,
+          "bandwidth_gb_s": 15.65
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 279552,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0187,
+          "std_ms": 0.0005,
+          "min_ms": 0.0179,
+          "max_ms": 0.0212
+        },
+        "throughput": {
+          "gflops": 55.96,
+          "bandwidth_gb_s": 29.78
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 558080,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0004,
+          "min_ms": 0.021,
+          "max_ms": 0.0251
+        },
+        "throughput": {
+          "gflops": 97.6,
+          "bandwidth_gb_s": 51.9
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 1115136,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0288,
+          "std_ms": 0.0004,
+          "min_ms": 0.0278,
+          "max_ms": 0.0319
+        },
+        "throughput": {
+          "gflops": 145.62,
+          "bandwidth_gb_s": 77.4
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 2229248,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0432,
+          "std_ms": 0.0002,
+          "min_ms": 0.0428,
+          "max_ms": 0.0439
+        },
+        "throughput": {
+          "gflops": 194.01,
+          "bandwidth_gb_s": 103.09
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 4457472,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0007,
+          "min_ms": 0.0167,
+          "max_ms": 0.0223
+        },
+        "throughput": {
+          "gflops": 0.19,
+          "bandwidth_gb_s": 0.18
+        },
+        "theory": {
+          "flops": 3296,
+          "bytes": 3136,
+          "arithmetic_intensity": 1.05
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0175,
+          "std_ms": 0.0006,
+          "min_ms": 0.0168,
+          "max_ms": 0.0215
+        },
+        "throughput": {
+          "gflops": 1.51,
+          "bandwidth_gb_s": 0.82
+        },
+        "theory": {
+          "flops": 26373,
+          "bytes": 14336,
+          "arithmetic_intensity": 1.84
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0003,
+          "min_ms": 0.0168,
+          "max_ms": 0.0182
+        },
+        "throughput": {
+          "gflops": 6.06,
+          "bandwidth_gb_s": 3.03
+        },
+        "theory": {
+          "flops": 105492,
+          "bytes": 52736,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0175,
+          "std_ms": 0.0004,
+          "min_ms": 0.0171,
+          "max_ms": 0.0206
+        },
+        "throughput": {
+          "gflops": 12.03,
+          "bandwidth_gb_s": 5.93
+        },
+        "theory": {
+          "flops": 210984,
+          "bytes": 103936,
+          "arithmetic_intensity": 2.03
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0004,
+          "min_ms": 0.0166,
+          "max_ms": 0.0204
+        },
+        "throughput": {
+          "gflops": 23.78,
+          "bandwidth_gb_s": 11.63
+        },
+        "theory": {
+          "flops": 421968,
+          "bytes": 206336,
+          "arithmetic_intensity": 2.05
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.018,
+          "std_ms": 0.0005,
+          "min_ms": 0.0173,
+          "max_ms": 0.0212
+        },
+        "throughput": {
+          "gflops": 46.99,
+          "bandwidth_gb_s": 22.89
+        },
+        "theory": {
+          "flops": 843936,
+          "bytes": 411136,
+          "arithmetic_intensity": 2.05
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0188,
+          "std_ms": 0.0004,
+          "min_ms": 0.018,
+          "max_ms": 0.021
+        },
+        "throughput": {
+          "gflops": 89.98,
+          "bandwidth_gb_s": 43.75
+        },
+        "theory": {
+          "flops": 1687872,
+          "bytes": 820736,
+          "arithmetic_intensity": 2.06
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0217,
+          "std_ms": 0.0003,
+          "min_ms": 0.0211,
+          "max_ms": 0.0238
+        },
+        "throughput": {
+          "gflops": 155.84,
+          "bandwidth_gb_s": 75.71
+        },
+        "theory": {
+          "flops": 3375744,
+          "bytes": 1639936,
+          "arithmetic_intensity": 2.06
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.029,
+          "std_ms": 0.0003,
+          "min_ms": 0.0284,
+          "max_ms": 0.0313
+        },
+        "throughput": {
+          "gflops": 233.19,
+          "bandwidth_gb_s": 113.23
+        },
+        "theory": {
+          "flops": 6751489,
+          "bytes": 3278336,
+          "arithmetic_intensity": 2.06
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0435,
+          "std_ms": 0.0003,
+          "min_ms": 0.043,
+          "max_ms": 0.0446
+        },
+        "throughput": {
+          "gflops": 310.5,
+          "bandwidth_gb_s": 150.73
+        },
+        "theory": {
+          "flops": 13502978,
+          "bytes": 6555136,
+          "arithmetic_intensity": 2.06
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0268,
+          "std_ms": 0.0006,
+          "min_ms": 0.0262,
+          "max_ms": 0.0313
+        },
+        "throughput": {
+          "gflops": 0.33,
+          "bandwidth_gb_s": 0.27
+        },
+        "theory": {
+          "flops": 8787,
+          "bytes": 7296,
+          "arithmetic_intensity": 1.2
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0267,
+          "std_ms": 0.0002,
+          "min_ms": 0.0263,
+          "max_ms": 0.0273
+        },
+        "throughput": {
+          "gflops": 2.63,
+          "bandwidth_gb_s": 1.24
+        },
+        "theory": {
+          "flops": 70299,
+          "bytes": 33280,
+          "arithmetic_intensity": 2.11
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0269,
+          "std_ms": 0.0002,
+          "min_ms": 0.0265,
+          "max_ms": 0.0275
+        },
+        "throughput": {
+          "gflops": 10.45,
+          "bandwidth_gb_s": 4.55
+        },
+        "theory": {
+          "flops": 281196,
+          "bytes": 122368,
+          "arithmetic_intensity": 2.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0271,
+          "std_ms": 0.0002,
+          "min_ms": 0.0266,
+          "max_ms": 0.0277
+        },
+        "throughput": {
+          "gflops": 20.77,
+          "bandwidth_gb_s": 8.91
+        },
+        "theory": {
+          "flops": 562392,
+          "bytes": 241152,
+          "arithmetic_intensity": 2.33
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0271,
+          "std_ms": 0.0002,
+          "min_ms": 0.0267,
+          "max_ms": 0.0278
+        },
+        "throughput": {
+          "gflops": 41.5,
+          "bandwidth_gb_s": 17.66
+        },
+        "theory": {
+          "flops": 1124785,
+          "bytes": 478720,
+          "arithmetic_intensity": 2.35
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0274,
+          "std_ms": 0.0007,
+          "min_ms": 0.0268,
+          "max_ms": 0.0332
+        },
+        "throughput": {
+          "gflops": 82.24,
+          "bandwidth_gb_s": 34.87
+        },
+        "theory": {
+          "flops": 2249571,
+          "bytes": 953856,
+          "arithmetic_intensity": 2.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0288,
+          "std_ms": 0.0003,
+          "min_ms": 0.0282,
+          "max_ms": 0.0298
+        },
+        "throughput": {
+          "gflops": 156.42,
+          "bandwidth_gb_s": 66.2
+        },
+        "theory": {
+          "flops": 4499143,
+          "bytes": 1904128,
+          "arithmetic_intensity": 2.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0306,
+          "std_ms": 0.0002,
+          "min_ms": 0.0302,
+          "max_ms": 0.0316
+        },
+        "throughput": {
+          "gflops": 294.1,
+          "bandwidth_gb_s": 124.35
+        },
+        "theory": {
+          "flops": 8998287,
+          "bytes": 3804672,
+          "arithmetic_intensity": 2.37
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0375,
+          "std_ms": 0.0004,
+          "min_ms": 0.037,
+          "max_ms": 0.0411
+        },
+        "throughput": {
+          "gflops": 479.38,
+          "bandwidth_gb_s": 202.6
+        },
+        "theory": {
+          "flops": 17996574,
+          "bytes": 7605760,
+          "arithmetic_intensity": 2.37
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0597,
+          "std_ms": 0.0008,
+          "min_ms": 0.0585,
+          "max_ms": 0.0651
+        },
+        "throughput": {
+          "gflops": 602.95,
+          "bandwidth_gb_s": 254.76
+        },
+        "theory": {
+          "flops": 35993149,
+          "bytes": 15207936,
+          "arithmetic_intensity": 2.37
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.grouped_topk (adapted)",
+        "type": "cuda"
+      }
+    }
+  ]
+}

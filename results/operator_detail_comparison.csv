@@ -1,0 +1,99 @@
+算子名,workload,parameters,FlagOS耗时(ms),vLLM耗时(ms),加速比,FlagOS吞吐(GFLOPS),vLLM吞吐(GFLOPS)
+combine_topk_swa_indices,prefill_4reqs_seq1024,"topk=64, window_size=128, compress_ratio=4, num_reqs=4, seq_len=1024, dtype=int32",0.0442,0.0395,0.8937,35.58,39.81
+combine_topk_swa_indices,prefill_8reqs_seq1024,"topk=64, window_size=128, compress_ratio=4, num_reqs=8, seq_len=1024, dtype=int32",0.0434,0.0385,0.8871,72.43,81.80
+combine_topk_swa_indices,prefill_4reqs_seq4096,"topk=64, window_size=128, compress_ratio=4, num_reqs=4, seq_len=4096, dtype=int32",0.0447,0.0384,0.8591,140.88,163.93
+combine_topk_swa_indices,prefill_8reqs_seq4096,"topk=64, window_size=128, compress_ratio=4, num_reqs=8, seq_len=4096, dtype=int32",0.0543,0.0481,0.8858,231.87,261.58
+compute_global_topk_indices_and_lens,decode_small_batch,"block_size=16, valid_ratio=0.9, num_tokens=32, num_reqs=32, topk=64, max_blocks=256, dtype=int32",0.0522,0.0303,0.5805,0.20,0.34
+compute_global_topk_indices_and_lens,decode_medium_batch,"block_size=16, valid_ratio=0.9, num_tokens=128, num_reqs=128, topk=64, max_blocks=256, dtype=int32",0.0508,0.0292,0.5748,0.81,1.40
+compute_global_topk_indices_and_lens,prefill_large,"block_size=16, valid_ratio=0.9, num_tokens=2048, num_reqs=16, topk=128, max_blocks=512, dtype=int32",0.0537,0.0300,0.5587,24.43,43.66
+compute_global_topk_indices_and_lens,chunked_prefill_large_topk,"block_size=16, valid_ratio=0.9, num_tokens=4096, num_reqs=32, topk=256, max_blocks=1024, dtype=int32",0.0512,0.0342,0.6680,102.35,153.23
+cp_gather_indexer_k_quant_cache,decode_32tokens,"batch_size=4, head_dim=576, block_size=16, quant_block_size=64, max_seq_len=2048, num_tokens=32",0.0424,0.0139,0.3278,0.00,0.00
+cp_gather_indexer_k_quant_cache,decode_128tokens,"batch_size=4, head_dim=576, block_size=16, quant_block_size=64, max_seq_len=2048, num_tokens=128",0.0409,0.0136,0.3325,0.00,0.00
+cp_gather_indexer_k_quant_cache,prefill_512tokens,"batch_size=4, head_dim=576, block_size=16, quant_block_size=64, max_seq_len=2048, num_tokens=512",0.0412,0.0137,0.3325,0.00,0.00
+cp_gather_indexer_k_quant_cache,prefill_2048tokens,"batch_size=4, head_dim=576, block_size=16, quant_block_size=64, max_seq_len=2048, num_tokens=2048",0.0406,0.0137,0.3374,0.00,0.00
+flash_attn_varlen_func,decode_batch1_seq1,dtype=bfloat16,0.2527,0.2052,0.8120,33989.28,41861.87
+flash_attn_varlen_func,decode_batch32_seq1,dtype=bfloat16,0.2487,0.2049,0.8239,34534.88,41912.92
+flash_attn_varlen_func,prefill_seq512,dtype=bfloat16,0.2491,0.2039,0.8185,34484.39,42131.31
+flash_attn_varlen_func,prefill_seq2048,dtype=bfloat16,0.2491,0.2057,0.8258,34482.13,41759.30
+flash_attn_varlen_func,prefill_seq4096,dtype=bfloat16,0.2473,0.2041,0.8253,34730.90,42083.82
+flash_mla,decode_batch1_seq2048,"s_q=1, h_q=128, h_kv=1, d=576, dv=512, block_size=64, b=1, max_seq=2048, dtype=bfloat16",0.1417,N/A,N/A,4035.62,N/A
+flash_mla,decode_batch8_seq2048,"s_q=1, h_q=128, h_kv=1, d=576, dv=512, block_size=64, b=8, max_seq=2048, dtype=bfloat16",0.1551,N/A,N/A,29494.89,N/A
+flash_mla,decode_batch32_seq2048,"s_q=1, h_q=128, h_kv=1, d=576, dv=512, block_size=64, b=32, max_seq=2048, dtype=bfloat16",0.2876,N/A,N/A,63614.44,N/A
+flash_mla,decode_batch32_seq4096,"s_q=1, h_q=128, h_kv=1, d=576, dv=512, block_size=64, b=32, max_seq=4096, dtype=bfloat16",0.4345,N/A,N/A,84218.47,N/A
+flash_mla,decode_batch64_seq4096,"s_q=1, h_q=128, h_kv=1, d=576, dv=512, block_size=64, b=64, max_seq=4096, dtype=bfloat16",0.7283,N/A,N/A,100484.30,N/A
+flash_mla_with_kvcache,b4_seq4096,"s_q=1, h_q=128, head_dim_k=576, head_dim_v=512, block_size=64, b=4, max_seq=4096",0.4280,0.0934,0.2182,10686.26,48962.92
+flash_mla_with_kvcache,b16_seq4096,"s_q=1, h_q=128, head_dim_k=576, head_dim_v=512, block_size=64, b=16, max_seq=4096",0.4291,0.2091,0.4873,42636.04,87496.20
+flash_mla_with_kvcache,b4_seq16384,"s_q=1, h_q=128, head_dim_k=576, head_dim_v=512, block_size=64, b=4, max_seq=16384",1.4920,0.2024,0.1357,12262.69,90393.34
+flash_mla_with_kvcache,b16_seq16384,"s_q=1, h_q=128, head_dim_k=576, head_dim_v=512, block_size=64, b=16, max_seq=16384",1.4938,0.6508,0.4357,48990.27,112441.83
+flash_mla_with_kvcache_fp8,b4_topk64,"s_q=1, h_q=128, head_dim_k=512, head_dim_v=512, num_kv_tokens=8192, b=4, topk=64",0.1061,N/A,N/A,633.95,N/A
+flash_mla_with_kvcache_fp8,b16_topk64,"s_q=1, h_q=128, head_dim_k=512, head_dim_v=512, num_kv_tokens=8192, b=16, topk=64",0.1064,N/A,N/A,2529.69,N/A
+flash_mla_with_kvcache_fp8,b4_topk128,"s_q=1, h_q=128, head_dim_k=512, head_dim_v=512, num_kv_tokens=8192, b=4, topk=128",0.1443,N/A,N/A,932.33,N/A
+flash_mla_with_kvcache_fp8,b16_topk128,"s_q=1, h_q=128, head_dim_k=512, head_dim_v=512, num_kv_tokens=8192, b=16, topk=128",0.1430,N/A,N/A,3762.19,N/A
+fp8_fp4_paged_mqa_logits,decode_batch1_ctx2048,"next_n=1, H=128, D=128, block_size=16, clean_logits=False, B=1, context_len=2048, max_model_len=4096, dtype=float8",0.1410,N/A,N/A,477.76,N/A
+fp8_fp4_paged_mqa_logits,decode_batch8_ctx2048,"next_n=1, H=128, D=128, block_size=16, clean_logits=False, B=8, context_len=2048, max_model_len=4096, dtype=float8",0.1401,N/A,N/A,3846.98,N/A
+fp8_fp4_paged_mqa_logits,decode_batch32_ctx2048,"next_n=1, H=128, D=128, block_size=16, clean_logits=False, B=32, context_len=2048, max_model_len=4096, dtype=float8",0.1718,N/A,N/A,12545.41,N/A
+fp8_fp4_paged_mqa_logits,decode_batch32_ctx4096,"next_n=1, H=128, D=128, block_size=16, clean_logits=False, B=32, context_len=4096, max_model_len=8192, dtype=float8",0.2688,N/A,N/A,16042.00,N/A
+fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,decode_32tokens,"num_heads=128, cache_block_size=64, max_pos=8192, eps=1e-06, num_tokens=32, num_blocks=256, dtype=bf16",0.0269,0.0155,0.5762,196.83,343.11
+fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,decode_128tokens,"num_heads=128, cache_block_size=64, max_pos=8192, eps=1e-06, num_tokens=128, num_blocks=512, dtype=bf16",0.0329,0.0222,0.6748,644.84,955.92
+fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,prefill_512tokens,"num_heads=128, cache_block_size=64, max_pos=8192, eps=1e-06, num_tokens=512, num_blocks=1024, dtype=bf16",0.0779,0.0678,0.8703,1089.50,1251.57
+fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,prefill_2048tokens,"num_heads=128, cache_block_size=64, max_pos=8192, eps=1e-06, num_tokens=2048, num_blocks=2048, dtype=bf16",0.2416,0.2361,0.9772,1404.82,1437.44
+fused_moe,decode_32tokens,"hidden_size=7168, intermediate_size=2048, num_experts=256, topk=8, dtype=bf16, num_tokens=32",4.0775,4.1790,1.0249,5529.97,5395.70
+fused_moe,decode_128tokens,"hidden_size=7168, intermediate_size=2048, num_experts=256, topk=8, dtype=bf16, num_tokens=128",6.7201,11.0066,1.6379,13421.49,8194.60
+fused_moe,prefill_512tokens,"hidden_size=7168, intermediate_size=2048, num_experts=256, topk=8, dtype=bf16, num_tokens=512",8.8768,11.3852,1.2826,40642.57,31688.31
+fused_moe,prefill_2048tokens,"hidden_size=7168, intermediate_size=2048, num_experts=256, topk=8, dtype=bf16, num_tokens=2048",16.9782,23.0002,1.3547,84997.97,62743.26
+fused_q_kv_rmsnorm,decode_32tokens,"q_size=24576, kv_size=512, eps=1e-06, dtype=bf16, num_tokens=32",0.0385,0.0349,0.9065,83.38,91.97
+fused_q_kv_rmsnorm,decode_128tokens,"q_size=24576, kv_size=512, eps=1e-06, dtype=bf16, num_tokens=128",0.0379,0.0353,0.9314,338.84,364.35
+fused_q_kv_rmsnorm,prefill_512tokens,"q_size=24576, kv_size=512, eps=1e-06, dtype=bf16, num_tokens=512",0.0606,0.0577,0.9521,847.31,890.94
+fused_q_kv_rmsnorm,prefill_2048tokens,"q_size=24576, kv_size=512, eps=1e-06, dtype=bf16, num_tokens=2048",0.1457,0.1433,0.9835,1410.93,1434.47
+group_gemm,moe_8experts_32tokens,"K=7168, N=2048, dtype=bf16, num_groups=8, tokens_per_group=32",0.1894,0.3129,1.6521,39674.11,24022.31
+group_gemm,moe_8experts_64tokens,"K=7168, N=2048, dtype=bf16, num_groups=8, tokens_per_group=64",0.1908,0.3132,1.6415,78800.89,47991.91
+group_gemm,moe_8experts_128tokens,"K=7168, N=2048, dtype=bf16, num_groups=8, tokens_per_group=128",0.3323,0.3038,0.9142,90479.45,98960.09
+group_gemm,moe_32experts_16tokens,"K=7168, N=2048, dtype=bf16, num_groups=32, tokens_per_group=16",0.6192,1.0112,1.6331,24277.12,14865.19
+group_gemm,moe_32experts_64tokens,"K=7168, N=2048, dtype=bf16, num_groups=32, tokens_per_group=64",0.6227,1.0042,1.6127,96558.03,59875.52
+group_gemm,moe_64experts_4tokens,"K=7168, N=2048, dtype=bf16, num_groups=64, tokens_per_group=4",1.0481,1.9120,1.8243,7170.91,3930.98
+indexer_k_quant_and_cache,decode_32tokens,"head_dim=576, block_size=16, quant_block_size=64, num_blocks=256, scale_fmt=e4m3, num_tokens=32",0.0397,0.0135,0.3401,1.39,4.09
+indexer_k_quant_and_cache,decode_128tokens,"head_dim=576, block_size=16, quant_block_size=64, num_blocks=256, scale_fmt=e4m3, num_tokens=128",0.0399,0.0133,0.3333,5.54,16.66
+indexer_k_quant_and_cache,prefill_512tokens,"head_dim=576, block_size=16, quant_block_size=64, num_blocks=256, scale_fmt=e4m3, num_tokens=512",0.0391,0.0130,0.3325,22.64,67.94
+indexer_k_quant_and_cache,prefill_2048tokens,"head_dim=576, block_size=16, quant_block_size=64, num_blocks=256, scale_fmt=e4m3, num_tokens=2048",0.0393,0.0149,0.3791,90.04,236.81
+mhc_post,deepseek_decode_batch1,"hc=4, N=1, H=7168, dtype=bfloat16",0.0422,0.0226,0.5355,6.11,11.40
+mhc_post,deepseek_decode_batch32,"hc=4, N=32, H=7168, dtype=bfloat16",0.0419,0.0223,0.5322,197.28,370.58
+mhc_post,deepseek_decode_batch128,"hc=4, N=128, H=7168, dtype=bfloat16",0.0429,0.0231,0.5385,769.96,1430.04
+mhc_post,deepseek_prefill_seq1024,"hc=4, N=1024, H=7168, dtype=bfloat16",0.1094,0.0585,0.5347,2415.74,4514.14
+mhc_pre,deepseek_decode_batch1,"hc=4, rms_eps=1e-05, hc_pre_eps=0.001, hc_sinkhorn_eps=0.001, hc_post_mult_value=1.0, sinkhorn_repeat=5, N=1, H=7168, dtype=bfloat16",0.1066,0.0569,0.5338,13.38,25.07
+mhc_pre,deepseek_decode_batch32,"hc=4, rms_eps=1e-05, hc_pre_eps=0.001, hc_sinkhorn_eps=0.001, hc_post_mult_value=1.0, sinkhorn_repeat=5, N=32, H=7168, dtype=bfloat16",0.1067,0.0553,0.5183,427.74,825.39
+mhc_pre,deepseek_decode_batch128,"hc=4, rms_eps=1e-05, hc_pre_eps=0.001, hc_sinkhorn_eps=0.001, hc_post_mult_value=1.0, sinkhorn_repeat=5, N=128, H=7168, dtype=bfloat16",0.1069,0.0569,0.5323,1707.60,3209.16
+mhc_pre,deepseek_prefill_seq1024,"hc=4, rms_eps=1e-05, hc_pre_eps=0.001, hc_sinkhorn_eps=0.001, hc_post_mult_value=1.0, sinkhorn_repeat=5, N=1024, H=7168, dtype=bfloat16",0.1476,0.0980,0.6640,9898.29,14905.96
+moe_sum,deepseek_decode_batch1,"topk=8, hidden_size=7168, num_tokens=1, dtype=bfloat16",0.0352,0.0163,0.4631,1.43,3.08
+moe_sum,deepseek_decode_batch32,"topk=8, hidden_size=7168, num_tokens=32, dtype=bfloat16",0.0354,0.0159,0.4492,45.38,101.00
+moe_sum,deepseek_decode_batch128,"topk=8, hidden_size=7168, num_tokens=128, dtype=bfloat16",0.0346,0.0178,0.5145,185.53,361.70
+moe_sum,deepseek_prefill_seq1024,"topk=8, hidden_size=7168, num_tokens=1024, dtype=bfloat16",0.0731,0.0743,1.0164,702.96,691.52
+pack_seq_triton,decode_large_batch,"hidden_size=512, dtype=bf16, batch_size=512, seq_len=1",0.0581,0.0873,1.5026,0.00,0.00
+pack_seq_triton,prefill_32reqs_seq128,"hidden_size=512, dtype=bf16, batch_size=32, seq_len=128",0.3129,0.0534,0.1707,0.00,0.00
+pack_seq_triton,prefill_16reqs_seq512,"hidden_size=512, dtype=bf16, batch_size=16, seq_len=512",0.0566,0.0536,0.9470,0.00,0.00
+pack_seq_triton,prefill_8reqs_seq2048,"hidden_size=512, dtype=bf16, batch_size=8, seq_len=2048",0.0596,0.6375,10.6963,0.00,0.00
+silu_and_mul_with_clamp,deepseek_decode_batch1,"limit=10.0, M=1, N=18432, dtype=bfloat16",0.1292,0.0284,0.2198,1.14,5.20
+silu_and_mul_with_clamp,deepseek_decode_batch32,"limit=10.0, M=32, N=18432, dtype=bfloat16",0.1279,0.0282,0.2205,36.88,167.20
+silu_and_mul_with_clamp,deepseek_decode_batch128,"limit=10.0, M=128, N=18432, dtype=bfloat16",0.1278,0.0284,0.2222,147.73,665.57
+silu_and_mul_with_clamp,deepseek_prefill_seq1024,"limit=10.0, M=1024, N=18432, dtype=bfloat16",0.2838,0.1024,0.3608,532.02,1473.99
+swiglu,llama3_ffn_small_batch,"M=128, N=7168, dtype=bfloat16",0.0359,0.0145,0.4039,127.81,315.91
+swiglu,llama3_ffn_large_batch,"M=2048, N=7168, dtype=bfloat16",0.0567,0.0449,0.7919,1293.81,1633.81
+swiglu,qwen_ffn_prefill,"M=1024, N=5504, dtype=bfloat16",0.0349,0.0234,0.6705,806.54,1203.96
+swiglu,qwen_ffn_decode,"M=32, N=5504, dtype=bfloat16",0.0449,0.0179,0.3987,19.62,49.10
+top_k_per_row_decode,single_row,"vocab_size=256, top_k=8, num_rows=1",0.0295,0.0141,0.4780,0.03,0.07
+top_k_per_row_decode,batch_4,"vocab_size=256, top_k=8, num_rows=4",0.0102,0.0142,1.3922,0.40,0.29
+top_k_per_row_decode,batch_16,"vocab_size=256, top_k=8, num_rows=16",0.0253,0.0141,0.5573,0.65,1.16
+top_k_per_row_decode,batch_64,"vocab_size=256, top_k=8, num_rows=64",0.0254,0.0139,0.5472,2.58,4.70
+top_k_per_row_prefill,sparse_attn_256experts_batch32,"top_k=8, num_rows=32, vocab_size=256, dtype=float32",0.0264,0.0139,0.5265,1.24,2.35
+top_k_per_row_prefill,sparse_attn_256experts_batch128,"top_k=8, num_rows=128, vocab_size=256, dtype=float32",0.0255,0.0136,0.5333,5.14,9.65
+top_k_per_row_prefill,sparse_attn_256experts_seq1024,"top_k=8, num_rows=1024, vocab_size=256, dtype=float32",0.0343,0.0246,0.7172,30.59,42.69
+top_k_per_row_prefill,sparse_attn_256experts_seq4096,"top_k=8, num_rows=4096, vocab_size=256, dtype=float32",0.0743,0.0682,0.9179,56.43,61.52
+top_k_per_row_prefill,sparse_attn_large_vocab_seq1024,"top_k=8, num_rows=1024, vocab_size=65536, dtype=float32",0.3411,0.2215,0.6494,786.87,1212.16
+topk_softplus_sqrt,deepseek_decode_batch1,"num_experts=256, topk=8, renormalize=True, routed_scaling_factor=1.0, num_tokens=1, dtype=float32",0.0266,0.0167,0.6278,0.06,0.09
+topk_softplus_sqrt,deepseek_decode_batch32,"num_experts=256, topk=8, renormalize=True, routed_scaling_factor=1.0, num_tokens=32, dtype=float32",0.0265,0.0171,0.6453,1.89,2.91
+topk_softplus_sqrt,deepseek_decode_batch128,"num_experts=256, topk=8, renormalize=True, routed_scaling_factor=1.0, num_tokens=128, dtype=float32",0.0257,0.0140,0.5447,7.76,14.30
+topk_softplus_sqrt,deepseek_prefill_seq1024,"num_experts=256, topk=8, renormalize=True, routed_scaling_factor=1.0, num_tokens=1024, dtype=float32",0.0260,0.0222,0.8538,61.53,71.87
+topk_softplus_sqrt,deepseek_prefill_seq4096,"num_experts=256, topk=8, renormalize=True, routed_scaling_factor=1.0, num_tokens=4096, dtype=float32",0.0291,0.0234,0.8041,219.68,273.50
+unpack_seq_triton,decode_large_batch,"hidden_size=512, dtype=bf16, batch_size=512, seq_len=1",0.0648,0.0940,1.4506,0.00,0.00
+unpack_seq_triton,prefill_32reqs_seq128,"hidden_size=512, dtype=bf16, batch_size=32, seq_len=128",0.0630,0.0594,0.9429,0.00,0.00
+unpack_seq_triton,prefill_16reqs_seq512,"hidden_size=512, dtype=bf16, batch_size=16, seq_len=512",0.0641,0.0601,0.9376,0.00,0.00
+unpack_seq_triton,prefill_8reqs_seq2048,"hidden_size=512, dtype=bf16, batch_size=8, seq_len=2048",0.0625,0.0594,0.9504,0.00,0.00

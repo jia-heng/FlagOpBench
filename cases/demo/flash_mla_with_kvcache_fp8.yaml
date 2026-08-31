@@ -1,0 +1,38 @@
+# Flash MLA with KVCache算子测试用例 — 混合精度 (Sparse FP8)
+# q(bf16) + k_cache(fp8), sparse attention via indices
+
+definition_name: flash_mla_with_kvcache_fp8
+operator: flash_mla_with_kvcache_fp8
+library: flaggems_vllm
+
+const_axes:
+  s_q: 1
+  h_q: 128
+  head_dim_k: 512
+  head_dim_v: 512
+  num_kv_tokens: 8192
+
+workloads:
+  - name: "b4_topk64"
+    source: "DeepSeek-V4, sparse FP8 decode, batch=4, topk=64"
+    var_axes:
+      b: 4
+      topk: 64
+
+  - name: "b16_topk64"
+    source: "DeepSeek-V4, sparse FP8 decode, batch=16, topk=64"
+    var_axes:
+      b: 16
+      topk: 64
+
+  - name: "b4_topk128"
+    source: "DeepSeek-V4, sparse FP8 decode, batch=4, topk=128"
+    var_axes:
+      b: 4
+      topk: 128
+
+  - name: "b16_topk128"
+    source: "DeepSeek-V4, sparse FP8 decode, batch=16, topk=128"
+    var_axes:
+      b: 16
+      topk: 128

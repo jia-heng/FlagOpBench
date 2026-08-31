@@ -1,0 +1,46 @@
+# FP8/FP4 Paged MQA Logits算子测试用例
+# 计算FP8 query对paged KV cache的MQA logits
+
+definition_name: fp8_fp4_paged_mqa_logits
+operator: fp8_fp4_paged_mqa_logits
+library: flaggems_vllm
+
+const_axes:
+  next_n: 1
+  H: 128
+  D: 128
+  block_size: 16
+  clean_logits: false
+
+workloads:
+  - name: "decode_batch1_ctx2048"
+    source: "DeepSeek-V4, decode, batch=1, context=2048, max_model_len=4096"
+    var_axes:
+      B: 1
+      context_len: 2048
+      max_model_len: 4096
+    dtype: float8
+
+  - name: "decode_batch8_ctx2048"
+    source: "DeepSeek-V4, decode, batch=8, context=2048, max_model_len=4096"
+    var_axes:
+      B: 8
+      context_len: 2048
+      max_model_len: 4096
+    dtype: float8
+
+  - name: "decode_batch32_ctx2048"
+    source: "DeepSeek-V4, decode, batch=32, context=2048, max_model_len=4096"
+    var_axes:
+      B: 32
+      context_len: 2048
+      max_model_len: 4096
+    dtype: float8
+
+  - name: "decode_batch32_ctx4096"
+    source: "DeepSeek-V4, decode, batch=32, context=4096, max_model_len=8192"
+    var_axes:
+      B: 32
+      context_len: 4096
+      max_model_len: 8192
+    dtype: float8

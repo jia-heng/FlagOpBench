@@ -1,164 +1,138 @@
 #!/usr/bin/env python3
 """
-Aggregate FlagOpBench operator performance reports into a CSV.
+Generate a detailed per-workload comparison CSV between FlagOS and vLLM.
 
-Reads all per-operator JSON reports under the results directory (e.g. mm.json,
-grouped_matmul.json, add_rmsnorm_bias.json) and flattens them into a single CSV
-with operator name, scenario, timing metrics, parameters, source and accuracy.
+Output columns:
+    算子名, workload, parameters, FlagOS耗时(ms), vLLM耗时(ms), 加速比, FlagOS吞吐(GFLOPS), vLLM吞吐(GFLOPS)
 
-The output filename includes platform and backend by default, e.g.:
-    operator_report_nvidia_h20.csv
+Pairs *_flagos.json with *_vllm.json by operator and workload name,
+producing one row per workload with side-by-side timing.
 
 Usage:
     python gen_operator_perf_report.py
-    python gen_operator_perf_report.py --input-dir ../results --output ../results/my_report.csv
+    python gen_operator_perf_report.py --input-dir ../results --output detail.csv
 """
 
 import argparse
 import csv
 import json
-import re
 import sys
 from pathlib import Path
 
 
 def parse_args() -> argparse.Namespace:
-    default_script_dir = Path(__file__).resolve().parent
-    default_root = default_script_dir.parent
-    default_input = default_root / "results"
+    default_input = Path(__file__).resolve().parent.parent / "results"
 
     parser = argparse.ArgumentParser(
-        description="Aggregate FlagOpBench operator performance JSON reports into CSV."
+        description="Generate detailed per-workload comparison CSV (FlagOS vs vLLM)."
     )
     parser.add_argument(
-        "--input-dir",
-        type=Path,
-        default=default_input,
-        help="Directory containing per-operator *.json files (default: ../results).",
+        "--input-dir", type=Path, default=default_input,
+        help="Directory containing *_flagos.json / *_vllm.json files.",
     )
     parser.add_argument(
-        "--output",
-        type=Path,
-        default=None,
-        help="Output CSV path (default: ../results/operator_report_<platform>_<backend>.csv).",
+        "--output", type=Path, default=None,
+        help="Output CSV path (default: <input-dir>/operator_detail_comparison.csv).",
     )
     return parser.parse_args()
 
 
-def slugify(text: str) -> str:
-    """Convert a platform/backend string to a safe filename token."""
-    text = text.lower().strip()
-    text = re.sub(r"[^a-z0-9]+", "_", text)
-    text = re.sub(r"_+", "_", text)
-    return text.strip("_")
+def load_json(path: Path) -> dict | None:
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
 
 
-def extract_gpu_name(platform: str, backend: str) -> str:
-    """Extract a short GPU identifier from the platform string.
-
-    Examples:
-        platform='NVIDIA NVIDIA H20', backend='nvidia' -> 'H20'
-        platform='NVIDIA H100', backend='nvidia'       -> 'H100'
-    """
-    clean = platform
-    if platform.lower().startswith(backend.lower()):
-        clean = platform[len(backend):].strip()
-    parts = clean.split()
-    return parts[-1] if parts else clean
-
-
-def flatten_regression(result: dict) -> dict:
-    """Flatten one JSON result object into a CSV row."""
-    params = result.get("params", {})
-    perf = result.get("performance", {})
-    device_time = perf.get("device_time", {})
-    wall_time = perf.get("wall_time", {})
-    accuracy = result.get("accuracy", {})
-
-    return {
-        "operator": result.get("operator", ""),
-        "scenario": result.get("scenario", ""),
-        "device_time_mean_ms": device_time.get("mean_ms", ""),
-        "wall_time_mean_ms": wall_time.get("mean_ms", ""),
-        "params_json": json.dumps(params, ensure_ascii=False, separators=(",", ":")),
-        "source": params.get("source", ""),
-        "accuracy_passed": accuracy.get("passed", ""),
-    }
+def format_params(params: dict) -> str:
+    """Format parameters dict into a compact readable string."""
+    if not params:
+        return ""
+    parts = [f"{k}={v}" for k, v in params.items()]
+    return ", ".join(parts)
 
 
 def main() -> int:
     args = parse_args()
+    input_dir = args.input_dir
 
-    if not args.input_dir.is_dir():
-        print(f"Error: input directory not found: {args.input_dir}", file=sys.stderr)
+    if not input_dir.is_dir():
+        print(f"Error: directory not found: {input_dir}", file=sys.stderr)
         return 1
 
-    # Collect per-operator report files. We accept any *.json that has a top-level
-    # "results" list where each entry contains an "operator" and "scenario".
-    # Known non-operator files (nvidia_*.json, test_*.json) are skipped.
-    skipped_prefixes = ("nvidia_", "test_")
-    report_files = []
-    for f in sorted(args.input_dir.glob("*.json")):
-        if f.name.startswith(skipped_prefixes):
-            continue
-        try:
-            with f.open("r", encoding="utf-8") as fp:
-                data = json.load(fp)
-        except (json.JSONDecodeError, OSError):
-            continue
-        if isinstance(data.get("results"), list) and data["results"]:
-            first = data["results"][0]
-            if isinstance(first, dict) and "operator" in first and "scenario" in first:
-                report_files.append(f)
-
-    if not report_files:
-        print(f"Warning: no valid operator report *.json files found in {args.input_dir}", file=sys.stderr)
-        return 0
+    flagos_files = sorted(input_dir.glob("*_flagos.json"))
+    if not flagos_files:
+        print(f"No *_flagos.json files found in {input_dir}", file=sys.stderr)
+        return 1
 
     rows = []
-    skipped_files = []
-    platform_backend_pairs = set()
-    for f in report_files:
-        try:
-            with f.open("r", encoding="utf-8") as fp:
-                data = json.load(fp)
-            platform_backend_pairs.add((data.get("platform", "unknown"), data.get("backend", "unknown")))
-            for r in data.get("results", []):
-                rows.append(flatten_regression(r))
-        except (json.JSONDecodeError, OSError) as e:
-            skipped_files.append((f.name, str(e)))
+
+    for flagos_path in flagos_files:
+        op_name = flagos_path.stem.replace("_flagos", "")
+        vllm_path = input_dir / f"{op_name}_vllm.json"
+
+        flagos_data = load_json(flagos_path)
+        if flagos_data is None:
             continue
 
-    if skipped_files:
-        print("Warning: skipped files due to errors:", file=sys.stderr)
-        for name, err in skipped_files:
-            print(f"  {name}: {err}", file=sys.stderr)
+        # Build vllm lookup: workload -> result dict
+        vllm_data = load_json(vllm_path) if vllm_path.exists() else None
+        vllm_map = {}
+        if vllm_data:
+            for r in vllm_data.get("results", []):
+                wl = r.get("workload", "")
+                if wl:
+                    vllm_map[wl] = r
+
+        for result in flagos_data.get("results", []):
+            workload = result.get("workload", "")
+            params = result.get("parameters", {})
+            perf = result.get("performance", {})
+            flagos_time = perf.get("device_time", {}).get("mean_ms")
+            flagos_gflops = perf.get("throughput", {}).get("gflops")
+
+            # Match vllm result
+            vllm_result = vllm_map.get(workload)
+            vllm_time = None
+            vllm_gflops = None
+            if vllm_result:
+                vllm_perf = vllm_result.get("performance", {})
+                vllm_time = vllm_perf.get("device_time", {}).get("mean_ms")
+                vllm_gflops = vllm_perf.get("throughput", {}).get("gflops")
+
+            # Compute speedup
+            speedup = ""
+            if flagos_time and vllm_time and flagos_time > 0:
+                speedup = f"{vllm_time / flagos_time:.4f}"
+
+            rows.append({
+                "算子名": op_name,
+                "workload": workload,
+                "parameters": format_params(params),
+                "FlagOS耗时(ms)": f"{flagos_time:.4f}" if flagos_time is not None else "N/A",
+                "vLLM耗时(ms)": f"{vllm_time:.4f}" if vllm_time is not None else "N/A",
+                "加速比": speedup if speedup else "N/A",
+                "FlagOS吞吐(GFLOPS)": f"{flagos_gflops:.2f}" if flagos_gflops is not None else "N/A",
+                "vLLM吞吐(GFLOPS)": f"{vllm_gflops:.2f}" if vllm_gflops is not None else "N/A",
+            })
+
+    output_path = args.output or (input_dir / "operator_detail_comparison.csv")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
 
     fieldnames = [
-        "operator", "scenario", "device_time_mean_ms", "wall_time_mean_ms",
-        "params_json", "source", "accuracy_passed",
+        "算子名", "workload", "parameters",
+        "FlagOS耗时(ms)", "vLLM耗时(ms)", "加速比",
+        "FlagOS吞吐(GFLOPS)", "vLLM吞吐(GFLOPS)",
     ]
-
-    if args.output is None:
-        # Derive default filename from backend and GPU model.
-        if len(platform_backend_pairs) == 1:
-            platform, backend = platform_backend_pairs.pop()
-        else:
-            platform, backend = "unknown", "unknown"
-        gpu = extract_gpu_name(platform, backend)
-        filename = f"operator_report_{slugify(backend)}_{slugify(gpu)}.csv"
-        args.output = args.input_dir / filename
-
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    with args.output.open("w", newline="", encoding="utf-8") as fp:
-        writer = csv.DictWriter(fp, fieldnames=fieldnames)
+    with output_path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
 
-    operators = sorted({r["operator"] for r in rows})
-    print(f"Generated: {args.output}", file=sys.stderr)
-    print(f"Total rows: {len(rows)}", file=sys.stderr)
-    print(f"Operators ({len(operators)}): {operators}", file=sys.stderr)
+    operators = sorted({r["算子名"] for r in rows})
+    print(f"Generated: {output_path}", file=sys.stderr)
+    print(f"Total rows: {len(rows)}, Operators: {len(operators)}", file=sys.stderr)
     return 0
 
 

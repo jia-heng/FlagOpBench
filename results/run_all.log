@@ -1,0 +1,3403 @@
+=== Flagtests Batch Run Mon Aug 24 03:20:58 UTC 2026 ===
+---------- combine_topk_swa_indices ----------
+[03:20:58] Running combine_topk_swa_indices / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/combine_topk_swa_indices.yaml
+  [flagos] combine_topk_swa_indices / prefill_4reqs_seq1024 ... 0.0442 ms
+  [flagos] combine_topk_swa_indices / prefill_8reqs_seq1024 ... 0.0434 ms
+  [flagos] combine_topk_swa_indices / prefill_4reqs_seq4096 ... 0.0447 ms
+  [flagos] combine_topk_swa_indices / prefill_8reqs_seq4096 ... 0.0543 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  combine_topk_swa_indices prefill_4reqs_seq1024          0.0442       35.58     
+  combine_topk_swa_indices prefill_8reqs_seq1024          0.0434       72.43     
+  combine_topk_swa_indices prefill_4reqs_seq4096          0.0447       140.88    
+  combine_topk_swa_indices prefill_8reqs_seq4096          0.0543       231.87    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/combine_topk_swa_indices_flagos.json
+  flagos: OK
+[03:21:07] Running combine_topk_swa_indices / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:21:15 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:21:15 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:21:15 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/combine_topk_swa_indices.yaml
+  [vllm] combine_topk_swa_indices / prefill_4reqs_seq1024 ... 0.0395 ms
+  [vllm] combine_topk_swa_indices / prefill_8reqs_seq1024 ... 0.0385 ms
+  [vllm] combine_topk_swa_indices / prefill_4reqs_seq4096 ... 0.0384 ms
+  [vllm] combine_topk_swa_indices / prefill_8reqs_seq4096 ... 0.0481 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  combine_topk_swa_indices prefill_4reqs_seq1024          0.0395       39.81     
+  combine_topk_swa_indices prefill_8reqs_seq1024          0.0385       81.80     
+  combine_topk_swa_indices prefill_4reqs_seq4096          0.0384       163.93    
+  combine_topk_swa_indices prefill_8reqs_seq4096          0.0481       261.58    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/combine_topk_swa_indices_vllm.json
+  vllm: OK
+---------- compute_global_topk_indices_and_lens ----------
+[03:21:21] Running compute_global_topk_indices_and_lens / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/compute_global_topk_indices_and_lens.yaml
+  [flagos] compute_global_topk_indices_and_lens / decode_small_batch ... 0.0522 ms
+  [flagos] compute_global_topk_indices_and_lens / decode_medium_batch ... 0.0508 ms
+  [flagos] compute_global_topk_indices_and_lens / prefill_large ... 0.0537 ms
+  [flagos] compute_global_topk_indices_and_lens / chunked_prefill_large_topk ... 0.0512 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  compute_global_topk_indices_and_lens decode_small_batch             0.0522       0.20      
+  compute_global_topk_indices_and_lens decode_medium_batch            0.0508       0.81      
+  compute_global_topk_indices_and_lens prefill_large                  0.0537       24.43     
+  compute_global_topk_indices_and_lens chunked_prefill_large_topk     0.0512       102.35    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/compute_global_topk_indices_and_lens_flagos.json
+  flagos: OK
+[03:21:35] Running compute_global_topk_indices_and_lens / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:21:45 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:21:45 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:21:45 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/compute_global_topk_indices_and_lens.yaml
+  [vllm] compute_global_topk_indices_and_lens / decode_small_batch ... 0.0303 ms
+  [vllm] compute_global_topk_indices_and_lens / decode_medium_batch ... 0.0292 ms
+  [vllm] compute_global_topk_indices_and_lens / prefill_large ... 0.0300 ms
+  [vllm] compute_global_topk_indices_and_lens / chunked_prefill_large_topk ... 0.0342 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  compute_global_topk_indices_and_lens decode_small_batch             0.0303       0.34      
+  compute_global_topk_indices_and_lens decode_medium_batch            0.0292       1.40      
+  compute_global_topk_indices_and_lens prefill_large                  0.0300       43.66     
+  compute_global_topk_indices_and_lens chunked_prefill_large_topk     0.0342       153.23    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/compute_global_topk_indices_and_lens_vllm.json
+  vllm: OK
+---------- cp_gather_indexer_k_quant_cache ----------
+[03:21:51] Running cp_gather_indexer_k_quant_cache / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/cp_gather_indexer_k_quant_cache.yaml
+  [flagos] cp_gather_indexer_k_quant_cache / decode_32tokens ... 0.0424 ms
+  [flagos] cp_gather_indexer_k_quant_cache / decode_128tokens ... 0.0409 ms
+  [flagos] cp_gather_indexer_k_quant_cache / prefill_512tokens ... 0.0412 ms
+  [flagos] cp_gather_indexer_k_quant_cache / prefill_2048tokens ... 0.0406 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  cp_gather_indexer_k_quant_cache decode_32tokens                0.0424       0.00      
+  cp_gather_indexer_k_quant_cache decode_128tokens               0.0409       0.00      
+  cp_gather_indexer_k_quant_cache prefill_512tokens              0.0412       0.00      
+  cp_gather_indexer_k_quant_cache prefill_2048tokens             0.0406       0.00      
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/cp_gather_indexer_k_quant_cache_flagos.json
+  flagos: OK
+[03:22:01] Running cp_gather_indexer_k_quant_cache / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:22:09 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:22:09 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:22:09 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/cp_gather_indexer_k_quant_cache.yaml
+  [vllm] cp_gather_indexer_k_quant_cache / decode_32tokens ... 0.0139 ms
+  [vllm] cp_gather_indexer_k_quant_cache / decode_128tokens ... 0.0136 ms
+  [vllm] cp_gather_indexer_k_quant_cache / prefill_512tokens ... 0.0137 ms
+  [vllm] cp_gather_indexer_k_quant_cache / prefill_2048tokens ... 0.0137 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  cp_gather_indexer_k_quant_cache decode_32tokens                0.0139       0.00      
+  cp_gather_indexer_k_quant_cache decode_128tokens               0.0136       0.00      
+  cp_gather_indexer_k_quant_cache prefill_512tokens              0.0137       0.00      
+  cp_gather_indexer_k_quant_cache prefill_2048tokens             0.0137       0.00      
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/cp_gather_indexer_k_quant_cache_vllm.json
+  vllm: OK
+---------- flash_attn_varlen_func ----------
+[03:22:14] Running flash_attn_varlen_func / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/flash_attn_varlen_func.yaml
+  [flagos] flash_attn_varlen_func / decode_batch1_seq1 ... 0.2527 ms
+  [flagos] flash_attn_varlen_func / decode_batch32_seq1 ... 0.2487 ms
+  [flagos] flash_attn_varlen_func / prefill_seq512 ... 0.2491 ms
+  [flagos] flash_attn_varlen_func / prefill_seq2048 ... 0.2491 ms
+  [flagos] flash_attn_varlen_func / prefill_seq4096 ... 0.2473 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 5
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  flash_attn_varlen_func decode_batch1_seq1             0.2527       33989.28  
+  flash_attn_varlen_func decode_batch32_seq1            0.2487       34534.88  
+  flash_attn_varlen_func prefill_seq512                 0.2491       34484.39  
+  flash_attn_varlen_func prefill_seq2048                0.2491       34482.13  
+  flash_attn_varlen_func prefill_seq4096                0.2473       34730.90  
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/flash_attn_varlen_func_flagos.json
+  flagos: OK
+[03:22:24] Running flash_attn_varlen_func / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:22:32 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:22:32 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:22:32 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/flash_attn_varlen_func.yaml
+  [vllm] flash_attn_varlen_func / decode_batch1_seq1 ... 0.2052 ms
+  [vllm] flash_attn_varlen_func / decode_batch32_seq1 ... 0.2049 ms
+  [vllm] flash_attn_varlen_func / prefill_seq512 ... 0.2039 ms
+  [vllm] flash_attn_varlen_func / prefill_seq2048 ... 0.2057 ms
+  [vllm] flash_attn_varlen_func / prefill_seq4096 ... 0.2041 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 5
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  flash_attn_varlen_func decode_batch1_seq1             0.2052       41861.87  
+  flash_attn_varlen_func decode_batch32_seq1            0.2049       41912.92  
+  flash_attn_varlen_func prefill_seq512                 0.2039       42131.31  
+  flash_attn_varlen_func prefill_seq2048                0.2057       41759.30  
+  flash_attn_varlen_func prefill_seq4096                0.2041       42083.82  
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/flash_attn_varlen_func_vllm.json
+  vllm: OK
+---------- flash_mla ----------
+[03:22:37] Running flash_mla / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/flash_mla.yaml
+  [flagos] flash_mla / decode_batch1_seq2048 ... 0.1417 ms
+  [flagos] flash_mla / decode_batch8_seq2048 ... 0.1551 ms
+  [flagos] flash_mla / decode_batch32_seq2048 ... 0.2876 ms
+  [flagos] flash_mla / decode_batch32_seq4096 ... 0.4345 ms
+  [flagos] flash_mla / decode_batch64_seq4096 ... 0.7283 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 5
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  flash_mla            decode_batch1_seq2048          0.1417       4035.62   
+  flash_mla            decode_batch8_seq2048          0.1551       29494.89  
+  flash_mla            decode_batch32_seq2048         0.2876       63614.44  
+  flash_mla            decode_batch32_seq4096         0.4345       84218.47  
+  flash_mla            decode_batch64_seq4096         0.7283       100484.30 
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/flash_mla_flagos.json
+  flagos: OK
+[03:22:47] Running flash_mla / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:22:54 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:22:54 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:22:54 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/flash_mla.yaml
+  [SKIP] flash_mla: no impl in provider 'vllm'
+
+  No results generated. Check if cases are valid.
+  vllm: OK
+---------- flash_mla_with_kvcache ----------
+[03:22:56] Running flash_mla_with_kvcache / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/flash_mla_with_kvcache.yaml
+  [flagos] flash_mla_with_kvcache / b4_seq4096 ... 0.4280 ms
+  [flagos] flash_mla_with_kvcache / b16_seq4096 ... 0.4291 ms
+  [flagos] flash_mla_with_kvcache / b4_seq16384 ... 1.4920 ms
+  [flagos] flash_mla_with_kvcache / b16_seq16384 ... 1.4938 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  flash_mla_with_kvcache b4_seq4096                     0.4280       10686.26  
+  flash_mla_with_kvcache b16_seq4096                    0.4291       42636.04  
+  flash_mla_with_kvcache b4_seq16384                    1.4920       12262.69  
+  flash_mla_with_kvcache b16_seq16384                   1.4938       48990.27  
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/flash_mla_with_kvcache_flagos.json
+  flagos: OK
+[03:23:06] Running flash_mla_with_kvcache / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:23:13 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:23:13 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:23:13 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/flash_mla_with_kvcache.yaml
+  [vllm] flash_mla_with_kvcache / b4_seq4096 ... [Note] No specialized fused operators were found for the nvidia, generic fused operators will be used by default.
+0.0934 ms
+  [vllm] flash_mla_with_kvcache / b16_seq4096 ... 0.2091 ms
+  [vllm] flash_mla_with_kvcache / b4_seq16384 ... 0.2024 ms
+  [vllm] flash_mla_with_kvcache / b16_seq16384 ... 0.6508 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  flash_mla_with_kvcache b4_seq4096                     0.0934       48962.92  
+  flash_mla_with_kvcache b16_seq4096                    0.2091       87496.20  
+  flash_mla_with_kvcache b4_seq16384                    0.2024       90393.34  
+  flash_mla_with_kvcache b16_seq16384                   0.6508       112441.83 
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/flash_mla_with_kvcache_vllm.json
+  vllm: OK
+---------- flash_mla_with_kvcache_fp8 ----------
+[03:23:22] Running flash_mla_with_kvcache_fp8 / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/flash_mla_with_kvcache_fp8.yaml
+  [flagos] flash_mla_with_kvcache_fp8 / b4_topk64 ... 0.1061 ms
+  [flagos] flash_mla_with_kvcache_fp8 / b16_topk64 ... 0.1064 ms
+  [flagos] flash_mla_with_kvcache_fp8 / b4_topk128 ... 0.1443 ms
+  [flagos] flash_mla_with_kvcache_fp8 / b16_topk128 ... 0.1430 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  flash_mla_with_kvcache_fp8 b4_topk64                      0.1061       633.95    
+  flash_mla_with_kvcache_fp8 b16_topk64                     0.1064       2529.69   
+  flash_mla_with_kvcache_fp8 b4_topk128                     0.1443       932.33    
+  flash_mla_with_kvcache_fp8 b16_topk128                    0.1430       3762.19   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/flash_mla_with_kvcache_fp8_flagos.json
+  flagos: OK
+[03:23:34] Running flash_mla_with_kvcache_fp8 / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:23:41 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:23:41 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:23:41 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/flash_mla_with_kvcache_fp8.yaml
+  [vllm] flash_mla_with_kvcache_fp8 / b4_topk64 ... [Note] No specialized fused operators were found for the nvidia, generic fused operators will be used by default.
+ERROR: Expected q.dtype() == torch::kFloat8_e4m3fn to be true, but got false.  (Could this error message be improved?  If so, please report an enhancement request to PyTorch.)
+  [vllm] flash_mla_with_kvcache_fp8 / b16_topk64 ... ERROR: Expected q.dtype() == torch::kFloat8_e4m3fn to be true, but got false.  (Could this error message be improved?  If so, please report an enhancement request to PyTorch.)
+  [vllm] flash_mla_with_kvcache_fp8 / b4_topk128 ... ERROR: Expected q.dtype() == torch::kFloat8_e4m3fn to be true, but got false.  (Could this error message be improved?  If so, please report an enhancement request to PyTorch.)
+  [vllm] flash_mla_with_kvcache_fp8 / b16_topk128 ... ERROR: Expected q.dtype() == torch::kFloat8_e4m3fn to be true, but got false.  (Could this error message be improved?  If so, please report an enhancement request to PyTorch.)
+
+  No results generated. Check if cases are valid.
+  vllm: OK
+---------- fp8_fp4_paged_mqa_logits ----------
+[03:23:46] Running fp8_fp4_paged_mqa_logits / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/fp8_fp4_paged_mqa_logits.yaml
+  [flagos] fp8_fp4_paged_mqa_logits / decode_batch1_ctx2048 ... 0.1410 ms
+  [flagos] fp8_fp4_paged_mqa_logits / decode_batch8_ctx2048 ... 0.1401 ms
+  [flagos] fp8_fp4_paged_mqa_logits / decode_batch32_ctx2048 ... 0.1718 ms
+  [flagos] fp8_fp4_paged_mqa_logits / decode_batch32_ctx4096 ... 0.2688 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  fp8_fp4_paged_mqa_logits decode_batch1_ctx2048          0.1410       477.76    
+  fp8_fp4_paged_mqa_logits decode_batch8_ctx2048          0.1401       3846.98   
+  fp8_fp4_paged_mqa_logits decode_batch32_ctx2048         0.1718       12545.41  
+  fp8_fp4_paged_mqa_logits decode_batch32_ctx4096         0.2688       16042.00  
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/fp8_fp4_paged_mqa_logits_flagos.json
+  flagos: OK
+[03:23:56] Running fp8_fp4_paged_mqa_logits / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:24:03 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:24:03 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:24:03 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/fp8_fp4_paged_mqa_logits.yaml
+  [vllm] fp8_fp4_paged_mqa_logits / decode_batch1_ctx2048 ... ERROR: fp8_fp4_paged_mqa_logits(): incompatible function arguments. The following argument types are supported:
+    1. (q: tuple[torch.Tensor, torch.Tensor | None], kv_cache: torch.Tensor, weights: torch.Tensor, context_lens: torch.Tensor, block_table: torch.Tensor, schedule_meta: torch.Tensor, max_context_len: typing.SupportsInt, clean_logits: bool = False, logits_dtype: torch.dtype = torch.float32, indices: torch.Tensor | None = None) -> torch.Tensor
+
+Invoked with: ((tensor([[[[-0.3438,  0.3438,  2.7500,  ..., -1.2500, -2.2500,  0.6250],
+          [ 0.4688, -1.5000,  0.8750,  ...,  0.6875,  0.6250,  1.5000],
+          [-0.3750, -0.9375, -1.3750,  ..., -0.0703,  0.4375,  1.5000],
+          ...,
+          [-1.3750,  0.3438,  1.6250,  ..., -0.3750,  0.0352,  0.2188],
+          [-0.6250, -0.3438, -1.2500,  ..., -0.0215, -1.2500,  0.5625],
+          [ 1.2500,  1.2500,  0.9375,  ..., -1.2500,  1.2500,  0.0781]]]],
+       device='cuda:0', dtype=torch.float8_e4m3fn), tensor(1., device='cuda:0')), None), tensor([[[[113,  64,  19,  ..., 101,  80,  33]],
+
+         [[125, 138,  26,  ..., 251, 130, 235]],
+
+         [[116,  21,  96,  ..., 144, 192,  21]],
+
+         ...,
+
+         [[ 59,  16,  43,  ...,   4,   7,  36]],
+
+         [[106, 152,   2,  ..., 217, 163, 129]],
+
+         [[128, 153, 232,  ...,   1, 208, 252]]],
+
+
+        [[[120, 192, 223,  ..., 252,  55, 231]],
+
+         [[161,  32, 142,  ...,  51,  88, 238]],
+
+         [[ 70, 142, 123,  ..., 137,  56, 150]],
+
+         ...,
+
+         [[189, 172, 101,  ..., 109, 195, 232]],
+
+         [[107, 224, 180,  ..., 122, 151,  93]],
+
+         [[ 44, 195, 212,  ..., 209,  56, 122]]],
+
+
+        [[[119,  63,  55,  ...,   5, 219,  36]],
+
+         [[153,  14,  91,  ..., 222,  17, 108]],
+
+         [[ 94, 209,  54,  ..., 224,  32, 115]],
+
+         ...,
+
+         [[201, 161, 157,  ..., 136,  40,  54]],
+
+         [[  6, 236, 154,  ...,  50,  73, 232]],
+
+         [[ 49, 134, 104,  ..., 216, 112,  82]]],
+
+
+        ...,
+
+
+        [[[155, 218, 192,  ..., 252,  64,  33]],
+
+         [[ 58,  49, 155,  ..., 220, 161, 113]],
+
+         [[ 57, 199, 251,  ..., 225,  45, 133]],
+
+         ...,
+
+         [[183, 157, 244,  ..., 169, 202, 168]],
+
+         [[ 61,  52,  15,  ...,  38, 162, 163]],
+
+         [[178, 190, 230,  ..., 242,  76,  65]]],
+
+
+        [[[234, 224,  58,  ..., 192,  65,  40]],
+
+         [[  1,  59,  84,  ...,  67, 196, 191]],
+
+         [[229,  75,  91,  ..., 154, 186, 206]],
+
+         ...,
+
+         [[ 59,   8,  74,  ..., 111, 152,   3]],
+
+         [[235, 207, 161,  ..., 115, 100, 112]],
+
+         [[ 55,  51, 247,  ..., 193,  45, 212]]],
+
+
+        [[[ 73,  55,  10,  ..., 193,  72, 154]],
+
+         [[ 85, 123, 176,  ..., 106,   4,  99]],
+
+         [[228, 173,  81,  ..., 238, 107, 192]],
+
+         ...,
+
+         [[148, 139,  82,  ...,   5,  97,   2]],
+
+         [[190, 139,  35,  ...,  50, 221,  48]],
+
+         [[253,  79, 219,  ..., 162, 122,   4]]]], device='cuda:0',
+       dtype=torch.uint8), tensor([[1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+         1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+         1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+         1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+         1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+         1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+         1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+         1., 1.]], device='cuda:0'), tensor([2048], device='cuda:0', dtype=torch.int32), tensor([[  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,
+          14,  15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,  26,  27,
+          28,  29,  30,  31,  32,  33,  34,  35,  36,  37,  38,  39,  40,  41,
+          42,  43,  44,  45,  46,  47,  48,  49,  50,  51,  52,  53,  54,  55,
+          56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,
+          70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,
+          84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,
+          98,  99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111,
+         112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125,
+         126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139,
+         140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153,
+         154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167,
+         168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181,
+         182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195,
+         196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209,
+         210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223,
+         224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237,
+         238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251,
+         252, 253, 254, 255]], device='cuda:0', dtype=torch.int32), None, 4096; kwargs: clean_logits=False
+  [vllm] fp8_fp4_paged_mqa_logits / decode_batch8_ctx2048 ... ERROR: fp8_fp4_paged_mqa_logits(): incompatible function arguments. The following argument types are supported:
+    1. (q: tuple[torch.Tensor, torch.Tensor | None], kv_cache: torch.Tensor, weights: torch.Tensor, context_lens: torch.Tensor, block_table: torch.Tensor, schedule_meta: torch.Tensor, max_context_len: typing.SupportsInt, clean_logits: bool = False, logits_dtype: torch.dtype = torch.float32, indices: torch.Tensor | None = None) -> torch.Tensor
+
+Invoked with: ((tensor([[[[ 1.3750,  0.2812,  1.3750,  ...,  0.4062,  0.2500,  0.8750],
+          [ 0.6250,  0.4688,  0.9375,  ..., -0.9375, -0.8750, -0.3750],
+          [-0.2500, -1.2500,  0.3438,  ..., -0.2812, -0.0430, -1.1250],
+          ...,
+          [-0.8750,  1.8750, -2.2500,  ..., -0.8750, -1.1250, -1.2500],
+          [-0.5000,  0.5625,  0.5625,  ...,  0.8125,  0.8125, -0.1094],
+          [-2.5000,  0.2812,  1.3750,  ..., -1.2500, -0.9375, -0.5625]]],
+
+
+        [[[-0.4062, -1.8750,  0.8750,  ...,  0.3438,  1.3750,  1.5000],
+          [-0.3750, -1.0000, -0.8750,  ..., -0.2344, -0.6875, -0.3125],
+          [ 0.0176, -0.4375,  0.8125,  ...,  1.2500,  0.3750,  0.0781],
+          ...,
+          [ 0.5625, -0.4688, -0.1172,  ...,  0.6250, -0.2812,  1.1250],
+          [-0.3125,  0.4688,  0.4062,  ...,  1.3750,  0.4062,  1.3750],
+          [ 1.0000, -2.5000, -0.4375,  ...,  1.1250,  0.4375, -0.0273]]],
+
+
+        [[[ 0.0547,  1.2500, -1.7500,  ...,  0.3125, -0.0273,  2.2500],
+          [-0.1562, -0.8125, -0.4688,  ...,  0.3438, -1.0000, -1.8750],
+          [-0.1406,  1.5000, -0.3125,  ...,  1.3750, -0.0859, -0.2812],
+          ...,
+          [ 0.7500,  0.0586, -1.3750,  ..., -1.2500,  0.1172,  2.0000],
+          [-0.6250, -1.5000, -0.2188,  ..., -0.4375,  0.5625, -0.4375],
+          [ 1.2500,  0.4688, -0.5000,  ..., -0.7500, -0.5625, -0.6250]]],
+
+
+        ...,
+
+
+        [[[-1.3750, -1.0000,  0.3438,  ..., -1.0000,  2.0000, -0.6250],
+          [ 0.5000, -0.1094, -0.4688,  ..., -1.6250, -0.1562, -1.5000],
+          [ 1.2500, -0.8750,  0.2812,  ...,  0.7500,  0.5625,  0.4375],
+          ...,
+          [ 0.4062, -0.5625,  0.0430,  ..., -0.1016,  0.0859, -0.8125],
+          [ 1.7500,  0.6250, -0.0176,  ..., -2.0000,  0.2188, -0.5000],
+          [ 1.3750,  2.0000, -0.6875,  ...,  1.3750,  1.6250, -1.1250]]],
+
+
+        [[[ 0.6875,  1.2500, -0.5000,  ..., -0.2812, -1.7500, -0.2500],
+          [ 0.7500,  2.2500, -0.3438,  ...,  1.2500, -0.5625,  0.7500],
+          [-0.4062,  0.8750,  1.0000,  ..., -1.0000, -0.2812, -0.9375],
+          ...,
+          [ 0.4375, -0.4062,  0.0859,  ..., -1.3750, -0.1250,  2.0000],
+          [-0.1250, -1.2500,  0.8750,  ...,  1.1250, -1.5000,  0.1250],
+          [ 0.5625,  0.0938, -0.3125,  ...,  1.5000,  0.1406,  0.3438]]],
+
+
+        [[[-0.8125,  0.5625,  0.1562,  ..., -0.1406, -0.8750, -0.8125],
+          [ 1.0000,  1.6250,  0.5000,  ..., -2.0000, -0.0430, -0.6250],
+          [ 0.2344,  2.5000, -2.5000,  ...,  0.8125, -1.8750, -0.6250],
+          ...,
+          [ 0.4062,  0.2500, -2.2500,  ..., -0.5625, -1.6250,  0.5000],
+          [ 1.1250,  1.5000,  0.0781,  ..., -0.3750,  0.4688, -1.5000],
+          [ 0.6250, -1.7500, -0.1562,  ..., -0.5625,  0.2500, -1.7500]]]],
+       device='cuda:0', dtype=torch.float8_e4m3fn), tensor(1., device='cuda:0')), None), tensor([[[[ 29,  75, 221,  ..., 158, 246,  88]],
+
+         [[106,  44,   4,  ...,  88, 152,  43]],
+
+         [[ 69, 217,  96,  ...,  73, 120,  13]],
+
+         ...,
+
+         [[172, 235, 254,  ..., 117, 199,  56]],
+
+         [[ 27, 164, 177,  ..., 251, 239, 117]],
+
+         [[ 96, 150,  91,  ..., 203,  47,  82]]],
+
+
+        [[[223, 106, 188,  ..., 142,  27, 146]],
+
+         [[241, 214,  91,  ..., 122, 209, 192]],
+
+         [[134, 205, 183,  ..., 153, 229, 150]],
+
+         ...,
+
+         [[ 93,  65,  97,  ..., 115, 195,  70]],
+
+         [[164,  26,  19,  ..., 101, 125, 192]],
+
+         [[165,  73, 139,  ...,  24,   6, 202]]],
+
+
+        [[[ 34,  46, 115,  ..., 199,  63, 160]],
+
+         [[213,  85, 245,  ..., 157, 167,  22]],
+
+         [[100,  39, 240,  ...,  28, 233,  70]],
+
+         ...,
+
+         [[ 30, 151, 139,  ...,  51,  49,  80]],
+
+         [[236, 169,  16,  ..., 243,  38, 166]],
+
+         [[  0, 149, 113,  ...,  24,   7, 210]]],
+
+
+        ...,
+
+
+        [[[ 57, 236, 182,  ...,  74, 146, 247]],
+
+         [[ 90,  54,  75,  ...,  31, 146,  59]],
+
+         [[ 81, 121,  71,  ...,  34, 136, 139]],
+
+         ...,
+
+         [[196,  15,  86,  ...,  74, 167, 171]],
+
+         [[103, 180, 142,  ...,  67, 120, 146]],
+
+         [[102, 154, 207,  ...,  21,  20,  82]]],
+
+
+        [[[252,  20,  46,  ...,  15, 205, 161]],
+
+         [[197, 222, 238,  ...,   5, 216, 138]],
+
+         [[ 50, 163,  10,  ...,  67, 167, 237]],
+
+         ...,
+
+         [[240, 237,  29,  ...,  78, 213, 210]],
+
+         [[152, 201,  98,  ..., 137, 210,  24]],
+
+         [[145, 228, 141,  ..., 142, 197,  12]]],
+
+
+        [[[ 46, 239,  43,  ...,  77, 141, 121]],
+
+         [[ 12, 169,  50,  ...,  72,  68, 228]],
+
+         [[  3, 171, 161,  ..., 160,  78, 123]],
+
+         ...,
+
+         [[ 42,  37, 160,  ...,  29,  20,  22]],
+
+         [[252, 103, 244,  ..., 225, 126,  19]],
+
+         [[137, 234, 221,  ..., 174,  23, 166]]]], device='cuda:0',
+       dtype=torch.uint8), tensor([[1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        ...,
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.]], device='cuda:0'), tensor([2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048], device='cuda:0',
+       dtype=torch.int32), tensor([[   0,    1,    2,  ...,  253,  254,  255],
+        [ 256,  257,  258,  ...,  509,  510,  511],
+        [ 512,  513,  514,  ...,  765,  766,  767],
+        ...,
+        [1280, 1281, 1282,  ..., 1533, 1534, 1535],
+        [1536, 1537, 1538,  ..., 1789, 1790, 1791],
+        [1792, 1793, 1794,  ..., 2045, 2046, 2047]], device='cuda:0',
+       dtype=torch.int32), None, 4096; kwargs: clean_logits=False
+  [vllm] fp8_fp4_paged_mqa_logits / decode_batch32_ctx2048 ... ERROR: fp8_fp4_paged_mqa_logits(): incompatible function arguments. The following argument types are supported:
+    1. (q: tuple[torch.Tensor, torch.Tensor | None], kv_cache: torch.Tensor, weights: torch.Tensor, context_lens: torch.Tensor, block_table: torch.Tensor, schedule_meta: torch.Tensor, max_context_len: typing.SupportsInt, clean_logits: bool = False, logits_dtype: torch.dtype = torch.float32, indices: torch.Tensor | None = None) -> torch.Tensor
+
+Invoked with: ((tensor([[[[-1.3750, -0.6250,  3.5000,  ...,  0.4688,  1.3750, -0.6875],
+          [-0.2812,  1.0000,  0.8750,  ...,  1.5000, -2.2500, -0.3125],
+          [-0.4688,  0.7500, -0.5000,  ...,  0.3750, -0.3438, -0.6250],
+          ...,
+          [-0.6250,  0.3750,  0.6250,  ..., -0.7500, -2.0000, -0.6875],
+          [-0.2500,  1.0000,  0.8750,  ...,  0.1406,  1.3750,  0.3438],
+          [ 0.8125, -0.5625,  0.5000,  ...,  1.0000,  0.5625, -0.0000]]],
+
+
+        [[[-0.6875, -1.7500, -0.3438,  ..., -0.1016, -0.1406, -0.3438],
+          [ 1.1250,  0.6250, -3.0000,  ..., -2.5000,  0.8750,  2.0000],
+          [ 0.5000,  1.0000,  1.7500,  ...,  0.7500,  1.1250,  0.8750],
+          ...,
+          [ 0.5625,  0.7500, -0.4688,  ...,  0.5625, -1.0000, -2.0000],
+          [ 0.0430, -2.0000, -0.2812,  ...,  0.6250,  0.2031, -0.6250],
+          [ 1.5000, -0.2188,  0.5000,  ...,  1.3750, -0.3438, -1.2500]]],
+
+
+        [[[-0.4062, -0.1875, -1.2500,  ...,  1.5000, -0.5625,  0.1406],
+          [ 0.2188,  0.1016,  0.0215,  ...,  1.2500,  0.8750,  1.5000],
+          [-0.1172,  0.6250,  0.2188,  ..., -0.0391, -0.1016,  0.4688],
+          ...,
+          [-0.7500, -0.4688,  0.3438,  ...,  1.2500, -0.4375,  0.5625],
+          [ 0.5000,  0.6250,  0.9375,  ..., -0.0234,  0.3750, -2.2500],
+          [ 0.1250, -1.7500, -0.4375,  ...,  0.1875, -0.1719,  1.5000]]],
+
+
+        ...,
+
+
+        [[[-1.1250,  1.2500, -0.6250,  ...,  0.1016,  0.1250, -1.5000],
+          [ 2.0000,  1.0000, -0.8750,  ..., -0.6250,  1.0000, -1.6250],
+          [-1.0000,  3.5000, -0.5000,  ...,  0.2812,  0.6250, -0.5000],
+          ...,
+          [ 1.6250, -0.0781, -0.5000,  ...,  1.5000,  0.4688, -1.2500],
+          [ 1.2500, -0.0195, -0.6250,  ...,  0.6250,  0.5000,  0.4688],
+          [ 0.1875,  0.2500,  1.5000,  ...,  1.1250, -0.1172, -0.1250]]],
+
+
+        [[[-1.2500, -1.8750,  1.7500,  ...,  0.9375,  0.2500,  0.1875],
+          [-0.5000,  1.1250, -1.3750,  ...,  0.5000,  1.2500,  0.0430],
+          [-0.0938,  0.2344, -0.6250,  ...,  0.6250,  0.0703, -0.2812],
+          ...,
+          [ 1.5000, -1.5000, -0.2031,  ...,  0.1406, -0.4062, -2.5000],
+          [ 0.1875, -0.6250, -0.5000,  ..., -0.5000, -0.4688, -1.3750],
+          [-1.7500, -0.2188,  0.6250,  ..., -1.5000,  1.5000,  1.1250]]],
+
+
+        [[[-1.0000,  1.2500,  1.5000,  ...,  1.3750, -0.6875,  0.5000],
+          [-1.2500, -1.0000,  0.4688,  ..., -1.7500,  1.8750,  1.3750],
+          [ 1.8750,  2.2500, -0.1719,  ..., -2.2500,  1.1250,  0.0293],
+          ...,
+          [ 0.6875,  0.6250, -0.3750,  ...,  1.1250,  0.2500, -0.9375],
+          [-1.8750, -0.4688, -0.1016,  ..., -0.7500, -0.1094, -2.0000],
+          [-1.8750, -0.4688,  1.5000,  ..., -1.7500,  0.5625, -0.8750]]]],
+       device='cuda:0', dtype=torch.float8_e4m3fn), tensor(1., device='cuda:0')), None), tensor([[[[155,  35, 143,  ..., 174, 157,  44]],
+
+         [[ 86, 114,  76,  ..., 210, 110, 221]],
+
+         [[174, 141,   2,  ...,  73, 198, 121]],
+
+         ...,
+
+         [[137, 116, 238,  ..., 232, 203, 160]],
+
+         [[198, 104,  40,  ...,  27,  81, 245]],
+
+         [[176, 100,  77,  ..., 221, 145, 103]]],
+
+
+        [[[ 23,  78, 205,  ..., 162, 133,  63]],
+
+         [[  2, 121, 102,  ...,  62,  76,   2]],
+
+         [[254, 196,  45,  ...,  53, 232,  77]],
+
+         ...,
+
+         [[ 33, 122, 148,  ..., 158, 238,  15]],
+
+         [[185, 120,  82,  ..., 222,  46, 125]],
+
+         [[108,  47, 178,  ...,  97, 153, 254]]],
+
+
+        [[[ 41, 237,  86,  ..., 248, 183,  57]],
+
+         [[ 43, 193, 148,  ...,  37,  23, 109]],
+
+         [[225,   8, 186,  ..., 213,   8, 151]],
+
+         ...,
+
+         [[113, 203,  21,  ..., 201,  54,  12]],
+
+         [[ 97,  36, 132,  ...,  25,  47, 231]],
+
+         [[ 21, 222, 171,  ...,  27,   3,  16]]],
+
+
+        ...,
+
+
+        [[[ 91, 112, 137,  ..., 219, 222, 149]],
+
+         [[ 24,  62, 169,  ..., 154, 200,  39]],
+
+         [[216, 221, 199,  ..., 113, 142, 103]],
+
+         ...,
+
+         [[122,  11, 133,  ...,   8, 204, 207]],
+
+         [[100,  80, 171,  ...,  33, 245,  54]],
+
+         [[ 17,  50,  11,  ...,  96, 129,  91]]],
+
+
+        [[[ 67, 206, 108,  ..., 231,  94, 216]],
+
+         [[ 17, 181, 134,  ..., 159,  99,  49]],
+
+         [[ 70,  44,  55,  ...,  55, 209,  32]],
+
+         ...,
+
+         [[187, 231,  48,  ...,  44, 184,  76]],
+
+         [[106, 246, 124,  ..., 245,   7, 111]],
+
+         [[139, 210,  67,  ...,  88, 112,  47]]],
+
+
+        [[[ 47, 223,  61,  ...,  15, 174,  64]],
+
+         [[168,  70,  64,  ...,  32, 241, 196]],
+
+         [[ 21,  89, 126,  ..., 111, 198,  43]],
+
+         ...,
+
+         [[  9, 114, 197,  ..., 177, 157,   2]],
+
+         [[142,  71, 159,  ..., 167, 226,  86]],
+
+         [[ 22,  92,  51,  ..., 179, 171, 198]]]], device='cuda:0',
+       dtype=torch.uint8), tensor([[1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        ...,
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.]], device='cuda:0'), tensor([2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048,
+        2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048,
+        2048, 2048, 2048, 2048, 2048, 2048, 2048, 2048], device='cuda:0',
+       dtype=torch.int32), tensor([[   0,    1,    2,  ...,  253,  254,  255],
+        [ 256,  257,  258,  ...,  509,  510,  511],
+        [ 512,  513,  514,  ...,  765,  766,  767],
+        ...,
+        [7424, 7425, 7426,  ..., 7677, 7678, 7679],
+        [7680, 7681, 7682,  ..., 7933, 7934, 7935],
+        [7936, 7937, 7938,  ..., 8189, 8190, 8191]], device='cuda:0',
+       dtype=torch.int32), None, 4096; kwargs: clean_logits=False
+  [vllm] fp8_fp4_paged_mqa_logits / decode_batch32_ctx4096 ... ERROR: fp8_fp4_paged_mqa_logits(): incompatible function arguments. The following argument types are supported:
+    1. (q: tuple[torch.Tensor, torch.Tensor | None], kv_cache: torch.Tensor, weights: torch.Tensor, context_lens: torch.Tensor, block_table: torch.Tensor, schedule_meta: torch.Tensor, max_context_len: typing.SupportsInt, clean_logits: bool = False, logits_dtype: torch.dtype = torch.float32, indices: torch.Tensor | None = None) -> torch.Tensor
+
+Invoked with: ((tensor([[[[ 1.6250,  0.8125,  0.7500,  ..., -0.5000,  2.2500,  1.3750],
+          [ 1.2500, -0.0938,  1.8750,  ..., -1.2500, -1.0000,  0.8750],
+          [ 1.0000, -0.3125, -0.8125,  ...,  0.5000,  0.8125, -0.4375],
+          ...,
+          [ 1.2500,  1.1250,  2.2500,  ...,  1.3750,  0.7500, -0.2812],
+          [-2.7500, -1.8750, -0.4375,  ..., -0.1250, -0.6250, -1.5000],
+          [-0.1094, -0.3438, -0.3750,  ...,  1.0000, -1.1250, -0.8125]]],
+
+
+        [[[-1.5000,  0.1406,  0.8125,  ..., -0.1562, -0.0352,  0.9375],
+          [ 0.9375,  0.2812,  0.6875,  ...,  0.8125,  1.7500, -1.5000],
+          [-0.1250,  0.3125,  0.6875,  ...,  1.0000,  1.8750, -0.8750],
+          ...,
+          [ 0.2812,  0.1250,  0.3438,  ...,  1.7500, -2.0000,  0.8750],
+          [-1.5000, -0.1875,  1.3750,  ...,  0.0703, -1.7500,  0.9375],
+          [ 1.2500,  0.4062, -0.6875,  ...,  1.2500, -0.5625, -0.5625]]],
+
+
+        [[[ 0.4062, -0.4375, -0.6875,  ...,  0.3438,  0.3750, -0.6875],
+          [-1.6250, -0.3438,  0.3750,  ...,  0.3125, -1.2500, -0.4688],
+          [-0.9375, -1.6250,  0.2500,  ...,  0.8750, -1.1250, -0.4062],
+          ...,
+          [ 0.3125,  0.4688, -0.4688,  ...,  0.9375, -0.5625, -0.2500],
+          [-1.2500,  0.1094, -0.4062,  ..., -0.0625, -0.8125, -0.5000],
+          [-0.2031,  0.6250,  1.2500,  ..., -1.1250, -0.0137,  0.3438]]],
+
+
+        ...,
+
+
+        [[[-0.4062,  0.2812, -0.1406,  ..., -1.7500, -0.4062,  1.6250],
+          [-0.0938, -2.2500, -0.0625,  ..., -1.3750,  0.8125, -0.3438],
+          [-0.4062, -0.1562, -0.3125,  ..., -1.3750, -0.4062, -0.4688],
+          ...,
+          [-1.6250, -0.0137, -0.4688,  ..., -1.3750,  1.2500,  0.6250],
+          [-0.0430,  0.2500,  0.8750,  ...,  0.3438,  1.2500,  0.1172],
+          [ 0.8750, -1.0000,  1.1250,  ..., -0.5625, -1.8750,  0.6875]]],
+
+
+        [[[-0.6875,  0.1016,  0.6875,  ..., -1.1250,  0.0547,  0.1875],
+          [-0.3438,  0.0859,  0.2812,  ..., -1.5000,  0.4062, -0.6875],
+          [-1.1250,  0.5625, -0.0273,  ..., -0.8750,  0.2812,  0.1719],
+          ...,
+          [ 0.6875,  0.1875, -0.8125,  ...,  0.7500, -0.5625,  1.2500],
+          [-0.2500,  1.1250,  0.6875,  ..., -0.6250, -0.8750,  0.8125],
+          [-0.8125, -0.0078,  1.7500,  ..., -0.3438, -0.6875, -0.8125]]],
+
+
+        [[[-1.3750,  0.0039, -1.5000,  ..., -0.3438,  0.3125,  1.3750],
+          [ 0.7500, -0.6250,  1.1250,  ..., -0.2500, -1.7500, -0.1875],
+          [-0.0234, -1.6250,  0.8750,  ...,  0.1016, -0.0391, -0.0273],
+          ...,
+          [ 0.2188,  0.8750,  2.7500,  ...,  1.5000,  0.8750, -0.2031],
+          [-0.8750, -1.1250, -0.5000,  ...,  0.0391,  0.1875,  0.5625],
+          [-0.5625, -0.8750,  0.3125,  ...,  0.0234,  1.2500, -0.8125]]]],
+       device='cuda:0', dtype=torch.float8_e4m3fn), tensor(1., device='cuda:0')), None), tensor([[[[133, 125,  91,  ..., 114, 104, 174]],
+
+         [[140, 124, 132,  ...,  38, 200,  92]],
+
+         [[ 90,  79,   1,  ..., 142, 104,  96]],
+
+         ...,
+
+         [[220, 254, 182,  ..., 162, 130, 145]],
+
+         [[122, 196, 212,  ..., 101, 215, 185]],
+
+         [[ 67, 175, 128,  ..., 173, 164, 225]]],
+
+
+        [[[ 28, 238, 122,  ...,  40, 158,  24]],
+
+         [[ 76, 167,  41,  ..., 133, 181, 154]],
+
+         [[ 82, 191,  23,  ..., 154,  49,  91]],
+
+         ...,
+
+         [[222, 115,  65,  ...,   9, 229, 154]],
+
+         [[115,  11, 177,  ..., 188, 119, 247]],
+
+         [[173,  83, 149,  ..., 232, 196, 137]]],
+
+
+        [[[131, 132,  10,  ..., 124, 248,  36]],
+
+         [[ 33, 209,  43,  ..., 122,  66,  21]],
+
+         [[ 45, 138,  97,  ..., 198, 183, 208]],
+
+         ...,
+
+         [[250,  55,  58,  ...,   4, 164, 249]],
+
+         [[216, 154, 244,  ..., 107,  93, 211]],
+
+         [[  7,  18, 130,  ..., 119, 237,  44]]],
+
+
+        ...,
+
+
+        [[[210, 181, 131,  ...,  76, 239, 168]],
+
+         [[ 82, 124,  14,  ..., 245, 197, 227]],
+
+         [[ 50,  74,  26,  ..., 117,  32, 120]],
+
+         ...,
+
+         [[157,   4, 133,  ..., 118, 223,  85]],
+
+         [[ 99,  38, 230,  ..., 200,  78,  39]],
+
+         [[218, 219, 129,  ...,  13, 126, 227]]],
+
+
+        [[[241, 138, 219,  ...,  46, 134, 134]],
+
+         [[187, 193,  28,  ..., 102, 171,   9]],
+
+         [[249,  43,   5,  ..., 156, 109, 233]],
+
+         ...,
+
+         [[147,  98,  16,  ...,  76,  27, 106]],
+
+         [[131, 150, 231,  ..., 199,  84,  53]],
+
+         [[ 98, 140,  69,  ..., 253, 103, 253]]],
+
+
+        [[[197, 185, 207,  ..., 190,  63, 156]],
+
+         [[213,  54, 115,  ..., 148,  39, 146]],
+
+         [[110, 145,  13,  ...,  86, 116, 199]],
+
+         ...,
+
+         [[220, 233,  23,  ...,  73, 134, 229]],
+
+         [[123, 114, 144,  ...,  76, 124,  81]],
+
+         [[202,  58, 122,  ..., 153, 116,  70]]]], device='cuda:0',
+       dtype=torch.uint8), tensor([[1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        ...,
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.],
+        [1., 1., 1.,  ..., 1., 1., 1.]], device='cuda:0'), tensor([4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096,
+        4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096,
+        4096, 4096, 4096, 4096, 4096, 4096, 4096, 4096], device='cuda:0',
+       dtype=torch.int32), tensor([[    0,     1,     2,  ...,   509,   510,   511],
+        [  512,   513,   514,  ...,  1021,  1022,  1023],
+        [ 1024,  1025,  1026,  ...,  1533,  1534,  1535],
+        ...,
+        [14848, 14849, 14850,  ..., 15357, 15358, 15359],
+        [15360, 15361, 15362,  ..., 15869, 15870, 15871],
+        [15872, 15873, 15874,  ..., 16381, 16382, 16383]], device='cuda:0',
+       dtype=torch.int32), None, 8192; kwargs: clean_logits=False
+
+  No results generated. Check if cases are valid.
+  vllm: OK
+---------- fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert ----------
+[03:24:08] Running fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert.yaml
+  [flagos] fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / decode_32tokens ... 0.0269 ms
+  [flagos] fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / decode_128tokens ... 0.0329 ms
+  [flagos] fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / prefill_512tokens ... 0.0779 ms
+  [flagos] fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / prefill_2048tokens ... 0.2416 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert decode_32tokens                0.0269       196.83    
+  fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert decode_128tokens               0.0329       644.84    
+  fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert prefill_512tokens              0.0779       1089.50   
+  fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert prefill_2048tokens             0.2416       1404.82   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert_flagos.json
+  flagos: OK
+[03:24:17] Running fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:24:25 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:24:25 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:24:25 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert.yaml
+  [vllm] fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / decode_32tokens ... 0.0155 ms
+  [vllm] fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / decode_128tokens ... 0.0222 ms
+  [vllm] fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / prefill_512tokens ... 0.0678 ms
+  [vllm] fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert / prefill_2048tokens ... 0.2361 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert decode_32tokens                0.0155       343.11    
+  fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert decode_128tokens               0.0222       955.92    
+  fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert prefill_512tokens              0.0678       1251.57   
+  fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert prefill_2048tokens             0.2361       1437.44   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert_vllm.json
+  vllm: OK
+---------- fused_moe ----------
+[03:24:30] Running fused_moe / flagos ...
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+No embedded MoE configs for device NVIDIA_H20. Will use default config.
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/fused_moe.yaml
+  [flagos] fused_moe / decode_32tokens ... 4.0775 ms
+  [flagos] fused_moe / decode_128tokens ... 6.7201 ms
+  [flagos] fused_moe / prefill_512tokens ... 8.8768 ms
+  [flagos] fused_moe / prefill_2048tokens ... 16.9782 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  fused_moe            decode_32tokens                4.0775       5529.97   
+  fused_moe            decode_128tokens               6.7201       13421.49  
+  fused_moe            prefill_512tokens              8.8768       40642.57  
+  fused_moe            prefill_2048tokens             16.9782      84997.97  
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/fused_moe_flagos.json
+  flagos: OK
+[03:24:44] Running fused_moe / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:24:51 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:24:51 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:24:51 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/fused_moe.yaml
+  [vllm] fused_moe / decode_32tokens ... WARNING 08-24 03:24:54 [fused_moe.py:1091] Using default MoE config. Performance might be sub-optimal! Config file not found at /flagos/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/configs/E=256,N=2048,device_name=NVIDIA_H20.json
+4.3459 ms
+  [vllm] fused_moe / decode_128tokens ... 11.2036 ms
+  [vllm] fused_moe / prefill_512tokens ... 11.5299 ms
+  [vllm] fused_moe / prefill_2048tokens ... 22.9473 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  fused_moe            decode_32tokens                4.3459       5188.51   
+  fused_moe            decode_128tokens               11.2036      8050.49   
+  fused_moe            prefill_512tokens              11.5299      31290.68  
+  fused_moe            prefill_2048tokens             22.9473      62887.98  
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/fused_moe_vllm.json
+  vllm: OK
+---------- fused_q_kv_rmsnorm ----------
+[03:25:02] Running fused_q_kv_rmsnorm / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/fused_q_kv_rmsnorm.yaml
+  [flagos] fused_q_kv_rmsnorm / decode_32tokens ... 0.0385 ms
+  [flagos] fused_q_kv_rmsnorm / decode_128tokens ... 0.0379 ms
+  [flagos] fused_q_kv_rmsnorm / prefill_512tokens ... 0.0606 ms
+  [flagos] fused_q_kv_rmsnorm / prefill_2048tokens ... 0.1457 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  fused_q_kv_rmsnorm   decode_32tokens                0.0385       83.38     
+  fused_q_kv_rmsnorm   decode_128tokens               0.0379       338.84    
+  fused_q_kv_rmsnorm   prefill_512tokens              0.0606       847.31    
+  fused_q_kv_rmsnorm   prefill_2048tokens             0.1457       1410.93   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/fused_q_kv_rmsnorm_flagos.json
+  flagos: OK
+[03:25:10] Running fused_q_kv_rmsnorm / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:25:20 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:25:20 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:25:20 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/fused_q_kv_rmsnorm.yaml
+  [vllm] fused_q_kv_rmsnorm / decode_32tokens ... 0.0349 ms
+  [vllm] fused_q_kv_rmsnorm / decode_128tokens ... 0.0353 ms
+  [vllm] fused_q_kv_rmsnorm / prefill_512tokens ... 0.0577 ms
+  [vllm] fused_q_kv_rmsnorm / prefill_2048tokens ... 0.1433 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  fused_q_kv_rmsnorm   decode_32tokens                0.0349       91.97     
+  fused_q_kv_rmsnorm   decode_128tokens               0.0353       364.35    
+  fused_q_kv_rmsnorm   prefill_512tokens              0.0577       890.94    
+  fused_q_kv_rmsnorm   prefill_2048tokens             0.1433       1434.47   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/fused_q_kv_rmsnorm_vllm.json
+  vllm: OK
+---------- group_gemm ----------
+[03:25:25] Running group_gemm / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/group_gemm.yaml
+  [flagos] group_gemm / moe_8experts_32tokens ... 0.1894 ms
+  [flagos] group_gemm / moe_8experts_64tokens ... 0.1908 ms
+  [flagos] group_gemm / moe_8experts_128tokens ... 0.3323 ms
+  [flagos] group_gemm / moe_32experts_16tokens ... 0.6192 ms
+  [flagos] group_gemm / moe_32experts_64tokens ... 0.6227 ms
+  [flagos] group_gemm / moe_64experts_4tokens ... 1.0481 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 6
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  group_gemm           moe_8experts_32tokens          0.1894       39674.11  
+  group_gemm           moe_8experts_64tokens          0.1908       78800.89  
+  group_gemm           moe_8experts_128tokens         0.3323       90479.45  
+  group_gemm           moe_32experts_16tokens         0.6192       24277.12  
+  group_gemm           moe_32experts_64tokens         0.6227       96558.03  
+  group_gemm           moe_64experts_4tokens          1.0481       7170.91   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/group_gemm_flagos.json
+  flagos: OK
+[03:25:34] Running group_gemm / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:25:41 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:25:41 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:25:41 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/group_gemm.yaml
+  [vllm] group_gemm / moe_8experts_32tokens ... 0.3129 ms
+  [vllm] group_gemm / moe_8experts_64tokens ... 0.3132 ms
+  [vllm] group_gemm / moe_8experts_128tokens ... 0.3038 ms
+  [vllm] group_gemm / moe_32experts_16tokens ... 1.0112 ms
+  [vllm] group_gemm / moe_32experts_64tokens ... 1.0042 ms
+  [vllm] group_gemm / moe_64experts_4tokens ... 1.9120 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 6
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  group_gemm           moe_8experts_32tokens          0.3129       24022.31  
+  group_gemm           moe_8experts_64tokens          0.3132       47991.91  
+  group_gemm           moe_8experts_128tokens         0.3038       98960.09  
+  group_gemm           moe_32experts_16tokens         1.0112       14865.19  
+  group_gemm           moe_32experts_64tokens         1.0042       59875.52  
+  group_gemm           moe_64experts_4tokens          1.9120       3930.98   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/group_gemm_vllm.json
+  vllm: OK
+---------- indexer_k_quant_and_cache ----------
+[03:25:45] Running indexer_k_quant_and_cache / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/indexer_k_quant_and_cache.yaml
+  [flagos] indexer_k_quant_and_cache / decode_32tokens ... 0.0397 ms
+  [flagos] indexer_k_quant_and_cache / decode_128tokens ... 0.0399 ms
+  [flagos] indexer_k_quant_and_cache / prefill_512tokens ... 0.0391 ms
+  [flagos] indexer_k_quant_and_cache / prefill_2048tokens ... 0.0393 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  indexer_k_quant_and_cache decode_32tokens                0.0397       1.39      
+  indexer_k_quant_and_cache decode_128tokens               0.0399       5.54      
+  indexer_k_quant_and_cache prefill_512tokens              0.0391       22.64     
+  indexer_k_quant_and_cache prefill_2048tokens             0.0393       90.04     
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/indexer_k_quant_and_cache_flagos.json
+  flagos: OK
+[03:25:54] Running indexer_k_quant_and_cache / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:26:01 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:26:01 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:26:01 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/indexer_k_quant_and_cache.yaml
+  [vllm] indexer_k_quant_and_cache / decode_32tokens ... 0.0135 ms
+  [vllm] indexer_k_quant_and_cache / decode_128tokens ... 0.0133 ms
+  [vllm] indexer_k_quant_and_cache / prefill_512tokens ... 0.0130 ms
+  [vllm] indexer_k_quant_and_cache / prefill_2048tokens ... 0.0149 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  indexer_k_quant_and_cache decode_32tokens                0.0135       4.09      
+  indexer_k_quant_and_cache decode_128tokens               0.0133       16.66     
+  indexer_k_quant_and_cache prefill_512tokens              0.0130       67.94     
+  indexer_k_quant_and_cache prefill_2048tokens             0.0149       236.81    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/indexer_k_quant_and_cache_vllm.json
+  vllm: OK
+---------- mhc_post ----------
+[03:26:05] Running mhc_post / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/mhc_post.yaml
+  [flagos] mhc_post / deepseek_decode_batch1 ... 0.0422 ms
+  [flagos] mhc_post / deepseek_decode_batch32 ... 0.0419 ms
+  [flagos] mhc_post / deepseek_decode_batch128 ... 0.0429 ms
+  [flagos] mhc_post / deepseek_prefill_seq1024 ... 0.1094 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  mhc_post             deepseek_decode_batch1         0.0422       6.11      
+  mhc_post             deepseek_decode_batch32        0.0419       197.28    
+  mhc_post             deepseek_decode_batch128       0.0429       769.96    
+  mhc_post             deepseek_prefill_seq1024       0.1094       2415.74   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/mhc_post_flagos.json
+  flagos: OK
+[03:26:13] Running mhc_post / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:26:20 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:26:20 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:26:20 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/mhc_post.yaml
+  [vllm] mhc_post / deepseek_decode_batch1 ... 0.0226 ms
+  [vllm] mhc_post / deepseek_decode_batch32 ... 0.0223 ms
+  [vllm] mhc_post / deepseek_decode_batch128 ... 0.0231 ms
+  [vllm] mhc_post / deepseek_prefill_seq1024 ... 0.0585 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  mhc_post             deepseek_decode_batch1         0.0226       11.40     
+  mhc_post             deepseek_decode_batch32        0.0223       370.58    
+  mhc_post             deepseek_decode_batch128       0.0231       1430.04   
+  mhc_post             deepseek_prefill_seq1024       0.0585       4514.14   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/mhc_post_vllm.json
+  vllm: OK
+---------- mhc_pre ----------
+[03:26:25] Running mhc_pre / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/mhc_pre.yaml
+  [flagos] mhc_pre / deepseek_decode_batch1 ... 0.1066 ms
+  [flagos] mhc_pre / deepseek_decode_batch32 ... 0.1067 ms
+  [flagos] mhc_pre / deepseek_decode_batch128 ... 0.1069 ms
+  [flagos] mhc_pre / deepseek_prefill_seq1024 ... 0.1476 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  mhc_pre              deepseek_decode_batch1         0.1066       13.38     
+  mhc_pre              deepseek_decode_batch32        0.1067       427.74    
+  mhc_pre              deepseek_decode_batch128       0.1069       1707.60   
+  mhc_pre              deepseek_prefill_seq1024       0.1476       9898.29   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/mhc_pre_flagos.json
+  flagos: OK
+[03:26:35] Running mhc_pre / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:26:42 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:26:42 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:26:42 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/mhc_pre.yaml
+  [SKIP] mhc_pre: no impl in provider 'vllm'
+
+  No results generated. Check if cases are valid.
+  vllm: OK
+---------- moe_sum ----------
+[03:26:43] Running moe_sum / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/moe_sum.yaml
+  [flagos] moe_sum / deepseek_decode_batch1 ... 0.0352 ms
+  [flagos] moe_sum / deepseek_decode_batch32 ... 0.0354 ms
+  [flagos] moe_sum / deepseek_decode_batch128 ... 0.0346 ms
+  [flagos] moe_sum / deepseek_prefill_seq1024 ... 0.0731 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  moe_sum              deepseek_decode_batch1         0.0352       1.43      
+  moe_sum              deepseek_decode_batch32        0.0354       45.38     
+  moe_sum              deepseek_decode_batch128       0.0346       185.53    
+  moe_sum              deepseek_prefill_seq1024       0.0731       702.96    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/moe_sum_flagos.json
+  flagos: OK
+[03:26:50] Running moe_sum / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:26:59 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:26:59 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:26:59 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/moe_sum.yaml
+  [vllm] moe_sum / deepseek_decode_batch1 ... 0.0163 ms
+  [vllm] moe_sum / deepseek_decode_batch32 ... 0.0159 ms
+  [vllm] moe_sum / deepseek_decode_batch128 ... 0.0178 ms
+  [vllm] moe_sum / deepseek_prefill_seq1024 ... 0.0743 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  moe_sum              deepseek_decode_batch1         0.0163       3.08      
+  moe_sum              deepseek_decode_batch32        0.0159       101.00    
+  moe_sum              deepseek_decode_batch128       0.0178       361.70    
+  moe_sum              deepseek_prefill_seq1024       0.0743       691.52    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/moe_sum_vllm.json
+  vllm: OK
+---------- pack_seq_triton ----------
+[03:27:01] Running pack_seq_triton / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/pack_seq_triton.yaml
+  [flagos] pack_seq_triton / decode_large_batch ... 0.0581 ms
+  [flagos] pack_seq_triton / prefill_32reqs_seq128 ... 0.3129 ms
+  [flagos] pack_seq_triton / prefill_16reqs_seq512 ... 0.0566 ms
+  [flagos] pack_seq_triton / prefill_8reqs_seq2048 ... 0.0596 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  pack_seq_triton      decode_large_batch             0.0581       0.00      
+  pack_seq_triton      prefill_32reqs_seq128          0.3129       0.00      
+  pack_seq_triton      prefill_16reqs_seq512          0.0566       0.00      
+  pack_seq_triton      prefill_8reqs_seq2048          0.0596       0.00      
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/pack_seq_triton_flagos.json
+  flagos: OK
+[03:27:09] Running pack_seq_triton / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:27:16 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:27:16 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:27:16 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/pack_seq_triton.yaml
+  [vllm] pack_seq_triton / decode_large_batch ... 0.0873 ms
+  [vllm] pack_seq_triton / prefill_32reqs_seq128 ... 0.0534 ms
+  [vllm] pack_seq_triton / prefill_16reqs_seq512 ... 0.0536 ms
+  [vllm] pack_seq_triton / prefill_8reqs_seq2048 ... 0.6375 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  pack_seq_triton      decode_large_batch             0.0873       0.00      
+  pack_seq_triton      prefill_32reqs_seq128          0.0534       0.00      
+  pack_seq_triton      prefill_16reqs_seq512          0.0536       0.00      
+  pack_seq_triton      prefill_8reqs_seq2048          0.6375       0.00      
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/pack_seq_triton_vllm.json
+  vllm: OK
+---------- silu_and_mul_with_clamp ----------
+[03:27:20] Running silu_and_mul_with_clamp / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/silu_and_mul_with_clamp.yaml
+  [flagos] silu_and_mul_with_clamp / deepseek_decode_batch1 ... 0.1292 ms
+  [flagos] silu_and_mul_with_clamp / deepseek_decode_batch32 ... 0.1279 ms
+  [flagos] silu_and_mul_with_clamp / deepseek_decode_batch128 ... 0.1278 ms
+  [flagos] silu_and_mul_with_clamp / deepseek_prefill_seq1024 ... 0.2838 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  silu_and_mul_with_clamp deepseek_decode_batch1         0.1292       1.14      
+  silu_and_mul_with_clamp deepseek_decode_batch32        0.1279       36.88     
+  silu_and_mul_with_clamp deepseek_decode_batch128       0.1278       147.73    
+  silu_and_mul_with_clamp deepseek_prefill_seq1024       0.2838       532.02    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/silu_and_mul_with_clamp_flagos.json
+  flagos: OK
+[03:27:26] Running silu_and_mul_with_clamp / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:27:33 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:27:33 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:27:33 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/silu_and_mul_with_clamp.yaml
+  [vllm] silu_and_mul_with_clamp / deepseek_decode_batch1 ... 0.0284 ms
+  [vllm] silu_and_mul_with_clamp / deepseek_decode_batch32 ... 0.0282 ms
+  [vllm] silu_and_mul_with_clamp / deepseek_decode_batch128 ... 0.0284 ms
+  [vllm] silu_and_mul_with_clamp / deepseek_prefill_seq1024 ... 0.1024 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  silu_and_mul_with_clamp deepseek_decode_batch1         0.0284       5.20      
+  silu_and_mul_with_clamp deepseek_decode_batch32        0.0282       167.20    
+  silu_and_mul_with_clamp deepseek_decode_batch128       0.0284       665.57    
+  silu_and_mul_with_clamp deepseek_prefill_seq1024       0.1024       1473.99   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/silu_and_mul_with_clamp_vllm.json
+  vllm: OK
+---------- swiglu ----------
+[03:27:37] Running swiglu / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/swiglu.yaml
+  [flagos] swiglu / llama3_ffn_small_batch ... 0.0359 ms
+  [flagos] swiglu / llama3_ffn_large_batch ... 0.0567 ms
+  [flagos] swiglu / qwen_ffn_prefill ... 0.0349 ms
+  [flagos] swiglu / qwen_ffn_decode ... 0.0449 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  swiglu               llama3_ffn_small_batch         0.0359       127.81    
+  swiglu               llama3_ffn_large_batch         0.0567       1293.81   
+  swiglu               qwen_ffn_prefill               0.0349       806.54    
+  swiglu               qwen_ffn_decode                0.0449       19.62     
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/swiglu_flagos.json
+  flagos: OK
+[03:27:44] Running swiglu / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:27:51 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:27:51 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:27:51 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/swiglu.yaml
+  [vllm] swiglu / llama3_ffn_small_batch ... 0.0145 ms
+  [vllm] swiglu / llama3_ffn_large_batch ... 0.0449 ms
+  [vllm] swiglu / qwen_ffn_prefill ... 0.0234 ms
+  [vllm] swiglu / qwen_ffn_decode ... 0.0179 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  swiglu               llama3_ffn_small_batch         0.0145       315.91    
+  swiglu               llama3_ffn_large_batch         0.0449       1633.81   
+  swiglu               qwen_ffn_prefill               0.0234       1203.96   
+  swiglu               qwen_ffn_decode                0.0179       49.10     
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/swiglu_vllm.json
+  vllm: OK
+---------- top_k_per_row_decode ----------
+[03:27:53] Running top_k_per_row_decode / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/top_k_per_row_decode.yaml
+  [flagos] top_k_per_row_decode / single_row ... 0.0295 ms
+  [flagos] top_k_per_row_decode / batch_4 ... 0.0102 ms
+  [flagos] top_k_per_row_decode / batch_16 ... 0.0253 ms
+  [flagos] top_k_per_row_decode / batch_64 ... 0.0254 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  top_k_per_row_decode single_row                     0.0295       0.03      
+  top_k_per_row_decode batch_4                        0.0102       0.40      
+  top_k_per_row_decode batch_16                       0.0253       0.65      
+  top_k_per_row_decode batch_64                       0.0254       2.58      
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/top_k_per_row_decode_flagos.json
+  flagos: OK
+[03:28:00] Running top_k_per_row_decode / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:28:07 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:28:07 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:28:07 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/top_k_per_row_decode.yaml
+  [vllm] top_k_per_row_decode / single_row ... 0.0141 ms
+  [vllm] top_k_per_row_decode / batch_4 ... 0.0142 ms
+  [vllm] top_k_per_row_decode / batch_16 ... 0.0141 ms
+  [vllm] top_k_per_row_decode / batch_64 ... 0.0139 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  top_k_per_row_decode single_row                     0.0141       0.07      
+  top_k_per_row_decode batch_4                        0.0142       0.29      
+  top_k_per_row_decode batch_16                       0.0141       1.16      
+  top_k_per_row_decode batch_64                       0.0139       4.70      
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/top_k_per_row_decode_vllm.json
+  vllm: OK
+---------- top_k_per_row_prefill ----------
+[03:28:09] Running top_k_per_row_prefill / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/top_k_per_row_prefill.yaml
+  [flagos] top_k_per_row_prefill / sparse_attn_256experts_batch32 ... 0.0264 ms
+  [flagos] top_k_per_row_prefill / sparse_attn_256experts_batch128 ... 0.0255 ms
+  [flagos] top_k_per_row_prefill / sparse_attn_256experts_seq1024 ... 0.0343 ms
+  [flagos] top_k_per_row_prefill / sparse_attn_256experts_seq4096 ... 0.0743 ms
+  [flagos] top_k_per_row_prefill / sparse_attn_large_vocab_seq1024 ... 0.3411 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 5
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  top_k_per_row_prefill sparse_attn_256experts_batch32 0.0264       1.24      
+  top_k_per_row_prefill sparse_attn_256experts_batch128 0.0255       5.14      
+  top_k_per_row_prefill sparse_attn_256experts_seq1024 0.0343       30.59     
+  top_k_per_row_prefill sparse_attn_256experts_seq4096 0.0743       56.43     
+  top_k_per_row_prefill sparse_attn_large_vocab_seq1024 0.3411       786.87    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/top_k_per_row_prefill_flagos.json
+  flagos: OK
+[03:28:16] Running top_k_per_row_prefill / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:28:23 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:28:23 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:28:23 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/top_k_per_row_prefill.yaml
+  [vllm] top_k_per_row_prefill / sparse_attn_256experts_batch32 ... 0.0139 ms
+  [vllm] top_k_per_row_prefill / sparse_attn_256experts_batch128 ... 0.0136 ms
+  [vllm] top_k_per_row_prefill / sparse_attn_256experts_seq1024 ... 0.0246 ms
+  [vllm] top_k_per_row_prefill / sparse_attn_256experts_seq4096 ... 0.0682 ms
+  [vllm] top_k_per_row_prefill / sparse_attn_large_vocab_seq1024 ... 0.2215 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 5
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  top_k_per_row_prefill sparse_attn_256experts_batch32 0.0139       2.35      
+  top_k_per_row_prefill sparse_attn_256experts_batch128 0.0136       9.65      
+  top_k_per_row_prefill sparse_attn_256experts_seq1024 0.0246       42.69     
+  top_k_per_row_prefill sparse_attn_256experts_seq4096 0.0682       61.52     
+  top_k_per_row_prefill sparse_attn_large_vocab_seq1024 0.2215       1212.16   
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/top_k_per_row_prefill_vllm.json
+  vllm: OK
+---------- topk_softplus_sqrt ----------
+[03:28:25] Running topk_softplus_sqrt / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/topk_softplus_sqrt.yaml
+  [flagos] topk_softplus_sqrt / deepseek_decode_batch1 ... 0.0266 ms
+  [flagos] topk_softplus_sqrt / deepseek_decode_batch32 ... 0.0265 ms
+  [flagos] topk_softplus_sqrt / deepseek_decode_batch128 ... 0.0257 ms
+  [flagos] topk_softplus_sqrt / deepseek_prefill_seq1024 ... 0.0260 ms
+  [flagos] topk_softplus_sqrt / deepseek_prefill_seq4096 ... 0.0291 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 5
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  topk_softplus_sqrt   deepseek_decode_batch1         0.0266       0.06      
+  topk_softplus_sqrt   deepseek_decode_batch32        0.0265       1.89      
+  topk_softplus_sqrt   deepseek_decode_batch128       0.0257       7.76      
+  topk_softplus_sqrt   deepseek_prefill_seq1024       0.0260       61.53     
+  topk_softplus_sqrt   deepseek_prefill_seq4096       0.0291       219.68    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/topk_softplus_sqrt_flagos.json
+  flagos: OK
+[03:28:33] Running topk_softplus_sqrt / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:28:40 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:28:40 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:28:40 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/topk_softplus_sqrt.yaml
+  [vllm] topk_softplus_sqrt / deepseek_decode_batch1 ... 0.0167 ms
+  [vllm] topk_softplus_sqrt / deepseek_decode_batch32 ... 0.0171 ms
+  [vllm] topk_softplus_sqrt / deepseek_decode_batch128 ... 0.0140 ms
+  [vllm] topk_softplus_sqrt / deepseek_prefill_seq1024 ... 0.0222 ms
+  [vllm] topk_softplus_sqrt / deepseek_prefill_seq4096 ... 0.0234 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 5
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  topk_softplus_sqrt   deepseek_decode_batch1         0.0167       0.09      
+  topk_softplus_sqrt   deepseek_decode_batch32        0.0171       2.91      
+  topk_softplus_sqrt   deepseek_decode_batch128       0.0140       14.30     
+  topk_softplus_sqrt   deepseek_prefill_seq1024       0.0222       71.87     
+  topk_softplus_sqrt   deepseek_prefill_seq4096       0.0234       273.50    
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/topk_softplus_sqrt_vllm.json
+  vllm: OK
+---------- unpack_seq_triton ----------
+[03:28:44] Running unpack_seq_triton / flagos ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: flagos
+  Loaded flag_gems: 5.3.4
+  Loaded flaggems_vllm
+  Loaded flagattention (flag_attn): 0.1.dev80+gcb4c6dfc9
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/unpack_seq_triton.yaml
+  [flagos] unpack_seq_triton / decode_large_batch ... 0.0648 ms
+  [flagos] unpack_seq_triton / prefill_32reqs_seq128 ... 0.0630 ms
+  [flagos] unpack_seq_triton / prefill_16reqs_seq512 ... 0.0641 ms
+  [flagos] unpack_seq_triton / prefill_8reqs_seq2048 ... 0.0625 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: flagos
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  unpack_seq_triton    decode_large_batch             0.0648       0.00      
+  unpack_seq_triton    prefill_32reqs_seq128          0.0630       0.00      
+  unpack_seq_triton    prefill_16reqs_seq512          0.0641       0.00      
+  unpack_seq_triton    prefill_8reqs_seq2048          0.0625       0.00      
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/unpack_seq_triton_flagos.json
+  flagos: OK
+[03:28:51] Running unpack_seq_triton / vllm ...
+
+[1/4] Importing operators...
+
+[2/4] Setting up provider: vllm
+  Loaded vllm: 0.20.2
+INFO 08-24 03:28:58 [nixl_utils.py:20] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 08-24 03:28:58 [nixl_utils.py:34] NIXL is not available
+WARNING 08-24 03:28:58 [nixl_utils.py:44] NIXL agent config is not available
+  Loaded vllm modules: _custom_ops=True, v1_ops=True, mhc=True, flash_attn=True
+
+[3/4] Running benchmarks...
+  Case file: cases/demo/unpack_seq_triton.yaml
+  [vllm] unpack_seq_triton / decode_large_batch ... 0.0940 ms
+  [vllm] unpack_seq_triton / prefill_32reqs_seq128 ... 0.0594 ms
+  [vllm] unpack_seq_triton / prefill_16reqs_seq512 ... 0.0601 ms
+  [vllm] unpack_seq_triton / prefill_8reqs_seq2048 ... 0.0594 ms
+
+[4/4] Generating report...
+
+============================================================
+  Provider: vllm
+  Total workloads: 4
+============================================================
+  Operator             Workload                       Mean(ms)     GFLOPs    
+  ------------------------------------------------------------------------
+  unpack_seq_triton    decode_large_batch             0.0940       0.00      
+  unpack_seq_triton    prefill_32reqs_seq128          0.0594       0.00      
+  unpack_seq_triton    prefill_16reqs_seq512          0.0601       0.00      
+  unpack_seq_triton    prefill_8reqs_seq2048          0.0594       0.00      
+
+  Results saved to: /data/jianheng/works/Flagos/Flagtests/results/unpack_seq_triton_vllm.json
+  vllm: OK
+=== Done Mon Aug 24 03:29:01 UTC 2026 ===

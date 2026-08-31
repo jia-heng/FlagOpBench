@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-24T03:22:12.495025",
+    "provider": "vllm",
+    "num_operators": 1,
+    "num_workloads": 4
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "cuda_version": "13.0",
+    "gpu_name": "NVIDIA H20",
+    "gpu_count": 8,
+    "gpu_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "cp_gather_indexer_k_quant_cache",
+      "definition": "cp_gather_indexer_k_quant_cache",
+      "workload": "decode_32tokens",
+      "provider": "vllm",
+      "parameters": {
+        "batch_size": 4,
+        "head_dim": 576,
+        "block_size": 16,
+        "quant_block_size": 64,
+        "max_seq_len": 2048,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0139,
+          "std_ms": 0.0017,
+          "min_ms": 0.0111,
+          "max_ms": 0.0289
+        },
+        "throughput": {
+          "gflops": 0.0,
+          "bandwidth_gb_s": 3.22
+        },
+        "theory": {
+          "flops": 0,
+          "bytes": 44692,
+          "arithmetic_intensity": 0.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.cp_gather_indexer_k_quant_cache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "cp_gather_indexer_k_quant_cache",
+      "definition": "cp_gather_indexer_k_quant_cache",
+      "workload": "decode_128tokens",
+      "provider": "vllm",
+      "parameters": {
+        "batch_size": 4,
+        "head_dim": 576,
+        "block_size": 16,
+        "quant_block_size": 64,
+        "max_seq_len": 2048,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0136,
+          "std_ms": 0.0008,
+          "min_ms": 0.0128,
+          "max_ms": 0.0193
+        },
+        "throughput": {
+          "gflops": 0.0,
+          "bandwidth_gb_s": 12.67
+        },
+        "theory": {
+          "flops": 0,
+          "bytes": 172564,
+          "arithmetic_intensity": 0.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.cp_gather_indexer_k_quant_cache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "cp_gather_indexer_k_quant_cache",
+      "definition": "cp_gather_indexer_k_quant_cache",
+      "workload": "prefill_512tokens",
+      "provider": "vllm",
+      "parameters": {
+        "batch_size": 4,
+        "head_dim": 576,
+        "block_size": 16,
+        "quant_block_size": 64,
+        "max_seq_len": 2048,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0137,
+          "std_ms": 0.0008,
+          "min_ms": 0.0128,
+          "max_ms": 0.0189
+        },
+        "throughput": {
+          "gflops": 0.0,
+          "bandwidth_gb_s": 50.01
+        },
+        "theory": {
+          "flops": 0,
+          "bytes": 684052,
+          "arithmetic_intensity": 0.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.cp_gather_indexer_k_quant_cache (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "cp_gather_indexer_k_quant_cache",
+      "definition": "cp_gather_indexer_k_quant_cache",
+      "workload": "prefill_2048tokens",
+      "provider": "vllm",
+      "parameters": {
+        "batch_size": 4,
+        "head_dim": 576,
+        "block_size": 16,
+        "quant_block_size": 64,
+        "max_seq_len": 2048,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0137,
+          "std_ms": 0.0011,
+          "min_ms": 0.0127,
+          "max_ms": 0.0224
+        },
+        "throughput": {
+          "gflops": 0.0,
+          "bandwidth_gb_s": 199.48
+        },
+        "theory": {
+          "flops": 0,
+          "bytes": 2730004,
+          "arithmetic_intensity": 0.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.cp_gather_indexer_k_quant_cache (adapted)",
+        "type": "cuda"
+      }
+    }
+  ]
+}

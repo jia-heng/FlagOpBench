@@ -1,0 +1,425 @@
+# 算子注册表 — casegen 和 benchmark 框架的单一数据源
+# 每实现一个算子就新增一条记录
+#
+# 字段说明:
+#   name: 算子名 (对应 case YAML 中的 operator 字段)
+#   library: flaggems_vllm | flag_gems | flag_attention
+#   status: implemented | planned
+#   param_mapping: 参数映射规则 (casegen 使用)
+#     const_axes_rule: 从模型参数推导固定轴的规则名
+#     var_axes_key: 部署场景中变化轴的 key
+#     applicable: 适用条件
+
+operators:
+  # ============================================================
+  # 已实现 & 已有 benchmark case (对应 keyoplist.md #1-#20)
+  # ============================================================
+  - name: fused_moe
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: moe
+      var_axes_key: num_tokens
+      applicable: has_moe
+
+  - name: group_gemm
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: group_gemm_down
+      var_axes_key: moe_dispatch
+      applicable: has_moe
+
+  - name: group_gemm_gate_up
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: group_gemm_gate_up
+      var_axes_key: moe_dispatch
+      applicable: has_moe
+
+  - name: grouped_topk
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: grouped_topk
+      var_axes_key: num_tokens
+      applicable: has_grouped_topk
+
+  - name: flash_mla
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: flash_mla
+      var_axes_key: batch_seq_decode
+      applicable: has_mla
+
+  - name: flash_mla_with_kvcache
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: flash_mla
+      var_axes_key: batch_seq_decode
+      applicable: has_mla
+
+  - name: flash_attn_varlen_func
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: flash_attn
+      var_axes_key: batch_seq
+      applicable: always
+
+  - name: swiglu
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: swiglu
+      var_axes_key: num_tokens
+      applicable: always
+
+  - name: silu_and_mul_with_clamp
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: silu_and_mul
+      var_axes_key: num_tokens
+      applicable: always
+
+  - name: fused_q_kv_rmsnorm
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: fused_q_kv_rmsnorm
+      var_axes_key: num_tokens
+      applicable: always
+
+  - name: moe_sum
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: moe_sum
+      var_axes_key: num_tokens
+      applicable: has_moe
+
+  - name: topk_softplus_sqrt
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: topk_softplus_sqrt
+      var_axes_key: num_tokens
+      applicable: has_moe
+
+  - name: top_k_per_row_decode
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: top_k_per_row
+      var_axes_key: num_tokens
+      applicable: has_moe
+
+  - name: top_k_per_row_prefill
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: top_k_per_row
+      var_axes_key: num_tokens
+      applicable: has_moe
+
+  - name: mhc_pre
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: mhc
+      var_axes_key: num_tokens
+      applicable: has_moe
+
+  - name: mhc_post
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: mhc
+      var_axes_key: num_tokens
+      applicable: has_moe
+
+  - name: combine_topk_swa_indices
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: sparse_attn
+      var_axes_key: batch_seq_prefill
+      applicable: has_sparse_attn
+
+  - name: compute_global_topk_indices_and_lens
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: sparse_attn
+      var_axes_key: batch_seq
+      applicable: has_sparse_attn
+
+  - name: pack_seq_triton
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: pack_unpack_seq
+      var_axes_key: num_tokens
+      applicable: has_sparse_attn
+
+  - name: unpack_seq_triton
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: pack_unpack_seq
+      var_axes_key: num_tokens
+      applicable: has_sparse_attn
+
+  - name: cp_gather_indexer_k_quant_cache
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: indexer_cache
+      var_axes_key: num_tokens
+      applicable: has_sparse_attn
+
+  - name: indexer_k_quant_and_cache
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: indexer_cache
+      var_axes_key: num_tokens
+      applicable: has_sparse_attn
+
+  - name: fp8_fp4_paged_mqa_logits
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: paged_mqa
+      var_axes_key: batch_seq_decode
+      applicable: has_mla
+
+  - name: fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: v4_fused_qkv
+      var_axes_key: num_tokens
+      applicable: has_mla
+
+  - name: flash_mla_with_kvcache_fp8
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: flash_mla_fp8
+      var_axes_key: batch_seq_decode
+      applicable: has_mla
+
+  # ============================================================
+  # 已实现但尚无 benchmark case (keyoplist.md #21-#23)
+  # ============================================================
+  - name: CausalConv1DPrefill
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: causal_conv1d
+      var_axes_key: num_tokens
+      applicable: has_linear_attn
+
+  - name: CausalConv1DDecode
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: causal_conv1d
+      var_axes_key: num_tokens
+      applicable: has_linear_attn
+
+  # ============================================================
+  # 计划中 (keyoplist.md #24-#67)
+  # ============================================================
+  - name: FlashKDA
+    library: flag_gems
+    status: planned
+
+  - name: flashmla_sparse
+    library: flag_gems
+    status: planned
+
+  - name: flashmla_sparse_fp8
+    library: flag_gems
+    status: planned
+
+  - name: GDN2
+    library: flag_gems
+    status: planned
+
+  - name: gemm_w8a8
+    library: flag_gems
+    status: planned
+
+  - name: gla
+    library: flag_gems
+    status: planned
+
+  - name: GroupedMatmul
+    library: flag_gems
+    status: planned
+
+  - name: MegaGDN
+    library: flag_gems
+    status: planned
+
+  - name: MegaMoe
+    library: flag_gems
+    status: planned
+
+  - name: persistent_topk
+    library: flag_gems
+    status: planned
+
+  - name: rms_norm_fp8
+    library: flag_gems
+    status: planned
+
+  - name: RoPE
+    library: flag_gems
+    status: planned
+
+  - name: router_gemm_bf16_fp32
+    library: flag_gems
+    status: planned
+
+  - name: TopKSelector
+    library: flag_gems
+    status: planned
+
+  - name: topk_fp8
+    library: flag_gems
+    status: planned
+
+  - name: AddRmsNormBias
+    library: flaggems_vllm
+    status: planned
+
+  - name: flashattention
+    library: flaggems_vllm
+    status: planned
+
+  - name: flashattention_fp8
+    library: flaggems_vllm
+    status: planned
+
+  - name: fp8_einsum
+    library: flaggems_vllm
+    status: planned
+
+  - name: fused_inv_rope_fp8_quant
+    library: flaggems_vllm
+    status: planned
+
+  - name: fused_marlin_moe_fp8
+    library: flaggems_vllm
+    status: planned
+
+  - name: fused_marlin_moe_int4
+    library: flaggems_vllm
+    status: planned
+
+  - name: fused_marlin_moe_int8
+    library: flaggems_vllm
+    status: planned
+
+  - name: fused_marlin_moe_mxfp4
+    library: flaggems_vllm
+    status: planned
+
+  - name: GDN
+    library: flaggems_vllm
+    status: planned
+
+  - name: chunk_gated_delta_rule_flaggems_vllm
+    library: flaggems_vllm
+    status: implemented
+    param_mapping:
+      const_axes_rule: gdn
+      var_axes_key: num_tokens
+      applicable: has_linear_attn
+
+  - name: chunk_gated_delta_rule_flag_attn
+    library: flagattention
+    status: implemented
+    param_mapping:
+      const_axes_rule: gdn
+      var_axes_key: num_tokens
+      applicable: has_linear_attn
+
+  - name: chunk_gated_delta_rule_flag_gems
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: gdn
+      var_axes_key: num_tokens
+      applicable: has_linear_attn
+
+  - name: gemma_rms_norm
+    library: flaggems_vllm
+    status: planned
+
+  - name: kv_rms_norm_rope_cache
+    library: flaggems_vllm
+    status: planned
+
+  - name: lightning_indexer
+    library: flaggems_vllm
+    status: planned
+
+  - name: MoeAlignBlockSize
+    library: flaggems_vllm
+    status: planned
+
+  - name: per_token_group_fp8_quant
+    library: flaggems_vllm
+    status: planned
+
+  - name: w8a8_block_fp8_matmul
+    library: flaggems_vllm
+    status: planned
+
+  - name: forgetting_attention
+    library: flag_attention
+    status: planned
+
+  - name: AttnRes
+    library: flag_attention
+    status: planned
+
+  - name: gated_delta_network
+    library: flag_attention
+    status: planned
+
+  - name: gated_linear_attention
+    library: flag_attention
+    status: planned
+
+  - name: inkling_fa4_relative_attention
+    library: flag_attention
+    status: planned
+
+  - name: log_linear_attn
+    library: flag_attention
+    status: planned
+
+  - name: minimax_sparse_attention
+    library: flag_attention
+    status: planned
+
+  - name: moba
+    library: flag_attention
+    status: planned
+
+  - name: parallax
+    library: flag_attention
+    status: planned
+
+  - name: sage_attention
+    library: flag_attention
+    status: planned
