@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 """
-Generate a detailed per-workload comparison CSV between FlagOS and vLLM.
+Generate a detailed per-workload comparison CSV between FlagOS and baseline.
 
 Output columns:
-    算子名, workload, parameters, FlagOS耗时(ms), vLLM耗时(ms), 加速比, FlagOS吞吐(GFLOPS), vLLM吞吐(GFLOPS)
+    operator, workload, parameters, flagos_time_ms, baseline_time_ms, speedup,
+    flagos_gflops, baseline_gflops
 
-Pairs *_flagos.json with *_vllm.json by operator and workload name,
-producing one row per workload with side-by-side timing.
+Scans results/ recursively for *_flagos_{platform}.json files and pairs them
+with *_{platform}.json baseline files by operator name and workload.
+
+Supports both flat and nested directory layouts:
+  - results/{op}/{op}_nvidia.json
+  - results/{op}/{op}/{op}_nvidia.json
 
 Usage:
-    python gen_operator_perf_report.py
-    python gen_operator_perf_report.py --input-dir ../results --output detail.csv
+    python scripts/gen_operator_perf_report.py
+    python scripts/gen_operator_perf_report.py --input-dir results/ --output detail.csv
 """
 
 import argparse
@@ -24,11 +29,11 @@ def parse_args() -> argparse.Namespace:
     default_input = Path(__file__).resolve().parent.parent / "results"
 
     parser = argparse.ArgumentParser(
-        description="Generate detailed per-workload comparison CSV (FlagOS vs vLLM)."
+        description="Generate detailed per-workload comparison CSV."
     )
     parser.add_argument(
         "--input-dir", type=Path, default=default_input,
-        help="Directory containing *_flagos.json / *_vllm.json files.",
+        help="Root directory containing result JSON files.",
     )
     parser.add_argument(
         "--output", type=Path, default=None,
@@ -46,11 +51,41 @@ def load_json(path: Path) -> dict | None:
 
 
 def format_params(params: dict) -> str:
-    """Format parameters dict into a compact readable string."""
     if not params:
         return ""
-    parts = [f"{k}={v}" for k, v in params.items()]
-    return ", ".join(parts)
+    return ", ".join(f"{k}={v}" for k, v in params.items())
+
+
+def discover_pairs(input_dir: Path) -> list[tuple[str, Path, Path | None]]:
+    """Find all flagos result files and their baseline counterparts.
+
+    Returns list of (op_name, flagos_path, baseline_path_or_None).
+    """
+    flagos_files = sorted(input_dir.rglob("*_flagos_*.json"))
+    pairs = []
+
+    for flagos_path in flagos_files:
+        # skip compare files
+        if "_compare_" in flagos_path.name:
+            continue
+
+        # Derive baseline name: {op}_flagos_{platform}.json -> {op}_{platform}.json
+        baseline_name = flagos_path.name.replace("_flagos_", "_")
+        baseline_path = flagos_path.parent / baseline_name
+
+        # Extract op name from metadata or filename
+        op_name = flagos_path.stem  # e.g. swiglu_flagos_nvidia
+        # Remove _flagos_{platform} suffix to get op name
+        parts = op_name.split("_flagos_")
+        if parts:
+            op_name = parts[0]
+
+        if baseline_path.exists():
+            pairs.append((op_name, flagos_path, baseline_path))
+        else:
+            pairs.append((op_name, flagos_path, None))
+
+    return pairs
 
 
 def main() -> int:
@@ -61,29 +96,27 @@ def main() -> int:
         print(f"Error: directory not found: {input_dir}", file=sys.stderr)
         return 1
 
-    flagos_files = sorted(input_dir.glob("*_flagos.json"))
-    if not flagos_files:
-        print(f"No *_flagos.json files found in {input_dir}", file=sys.stderr)
+    pairs = discover_pairs(input_dir)
+    if not pairs:
+        print(f"No *_flagos_*.json files found in {input_dir}", file=sys.stderr)
         return 1
 
     rows = []
 
-    for flagos_path in flagos_files:
-        op_name = flagos_path.stem.replace("_flagos", "")
-        vllm_path = input_dir / f"{op_name}_vllm.json"
-
+    for op_name, flagos_path, baseline_path in pairs:
         flagos_data = load_json(flagos_path)
         if flagos_data is None:
             continue
 
-        # Build vllm lookup: workload -> result dict
-        vllm_data = load_json(vllm_path) if vllm_path.exists() else None
-        vllm_map = {}
-        if vllm_data:
-            for r in vllm_data.get("results", []):
-                wl = r.get("workload", "")
-                if wl:
-                    vllm_map[wl] = r
+        # Build baseline lookup: workload -> result dict
+        baseline_map = {}
+        if baseline_path:
+            baseline_data = load_json(baseline_path)
+            if baseline_data:
+                for r in baseline_data.get("results", []):
+                    wl = r.get("workload", "")
+                    if wl:
+                        baseline_map[wl] = r
 
         for result in flagos_data.get("results", []):
             workload = result.get("workload", "")
@@ -92,45 +125,45 @@ def main() -> int:
             flagos_time = perf.get("device_time", {}).get("mean_ms")
             flagos_gflops = perf.get("throughput", {}).get("gflops")
 
-            # Match vllm result
-            vllm_result = vllm_map.get(workload)
-            vllm_time = None
-            vllm_gflops = None
-            if vllm_result:
-                vllm_perf = vllm_result.get("performance", {})
-                vllm_time = vllm_perf.get("device_time", {}).get("mean_ms")
-                vllm_gflops = vllm_perf.get("throughput", {}).get("gflops")
+            # Match baseline result
+            bl_result = baseline_map.get(workload)
+            bl_time = None
+            bl_gflops = None
+            if bl_result:
+                bl_perf = bl_result.get("performance", {})
+                bl_time = bl_perf.get("device_time", {}).get("mean_ms")
+                bl_gflops = bl_perf.get("throughput", {}).get("gflops")
 
-            # Compute speedup
+            # Compute speedup (baseline / flagos, >1 means flagos is faster)
             speedup = ""
-            if flagos_time and vllm_time and flagos_time > 0:
-                speedup = f"{vllm_time / flagos_time:.4f}"
+            if flagos_time and bl_time and flagos_time > 0:
+                speedup = f"{bl_time / flagos_time:.4f}"
 
             rows.append({
-                "算子名": op_name,
+                "operator": op_name,
                 "workload": workload,
                 "parameters": format_params(params),
-                "FlagOS耗时(ms)": f"{flagos_time:.4f}" if flagos_time is not None else "N/A",
-                "vLLM耗时(ms)": f"{vllm_time:.4f}" if vllm_time is not None else "N/A",
-                "加速比": speedup if speedup else "N/A",
-                "FlagOS吞吐(GFLOPS)": f"{flagos_gflops:.2f}" if flagos_gflops is not None else "N/A",
-                "vLLM吞吐(GFLOPS)": f"{vllm_gflops:.2f}" if vllm_gflops is not None else "N/A",
+                "flagos_time_ms": f"{flagos_time:.4f}" if flagos_time is not None else "N/A",
+                "baseline_time_ms": f"{bl_time:.4f}" if bl_time is not None else "N/A",
+                "speedup": speedup if speedup else "N/A",
+                "flagos_gflops": f"{flagos_gflops:.2f}" if flagos_gflops is not None else "N/A",
+                "baseline_gflops": f"{bl_gflops:.2f}" if bl_gflops is not None else "N/A",
             })
 
     output_path = args.output or (input_dir / "operator_detail_comparison.csv")
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     fieldnames = [
-        "算子名", "workload", "parameters",
-        "FlagOS耗时(ms)", "vLLM耗时(ms)", "加速比",
-        "FlagOS吞吐(GFLOPS)", "vLLM吞吐(GFLOPS)",
+        "operator", "workload", "parameters",
+        "flagos_time_ms", "baseline_time_ms", "speedup",
+        "flagos_gflops", "baseline_gflops",
     ]
     with output_path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
 
-    operators = sorted({r["算子名"] for r in rows})
+    operators = sorted({r["operator"] for r in rows})
     print(f"Generated: {output_path}", file=sys.stderr)
     print(f"Total rows: {len(rows)}, Operators: {len(operators)}", file=sys.stderr)
     return 0

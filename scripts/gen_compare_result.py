@@ -2,12 +2,16 @@
 """从两份性能结果JSON生成对比结果JSON。
 
 Usage:
+    # 指定两个文件
     python scripts/gen_compare_result.py \
-        --baseline results/swiglu_nvidia.json \
-        --flagos results/swiglu_flagos.json \
-        [--output results/swiglu_compare.json]
+        --baseline results/swiglu/swiglu_nvidia.json \
+        --flagos results/swiglu/swiglu_flagos_nvidia.json \
+        [--output results/swiglu/swiglu_compare_nvidia.json]
 
-如果不指定 --output，默认在 results/ 下生成 {op}_compare.json。
+    # 自动扫描 results 目录，为所有有 baseline+flagos 的算子生成对比
+    python scripts/gen_compare_result.py --auto [--results-dir results/]
+
+如果不指定 --output，默认在 baseline 同目录下生成 {op}_compare_{platform}.json。
 """
 import argparse
 import json
@@ -21,7 +25,6 @@ def load_results(path):
     with open(path) as f:
         data = json.load(f)
 
-    # 以 (operator, workload) 为 key 建立索引
     results_map = {}
     for r in data["results"]:
         key = (r["operator"], r["workload"])
@@ -38,11 +41,12 @@ def compute_speedup(baseline_ms, flagos_ms):
 
 
 def gen_compare(baseline_path, flagos_path, output_path=None):
+    baseline_path = Path(baseline_path)
+    flagos_path = Path(flagos_path)
+
     baseline_meta, baseline_env, baseline_results = load_results(baseline_path)
     flagos_meta, flagos_env, flagos_results = load_results(flagos_path)
 
-    # 匹配 workload
-    all_keys = set(baseline_results.keys()) | set(flagos_results.keys())
     matched_keys = set(baseline_results.keys()) & set(flagos_results.keys())
     baseline_only = set(baseline_results.keys()) - set(flagos_results.keys())
     flagos_only = set(flagos_results.keys()) - set(baseline_results.keys())
@@ -52,7 +56,7 @@ def gen_compare(baseline_path, flagos_path, output_path=None):
     if flagos_only:
         print(f"  [WARN] {len(flagos_only)} workloads only in flagos, skipped", file=sys.stderr)
 
-    # 按原始顺序输出（以baseline文件的顺序为准）
+    # 按 baseline 文件中的原始顺序输出
     with open(baseline_path) as f:
         baseline_data = json.load(f)
     ordered_keys = [(r["operator"], r["workload"]) for r in baseline_data["results"]]
@@ -104,17 +108,14 @@ def gen_compare(baseline_path, flagos_path, output_path=None):
             "verdict": verdict,
         })
 
-    # 汇总统计
     faster_count = sum(1 for c in comparisons if c["verdict"] == "faster")
     slower_count = sum(1 for c in comparisons if c["verdict"] == "slower")
     on_par_count = sum(1 for c in comparisons if c["verdict"] == "on_par")
     avg_speedup = (
         sum(c["speedup"] for c in comparisons) / len(comparisons)
-        if comparisons
-        else 0
+        if comparisons else 0
     )
 
-    # 构造输出
     output = {
         "metadata": {
             "timestamp": datetime.now().isoformat(),
@@ -137,19 +138,15 @@ def gen_compare(baseline_path, flagos_path, output_path=None):
         "comparisons": comparisons,
     }
 
-    # 决定输出路径
     if output_path is None:
-        # 从 baseline 文件名推断算子名和平台
-        # e.g. results/swiglu/swiglu_nvidia.json → op=swiglu, platform=nvidia
-        baseline_name = Path(baseline_path).stem  # swiglu_nvidia
-        op_name = baseline_name.rsplit("_", 1)[0]  # swiglu
-        platform = baseline_meta.get("platform", "unknown")
-
-        # 输出到 results/{op}/{op}_compare_{platform}.json
-        results_root = Path(baseline_path).parent.parent
-        op_dir = results_root / op_name
-        op_dir.mkdir(parents=True, exist_ok=True)
-        output_path = op_dir / f"{op_name}_compare_{platform}.json"
+        # 输出到 baseline 同目录: {op}_compare_{platform}.json
+        platform = baseline_meta.get("platform", "nvidia")
+        stem = baseline_path.stem  # e.g. swiglu_nvidia
+        if stem.endswith(f"_{platform}"):
+            op_name = stem[: -(len(platform) + 1)]
+        else:
+            op_name = stem.rsplit("_", 1)[0]
+        output_path = baseline_path.parent / f"{op_name}_compare_{platform}.json"
 
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -157,11 +154,41 @@ def gen_compare(baseline_path, flagos_path, output_path=None):
     with open(output_path, "w") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
-    print(f"\n  Compare result saved to: {output_path}")
-    print(f"  Total: {len(comparisons)} | Faster: {faster_count} | Slower: {slower_count} | On par: {on_par_count}")
-    print(f"  Avg speedup: {avg_speedup:.4f}x")
-
+    print(f"  {output_path.name}: {len(comparisons)} workloads | "
+          f"faster={faster_count} slower={slower_count} par={on_par_count} | "
+          f"avg speedup={avg_speedup:.4f}x")
     return output_path
+
+
+def discover_pairs(results_dir):
+    """扫描 results 目录，找到所有 baseline+flagos 配对。
+
+    支持两种目录布局:
+      - results/{op}/{op}_nvidia.json  (flat)
+      - results/{op}/{op}/{op}_nvidia.json  (nested)
+
+    文件命名约定:
+      - baseline: {op}_{platform}.json  (e.g. swiglu_nvidia.json)
+      - flagos:   {op}_flagos_{platform}.json  (e.g. swiglu_flagos_nvidia.json)
+    """
+    results_dir = Path(results_dir)
+    # 递归找所有 *_flagos_*.json
+    flagos_files = sorted(results_dir.rglob("*_flagos_*.json"))
+
+    pairs = []
+    for flagos_path in flagos_files:
+        # 从 flagos 文件名推导 baseline 文件名
+        # e.g. swiglu_flagos_nvidia.json → swiglu_nvidia.json
+        name = flagos_path.name
+        baseline_name = name.replace("_flagos_", "_")
+        baseline_path = flagos_path.parent / baseline_name
+
+        if baseline_path.exists():
+            pairs.append((baseline_path, flagos_path))
+        else:
+            print(f"  [SKIP] No baseline for {flagos_path.name}", file=sys.stderr)
+
+    return pairs
 
 
 def main():
@@ -169,24 +196,52 @@ def main():
         description="从两份性能结果JSON生成对比结果JSON"
     )
     parser.add_argument(
-        "--baseline", required=True, help="基线结果JSON (e.g. results/swiglu_nvidia.json)"
+        "--baseline", default=None,
+        help="基线结果JSON (e.g. results/swiglu/swiglu_nvidia.json)"
     )
     parser.add_argument(
-        "--flagos", required=True, help="FlagOS结果JSON (e.g. results/swiglu_flagos.json)"
+        "--flagos", default=None,
+        help="FlagOS结果JSON (e.g. results/swiglu/swiglu_flagos_nvidia.json)"
     )
     parser.add_argument(
-        "--output", "-o", default=None, help="输出路径 (默认: results/{op}_compare.json)"
+        "--output", "-o", default=None,
+        help="输出路径 (默认自动推断)"
+    )
+    parser.add_argument(
+        "--auto", action="store_true",
+        help="自动扫描 results 目录，为所有配对生成对比"
+    )
+    parser.add_argument(
+        "--results-dir", default=None,
+        help="results 根目录 (默认: results/)"
     )
     args = parser.parse_args()
 
-    if not Path(args.baseline).exists():
-        print(f"  [ERROR] Baseline file not found: {args.baseline}", file=sys.stderr)
-        sys.exit(1)
-    if not Path(args.flagos).exists():
-        print(f"  [ERROR] FlagOS file not found: {args.flagos}", file=sys.stderr)
-        sys.exit(1)
+    if args.auto:
+        results_dir = args.results_dir or (
+            Path(__file__).resolve().parent.parent / "results"
+        )
+        pairs = discover_pairs(results_dir)
+        if not pairs:
+            print("No baseline+flagos pairs found.", file=sys.stderr)
+            sys.exit(1)
 
-    gen_compare(args.baseline, args.flagos, args.output)
+        print(f"Found {len(pairs)} operator pairs:\n")
+        for baseline_path, flagos_path in pairs:
+            gen_compare(baseline_path, flagos_path)
+        print(f"\nDone. Generated {len(pairs)} compare files.")
+    else:
+        if not args.baseline or not args.flagos:
+            parser.error("需要 --baseline 和 --flagos，或使用 --auto")
+
+        if not Path(args.baseline).exists():
+            print(f"  [ERROR] Baseline not found: {args.baseline}", file=sys.stderr)
+            sys.exit(1)
+        if not Path(args.flagos).exists():
+            print(f"  [ERROR] FlagOS not found: {args.flagos}", file=sys.stderr)
+            sys.exit(1)
+
+        gen_compare(args.baseline, args.flagos, args.output)
 
 
 if __name__ == "__main__":
