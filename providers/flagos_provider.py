@@ -93,6 +93,10 @@ class FlagOSProvider(BaseProvider):
         # 支持算子自定义impl函数名（与注册名不同时使用）
         fn_name = getattr(operator, "impl_name", op_name)
 
+        # Special handling for operators with parameter name differences
+        if op_name == "cp_gather_indexer_k_quant_cache":
+            return self._load_cp_gather_indexer_k_quant_cache()
+
         if lib in ("flaggems", "flag_gems") and self._flaggems is not None:
             if hasattr(self._flaggems, fn_name):
                 fn = getattr(self._flaggems, fn_name)
@@ -110,3 +114,26 @@ class FlagOSProvider(BaseProvider):
 
         # 没有找到实现
         return None, {"error": f"No impl for {fn_name} in {lib}"}
+
+    def _load_cp_gather_indexer_k_quant_cache(self):
+        """Wrapper for cp_gather_indexer_k_quant_cache - maps vLLM parameter names to FlagOS names
+
+        vLLM signature: (kv_cache, dst_k, dst_scale, block_table, cu_seq_lens)
+        FlagOS signature: (k_cache, k_fp8, k_fp8_scale, block_table, cu_seqlen)
+        """
+        if self._flaggems_vllm is None or not hasattr(self._flaggems_vllm, "cp_gather_indexer_k_quant_cache"):
+            return None, {"error": "cp_gather_indexer_k_quant_cache not found in flaggems_vllm"}
+
+        flagos_fn = self._flaggems_vllm.cp_gather_indexer_k_quant_cache
+
+        def wrapper(kv_cache, dst_k, dst_scale, block_table, cu_seq_lens, **kwargs):
+            # Map parameter names from vLLM to FlagOS
+            return flagos_fn(
+                k_cache=kv_cache,
+                k_fp8=dst_k,
+                k_fp8_scale=dst_scale,
+                block_table=block_table,
+                cu_seqlen=cu_seq_lens
+            )
+
+        return wrapper, {"source": "flaggems_vllm.cp_gather_indexer_k_quant_cache (wrapped)", "type": "triton"}

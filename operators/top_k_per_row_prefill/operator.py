@@ -40,14 +40,17 @@ class TopKPerRowPrefillOperator(BaseOperator):
     def prepare_inputs(self, **params):
         """准备输入
 
+        casegen 路径参数: num_tokens, num_experts, topk
+        直接调用参数:     num_rows, vocab_size, top_k
+
         Args:
-            num_rows: 行数（tokens数）
-            vocab_size: 每行的元素数（专家数或vocab大小）
-            top_k: 每行选取的top-k数
+            num_rows/num_tokens: 行数（tokens数）
+            vocab_size/num_experts: 每行的元素数（专家数）
+            top_k/topk: 每行选取的top-k数
         """
-        num_rows = params["num_rows"]
-        vocab_size = params.get("vocab_size", 256)
-        top_k = params.get("top_k", 8)
+        num_rows = params.get("num_tokens") or params["num_rows"]
+        vocab_size = params.get("num_experts") or params.get("vocab_size", 256)
+        top_k = params.get("topk") or params.get("top_k", 8)
 
         logits = torch.randn(
             num_rows, vocab_size, dtype=torch.float32, device="cuda"
@@ -78,9 +81,9 @@ class TopKPerRowPrefillOperator(BaseOperator):
           - final sort: top_k * log2(top_k)
         近似: num_rows * vocab_size * 4
         """
-        num_rows = params["num_rows"]
-        vocab_size = params.get("vocab_size", 256)
-        top_k = params.get("top_k", 8)
+        num_rows = params.get("num_tokens") or params["num_rows"]
+        vocab_size = params.get("num_experts") or params.get("vocab_size", 256)
+        top_k = params.get("topk") or params.get("top_k", 8)
 
         return num_rows * vocab_size * 4
 
@@ -94,9 +97,9 @@ class TopKPerRowPrefillOperator(BaseOperator):
         写:
           indices: num_rows * top_k * 4 (int32)
         """
-        num_rows = params["num_rows"]
-        vocab_size = params.get("vocab_size", 256)
-        top_k = params.get("top_k", 8)
+        num_rows = params.get("num_tokens") or params["num_rows"]
+        vocab_size = params.get("num_experts") or params.get("vocab_size", 256)
+        top_k = params.get("topk") or params.get("top_k", 8)
 
         read_bytes = (
             num_rows * vocab_size * 4   # logits

@@ -1,0 +1,1024 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-31T02:49:18.797521",
+    "type": "compare",
+    "platform": "nvidia",
+    "baseline_provider": "nvidia",
+    "flagos_provider": "flagos",
+    "num_workloads": 28,
+    "baseline_file": "results/compute_global_topk_indices_and_lens/compute_global_topk_indices_and_lens_nvidia.json",
+    "flagos_file": "results/compute_global_topk_indices_and_lens/compute_global_topk_indices_and_lens_flagos_nvidia.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "summary": {
+    "total": 28,
+    "faster": 0,
+    "slower": 28,
+    "on_par": 0,
+    "avg_speedup": 0.4628
+  },
+  "comparisons": [
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0396,
+        "std_ms": 0.0089,
+        "min_ms": 0.0316,
+        "max_ms": 0.061,
+        "bandwidth_gb_s": 0.43,
+        "gflops": 0.26,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0874,
+        "std_ms": 0.0061,
+        "min_ms": 0.0809,
+        "max_ms": 0.1001,
+        "bandwidth_gb_s": 0.19,
+        "gflops": 0.12,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4531,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0322,
+        "std_ms": 0.001,
+        "min_ms": 0.0307,
+        "max_ms": 0.0341,
+        "bandwidth_gb_s": 16.79,
+        "gflops": 10.17,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0837,
+        "std_ms": 0.0033,
+        "min_ms": 0.0806,
+        "max_ms": 0.0913,
+        "bandwidth_gb_s": 6.46,
+        "gflops": 3.91,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.3847,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0318,
+        "std_ms": 0.0029,
+        "min_ms": 0.0296,
+        "max_ms": 0.0392,
+        "bandwidth_gb_s": 33.99,
+        "gflops": 20.59,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0831,
+        "std_ms": 0.004,
+        "min_ms": 0.0799,
+        "max_ms": 0.0931,
+        "bandwidth_gb_s": 13.01,
+        "gflops": 7.88,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.3827,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0338,
+        "std_ms": 0.0039,
+        "min_ms": 0.0304,
+        "max_ms": 0.0421,
+        "bandwidth_gb_s": 248.75,
+        "gflops": 155.34,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0872,
+        "std_ms": 0.0047,
+        "min_ms": 0.0833,
+        "max_ms": 0.0952,
+        "bandwidth_gb_s": 96.23,
+        "gflops": 60.1,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.3876,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.037,
+        "std_ms": 0.0024,
+        "min_ms": 0.0349,
+        "max_ms": 0.0417,
+        "bandwidth_gb_s": 907.12,
+        "gflops": 566.53,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0913,
+        "std_ms": 0.0041,
+        "min_ms": 0.0884,
+        "max_ms": 0.1009,
+        "bandwidth_gb_s": 367.77,
+        "gflops": 229.68,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4053,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0531,
+        "std_ms": 0.0013,
+        "min_ms": 0.0513,
+        "max_ms": 0.055,
+        "bandwidth_gb_s": 1264.43,
+        "gflops": 789.69,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.122,
+        "std_ms": 0.0042,
+        "min_ms": 0.1192,
+        "max_ms": 0.1325,
+        "bandwidth_gb_s": 550.41,
+        "gflops": 343.75,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4352,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0797,
+        "std_ms": 0.0019,
+        "min_ms": 0.0779,
+        "max_ms": 0.0838,
+        "bandwidth_gb_s": 1686.26,
+        "gflops": 1053.13,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1413,
+        "std_ms": 0.0048,
+        "min_ms": 0.1367,
+        "max_ms": 0.1521,
+        "bandwidth_gb_s": 950.55,
+        "gflops": 593.65,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.564,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0311,
+        "std_ms": 0.0019,
+        "min_ms": 0.029,
+        "max_ms": 0.0357,
+        "bandwidth_gb_s": 0.15,
+        "gflops": 0.08,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0563,
+        "std_ms": 0.0052,
+        "min_ms": 0.0522,
+        "max_ms": 0.0694,
+        "bandwidth_gb_s": 0.08,
+        "gflops": 0.05,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.5524,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0301,
+        "std_ms": 0.0024,
+        "min_ms": 0.028,
+        "max_ms": 0.0355,
+        "bandwidth_gb_s": 4.91,
+        "gflops": 2.72,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0587,
+        "std_ms": 0.009,
+        "min_ms": 0.053,
+        "max_ms": 0.0813,
+        "bandwidth_gb_s": 2.52,
+        "gflops": 1.39,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.5128,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0308,
+        "std_ms": 0.003,
+        "min_ms": 0.0283,
+        "max_ms": 0.0388,
+        "bandwidth_gb_s": 9.59,
+        "gflops": 5.31,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0581,
+        "std_ms": 0.0067,
+        "min_ms": 0.0525,
+        "max_ms": 0.0736,
+        "bandwidth_gb_s": 5.09,
+        "gflops": 2.82,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.5301,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0323,
+        "std_ms": 0.0032,
+        "min_ms": 0.03,
+        "max_ms": 0.0389,
+        "bandwidth_gb_s": 65.21,
+        "gflops": 40.63,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0578,
+        "std_ms": 0.0044,
+        "min_ms": 0.0537,
+        "max_ms": 0.0664,
+        "bandwidth_gb_s": 36.41,
+        "gflops": 22.69,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.5588,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0314,
+        "std_ms": 0.002,
+        "min_ms": 0.0299,
+        "max_ms": 0.0359,
+        "bandwidth_gb_s": 267.61,
+        "gflops": 166.76,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0606,
+        "std_ms": 0.0065,
+        "min_ms": 0.0529,
+        "max_ms": 0.0741,
+        "bandwidth_gb_s": 138.8,
+        "gflops": 86.49,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.5182,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0363,
+        "std_ms": 0.0025,
+        "min_ms": 0.0343,
+        "max_ms": 0.0428,
+        "bandwidth_gb_s": 464.03,
+        "gflops": 289.16,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0586,
+        "std_ms": 0.0053,
+        "min_ms": 0.0544,
+        "max_ms": 0.0723,
+        "bandwidth_gb_s": 287.22,
+        "gflops": 178.98,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.6195,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0464,
+        "std_ms": 0.0011,
+        "min_ms": 0.045,
+        "max_ms": 0.0483,
+        "bandwidth_gb_s": 725.92,
+        "gflops": 452.35,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0728,
+        "std_ms": 0.0053,
+        "min_ms": 0.068,
+        "max_ms": 0.083,
+        "bandwidth_gb_s": 462.35,
+        "gflops": 288.11,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.6374,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0303,
+        "std_ms": 0.0016,
+        "min_ms": 0.0284,
+        "max_ms": 0.034,
+        "bandwidth_gb_s": 0.29,
+        "gflops": 0.17,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0664,
+        "std_ms": 0.0063,
+        "min_ms": 0.0608,
+        "max_ms": 0.0774,
+        "bandwidth_gb_s": 0.13,
+        "gflops": 0.08,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4563,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0313,
+        "std_ms": 0.0023,
+        "min_ms": 0.0295,
+        "max_ms": 0.037,
+        "bandwidth_gb_s": 8.9,
+        "gflops": 5.23,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.065,
+        "std_ms": 0.0049,
+        "min_ms": 0.0601,
+        "max_ms": 0.076,
+        "bandwidth_gb_s": 4.29,
+        "gflops": 2.52,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4815,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.03,
+        "std_ms": 0.0012,
+        "min_ms": 0.0277,
+        "max_ms": 0.0321,
+        "bandwidth_gb_s": 18.59,
+        "gflops": 10.92,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0651,
+        "std_ms": 0.0048,
+        "min_ms": 0.0607,
+        "max_ms": 0.0754,
+        "bandwidth_gb_s": 8.57,
+        "gflops": 5.04,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4608,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0301,
+        "std_ms": 0.0018,
+        "min_ms": 0.0278,
+        "max_ms": 0.0341,
+        "bandwidth_gb_s": 139.69,
+        "gflops": 87.17,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0658,
+        "std_ms": 0.0041,
+        "min_ms": 0.063,
+        "max_ms": 0.0756,
+        "bandwidth_gb_s": 63.83,
+        "gflops": 39.83,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4574,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0303,
+        "std_ms": 0.0013,
+        "min_ms": 0.0289,
+        "max_ms": 0.0334,
+        "bandwidth_gb_s": 554.52,
+        "gflops": 346.06,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0683,
+        "std_ms": 0.0061,
+        "min_ms": 0.0637,
+        "max_ms": 0.0811,
+        "bandwidth_gb_s": 245.9,
+        "gflops": 153.46,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4436,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0356,
+        "std_ms": 0.0007,
+        "min_ms": 0.0344,
+        "max_ms": 0.0366,
+        "bandwidth_gb_s": 945.21,
+        "gflops": 589.88,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0742,
+        "std_ms": 0.0044,
+        "min_ms": 0.0705,
+        "max_ms": 0.0851,
+        "bandwidth_gb_s": 452.91,
+        "gflops": 282.65,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4798,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0553,
+        "std_ms": 0.0005,
+        "min_ms": 0.0545,
+        "max_ms": 0.0562,
+        "bandwidth_gb_s": 1216.01,
+        "gflops": 758.87,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.095,
+        "std_ms": 0.0053,
+        "min_ms": 0.0904,
+        "max_ms": 0.1064,
+        "bandwidth_gb_s": 707.1,
+        "gflops": 441.28,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.5821,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0294,
+        "std_ms": 0.0014,
+        "min_ms": 0.0278,
+        "max_ms": 0.0323,
+        "bandwidth_gb_s": 0.58,
+        "gflops": 0.35,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0786,
+        "std_ms": 0.0011,
+        "min_ms": 0.0768,
+        "max_ms": 0.0806,
+        "bandwidth_gb_s": 0.22,
+        "gflops": 0.13,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.374,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0298,
+        "std_ms": 0.0011,
+        "min_ms": 0.0286,
+        "max_ms": 0.032,
+        "bandwidth_gb_s": 18.15,
+        "gflops": 10.99,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0793,
+        "std_ms": 0.0008,
+        "min_ms": 0.0783,
+        "max_ms": 0.0808,
+        "bandwidth_gb_s": 6.82,
+        "gflops": 4.13,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.3758,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0295,
+        "std_ms": 0.0011,
+        "min_ms": 0.0282,
+        "max_ms": 0.0319,
+        "bandwidth_gb_s": 36.73,
+        "gflops": 22.25,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0765,
+        "std_ms": 0.0097,
+        "min_ms": 0.0489,
+        "max_ms": 0.0805,
+        "bandwidth_gb_s": 14.14,
+        "gflops": 8.56,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.3856,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0298,
+        "std_ms": 0.0014,
+        "min_ms": 0.0282,
+        "max_ms": 0.0321,
+        "bandwidth_gb_s": 281.8,
+        "gflops": 175.98,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1331,
+        "std_ms": 0.1058,
+        "min_ms": 0.0804,
+        "max_ms": 0.342,
+        "bandwidth_gb_s": 63.06,
+        "gflops": 39.38,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.2239,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0354,
+        "std_ms": 0.001,
+        "min_ms": 0.0342,
+        "max_ms": 0.0372,
+        "bandwidth_gb_s": 949.9,
+        "gflops": 593.25,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.128,
+        "std_ms": 0.0917,
+        "min_ms": 0.0941,
+        "max_ms": 0.3887,
+        "bandwidth_gb_s": 262.37,
+        "gflops": 163.86,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.2766,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0525,
+        "std_ms": 0.001,
+        "min_ms": 0.0511,
+        "max_ms": 0.0546,
+        "bandwidth_gb_s": 1279.15,
+        "gflops": 798.88,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1183,
+        "std_ms": 0.001,
+        "min_ms": 0.1169,
+        "max_ms": 0.1201,
+        "bandwidth_gb_s": 567.71,
+        "gflops": 354.56,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.4438,
+      "verdict": "slower"
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0787,
+        "std_ms": 0.0011,
+        "min_ms": 0.077,
+        "max_ms": 0.0807,
+        "bandwidth_gb_s": 1707.18,
+        "gflops": 1066.19,
+        "impl_source": "vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1365,
+        "std_ms": 0.0015,
+        "min_ms": 0.1343,
+        "max_ms": 0.1391,
+        "bandwidth_gb_s": 984.0,
+        "gflops": 614.54,
+        "impl_source": "flaggems_vllm.compute_global_topk_indices_and_lens"
+      },
+      "speedup": 0.5766,
+      "verdict": "slower"
+    }
+  ]
+}

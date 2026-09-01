@@ -1,0 +1,1950 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-31T08:51:37.344951",
+    "type": "compare",
+    "platform": "nvidia",
+    "baseline_provider": "nvidia",
+    "flagos_provider": "flagos",
+    "num_workloads": 60,
+    "baseline_file": "results/topk_softplus_sqrt/topk_softplus_sqrt_nvidia.json",
+    "flagos_file": "results/topk_softplus_sqrt/topk_softplus_sqrt_flagos_nvidia.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "summary": {
+    "total": 60,
+    "faster": 0,
+    "slower": 60,
+    "on_par": 0,
+    "avg_speedup": 0.574
+  },
+  "comparisons": [
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0145,
+        "std_ms": 0.0018,
+        "min_ms": 0.0134,
+        "max_ms": 0.0291,
+        "bandwidth_gb_s": 0.08,
+        "gflops": 0.11,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0266,
+        "std_ms": 0.0027,
+        "min_ms": 0.024,
+        "max_ms": 0.0463,
+        "bandwidth_gb_s": 0.04,
+        "gflops": 0.06,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5451,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0142,
+        "std_ms": 0.0004,
+        "min_ms": 0.0134,
+        "max_ms": 0.0159,
+        "bandwidth_gb_s": 0.63,
+        "gflops": 0.88,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.027,
+        "std_ms": 0.0028,
+        "min_ms": 0.0245,
+        "max_ms": 0.0463,
+        "bandwidth_gb_s": 0.33,
+        "gflops": 0.46,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5259,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0143,
+        "std_ms": 0.0008,
+        "min_ms": 0.0133,
+        "max_ms": 0.0215,
+        "bandwidth_gb_s": 2.51,
+        "gflops": 3.5,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0264,
+        "std_ms": 0.002,
+        "min_ms": 0.0244,
+        "max_ms": 0.0381,
+        "bandwidth_gb_s": 1.36,
+        "gflops": 1.89,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5417,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0138,
+        "std_ms": 0.0003,
+        "min_ms": 0.0133,
+        "max_ms": 0.0148,
+        "bandwidth_gb_s": 5.19,
+        "gflops": 7.23,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0258,
+        "std_ms": 0.0009,
+        "min_ms": 0.0242,
+        "max_ms": 0.0317,
+        "bandwidth_gb_s": 2.78,
+        "gflops": 3.87,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5349,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0003,
+        "min_ms": 0.0132,
+        "max_ms": 0.0149,
+        "bandwidth_gb_s": 10.35,
+        "gflops": 14.42,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0257,
+        "std_ms": 0.0018,
+        "min_ms": 0.0242,
+        "max_ms": 0.0397,
+        "bandwidth_gb_s": 5.59,
+        "gflops": 7.78,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5409,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.014,
+        "std_ms": 0.0005,
+        "min_ms": 0.0133,
+        "max_ms": 0.018,
+        "bandwidth_gb_s": 20.5,
+        "gflops": 28.55,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0256,
+        "std_ms": 0.0011,
+        "min_ms": 0.0241,
+        "max_ms": 0.0302,
+        "bandwidth_gb_s": 11.21,
+        "gflops": 15.62,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5469,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0006,
+        "min_ms": 0.0132,
+        "max_ms": 0.0178,
+        "bandwidth_gb_s": 41.28,
+        "gflops": 57.5,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0261,
+        "std_ms": 0.0042,
+        "min_ms": 0.0243,
+        "max_ms": 0.0663,
+        "bandwidth_gb_s": 21.99,
+        "gflops": 30.64,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5326,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0147,
+        "std_ms": 0.0003,
+        "min_ms": 0.0142,
+        "max_ms": 0.016,
+        "bandwidth_gb_s": 77.8,
+        "gflops": 108.36,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0254,
+        "std_ms": 0.0007,
+        "min_ms": 0.0236,
+        "max_ms": 0.0289,
+        "bandwidth_gb_s": 45.12,
+        "gflops": 62.85,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5787,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0174,
+        "std_ms": 0.0005,
+        "min_ms": 0.0168,
+        "max_ms": 0.0203,
+        "bandwidth_gb_s": 131.74,
+        "gflops": 183.49,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.026,
+        "std_ms": 0.0014,
+        "min_ms": 0.0246,
+        "max_ms": 0.0354,
+        "bandwidth_gb_s": 88.3,
+        "gflops": 122.99,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.6692,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0235,
+        "std_ms": 0.0003,
+        "min_ms": 0.023,
+        "max_ms": 0.0247,
+        "bandwidth_gb_s": 194.87,
+        "gflops": 271.42,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.029,
+        "std_ms": 0.0012,
+        "min_ms": 0.0276,
+        "max_ms": 0.0346,
+        "bandwidth_gb_s": 158.38,
+        "gflops": 220.6,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.8103,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0138,
+        "std_ms": 0.0006,
+        "min_ms": 0.0132,
+        "max_ms": 0.0191,
+        "bandwidth_gb_s": 0.08,
+        "gflops": 0.11,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0258,
+        "std_ms": 0.002,
+        "min_ms": 0.0241,
+        "max_ms": 0.0384,
+        "bandwidth_gb_s": 0.04,
+        "gflops": 0.06,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5349,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.014,
+        "std_ms": 0.0006,
+        "min_ms": 0.0132,
+        "max_ms": 0.0178,
+        "bandwidth_gb_s": 0.63,
+        "gflops": 0.89,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0264,
+        "std_ms": 0.0018,
+        "min_ms": 0.0244,
+        "max_ms": 0.0385,
+        "bandwidth_gb_s": 0.33,
+        "gflops": 0.47,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5303,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0138,
+        "std_ms": 0.0003,
+        "min_ms": 0.0133,
+        "max_ms": 0.0148,
+        "bandwidth_gb_s": 2.54,
+        "gflops": 3.61,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0262,
+        "std_ms": 0.0032,
+        "min_ms": 0.0242,
+        "max_ms": 0.0525,
+        "bandwidth_gb_s": 1.34,
+        "gflops": 1.9,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5267,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0004,
+        "min_ms": 0.0134,
+        "max_ms": 0.0157,
+        "bandwidth_gb_s": 5.05,
+        "gflops": 7.16,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0257,
+        "std_ms": 0.0011,
+        "min_ms": 0.0243,
+        "max_ms": 0.0324,
+        "bandwidth_gb_s": 2.73,
+        "gflops": 3.87,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5409,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0005,
+        "min_ms": 0.0132,
+        "max_ms": 0.0169,
+        "bandwidth_gb_s": 10.06,
+        "gflops": 14.27,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0253,
+        "std_ms": 0.0011,
+        "min_ms": 0.0234,
+        "max_ms": 0.0304,
+        "bandwidth_gb_s": 5.55,
+        "gflops": 7.87,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5494,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0141,
+        "std_ms": 0.0011,
+        "min_ms": 0.0132,
+        "max_ms": 0.0239,
+        "bandwidth_gb_s": 19.92,
+        "gflops": 28.25,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0255,
+        "std_ms": 0.0011,
+        "min_ms": 0.0241,
+        "max_ms": 0.0312,
+        "bandwidth_gb_s": 11.0,
+        "gflops": 15.6,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5529,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0004,
+        "min_ms": 0.0132,
+        "max_ms": 0.0149,
+        "bandwidth_gb_s": 40.32,
+        "gflops": 57.17,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0253,
+        "std_ms": 0.0015,
+        "min_ms": 0.0232,
+        "max_ms": 0.0379,
+        "bandwidth_gb_s": 22.15,
+        "gflops": 31.4,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5494,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0142,
+        "std_ms": 0.0007,
+        "min_ms": 0.0132,
+        "max_ms": 0.0198,
+        "bandwidth_gb_s": 78.92,
+        "gflops": 111.9,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0256,
+        "std_ms": 0.001,
+        "min_ms": 0.0243,
+        "max_ms": 0.03,
+        "bandwidth_gb_s": 43.9,
+        "gflops": 62.24,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5547,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0157,
+        "std_ms": 0.0004,
+        "min_ms": 0.0143,
+        "max_ms": 0.0178,
+        "bandwidth_gb_s": 143.1,
+        "gflops": 202.9,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.026,
+        "std_ms": 0.0012,
+        "min_ms": 0.0245,
+        "max_ms": 0.0351,
+        "bandwidth_gb_s": 86.25,
+        "gflops": 122.29,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.6038,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0207,
+        "std_ms": 0.0003,
+        "min_ms": 0.0197,
+        "max_ms": 0.0217,
+        "bandwidth_gb_s": 217.31,
+        "gflops": 308.12,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0276,
+        "std_ms": 0.004,
+        "min_ms": 0.026,
+        "max_ms": 0.0665,
+        "bandwidth_gb_s": 162.94,
+        "gflops": 231.03,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.75,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0003,
+        "min_ms": 0.0132,
+        "max_ms": 0.0148,
+        "bandwidth_gb_s": 0.12,
+        "gflops": 0.17,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0266,
+        "std_ms": 0.0024,
+        "min_ms": 0.0246,
+        "max_ms": 0.0437,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.09,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5226,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.014,
+        "std_ms": 0.0003,
+        "min_ms": 0.0134,
+        "max_ms": 0.0152,
+        "bandwidth_gb_s": 0.92,
+        "gflops": 1.33,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0264,
+        "std_ms": 0.002,
+        "min_ms": 0.0242,
+        "max_ms": 0.0389,
+        "bandwidth_gb_s": 0.49,
+        "gflops": 0.7,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5303,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0004,
+        "min_ms": 0.0127,
+        "max_ms": 0.0163,
+        "bandwidth_gb_s": 3.71,
+        "gflops": 5.36,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0264,
+        "std_ms": 0.0021,
+        "min_ms": 0.0244,
+        "max_ms": 0.0395,
+        "bandwidth_gb_s": 1.95,
+        "gflops": 2.81,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5265,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0007,
+        "min_ms": 0.0133,
+        "max_ms": 0.0183,
+        "bandwidth_gb_s": 7.42,
+        "gflops": 10.71,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.026,
+        "std_ms": 0.0015,
+        "min_ms": 0.0244,
+        "max_ms": 0.0369,
+        "bandwidth_gb_s": 3.95,
+        "gflops": 5.71,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5346,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0006,
+        "min_ms": 0.0129,
+        "max_ms": 0.0182,
+        "bandwidth_gb_s": 14.76,
+        "gflops": 21.32,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0341,
+        "std_ms": 0.083,
+        "min_ms": 0.0243,
+        "max_ms": 0.8554,
+        "bandwidth_gb_s": 6.04,
+        "gflops": 8.72,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.4076,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0141,
+        "std_ms": 0.0007,
+        "min_ms": 0.0133,
+        "max_ms": 0.0204,
+        "bandwidth_gb_s": 29.3,
+        "gflops": 42.31,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0255,
+        "std_ms": 0.0009,
+        "min_ms": 0.0239,
+        "max_ms": 0.0305,
+        "bandwidth_gb_s": 16.17,
+        "gflops": 23.34,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5529,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0006,
+        "min_ms": 0.0129,
+        "max_ms": 0.0182,
+        "bandwidth_gb_s": 59.11,
+        "gflops": 85.36,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0257,
+        "std_ms": 0.0011,
+        "min_ms": 0.0239,
+        "max_ms": 0.0302,
+        "bandwidth_gb_s": 32.04,
+        "gflops": 46.26,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5409,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0147,
+        "std_ms": 0.0003,
+        "min_ms": 0.014,
+        "max_ms": 0.0154,
+        "bandwidth_gb_s": 111.68,
+        "gflops": 161.27,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0262,
+        "std_ms": 0.0012,
+        "min_ms": 0.0242,
+        "max_ms": 0.033,
+        "bandwidth_gb_s": 62.83,
+        "gflops": 90.73,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5611,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.017,
+        "std_ms": 0.0004,
+        "min_ms": 0.0165,
+        "max_ms": 0.0205,
+        "bandwidth_gb_s": 193.56,
+        "gflops": 279.51,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0265,
+        "std_ms": 0.0007,
+        "min_ms": 0.0253,
+        "max_ms": 0.0304,
+        "bandwidth_gb_s": 124.48,
+        "gflops": 179.75,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.6415,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0229,
+        "std_ms": 0.0003,
+        "min_ms": 0.0225,
+        "max_ms": 0.0237,
+        "bandwidth_gb_s": 287.97,
+        "gflops": 415.83,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0306,
+        "std_ms": 0.0007,
+        "min_ms": 0.0294,
+        "max_ms": 0.0341,
+        "bandwidth_gb_s": 215.48,
+        "gflops": 311.16,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.7484,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0133,
+        "std_ms": 0.0002,
+        "min_ms": 0.0128,
+        "max_ms": 0.0141,
+        "bandwidth_gb_s": 0.02,
+        "gflops": 0.03,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0257,
+        "std_ms": 0.0019,
+        "min_ms": 0.0238,
+        "max_ms": 0.0379,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.02,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5175,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0133,
+        "std_ms": 0.0004,
+        "min_ms": 0.0129,
+        "max_ms": 0.0159,
+        "bandwidth_gb_s": 0.18,
+        "gflops": 0.24,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.026,
+        "std_ms": 0.0018,
+        "min_ms": 0.0243,
+        "max_ms": 0.0387,
+        "bandwidth_gb_s": 0.09,
+        "gflops": 0.12,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5115,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0133,
+        "std_ms": 0.0002,
+        "min_ms": 0.0128,
+        "max_ms": 0.014,
+        "bandwidth_gb_s": 0.73,
+        "gflops": 0.95,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0261,
+        "std_ms": 0.0019,
+        "min_ms": 0.0243,
+        "max_ms": 0.0388,
+        "bandwidth_gb_s": 0.37,
+        "gflops": 0.49,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5096,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0133,
+        "std_ms": 0.0004,
+        "min_ms": 0.0129,
+        "max_ms": 0.0169,
+        "bandwidth_gb_s": 1.46,
+        "gflops": 1.9,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0255,
+        "std_ms": 0.0011,
+        "min_ms": 0.0241,
+        "max_ms": 0.0312,
+        "bandwidth_gb_s": 0.76,
+        "gflops": 0.99,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5216,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0134,
+        "std_ms": 0.0006,
+        "min_ms": 0.013,
+        "max_ms": 0.0195,
+        "bandwidth_gb_s": 2.91,
+        "gflops": 3.79,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0253,
+        "std_ms": 0.001,
+        "min_ms": 0.0241,
+        "max_ms": 0.0318,
+        "bandwidth_gb_s": 1.54,
+        "gflops": 2.0,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5296,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0135,
+        "std_ms": 0.0006,
+        "min_ms": 0.013,
+        "max_ms": 0.0186,
+        "bandwidth_gb_s": 5.76,
+        "gflops": 7.51,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0254,
+        "std_ms": 0.0015,
+        "min_ms": 0.0239,
+        "max_ms": 0.0354,
+        "bandwidth_gb_s": 3.07,
+        "gflops": 4.0,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5315,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0133,
+        "std_ms": 0.0002,
+        "min_ms": 0.0128,
+        "max_ms": 0.0143,
+        "bandwidth_gb_s": 11.67,
+        "gflops": 15.2,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0254,
+        "std_ms": 0.001,
+        "min_ms": 0.0233,
+        "max_ms": 0.0309,
+        "bandwidth_gb_s": 6.13,
+        "gflops": 7.99,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5236,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0134,
+        "std_ms": 0.0009,
+        "min_ms": 0.0126,
+        "max_ms": 0.0206,
+        "bandwidth_gb_s": 23.19,
+        "gflops": 30.21,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0255,
+        "std_ms": 0.0019,
+        "min_ms": 0.0241,
+        "max_ms": 0.0408,
+        "bandwidth_gb_s": 12.22,
+        "gflops": 15.92,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5255,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0138,
+        "std_ms": 0.0023,
+        "min_ms": 0.0132,
+        "max_ms": 0.0361,
+        "bandwidth_gb_s": 44.97,
+        "gflops": 58.58,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0254,
+        "std_ms": 0.0011,
+        "min_ms": 0.0238,
+        "max_ms": 0.0315,
+        "bandwidth_gb_s": 24.51,
+        "gflops": 31.92,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5433,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0141,
+        "std_ms": 0.0008,
+        "min_ms": 0.0127,
+        "max_ms": 0.0195,
+        "bandwidth_gb_s": 88.6,
+        "gflops": 115.41,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0257,
+        "std_ms": 0.0008,
+        "min_ms": 0.0245,
+        "max_ms": 0.0287,
+        "bandwidth_gb_s": 48.4,
+        "gflops": 63.05,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5486,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0005,
+        "min_ms": 0.0127,
+        "max_ms": 0.0173,
+        "bandwidth_gb_s": 0.12,
+        "gflops": 0.17,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0264,
+        "std_ms": 0.0022,
+        "min_ms": 0.0244,
+        "max_ms": 0.0389,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.09,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5265,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0007,
+        "min_ms": 0.0133,
+        "max_ms": 0.0192,
+        "bandwidth_gb_s": 0.94,
+        "gflops": 1.34,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0264,
+        "std_ms": 0.0018,
+        "min_ms": 0.0246,
+        "max_ms": 0.0391,
+        "bandwidth_gb_s": 0.49,
+        "gflops": 0.7,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5265,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0138,
+        "std_ms": 0.0006,
+        "min_ms": 0.0132,
+        "max_ms": 0.0192,
+        "bandwidth_gb_s": 3.78,
+        "gflops": 5.39,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0265,
+        "std_ms": 0.0021,
+        "min_ms": 0.0243,
+        "max_ms": 0.0402,
+        "bandwidth_gb_s": 1.97,
+        "gflops": 2.81,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5208,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0139,
+        "std_ms": 0.0007,
+        "min_ms": 0.0132,
+        "max_ms": 0.0173,
+        "bandwidth_gb_s": 7.49,
+        "gflops": 10.69,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.026,
+        "std_ms": 0.0011,
+        "min_ms": 0.0241,
+        "max_ms": 0.0309,
+        "bandwidth_gb_s": 4.02,
+        "gflops": 5.73,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5346,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0138,
+        "std_ms": 0.0003,
+        "min_ms": 0.0132,
+        "max_ms": 0.0149,
+        "bandwidth_gb_s": 15.13,
+        "gflops": 21.59,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0263,
+        "std_ms": 0.0023,
+        "min_ms": 0.0246,
+        "max_ms": 0.0462,
+        "bandwidth_gb_s": 7.96,
+        "gflops": 11.35,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5247,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0138,
+        "std_ms": 0.0007,
+        "min_ms": 0.0131,
+        "max_ms": 0.0201,
+        "bandwidth_gb_s": 30.2,
+        "gflops": 43.07,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0257,
+        "std_ms": 0.001,
+        "min_ms": 0.0243,
+        "max_ms": 0.0304,
+        "bandwidth_gb_s": 16.26,
+        "gflops": 23.19,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.537,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0145,
+        "std_ms": 0.0004,
+        "min_ms": 0.0138,
+        "max_ms": 0.0156,
+        "bandwidth_gb_s": 57.77,
+        "gflops": 82.4,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0264,
+        "std_ms": 0.005,
+        "min_ms": 0.0247,
+        "max_ms": 0.0741,
+        "bandwidth_gb_s": 31.64,
+        "gflops": 45.13,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5492,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0153,
+        "std_ms": 0.0002,
+        "min_ms": 0.0149,
+        "max_ms": 0.016,
+        "bandwidth_gb_s": 109.2,
+        "gflops": 155.77,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0262,
+        "std_ms": 0.0008,
+        "min_ms": 0.0245,
+        "max_ms": 0.0306,
+        "bandwidth_gb_s": 63.7,
+        "gflops": 90.87,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.584,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0188,
+        "std_ms": 0.0005,
+        "min_ms": 0.0182,
+        "max_ms": 0.0225,
+        "bandwidth_gb_s": 177.76,
+        "gflops": 253.56,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0272,
+        "std_ms": 0.0009,
+        "min_ms": 0.0257,
+        "max_ms": 0.0318,
+        "bandwidth_gb_s": 122.92,
+        "gflops": 175.34,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.6912,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0263,
+        "std_ms": 0.0002,
+        "min_ms": 0.0259,
+        "max_ms": 0.0271,
+        "bandwidth_gb_s": 254.31,
+        "gflops": 362.76,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0329,
+        "std_ms": 0.0006,
+        "min_ms": 0.0319,
+        "max_ms": 0.0349,
+        "bandwidth_gb_s": 202.94,
+        "gflops": 289.49,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.7994,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0147,
+        "std_ms": 0.0008,
+        "min_ms": 0.014,
+        "max_ms": 0.0208,
+        "bandwidth_gb_s": 0.15,
+        "gflops": 0.21,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0262,
+        "std_ms": 0.0019,
+        "min_ms": 0.0242,
+        "max_ms": 0.0391,
+        "bandwidth_gb_s": 0.08,
+        "gflops": 0.12,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5611,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0148,
+        "std_ms": 0.0003,
+        "min_ms": 0.0141,
+        "max_ms": 0.0156,
+        "bandwidth_gb_s": 1.17,
+        "gflops": 1.68,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0266,
+        "std_ms": 0.0025,
+        "min_ms": 0.0245,
+        "max_ms": 0.0434,
+        "bandwidth_gb_s": 0.65,
+        "gflops": 0.93,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5564,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0148,
+        "std_ms": 0.0004,
+        "min_ms": 0.0136,
+        "max_ms": 0.0164,
+        "bandwidth_gb_s": 4.7,
+        "gflops": 6.72,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0268,
+        "std_ms": 0.002,
+        "min_ms": 0.0247,
+        "max_ms": 0.0416,
+        "bandwidth_gb_s": 2.58,
+        "gflops": 3.7,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5522,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.015,
+        "std_ms": 0.0007,
+        "min_ms": 0.0141,
+        "max_ms": 0.0208,
+        "bandwidth_gb_s": 9.28,
+        "gflops": 13.28,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0264,
+        "std_ms": 0.0013,
+        "min_ms": 0.0247,
+        "max_ms": 0.032,
+        "bandwidth_gb_s": 5.25,
+        "gflops": 7.52,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5682,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0149,
+        "std_ms": 0.0003,
+        "min_ms": 0.0142,
+        "max_ms": 0.0163,
+        "bandwidth_gb_s": 18.6,
+        "gflops": 26.61,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0263,
+        "std_ms": 0.0011,
+        "min_ms": 0.0248,
+        "max_ms": 0.0318,
+        "bandwidth_gb_s": 10.55,
+        "gflops": 15.1,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5665,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0152,
+        "std_ms": 0.0008,
+        "min_ms": 0.0138,
+        "max_ms": 0.0215,
+        "bandwidth_gb_s": 36.59,
+        "gflops": 52.35,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0263,
+        "std_ms": 0.0013,
+        "min_ms": 0.0247,
+        "max_ms": 0.0337,
+        "bandwidth_gb_s": 21.07,
+        "gflops": 30.14,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.5779,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0157,
+        "std_ms": 0.0002,
+        "min_ms": 0.0151,
+        "max_ms": 0.0166,
+        "bandwidth_gb_s": 70.72,
+        "gflops": 101.18,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0263,
+        "std_ms": 0.0008,
+        "min_ms": 0.0249,
+        "max_ms": 0.0307,
+        "bandwidth_gb_s": 42.18,
+        "gflops": 60.36,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.597,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0184,
+        "std_ms": 0.0005,
+        "min_ms": 0.0178,
+        "max_ms": 0.0221,
+        "bandwidth_gb_s": 120.81,
+        "gflops": 172.85,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0271,
+        "std_ms": 0.0009,
+        "min_ms": 0.0255,
+        "max_ms": 0.0316,
+        "bandwidth_gb_s": 81.87,
+        "gflops": 117.13,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.679,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0232,
+        "std_ms": 0.0003,
+        "min_ms": 0.0227,
+        "max_ms": 0.0251,
+        "bandwidth_gb_s": 191.02,
+        "gflops": 273.32,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0302,
+        "std_ms": 0.0009,
+        "min_ms": 0.0288,
+        "max_ms": 0.0364,
+        "bandwidth_gb_s": 147.11,
+        "gflops": 210.48,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.7682,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk_softplus_sqrt",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "nvidia",
+        "mean_ms": 0.0339,
+        "std_ms": 0.0005,
+        "min_ms": 0.033,
+        "max_ms": 0.0374,
+        "bandwidth_gb_s": 262.0,
+        "gflops": 374.87,
+        "impl_source": "vllm._custom_ops.topk_hash_softplus_sqrt"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0388,
+        "std_ms": 0.0007,
+        "min_ms": 0.0372,
+        "max_ms": 0.042,
+        "bandwidth_gb_s": 228.68,
+        "gflops": 327.2,
+        "impl_source": "flaggems_vllm.topk_softplus_sqrt"
+      },
+      "speedup": 0.8737,
+      "verdict": "slower"
+    }
+  ]
+}

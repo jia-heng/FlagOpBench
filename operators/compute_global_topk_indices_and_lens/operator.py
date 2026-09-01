@@ -42,16 +42,17 @@ class ComputeGlobalTopkIndicesAndLensOperator(BaseOperator):
         """准备输入
 
         Args:
-            num_tokens: token数
-            num_reqs: request数
-            topk: top-k数
+            batch_size / num_reqs: request数
+            seqlen_q / seq_len: 每个request的序列长度
+            index_topk / topk: top-k数
             block_size: block大小
             max_blocks: 每个request最大block数
             valid_ratio: 有效索引比例 (0~1)
         """
-        num_tokens = params["num_tokens"]
-        num_reqs = params["num_reqs"]
-        topk = params.get("topk", 64)
+        num_reqs = params.get("batch_size") or params.get("num_reqs") or 1
+        seq_len = params.get("seqlen_q") or params.get("seq_len") or 512
+        num_tokens = num_reqs * seq_len
+        topk = params.get("index_topk") or params.get("topk", 64)
         block_size = params.get("block_size", 16)
         max_blocks = params.get("max_blocks", 128)
         valid_ratio = params.get("valid_ratio", 0.9)
@@ -111,8 +112,10 @@ class ComputeGlobalTopkIndicesAndLensOperator(BaseOperator):
           - 计算slot: 1 mul + 1 add
         近似: num_tokens * topk * 5
         """
-        num_tokens = params["num_tokens"]
-        topk = params.get("topk", 64)
+        num_reqs = params.get("batch_size") or params.get("num_reqs") or 1
+        seq_len = params.get("seqlen_q") or params.get("seq_len") or 512
+        num_tokens = num_reqs * seq_len
+        topk = params.get("index_topk") or params.get("topk", 64)
         return num_tokens * topk * 5
 
     def compute_bytes(self, **params):
@@ -127,9 +130,10 @@ class ComputeGlobalTopkIndicesAndLensOperator(BaseOperator):
           global_indices: num_tokens * topk * 4 (int32)
           lens: num_tokens * 4
         """
-        num_tokens = params["num_tokens"]
-        num_reqs = params["num_reqs"]
-        topk = params.get("topk", 64)
+        num_reqs = params.get("batch_size") or params.get("num_reqs") or 1
+        seq_len = params.get("seqlen_q") or params.get("seq_len") or 512
+        num_tokens = num_reqs * seq_len
+        topk = params.get("index_topk") or params.get("topk", 64)
         max_blocks = params.get("max_blocks", 128)
 
         read_bytes = (

@@ -1,0 +1,1940 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-31T08:25:01.991570",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 60
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0232,
+          "std_ms": 0.0029,
+          "min_ms": 0.0219,
+          "max_ms": 0.0454
+        },
+        "throughput": {
+          "gflops": 0.7,
+          "bandwidth_gb_s": 0.53
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 12288,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0228,
+          "std_ms": 0.0005,
+          "min_ms": 0.0219,
+          "max_ms": 0.0249
+        },
+        "throughput": {
+          "gflops": 5.75,
+          "bandwidth_gb_s": 4.31
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 98304,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0223,
+          "std_ms": 0.0009,
+          "min_ms": 0.0211,
+          "max_ms": 0.0271
+        },
+        "throughput": {
+          "gflops": 23.48,
+          "bandwidth_gb_s": 17.61
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 393216,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0219,
+          "std_ms": 0.0005,
+          "min_ms": 0.0213,
+          "max_ms": 0.0243
+        },
+        "throughput": {
+          "gflops": 47.83,
+          "bandwidth_gb_s": 35.87
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 786432,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0006,
+          "min_ms": 0.0215,
+          "max_ms": 0.0261
+        },
+        "throughput": {
+          "gflops": 94.72,
+          "bandwidth_gb_s": 71.04
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 1572864,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0004,
+          "min_ms": 0.0213,
+          "max_ms": 0.0236
+        },
+        "throughput": {
+          "gflops": 191.04,
+          "bandwidth_gb_s": 143.28
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 3145728,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0219,
+          "std_ms": 0.0006,
+          "min_ms": 0.0211,
+          "max_ms": 0.0244
+        },
+        "throughput": {
+          "gflops": 382.67,
+          "bandwidth_gb_s": 287.0
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 6291456,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0223,
+          "std_ms": 0.0005,
+          "min_ms": 0.0214,
+          "max_ms": 0.025
+        },
+        "throughput": {
+          "gflops": 750.98,
+          "bandwidth_gb_s": 563.23
+        },
+        "theory": {
+          "flops": 16777216,
+          "bytes": 12582912,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0275,
+          "std_ms": 0.0006,
+          "min_ms": 0.0268,
+          "max_ms": 0.0313
+        },
+        "throughput": {
+          "gflops": 1218.23,
+          "bandwidth_gb_s": 913.67
+        },
+        "theory": {
+          "flops": 33554432,
+          "bytes": 25165824,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0497,
+          "std_ms": 0.0004,
+          "min_ms": 0.0488,
+          "max_ms": 0.0507
+        },
+        "throughput": {
+          "gflops": 1349.41,
+          "bandwidth_gb_s": 1012.06
+        },
+        "theory": {
+          "flops": 67108864,
+          "bytes": 50331648,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0226,
+          "std_ms": 0.0008,
+          "min_ms": 0.0216,
+          "max_ms": 0.0275
+        },
+        "throughput": {
+          "gflops": 1.09,
+          "bandwidth_gb_s": 0.82
+        },
+        "theory": {
+          "flops": 24576,
+          "bytes": 18432,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0225,
+          "std_ms": 0.0006,
+          "min_ms": 0.0214,
+          "max_ms": 0.0249
+        },
+        "throughput": {
+          "gflops": 8.76,
+          "bandwidth_gb_s": 6.57
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 147456,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0011,
+          "min_ms": 0.021,
+          "max_ms": 0.0316
+        },
+        "throughput": {
+          "gflops": 35.73,
+          "bandwidth_gb_s": 26.8
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 589824,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0007,
+          "min_ms": 0.0212,
+          "max_ms": 0.0274
+        },
+        "throughput": {
+          "gflops": 71.28,
+          "bandwidth_gb_s": 53.46
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1179648,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0003,
+          "min_ms": 0.0213,
+          "max_ms": 0.0233
+        },
+        "throughput": {
+          "gflops": 142.67,
+          "bandwidth_gb_s": 107.0
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 2359296,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0006,
+          "min_ms": 0.0212,
+          "max_ms": 0.0271
+        },
+        "throughput": {
+          "gflops": 285.42,
+          "bandwidth_gb_s": 214.06
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 4718592,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0223,
+          "std_ms": 0.0005,
+          "min_ms": 0.0216,
+          "max_ms": 0.0258
+        },
+        "throughput": {
+          "gflops": 564.32,
+          "bandwidth_gb_s": 423.24
+        },
+        "theory": {
+          "flops": 12582912,
+          "bytes": 9437184,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0239,
+          "std_ms": 0.0017,
+          "min_ms": 0.0231,
+          "max_ms": 0.0368
+        },
+        "throughput": {
+          "gflops": 1053.51,
+          "bandwidth_gb_s": 790.13
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 18874368,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0394,
+          "std_ms": 0.0006,
+          "min_ms": 0.0382,
+          "max_ms": 0.0433
+        },
+        "throughput": {
+          "gflops": 1277.97,
+          "bandwidth_gb_s": 958.48
+        },
+        "theory": {
+          "flops": 50331648,
+          "bytes": 37748736,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0687,
+          "std_ms": 0.0007,
+          "min_ms": 0.0676,
+          "max_ms": 0.0722
+        },
+        "throughput": {
+          "gflops": 1464.99,
+          "bandwidth_gb_s": 1098.74
+        },
+        "theory": {
+          "flops": 100663296,
+          "bytes": 75497472,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "std_ms": 0.0007,
+          "min_ms": 0.0214,
+          "max_ms": 0.0281
+        },
+        "throughput": {
+          "gflops": 0.55,
+          "bandwidth_gb_s": 0.42
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 9216,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0004,
+          "min_ms": 0.0213,
+          "max_ms": 0.0237
+        },
+        "throughput": {
+          "gflops": 4.46,
+          "bandwidth_gb_s": 3.34
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 73728,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0006,
+          "min_ms": 0.0212,
+          "max_ms": 0.0265
+        },
+        "throughput": {
+          "gflops": 17.84,
+          "bandwidth_gb_s": 13.38
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 294912,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0007,
+          "min_ms": 0.0213,
+          "max_ms": 0.0271
+        },
+        "throughput": {
+          "gflops": 35.59,
+          "bandwidth_gb_s": 26.69
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 589824,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0219,
+          "std_ms": 0.0004,
+          "min_ms": 0.021,
+          "max_ms": 0.0233
+        },
+        "throughput": {
+          "gflops": 71.92,
+          "bandwidth_gb_s": 53.94
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1179648,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0219,
+          "std_ms": 0.0004,
+          "min_ms": 0.021,
+          "max_ms": 0.0245
+        },
+        "throughput": {
+          "gflops": 143.38,
+          "bandwidth_gb_s": 107.53
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 2359296,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0223,
+          "std_ms": 0.0007,
+          "min_ms": 0.0215,
+          "max_ms": 0.0268
+        },
+        "throughput": {
+          "gflops": 282.63,
+          "bandwidth_gb_s": 211.97
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 4718592,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "std_ms": 0.0005,
+          "min_ms": 0.0217,
+          "max_ms": 0.0257
+        },
+        "throughput": {
+          "gflops": 562.97,
+          "bandwidth_gb_s": 422.23
+        },
+        "theory": {
+          "flops": 12582912,
+          "bytes": 9437184,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0235,
+          "std_ms": 0.0003,
+          "min_ms": 0.0231,
+          "max_ms": 0.0245
+        },
+        "throughput": {
+          "gflops": 1070.41,
+          "bandwidth_gb_s": 802.81
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 18874368,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0391,
+          "std_ms": 0.0004,
+          "min_ms": 0.038,
+          "max_ms": 0.0403
+        },
+        "throughput": {
+          "gflops": 1288.46,
+          "bandwidth_gb_s": 966.35
+        },
+        "theory": {
+          "flops": 50331648,
+          "bytes": 37748736,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0219,
+          "std_ms": 0.0006,
+          "min_ms": 0.0211,
+          "max_ms": 0.0266
+        },
+        "throughput": {
+          "gflops": 2.24,
+          "bandwidth_gb_s": 1.68
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 36864,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0009,
+          "min_ms": 0.0212,
+          "max_ms": 0.0302
+        },
+        "throughput": {
+          "gflops": 17.88,
+          "bandwidth_gb_s": 13.41
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 294912,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0218,
+          "std_ms": 0.0005,
+          "min_ms": 0.021,
+          "max_ms": 0.0251
+        },
+        "throughput": {
+          "gflops": 72.09,
+          "bandwidth_gb_s": 54.07
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1179648,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0005,
+          "min_ms": 0.0211,
+          "max_ms": 0.0258
+        },
+        "throughput": {
+          "gflops": 143.27,
+          "bandwidth_gb_s": 107.45
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 2359296,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "std_ms": 0.0004,
+          "min_ms": 0.0214,
+          "max_ms": 0.024
+        },
+        "throughput": {
+          "gflops": 283.59,
+          "bandwidth_gb_s": 212.69
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 4718592,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "std_ms": 0.0004,
+          "min_ms": 0.0212,
+          "max_ms": 0.0244
+        },
+        "throughput": {
+          "gflops": 567.55,
+          "bandwidth_gb_s": 425.66
+        },
+        "theory": {
+          "flops": 12582912,
+          "bytes": 9437184,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0243,
+          "std_ms": 0.0004,
+          "min_ms": 0.0236,
+          "max_ms": 0.0271
+        },
+        "throughput": {
+          "gflops": 1036.76,
+          "bandwidth_gb_s": 777.57
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 18874368,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0415,
+          "std_ms": 0.0004,
+          "min_ms": 0.0408,
+          "max_ms": 0.0429
+        },
+        "throughput": {
+          "gflops": 1211.82,
+          "bandwidth_gb_s": 908.86
+        },
+        "theory": {
+          "flops": 50331648,
+          "bytes": 37748736,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0742,
+          "std_ms": 0.0007,
+          "min_ms": 0.0723,
+          "max_ms": 0.0777
+        },
+        "throughput": {
+          "gflops": 1357.41,
+          "bandwidth_gb_s": 1018.06
+        },
+        "theory": {
+          "flops": 100663296,
+          "bytes": 75497472,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.5_9b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1364,
+          "std_ms": 0.0007,
+          "min_ms": 0.1349,
+          "max_ms": 0.1395
+        },
+        "throughput": {
+          "gflops": 1475.55,
+          "bandwidth_gb_s": 1106.67
+        },
+        "theory": {
+          "flops": 201326592,
+          "bytes": 150994944,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "std_ms": 0.0006,
+          "min_ms": 0.0214,
+          "max_ms": 0.0258
+        },
+        "throughput": {
+          "gflops": 3.1,
+          "bandwidth_gb_s": 2.33
+        },
+        "theory": {
+          "flops": 69632,
+          "bytes": 52224,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0004,
+          "min_ms": 0.0212,
+          "max_ms": 0.0244
+        },
+        "throughput": {
+          "gflops": 25.33,
+          "bandwidth_gb_s": 19.0
+        },
+        "theory": {
+          "flops": 557056,
+          "bytes": 417792,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0219,
+          "std_ms": 0.0007,
+          "min_ms": 0.0211,
+          "max_ms": 0.0266
+        },
+        "throughput": {
+          "gflops": 101.92,
+          "bandwidth_gb_s": 76.44
+        },
+        "theory": {
+          "flops": 2228224,
+          "bytes": 1671168,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0004,
+          "min_ms": 0.0212,
+          "max_ms": 0.0243
+        },
+        "throughput": {
+          "gflops": 202.71,
+          "bandwidth_gb_s": 152.03
+        },
+        "theory": {
+          "flops": 4456448,
+          "bytes": 3342336,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0227,
+          "std_ms": 0.0007,
+          "min_ms": 0.0218,
+          "max_ms": 0.0283
+        },
+        "throughput": {
+          "gflops": 393.19,
+          "bandwidth_gb_s": 294.89
+        },
+        "theory": {
+          "flops": 8912896,
+          "bytes": 6684672,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0237,
+          "std_ms": 0.0006,
+          "min_ms": 0.023,
+          "max_ms": 0.0287
+        },
+        "throughput": {
+          "gflops": 753.4,
+          "bandwidth_gb_s": 565.05
+        },
+        "theory": {
+          "flops": 17825792,
+          "bytes": 13369344,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0317,
+          "std_ms": 0.0004,
+          "min_ms": 0.0309,
+          "max_ms": 0.0332
+        },
+        "throughput": {
+          "gflops": 1124.45,
+          "bandwidth_gb_s": 843.33
+        },
+        "theory": {
+          "flops": 35651584,
+          "bytes": 26738688,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0582,
+          "std_ms": 0.0005,
+          "min_ms": 0.0574,
+          "max_ms": 0.0594
+        },
+        "throughput": {
+          "gflops": 1225.12,
+          "bandwidth_gb_s": 918.84
+        },
+        "theory": {
+          "flops": 71303168,
+          "bytes": 53477376,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1048,
+          "std_ms": 0.0011,
+          "min_ms": 0.1033,
+          "max_ms": 0.111
+        },
+        "throughput": {
+          "gflops": 1360.59,
+          "bandwidth_gb_s": 1020.44
+        },
+        "theory": {
+          "flops": 142606336,
+          "bytes": 106954752,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_27b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1969,
+          "std_ms": 0.0007,
+          "min_ms": 0.1952,
+          "max_ms": 0.1993
+        },
+        "throughput": {
+          "gflops": 1448.42,
+          "bandwidth_gb_s": 1086.32
+        },
+        "theory": {
+          "flops": 285212672,
+          "bytes": 213909504,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0009,
+          "min_ms": 0.0209,
+          "max_ms": 0.0268
+        },
+        "throughput": {
+          "gflops": 0.19,
+          "bandwidth_gb_s": 0.14
+        },
+        "theory": {
+          "flops": 4096,
+          "bytes": 3072,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0007,
+          "min_ms": 0.021,
+          "max_ms": 0.0278
+        },
+        "throughput": {
+          "gflops": 1.48,
+          "bandwidth_gb_s": 1.11
+        },
+        "theory": {
+          "flops": 32768,
+          "bytes": 24576,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0004,
+          "min_ms": 0.0214,
+          "max_ms": 0.025
+        },
+        "throughput": {
+          "gflops": 5.94,
+          "bandwidth_gb_s": 4.46
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 98304,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0013,
+          "min_ms": 0.0211,
+          "max_ms": 0.0313
+        },
+        "throughput": {
+          "gflops": 11.87,
+          "bandwidth_gb_s": 8.9
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 196608,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0218,
+          "std_ms": 0.0005,
+          "min_ms": 0.0212,
+          "max_ms": 0.0252
+        },
+        "throughput": {
+          "gflops": 24.03,
+          "bandwidth_gb_s": 18.03
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 393216,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0006,
+          "min_ms": 0.0213,
+          "max_ms": 0.0263
+        },
+        "throughput": {
+          "gflops": 47.34,
+          "bandwidth_gb_s": 35.51
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 786432,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0218,
+          "std_ms": 0.0005,
+          "min_ms": 0.0211,
+          "max_ms": 0.026
+        },
+        "throughput": {
+          "gflops": 96.17,
+          "bandwidth_gb_s": 72.13
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 1572864,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0221,
+          "std_ms": 0.0004,
+          "min_ms": 0.0212,
+          "max_ms": 0.0232
+        },
+        "throughput": {
+          "gflops": 190.0,
+          "bandwidth_gb_s": 142.5
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 3145728,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0218,
+          "std_ms": 0.0006,
+          "min_ms": 0.0209,
+          "max_ms": 0.0255
+        },
+        "throughput": {
+          "gflops": 384.09,
+          "bandwidth_gb_s": 288.07
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 6291456,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "silu_and_mul_with_clamp",
+      "definition": "silu_and_mul_with_clamp",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0224,
+          "std_ms": 0.0006,
+          "min_ms": 0.0203,
+          "max_ms": 0.0256
+        },
+        "throughput": {
+          "gflops": 749.95,
+          "bandwidth_gb_s": 562.46
+        },
+        "theory": {
+          "flops": 16777216,
+          "bytes": 12582912,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.silu_and_mul_with_clamp (adapted)",
+        "type": "cuda"
+      }
+    }
+  ]
+}

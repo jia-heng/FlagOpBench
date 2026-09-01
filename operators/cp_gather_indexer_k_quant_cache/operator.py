@@ -5,19 +5,19 @@ Context-Parallel场景下，将gather到的k_fp8数据写入paged k_cache中。
 
 签名:
     cp_gather_indexer_k_quant_cache(
-        k_cache, k_fp8, k_fp8_scale, block_table, cu_seqlen
-    ) -> None (in-place写k_cache)
+        kv_cache, dst_k, dst_scale, block_table, cu_seq_lens
+    ) -> None (in-place写kv_cache)
 
 输入:
-    k_cache: (num_blocks, block_size, ...) uint8  — paged KV cache
+    kv_cache: (num_blocks, block_size, ...) uint8  — paged KV cache
              Layout: [block_size * head_dim bytes data | scales (fp32)]
-    k_fp8: (num_tokens, head_dim) float8_e4m3fn   — FP8量化后的K
-    k_fp8_scale: (num_tokens, num_quant_blocks) fp32 — 每quant block的scale
+    dst_k: (num_tokens, head_dim) float8_e4m3fn   — FP8量化后的K
+    dst_scale: (num_tokens, num_quant_blocks) fp32 — 每quant block的scale
     block_table: (batch_size, max_blocks_per_seq) int32 — page table
-    cu_seqlen: (batch_size + 1,) int32            — cumulative sequence lengths
+    cu_seq_lens: (batch_size + 1,) int32            — cumulative sequence lengths
 
 输出:
-    in-place修改k_cache
+    in-place修改kv_cache
 """
 import torch
 
@@ -42,14 +42,14 @@ class CpGatherIndexerKQuantCacheOperator(BaseOperator):
         Args:
             num_tokens: token总数
             batch_size: batch大小
-            head_dim: K head维度
+            index_head_dim / head_dim: K head维度
             block_size: cache block大小
             quant_block_size: 量化block大小
             max_seq_len: 最大序列长度(用于分配block_table)
         """
         num_tokens = params["num_tokens"]
         batch_size = params.get("batch_size", 4)
-        head_dim = params.get("head_dim", 576)
+        head_dim = params.get("index_head_dim") or params.get("head_dim", 576)
         block_size = params.get("block_size", 16)
         quant_block_size = params.get("quant_block_size", 64)
         max_seq_len = params.get("max_seq_len", 2048)
@@ -112,11 +112,11 @@ class CpGatherIndexerKQuantCacheOperator(BaseOperator):
         cu_seqlen[-1] = num_tokens  # 确保总和正确
 
         return {
-            "k_cache": k_cache,
-            "k_fp8": k_fp8,
-            "k_fp8_scale": k_fp8_scale,
+            "kv_cache": k_cache,
+            "dst_k": k_fp8,
+            "dst_scale": k_fp8_scale,
             "block_table": block_table,
-            "cu_seqlen": cu_seqlen,
+            "cu_seq_lens": cu_seqlen,
         }
 
     def compute_flops(self, **params):
@@ -131,7 +131,7 @@ class CpGatherIndexerKQuantCacheOperator(BaseOperator):
         """
         num_tokens = params["num_tokens"]
         batch_size = params.get("batch_size", 4)
-        head_dim = params.get("head_dim", 576)
+        head_dim = params.get("index_head_dim") or params.get("head_dim", 576)
         quant_block_size = params.get("quant_block_size", 64)
 
         num_quant_blocks = head_dim // quant_block_size

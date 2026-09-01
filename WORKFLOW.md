@@ -1256,3 +1256,8 @@ print(f"Speedup:  {comp['speedup']:.3f}x ({comp['verdict']})")
 | grouped_topk | ✅ | ✅ | ✅ | ✅ | **vllm 快** (0.28x geo-mean)，0快/50慢/0平。Triton vs CUDA，vllm 快 ~3.5x。routing 算子计算量小，CUDA launch 开销优势大 |
 | fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert | ✅ | ✅ | ✅ | ✅ | **vllm 快** (0.66x geo-mean)，0快/58慢/12平。decode 0.50x，prefill 大batch 收敛至~1.0x。Triton 单 kernel vs CUDA 单 kernel，小 batch 固定开销差距明显 |
 | flash_mla_with_kvcache | ✅ | ✅ | ✅ | ✅ | **vllm 快** (0.56x geo-mean)，0快/49慢/0平。小batch(b1-b8) 0.22-0.37x，大batch(b64-b128) 0.80-0.87x。flagos 有 ~0.25ms 固定底噪，vLLM 小 batch 能到 0.05ms |
+| pack_seq_triton | ✅ | ✅ | ✅ | ✅ | **vllm 快** (0.94x avg)，1快/28慢/1平。Triton vs Triton，性能持平但 flagos 略慢 ~5-10%，30 个 workload 基本在 0.052-0.061ms 范围 |
+| unpack_seq_triton | ✅ | ✅ | ✅ | ✅ | **vllm 快** (0.94x avg)，0快/20慢/10平。Triton vs Triton，与 pack_seq 类似，flagos 慢 ~5-6%，时间范围 0.058-0.064ms |
+| silu_and_mul_with_clamp | ✅ | ✅ | ✅ | ✅ | **vllm 快** (0.21x avg)，0快/60慢/0平。**Triton vs CUDA**，flagos 慢 **4-6倍**。decode ~0.17x，prefill 随规模增大至 0.54x。vllm 0.022-0.197ms，flagos 0.126-0.364ms。**严重性能问题**，推测 pointwise_dynamic wrapper 开销大 |
+| topk_softplus_sqrt | ✅ | ✅ | ✅ | ✅ | **vllm 快** (0.57x avg)，0快/60慢/0平。Triton vs CUDA，decode 0.53x，prefill 0.63x。vllm 0.013-0.034ms，flagos 0.025-0.039ms，固定底噪差 ~0.012ms。大 prefill 收敛至 0.87x |
+| top_k_per_row_prefill | ✅ | ✅ | ✅ | ✅ | **vllm 快** (0.64x avg)，0快/69慢/1平。Triton vs CUDA，decode(1-64) 0.52-0.55x，prefill 随 num_tokens 增大收敛至 0.91x(4096)。num_experts 影响不大(0.60-0.65x)。小 batch 固定开销差距明显 |

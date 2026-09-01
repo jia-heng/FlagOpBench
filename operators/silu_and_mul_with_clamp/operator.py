@@ -35,13 +35,20 @@ class SiluAndMulWithClampOperator(BaseOperator):
     def prepare_inputs(self, **params):
         """准备输入
 
-        Args:
+        Args (casegen):
+            num_tokens: token数量
+            N: hidden_size（FFN intermediate维度）
+            dtype: 数据类型
+            limit: clamp范围（可选）
+
+        Args (direct):
             M: 第一维大小（tokens数）
             N: 第二维大小（hidden_size）
             limit: clamp范围 [-limit, limit]
             dtype: 数据类型
         """
-        M = params["M"]
+        # 参数映射：支持 num_tokens 或 M
+        M = params.get("num_tokens") or params.get("M")
         N = params["N"]
         limit = params.get("limit", 10.0)
         dtype = self.get_dtype(params.get("dtype", "bfloat16"))
@@ -65,7 +72,7 @@ class SiluAndMulWithClampOperator(BaseOperator):
           - clamp: 2 comparisons
         总: M * N * 8
         """
-        M = params["M"]
+        M = params.get("num_tokens") or params.get("M")
         N = params["N"]
         return M * N * 8
 
@@ -79,7 +86,7 @@ class SiluAndMulWithClampOperator(BaseOperator):
           out: M * N (dtype)
         总: 3 * M * N * elem_bytes
         """
-        M = params["M"]
+        M = params.get("num_tokens") or params.get("M")
         N = params["N"]
         elem_bytes = self.dtype_bytes(params.get("dtype", "bfloat16"))
 

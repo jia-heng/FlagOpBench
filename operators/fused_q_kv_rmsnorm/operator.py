@@ -38,19 +38,32 @@ class FusedQKvRmsnormOperator(BaseOperator):
     def prepare_inputs(self, **params):
         """准备输入
 
-        Args:
-            num_tokens: token数
-            q_size: Q latent维度
-            kv_size: KV latent维度
-            eps: RMSNorm epsilon
-            dtype: 数据类型
+        支持两种参数格式:
+          1. 直接: q_size, kv_size
+          2. casegen: num_heads, head_dim, q_lora_rank, kv_lora_rank
+             -> q_size = q_lora_rank or num_heads * head_dim
+             -> kv_size = kv_lora_rank or head_dim (V4-style latent)
         """
         num_tokens = params["num_tokens"]
-        q_size = params.get("q_size", 24576)   # num_heads * head_dim = 128*192
-        kv_size = params.get("kv_size", 512)   # MLA KV latent dim
         eps = params.get("eps", 1e-6)
         dtype_str = params.get("dtype", "bf16")
         dtype = self.get_dtype(dtype_str)
+
+        # Derive q_size / kv_size from casegen params
+        if "q_size" in params:
+            q_size = params["q_size"]
+        elif "q_lora_rank" in params:
+            q_size = params["q_lora_rank"]
+        else:
+            q_size = params.get("num_heads", 128) * params.get("head_dim", 192)
+
+        if "kv_size" in params:
+            kv_size = params["kv_size"]
+        elif "kv_lora_rank" in params:
+            kv_size = params["kv_lora_rank"]
+        else:
+            # V4-style: no explicit kv_lora_rank, use head_dim as latent dim
+            kv_size = params.get("head_dim", 512)
 
         qr = torch.randn(num_tokens, q_size, dtype=dtype, device="cuda")
         kv = torch.randn(num_tokens, kv_size, dtype=dtype, device="cuda")
@@ -65,6 +78,23 @@ class FusedQKvRmsnormOperator(BaseOperator):
             "eps": eps,
         }
 
+    def _resolve_sizes(self, params):
+        """Resolve q_size and kv_size from params."""
+        if "q_size" in params:
+            q_size = params["q_size"]
+        elif "q_lora_rank" in params:
+            q_size = params["q_lora_rank"]
+        else:
+            q_size = params.get("num_heads", 128) * params.get("head_dim", 192)
+
+        if "kv_size" in params:
+            kv_size = params["kv_size"]
+        elif "kv_lora_rank" in params:
+            kv_size = params["kv_lora_rank"]
+        else:
+            kv_size = params.get("head_dim", 512)
+        return q_size, kv_size
+
     def compute_flops(self, **params):
         """理论FLOPs
 
@@ -78,8 +108,7 @@ class FusedQKvRmsnormOperator(BaseOperator):
         Total: num_tokens * (4*q_size + 4*kv_size)
         """
         num_tokens = params["num_tokens"]
-        q_size = params.get("q_size", 24576)
-        kv_size = params.get("kv_size", 512)
+        q_size, kv_size = self._resolve_sizes(params)
 
         return num_tokens * 4 * (q_size + kv_size)
 
@@ -96,8 +125,7 @@ class FusedQKvRmsnormOperator(BaseOperator):
           kv_out: num_tokens * kv_size * elem_bytes
         """
         num_tokens = params["num_tokens"]
-        q_size = params.get("q_size", 24576)
-        kv_size = params.get("kv_size", 512)
+        q_size, kv_size = self._resolve_sizes(params)
         dtype_str = params.get("dtype", "bf16")
         elem_bytes = self.dtype_bytes(dtype_str)
 

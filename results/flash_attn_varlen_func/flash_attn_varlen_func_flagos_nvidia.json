@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-31T03:30:16.596108",
+    "provider": "flagos",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 2
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.257,
+          "std_ms": 0.0044,
+          "min_ms": 0.2513,
+          "max_ms": 0.2816
+        },
+        "throughput": {
+          "gflops": 391.68,
+          "bandwidth_gb_s": 1567.49
+        },
+        "theory": {
+          "flops": 100663296,
+          "bytes": 402849792,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_attn_varlen_func",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.8205,
+          "std_ms": 0.0089,
+          "min_ms": 3.8108,
+          "max_ms": 3.886
+        },
+        "throughput": {
+          "gflops": 843.14,
+          "bandwidth_gb_s": 3374.21
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 12891193344,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_attn_varlen_func",
+        "type": "triton"
+      }
+    }
+  ]
+}

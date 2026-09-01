@@ -126,7 +126,6 @@ class NvidiaProvider(BaseProvider):
             # === 需要适配器（4个）===
             "swiglu": (self._load_swiglu, True),
             "silu_and_mul_with_clamp": (self._load_silu_and_mul_with_clamp, True),
-            "flash_mla_with_kvcache_fp8": (self._load_flash_mla_with_kvcache_fp8, True),
             "grouped_topk": (self._load_grouped_topk, True),
 
             # === torch 原生对应（1个）===
@@ -137,8 +136,9 @@ class NvidiaProvider(BaseProvider):
             "chunk_gated_delta_rule_flag_attn": (self._load_chunk_gated_delta_rule, True),
             "chunk_gated_delta_rule_flag_gems": (self._load_chunk_gated_delta_rule, True),
 
-            # === vLLM 无对应（1个）===
+            # === vLLM 无对应（2个）===
             "flash_mla": (None, False),  # Prefill MLA，vLLM无单算子等价
+            "flash_mla_with_kvcache_fp8": (None, False),  # Sparse FP8 MLA，vLLM的fp8变体不支持sparse+bf16_q
         }
 
         if op_name not in impl_map:
@@ -318,11 +318,17 @@ class NvidiaProvider(BaseProvider):
     # ============================================================
 
     def _load_indexer_k_quant_and_cache(self):
-        """位置参数一致 (仅参数名差异: scale_fmt vs kv_cache_dtype)"""
+        """参数名转换: scale_fmt -> kv_cache_dtype"""
         if self._vllm_ops is None:
             return None, {}
-        return self._vllm_ops.indexer_k_quant_and_cache, {
-            "source": "vllm._custom_ops.indexer_k_quant_and_cache",
+
+        vllm_fn = self._vllm_ops.indexer_k_quant_and_cache
+
+        def wrapper(k, kv_cache, slot_mapping, quant_block_size, scale_fmt):
+            return vllm_fn(k, kv_cache, slot_mapping, quant_block_size, kv_cache_dtype=scale_fmt)
+
+        return wrapper, {
+            "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
             "type": "cuda"
         }
 

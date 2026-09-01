@@ -33,7 +33,10 @@ class FlashAttnVarlenFuncOperator(BaseOperator):
         seqlen_q = params.get("seqlen_q", 1024)
         seqlen_k = params.get("seqlen_k", 1024)
         causal = params.get("causal", True)
-        dtype = getattr(torch, params.get("dtype", "bfloat16"))
+        dtype_str = params.get("dtype", "bfloat16")
+        # casegen uses short names like "bf16" / "fp16", map to torch dtype names
+        _dtype_map = {"bf16": "bfloat16", "fp16": "float16", "fp32": "float32"}
+        dtype = getattr(torch, _dtype_map.get(dtype_str, dtype_str))
 
         # Total tokens
         total_q = batch_size * seqlen_q
@@ -93,7 +96,7 @@ class FlashAttnVarlenFuncOperator(BaseOperator):
         seqlen_k = params.get("seqlen_k", 1024)
         dtype = params.get("dtype", "bfloat16")
 
-        bytes_per_elem = 2 if dtype in ["float16", "bfloat16"] else 4
+        bytes_per_elem = 2 if dtype in ["float16", "bfloat16", "fp16", "bf16"] else 4
 
         total_q = batch_size * seqlen_q
         total_k = batch_size * seqlen_k
