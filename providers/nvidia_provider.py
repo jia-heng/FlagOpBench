@@ -118,6 +118,7 @@ class NvidiaProvider(BaseProvider):
             "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert": (self._load_fused_deepseek_v4, False),
             "flash_mla_with_kvcache": (self._load_flash_mla_with_kvcache, False),
             "topk_softplus_sqrt": (self._load_topk_softplus_sqrt, False),
+            "topk": (self._load_topk, False),
             "fused_moe": (self._load_fused_moe, False),
             "indexer_k_quant_and_cache": (self._load_indexer_k_quant_and_cache, False),
             "cp_gather_indexer_k_quant_cache": (self._load_cp_gather_indexer, False),
@@ -301,6 +302,19 @@ class NvidiaProvider(BaseProvider):
             "source": "vllm._custom_ops.topk_hash_softplus_sqrt",
             "type": "cuda",
             "note": "vLLM function name: topk_hash_softplus_sqrt"
+        }
+
+    def _load_topk(self):
+        """torch.topk baseline - wrapper to adapt x -> input parameter name"""
+        import torch
+
+        def wrapper(x, k, dim=-1, largest=True, sorted=True):
+            # flag_gems uses 'x', torch.topk expects 'input' as first positional arg
+            return torch.topk(x, k, dim=dim, largest=largest, sorted=sorted)
+
+        return wrapper, {
+            "source": "torch.topk (adapted)",
+            "type": "native"
         }
 
     def _load_flash_attn_varlen_func(self):

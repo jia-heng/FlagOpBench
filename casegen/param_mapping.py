@@ -232,6 +232,22 @@ def _rule_causal_conv1d(model: ModelParams) -> dict:
     }
 
 
+def _rule_topk(model: ModelParams) -> dict:
+    """TopK 算子: 通用 top-k 选择
+
+    典型用例: token 采样从 vocab_size 维度选择 top-k
+    参数:
+        N: 选择维度大小（类似 vocab_size，固定为 128000）
+        k: 选择的元素数量（固定为 50，典型采样值）
+        dtype: 数据类型
+    """
+    return {
+        "N": 128000,  # 类似 vocab_size 的典型值
+        "k": 50,      # top-50 采样
+        "dtype": model.dtype_short,
+    }
+
+
 def _rule_generic(model: ModelParams) -> dict:
     """通用 fallback: 只输出 dtype"""
     return {
@@ -254,6 +270,7 @@ CONST_AXES_RULES: dict[str, Callable[[ModelParams], dict]] = {
     "grouped_topk": _rule_grouped_topk,
     "topk_softplus_sqrt": _rule_topk_softplus_sqrt,
     "top_k_per_row": _rule_top_k_per_row,
+    "topk": _rule_topk,
     "mhc": _rule_mhc,
     "sparse_attn": _rule_sparse_attn,
     "pack_unpack_seq": _rule_pack_unpack_seq,
