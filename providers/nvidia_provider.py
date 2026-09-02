@@ -132,6 +132,13 @@ class NvidiaProvider(BaseProvider):
             # === torch 原生对应（1个）===
             "group_gemm": (self._load_group_gemm, False),
 
+            # === 逐元素算子 (torch 原生 baseline) ===
+            "add": (self._load_add, False),
+            "sub": (self._load_sub, False),
+            "cat": (self._load_cat, False),
+            "fill_scalar": (self._load_fill_scalar, False),
+            "mm": (self._load_mm, False),
+
             # === GDN 三方对比 (共用同一个 vLLM baseline) ===
             "chunk_gated_delta_rule_flaggems_vllm": (self._load_chunk_gated_delta_rule, True),
             "chunk_gated_delta_rule_flag_attn": (self._load_chunk_gated_delta_rule, True),
@@ -476,6 +483,55 @@ class NvidiaProvider(BaseProvider):
         return wrapper, {
             "source": "torch._grouped_mm (CUTLASS)",
             "type": "cutlass"
+        }
+
+    def _load_add(self):
+        """torch.add — baseline for element-wise add"""
+        def wrapper(A, B, *, alpha=1):
+            return torch.add(A, B, alpha=alpha)
+        return wrapper, {
+            "source": "torch.add (adapted)",
+            "type": "native"
+        }
+
+    def _load_sub(self):
+        """torch.sub — baseline for element-wise sub"""
+        def wrapper(A, B, *, alpha=1):
+            return torch.sub(A, B, alpha=alpha)
+        return wrapper, {
+            "source": "torch.sub (adapted)",
+            "type": "native"
+        }
+
+    def _load_cat(self):
+        """torch.cat — baseline for tensor concatenation"""
+        def wrapper(A, dim=0):
+            return torch.cat(A, dim=dim)
+        return wrapper, {
+            "source": "torch.cat (adapted)",
+            "type": "native"
+        }
+
+    def _load_fill_scalar(self):
+        """torch.Tensor.fill_ — baseline for scalar fill"""
+        def wrapper(input, value):
+            # flag_gems.fill_scalar returns filled tensor
+            # torch.Tensor.fill_ is in-place; clone to match flag_gems semantics
+            output = input.clone()
+            output.fill_(value)
+            return output
+        return wrapper, {
+            "source": "torch.Tensor.fill_ (adapted)",
+            "type": "native"
+        }
+
+    def _load_mm(self):
+        """torch.mm — baseline for matrix multiplication"""
+        def wrapper(a, b):
+            return torch.mm(a, b)
+        return wrapper, {
+            "source": "torch.mm (adapted)",
+            "type": "native"
         }
 
     def _load_chunk_gated_delta_rule(self):

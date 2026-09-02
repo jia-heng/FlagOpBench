@@ -1,0 +1,2000 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-02T12:32:00.998458",
+    "provider": "flagos",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 60
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0077,
+          "std_ms": 0.0273,
+          "min_ms": 0.0047,
+          "max_ms": 0.2776
+        },
+        "throughput": {
+          "gflops": 0.93,
+          "bandwidth_gb_s": 5.59
+        },
+        "theory": {
+          "flops": 7168,
+          "bytes": 43008,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0218,
+          "std_ms": 0.0397,
+          "min_ms": 0.0047,
+          "max_ms": 0.2891
+        },
+        "throughput": {
+          "gflops": 2.63,
+          "bandwidth_gb_s": 15.77
+        },
+        "theory": {
+          "flops": 57344,
+          "bytes": 344064,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0077,
+          "std_ms": 0.0259,
+          "min_ms": 0.0051,
+          "max_ms": 0.2637
+        },
+        "throughput": {
+          "gflops": 29.68,
+          "bandwidth_gb_s": 178.09
+        },
+        "theory": {
+          "flops": 229376,
+          "bytes": 1376256,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0082,
+          "std_ms": 0.0269,
+          "min_ms": 0.0052,
+          "max_ms": 0.2745
+        },
+        "throughput": {
+          "gflops": 55.7,
+          "bandwidth_gb_s": 334.21
+        },
+        "theory": {
+          "flops": 458752,
+          "bytes": 2752512,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.01,
+          "std_ms": 0.0324,
+          "min_ms": 0.0058,
+          "max_ms": 0.3194
+        },
+        "throughput": {
+          "gflops": 91.71,
+          "bandwidth_gb_s": 550.27
+        },
+        "theory": {
+          "flops": 917504,
+          "bytes": 5505024,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0071,
+          "std_ms": 0.0001,
+          "min_ms": 0.007,
+          "max_ms": 0.0075
+        },
+        "throughput": {
+          "gflops": 256.84,
+          "bandwidth_gb_s": 1541.02
+        },
+        "theory": {
+          "flops": 1835008,
+          "bytes": 11010048,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0102,
+          "std_ms": 0.0003,
+          "min_ms": 0.0092,
+          "max_ms": 0.011
+        },
+        "throughput": {
+          "gflops": 360.2,
+          "bandwidth_gb_s": 2161.21
+        },
+        "theory": {
+          "flops": 3670016,
+          "bytes": 22020096,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0199,
+          "std_ms": 0.0087,
+          "min_ms": 0.0179,
+          "max_ms": 0.0817
+        },
+        "throughput": {
+          "gflops": 369.59,
+          "bandwidth_gb_s": 2217.55
+        },
+        "theory": {
+          "flops": 7340032,
+          "bytes": 44040192,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0355,
+          "std_ms": 0.0332,
+          "min_ms": 0.0309,
+          "max_ms": 0.3582
+        },
+        "throughput": {
+          "gflops": 413.63,
+          "bandwidth_gb_s": 2481.75
+        },
+        "theory": {
+          "flops": 14680064,
+          "bytes": 88080384,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 7168,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0576,
+          "std_ms": 0.0003,
+          "min_ms": 0.0572,
+          "max_ms": 0.0582
+        },
+        "throughput": {
+          "gflops": 509.83,
+          "bandwidth_gb_s": 3058.96
+        },
+        "theory": {
+          "flops": 29360128,
+          "bytes": 176160768,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.005,
+          "std_ms": 0.0002,
+          "min_ms": 0.0047,
+          "max_ms": 0.0055
+        },
+        "throughput": {
+          "gflops": 0.83,
+          "bandwidth_gb_s": 4.96
+        },
+        "theory": {
+          "flops": 4096,
+          "bytes": 24576,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0049,
+          "std_ms": 0.0001,
+          "min_ms": 0.0047,
+          "max_ms": 0.0052
+        },
+        "throughput": {
+          "gflops": 6.64,
+          "bandwidth_gb_s": 39.82
+        },
+        "theory": {
+          "flops": 32768,
+          "bytes": 196608,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.005,
+          "std_ms": 0.0001,
+          "min_ms": 0.0049,
+          "max_ms": 0.0053
+        },
+        "throughput": {
+          "gflops": 26.21,
+          "bandwidth_gb_s": 157.24
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 786432,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0053,
+          "std_ms": 0.0002,
+          "min_ms": 0.0051,
+          "max_ms": 0.0057
+        },
+        "throughput": {
+          "gflops": 49.67,
+          "bandwidth_gb_s": 298.02
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 1572864,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0055,
+          "std_ms": 0.0001,
+          "min_ms": 0.0054,
+          "max_ms": 0.006
+        },
+        "throughput": {
+          "gflops": 94.72,
+          "bandwidth_gb_s": 568.3
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 3145728,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0062,
+          "std_ms": 0.0001,
+          "min_ms": 0.006,
+          "max_ms": 0.0064
+        },
+        "throughput": {
+          "gflops": 169.16,
+          "bandwidth_gb_s": 1014.96
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 6291456,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0076,
+          "std_ms": 0.0001,
+          "min_ms": 0.0074,
+          "max_ms": 0.0081
+        },
+        "throughput": {
+          "gflops": 275.36,
+          "bandwidth_gb_s": 1652.17
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 12582912,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0137,
+          "std_ms": 0.0002,
+          "min_ms": 0.0134,
+          "max_ms": 0.0146
+        },
+        "throughput": {
+          "gflops": 306.62,
+          "bandwidth_gb_s": 1839.74
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 25165824,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "std_ms": 0.0002,
+          "min_ms": 0.0219,
+          "max_ms": 0.0228
+        },
+        "throughput": {
+          "gflops": 377.45,
+          "bandwidth_gb_s": 2264.68
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 50331648,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 4096,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0377,
+          "std_ms": 0.0004,
+          "min_ms": 0.0372,
+          "max_ms": 0.0384
+        },
+        "throughput": {
+          "gflops": 445.38,
+          "bandwidth_gb_s": 2672.26
+        },
+        "theory": {
+          "flops": 16777216,
+          "bytes": 100663296,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0053,
+          "std_ms": 0.0001,
+          "min_ms": 0.0051,
+          "max_ms": 0.0054
+        },
+        "throughput": {
+          "gflops": 0.39,
+          "bandwidth_gb_s": 2.34
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 12288,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0049,
+          "std_ms": 0.0001,
+          "min_ms": 0.0047,
+          "max_ms": 0.0051
+        },
+        "throughput": {
+          "gflops": 3.35,
+          "bandwidth_gb_s": 20.12
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 98304,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0049,
+          "std_ms": 0.0001,
+          "min_ms": 0.0049,
+          "max_ms": 0.0051
+        },
+        "throughput": {
+          "gflops": 13.31,
+          "bandwidth_gb_s": 79.84
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 393216,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0051,
+          "std_ms": 0.0002,
+          "min_ms": 0.0048,
+          "max_ms": 0.0055
+        },
+        "throughput": {
+          "gflops": 25.7,
+          "bandwidth_gb_s": 154.21
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 786432,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0052,
+          "std_ms": 0.0001,
+          "min_ms": 0.005,
+          "max_ms": 0.0055
+        },
+        "throughput": {
+          "gflops": 50.6,
+          "bandwidth_gb_s": 303.61
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 1572864,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0056,
+          "std_ms": 0.0001,
+          "min_ms": 0.0054,
+          "max_ms": 0.0058
+        },
+        "throughput": {
+          "gflops": 94.41,
+          "bandwidth_gb_s": 566.46
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 3145728,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0062,
+          "std_ms": 0.0001,
+          "min_ms": 0.0061,
+          "max_ms": 0.0066
+        },
+        "throughput": {
+          "gflops": 167.99,
+          "bandwidth_gb_s": 1007.94
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 6291456,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0077,
+          "std_ms": 0.0001,
+          "min_ms": 0.0074,
+          "max_ms": 0.0084
+        },
+        "throughput": {
+          "gflops": 271.08,
+          "bandwidth_gb_s": 1626.47
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 12582912,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0137,
+          "std_ms": 0.0002,
+          "min_ms": 0.0133,
+          "max_ms": 0.0146
+        },
+        "throughput": {
+          "gflops": 305.97,
+          "bandwidth_gb_s": 1835.83
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 25165824,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0223,
+          "std_ms": 0.0003,
+          "min_ms": 0.022,
+          "max_ms": 0.023
+        },
+        "throughput": {
+          "gflops": 376.07,
+          "bandwidth_gb_s": 2256.39
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 50331648,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0053,
+          "std_ms": 0.0001,
+          "min_ms": 0.0049,
+          "max_ms": 0.0056
+        },
+        "throughput": {
+          "gflops": 1.16,
+          "bandwidth_gb_s": 6.97
+        },
+        "theory": {
+          "flops": 6144,
+          "bytes": 36864,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0049,
+          "std_ms": 0.0001,
+          "min_ms": 0.0047,
+          "max_ms": 0.0051
+        },
+        "throughput": {
+          "gflops": 10.01,
+          "bandwidth_gb_s": 60.08
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 294912,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0051,
+          "std_ms": 0.0,
+          "min_ms": 0.005,
+          "max_ms": 0.0053
+        },
+        "throughput": {
+          "gflops": 38.63,
+          "bandwidth_gb_s": 231.81
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0054,
+          "std_ms": 0.0002,
+          "min_ms": 0.0052,
+          "max_ms": 0.0059
+        },
+        "throughput": {
+          "gflops": 72.16,
+          "bandwidth_gb_s": 432.98
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0059,
+          "std_ms": 0.0001,
+          "min_ms": 0.0058,
+          "max_ms": 0.0062
+        },
+        "throughput": {
+          "gflops": 134.08,
+          "bandwidth_gb_s": 804.45
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0069,
+          "std_ms": 0.0001,
+          "min_ms": 0.0067,
+          "max_ms": 0.007
+        },
+        "throughput": {
+          "gflops": 229.33,
+          "bandwidth_gb_s": 1375.97
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0092,
+          "std_ms": 0.0003,
+          "min_ms": 0.0086,
+          "max_ms": 0.0103
+        },
+        "throughput": {
+          "gflops": 343.3,
+          "bandwidth_gb_s": 2059.8
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.017,
+          "std_ms": 0.0003,
+          "min_ms": 0.0166,
+          "max_ms": 0.0181
+        },
+        "throughput": {
+          "gflops": 369.23,
+          "bandwidth_gb_s": 2215.38
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0291,
+          "std_ms": 0.0004,
+          "min_ms": 0.0286,
+          "max_ms": 0.0302
+        },
+        "throughput": {
+          "gflops": 433.11,
+          "bandwidth_gb_s": 2598.69
+        },
+        "theory": {
+          "flops": 12582912,
+          "bytes": 75497472,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0517,
+          "std_ms": 0.0004,
+          "min_ms": 0.051,
+          "max_ms": 0.0531
+        },
+        "throughput": {
+          "gflops": 486.81,
+          "bandwidth_gb_s": 2920.86
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 150994944,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0053,
+          "std_ms": 0.0001,
+          "min_ms": 0.0047,
+          "max_ms": 0.0056
+        },
+        "throughput": {
+          "gflops": 0.97,
+          "bandwidth_gb_s": 5.82
+        },
+        "theory": {
+          "flops": 5120,
+          "bytes": 30720,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0049,
+          "std_ms": 0.0001,
+          "min_ms": 0.0047,
+          "max_ms": 0.0051
+        },
+        "throughput": {
+          "gflops": 8.36,
+          "bandwidth_gb_s": 50.16
+        },
+        "theory": {
+          "flops": 40960,
+          "bytes": 245760,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0051,
+          "std_ms": 0.0001,
+          "min_ms": 0.0049,
+          "max_ms": 0.0055
+        },
+        "throughput": {
+          "gflops": 32.11,
+          "bandwidth_gb_s": 192.67
+        },
+        "theory": {
+          "flops": 163840,
+          "bytes": 983040,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0053,
+          "std_ms": 0.0001,
+          "min_ms": 0.0052,
+          "max_ms": 0.0057
+        },
+        "throughput": {
+          "gflops": 61.3,
+          "bandwidth_gb_s": 367.82
+        },
+        "theory": {
+          "flops": 327680,
+          "bytes": 1966080,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0057,
+          "std_ms": 0.0001,
+          "min_ms": 0.0056,
+          "max_ms": 0.0059
+        },
+        "throughput": {
+          "gflops": 114.97,
+          "bandwidth_gb_s": 689.79
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 3932160,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0065,
+          "std_ms": 0.0002,
+          "min_ms": 0.0063,
+          "max_ms": 0.0083
+        },
+        "throughput": {
+          "gflops": 200.22,
+          "bandwidth_gb_s": 1201.35
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 7864320,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.009,
+          "std_ms": 0.0004,
+          "min_ms": 0.0081,
+          "max_ms": 0.0108
+        },
+        "throughput": {
+          "gflops": 291.9,
+          "bandwidth_gb_s": 1751.43
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 15728640,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0002,
+          "min_ms": 0.0153,
+          "max_ms": 0.0164
+        },
+        "throughput": {
+          "gflops": 336.97,
+          "bandwidth_gb_s": 2021.8
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 31457280,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0261,
+          "std_ms": 0.0004,
+          "min_ms": 0.0255,
+          "max_ms": 0.0285
+        },
+        "throughput": {
+          "gflops": 402.2,
+          "bandwidth_gb_s": 2413.2
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 62914560,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.6_27b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 5120,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0449,
+          "std_ms": 0.0002,
+          "min_ms": 0.0446,
+          "max_ms": 0.0458
+        },
+        "throughput": {
+          "gflops": 467.41,
+          "bandwidth_gb_s": 2804.48
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 125829120,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0053,
+          "std_ms": 0.0002,
+          "min_ms": 0.0049,
+          "max_ms": 0.0058
+        },
+        "throughput": {
+          "gflops": 1.54,
+          "bandwidth_gb_s": 9.26
+        },
+        "theory": {
+          "flops": 8192,
+          "bytes": 49152,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0049,
+          "std_ms": 0.0001,
+          "min_ms": 0.0049,
+          "max_ms": 0.0052
+        },
+        "throughput": {
+          "gflops": 13.32,
+          "bandwidth_gb_s": 79.91
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 393216,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0052,
+          "std_ms": 0.0001,
+          "min_ms": 0.005,
+          "max_ms": 0.0057
+        },
+        "throughput": {
+          "gflops": 49.94,
+          "bandwidth_gb_s": 299.63
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 1572864,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0056,
+          "std_ms": 0.0001,
+          "min_ms": 0.0054,
+          "max_ms": 0.006
+        },
+        "throughput": {
+          "gflops": 93.57,
+          "bandwidth_gb_s": 561.45
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 3145728,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0062,
+          "std_ms": 0.0001,
+          "min_ms": 0.0061,
+          "max_ms": 0.0065
+        },
+        "throughput": {
+          "gflops": 169.79,
+          "bandwidth_gb_s": 1018.75
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 6291456,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0075,
+          "std_ms": 0.0001,
+          "min_ms": 0.0074,
+          "max_ms": 0.0079
+        },
+        "throughput": {
+          "gflops": 280.02,
+          "bandwidth_gb_s": 1680.12
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 12582912,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0129,
+          "std_ms": 0.0005,
+          "min_ms": 0.0115,
+          "max_ms": 0.0142
+        },
+        "throughput": {
+          "gflops": 325.8,
+          "bandwidth_gb_s": 1954.79
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 25165824,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0003,
+          "min_ms": 0.021,
+          "max_ms": 0.0228
+        },
+        "throughput": {
+          "gflops": 390.5,
+          "bandwidth_gb_s": 2342.98
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 50331648,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0374,
+          "std_ms": 0.0004,
+          "min_ms": 0.0367,
+          "max_ms": 0.0383
+        },
+        "throughput": {
+          "gflops": 448.44,
+          "bandwidth_gb_s": 2690.61
+        },
+        "theory": {
+          "flops": 16777216,
+          "bytes": 100663296,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "add",
+      "definition": "add",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8192,
+        "alpha": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0676,
+          "std_ms": 0.0004,
+          "min_ms": 0.0669,
+          "max_ms": 0.0685
+        },
+        "throughput": {
+          "gflops": 496.62,
+          "bandwidth_gb_s": 2979.71
+        },
+        "theory": {
+          "flops": 33554432,
+          "bytes": 201326592,
+          "arithmetic_intensity": 0.17
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.add",
+        "type": "triton"
+      }
+    }
+  ]
+}

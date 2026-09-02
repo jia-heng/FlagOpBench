@@ -214,6 +214,46 @@ operators:
       var_axes_key: batch_seq_decode
       applicable: has_mla
 
+  - name: add
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: elementwise
+      var_axes_key: num_tokens
+      applicable: always
+
+  - name: sub
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: elementwise
+      var_axes_key: num_tokens
+      applicable: always
+
+  - name: cat
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: elementwise
+      var_axes_key: num_tokens
+      applicable: always
+
+  - name: fill_scalar
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: elementwise
+      var_axes_key: num_tokens
+      applicable: always
+
+  - name: mm
+    library: flag_gems
+    status: implemented
+    param_mapping:
+      const_axes_rule: mm
+      var_axes_key: num_tokens
+      applicable: always
+
   # ============================================================
   # 已实现但尚无 benchmark case (keyoplist.md #21-#23)
   # ============================================================

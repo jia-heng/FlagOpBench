@@ -248,6 +248,24 @@ def _rule_topk(model: ModelParams) -> dict:
     }
 
 
+def _rule_mm(model: ModelParams) -> dict:
+    """矩阵乘法: K=hidden_size, N=hidden_size (方阵投影), dtype"""
+    return {
+        "K": model.hidden_size,
+        "N": model.hidden_size,
+        "dtype": model.dtype_short,
+    }
+
+
+def _rule_elementwise(model: ModelParams) -> dict:
+    """逐元素算子 (add, sub 等): N=hidden_size, dtype"""
+    return {
+        "N": model.hidden_size,
+        "alpha": 1,
+        "dtype": model.dtype_short,
+    }
+
+
 def _rule_generic(model: ModelParams) -> dict:
     """通用 fallback: 只输出 dtype"""
     return {
@@ -279,6 +297,8 @@ CONST_AXES_RULES: dict[str, Callable[[ModelParams], dict]] = {
     "v4_fused_qkv": _rule_v4_fused_qkv,
     "causal_conv1d": _rule_causal_conv1d,
     "gdn": _rule_gdn,
+    "elementwise": _rule_elementwise,
+    "mm": _rule_mm,
     "generic": _rule_generic,
 }
 
