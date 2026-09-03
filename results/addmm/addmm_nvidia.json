@@ -1,0 +1,2000 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-02T15:18:56.042373",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 60
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0474,
+          "std_ms": 0.0017,
+          "min_ms": 0.0459,
+          "max_ms": 0.0617
+        },
+        "throughput": {
+          "gflops": 2168.62,
+          "bandwidth_gb_s": 2169.52
+        },
+        "theory": {
+          "flops": 102760448,
+          "bytes": 102803456,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0478,
+          "std_ms": 0.0006,
+          "min_ms": 0.0469,
+          "max_ms": 0.0496
+        },
+        "throughput": {
+          "gflops": 17190.23,
+          "bandwidth_gb_s": 2153.87
+        },
+        "theory": {
+          "flops": 822083584,
+          "bytes": 103004160,
+          "arithmetic_intensity": 7.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0461,
+          "std_ms": 0.0008,
+          "min_ms": 0.045,
+          "max_ms": 0.0514
+        },
+        "throughput": {
+          "gflops": 71256.52,
+          "bandwidth_gb_s": 2246.96
+        },
+        "theory": {
+          "flops": 3288334336,
+          "bytes": 103692288,
+          "arithmetic_intensity": 31.71
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0709,
+          "std_ms": 0.0008,
+          "min_ms": 0.0694,
+          "max_ms": 0.0772
+        },
+        "throughput": {
+          "gflops": 92766.69,
+          "bandwidth_gb_s": 1475.57
+        },
+        "theory": {
+          "flops": 6576668672,
+          "bytes": 104609792,
+          "arithmetic_intensity": 62.87
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.124,
+          "std_ms": 0.0004,
+          "min_ms": 0.1233,
+          "max_ms": 0.1269
+        },
+        "throughput": {
+          "gflops": 106110.9,
+          "bandwidth_gb_s": 858.71
+        },
+        "theory": {
+          "flops": 13153337344,
+          "bytes": 106444800,
+          "arithmetic_intensity": 123.57
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2311,
+          "std_ms": 0.0005,
+          "min_ms": 0.23,
+          "max_ms": 0.234
+        },
+        "throughput": {
+          "gflops": 113845.59,
+          "bandwidth_gb_s": 476.54
+        },
+        "theory": {
+          "flops": 26306674688,
+          "bytes": 110114816,
+          "arithmetic_intensity": 238.9
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4434,
+          "std_ms": 0.0011,
+          "min_ms": 0.441,
+          "max_ms": 0.4512
+        },
+        "throughput": {
+          "gflops": 118662.22,
+          "bandwidth_gb_s": 264.9
+        },
+        "theory": {
+          "flops": 52613349376,
+          "bytes": 117454848,
+          "arithmetic_intensity": 447.95
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8657,
+          "std_ms": 0.001,
+          "min_ms": 0.8642,
+          "max_ms": 0.8725
+        },
+        "throughput": {
+          "gflops": 121553.67,
+          "bandwidth_gb_s": 152.64
+        },
+        "theory": {
+          "flops": 105226698752,
+          "bytes": 132134912,
+          "arithmetic_intensity": 796.36
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.7079,
+          "std_ms": 0.001,
+          "min_ms": 1.7063,
+          "max_ms": 1.7135
+        },
+        "throughput": {
+          "gflops": 123224.63,
+          "bandwidth_gb_s": 94.56
+        },
+        "theory": {
+          "flops": 210453397504,
+          "bytes": 161495040,
+          "arithmetic_intensity": 1303.16
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 7168,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.3895,
+          "std_ms": 0.0018,
+          "min_ms": 3.3857,
+          "max_ms": 3.3966
+        },
+        "throughput": {
+          "gflops": 124178.63,
+          "bandwidth_gb_s": 64.97
+        },
+        "theory": {
+          "flops": 420906795008,
+          "bytes": 220215296,
+          "arithmetic_intensity": 1911.34
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0237,
+          "std_ms": 0.0006,
+          "min_ms": 0.0229,
+          "max_ms": 0.028
+        },
+        "throughput": {
+          "gflops": 1417.42,
+          "bandwidth_gb_s": 1418.45
+        },
+        "theory": {
+          "flops": 33554432,
+          "bytes": 33579008,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0226,
+          "std_ms": 0.0003,
+          "min_ms": 0.0221,
+          "max_ms": 0.0238
+        },
+        "throughput": {
+          "gflops": 11891.99,
+          "bandwidth_gb_s": 1492.67
+        },
+        "theory": {
+          "flops": 268435456,
+          "bytes": 33693696,
+          "arithmetic_intensity": 7.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0271,
+          "std_ms": 0.0008,
+          "min_ms": 0.0267,
+          "max_ms": 0.0336
+        },
+        "throughput": {
+          "gflops": 39553.51,
+          "bandwidth_gb_s": 1255.66
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 34086912,
+          "arithmetic_intensity": 31.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0375,
+          "std_ms": 0.0037,
+          "min_ms": 0.0365,
+          "max_ms": 0.0741
+        },
+        "throughput": {
+          "gflops": 57265.99,
+          "bandwidth_gb_s": 922.96
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 34611200,
+          "arithmetic_intensity": 62.05
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0576,
+          "std_ms": 0.0008,
+          "min_ms": 0.0562,
+          "max_ms": 0.0632
+        },
+        "throughput": {
+          "gflops": 74567.48,
+          "bandwidth_gb_s": 619.11
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 35659776,
+          "arithmetic_intensity": 120.44
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0883,
+          "std_ms": 0.0006,
+          "min_ms": 0.0875,
+          "max_ms": 0.0923
+        },
+        "throughput": {
+          "gflops": 97232.45,
+          "bandwidth_gb_s": 427.38
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 37756928,
+          "arithmetic_intensity": 227.51
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1584,
+          "std_ms": 0.0006,
+          "min_ms": 0.1578,
+          "max_ms": 0.1623
+        },
+        "throughput": {
+          "gflops": 108459.21,
+          "bandwidth_gb_s": 264.84
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 41951232,
+          "arithmetic_intensity": 409.52
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3213,
+          "std_ms": 0.0006,
+          "min_ms": 0.3203,
+          "max_ms": 0.3251
+        },
+        "throughput": {
+          "gflops": 106942.14,
+          "bandwidth_gb_s": 156.68
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 50339840,
+          "arithmetic_intensity": 682.56
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5628,
+          "std_ms": 0.001,
+          "min_ms": 0.5611,
+          "max_ms": 0.5684
+        },
+        "throughput": {
+          "gflops": 122100.96,
+          "bandwidth_gb_s": 119.25
+        },
+        "theory": {
+          "flops": 68719476736,
+          "bytes": 67117056,
+          "arithmetic_intensity": 1023.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 4096,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.145,
+          "std_ms": 0.0008,
+          "min_ms": 1.1432,
+          "max_ms": 1.1472
+        },
+        "throughput": {
+          "gflops": 120035.19,
+          "bandwidth_gb_s": 87.92
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 100671488,
+          "arithmetic_intensity": 1365.22
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0009,
+          "min_ms": 0.0207,
+          "max_ms": 0.0274
+        },
+        "throughput": {
+          "gflops": 389.64,
+          "bandwidth_gb_s": 390.21
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 8400896,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0213,
+          "std_ms": 0.0005,
+          "min_ms": 0.0206,
+          "max_ms": 0.0252
+        },
+        "throughput": {
+          "gflops": 3149.73,
+          "bandwidth_gb_s": 396.98
+        },
+        "theory": {
+          "flops": 67108864,
+          "bytes": 8458240,
+          "arithmetic_intensity": 7.93
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0217,
+          "std_ms": 0.0009,
+          "min_ms": 0.0208,
+          "max_ms": 0.0267
+        },
+        "throughput": {
+          "gflops": 12385.55,
+          "bandwidth_gb_s": 399.33
+        },
+        "theory": {
+          "flops": 268435456,
+          "bytes": 8654848,
+          "arithmetic_intensity": 31.02
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0222,
+          "std_ms": 0.0007,
+          "min_ms": 0.0211,
+          "max_ms": 0.0268
+        },
+        "throughput": {
+          "gflops": 24162.48,
+          "bandwidth_gb_s": 401.32
+        },
+        "theory": {
+          "flops": 536870912,
+          "bytes": 8916992,
+          "arithmetic_intensity": 60.21
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.027,
+          "std_ms": 0.0003,
+          "min_ms": 0.0266,
+          "max_ms": 0.0294
+        },
+        "throughput": {
+          "gflops": 39732.43,
+          "bandwidth_gb_s": 349.36
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 9441280,
+          "arithmetic_intensity": 113.73
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0372,
+          "std_ms": 0.0006,
+          "min_ms": 0.0366,
+          "max_ms": 0.0417
+        },
+        "throughput": {
+          "gflops": 57750.41,
+          "bandwidth_gb_s": 282.09
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 10489856,
+          "arithmetic_intensity": 204.72
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0578,
+          "std_ms": 0.0004,
+          "min_ms": 0.0567,
+          "max_ms": 0.0601
+        },
+        "throughput": {
+          "gflops": 74356.79,
+          "bandwidth_gb_s": 217.91
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 12587008,
+          "arithmetic_intensity": 341.22
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0985,
+          "std_ms": 0.0007,
+          "min_ms": 0.0978,
+          "max_ms": 0.1052
+        },
+        "throughput": {
+          "gflops": 87195.99,
+          "bandwidth_gb_s": 170.35
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 16781312,
+          "arithmetic_intensity": 511.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1705,
+          "std_ms": 0.0005,
+          "min_ms": 0.1696,
+          "max_ms": 0.1745
+        },
+        "throughput": {
+          "gflops": 100734.38,
+          "bandwidth_gb_s": 147.58
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 25169920,
+          "arithmetic_intensity": 682.56
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2999,
+          "std_ms": 0.0003,
+          "min_ms": 0.2992,
+          "max_ms": 0.3007
+        },
+        "throughput": {
+          "gflops": 114555.8,
+          "bandwidth_gb_s": 139.85
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 41947136,
+          "arithmetic_intensity": 819.12
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0415,
+          "std_ms": 0.001,
+          "min_ms": 0.0399,
+          "max_ms": 0.0485
+        },
+        "throughput": {
+          "gflops": 1818.54,
+          "bandwidth_gb_s": 1819.42
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 75534336,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0422,
+          "std_ms": 0.0008,
+          "min_ms": 0.0412,
+          "max_ms": 0.0466
+        },
+        "throughput": {
+          "gflops": 14300.82,
+          "bandwidth_gb_s": 1792.55
+        },
+        "theory": {
+          "flops": 603979776,
+          "bytes": 75706368,
+          "arithmetic_intensity": 7.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0411,
+          "std_ms": 0.0005,
+          "min_ms": 0.0404,
+          "max_ms": 0.0452
+        },
+        "throughput": {
+          "gflops": 58736.44,
+          "bandwidth_gb_s": 1854.93
+        },
+        "theory": {
+          "flops": 2415919104,
+          "bytes": 76296192,
+          "arithmetic_intensity": 31.67
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0629,
+          "std_ms": 0.0006,
+          "min_ms": 0.062,
+          "max_ms": 0.0681
+        },
+        "throughput": {
+          "gflops": 76836.74,
+          "bandwidth_gb_s": 1225.78
+        },
+        "theory": {
+          "flops": 4831838208,
+          "bytes": 77082624,
+          "arithmetic_intensity": 62.68
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0931,
+          "std_ms": 0.0004,
+          "min_ms": 0.0922,
+          "max_ms": 0.0959
+        },
+        "throughput": {
+          "gflops": 103791.57,
+          "bandwidth_gb_s": 844.79
+        },
+        "theory": {
+          "flops": 9663676416,
+          "bytes": 78655488,
+          "arithmetic_intensity": 122.86
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1681,
+          "std_ms": 0.0004,
+          "min_ms": 0.1674,
+          "max_ms": 0.171
+        },
+        "throughput": {
+          "gflops": 114954.65,
+          "bandwidth_gb_s": 486.53
+        },
+        "theory": {
+          "flops": 19327352832,
+          "bytes": 81801216,
+          "arithmetic_intensity": 236.27
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3213,
+          "std_ms": 0.0004,
+          "min_ms": 0.3206,
+          "max_ms": 0.3232
+        },
+        "throughput": {
+          "gflops": 120317.69,
+          "bandwidth_gb_s": 274.2
+        },
+        "theory": {
+          "flops": 38654705664,
+          "bytes": 88092672,
+          "arithmetic_intensity": 438.8
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6219,
+          "std_ms": 0.0004,
+          "min_ms": 0.6208,
+          "max_ms": 0.6233
+        },
+        "throughput": {
+          "gflops": 124307.33,
+          "bandwidth_gb_s": 161.88
+        },
+        "theory": {
+          "flops": 77309411328,
+          "bytes": 100675584,
+          "arithmetic_intensity": 767.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2267,
+          "std_ms": 0.0007,
+          "min_ms": 1.2253,
+          "max_ms": 1.23
+        },
+        "throughput": {
+          "gflops": 126039.88,
+          "bandwidth_gb_s": 102.58
+        },
+        "theory": {
+          "flops": 154618822656,
+          "bytes": 125841408,
+          "arithmetic_intensity": 1228.68
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 6144,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.431,
+          "std_ms": 0.0014,
+          "min_ms": 2.4287,
+          "max_ms": 2.4385
+        },
+        "throughput": {
+          "gflops": 127206.31,
+          "bandwidth_gb_s": 72.47
+        },
+        "theory": {
+          "flops": 309237645312,
+          "bytes": 176173056,
+          "arithmetic_intensity": 1755.31
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0318,
+          "std_ms": 0.0007,
+          "min_ms": 0.0308,
+          "max_ms": 0.0354
+        },
+        "throughput": {
+          "gflops": 1650.33,
+          "bandwidth_gb_s": 1651.3
+        },
+        "theory": {
+          "flops": 52428800,
+          "bytes": 52459520,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0324,
+          "std_ms": 0.0008,
+          "min_ms": 0.0315,
+          "max_ms": 0.0385
+        },
+        "throughput": {
+          "gflops": 12947.17,
+          "bandwidth_gb_s": 1623.77
+        },
+        "theory": {
+          "flops": 419430400,
+          "bytes": 52602880,
+          "arithmetic_intensity": 7.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0434,
+          "std_ms": 0.0005,
+          "min_ms": 0.0422,
+          "max_ms": 0.0459
+        },
+        "throughput": {
+          "gflops": 38670.87,
+          "bandwidth_gb_s": 1223.81
+        },
+        "theory": {
+          "flops": 1677721600,
+          "bytes": 53094400,
+          "arithmetic_intensity": 31.6
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0555,
+          "std_ms": 0.0003,
+          "min_ms": 0.055,
+          "max_ms": 0.0578
+        },
+        "throughput": {
+          "gflops": 60439.1,
+          "bandwidth_gb_s": 968.15
+        },
+        "theory": {
+          "flops": 3355443200,
+          "bytes": 53749760,
+          "arithmetic_intensity": 62.43
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0804,
+          "std_ms": 0.0007,
+          "min_ms": 0.0798,
+          "max_ms": 0.0864
+        },
+        "throughput": {
+          "gflops": 83433.54,
+          "bandwidth_gb_s": 684.54
+        },
+        "theory": {
+          "flops": 6710886400,
+          "bytes": 55060480,
+          "arithmetic_intensity": 121.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1321,
+          "std_ms": 0.0007,
+          "min_ms": 0.1313,
+          "max_ms": 0.1359
+        },
+        "throughput": {
+          "gflops": 101603.74,
+          "bandwidth_gb_s": 436.66
+        },
+        "theory": {
+          "flops": 13421772800,
+          "bytes": 57681920,
+          "arithmetic_intensity": 232.69
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2455,
+          "std_ms": 0.0006,
+          "min_ms": 0.2448,
+          "max_ms": 0.2503
+        },
+        "throughput": {
+          "gflops": 109330.73,
+          "bandwidth_gb_s": 256.29
+        },
+        "theory": {
+          "flops": 26843545600,
+          "bytes": 62924800,
+          "arithmetic_intensity": 426.6
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4747,
+          "std_ms": 0.0008,
+          "min_ms": 0.4735,
+          "max_ms": 0.4791
+        },
+        "throughput": {
+          "gflops": 113088.84,
+          "bandwidth_gb_s": 154.64
+        },
+        "theory": {
+          "flops": 53687091200,
+          "bytes": 73410560,
+          "arithmetic_intensity": 731.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.9277,
+          "std_ms": 0.0007,
+          "min_ms": 0.9265,
+          "max_ms": 0.9297
+        },
+        "throughput": {
+          "gflops": 115743.05,
+          "bandwidth_gb_s": 101.74
+        },
+        "theory": {
+          "flops": 107374182400,
+          "bytes": 94382080,
+          "arithmetic_intensity": 1137.65
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.6_27b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 5120,
+        "N": 5120,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.8288,
+          "std_ms": 0.0012,
+          "min_ms": 1.8265,
+          "max_ms": 1.836
+        },
+        "throughput": {
+          "gflops": 117425.11,
+          "bandwidth_gb_s": 74.54
+        },
+        "theory": {
+          "flops": 214748364800,
+          "bytes": 136325120,
+          "arithmetic_intensity": 1575.27
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.057,
+          "std_ms": 0.0005,
+          "min_ms": 0.0561,
+          "max_ms": 0.0585
+        },
+        "throughput": {
+          "gflops": 2356.76,
+          "bandwidth_gb_s": 2357.62
+        },
+        "theory": {
+          "flops": 134217728,
+          "bytes": 134266880,
+          "arithmetic_intensity": 1.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0581,
+          "std_ms": 0.0006,
+          "min_ms": 0.0571,
+          "max_ms": 0.0602
+        },
+        "throughput": {
+          "gflops": 18479.86,
+          "bandwidth_gb_s": 2314.78
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 134496256,
+          "arithmetic_intensity": 7.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0587,
+          "std_ms": 0.0005,
+          "min_ms": 0.058,
+          "max_ms": 0.0617
+        },
+        "throughput": {
+          "gflops": 73170.69,
+          "bandwidth_gb_s": 2304.73
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 135282688,
+          "arithmetic_intensity": 31.75
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0985,
+          "std_ms": 0.0004,
+          "min_ms": 0.0977,
+          "max_ms": 0.1006
+        },
+        "throughput": {
+          "gflops": 87226.3,
+          "bandwidth_gb_s": 1384.37
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 136331264,
+          "arithmetic_intensity": 63.01
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1587,
+          "std_ms": 0.0004,
+          "min_ms": 0.1564,
+          "max_ms": 0.1599
+        },
+        "throughput": {
+          "gflops": 108248.61,
+          "bandwidth_gb_s": 872.22
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 138428416,
+          "arithmetic_intensity": 124.11
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3003,
+          "std_ms": 0.0003,
+          "min_ms": 0.2997,
+          "max_ms": 0.3021
+        },
+        "throughput": {
+          "gflops": 114421.15,
+          "bandwidth_gb_s": 474.95
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 142622720,
+          "arithmetic_intensity": 240.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5832,
+          "std_ms": 0.0009,
+          "min_ms": 0.5805,
+          "max_ms": 0.5869
+        },
+        "throughput": {
+          "gflops": 117830.26,
+          "bandwidth_gb_s": 258.93
+        },
+        "theory": {
+          "flops": 68719476736,
+          "bytes": 151011328,
+          "arithmetic_intensity": 455.06
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.1046,
+          "std_ms": 0.0008,
+          "min_ms": 1.103,
+          "max_ms": 1.1085
+        },
+        "throughput": {
+          "gflops": 124429.66,
+          "bandwidth_gb_s": 151.91
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 167788544,
+          "arithmetic_intensity": 819.12
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.1961,
+          "std_ms": 0.0012,
+          "min_ms": 2.1944,
+          "max_ms": 2.2019
+        },
+        "throughput": {
+          "gflops": 125167.29,
+          "bandwidth_gb_s": 91.68
+        },
+        "theory": {
+          "flops": 274877906944,
+          "bytes": 201342976,
+          "arithmetic_intensity": 1365.22
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    },
+    {
+      "operator": "addmm",
+      "definition": "addmm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 8192,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.3687,
+          "std_ms": 0.001,
+          "min_ms": 4.3665,
+          "max_ms": 4.3725
+        },
+        "throughput": {
+          "gflops": 125838.77,
+          "bandwidth_gb_s": 61.45
+        },
+        "theory": {
+          "flops": 549755813888,
+          "bytes": 268451840,
+          "arithmetic_intensity": 2047.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.addmm (adapted)",
+        "type": "native"
+      }
+    }
+  ]
+}

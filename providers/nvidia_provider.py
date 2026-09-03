@@ -138,6 +138,7 @@ class NvidiaProvider(BaseProvider):
             "cat": (self._load_cat, False),
             "fill_scalar": (self._load_fill_scalar, False),
             "mm": (self._load_mm, False),
+            "addmm": (self._load_addmm, False),
 
             # === GDN 三方对比 (共用同一个 vLLM baseline) ===
             "chunk_gated_delta_rule_flaggems_vllm": (self._load_chunk_gated_delta_rule, True),
@@ -531,6 +532,15 @@ class NvidiaProvider(BaseProvider):
             return torch.mm(a, b)
         return wrapper, {
             "source": "torch.mm (adapted)",
+            "type": "native"
+        }
+
+    def _load_addmm(self):
+        """torch.addmm — baseline for addmm (bias + mat1 @ mat2)"""
+        def wrapper(bias, mat1, mat2):
+            return torch.addmm(bias, mat1, mat2)
+        return wrapper, {
+            "source": "torch.addmm (adapted)",
             "type": "native"
         }
 
