@@ -1,15 +1,10 @@
-"""Iluvatar Provider
+"""Kunlunxin Provider
 
-天数智芯平台性能基线Provider。
+昆仑芯 XPU / P800 平台性能基线 Provider。
 
-Corex 通过 torch.cuda 暴露设备。本机常见两套环境：
-- corex_vllm_plugin：vllm 能 import，但 cuda 常 Error 1001
-- corex 基座镜像：cuda 可用，但 import vllm 常因 ixformer
-  undefined symbol（cuInferPagedAttention）失败
-
-因此继承 NvidiaProvider；setup 宽捕获 vllm 失败；
-swiglu 在缺少 torch.ops._C.silu_and_mul 时回退到
-F.silu * mul（老师口径：缺的算子可从 torch 找）。
+xvllm 容器内设备常通过 torch.cuda 暴露（torch_xmlir），
+并非 torch.xpu。vllm 子模块导入可能循环导入 / AssertionError，
+需宽捕获。Event.elapsed_time 在本栈上常恒为 0，计时用 KunlunxinTimer。
 """
 import torch
 import torch.nn.functional as F
@@ -18,17 +13,17 @@ from .nvidia_provider import NvidiaProvider
 from .registry import register_provider
 
 
-@register_provider("iluvatar", platform="iluvatar", is_default=True)
-class IluvatarProvider(NvidiaProvider):
-    """天数智芯平台算子实现加载器（Corex / torch 兜底）"""
+@register_provider("kunlunxin", platform="kunlunxin", is_default=True)
+class KunlunxinProvider(NvidiaProvider):
+    """昆仑芯平台算子实现加载器（xvllm 优先，torch 兜底）"""
 
     @property
     def name(self) -> str:
-        return "iluvatar"
+        return "kunlunxin"
 
     @property
     def platform(self) -> str:
-        return "iluvatar"
+        return "kunlunxin"
 
     def get_device(self) -> torch.device:
         return torch.device("cuda:0")
@@ -42,8 +37,12 @@ class IluvatarProvider(NvidiaProvider):
     def setup(self):
         if not torch.cuda.is_available():
             print("  [WARN] torch.cuda.is_available()=False; "
-                  "check IX_VISIBLE_DEVICES / Corex driver-SDK match "
-                  "(vllm plugin image often Error 1001)")
+                  "check XPU_VISIBLE_DEVICES / xvllm image")
+            return
+
+        print(f"  Loaded torch.cuda: available=True, "
+              f"count={torch.cuda.device_count()}, "
+              f"name0={torch.cuda.get_device_name(0)}")
 
         try:
             import vllm
@@ -58,10 +57,7 @@ class IluvatarProvider(NvidiaProvider):
             self._vllm_sparse_attn = None
             self._vllm_fused_moe = None
             self._vllm_flash_attn = None
-            self._torch_ops_registered = (
-                hasattr(torch.ops, "_C")
-                and hasattr(torch.ops._C, "silu_and_mul")
-            )
+            self._torch_ops_registered = self._has_silu_and_mul()
             print(f"  Loaded vllm modules: _custom_ops=False, v1_ops=False, "
                   f"mhc=False, flash_attn=False, "
                   f"torch_ops._C.silu_and_mul={self._torch_ops_registered}")
@@ -103,13 +99,10 @@ class IluvatarProvider(NvidiaProvider):
             print(f"  [WARN] Failed to import flash_attn: {type(e).__name__}: {e}")
             self._vllm_flash_attn = None
 
-        self._torch_ops_registered = (
-            hasattr(torch.ops, "_C")
-            and hasattr(torch.ops._C, "silu_and_mul")
-        )
+        self._torch_ops_registered = self._has_silu_and_mul()
         if not self._torch_ops_registered:
             print("  [WARN] torch.ops._C.silu_and_mul unavailable; "
-                  "swiglu will use torch fallback if requested")
+                  "swiglu will use torch fallback")
 
         print(f"  Loaded vllm modules: _custom_ops={self._vllm_ops is not None}, "
               f"v1_ops={self._vllm_v1_ops is not None}, "
@@ -117,10 +110,15 @@ class IluvatarProvider(NvidiaProvider):
               f"flash_attn={self._vllm_flash_attn is not None}, "
               f"torch_ops._C.silu_and_mul={self._torch_ops_registered}")
 
+    @staticmethod
+    def _has_silu_and_mul() -> bool:
+        return hasattr(torch.ops, "_C") and hasattr(torch.ops._C, "silu_and_mul")
+
     def _load_swiglu(self):
-        """优先 torch.ops._C.silu_and_mul；天数 corex 常无该符号 → F.silu * mul"""
-        if hasattr(torch.ops, "_C") and hasattr(torch.ops._C, "silu_and_mul"):
-            return super()._load_swiglu()
+        if self._has_silu_and_mul():
+            impl_fn, info = super()._load_swiglu()
+            if impl_fn is not None:
+                return impl_fn, info
 
         def wrapper(input_tensor, **kwargs):
             d = input_tensor.shape[-1] // 2
@@ -131,11 +129,11 @@ class IluvatarProvider(NvidiaProvider):
         return wrapper, {
             "source": "torch.nn.functional.silu * mul (fallback)",
             "type": "torch",
-            "platform": "iluvatar",
+            "platform": "kunlunxin",
         }
 
     def get_impl(self, op_name, operator):
         impl_fn, impl_info = super().get_impl(op_name, operator)
         if impl_fn is not None:
-            impl_info = {**impl_info, "platform": "iluvatar"}
+            impl_info = {**impl_info, "platform": "kunlunxin"}
         return impl_fn, impl_info

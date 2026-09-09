@@ -9,3 +9,6 @@ from . import ascend_provider
 from . import metax_provider
 from . import mthreads_provider
 from . import iluvatar_provider
+from . import hygon_provider
+from . import enflame_provider
+from . import kunlunxin_provider

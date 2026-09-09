@@ -111,17 +111,30 @@ class Reporter:
         elif self.platform == "ascend":
             env["cann_version"] = self._get_ascend_version()
             env["device_name"] = self._get_ascend_device_name()
-        elif self.platform == "metax":
-            # 沐曦通过 torch.cuda 接口暴露设备
+        elif self.platform == "mthreads":
+            if hasattr(torch, "musa") and torch.musa.is_available():
+                env["device_name"] = torch.musa.get_device_name(0)
+                env["device_count"] = torch.musa.device_count()
+            elif torch.cuda.is_available():
+                env["device_name"] = torch.cuda.get_device_name(0)
+                env["device_count"] = torch.cuda.device_count()
+            else:
+                env["device_name"] = "mthreads device unavailable"
+        elif self.platform == "enflame":
+            if hasattr(torch, "gcu") and torch.gcu.is_available():
+                env["device_name"] = torch.gcu.get_device_name(0)
+                env["device_count"] = torch.gcu.device_count()
+            else:
+                env["device_name"] = "enflame device unavailable"
+        elif self.platform in ("metax", "iluvatar", "hygon", "kunlunxin"):
+            # MACA / Corex / 海光 DCU / 昆仑 xvllm 等常通过 torch.cuda 暴露
             if torch.cuda.is_available():
                 env["device_name"] = torch.cuda.get_device_name(0)
                 env["device_count"] = torch.cuda.device_count()
                 props = torch.cuda.get_device_properties(0)
                 env["device_memory_gb"] = round(props.total_memory / (1024**3), 1)
             else:
-                env["device_name"] = "metax device (torch.cuda unavailable)"
-        elif self.platform in ("mthreads", "iluvatar"):
-            env["device_name"] = f"{self.platform} device (info pending)"
+                env["device_name"] = f"{self.platform} device (torch.cuda unavailable)"
         else:
             env["device_name"] = "unknown"
 

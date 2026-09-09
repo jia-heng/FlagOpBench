@@ -90,26 +90,155 @@ class CudaTimer(BaseTimer):
 
 
 class AscendTimer(BaseTimer):
-    """昇腾计时器（预留，后续在昇腾平台开发）"""
+    """昇腾计时器
+
+    使用 torch.npu.Event；910B 容器内实测 Event 可用。
+    """
 
     def measure(
         self,
         fn: Callable,
         inputs: Dict[str, Any],
     ) -> TimingResult:
-        raise NotImplementedError(
-            "AscendTimer: 需要在昇腾平台环境下实现，"
-            "使用 torch_npu 同步机制进行计时"
+        for _ in range(self.warmup):
+            fn(**inputs)
+        torch.npu.synchronize()
+
+        latencies = []
+        for _ in range(self.repeat):
+            start = torch.npu.Event(enable_timing=True)
+            end = torch.npu.Event(enable_timing=True)
+
+            start.record()
+            fn(**inputs)
+            end.record()
+
+            torch.npu.synchronize()
+            latencies.append(start.elapsed_time(end))
+
+        return TimingResult(
+            mean_ms=sum(latencies) / len(latencies),
+            std_ms=self._std(latencies),
+            min_ms=min(latencies),
+            max_ms=max(latencies),
+            latencies_ms=latencies,
         )
 
 
 class MetaxTimer(CudaTimer):
     """沐曦计时器
 
-    MACA 复用 torch.cuda 接口，torch.cuda.Event(enable_timing=True) 与
-    torch.cuda.synchronize() 在沐曦平台可用，因此计时逻辑与 CudaTimer 一致。
+    MACA 复用 torch.cuda 接口，cuda Event 计时可用。
     """
     pass
+
+
+class MthreadsTimer(BaseTimer):
+    """摩尔线程计时器
+
+    使用 torch.musa.Event；与旧架构 mthreads backend 实测一致。
+    """
+
+    def measure(
+        self,
+        fn: Callable,
+        inputs: Dict[str, Any],
+    ) -> TimingResult:
+        for _ in range(self.warmup):
+            fn(**inputs)
+        torch.musa.synchronize()
+
+        latencies = []
+        for _ in range(self.repeat):
+            start = torch.musa.Event(enable_timing=True)
+            end = torch.musa.Event(enable_timing=True)
+
+            start.record()
+            fn(**inputs)
+            end.record()
+
+            torch.musa.synchronize()
+            latencies.append(start.elapsed_time(end))
+
+        return TimingResult(
+            mean_ms=sum(latencies) / len(latencies),
+            std_ms=self._std(latencies),
+            min_ms=min(latencies),
+            max_ms=max(latencies),
+            latencies_ms=latencies,
+        )
+
+
+class EnflameTimer(BaseTimer):
+    """燧原计时器
+
+    使用 torch.gcu.Event；与旧架构 enflame backend 实测一致。
+    """
+
+    def measure(
+        self,
+        fn: Callable,
+        inputs: Dict[str, Any],
+    ) -> TimingResult:
+        for _ in range(self.warmup):
+            fn(**inputs)
+        torch.gcu.synchronize()
+
+        latencies = []
+        for _ in range(self.repeat):
+            start = torch.gcu.Event(enable_timing=True)
+            end = torch.gcu.Event(enable_timing=True)
+
+            start.record()
+            fn(**inputs)
+            end.record()
+
+            torch.gcu.synchronize()
+            latencies.append(start.elapsed_time(end))
+
+        return TimingResult(
+            mean_ms=sum(latencies) / len(latencies),
+            std_ms=self._std(latencies),
+            min_ms=min(latencies),
+            max_ms=max(latencies),
+            latencies_ms=latencies,
+        )
+
+
+class KunlunxinTimer(BaseTimer):
+    """昆仑芯计时器
+
+    torch.cuda.Event.elapsed_time 在 xvllm/torch_xmlir 上常恒为 0，
+    使用 synchronize + wall-clock。
+    """
+
+    def measure(
+        self,
+        fn: Callable,
+        inputs: Dict[str, Any],
+    ) -> TimingResult:
+        import time
+
+        for _ in range(self.warmup):
+            fn(**inputs)
+        torch.cuda.synchronize()
+
+        latencies = []
+        for _ in range(self.repeat):
+            torch.cuda.synchronize()
+            t0 = time.perf_counter()
+            fn(**inputs)
+            torch.cuda.synchronize()
+            t1 = time.perf_counter()
+            latencies.append((t1 - t0) * 1000.0)
+
+        return TimingResult(
+            mean_ms=sum(latencies) / len(latencies),
+            std_ms=self._std(latencies),
+            min_ms=min(latencies),
+            max_ms=max(latencies),
+            latencies_ms=latencies,
+        )
 
 
 # 保持向后兼容: Timer 作为 CudaTimer 的别名
@@ -120,7 +249,7 @@ def create_timer(platform: str, warmup: int = 10, repeat: int = 100) -> BaseTime
     """根据平台创建对应的计时器
 
     Args:
-        platform: nvidia / ascend / metax / mthreads / iluvatar
+        platform: nvidia / ascend / metax / mthreads / iluvatar / hygon / enflame / kunlunxin
         warmup: 预热次数
         repeat: 重复测试次数
 
@@ -131,8 +260,11 @@ def create_timer(platform: str, warmup: int = 10, repeat: int = 100) -> BaseTime
         "nvidia": CudaTimer,
         "ascend": AscendTimer,
         "metax": MetaxTimer,
-        "mthreads": MetaxTimer,  # 预留，后续替换为专用Timer
-        "iluvatar": CudaTimer,   # 天数智芯兼容CUDA接口
+        "mthreads": MthreadsTimer,
+        "iluvatar": CudaTimer,
+        "hygon": CudaTimer,
+        "enflame": EnflameTimer,
+        "kunlunxin": KunlunxinTimer,
     }
 
     timer_cls = timer_map.get(platform)

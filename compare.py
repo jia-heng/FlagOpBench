@@ -138,7 +138,7 @@ def main():
     parser.add_argument("--op", type=str, help="Operator name to compare")
     parser.add_argument("--all", action="store_true", help="Compare all available operators")
     parser.add_argument("--platform", type=str, default="nvidia",
-                        choices=["nvidia", "ascend", "metax", "mthreads", "iluvatar"],
+                        choices=["nvidia", "ascend", "metax", "mthreads", "iluvatar", "hygon", "enflame", "kunlunxin"],
                         help="Platform (default: nvidia, affects default baseline)")
     parser.add_argument("--baseline", type=str, default=None,
                         help="Baseline provider (default: platform name, e.g. nvidia/vllm)")

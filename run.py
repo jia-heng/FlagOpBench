@@ -145,7 +145,7 @@ def main():
         "--platform",
         type=str,
         default="nvidia",
-        choices=["nvidia", "ascend", "metax", "mthreads", "iluvatar"],
+        choices=["nvidia", "ascend", "metax", "mthreads", "iluvatar", "hygon", "enflame", "kunlunxin"],
         help="目标平台 (default: nvidia)",
     )
     parser.add_argument(

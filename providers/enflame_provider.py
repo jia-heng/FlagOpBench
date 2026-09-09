@@ -1,15 +1,12 @@
-"""Iluvatar Provider
+"""Enflame Provider
 
-天数智芯平台性能基线Provider。
+燧原 GCU 平台性能基线 Provider。
 
-Corex 通过 torch.cuda 暴露设备。本机常见两套环境：
-- corex_vllm_plugin：vllm 能 import，但 cuda 常 Error 1001
-- corex 基座镜像：cuda 可用，但 import vllm 常因 ixformer
-  undefined symbol（cuInferPagedAttention）失败
+设备走 torch.gcu；对位栈为 vllm_gcu。
+算子 case 里 tensor 默认 device=cuda，setup 时将
+torch 工厂函数的 cuda 设备重定向到 gcu:0。
 
-因此继承 NvidiaProvider；setup 宽捕获 vllm 失败；
-swiglu 在缺少 torch.ops._C.silu_and_mul 时回退到
-F.silu * mul（老师口径：缺的算子可从 torch 找）。
+swiglu 优先 torch.ops._C.silu_and_mul；无则 F.silu * mul 兜底。
 """
 import torch
 import torch.nn.functional as F
@@ -18,32 +15,69 @@ from .nvidia_provider import NvidiaProvider
 from .registry import register_provider
 
 
-@register_provider("iluvatar", platform="iluvatar", is_default=True)
-class IluvatarProvider(NvidiaProvider):
-    """天数智芯平台算子实现加载器（Corex / torch 兜底）"""
+def _patch_tensor_factory_for_gcu() -> None:
+    """将 operators 里 device=cuda 的创建重定向到 gcu:0。"""
+    if getattr(torch, "_flagopbench_gcu_patch", False):
+        return
+
+    gcu_dev = torch.device("gcu:0")
+
+    def _fix_device(kwargs: dict) -> dict:
+        dev = kwargs.get("device")
+        if dev is None:
+            return kwargs
+        dev_str = str(dev)
+        if dev == "cuda" or dev_str == "cuda" or dev_str.startswith("cuda:"):
+            return {**kwargs, "device": gcu_dev}
+        return kwargs
+
+    for name in ("randn", "empty", "zeros", "ones", "full", "arange", "tensor"):
+        if not hasattr(torch, name):
+            continue
+        orig = getattr(torch, name)
+
+        def make_wrapper(fn):
+            def wrapper(*args, **kwargs):
+                return fn(*args, **_fix_device(kwargs))
+            wrapper.__name__ = getattr(fn, "__name__", name)
+            return wrapper
+
+        setattr(torch, name, make_wrapper(orig))
+
+    torch._flagopbench_gcu_patch = True
+
+
+@register_provider("enflame", platform="enflame", is_default=True)
+class EnflameProvider(NvidiaProvider):
+    """燧原 GCU 算子实现加载器（vllm_gcu 优先，torch 兜底）"""
 
     @property
     def name(self) -> str:
-        return "iluvatar"
+        return "enflame"
 
     @property
     def platform(self) -> str:
-        return "iluvatar"
+        return "enflame"
 
     def get_device(self) -> torch.device:
-        return torch.device("cuda:0")
+        return torch.device("gcu:0")
 
     def synchronize(self) -> None:
-        torch.cuda.synchronize()
+        torch.gcu.synchronize()
 
     def is_available(self) -> bool:
-        return torch.cuda.is_available()
+        return hasattr(torch, "gcu") and torch.gcu.is_available()
 
     def setup(self):
-        if not torch.cuda.is_available():
-            print("  [WARN] torch.cuda.is_available()=False; "
-                  "check IX_VISIBLE_DEVICES / Corex driver-SDK match "
-                  "(vllm plugin image often Error 1001)")
+        if not self.is_available():
+            print("  [WARN] torch.gcu.is_available()=False; "
+                  "check ENFLAME_VISIBLE_DEVICES / gcu driver / vllm_gcu image")
+            return
+
+        _patch_tensor_factory_for_gcu()
+        print(f"  Loaded torch.gcu: available=True, "
+              f"count={torch.gcu.device_count()}, "
+              f"name0={torch.gcu.get_device_name(0)}")
 
         try:
             import vllm
@@ -58,10 +92,7 @@ class IluvatarProvider(NvidiaProvider):
             self._vllm_sparse_attn = None
             self._vllm_fused_moe = None
             self._vllm_flash_attn = None
-            self._torch_ops_registered = (
-                hasattr(torch.ops, "_C")
-                and hasattr(torch.ops._C, "silu_and_mul")
-            )
+            self._torch_ops_registered = self._has_silu_and_mul()
             print(f"  Loaded vllm modules: _custom_ops=False, v1_ops=False, "
                   f"mhc=False, flash_attn=False, "
                   f"torch_ops._C.silu_and_mul={self._torch_ops_registered}")
@@ -103,13 +134,10 @@ class IluvatarProvider(NvidiaProvider):
             print(f"  [WARN] Failed to import flash_attn: {type(e).__name__}: {e}")
             self._vllm_flash_attn = None
 
-        self._torch_ops_registered = (
-            hasattr(torch.ops, "_C")
-            and hasattr(torch.ops._C, "silu_and_mul")
-        )
+        self._torch_ops_registered = self._has_silu_and_mul()
         if not self._torch_ops_registered:
             print("  [WARN] torch.ops._C.silu_and_mul unavailable; "
-                  "swiglu will use torch fallback if requested")
+                  "swiglu will use torch fallback")
 
         print(f"  Loaded vllm modules: _custom_ops={self._vllm_ops is not None}, "
               f"v1_ops={self._vllm_v1_ops is not None}, "
@@ -117,10 +145,15 @@ class IluvatarProvider(NvidiaProvider):
               f"flash_attn={self._vllm_flash_attn is not None}, "
               f"torch_ops._C.silu_and_mul={self._torch_ops_registered}")
 
+    @staticmethod
+    def _has_silu_and_mul() -> bool:
+        return hasattr(torch.ops, "_C") and hasattr(torch.ops._C, "silu_and_mul")
+
     def _load_swiglu(self):
-        """优先 torch.ops._C.silu_and_mul；天数 corex 常无该符号 → F.silu * mul"""
-        if hasattr(torch.ops, "_C") and hasattr(torch.ops._C, "silu_and_mul"):
-            return super()._load_swiglu()
+        if self._has_silu_and_mul():
+            impl_fn, info = super()._load_swiglu()
+            if impl_fn is not None:
+                return impl_fn, info
 
         def wrapper(input_tensor, **kwargs):
             d = input_tensor.shape[-1] // 2
@@ -131,11 +164,11 @@ class IluvatarProvider(NvidiaProvider):
         return wrapper, {
             "source": "torch.nn.functional.silu * mul (fallback)",
             "type": "torch",
-            "platform": "iluvatar",
+            "platform": "enflame",
         }
 
     def get_impl(self, op_name, operator):
         impl_fn, impl_info = super().get_impl(op_name, operator)
         if impl_fn is not None:
-            impl_info = {**impl_info, "platform": "iluvatar"}
+            impl_info = {**impl_info, "platform": "enflame"}
         return impl_fn, impl_info
