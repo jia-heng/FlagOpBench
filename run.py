@@ -83,7 +83,7 @@ def run_single(platform, impl, case_path, case_dir, warmup, repeat, output):
 
 
 def run_compare(platform, case_path, case_dir, warmup, repeat, output):
-    """对比模式: 平台基线 vs FlagOS"""
+    """对比模式: 平台基线 vs FlagOS；两侧 JSON 落盘，便于出 NV 同款表"""
     baseline_provider = get_provider(platform, impl=None)
     flagos_provider = get_provider(platform, impl="flagos")
 
@@ -132,6 +132,25 @@ def run_compare(platform, case_path, case_dir, warmup, repeat, output):
     par = len(compare_results) - faster - slower
     print(f"\n  Summary: {faster} faster, {slower} slower, {par} on par")
     print(f"{'='*70}")
+
+    # 按算子落盘 baseline / flagos JSON（与 single 模式同路径约定）
+    print(f"\n[4/4] Saving baseline / flagos reports...")
+    by_op = {}
+    for cr in compare_results:
+        by_op.setdefault(cr.operator, {"baseline": [], "flagos": []})
+        by_op[cr.operator]["baseline"].append(cr.baseline)
+        by_op[cr.operator]["flagos"].append(cr.flagos)
+
+    for op_name, sides in by_op.items():
+        baseline_reporter = Reporter(provider_name=baseline_provider.name, platform=platform)
+        baseline_reporter.add_results(sides["baseline"])
+        baseline_path = baseline_reporter.save(output_dir=output, operator_name=op_name)
+        print(f"  Baseline saved: {baseline_path}")
+
+        flagos_reporter = Reporter(provider_name=flagos_provider.name, platform=platform)
+        flagos_reporter.add_results(sides["flagos"])
+        flagos_path = flagos_reporter.save(output_dir=output, operator_name=op_name)
+        print(f"  FlagOS saved:   {flagos_path}")
 
     baseline_provider.teardown()
     flagos_provider.teardown()

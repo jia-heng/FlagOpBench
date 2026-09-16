@@ -12,6 +12,31 @@ from .base_provider import BaseProvider
 from .registry import register_provider
 
 
+def _detect_accelerator() -> str:
+    """按当前环境探测加速器后端: musa / npu / gcu / cuda / cpu"""
+    if hasattr(torch, "musa"):
+        try:
+            if torch.musa.is_available():
+                return "musa"
+        except Exception:
+            pass
+    if hasattr(torch, "npu"):
+        try:
+            if torch.npu.is_available():
+                return "npu"
+        except Exception:
+            pass
+    if hasattr(torch, "gcu"):
+        try:
+            if torch.gcu.is_available():
+                return "gcu"
+        except Exception:
+            pass
+    if torch.cuda.is_available():
+        return "cuda"
+    return "cpu"
+
+
 @register_provider("flagos", platform="all")
 class FlagOSProvider(BaseProvider):
     """FlagOS算子实现加载器（跨平台，被测对象）"""
@@ -20,6 +45,7 @@ class FlagOSProvider(BaseProvider):
         self._flaggems = None
         self._flaggems_vllm = None
         self._flagattention = None
+        self._accel = _detect_accelerator()
 
     @property
     def name(self) -> str:
@@ -31,37 +57,54 @@ class FlagOSProvider(BaseProvider):
 
     def get_device(self) -> torch.device:
         """FlagOS支持多平台，根据当前环境返回设备"""
-        if torch.cuda.is_available():
+        accel = self._accel or _detect_accelerator()
+        if accel == "musa":
+            return torch.device("musa:0")
+        if accel == "npu":
+            return torch.device("npu:0")
+        if accel == "gcu":
+            return torch.device("gcu:0")
+        if accel == "cuda":
             return torch.device("cuda:0")
-        # 预留: 后续支持其他平台设备
-        return torch.device("cuda:0")
+        return torch.device("cpu")
 
     def synchronize(self) -> None:
         """同步当前设备"""
-        if torch.cuda.is_available():
+        accel = self._accel or _detect_accelerator()
+        if accel == "musa":
+            torch.musa.synchronize()
+        elif accel == "npu":
+            torch.npu.synchronize()
+        elif accel == "gcu":
+            torch.gcu.synchronize()
+        elif accel == "cuda":
             torch.cuda.synchronize()
 
     def is_available(self) -> bool:
         """检查FlagOS相关库是否可用"""
         try:
-            import flag_gems
+            import flag_gems  # noqa: F401
             return True
         except ImportError:
             pass
         try:
-            import flaggems_vllm
+            import flaggems_vllm  # noqa: F401
             return True
         except ImportError:
             pass
         try:
-            import flag_attn
+            import flag_attn  # noqa: F401
             return True
         except ImportError:
             pass
         return False
 
     def setup(self):
-        """延迟import FlagOS相关库"""
+        """延迟import FlagOS相关库，并按加速器重定向 device=cuda 的工厂函数"""
+        self._accel = _detect_accelerator()
+        self._apply_device_redirect_patches()
+        print(f"  FlagOS accelerator: {self._accel}, device={self.get_device()}")
+
         try:
             import flag_gems
             self._flaggems = flag_gems
@@ -82,6 +125,18 @@ class FlagOSProvider(BaseProvider):
             print(f"  Loaded flagattention (flag_attn): {flagattention.__version__ if hasattr(flagattention, '__version__') else 'unknown'}")
         except ImportError as e:
             print(f"  [WARN] Failed to import flagattention: {e}")
+
+    def _apply_device_redirect_patches(self) -> None:
+        """算子 prepare_inputs 常写 device=cuda，国产后端需重定向。"""
+        if self._accel == "musa":
+            from providers.mthreads_provider import _patch_tensor_factory_for_musa
+            _patch_tensor_factory_for_musa()
+        elif self._accel == "npu":
+            from providers.ascend_provider import _patch_tensor_factory_for_npu
+            _patch_tensor_factory_for_npu()
+        elif self._accel == "gcu":
+            from providers.enflame_provider import _patch_tensor_factory_for_gcu
+            _patch_tensor_factory_for_gcu()
 
     def get_impl(
         self,
