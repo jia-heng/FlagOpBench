@@ -38,16 +38,19 @@ class IndexerKQuantAndCacheOperator(BaseOperator):
     def prepare_inputs(self, **params):
         """准备输入
 
+        casegen 路径参数: num_tokens, index_head_dim, index_n_heads, index_topk, dtype
+        直接调用参数:     num_tokens, head_dim, block_size, quant_block_size, num_blocks, scale_fmt
+
         Args:
             num_tokens: token数
-            head_dim: K head维度
+            head_dim/index_head_dim: K head维度
             block_size: cache block大小
             quant_block_size: 量化block大小
             num_blocks: cache总block数
             scale_fmt: scale格式
         """
         num_tokens = params["num_tokens"]
-        head_dim = params.get("head_dim", 576)
+        head_dim = params.get("index_head_dim") or params.get("head_dim", 576)
         block_size = params.get("block_size", 16)
         quant_block_size = params.get("quant_block_size", 64)
         num_blocks = params.get("num_blocks", 256)
@@ -97,7 +100,7 @@ class IndexerKQuantAndCacheOperator(BaseOperator):
         量化FLOPs: 每个quant block需要找max(abs)和scale -> ~2*quant_block_size per block
         """
         num_tokens = params["num_tokens"]
-        head_dim = params.get("head_dim", 576)
+        head_dim = params.get("index_head_dim") or params.get("head_dim", 576)
         quant_block_size = params.get("quant_block_size", 64)
         num_quant_blocks = head_dim // quant_block_size
         # 每个quant block: reduce找absmax + scale + 量化
@@ -110,7 +113,7 @@ class IndexerKQuantAndCacheOperator(BaseOperator):
         写: kv_cache data (fp8) + scale (fp32)
         """
         num_tokens = params["num_tokens"]
-        head_dim = params.get("head_dim", 576)
+        head_dim = params.get("index_head_dim") or params.get("head_dim", 576)
         quant_block_size = params.get("quant_block_size", 64)
         num_quant_blocks = head_dim // quant_block_size
 

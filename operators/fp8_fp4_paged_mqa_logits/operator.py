@@ -44,23 +44,23 @@ class FP8FP4PagedMQALogitsOperator(BaseOperator):
     def prepare_inputs(self, **params):
         """准备输入
 
-        Args:
-            B: batch size
+        Args (demo / casegen 均兼容):
+            B / b: batch size
             next_n: speculative decode步数（通常1）
-            H: head数
-            D: head dim
+            H / h_q: head数
+            D / d: head dim
             block_size: KV cache page大小
-            max_model_len: 最大模型序列长度
-            context_len: 实际context长度
+            max_model_len / max_seq: 最大模型序列长度
+            context_len: 实际context长度（默认=max_model_len）
             clean_logits: 是否用-inf初始化
         """
-        B = params["B"]
+        B = params.get("b") or params["B"]
         next_n = params.get("next_n", 1)
-        H = params.get("H", 128)
-        D = params.get("D", 128)
+        H = params.get("h_q") or params.get("H", 128)
+        D = params.get("d") or params.get("D", 128)
         block_size = params.get("block_size", 16)
-        max_model_len = params.get("max_model_len", 4096)
-        context_len = params.get("context_len", 2048)
+        max_model_len = params.get("max_seq") or params.get("max_model_len", 4096)
+        context_len = params.get("context_len") or max_model_len
         clean_logits = params.get("clean_logits", False)
 
         max_blocks_per_seq = (max_model_len + block_size - 1) // block_size
@@ -92,13 +92,27 @@ class FP8FP4PagedMQALogitsOperator(BaseOperator):
             num_phys_blocks, dtype=torch.int32, device="cuda"
         ).view(B, max_blocks_per_seq)
 
+        # schedule_metadata: 由deep_gemm的get_paged_mqa_logits_metadata生成
+        # flaggems_vllm (Triton)接受None, 但vLLM (deep_gemm C++)需要真实tensor
+        schedule_metadata = None
+        try:
+            from vllm.utils.deep_gemm import get_paged_mqa_logits_metadata
+            num_sms = 132  # H100 default
+            # deep_gemm要求context_lens是2D: (B, next_n)
+            ctx_lens_2d = context_lens.unsqueeze(1).expand(B, next_n).contiguous()
+            schedule_metadata = get_paged_mqa_logits_metadata(
+                ctx_lens_2d, block_size, num_sms
+            )
+        except (ImportError, Exception):
+            pass
+
         return {
             "q": (q_values, q_scale),
             "kv_cache": kv_cache,
             "weights": weights,
             "context_lens": context_lens,
             "block_tables": block_tables,
-            "schedule_metadata": None,
+            "schedule_metadata": schedule_metadata,
             "max_model_len": max_model_len,
             "clean_logits": clean_logits,
         }
@@ -111,11 +125,12 @@ class FP8FP4PagedMQALogitsOperator(BaseOperator):
           - 加权求和: H (per head weight)
         总: B * next_n * context_len * H * D * 2 + B * next_n * context_len * H
         """
-        B = params["B"]
+        B = params.get("b") or params["B"]
         next_n = params.get("next_n", 1)
-        H = params.get("H", 128)
-        D = params.get("D", 128)
-        context_len = params.get("context_len", 2048)
+        H = params.get("h_q") or params.get("H", 128)
+        D = params.get("d") or params.get("D", 128)
+        max_model_len = params.get("max_seq") or params.get("max_model_len", 4096)
+        context_len = params.get("context_len") or max_model_len
 
         total_rows = B * next_n
         # Q @ K^T dot product per position
@@ -137,13 +152,13 @@ class FP8FP4PagedMQALogitsOperator(BaseOperator):
         写:
           logits: B * next_n * max_model_len * 4 (float32)
         """
-        B = params["B"]
+        B = params.get("b") or params["B"]
         next_n = params.get("next_n", 1)
-        H = params.get("H", 128)
-        D = params.get("D", 128)
+        H = params.get("h_q") or params.get("H", 128)
+        D = params.get("d") or params.get("D", 128)
         block_size = params.get("block_size", 16)
-        max_model_len = params.get("max_model_len", 4096)
-        context_len = params.get("context_len", 2048)
+        max_model_len = params.get("max_seq") or params.get("max_model_len", 4096)
+        context_len = params.get("context_len") or max_model_len
 
         total_rows = B * next_n
         max_blocks_per_seq = (max_model_len + block_size - 1) // block_size

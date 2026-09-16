@@ -51,8 +51,9 @@ class FlashMLAWithKVCacheFP8Operator(BaseOperator):
             b: batch size
             s_q: query序列长度 (decode=1)
             h_q: query head数 (64或128)
-            head_dim_k: K head dim (512或576)
-            head_dim_v: V head dim (512)
+            d: K head dim (512或576) - 兼容 head_dim_k
+            dv: V head dim (512) - 兼容 head_dim_v
+            max_seq: 最大序列长度 - 用于推导 topk 和 num_kv_tokens
             topk: 每个token attend的KV数 (必须是64的倍数)
             num_kv_tokens: KV token总数
         """
@@ -61,10 +62,21 @@ class FlashMLAWithKVCacheFP8Operator(BaseOperator):
         b = params["b"]
         s_q = params.get("s_q", 1)
         h_q = params.get("h_q", 128)
-        head_dim_k = params.get("head_dim_k", 512)
-        head_dim_v = params.get("head_dim_v", 512)
-        topk = params.get("topk", 64)
-        num_kv_tokens = params.get("num_kv_tokens", 8192)
+
+        # Support both naming conventions
+        head_dim_k = params.get("head_dim_k") or params.get("d", 512)
+        head_dim_v = params.get("head_dim_v") or params.get("dv", 512)
+
+        # Derive topk and num_kv_tokens from max_seq if provided
+        max_seq = params.get("max_seq")
+        if max_seq:
+            # Sparse attention: topk is typically much smaller than max_seq
+            # Use 1/32 of max_seq, rounded to nearest multiple of 64
+            topk = params.get("topk", max(64, ((max_seq // 32 + 63) // 64) * 64))
+            num_kv_tokens = params.get("num_kv_tokens", max_seq)
+        else:
+            topk = params.get("topk", 64)
+            num_kv_tokens = params.get("num_kv_tokens", 8192)
 
         # MODEL1: head_dim_k=512 → 584 bytes/token
         # V32:    head_dim_k=576 → 656 bytes/token
@@ -113,9 +125,14 @@ class FlashMLAWithKVCacheFP8Operator(BaseOperator):
         b = params["b"]
         s_q = params.get("s_q", 1)
         h_q = params.get("h_q", 128)
-        head_dim_k = params.get("head_dim_k", 512)
-        head_dim_v = params.get("head_dim_v", 512)
-        topk = params.get("topk", 64)
+        head_dim_k = params.get("head_dim_k") or params.get("d", 512)
+        head_dim_v = params.get("head_dim_v") or params.get("dv", 512)
+
+        max_seq = params.get("max_seq")
+        if max_seq:
+            topk = params.get("topk", max(64, ((max_seq // 32 + 63) // 64) * 64))
+        else:
+            topk = params.get("topk", 64)
 
         qk_flops = 2 * b * s_q * h_q * topk * head_dim_k
         softmax_flops = 5 * b * s_q * h_q * topk
@@ -136,9 +153,14 @@ class FlashMLAWithKVCacheFP8Operator(BaseOperator):
         b = params["b"]
         s_q = params.get("s_q", 1)
         h_q = params.get("h_q", 128)
-        head_dim_k = params.get("head_dim_k", 512)
-        head_dim_v = params.get("head_dim_v", 512)
-        topk = params.get("topk", 64)
+        head_dim_k = params.get("head_dim_k") or params.get("d", 512)
+        head_dim_v = params.get("head_dim_v") or params.get("dv", 512)
+
+        max_seq = params.get("max_seq")
+        if max_seq:
+            topk = params.get("topk", max(64, ((max_seq // 32 + 63) // 64) * 64))
+        else:
+            topk = params.get("topk", 64)
 
         if head_dim_k == 576:
             cache_token_bytes = 656

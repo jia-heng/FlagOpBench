@@ -1,0 +1,1280 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-01T02:09:50.441002",
+    "provider": "flagos",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 35
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b1_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1349,
+          "std_ms": 0.0061,
+          "min_ms": 0.1289,
+          "max_ms": 0.1661
+        },
+        "throughput": {
+          "gflops": 2241.12,
+          "bandwidth_gb_s": 9.42
+        },
+        "theory": {
+          "flops": 302252032,
+          "bytes": 1270404,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b8_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1342,
+          "std_ms": 0.0043,
+          "min_ms": 0.1305,
+          "max_ms": 0.161
+        },
+        "throughput": {
+          "gflops": 18017.23,
+          "bandwidth_gb_s": 75.73
+        },
+        "theory": {
+          "flops": 2418016256,
+          "bytes": 10163232,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b32_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2497,
+          "std_ms": 0.0042,
+          "min_ms": 0.2445,
+          "max_ms": 0.2754
+        },
+        "throughput": {
+          "gflops": 38738.54,
+          "bandwidth_gb_s": 162.82
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 40652928,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b32_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3989,
+          "std_ms": 0.0031,
+          "min_ms": 0.3933,
+          "max_ms": 0.4139
+        },
+        "throughput": {
+          "gflops": 48489.35,
+          "bandwidth_gb_s": 197.85
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 78930048,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b64_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6948,
+          "std_ms": 0.0032,
+          "min_ms": 0.6884,
+          "max_ms": 0.7086
+        },
+        "throughput": {
+          "gflops": 55680.87,
+          "bandwidth_gb_s": 227.2
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 157860096,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b64_max_seq8192",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2919,
+          "std_ms": 0.0075,
+          "min_ms": 1.2835,
+          "max_ms": 1.3402
+        },
+        "throughput": {
+          "gflops": 59895.74,
+          "bandwidth_gb_s": 240.72
+        },
+        "theory": {
+          "flops": 77376520192,
+          "bytes": 310968576,
+          "arithmetic_intensity": 248.82
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b128_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2922,
+          "std_ms": 0.0801,
+          "min_ms": 1.2749,
+          "max_ms": 2.0612
+        },
+        "throughput": {
+          "gflops": 59879.99,
+          "bandwidth_gb_s": 244.33
+        },
+        "theory": {
+          "flops": 77376520192,
+          "bytes": 315720192,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b1_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1334,
+          "std_ms": 0.0057,
+          "min_ms": 0.1288,
+          "max_ms": 0.1729
+        },
+        "throughput": {
+          "gflops": 1133.25,
+          "bandwidth_gb_s": 9.25
+        },
+        "theory": {
+          "flops": 151126016,
+          "bytes": 1233284,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b8_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1344,
+          "std_ms": 0.0067,
+          "min_ms": 0.1296,
+          "max_ms": 0.1912
+        },
+        "throughput": {
+          "gflops": 8992.43,
+          "bandwidth_gb_s": 73.38
+        },
+        "theory": {
+          "flops": 1209008128,
+          "bytes": 9866272,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2452,
+          "std_ms": 0.0046,
+          "min_ms": 0.2375,
+          "max_ms": 0.2711
+        },
+        "throughput": {
+          "gflops": 19719.62,
+          "bandwidth_gb_s": 160.92
+        },
+        "theory": {
+          "flops": 4836032512,
+          "bytes": 39465088,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3873,
+          "std_ms": 0.0027,
+          "min_ms": 0.3824,
+          "max_ms": 0.3955
+        },
+        "throughput": {
+          "gflops": 24973.17,
+          "bandwidth_gb_s": 200.73
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 77742208,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6761,
+          "std_ms": 0.0027,
+          "min_ms": 0.6698,
+          "max_ms": 0.6845
+        },
+        "throughput": {
+          "gflops": 28611.46,
+          "bandwidth_gb_s": 229.97
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 155484416,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq8192",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2539,
+          "std_ms": 0.0045,
+          "min_ms": 1.2455,
+          "max_ms": 1.2744
+        },
+        "throughput": {
+          "gflops": 30855.48,
+          "bandwidth_gb_s": 246.12
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 308592896,
+          "arithmetic_intensity": 125.37
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b128_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2455,
+          "std_ms": 0.0635,
+          "min_ms": 1.2328,
+          "max_ms": 1.8668
+        },
+        "throughput": {
+          "gflops": 31062.48,
+          "bandwidth_gb_s": 249.67
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 310968832,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b1_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1322,
+          "std_ms": 0.0023,
+          "min_ms": 0.1292,
+          "max_ms": 0.1431
+        },
+        "throughput": {
+          "gflops": 2286.45,
+          "bandwidth_gb_s": 9.61
+        },
+        "theory": {
+          "flops": 302252032,
+          "bytes": 1270404,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b8_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1323,
+          "std_ms": 0.003,
+          "min_ms": 0.1288,
+          "max_ms": 0.1505
+        },
+        "throughput": {
+          "gflops": 18275.86,
+          "bandwidth_gb_s": 76.82
+        },
+        "theory": {
+          "flops": 2418016256,
+          "bytes": 10163232,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2471,
+          "std_ms": 0.0019,
+          "min_ms": 0.2439,
+          "max_ms": 0.2558
+        },
+        "throughput": {
+          "gflops": 39140.97,
+          "bandwidth_gb_s": 164.51
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 40652928,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3981,
+          "std_ms": 0.0025,
+          "min_ms": 0.3928,
+          "max_ms": 0.406
+        },
+        "throughput": {
+          "gflops": 48593.57,
+          "bandwidth_gb_s": 198.28
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 78930048,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6942,
+          "std_ms": 0.0032,
+          "min_ms": 0.6891,
+          "max_ms": 0.7096
+        },
+        "throughput": {
+          "gflops": 55731.61,
+          "bandwidth_gb_s": 227.4
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 157860096,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq8192",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.291,
+          "std_ms": 0.0031,
+          "min_ms": 1.2827,
+          "max_ms": 1.3005
+        },
+        "throughput": {
+          "gflops": 59935.8,
+          "bandwidth_gb_s": 240.88
+        },
+        "theory": {
+          "flops": 77376520192,
+          "bytes": 310968576,
+          "arithmetic_intensity": 248.82
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b128_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2804,
+          "std_ms": 0.0031,
+          "min_ms": 1.2746,
+          "max_ms": 1.2897
+        },
+        "throughput": {
+          "gflops": 60433.06,
+          "bandwidth_gb_s": 246.59
+        },
+        "theory": {
+          "flops": 77376520192,
+          "bytes": 315720192,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b1_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1321,
+          "std_ms": 0.0029,
+          "min_ms": 0.1281,
+          "max_ms": 0.1447
+        },
+        "throughput": {
+          "gflops": 1143.69,
+          "bandwidth_gb_s": 9.33
+        },
+        "theory": {
+          "flops": 151126016,
+          "bytes": 1233284,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b8_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1306,
+          "std_ms": 0.0023,
+          "min_ms": 0.1272,
+          "max_ms": 0.1397
+        },
+        "throughput": {
+          "gflops": 9256.38,
+          "bandwidth_gb_s": 75.54
+        },
+        "theory": {
+          "flops": 1209008128,
+          "bytes": 9866272,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b32_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2417,
+          "std_ms": 0.003,
+          "min_ms": 0.2376,
+          "max_ms": 0.2624
+        },
+        "throughput": {
+          "gflops": 20009.91,
+          "bandwidth_gb_s": 163.29
+        },
+        "theory": {
+          "flops": 4836032512,
+          "bytes": 39465088,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b32_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3865,
+          "std_ms": 0.0025,
+          "min_ms": 0.3822,
+          "max_ms": 0.3968
+        },
+        "throughput": {
+          "gflops": 25025.94,
+          "bandwidth_gb_s": 201.15
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 77742208,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b64_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6739,
+          "std_ms": 0.0027,
+          "min_ms": 0.6682,
+          "max_ms": 0.6828
+        },
+        "throughput": {
+          "gflops": 28704.11,
+          "bandwidth_gb_s": 230.72
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 155484416,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b64_max_seq8192",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2521,
+          "std_ms": 0.003,
+          "min_ms": 1.2451,
+          "max_ms": 1.2594
+        },
+        "throughput": {
+          "gflops": 30899.27,
+          "bandwidth_gb_s": 246.46
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 308592896,
+          "arithmetic_intensity": 125.37
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b128_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2373,
+          "std_ms": 0.0031,
+          "min_ms": 1.2311,
+          "max_ms": 1.2445
+        },
+        "throughput": {
+          "gflops": 31267.38,
+          "bandwidth_gb_s": 251.32
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 310968832,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b1_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1367,
+          "std_ms": 0.0441,
+          "min_ms": 0.127,
+          "max_ms": 0.5083
+        },
+        "throughput": {
+          "gflops": 1105.87,
+          "bandwidth_gb_s": 9.02
+        },
+        "theory": {
+          "flops": 151126016,
+          "bytes": 1233284,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b8_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.131,
+          "std_ms": 0.0025,
+          "min_ms": 0.1266,
+          "max_ms": 0.1428
+        },
+        "throughput": {
+          "gflops": 9229.32,
+          "bandwidth_gb_s": 75.32
+        },
+        "theory": {
+          "flops": 1209008128,
+          "bytes": 9866272,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b32_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2418,
+          "std_ms": 0.0022,
+          "min_ms": 0.238,
+          "max_ms": 0.2508
+        },
+        "throughput": {
+          "gflops": 20002.44,
+          "bandwidth_gb_s": 163.23
+        },
+        "theory": {
+          "flops": 4836032512,
+          "bytes": 39465088,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b32_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.386,
+          "std_ms": 0.0021,
+          "min_ms": 0.3811,
+          "max_ms": 0.3949
+        },
+        "throughput": {
+          "gflops": 25055.69,
+          "bandwidth_gb_s": 201.39
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 77742208,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b64_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6737,
+          "std_ms": 0.0023,
+          "min_ms": 0.6693,
+          "max_ms": 0.6807
+        },
+        "throughput": {
+          "gflops": 28711.41,
+          "bandwidth_gb_s": 230.78
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 155484416,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b64_max_seq8192",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2522,
+          "std_ms": 0.0037,
+          "min_ms": 1.2451,
+          "max_ms": 1.2631
+        },
+        "throughput": {
+          "gflops": 30896.98,
+          "bandwidth_gb_s": 246.45
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 308592896,
+          "arithmetic_intensity": 125.37
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b128_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2369,
+          "std_ms": 0.0032,
+          "min_ms": 1.2311,
+          "max_ms": 1.2521
+        },
+        "throughput": {
+          "gflops": 31279.15,
+          "bandwidth_gb_s": 251.42
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 310968832,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.fp8_fp4_paged_mqa_logits",
+        "type": "triton"
+      }
+    }
+  ]
+}

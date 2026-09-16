@@ -1,24 +1,28 @@
-算子名,FlagOS来源,vLLM来源,FlagOS平均耗时(ms),vLLM平均耗时(ms),平均加速比,用例数,环境
-group_gemm,flag_gems.group_mm,torch._grouped_mm (CUTLASS),0.5004,0.8096,1.5112,6,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-fused_moe,flaggems_vllm.outplace_fused_experts,vllm.model_executor.layers.fused_moe.fused_moe.outplace_fused_experts,9.1631,12.3927,1.3068,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-pack_seq_triton,flaggems_vllm.pack_seq_triton,vllm.model_executor.layers.sparse_attn_indexer.pack_seq_triton,0.1218,0.2079,1.2695,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-unpack_seq_triton,flaggems_vllm.unpack_seq_triton,vllm.model_executor.layers.sparse_attn_indexer.unpack_seq_triton,0.0636,0.0682,1.0507,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-fused_q_kv_rmsnorm,flaggems_vllm.fused_q_kv_rmsnorm,vllm.v1.attention.ops.deepseek_v4_ops.fused_q_kv_rmsnorm,0.0707,0.0678,0.9430,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-combine_topk_swa_indices,flaggems_vllm.combine_topk_swa_indices,vllm.v1.attention.ops.deepseek_v4_ops.combine_topk_swa_indices,0.0466,0.0411,0.8813,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-flash_attn_varlen_func,flaggems_vllm.flash_attn_varlen_func,vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func,0.2494,0.2048,0.8211,5,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,flaggems_vllm.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,torch.ops._C.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,0.0948,0.0854,0.7583,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-topk_softplus_sqrt,flaggems_vllm.topk_softplus_sqrt,vllm._custom_ops.topk_hash_softplus_sqrt,0.0268,0.0187,0.6856,5,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-top_k_per_row_decode,flaggems_vllm.top_k_per_row_decode,torch.ops._C.top_k_per_row_decode (adapted),0.0226,0.0141,0.6712,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-top_k_per_row_prefill,flaggems_vllm.top_k_per_row_prefill,torch.ops._C.top_k_per_row_prefill (adapted),0.1003,0.0684,0.6544,5,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-compute_global_topk_indices_and_lens,flaggems_vllm.compute_global_topk_indices_and_lens,vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens,0.0520,0.0309,0.5940,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-moe_sum,flaggems_vllm.moe_sum,vllm._custom_ops.moe_sum,0.0446,0.0311,0.5743,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-mhc_pre,flaggems_vllm.mhc_pre,vllm.model_executor.layers.mhc.mhc_pre,0.1169,0.0668,0.5592,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-swiglu,flag_gems.swiglu,torch.ops._C.silu_and_mul (adapted),0.0431,0.0252,0.5407,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-mhc_post,flaggems_vllm.mhc_post,vllm.model_executor.layers.mhc.mhc_post,0.0591,0.0316,0.5352,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-indexer_k_quant_and_cache,flaggems_vllm.indexer_k_quant_and_cache,vllm._custom_ops.indexer_k_quant_and_cache (adapted),0.0395,0.0137,0.3457,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-cp_gather_indexer_k_quant_cache,flaggems_vllm.cp_gather_indexer_k_quant_cache,vllm._custom_ops.cp_gather_indexer_k_quant_cache (adapted),0.0413,0.0137,0.3326,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-flash_mla_with_kvcache,flaggems_vllm.flash_mla_with_kvcache,vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted),0.9607,0.2889,0.2816,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-silu_and_mul_with_clamp,flaggems_vllm.silu_and_mul_with_clamp,torch.ops._C.silu_and_mul_with_clamp (adapted),0.1672,0.0469,0.2497,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-flash_mla,flaggems_vllm.flash_mla,,0.3494,N/A,N/A,5,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-flash_mla_with_kvcache_fp8,flaggems_vllm.flash_mla_with_kvcache,,0.1250,N/A,N/A,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
-fp8_fp4_paged_mqa_logits,flaggems_vllm.fp8_fp4_paged_mqa_logits,,0.1804,N/A,N/A,4,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+operator,flagos_impl,baseline_impl,flagos_avg_time_ms,baseline_avg_time_ms,avg_speedup,num_workloads,environment
+flash_attn_varlen_func,flaggems_vllm.flash_attn_varlen_func,vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func,2.0387,5.3712,2.0742,2,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+group_gemm,flag_gems.group_mm,torch._grouped_mm (CUTLASS),0.6425,1.1387,1.5096,70,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+fused_moe,flaggems_vllm.outplace_fused_experts,vllm.model_executor.layers.fused_moe.fused_moe.outplace_fused_experts,3.5582,5.1073,1.1002,53,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+chunk_gated_delta_rule_flaggems_vllm,flaggems_vllm.chunk_gated_delta_rule,flaggems_vllm non-TLE fallback (output_final_state=False),0.4401,0.4956,1.0543,20,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+chunk_gated_delta_rule_flag_gems,flag_gems.chunk_gated_delta_rule,flaggems_vllm non-TLE fallback (output_final_state=False),0.2141,0.2137,0.9981,5,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+chunk_gated_delta_rule_flag_attn,flagattention.chunk_gated_delta_rule,flaggems_vllm non-TLE fallback (output_final_state=False),0.4839,0.4974,0.9850,20,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+fused_q_kv_rmsnorm,flaggems_vllm.fused_q_kv_rmsnorm,vllm.v1.attention.ops.deepseek_v4_ops.fused_q_kv_rmsnorm,0.0390,0.0367,0.9534,110,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+unpack_seq_triton,flaggems_vllm.unpack_seq_triton,vllm.model_executor.layers.sparse_attn_indexer.unpack_seq_triton,0.0625,0.0590,0.9437,30,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+pack_seq_triton,flaggems_vllm.pack_seq_triton,vllm.model_executor.layers.sparse_attn_indexer.pack_seq_triton,0.0565,0.0531,0.9395,30,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+combine_topk_swa_indices,flaggems_vllm.combine_topk_swa_indices,vllm.v1.attention.ops.deepseek_v4_ops.combine_topk_swa_indices,0.0575,0.0485,0.8563,6,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,flaggems_vllm.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,torch.ops._C.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,0.0778,0.0675,0.6796,70,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+moe_sum,flaggems_vllm.moe_sum,vllm._custom_ops.moe_sum,0.0590,0.0553,0.6496,80,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+top_k_per_row_decode,flaggems_vllm.top_k_per_row_decode,torch.ops._C.top_k_per_row_decode (adapted),0.0331,0.0230,0.6334,70,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+top_k_per_row_prefill,flaggems_vllm.top_k_per_row_prefill,torch.ops._C.top_k_per_row_prefill (adapted),0.0331,0.0227,0.6243,70,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+mhc_pre,flaggems_vllm.mhc_pre,vllm.model_executor.layers.mhc.mhc_pre,0.1292,0.0848,0.5979,50,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+mhc_post,flaggems_vllm.mhc_post,vllm.model_executor.layers.mhc.mhc_post,0.0710,0.0428,0.5745,50,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+topk_softplus_sqrt,flaggems_vllm.topk_softplus_sqrt,vllm._custom_ops.topk_hash_softplus_sqrt,0.0278,0.0155,0.5686,70,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+flash_mla_with_kvcache,flaggems_vllm.flash_mla_with_kvcache,vllm.v1.attention.ops.flashmla.flash_mla_with_kvcache (adapted),0.5837,0.4230,0.5547,49,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+swiglu,flag_gems.swiglu,torch.ops._C.silu_and_mul (adapted),0.0391,0.0223,0.5368,60,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+compute_global_topk_indices_and_lens,flaggems_vllm.compute_global_topk_indices_and_lens,vllm.v1.attention.ops.deepseek_v4_ops.compute_global_topk_indices_and_lens,0.0846,0.0383,0.4518,28,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+indexer_k_quant_and_cache,flaggems_vllm.indexer_k_quant_and_cache,vllm._custom_ops.indexer_k_quant_and_cache (adapted),0.0365,0.0135,0.3697,40,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+cp_gather_indexer_k_quant_cache,flaggems_vllm.cp_gather_indexer_k_quant_cache (wrapped),vllm._custom_ops.cp_gather_indexer_k_quant_cache,0.0448,0.0131,0.2938,40,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+grouped_topk,flag_gems.grouped_topk,vllm._custom_ops.grouped_topk (adapted),0.0761,0.0227,0.2866,50,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+silu_and_mul_with_clamp,flaggems_vllm.silu_and_mul_with_clamp,torch.ops._C.silu_and_mul_with_clamp (adapted),0.1398,0.0323,0.1998,60,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+flash_mla,flaggems_vllm.flash_mla,,0.4749,N/A,N/A,23,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+flash_mla_with_kvcache_fp8,flaggems_vllm.flash_mla_with_kvcache,,0.1297,N/A,N/A,14,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0
+fp8_fp4_paged_mqa_logits,flaggems_vllm.fp8_fp4_paged_mqa_logits,,0.5874,N/A,N/A,35,NVIDIA H20 (95.1GB); PyTorch 2.11.0+cu130; CUDA 13.0

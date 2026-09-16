@@ -1,0 +1,1676 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-31T03:27:41.050990",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 46
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4088,
+          "std_ms": 0.0018,
+          "min_ms": 0.4076,
+          "max_ms": 0.4251
+        },
+        "throughput": {
+          "gflops": 246.27,
+          "bandwidth_gb_s": 985.55
+        },
+        "theory": {
+          "flops": 100663296,
+          "bytes": 402849792,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.3337,
+          "std_ms": 0.0017,
+          "min_ms": 10.3318,
+          "max_ms": 10.3441
+        },
+        "throughput": {
+          "gflops": 311.72,
+          "bandwidth_gb_s": 1247.49
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 12891193344,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2728,
+          "std_ms": 0.0006,
+          "min_ms": 0.2721,
+          "max_ms": 0.2767
+        },
+        "throughput": {
+          "gflops": 47224.4,
+          "bandwidth_gb_s": 737.88
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 201326592,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.921,
+          "std_ms": 0.0015,
+          "min_ms": 2.9186,
+          "max_ms": 2.9294
+        },
+        "throughput": {
+          "gflops": 70577.99,
+          "bandwidth_gb_s": 275.7
+        },
+        "theory": {
+          "flops": 206158430208,
+          "bytes": 805306368,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.8715,
+          "std_ms": 0.0012,
+          "min_ms": 10.8684,
+          "max_ms": 10.8759
+        },
+        "throughput": {
+          "gflops": 75852.65,
+          "bandwidth_gb_s": 148.15
+        },
+        "theory": {
+          "flops": 824633720832,
+          "bytes": 1610612736,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 11.2512,
+          "std_ms": 0.0013,
+          "min_ms": 11.2493,
+          "max_ms": 11.2571
+        },
+        "throughput": {
+          "gflops": 73293.28,
+          "bandwidth_gb_s": 286.3
+        },
+        "theory": {
+          "flops": 824633720832,
+          "bytes": 3221225472,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.146,
+          "std_ms": 0.0001,
+          "min_ms": 0.1456,
+          "max_ms": 0.1464
+        },
+        "throughput": {
+          "gflops": 143.63,
+          "bandwidth_gb_s": 574.81
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 83927040,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.1525,
+          "std_ms": 0.0012,
+          "min_ms": 1.1504,
+          "max_ms": 1.1569
+        },
+        "throughput": {
+          "gflops": 582.31,
+          "bandwidth_gb_s": 2330.37
+        },
+        "theory": {
+          "flops": 671088640,
+          "bytes": 2685665280,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 9.4491,
+          "std_ms": 1.0852,
+          "min_ms": 7.0458,
+          "max_ms": 13.7298
+        },
+        "throughput": {
+          "gflops": 284.09,
+          "bandwidth_gb_s": 1136.62
+        },
+        "theory": {
+          "flops": 2684354560,
+          "bytes": 10740039680,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0768,
+          "std_ms": 0.0005,
+          "min_ms": 0.0747,
+          "max_ms": 0.0778
+        },
+        "throughput": {
+          "gflops": 34943.51,
+          "bandwidth_gb_s": 545.99
+        },
+        "theory": {
+          "flops": 2684354560,
+          "bytes": 41943040,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.668,
+          "std_ms": 0.014,
+          "min_ms": 0.6376,
+          "max_ms": 0.6974
+        },
+        "throughput": {
+          "gflops": 64295.06,
+          "bandwidth_gb_s": 251.15
+        },
+        "theory": {
+          "flops": 42949672960,
+          "bytes": 167772160,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.9973,
+          "std_ms": 0.4566,
+          "min_ms": 4.4416,
+          "max_ms": 6.5175
+        },
+        "throughput": {
+          "gflops": 34378.4,
+          "bandwidth_gb_s": 67.15
+        },
+        "theory": {
+          "flops": 171798691840,
+          "bytes": 335544320,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.5986,
+          "std_ms": 0.9492,
+          "min_ms": 4.3763,
+          "max_ms": 7.0401
+        },
+        "throughput": {
+          "gflops": 30686.02,
+          "bandwidth_gb_s": 119.87
+        },
+        "theory": {
+          "flops": 171798691840,
+          "bytes": 671088640,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2012,
+          "std_ms": 0.0002,
+          "min_ms": 0.2008,
+          "max_ms": 0.2017
+        },
+        "throughput": {
+          "gflops": 250.13,
+          "bandwidth_gb_s": 1001.02
+        },
+        "theory": {
+          "flops": 50331648,
+          "bytes": 201424896,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 13.1268,
+          "std_ms": 1.3747,
+          "min_ms": 11.1676,
+          "max_ms": 14.6998
+        },
+        "throughput": {
+          "gflops": 122.7,
+          "bandwidth_gb_s": 491.03
+        },
+        "theory": {
+          "flops": 1610612736,
+          "bytes": 6445596672,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1503,
+          "std_ms": 0.0004,
+          "min_ms": 0.1493,
+          "max_ms": 0.1508
+        },
+        "throughput": {
+          "gflops": 42877.23,
+          "bandwidth_gb_s": 669.96
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 100663296,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.52,
+          "std_ms": 0.0005,
+          "min_ms": 1.5188,
+          "max_ms": 1.521
+        },
+        "throughput": {
+          "gflops": 67815.57,
+          "bandwidth_gb_s": 264.9
+        },
+        "theory": {
+          "flops": 103079215104,
+          "bytes": 402653184,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.4355,
+          "std_ms": 0.8025,
+          "min_ms": 12.4154,
+          "max_ms": 14.9882
+        },
+        "throughput": {
+          "gflops": 28562.73,
+          "bandwidth_gb_s": 55.79
+        },
+        "theory": {
+          "flops": 412316860416,
+          "bytes": 805306368,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.7317,
+          "std_ms": 0.7857,
+          "min_ms": 12.8642,
+          "max_ms": 16.3125
+        },
+        "throughput": {
+          "gflops": 27988.49,
+          "bandwidth_gb_s": 109.33
+        },
+        "theory": {
+          "flops": 412316860416,
+          "bytes": 1610612736,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3955,
+          "std_ms": 0.0002,
+          "min_ms": 0.3949,
+          "max_ms": 0.3962
+        },
+        "throughput": {
+          "gflops": 190.91,
+          "bandwidth_gb_s": 764.0
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 302137344,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 19.6206,
+          "std_ms": 2.235,
+          "min_ms": 15.7876,
+          "max_ms": 21.8773
+        },
+        "throughput": {
+          "gflops": 123.13,
+          "bandwidth_gb_s": 492.77
+        },
+        "theory": {
+          "flops": 2415919104,
+          "bytes": 9668395008,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2055,
+          "std_ms": 0.0002,
+          "min_ms": 0.2046,
+          "max_ms": 0.2061
+        },
+        "throughput": {
+          "gflops": 47023.18,
+          "bandwidth_gb_s": 734.74
+        },
+        "theory": {
+          "flops": 9663676416,
+          "bytes": 150994944,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.9146,
+          "std_ms": 2.1875,
+          "min_ms": 2.2119,
+          "max_ms": 7.167
+        },
+        "throughput": {
+          "gflops": 39497.61,
+          "bandwidth_gb_s": 154.29
+        },
+        "theory": {
+          "flops": 154618822656,
+          "bytes": 603979776,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 8.2164,
+          "std_ms": 0.0205,
+          "min_ms": 8.2114,
+          "max_ms": 8.4136
+        },
+        "throughput": {
+          "gflops": 75272.86,
+          "bandwidth_gb_s": 147.02
+        },
+        "theory": {
+          "flops": 618475290624,
+          "bytes": 1207959552,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 8.4686,
+          "std_ms": 0.0012,
+          "min_ms": 8.4671,
+          "max_ms": 8.4754
+        },
+        "throughput": {
+          "gflops": 73031.67,
+          "bandwidth_gb_s": 285.28
+        },
+        "theory": {
+          "flops": 618475290624,
+          "bytes": 2415919104,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1577,
+          "std_ms": 0.0002,
+          "min_ms": 0.1573,
+          "max_ms": 0.1587
+        },
+        "throughput": {
+          "gflops": 106.36,
+          "bandwidth_gb_s": 425.64
+        },
+        "theory": {
+          "flops": 16777216,
+          "bytes": 67141632,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.9119,
+          "std_ms": 0.0008,
+          "min_ms": 0.9106,
+          "max_ms": 0.9169
+        },
+        "throughput": {
+          "gflops": 588.71,
+          "bandwidth_gb_s": 2356.0
+        },
+        "theory": {
+          "flops": 536870912,
+          "bytes": 2148532224,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.5593,
+          "std_ms": 0.0015,
+          "min_ms": 3.5568,
+          "max_ms": 3.566
+        },
+        "throughput": {
+          "gflops": 603.34,
+          "bandwidth_gb_s": 2413.94
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 8592031744,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0862,
+          "std_ms": 0.0004,
+          "min_ms": 0.0851,
+          "max_ms": 0.0874
+        },
+        "throughput": {
+          "gflops": 24915.95,
+          "bandwidth_gb_s": 389.31
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 33554432,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5694,
+          "std_ms": 0.0138,
+          "min_ms": 0.5346,
+          "max_ms": 0.6047
+        },
+        "throughput": {
+          "gflops": 60343.53,
+          "bandwidth_gb_s": 235.72
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 134217728,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.9507,
+          "std_ms": 0.0324,
+          "min_ms": 1.8897,
+          "max_ms": 2.1102
+        },
+        "throughput": {
+          "gflops": 70454.59,
+          "bandwidth_gb_s": 137.61
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 268435456,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.8496,
+          "std_ms": 0.0348,
+          "min_ms": 1.8189,
+          "max_ms": 2.1626
+        },
+        "throughput": {
+          "gflops": 74307.82,
+          "bandwidth_gb_s": 290.26
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 536870912,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1584,
+          "std_ms": 0.0005,
+          "min_ms": 0.1576,
+          "max_ms": 0.1617
+        },
+        "throughput": {
+          "gflops": 158.9,
+          "bandwidth_gb_s": 635.9
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 100712448,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2918,
+          "std_ms": 0.0008,
+          "min_ms": 1.2902,
+          "max_ms": 1.2949
+        },
+        "throughput": {
+          "gflops": 623.4,
+          "bandwidth_gb_s": 2494.8
+        },
+        "theory": {
+          "flops": 805306368,
+          "bytes": 3222798336,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.0771,
+          "std_ms": 0.0018,
+          "min_ms": 5.0748,
+          "max_ms": 5.0877
+        },
+        "throughput": {
+          "gflops": 634.46,
+          "bandwidth_gb_s": 2538.48
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 12888047616,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0974,
+          "std_ms": 0.0038,
+          "min_ms": 0.0873,
+          "max_ms": 0.1051
+        },
+        "throughput": {
+          "gflops": 33065.5,
+          "bandwidth_gb_s": 516.65
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 50331648,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7866,
+          "std_ms": 0.0166,
+          "min_ms": 0.7496,
+          "max_ms": 0.8193
+        },
+        "throughput": {
+          "gflops": 65522.48,
+          "bandwidth_gb_s": 255.95
+        },
+        "theory": {
+          "flops": 51539607552,
+          "bytes": 201326592,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.7905,
+          "std_ms": 0.0275,
+          "min_ms": 2.7255,
+          "max_ms": 2.8447
+        },
+        "throughput": {
+          "gflops": 73878.48,
+          "bandwidth_gb_s": 144.29
+        },
+        "theory": {
+          "flops": 206158430208,
+          "bytes": 402653184,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.7155,
+          "std_ms": 0.0147,
+          "min_ms": 2.6808,
+          "max_ms": 2.748
+        },
+        "throughput": {
+          "gflops": 75918.04,
+          "bandwidth_gb_s": 296.55
+        },
+        "theory": {
+          "flops": 206158430208,
+          "bytes": 805306368,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1591,
+          "std_ms": 0.0004,
+          "min_ms": 0.1583,
+          "max_ms": 0.1621
+        },
+        "throughput": {
+          "gflops": 421.86,
+          "bandwidth_gb_s": 1688.26
+        },
+        "theory": {
+          "flops": 67108864,
+          "bytes": 268566528,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.4446,
+          "std_ms": 0.0815,
+          "min_ms": 3.4264,
+          "max_ms": 4.0328
+        },
+        "throughput": {
+          "gflops": 623.43,
+          "bandwidth_gb_s": 2494.93
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 8594128896,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 13.6465,
+          "std_ms": 0.5875,
+          "min_ms": 13.3668,
+          "max_ms": 15.3548
+        },
+        "throughput": {
+          "gflops": 629.46,
+          "bandwidth_gb_s": 2518.46
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 34368126976,
+          "arithmetic_intensity": 0.25
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1737,
+          "std_ms": 0.004,
+          "min_ms": 0.1645,
+          "max_ms": 0.1821
+        },
+        "throughput": {
+          "gflops": 49452.11,
+          "bandwidth_gb_s": 772.69
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 134217728,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.8564,
+          "std_ms": 0.023,
+          "min_ms": 1.8247,
+          "max_ms": 2.0454
+        },
+        "throughput": {
+          "gflops": 74034.62,
+          "bandwidth_gb_s": 289.2
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 536870912,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.9816,
+          "std_ms": 0.0298,
+          "min_ms": 6.9011,
+          "max_ms": 7.0666
+        },
+        "throughput": {
+          "gflops": 78743.18,
+          "bandwidth_gb_s": 153.8
+        },
+        "theory": {
+          "flops": 549755813888,
+          "bytes": 1073741824,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.9907,
+          "std_ms": 0.0155,
+          "min_ms": 6.9583,
+          "max_ms": 7.0532
+        },
+        "throughput": {
+          "gflops": 78641.25,
+          "bandwidth_gb_s": 307.19
+        },
+        "theory": {
+          "flops": 549755813888,
+          "bytes": 2147483648,
+          "arithmetic_intensity": 256.0
+        }
+      },
+      "impl_info": {
+        "source": "vllm.vllm_flash_attn.flash_attn_interface.flash_attn_varlen_func",
+        "type": "cuda"
+      }
+    }
+  ]
+}

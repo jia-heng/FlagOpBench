@@ -36,15 +36,34 @@ class UnpackSeqTritonOperator(BaseOperator):
     def prepare_inputs(self, **params):
         """准备输入
 
-        Args:
+        Args (casegen):
+            num_tokens: 总token数
+            index_topk: hidden维度（sparse attn的topk）
+            dtype: 数据类型
+
+        Args (direct):
             batch_size: batch大小
             seq_len: 最大序列长度 (Lmax)
             hidden_size: feature维度
-            dtype: 数据类型
         """
-        batch_size = params["batch_size"]
-        seq_len = params["seq_len"]
-        hidden_size = params.get("hidden_size", 512)
+        # 参数映射：casegen → operator
+        if "num_tokens" in params:
+            num_tokens = params["num_tokens"]
+            # 推导 batch_size: 假设 decode 场景 batch≈num_tokens, prefill 场景 batch≈1-16
+            # 使用启发式：num_tokens <= 64 → decode (batch=num_tokens, seq=1)
+            #             num_tokens > 64  → mixed/prefill (batch=16, seq=num_tokens//16)
+            if num_tokens <= 64:
+                batch_size = num_tokens
+                seq_len = 1
+            else:
+                batch_size = min(16, num_tokens)
+                seq_len = num_tokens // batch_size
+            hidden_size = params.get("index_topk", 512)
+        else:
+            batch_size = params["batch_size"]
+            seq_len = params["seq_len"]
+            hidden_size = params.get("hidden_size", 512)
+
         dtype_str = params.get("dtype", "bf16")
         dtype = self.get_dtype(dtype_str)
 
@@ -80,9 +99,21 @@ class UnpackSeqTritonOperator(BaseOperator):
         写:
           out: N * hidden_size * elem_bytes
         """
-        batch_size = params["batch_size"]
-        seq_len = params["seq_len"]
-        hidden_size = params.get("hidden_size", 512)
+        # 参数映射：与 prepare_inputs 保持一致
+        if "num_tokens" in params:
+            num_tokens = params["num_tokens"]
+            if num_tokens <= 64:
+                batch_size = num_tokens
+                seq_len = 1
+            else:
+                batch_size = min(16, num_tokens)
+                seq_len = num_tokens // batch_size
+            hidden_size = params.get("index_topk", 512)
+        else:
+            batch_size = params["batch_size"]
+            seq_len = params["seq_len"]
+            hidden_size = params.get("hidden_size", 512)
+
         dtype_str = params.get("dtype", "bf16")
         elem_bytes = self.dtype_bytes(dtype_str)
 

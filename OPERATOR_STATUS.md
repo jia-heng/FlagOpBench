@@ -1,244 +1,191 @@
-# FlagOpBench 算子集成状态报告
+# FlagOpBench 算子集成状态报告（0901 更新）
 
-## 算子 Benchmark 进展总览
+## 总览
 
-27 个算子实现，12 个 merged case 文件，24 个双边对比完成。
+关键算子列表共 **82** 个，当前已完成 **27** 个（含语义等价），待开发 **55** 个。
 
 | 状态 | 数量 | 说明 |
 |------|------|------|
-| ✅ 双边完成 | 24 | FlagOS + vLLM 均已跑通，可直接对比 |
-| 🟡 仅 FlagOS | 3 | vLLM 无等价实现或接口不兼容 |
+| ✅ 已完成 (精确匹配) | 21 | 算子名与 keyoplist 完全一致 |
+| ✅ 已完成 (语义等价) | 6 | 现有算子覆盖了 keyoplist 中对应项 |
+| 🔴 待开发 | 55 | 尚未接入 benchmark |
 
 ---
 
-## ✅ 双边对比完成（24 个）
+## ✅ 已完成算子（27 个）
 
-| # | 算子 | FlagOS 结果 | vLLM 结果 | 状态 |
-|---|------|------------|-----------|------|
-| 1 | chunk_gated_delta_rule_flag_attn | ✅ | ✅ | 可对比 |
-| 2 | chunk_gated_delta_rule_flag_gems | ✅ | ✅ | 可对比（仅 T≤128） |
-| 3 | chunk_gated_delta_rule_flaggems_vllm | ✅ | ✅ | 可对比 |
-| 4 | combine_topk_swa_indices | ✅ | ✅ | 可对比 |
-| 5 | compute_global_topk_indices_and_lens | ✅ | ✅ | 可对比 |
-| 3 | cp_gather_indexer_k_quant_cache | ✅ | ✅ | 可对比 |
-| 4 | flash_attn_varlen_func | ✅ | ✅ | 可对比 |
-| 5 | flash_mla_with_kvcache | ✅ | ✅ | 可对比 |
-| 6 | fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert | ✅ | ✅ | 可对比 |
-| 7 | fused_moe | ✅ | ✅ | 可对比 |
-| 8 | fused_q_kv_rmsnorm | ✅ | ✅ | 可对比 |
-| 9 | group_gemm | ✅ | ✅ | 可对比 |
-| 10 | indexer_k_quant_and_cache | ✅ | ✅ | 可对比 |
-| 11 | mhc_post | ✅ | ✅ | 可对比 |
-| 12 | mhc_pre | ✅ | ✅ | 可对比 |
-| 13 | moe_sum | ✅ | ✅ | 可对比 |
-| 14 | pack_seq_triton | ✅ | ✅ | 可对比 |
-| 15 | silu_and_mul_with_clamp | ✅ | ✅ | 可对比 |
-| 16 | swiglu | ✅ | ✅ | 可对比 |
-| 17 | top_k_per_row_decode | ✅ | ✅ | 可对比 |
-| 18 | top_k_per_row_prefill | ✅ | ✅ | 可对比 |
-| 19 | topk_softplus_sqrt | ✅ | ✅ | 可对比 |
-| 20 | unpack_seq_triton | ✅ | ✅ | 可对比 |
+### 精确匹配（21 个）
 
----
+| # | 算子 | 算子库 | Baseline | 状态 |
+|---|------|--------|----------|------|
+| 7 | swiglu | FlagGems | ✅ | 双边对比 |
+| 16 | combine_topk_swa_indices | FlagGems-vllm | ✅ | 双边对比 |
+| 17 | compute_global_topk_indices_and_lens | FlagGems-vllm | ✅ | 双边对比 |
+| 18 | cp_gather_indexer_k_quant_cache | FlagGems-vllm | ✅ | 双边对比 |
+| 20 | flash_attn_varlen_func | FlagGems-vllm | ✅ | 双边对比 |
+| 21 | flash_mla | FlagGems-vllm | ❌ SKIP | 仅 FlagOS（vLLM 无 prefill MLA 单算子） |
+| 24 | fp8_fp4_paged_mqa_logits | FlagGems-vllm | ❌ ERROR | 仅 FlagOS（deep_gemm head_dim=128 限制） |
+| 26 | fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert | FlagGems-vllm | ✅ | 双边对比 |
+| 28 | fused_q_kv_rmsnorm | FlagGems-vllm | ✅ | 双边对比 |
+| 29 | grouped_topk | FlagGems-vllm | ✅ | 双边对比 |
+| 30 | indexer_k_quant_and_cache | FlagGems-vllm | ✅ | 双边对比 |
+| 31 | mhc_post | FlagGems-vllm | ✅ | 双边对比 |
+| 32 | mhc_pre | FlagGems-vllm | ✅ | 双边对比 |
+| 33 | moe_sum | FlagGems-vllm | ✅ | 双边对比 |
+| 34 | pack_seq_triton | FlagGems-vllm | ✅ | 双边对比 |
+| 37 | silu_and_mul_with_clamp | FlagGems-vllm | ✅ | 双边对比 |
+| 38 | top_k_per_row_decode | FlagGems-vllm | ✅ | 双边对比 |
+| 39 | top_k_per_row_prefill | FlagGems-vllm | ✅ | 双边对比 |
+| 40 | topk_softplus_sqrt | FlagGems-vllm | ✅ | 双边对比 |
+| 41 | unpack_seq_triton | FlagGems-vllm | ✅ | 双边对比 |
+| 55 | flash_mla_with_kvcache | FlagGems-vllm | ✅ | 双边对比 |
 
-## 🟡 仅 FlagOS（3 个）
+### 语义等价（6 个，现有算子名 → keyoplist 对应项）
 
-| # | 算子 | FlagOS | vLLM | 原因 |
-|---|------|--------|------|------|
-| 21 | flash_mla | ✅ | ❌ SKIP | vLLM 无 prefill MLA 单算子（大 prefill 走 flash_attn_varlen，短 prefill 复用 decode 路径） |
-| 22 | flash_mla_with_kvcache_fp8 | ✅ | ❌ ERROR | vLLM 要求 q dtype 为 float8_e4m3fn，operator prepare_inputs 生成 bf16 |
-| 23 | fp8_fp4_paged_mqa_logits | ✅ | ❌ ERROR | vLLM 接口 q 为 tuple[Tensor, Tensor|None]，与 operator 输出格式不兼容 |
-
----
-
-## Benchmark 结果摘要
-
-以下为各算子代表性 workload 的实测延迟（单位 ms）：
-
-### Attention / Linear Attention 类
-
-| 算子 | Workload | FlagOS (ms) | vLLM (ms) | 胜出 |
-|------|----------|-------------|-----------|------|
-| flash_attn_varlen_func | prefill_seq2048 | 0.2468 | 0.2059 | vLLM |
-| flash_mla_with_kvcache | b16_seq16384 | 1.4928 | 0.6503 | vLLM |
-| flash_mla | decode_batch32_seq2048 | 0.2866 | — | FlagOS only |
-| chunk_gated_delta_rule_flaggems_vllm | kimi_k3_prefill_4096 | 1.4228 | 1.6026 | FlagOS (1.13x) |
-| chunk_gated_delta_rule_flaggems_vllm | qwen3.8_prefill_4096 | 1.6500 | 2.0271 | FlagOS (1.23x) |
-| chunk_gated_delta_rule_flag_attn | kimi_k3_prefill_4096 | 1.5417 | 1.6321 | FlagOS (1.06x) |
-| chunk_gated_delta_rule_flag_gems | kimi_k3_decode_64 | 0.1856 | 0.1856 | 持平 |
-
-### MoE 类
-
-| 算子 | Workload | FlagOS (ms) | vLLM (ms) | 胜出 |
-|------|----------|-------------|-----------|------|
-| fused_moe | decode_32tokens | 0.5647 | 1.0221 | FlagOS |
-| group_gemm | moe_32experts_64tokens | 0.6230 | 1.0033 | FlagOS |
-| moe_sum | 2048tokens_8experts | 0.0198 | 0.0124 | vLLM |
-| topk_softplus_sqrt | deepseek_prefill_seq4096 | 0.0258 | 0.0233 | vLLM |
-
-### KV Cache / Indexer 类
-
-| 算子 | Workload | FlagOS (ms) | vLLM (ms) | 胜出 |
-|------|----------|-------------|-----------|------|
-| cp_gather_indexer_k_quant_cache | decode_32tokens | 0.0421 | 0.0135 | vLLM |
-| indexer_k_quant_and_cache | decode_32tokens | 0.0371 | 0.0137 | vLLM |
-| compute_global_topk_indices_and_lens | decode_small_batch | 0.0538 | 0.0065 | vLLM |
-
-### Fused Normalization / RoPE 类
-
-| 算子 | Workload | FlagOS (ms) | vLLM (ms) | 胜出 |
-|------|----------|-------------|-----------|------|
-| fused_q_kv_rmsnorm | prefill_2048tokens | 0.1254 | 0.1422 | FlagOS |
-| fused_deepseek_v4_qnorm_rope | prefill_2048tokens | 0.2148 | 0.2363 | FlagOS |
-
-### Activation / Element-wise 类
-
-| 算子 | Workload | FlagOS (ms) | vLLM (ms) | 胜出 |
-|------|----------|-------------|-----------|------|
-| swiglu | prefill_2048tokens | 0.0225 | 0.0193 | vLLM |
-| silu_and_mul_with_clamp | deepseek_prefill_seq1024 | 0.0869 | 0.1027 | FlagOS |
-
-### MHC (Multi-Head Cache) 类
-
-| 算子 | Workload | FlagOS (ms) | vLLM (ms) | 胜出 |
-|------|----------|-------------|-----------|------|
-| mhc_pre | 代表 workload | ~0.05 | ~0.05 | 持平 |
-| mhc_post | 代表 workload | ~0.04 | ~0.04 | 持平 |
-
-### Pack/Unpack 类
-
-| 算子 | Workload | FlagOS (ms) | vLLM (ms) | 胜出 |
-|------|----------|-------------|-----------|------|
-| pack_seq_triton | prefill_16reqs_seq512 | 0.0463 | 0.0542 | FlagOS |
-| unpack_seq_triton | prefill_16reqs_seq512 | 0.0485 | 0.0600 | FlagOS |
-
-### Sparse Attention Index 类
-
-| 算子 | Workload | FlagOS (ms) | vLLM (ms) | 胜出 |
-|------|----------|-------------|-----------|------|
-| combine_topk_swa_indices | prefill_8reqs_seq4096 | 0.0520 | 0.0491 | vLLM |
-| top_k_per_row_decode | batch32 | ~0.013 | ~0.012 | 持平 |
-| top_k_per_row_prefill | batch32 | ~0.014 | ~0.013 | 持平 |
+| 现有算子 | 对应 keyoplist # | 对应算子名 | 说明 |
+|----------|-----------------|-----------|------|
+| chunk_gated_delta_rule_flaggems_vllm | #15 | chunk_gated_delta_rule_fwd | flaggems_vllm 实现 |
+| chunk_gated_delta_rule_flag_attn | #74 | Gated Delta Network (GDN) | flag_attn 实现 |
+| chunk_gated_delta_rule_flag_gems | — | (FlagGems 另一实现) | 与 flaggems_vllm 版本并行存在 |
+| flash_mla_with_kvcache_fp8 | #56 | flash_mla_with_kvcache_fwd_w8a8_fp8 | FP8 版 flash_mla_with_kvcache |
+| fused_moe | #27 | fused_experts_impl | fused_moe 即 fused_experts 上层接口 |
+| group_gemm | #45 | group_mm | 同类 group GEMM 算子 |
 
 ---
 
-## 总结
+## 🔴 待开发算子（55 个）
 
-### FlagOS 优势算子（显著快于 vLLM）
-- **group_gemm** — 1.45x 加速（MoE grouped matmul）
-- **fused_moe** — 1.14x 加速（decode 场景最多 1.8x）
-- **pack_seq_triton** — 1.27x 加速
-- **chunk_gated_delta_rule_flaggems_vllm** — prefill T≥256 快 10-24%（TLE 优化）
-- **unpack_seq_triton** — 1.05x 加速
+### 第一批：基础算子 — FlagGems（12 个）
 
-### vLLM 优势算子
-- **grouped_topk** — vLLM (CUDA) 3.5x 快
-- **flash_mla_with_kvcache** — vLLM (FlashMLA CUDA) 1.8x 快
-- **cp_gather / indexer_k_quant_and_cache** — vLLM (CUDA) 3x 快
-- **compute_global_topk_indices_and_lens** — vLLM (CUDA) 1.7x 快
-- **silu_and_mul_with_clamp** — vLLM (CUDA) 4x 快
-- **swiglu** — vLLM (CUDA) 1.8x 快
-- **flash_attn_varlen_func** — vLLM (FlashAttention CUDA) 1.2x 快
+通用 BLAS / elementwise 算子，通常实现复杂度较低，baseline 用 PyTorch/cuBLAS 即可。
 
-### 持平
-- mhc_pre / mhc_post / fused_q_kv_rmsnorm / chunk_gated_delta_rule_flag_gems
+| # | 算子 | 算子库 | 优先级 | 备注 |
+|---|------|--------|--------|------|
+| 1 | topk | FlagGems | 🔥 高 | 常用 Top-K，复用 PyTorch topk 做 baseline |
+| 2 | rms_norm | FlagGems | 🔥 高 | RMSNorm，所有 LLM 都用 |
+| 3 | apply_rotary_pos_emb | FlagGems | 🔥 高 | RoPE，所有 LLM 都用 |
+| 4 | mul | FlagGems | 中 | elementwise multiply |
+| 5 | mv | FlagGems | 中 | matrix-vector multiply |
+| 6 | bmm | FlagGems | 中 | batched matmul |
+| 8 | baddbmm | FlagGems | 低 | batched add + bmm |
+| 9 | mm | FlagGems | 中 | matmul |
+| 10 | rms_norm_w8a16_fp8 | FlagGems | 🔥 高 | 量化 RMSNorm |
+| 11 | conv2d | FlagGems | 低 | 2D 卷积 |
+| 12 | addmm | FlagGems | 中 | add + matmul |
+| 13 | glu | FlagGems | 中 | GLU activation |
+
+### 第二批：FlagGems 新增专用算子（8 个）
+
+| # | 算子 | 算子库 | 优先级 | 备注 |
+|---|------|--------|--------|------|
+| 42 | CausalConv1DPrefill | FlagGems | 🔥 高 | Jamba/Mamba 模型 causal conv |
+| 43 | CausualConv1DDecode | FlagGems | 🔥 高 | 同上 decode 路径 |
+| 44 | dsv3_router_gemm | FlagGems | 🔥 高 | DeepSeek V3 路由 GEMM |
+| 46 | mm_w8a8_fp8 | FlagGems | 🔥 高 | FP8 matmul |
+| 47 | router_gemm | FlagGems | 中 | 通用 router GEMM |
+| 48 | TopK Selector | FlagGems | 中 | Top-K 选择器 |
+| 49 | topk_w8a16_fp8 | FlagGems | 中 | 量化 Top-K |
+
+### 第三批：FlagGems-vllm 推理算子（20 个）
+
+| # | 算子 | 优先级 | 备注 |
+|---|------|--------|------|
+| 14 | add_rms_norm | 🔥 高 | Add + RMSNorm 融合 |
+| 19 | dequantize_and_gather_k_cache | 🔥 高 | Dequant + Gather KV |
+| 22 | flash_mla_sparse_fwd | 🔥 高 | Sparse MLA forward |
+| 23 | fp8_fp4_mqa_logits | 🔥 高 | FP8/FP4 MQA logits（非 paged） |
+| 25 | fused_add_rms_norm | 🔥 高 | Fused Add + RMSNorm |
+| 35 | per_token_group_quant_fp8 | 🔥 高 | Per-token FP8 量化 |
+| 36 | persistent_topk | 中 | Persistent Top-K |
+| 50 | chunk_gdn2 | 🔥 高 | Gated DeltaNet-2 chunk fwd |
+| 51 | chunk_gla | 🔥 高 | Gated Linear Attention chunk |
+| 52 | chunk_kda | 中 | KDA chunk forward |
+| 53 | flash_attn_varlen_func_w8a8_fp8 | 🔥 高 | FP8 版 flash_attn_varlen |
+| 54 | flash_mla_sparse_fwd_w8a8_fp8 | 中 | FP8 版 sparse MLA |
+| 57 | fp8_einsum | 中 | FP8 einsum |
+| 58 | fused_deepseek_v4_qnorm_rope_kv_rope_insert | 中 | 不含 quant 的版本 |
+| 59 | fused_inv_rope_fp8_quant | 中 | 逆 RoPE + FP8 量化 |
+| 65 | gemma_rms_norm | 低 | Gemma 特有 RMSNorm |
+| 66 | lightning_indexer | 中 | Lightning indexer |
+| 69 | megamoe | 🔥 高 | MegaMoE 融合 kernel |
+| 70 | moe_align_block_size | 中 | MoE block size 对齐 |
+| 71 | w8a8_block_fp8_matmul | 🔥 高 | W8A8 block FP8 matmul |
+
+### 第四批：FlagGems-vllm Marlin MoE 系列（5 个）
+
+| # | 算子 | 优先级 | 备注 |
+|---|------|--------|------|
+| 60 | fused_marlin_moe_w4a16_mxfp4 | 中 | Marlin MoE MXFP4 |
+| 61 | fused_marlin_moe_w4a16_int4 | 中 | Marlin MoE INT4 |
+| 62 | fused_marlin_moe_w4a16_mxfp4 (v2) | 中 | Marlin MoE MXFP4 v2 |
+| 63 | fused_marlin_moe_w8a16_fp8 | 中 | Marlin MoE FP8 |
+| 64 | fused_marlin_moe_w8a16_int8 | 中 | Marlin MoE INT8 |
+
+### 第五批：FlagGems-vllm Mega 系列 + 待定（2 个）
+
+| # | 算子 | 优先级 | 备注 |
+|---|------|--------|------|
+| 67 | MegaGDN | 🔥 高 | Mega Gated Delta Network |
+| 68 | MegaKernel (待定) | — | 具体接口待定 |
+
+### 第六批：FlagAttention 注意力算子（10 个）
+
+| # | 算子 | 优先级 | 备注 |
+|---|------|--------|------|
+| 72 | ACP-enabled Forgetting Attention | 中 | 带遗忘机制的 attention |
+| 73 | AttnRes | 中 | Attention with residual |
+| 75 | Gated DeltaNet-2 | 🔥 高 | GDN2 的 flag_attn 实现 |
+| 76 | Gated Linear Attention | 🔥 高 | GLA 的 flag_attn 实现 |
+| 77 | Inkling FA4 Relative Attention | 中 | Inkling 相对位置 attention |
+| 78 | log_linear_attn | 中 | Log-linear attention |
+| 79 | MiniMax Sparse Attention | 中 | MiniMax 稀疏 attention |
+| 80 | moba | 🔥 高 | Mixture of Block Attention |
+| 81 | parallax | 中 | Parallax attention |
+| 82 | SageAttention | 🔥 高 | Sage attention |
 
 ---
 
-## vLLM 导入路径速查
+## 建议开发顺序
 
-```python
-# _custom_ops 直接可用
-from vllm._custom_ops import moe_sum
-from vllm._custom_ops import topk_hash_softplus_sqrt  # = topk_softplus_sqrt
-from vllm._custom_ops import indexer_k_quant_and_cache
-from vllm._custom_ops import cp_gather_indexer_k_quant_cache
+### Phase 1 — 高频基础算子（快速扩充覆盖率）
 
-# vllm.v1.attention.ops
-from vllm.v1.attention.ops.deepseek_v4_ops import (
-    combine_topk_swa_indices,
-    compute_global_topk_indices_and_lens,
-    fused_q_kv_rmsnorm,
-)
-from vllm.v1.attention.ops.flashmla import (
-    flash_mla_with_kvcache,
-    flash_mla_with_kvcache_fp8,
-)
+目标：快速把覆盖率从 27/82 → 42/82
 
-# vllm.vllm_flash_attn
-from vllm.vllm_flash_attn.flash_attn_interface import flash_attn_varlen_func
-
-# vllm.model_executor.layers
-from vllm.model_executor.layers.mhc import mhc_post, mhc_pre
-from vllm.model_executor.layers.sparse_attn_indexer import (
-    pack_seq_triton,
-    unpack_seq_triton,
-    fp8_fp4_paged_mqa_logits,
-)
-from vllm.model_executor.layers.fused_moe.fused_moe import fused_experts
-
-# torch.ops._C (需先 import vllm 注册)
-import vllm  # 触发 _C 注册
-torch.ops._C.silu_and_mul               # swiglu 等价
-torch.ops._C.silu_and_mul_with_clamp    # silu_and_mul_with_clamp
-torch.ops._C.top_k_per_row_decode
-torch.ops._C.top_k_per_row_prefill
-torch.ops._C.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert
-```
-
----
-
-## FlagOS 未实现算子（三个仓库均无独立实现）
-
-| 算子名 | 说明 | 备注 |
+| 优先级 | 算子 | 理由 |
 |--------|------|------|
-| causal_conv1d_prefill | Mamba CausalConv1D prefill (整序列因果卷积) | 无专用kernel |
-| causal_conv1d_decode | Mamba CausalConv1D decode (单步更新 conv_state) | ARM 有 patch，GPU 无实现 |
-| selective_scan | Mamba selective scan (SSM 核心算子) | 三仓均无 |
-| mamba_chunk_scan | Mamba2 chunk scan | 三仓均无 |
-| gated_delta_rule_prefill | Gated Delta Rule prefill (Qwen3.5/GDN) | flag_attn 有实现，待接入 |
-| chunk_gated_delta_rule | Chunk Gated Delta Rule | flag_attn 有实现，待接入 |
+| P0 | rms_norm, apply_rotary_pos_emb, topk | 所有 LLM 推理必用，实现简单 |
+| P0 | add_rms_norm, fused_add_rms_norm | 高频融合算子 |
+| P0 | per_token_group_quant_fp8 | 量化流程核心 |
+| P0 | w8a8_block_fp8_matmul, mm_w8a8_fp8 | FP8 推理核心矩阵乘 |
+| P0 | dequantize_and_gather_k_cache | KV cache 量化必需 |
+| P0 | flash_mla_sparse_fwd | DeepSeek MLA sparse 路径 |
+| P0 | fp8_fp4_mqa_logits | 与已有 paged 版本类似，复用度高 |
+| P0 | chunk_gdn2, chunk_gla | 新一代线性注意力 |
+| P0 | megamoe, MegaGDN | Mega 系列核心 |
 
-## FlagOS 已实现但 FlagOpBench 尚未接入的算子
+### Phase 2 — 推理专用 + 新模型支持
 
-### flag_gems (FlagGems)
+| 优先级 | 算子 | 理由 |
+|--------|------|------|
+| P1 | CausalConv1DPrefill/Decode | Jamba/Mamba SSM 模型支持 |
+| P1 | dsv3_router_gemm | DeepSeek V3 路由 |
+| P1 | flash_attn_varlen_func_w8a8_fp8 | FP8 Flash Attention |
+| P1 | SageAttention, moba | 热门 attention 变体 |
+| P1 | Gated DeltaNet-2, Gated Linear Attention | FlagAttention 新算子 |
+| P1 | fused_inv_rope_fp8_quant | 逆 RoPE 量化融合 |
+| P1 | lightning_indexer | 高性能 indexer |
 
-| 算子名 | 说明 |
-|--------|------|
-| rmsnorm / rms_norm | RMS Normalization |
-| add_rms_norm / fused_add_rms_norm | Add + RMSNorm 融合 |
-| layer_norm | Layer Normalization |
-| apply_rotary_pos_emb / GemsRope | RoPE 旋转位置编码 |
-| silu_and_mul / gelu_and_mul | Activation + Mul |
-| softmax | Softmax |
-| scaled_dot_product_attention | PyTorch SDPA 替代 |
-| fp8_matmul / w8a8_block_fp8_matmul | FP8 矩阵乘 |
-| per_token_group_quant_fp8 | Per-token group FP8 量化 |
-| topk / topk_softmax / grouped_topk | Top-K 系列 |
-| moe_align_block_size | MoE block size 对齐 |
-| fp8_fp4_mega_moe | FP8/FP4 Mega MoE |
+### Phase 3 — Marlin MoE + 其余
 
-### flag_attn (FlagAttention)
-
-| 算子名 | 说明 |
-|--------|------|
-| flash_attention | Flash Attention (标准) |
-| paged_attention | Paged Attention |
-| gated_delta_rule | Gated Delta Rule (Qwen3.5 GDN) |
-| chunk_gated_delta_rule | Chunk Gated Delta Rule |
-
-### flaggems_vllm — 还有更多未接入
-
-| 算子名 | 说明 |
-|--------|------|
-| fused_indexer_q_rope_quant | Q RoPE + 量化融合 |
-| fused_inv_rope_fp8_quant | 逆RoPE + FP8量化融合 |
-| dequantize_and_gather_k_cache | Dequant + Gather KV |
-| stage_deepseek_v4_mega_moe_inputs | DeepSeek-V4 MegaMoE 输入预处理 |
+| 优先级 | 算子 | 理由 |
+|--------|------|------|
+| P2 | fused_marlin_moe 系列（5 个） | Marlin 量化 MoE，可批量接入 |
+| P2 | mul, mv, bmm, mm, addmm, baddbmm, glu | 通用 BLAS，优先级低但实现简单 |
+| P2 | 其余 FlagAttention | attention 变体 |
+| P2 | MegaKernel | 接口待定 |
 
 ---
 
-*更新时间: 2025-08-24*
-*环境: FlagGems 5.3.4 / FlagGems-vllm 0.1.0 / flag_attn 0.1.dev80 / vLLM 0.20.2*
-*GPU: NVIDIA H20*
-*Benchmark 参数: warmup=10, repeat=100*
+*更新时间: 2026-09-01*
+*基于 keyoplist0901.md，共 82 个关键算子*
+*当前已完成: 27/82 (33%)*
