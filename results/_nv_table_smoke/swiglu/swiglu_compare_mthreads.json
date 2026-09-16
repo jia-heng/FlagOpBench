@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-09T00:00:00",
+    "type": "compare",
+    "platform": "mthreads",
+    "baseline_provider": "mthreads",
+    "flagos_provider": "flagos",
+    "num_workloads": 2
+  },
+  "environment": {
+    "torch_version": "2.5.0",
+    "platform": "mthreads",
+    "device_name": "MTT S3000",
+    "device_count": 4
+  },
+  "summary": {
+    "total": 2,
+    "faster": 1,
+    "slower": 0,
+    "on_par": 1,
+    "avg_speedup": 1.2
+  },
+  "comparisons": [
+    {
+      "operator": "swiglu",
+      "workload": "wl1",
+      "parameters": {
+        "M": 128,
+        "N": 256
+      },
+      "baseline": {
+        "provider": "mthreads",
+        "mean_ms": 1.2,
+        "gflops": 10.0,
+        "impl_source": "torch.fallback"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.0,
+        "gflops": 12.0,
+        "impl_source": "flag_gems.swiglu"
+      },
+      "speedup": 1.2,
+      "verdict": "faster"
+    },
+    {
+      "operator": "swiglu",
+      "workload": "wl2",
+      "parameters": {
+        "M": 256,
+        "N": 512
+      },
+      "baseline": {
+        "provider": "mthreads",
+        "mean_ms": 2.0,
+        "gflops": 20.0,
+        "impl_source": "torch.fallback"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.0,
+        "gflops": 20.0,
+        "impl_source": "flag_gems.swiglu"
+      },
+      "speedup": 1.0,
+      "verdict": "on_par"
+    }
+  ]
+}
