@@ -54,10 +54,23 @@ class MetaxProvider(NvidiaProvider):
             )
 
         super().setup()
+        self._ensure_vllm_custom_ops()
         # WORKFLOW_VENDOR 2.3：不要仅因 import vllm 成功就假定 torch.ops._C 可用
         self._torch_ops_registered = hasattr(torch.ops, "_C") and hasattr(
             torch.ops._C, "silu_and_mul"
         )
+
+    def _ensure_vllm_custom_ops(self) -> None:
+        """父类 setup 里 from vllm import _custom_ops 可能失败；探测脚本用 vllm._custom_ops 仍可用。"""
+        if self._vllm_ops is not None:
+            return
+        try:
+            from vllm import _custom_ops
+
+            self._vllm_ops = _custom_ops
+            print("  [INFO] Loaded vllm._custom_ops (metax)")
+        except ImportError as e:
+            print(f"  [WARN] vllm._custom_ops not available: {e}")
 
     def get_impl(self, op_name, operator):
         # swiglu 必须走本类覆盖，避免父类 map 绑到 NvidiaProvider._load_swiglu
@@ -70,6 +83,33 @@ class MetaxProvider(NvidiaProvider):
             except Exception as e:
                 print(f"  [WARN] Exception loading swiglu: {e}")
                 return None, {"error": f"Failed to load swiglu: {e}"}
+
+        # topk_hash_softplus_sqrt 常是薄封装，实际落到 torch.ops._moe_C；
+        # 沐曦缺 mcoplib 时 hasattr 仍为 True，调用才炸 —— 需本类覆盖。
+        if op_name == "topk_softplus_sqrt":
+            try:
+                impl_fn, impl_info = self._load_topk_softplus_sqrt()
+                if impl_fn is None:
+                    return None, {"error": "Failed to load topk_softplus_sqrt on metax"}
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading topk_softplus_sqrt: {e}")
+                return None, {"error": f"Failed to load topk_softplus_sqrt: {e}"}
+
+        # indexer 同理：Python 符号可能在，实际落到 torch.ops._C / _C_cache_ops
+        if op_name == "indexer_k_quant_and_cache":
+            try:
+                impl_fn, impl_info = self._load_indexer_k_quant_and_cache()
+                if impl_fn is None:
+                    return None, {
+                        "error": "Failed to load indexer_k_quant_and_cache on metax"
+                    }
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading indexer_k_quant_and_cache: {e}")
+                return None, {
+                    "error": f"Failed to load indexer_k_quant_and_cache: {e}"
+                }
 
         impl_fn, impl_info = super().get_impl(op_name, operator)
         if impl_fn is not None:
@@ -107,3 +147,107 @@ class MetaxProvider(NvidiaProvider):
             "type": "torch",
             "platform": "metax",
         }
+
+    def _load_topk_softplus_sqrt(self):
+        """优先真可用的 vLLM CUDA；否则 PyTorch 参考（对齐 FlagGems 测试 reference）。"""
+        moe_ok = hasattr(torch.ops, "_moe_C") and hasattr(
+            torch.ops._moe_C, "topk_softplus_sqrt"
+        )
+        if (
+            moe_ok
+            and self._vllm_ops is not None
+            and hasattr(self._vllm_ops, "topk_hash_softplus_sqrt")
+        ):
+            return self._vllm_ops.topk_hash_softplus_sqrt, {
+                "source": "vllm._custom_ops.topk_hash_softplus_sqrt",
+                "type": "cuda",
+                "platform": "metax",
+            }
+
+        def fallback(
+            topk_weights,
+            topk_indices,
+            token_expert_indices,
+            gating_output,
+            renormalize,
+            routed_scaling_factor,
+            correction_bias=None,
+            input_ids=None,
+            tid2eid=None,
+            **kwargs,
+        ):
+            scores = F.softplus(gating_output.float()).sqrt()
+            original_scores = scores
+            if correction_bias is not None:
+                scores_for_choice = scores + correction_bias.unsqueeze(0)
+            else:
+                scores_for_choice = scores
+
+            topk = topk_weights.shape[1]
+            if tid2eid is not None:
+                topk_ids = tid2eid[input_ids.long()]
+            else:
+                topk_ids = torch.topk(
+                    scores_for_choice, k=topk, dim=-1, sorted=True
+                )[1]
+
+            weights = original_scores.gather(1, topk_ids.long())
+            if renormalize:
+                weights = weights / weights.sum(dim=-1, keepdim=True)
+            if routed_scaling_factor != 1.0:
+                weights = weights * routed_scaling_factor
+
+            topk_weights.copy_(weights.to(torch.float32))
+            topk_indices.copy_(topk_ids.to(torch.int32))
+            num_tokens = topk_weights.shape[0]
+            tei = (
+                torch.arange(num_tokens, device=topk_weights.device).unsqueeze(1) * topk
+                + torch.arange(topk, device=topk_weights.device)
+            ).to(torch.int32)
+            token_expert_indices.copy_(tei)
+            return topk_weights, topk_indices, token_expert_indices
+
+        print(
+            "  [INFO] topk_softplus_sqrt: _moe_C missing → torch softplus+topk fallback"
+        )
+        return fallback, {
+            "source": "torch.softplus+topk (metax fallback; _moe_C/mcoplib missing)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_indexer_k_quant_and_cache(self):
+        """仅当 vllm 符号真实可调时加载；缺 _C 则 SKIP（无合适的 torch 基线）。"""
+        torch_ok = False
+        for ns_name in ("_C", "_C_cache_ops"):
+            ns = getattr(torch.ops, ns_name, None)
+            if ns is not None and hasattr(ns, "indexer_k_quant_and_cache"):
+                torch_ok = True
+                break
+
+        if (
+            torch_ok
+            and self._vllm_ops is not None
+            and hasattr(self._vllm_ops, "indexer_k_quant_and_cache")
+        ):
+            vllm_fn = self._vllm_ops.indexer_k_quant_and_cache
+
+            def wrapper(k, kv_cache, slot_mapping, quant_block_size, scale_fmt):
+                return vllm_fn(
+                    k,
+                    kv_cache,
+                    slot_mapping,
+                    quant_block_size,
+                    kv_cache_dtype=scale_fmt,
+                )
+
+            return wrapper, {
+                "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+                "type": "cuda",
+                "platform": "metax",
+            }
+
+        print(
+            "  [INFO] indexer_k_quant_and_cache: torch.ops/_C missing → baseline SKIP"
+        )
+        return None, {}
