@@ -1,0 +1,389 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T05:51:09.148424",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 10
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6656,
+          "std_ms": 0.0,
+          "min_ms": 0.6656,
+          "max_ms": 0.6656
+        },
+        "throughput": {
+          "gflops": 609.67,
+          "bandwidth_gb_s": 9.53
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5827,
+          "std_ms": 0.0,
+          "min_ms": 0.5827,
+          "max_ms": 0.5827
+        },
+        "throughput": {
+          "gflops": 696.46,
+          "bandwidth_gb_s": 10.88
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5624,
+          "std_ms": 0.0,
+          "min_ms": 0.5624,
+          "max_ms": 0.5624
+        },
+        "throughput": {
+          "gflops": 721.51,
+          "bandwidth_gb_s": 11.27
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5535,
+          "std_ms": 0.0,
+          "min_ms": 0.5535,
+          "max_ms": 0.5535
+        },
+        "throughput": {
+          "gflops": 733.19,
+          "bandwidth_gb_s": 11.46
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.1039,
+          "std_ms": 0.0,
+          "min_ms": 1.1039,
+          "max_ms": 1.1039
+        },
+        "throughput": {
+          "gflops": 735.23,
+          "bandwidth_gb_s": 11.49
+        },
+        "theory": {
+          "flops": 811597824,
+          "bytes": 12681216,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5868,
+          "std_ms": 0.0,
+          "min_ms": 0.5868,
+          "max_ms": 0.5868
+        },
+        "throughput": {
+          "gflops": 922.14,
+          "bandwidth_gb_s": 8.1
+        },
+        "theory": {
+          "flops": 541065216,
+          "bytes": 4755456,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4941,
+          "std_ms": 0.0,
+          "min_ms": 0.4941,
+          "max_ms": 0.4941
+        },
+        "throughput": {
+          "gflops": 1095.1,
+          "bandwidth_gb_s": 9.62
+        },
+        "theory": {
+          "flops": 541065216,
+          "bytes": 4755456,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4777,
+          "std_ms": 0.0,
+          "min_ms": 0.4777,
+          "max_ms": 0.4777
+        },
+        "throughput": {
+          "gflops": 1132.66,
+          "bandwidth_gb_s": 9.95
+        },
+        "theory": {
+          "flops": 541065216,
+          "bytes": 4755456,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4879,
+          "std_ms": 0.0,
+          "min_ms": 0.4879,
+          "max_ms": 0.4879
+        },
+        "throughput": {
+          "gflops": 1108.89,
+          "bandwidth_gb_s": 9.75
+        },
+        "theory": {
+          "flops": 541065216,
+          "bytes": 4755456,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "definition": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.429,
+          "std_ms": 0.0,
+          "min_ms": 1.429,
+          "max_ms": 1.429
+        },
+        "throughput": {
+          "gflops": 757.27,
+          "bandwidth_gb_s": 6.66
+        },
+        "theory": {
+          "flops": 1082130432,
+          "bytes": 9510912,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton",
+        "platform": "metax"
+      }
+    }
+  ]
+}

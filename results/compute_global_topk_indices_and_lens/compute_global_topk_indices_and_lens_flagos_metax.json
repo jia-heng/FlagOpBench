@@ -1,0 +1,1041 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T05:34:07.455914",
+    "provider": "flagos",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 28
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2212,
+          "std_ms": 0.0,
+          "min_ms": 0.2212,
+          "max_ms": 0.2212
+        },
+        "throughput": {
+          "gflops": 0.05,
+          "bandwidth_gb_s": 0.08
+        },
+        "theory": {
+          "flops": 10240,
+          "bytes": 16908,
+          "arithmetic_intensity": 0.61
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1964,
+          "std_ms": 0.0,
+          "min_ms": 0.1964,
+          "max_ms": 0.1964
+        },
+        "throughput": {
+          "gflops": 1.67,
+          "bandwidth_gb_s": 2.76
+        },
+        "theory": {
+          "flops": 327680,
+          "bytes": 541056,
+          "arithmetic_intensity": 0.61
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.065,
+          "std_ms": 0.0,
+          "min_ms": 0.065,
+          "max_ms": 0.065
+        },
+        "throughput": {
+          "gflops": 10.08,
+          "bandwidth_gb_s": 16.64
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 1082112,
+          "arithmetic_intensity": 0.61
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0771,
+          "std_ms": 0.0,
+          "min_ms": 0.0771,
+          "max_ms": 0.0771
+        },
+        "throughput": {
+          "gflops": 68.04,
+          "bandwidth_gb_s": 108.95
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 8395264,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1505,
+          "std_ms": 0.0,
+          "min_ms": 0.1505,
+          "max_ms": 0.1505
+        },
+        "throughput": {
+          "gflops": 139.32,
+          "bandwidth_gb_s": 223.08
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 33579520,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2483,
+          "std_ms": 0.0,
+          "min_ms": 0.2483,
+          "max_ms": 0.2483
+        },
+        "throughput": {
+          "gflops": 168.91,
+          "bandwidth_gb_s": 270.45
+        },
+        "theory": {
+          "flops": 41943040,
+          "bytes": 67158528,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4063,
+          "std_ms": 0.0,
+          "min_ms": 0.4063,
+          "max_ms": 0.4063
+        },
+        "throughput": {
+          "gflops": 206.48,
+          "bandwidth_gb_s": 330.61
+        },
+        "theory": {
+          "flops": 83886080,
+          "bytes": 134318080,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0522,
+          "std_ms": 0.0,
+          "min_ms": 0.0522,
+          "max_ms": 0.0522
+        },
+        "throughput": {
+          "gflops": 0.05,
+          "bandwidth_gb_s": 0.09
+        },
+        "theory": {
+          "flops": 2560,
+          "bytes": 4620,
+          "arithmetic_intensity": 0.55
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0507,
+          "std_ms": 0.0,
+          "min_ms": 0.0507,
+          "max_ms": 0.0507
+        },
+        "throughput": {
+          "gflops": 1.62,
+          "bandwidth_gb_s": 2.92
+        },
+        "theory": {
+          "flops": 81920,
+          "bytes": 147840,
+          "arithmetic_intensity": 0.55
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0502,
+          "std_ms": 0.0,
+          "min_ms": 0.0502,
+          "max_ms": 0.0502
+        },
+        "throughput": {
+          "gflops": 3.27,
+          "bandwidth_gb_s": 5.89
+        },
+        "theory": {
+          "flops": 163840,
+          "bytes": 295680,
+          "arithmetic_intensity": 0.55
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0532,
+          "std_ms": 0.0,
+          "min_ms": 0.0532,
+          "max_ms": 0.0532
+        },
+        "throughput": {
+          "gflops": 24.62,
+          "bandwidth_gb_s": 39.51
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 2103808,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0714,
+          "std_ms": 0.0,
+          "min_ms": 0.0714,
+          "max_ms": 0.0714
+        },
+        "throughput": {
+          "gflops": 73.41,
+          "bandwidth_gb_s": 117.8
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 8413696,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0983,
+          "std_ms": 0.0,
+          "min_ms": 0.0983,
+          "max_ms": 0.0983
+        },
+        "throughput": {
+          "gflops": 106.67,
+          "bandwidth_gb_s": 171.17
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 16826880,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1467,
+          "std_ms": 0.0,
+          "min_ms": 0.1467,
+          "max_ms": 0.1467
+        },
+        "throughput": {
+          "gflops": 142.97,
+          "bandwidth_gb_s": 229.43
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 33654784,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0494,
+          "std_ms": 0.0,
+          "min_ms": 0.0494,
+          "max_ms": 0.0494
+        },
+        "throughput": {
+          "gflops": 0.1,
+          "bandwidth_gb_s": 0.18
+        },
+        "theory": {
+          "flops": 5120,
+          "bytes": 8716,
+          "arithmetic_intensity": 0.59
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0507,
+          "std_ms": 0.0,
+          "min_ms": 0.0507,
+          "max_ms": 0.0507
+        },
+        "throughput": {
+          "gflops": 3.23,
+          "bandwidth_gb_s": 5.5
+        },
+        "theory": {
+          "flops": 163840,
+          "bytes": 278912,
+          "arithmetic_intensity": 0.59
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0504,
+          "std_ms": 0.0,
+          "min_ms": 0.0504,
+          "max_ms": 0.0504
+        },
+        "throughput": {
+          "gflops": 6.5,
+          "bandwidth_gb_s": 11.06
+        },
+        "theory": {
+          "flops": 327680,
+          "bytes": 557824,
+          "arithmetic_intensity": 0.59
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0568,
+          "std_ms": 0.0,
+          "min_ms": 0.0568,
+          "max_ms": 0.0568
+        },
+        "throughput": {
+          "gflops": 46.13,
+          "bandwidth_gb_s": 73.92
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 4200960,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0975,
+          "std_ms": 0.0,
+          "min_ms": 0.0975,
+          "max_ms": 0.0975
+        },
+        "throughput": {
+          "gflops": 107.51,
+          "bandwidth_gb_s": 172.27
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 16802304,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1495,
+          "std_ms": 0.0,
+          "min_ms": 0.1495,
+          "max_ms": 0.1495
+        },
+        "throughput": {
+          "gflops": 140.27,
+          "bandwidth_gb_s": 224.77
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 33604096,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "deepseek_v4_pro_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2319,
+          "std_ms": 0.0,
+          "min_ms": 0.2319,
+          "max_ms": 0.2319
+        },
+        "throughput": {
+          "gflops": 180.84,
+          "bandwidth_gb_s": 289.77
+        },
+        "theory": {
+          "flops": 41943040,
+          "bytes": 67209216,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0527,
+          "std_ms": 0.0,
+          "min_ms": 0.0527,
+          "max_ms": 0.0527
+        },
+        "throughput": {
+          "gflops": 0.19,
+          "bandwidth_gb_s": 0.32
+        },
+        "theory": {
+          "flops": 10240,
+          "bytes": 16908,
+          "arithmetic_intensity": 0.61
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0512,
+          "std_ms": 0.0,
+          "min_ms": 0.0512,
+          "max_ms": 0.0512
+        },
+        "throughput": {
+          "gflops": 6.4,
+          "bandwidth_gb_s": 10.57
+        },
+        "theory": {
+          "flops": 327680,
+          "bytes": 541056,
+          "arithmetic_intensity": 0.61
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.052,
+          "std_ms": 0.0,
+          "min_ms": 0.052,
+          "max_ms": 0.052
+        },
+        "throughput": {
+          "gflops": 12.61,
+          "bandwidth_gb_s": 20.82
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 1082112,
+          "arithmetic_intensity": 0.61
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0691,
+          "std_ms": 0.0,
+          "min_ms": 0.0691,
+          "max_ms": 0.0691
+        },
+        "throughput": {
+          "gflops": 75.85,
+          "bandwidth_gb_s": 121.46
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 8395264,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1464,
+          "std_ms": 0.0,
+          "min_ms": 0.1464,
+          "max_ms": 0.1464
+        },
+        "throughput": {
+          "gflops": 143.22,
+          "bandwidth_gb_s": 229.32
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 33579520,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2432,
+          "std_ms": 0.0,
+          "min_ms": 0.2432,
+          "max_ms": 0.2432
+        },
+        "throughput": {
+          "gflops": 172.46,
+          "bandwidth_gb_s": 276.15
+        },
+        "theory": {
+          "flops": 41943040,
+          "bytes": 67158528,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "compute_global_topk_indices_and_lens",
+      "definition": "compute_global_topk_indices_and_lens",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4029,
+          "std_ms": 0.0,
+          "min_ms": 0.4029,
+          "max_ms": 0.4029
+        },
+        "throughput": {
+          "gflops": 208.18,
+          "bandwidth_gb_s": 333.34
+        },
+        "theory": {
+          "flops": 83886080,
+          "bytes": 134318080,
+          "arithmetic_intensity": 0.62
+        }
+      },
+      "impl_info": {
+        "source": "flagos.fixed_kernel.compute_global_topk (BLOCK=256,TPP=1)",
+        "type": "triton"
+      }
+    }
+  ]
+}

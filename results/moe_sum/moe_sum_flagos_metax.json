@@ -1,0 +1,2659 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T03:23:55.289961",
+    "provider": "flagos",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 80
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1303,
+          "std_ms": 0.0,
+          "min_ms": 0.1303,
+          "max_ms": 0.1303
+        },
+        "throughput": {
+          "gflops": 0.39,
+          "bandwidth_gb_s": 0.99
+        },
+        "theory": {
+          "flops": 50176,
+          "bytes": 129024,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1024,
+          "std_ms": 0.0,
+          "min_ms": 0.1024,
+          "max_ms": 0.1024
+        },
+        "throughput": {
+          "gflops": 3.92,
+          "bandwidth_gb_s": 10.08
+        },
+        "theory": {
+          "flops": 401408,
+          "bytes": 1032192,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1029,
+          "std_ms": 0.0,
+          "min_ms": 0.1029,
+          "max_ms": 0.1029
+        },
+        "throughput": {
+          "gflops": 15.6,
+          "bandwidth_gb_s": 40.12
+        },
+        "theory": {
+          "flops": 1605632,
+          "bytes": 4128768,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0625,
+          "std_ms": 0.0,
+          "min_ms": 0.0625,
+          "max_ms": 0.0625
+        },
+        "throughput": {
+          "gflops": 51.41,
+          "bandwidth_gb_s": 132.2
+        },
+        "theory": {
+          "flops": 3211264,
+          "bytes": 8257536,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0556,
+          "std_ms": 0.0,
+          "min_ms": 0.0556,
+          "max_ms": 0.0556
+        },
+        "throughput": {
+          "gflops": 115.61,
+          "bandwidth_gb_s": 297.29
+        },
+        "theory": {
+          "flops": 6422528,
+          "bytes": 16515072,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0704,
+          "std_ms": 0.0,
+          "min_ms": 0.0704,
+          "max_ms": 0.0704
+        },
+        "throughput": {
+          "gflops": 182.46,
+          "bandwidth_gb_s": 469.18
+        },
+        "theory": {
+          "flops": 12845056,
+          "bytes": 33030144,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0911,
+          "std_ms": 0.0,
+          "min_ms": 0.0911,
+          "max_ms": 0.0911
+        },
+        "throughput": {
+          "gflops": 281.89,
+          "bandwidth_gb_s": 724.85
+        },
+        "theory": {
+          "flops": 25690112,
+          "bytes": 66060288,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.137,
+          "std_ms": 0.0,
+          "min_ms": 0.137,
+          "max_ms": 0.137
+        },
+        "throughput": {
+          "gflops": 375.15,
+          "bandwidth_gb_s": 964.67
+        },
+        "theory": {
+          "flops": 51380224,
+          "bytes": 132120576,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.235,
+          "std_ms": 0.0,
+          "min_ms": 0.235,
+          "max_ms": 0.235
+        },
+        "throughput": {
+          "gflops": 437.26,
+          "bandwidth_gb_s": 1124.39
+        },
+        "theory": {
+          "flops": 102760448,
+          "bytes": 264241152,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4324,
+          "std_ms": 0.0,
+          "min_ms": 0.4324,
+          "max_ms": 0.4324
+        },
+        "throughput": {
+          "gflops": 475.32,
+          "bandwidth_gb_s": 1222.25
+        },
+        "theory": {
+          "flops": 205520896,
+          "bytes": 528482304,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0776,
+          "std_ms": 0.0,
+          "min_ms": 0.0776,
+          "max_ms": 0.0776
+        },
+        "throughput": {
+          "gflops": 0.26,
+          "bandwidth_gb_s": 0.74
+        },
+        "theory": {
+          "flops": 20480,
+          "bytes": 57344,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.054,
+          "std_ms": 0.0,
+          "min_ms": 0.054,
+          "max_ms": 0.054
+        },
+        "throughput": {
+          "gflops": 3.03,
+          "bandwidth_gb_s": 8.49
+        },
+        "theory": {
+          "flops": 163840,
+          "bytes": 458752,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0512,
+          "std_ms": 0.0,
+          "min_ms": 0.0512,
+          "max_ms": 0.0512
+        },
+        "throughput": {
+          "gflops": 12.8,
+          "bandwidth_gb_s": 35.84
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 1835008,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0468,
+          "std_ms": 0.0,
+          "min_ms": 0.0468,
+          "max_ms": 0.0468
+        },
+        "throughput": {
+          "gflops": 27.98,
+          "bandwidth_gb_s": 78.34
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 3670016,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0451,
+          "std_ms": 0.0,
+          "min_ms": 0.0451,
+          "max_ms": 0.0451
+        },
+        "throughput": {
+          "gflops": 58.18,
+          "bandwidth_gb_s": 162.91
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 7340032,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0497,
+          "std_ms": 0.0,
+          "min_ms": 0.0497,
+          "max_ms": 0.0497
+        },
+        "throughput": {
+          "gflops": 105.57,
+          "bandwidth_gb_s": 295.59
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 14680064,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0643,
+          "std_ms": 0.0,
+          "min_ms": 0.0643,
+          "max_ms": 0.0643
+        },
+        "throughput": {
+          "gflops": 163.19,
+          "bandwidth_gb_s": 456.92
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 29360128,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0829,
+          "std_ms": 0.0,
+          "min_ms": 0.0829,
+          "max_ms": 0.0829
+        },
+        "throughput": {
+          "gflops": 252.84,
+          "bandwidth_gb_s": 707.95
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 58720256,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1219,
+          "std_ms": 0.0,
+          "min_ms": 0.1219,
+          "max_ms": 0.1219
+        },
+        "throughput": {
+          "gflops": 344.2,
+          "bandwidth_gb_s": 963.76
+        },
+        "theory": {
+          "flops": 41943040,
+          "bytes": 117440512,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2045,
+          "std_ms": 0.0,
+          "min_ms": 0.2045,
+          "max_ms": 0.2045
+        },
+        "throughput": {
+          "gflops": 410.11,
+          "bandwidth_gb_s": 1148.32
+        },
+        "theory": {
+          "flops": 83886080,
+          "bytes": 234881024,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0983,
+          "std_ms": 0.0,
+          "min_ms": 0.0983,
+          "max_ms": 0.0983
+        },
+        "throughput": {
+          "gflops": 0.36,
+          "bandwidth_gb_s": 1.02
+        },
+        "theory": {
+          "flops": 35840,
+          "bytes": 100352,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1016,
+          "std_ms": 0.0,
+          "min_ms": 0.1016,
+          "max_ms": 0.1016
+        },
+        "throughput": {
+          "gflops": 2.82,
+          "bandwidth_gb_s": 7.9
+        },
+        "theory": {
+          "flops": 286720,
+          "bytes": 802816,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0975,
+          "std_ms": 0.0,
+          "min_ms": 0.0975,
+          "max_ms": 0.0975
+        },
+        "throughput": {
+          "gflops": 11.76,
+          "bandwidth_gb_s": 32.92
+        },
+        "theory": {
+          "flops": 1146880,
+          "bytes": 3211264,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0553,
+          "std_ms": 0.0,
+          "min_ms": 0.0553,
+          "max_ms": 0.0553
+        },
+        "throughput": {
+          "gflops": 41.48,
+          "bandwidth_gb_s": 116.15
+        },
+        "theory": {
+          "flops": 2293760,
+          "bytes": 6422528,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0584,
+          "std_ms": 0.0,
+          "min_ms": 0.0584,
+          "max_ms": 0.0584
+        },
+        "throughput": {
+          "gflops": 78.6,
+          "bandwidth_gb_s": 220.07
+        },
+        "theory": {
+          "flops": 4587520,
+          "bytes": 12845056,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0753,
+          "std_ms": 0.0,
+          "min_ms": 0.0753,
+          "max_ms": 0.0753
+        },
+        "throughput": {
+          "gflops": 121.9,
+          "bandwidth_gb_s": 341.33
+        },
+        "theory": {
+          "flops": 9175040,
+          "bytes": 25690112,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1644,
+          "std_ms": 0.0,
+          "min_ms": 0.1644,
+          "max_ms": 0.1644
+        },
+        "throughput": {
+          "gflops": 111.65,
+          "bandwidth_gb_s": 312.62
+        },
+        "theory": {
+          "flops": 18350080,
+          "bytes": 51380224,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1731,
+          "std_ms": 0.0,
+          "min_ms": 0.1731,
+          "max_ms": 0.1731
+        },
+        "throughput": {
+          "gflops": 212.07,
+          "bandwidth_gb_s": 593.8
+        },
+        "theory": {
+          "flops": 36700160,
+          "bytes": 102760448,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3036,
+          "std_ms": 0.0,
+          "min_ms": 0.3036,
+          "max_ms": 0.3036
+        },
+        "throughput": {
+          "gflops": 241.75,
+          "bandwidth_gb_s": 676.91
+        },
+        "theory": {
+          "flops": 73400320,
+          "bytes": 205520896,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.556,
+          "std_ms": 0.0,
+          "min_ms": 0.556,
+          "max_ms": 0.556
+        },
+        "throughput": {
+          "gflops": 264.01,
+          "bandwidth_gb_s": 739.24
+        },
+        "theory": {
+          "flops": 146800640,
+          "bytes": 411041792,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0719,
+          "std_ms": 0.0,
+          "min_ms": 0.0719,
+          "max_ms": 0.0719
+        },
+        "throughput": {
+          "gflops": 0.09,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 6144,
+          "bytes": 20480,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.052,
+          "std_ms": 0.0,
+          "min_ms": 0.052,
+          "max_ms": 0.052
+        },
+        "throughput": {
+          "gflops": 0.95,
+          "bandwidth_gb_s": 3.15
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 163840,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0479,
+          "std_ms": 0.0,
+          "min_ms": 0.0479,
+          "max_ms": 0.0479
+        },
+        "throughput": {
+          "gflops": 4.11,
+          "bandwidth_gb_s": 13.69
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 655360,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0481,
+          "std_ms": 0.0,
+          "min_ms": 0.0481,
+          "max_ms": 0.0481
+        },
+        "throughput": {
+          "gflops": 8.17,
+          "bandwidth_gb_s": 27.23
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 1310720,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0456,
+          "std_ms": 0.0,
+          "min_ms": 0.0456,
+          "max_ms": 0.0456
+        },
+        "throughput": {
+          "gflops": 17.26,
+          "bandwidth_gb_s": 57.53
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 2621440,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0479,
+          "std_ms": 0.0,
+          "min_ms": 0.0479,
+          "max_ms": 0.0479
+        },
+        "throughput": {
+          "gflops": 32.86,
+          "bandwidth_gb_s": 109.52
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 5242880,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0581,
+          "std_ms": 0.0,
+          "min_ms": 0.0581,
+          "max_ms": 0.0581
+        },
+        "throughput": {
+          "gflops": 54.13,
+          "bandwidth_gb_s": 180.44
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 10485760,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0763,
+          "std_ms": 0.0,
+          "min_ms": 0.0763,
+          "max_ms": 0.0763
+        },
+        "throughput": {
+          "gflops": 82.47,
+          "bandwidth_gb_s": 274.9
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 20971520,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1139,
+          "std_ms": 0.0,
+          "min_ms": 0.1139,
+          "max_ms": 0.1139
+        },
+        "throughput": {
+          "gflops": 110.45,
+          "bandwidth_gb_s": 368.18
+        },
+        "theory": {
+          "flops": 12582912,
+          "bytes": 41943040,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1838,
+          "std_ms": 0.0,
+          "min_ms": 0.1838,
+          "max_ms": 0.1838
+        },
+        "throughput": {
+          "gflops": 136.91,
+          "bandwidth_gb_s": 456.38
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 83886080,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0709,
+          "std_ms": 0.0,
+          "min_ms": 0.0709,
+          "max_ms": 0.0709
+        },
+        "throughput": {
+          "gflops": 0.61,
+          "bandwidth_gb_s": 1.56
+        },
+        "theory": {
+          "flops": 43008,
+          "bytes": 110592,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0522,
+          "std_ms": 0.0,
+          "min_ms": 0.0522,
+          "max_ms": 0.0522
+        },
+        "throughput": {
+          "gflops": 6.59,
+          "bandwidth_gb_s": 16.94
+        },
+        "theory": {
+          "flops": 344064,
+          "bytes": 884736,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0492,
+          "std_ms": 0.0,
+          "min_ms": 0.0492,
+          "max_ms": 0.0492
+        },
+        "throughput": {
+          "gflops": 28.0,
+          "bandwidth_gb_s": 72.0
+        },
+        "theory": {
+          "flops": 1376256,
+          "bytes": 3538944,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0504,
+          "std_ms": 0.0,
+          "min_ms": 0.0504,
+          "max_ms": 0.0504
+        },
+        "throughput": {
+          "gflops": 54.58,
+          "bandwidth_gb_s": 140.35
+        },
+        "theory": {
+          "flops": 2752512,
+          "bytes": 7077888,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0566,
+          "std_ms": 0.0,
+          "min_ms": 0.0566,
+          "max_ms": 0.0566
+        },
+        "throughput": {
+          "gflops": 97.3,
+          "bandwidth_gb_s": 250.21
+        },
+        "theory": {
+          "flops": 5505024,
+          "bytes": 14155776,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.074,
+          "std_ms": 0.0,
+          "min_ms": 0.074,
+          "max_ms": 0.074
+        },
+        "throughput": {
+          "gflops": 148.82,
+          "bandwidth_gb_s": 382.67
+        },
+        "theory": {
+          "flops": 11010048,
+          "bytes": 28311552,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1062,
+          "std_ms": 0.0,
+          "min_ms": 0.1062,
+          "max_ms": 0.1062
+        },
+        "throughput": {
+          "gflops": 207.27,
+          "bandwidth_gb_s": 532.97
+        },
+        "theory": {
+          "flops": 22020096,
+          "bytes": 56623104,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1684,
+          "std_ms": 0.0,
+          "min_ms": 0.1684,
+          "max_ms": 0.1684
+        },
+        "throughput": {
+          "gflops": 261.45,
+          "bandwidth_gb_s": 672.29
+        },
+        "theory": {
+          "flops": 44040192,
+          "bytes": 113246208,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2934,
+          "std_ms": 0.0,
+          "min_ms": 0.2934,
+          "max_ms": 0.2934
+        },
+        "throughput": {
+          "gflops": 300.23,
+          "bandwidth_gb_s": 772.02
+        },
+        "theory": {
+          "flops": 88080384,
+          "bytes": 226492416,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5486,
+          "std_ms": 0.0,
+          "min_ms": 0.5486,
+          "max_ms": 0.5486
+        },
+        "throughput": {
+          "gflops": 321.1,
+          "bandwidth_gb_s": 825.7
+        },
+        "theory": {
+          "flops": 176160768,
+          "bytes": 452984832,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1111,
+          "std_ms": 0.0,
+          "min_ms": 0.1111,
+          "max_ms": 0.1111
+        },
+        "throughput": {
+          "gflops": 0.97,
+          "bandwidth_gb_s": 2.19
+        },
+        "theory": {
+          "flops": 107520,
+          "bytes": 243712,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1006,
+          "std_ms": 0.0,
+          "min_ms": 0.1006,
+          "max_ms": 0.1006
+        },
+        "throughput": {
+          "gflops": 8.55,
+          "bandwidth_gb_s": 19.38
+        },
+        "theory": {
+          "flops": 860160,
+          "bytes": 1949696,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1024,
+          "std_ms": 0.0,
+          "min_ms": 0.1024,
+          "max_ms": 0.1024
+        },
+        "throughput": {
+          "gflops": 33.6,
+          "bandwidth_gb_s": 76.16
+        },
+        "theory": {
+          "flops": 3440640,
+          "bytes": 7798784,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0609,
+          "std_ms": 0.0,
+          "min_ms": 0.0609,
+          "max_ms": 0.0609
+        },
+        "throughput": {
+          "gflops": 112.94,
+          "bandwidth_gb_s": 256.0
+        },
+        "theory": {
+          "flops": 6881280,
+          "bytes": 15597568,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0676,
+          "std_ms": 0.0,
+          "min_ms": 0.0676,
+          "max_ms": 0.0676
+        },
+        "throughput": {
+          "gflops": 203.64,
+          "bandwidth_gb_s": 461.58
+        },
+        "theory": {
+          "flops": 13762560,
+          "bytes": 31195136,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0916,
+          "std_ms": 0.0,
+          "min_ms": 0.0916,
+          "max_ms": 0.0916
+        },
+        "throughput": {
+          "gflops": 300.34,
+          "bandwidth_gb_s": 680.76
+        },
+        "theory": {
+          "flops": 27525120,
+          "bytes": 62390272,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1449,
+          "std_ms": 0.0,
+          "min_ms": 0.1449,
+          "max_ms": 0.1449
+        },
+        "throughput": {
+          "gflops": 379.93,
+          "bandwidth_gb_s": 861.17
+        },
+        "theory": {
+          "flops": 55050240,
+          "bytes": 124780544,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.246,
+          "std_ms": 0.0,
+          "min_ms": 0.246,
+          "max_ms": 0.246
+        },
+        "throughput": {
+          "gflops": 447.53,
+          "bandwidth_gb_s": 1014.41
+        },
+        "theory": {
+          "flops": 110100480,
+          "bytes": 249561088,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4529,
+          "std_ms": 0.0,
+          "min_ms": 0.4529,
+          "max_ms": 0.4529
+        },
+        "throughput": {
+          "gflops": 486.24,
+          "bandwidth_gb_s": 1102.15
+        },
+        "theory": {
+          "flops": 220200960,
+          "bytes": 499122176,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8573,
+          "std_ms": 0.0,
+          "min_ms": 0.8573,
+          "max_ms": 0.8573
+        },
+        "throughput": {
+          "gflops": 513.68,
+          "bandwidth_gb_s": 1164.35
+        },
+        "theory": {
+          "flops": 440401920,
+          "bytes": 998244352,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0727,
+          "std_ms": 0.0,
+          "min_ms": 0.0727,
+          "max_ms": 0.0727
+        },
+        "throughput": {
+          "gflops": 0.2,
+          "bandwidth_gb_s": 0.51
+        },
+        "theory": {
+          "flops": 14336,
+          "bytes": 36864,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0509,
+          "std_ms": 0.0,
+          "min_ms": 0.0509,
+          "max_ms": 0.0509
+        },
+        "throughput": {
+          "gflops": 2.25,
+          "bandwidth_gb_s": 5.79
+        },
+        "theory": {
+          "flops": 114688,
+          "bytes": 294912,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0468,
+          "std_ms": 0.0,
+          "min_ms": 0.0468,
+          "max_ms": 0.0468
+        },
+        "throughput": {
+          "gflops": 9.79,
+          "bandwidth_gb_s": 25.18
+        },
+        "theory": {
+          "flops": 458752,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0468,
+          "std_ms": 0.0,
+          "min_ms": 0.0468,
+          "max_ms": 0.0468
+        },
+        "throughput": {
+          "gflops": 19.58,
+          "bandwidth_gb_s": 50.36
+        },
+        "theory": {
+          "flops": 917504,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0453,
+          "std_ms": 0.0,
+          "min_ms": 0.0453,
+          "max_ms": 0.0453
+        },
+        "throughput": {
+          "gflops": 40.5,
+          "bandwidth_gb_s": 104.14
+        },
+        "theory": {
+          "flops": 1835008,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0494,
+          "std_ms": 0.0,
+          "min_ms": 0.0494,
+          "max_ms": 0.0494
+        },
+        "throughput": {
+          "gflops": 74.28,
+          "bandwidth_gb_s": 191.01
+        },
+        "theory": {
+          "flops": 3670016,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0645,
+          "std_ms": 0.0,
+          "min_ms": 0.0645,
+          "max_ms": 0.0645
+        },
+        "throughput": {
+          "gflops": 113.78,
+          "bandwidth_gb_s": 292.57
+        },
+        "theory": {
+          "flops": 7340032,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0827,
+          "std_ms": 0.0,
+          "min_ms": 0.0827,
+          "max_ms": 0.0827
+        },
+        "throughput": {
+          "gflops": 177.54,
+          "bandwidth_gb_s": 456.52
+        },
+        "theory": {
+          "flops": 14680064,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1562,
+          "std_ms": 0.0,
+          "min_ms": 0.1562,
+          "max_ms": 0.1562
+        },
+        "throughput": {
+          "gflops": 188.01,
+          "bandwidth_gb_s": 483.46
+        },
+        "theory": {
+          "flops": 29360128,
+          "bytes": 75497472,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2086,
+          "std_ms": 0.0,
+          "min_ms": 0.2086,
+          "max_ms": 0.2086
+        },
+        "throughput": {
+          "gflops": 281.44,
+          "bandwidth_gb_s": 723.71
+        },
+        "theory": {
+          "flops": 58720256,
+          "bytes": 150994944,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0722,
+          "std_ms": 0.0,
+          "min_ms": 0.0722,
+          "max_ms": 0.0722
+        },
+        "throughput": {
+          "gflops": 1.02,
+          "bandwidth_gb_s": 2.5
+        },
+        "theory": {
+          "flops": 73728,
+          "bytes": 180224,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0515,
+          "std_ms": 0.0,
+          "min_ms": 0.0515,
+          "max_ms": 0.0515
+        },
+        "throughput": {
+          "gflops": 11.46,
+          "bandwidth_gb_s": 28.02
+        },
+        "theory": {
+          "flops": 589824,
+          "bytes": 1441792,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0463,
+          "std_ms": 0.0,
+          "min_ms": 0.0463,
+          "max_ms": 0.0463
+        },
+        "throughput": {
+          "gflops": 50.92,
+          "bandwidth_gb_s": 124.46
+        },
+        "theory": {
+          "flops": 2359296,
+          "bytes": 5767168,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0515,
+          "std_ms": 0.0,
+          "min_ms": 0.0515,
+          "max_ms": 0.0515
+        },
+        "throughput": {
+          "gflops": 91.7,
+          "bandwidth_gb_s": 224.16
+        },
+        "theory": {
+          "flops": 4718592,
+          "bytes": 11534336,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0609,
+          "std_ms": 0.0,
+          "min_ms": 0.0609,
+          "max_ms": 0.0609
+        },
+        "throughput": {
+          "gflops": 154.89,
+          "bandwidth_gb_s": 378.62
+        },
+        "theory": {
+          "flops": 9437184,
+          "bytes": 23068672,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0852,
+          "std_ms": 0.0,
+          "min_ms": 0.0852,
+          "max_ms": 0.0852
+        },
+        "throughput": {
+          "gflops": 221.41,
+          "bandwidth_gb_s": 541.21
+        },
+        "theory": {
+          "flops": 18874368,
+          "bytes": 46137344,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1339,
+          "std_ms": 0.0,
+          "min_ms": 0.1339,
+          "max_ms": 0.1339
+        },
+        "throughput": {
+          "gflops": 281.94,
+          "bandwidth_gb_s": 689.19
+        },
+        "theory": {
+          "flops": 37748736,
+          "bytes": 92274688,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2171,
+          "std_ms": 0.0,
+          "min_ms": 0.2171,
+          "max_ms": 0.2171
+        },
+        "throughput": {
+          "gflops": 347.77,
+          "bandwidth_gb_s": 850.11
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 184549376,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3937,
+          "std_ms": 0.0,
+          "min_ms": 0.3937,
+          "max_ms": 0.3937
+        },
+        "throughput": {
+          "gflops": 383.5,
+          "bandwidth_gb_s": 937.45
+        },
+        "theory": {
+          "flops": 150994944,
+          "bytes": 369098752,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7483,
+          "std_ms": 0.0,
+          "min_ms": 0.7483,
+          "max_ms": 0.7483
+        },
+        "throughput": {
+          "gflops": 403.57,
+          "bandwidth_gb_s": 986.52
+        },
+        "theory": {
+          "flops": 301989888,
+          "bytes": 738197504,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.moe_sum",
+        "type": "triton"
+      }
+    }
+  ]
+}

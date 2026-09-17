@@ -1,0 +1,1832 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T06:30:53.435608",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 49
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 20.2181,
+          "std_ms": 0.0,
+          "min_ms": 20.2181,
+          "max_ms": 20.2181
+        },
+        "throughput": {
+          "gflops": 14.95,
+          "bandwidth_gb_s": 0.06
+        },
+        "theory": {
+          "flops": 302252032,
+          "bytes": 1270404,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 148.7076,
+          "std_ms": 0.0,
+          "min_ms": 148.7076,
+          "max_ms": 148.7076
+        },
+        "throughput": {
+          "gflops": 16.26,
+          "bandwidth_gb_s": 0.07
+        },
+        "theory": {
+          "flops": 2418016256,
+          "bytes": 10163232,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 131.21,
+          "std_ms": 0.0,
+          "min_ms": 131.21,
+          "max_ms": 131.21
+        },
+        "throughput": {
+          "gflops": 73.71,
+          "bandwidth_gb_s": 0.31
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 40652928,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 257.7672,
+          "std_ms": 0.0,
+          "min_ms": 257.7672,
+          "max_ms": 257.7672
+        },
+        "throughput": {
+          "gflops": 75.04,
+          "bandwidth_gb_s": 0.31
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 78930048,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 520.1567,
+          "std_ms": 0.0,
+          "min_ms": 520.1567,
+          "max_ms": 520.1567
+        },
+        "throughput": {
+          "gflops": 74.38,
+          "bandwidth_gb_s": 0.3
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 157860096,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1378.6957,
+          "std_ms": 0.0,
+          "min_ms": 1378.6957,
+          "max_ms": 1378.6957
+        },
+        "throughput": {
+          "gflops": 56.12,
+          "bandwidth_gb_s": 0.23
+        },
+        "theory": {
+          "flops": 77376520192,
+          "bytes": 310968576,
+          "arithmetic_intensity": 248.82
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1096.6239,
+          "std_ms": 0.0,
+          "min_ms": 1096.6239,
+          "max_ms": 1096.6239
+        },
+        "throughput": {
+          "gflops": 70.56,
+          "bandwidth_gb_s": 0.29
+        },
+        "theory": {
+          "flops": 77376520192,
+          "bytes": 315720192,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.4728,
+          "std_ms": 0.0,
+          "min_ms": 4.4728,
+          "max_ms": 4.4728
+        },
+        "throughput": {
+          "gflops": 33.79,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 151126016,
+          "bytes": 1233284,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 34.4847,
+          "std_ms": 0.0,
+          "min_ms": 34.4847,
+          "max_ms": 34.4847
+        },
+        "throughput": {
+          "gflops": 35.06,
+          "bandwidth_gb_s": 0.29
+        },
+        "theory": {
+          "flops": 1209008128,
+          "bytes": 9866272,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 136.82,
+          "std_ms": 0.0,
+          "min_ms": 136.82,
+          "max_ms": 136.82
+        },
+        "throughput": {
+          "gflops": 35.35,
+          "bandwidth_gb_s": 0.29
+        },
+        "theory": {
+          "flops": 4836032512,
+          "bytes": 39465088,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 274.0121,
+          "std_ms": 0.0,
+          "min_ms": 274.0121,
+          "max_ms": 274.0121
+        },
+        "throughput": {
+          "gflops": 35.3,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 77742208,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 551.626,
+          "std_ms": 0.0,
+          "min_ms": 551.626,
+          "max_ms": 551.626
+        },
+        "throughput": {
+          "gflops": 35.07,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 155484416,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1108.3021,
+          "std_ms": 0.0,
+          "min_ms": 1108.3021,
+          "max_ms": 1108.3021
+        },
+        "throughput": {
+          "gflops": 34.91,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 308592896,
+          "arithmetic_intensity": 125.37
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1104.9081,
+          "std_ms": 0.0,
+          "min_ms": 1104.9081,
+          "max_ms": 1104.9081
+        },
+        "throughput": {
+          "gflops": 35.01,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 310968832,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.5722,
+          "std_ms": 0.0,
+          "min_ms": 4.5722,
+          "max_ms": 4.5722
+        },
+        "throughput": {
+          "gflops": 66.11,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 302252032,
+          "bytes": 1270404,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 34.9036,
+          "std_ms": 0.0,
+          "min_ms": 34.9036,
+          "max_ms": 34.9036
+        },
+        "throughput": {
+          "gflops": 69.28,
+          "bandwidth_gb_s": 0.29
+        },
+        "theory": {
+          "flops": 2418016256,
+          "bytes": 10163232,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 138.1898,
+          "std_ms": 0.0,
+          "min_ms": 138.1898,
+          "max_ms": 138.1898
+        },
+        "throughput": {
+          "gflops": 69.99,
+          "bandwidth_gb_s": 0.29
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 40652928,
+          "arithmetic_intensity": 237.92
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 285.1699,
+          "std_ms": 0.0,
+          "min_ms": 285.1699,
+          "max_ms": 285.1699
+        },
+        "throughput": {
+          "gflops": 67.83,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 78930048,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 562.3229,
+          "std_ms": 0.0,
+          "min_ms": 562.3229,
+          "max_ms": 562.3229
+        },
+        "throughput": {
+          "gflops": 68.8,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 157860096,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1116.6036,
+          "std_ms": 0.0,
+          "min_ms": 1116.6036,
+          "max_ms": 1116.6036
+        },
+        "throughput": {
+          "gflops": 69.3,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 77376520192,
+          "bytes": 310968576,
+          "arithmetic_intensity": 248.82
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1112.5341,
+          "std_ms": 0.0,
+          "min_ms": 1112.5341,
+          "max_ms": 1112.5341
+        },
+        "throughput": {
+          "gflops": 69.55,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 77376520192,
+          "bytes": 315720192,
+          "arithmetic_intensity": 245.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.5061,
+          "std_ms": 0.0,
+          "min_ms": 4.5061,
+          "max_ms": 4.5061
+        },
+        "throughput": {
+          "gflops": 10.48,
+          "bandwidth_gb_s": 0.27
+        },
+        "theory": {
+          "flops": 47226880,
+          "bytes": 1207764,
+          "arithmetic_intensity": 39.1
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 34.9716,
+          "std_ms": 0.0,
+          "min_ms": 34.9716,
+          "max_ms": 34.9716
+        },
+        "throughput": {
+          "gflops": 10.8,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 377815040,
+          "bytes": 9662112,
+          "arithmetic_intensity": 39.1
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 138.4934,
+          "std_ms": 0.0,
+          "min_ms": 138.4934,
+          "max_ms": 138.4934
+        },
+        "throughput": {
+          "gflops": 10.91,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 1511260160,
+          "bytes": 38648448,
+          "arithmetic_intensity": 39.1
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 279.8697,
+          "std_ms": 0.0,
+          "min_ms": 279.8697,
+          "max_ms": 279.8697
+        },
+        "throughput": {
+          "gflops": 10.8,
+          "bandwidth_gb_s": 0.27
+        },
+        "theory": {
+          "flops": 3022520320,
+          "bytes": 76925568,
+          "arithmetic_intensity": 39.29
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 561.6921,
+          "std_ms": 0.0,
+          "min_ms": 561.6921,
+          "max_ms": 561.6921
+        },
+        "throughput": {
+          "gflops": 10.76,
+          "bandwidth_gb_s": 0.27
+        },
+        "theory": {
+          "flops": 6045040640,
+          "bytes": 153851136,
+          "arithmetic_intensity": 39.29
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1101.3319,
+          "std_ms": 0.0,
+          "min_ms": 1101.3319,
+          "max_ms": 1101.3319
+        },
+        "throughput": {
+          "gflops": 10.98,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 12090081280,
+          "bytes": 306959616,
+          "arithmetic_intensity": 39.39
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 850.2822,
+          "std_ms": 0.0,
+          "min_ms": 850.2822,
+          "max_ms": 850.2822
+        },
+        "throughput": {
+          "gflops": 14.22,
+          "bandwidth_gb_s": 0.36
+        },
+        "theory": {
+          "flops": 12090081280,
+          "bytes": 307702272,
+          "arithmetic_intensity": 39.29
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.3636,
+          "std_ms": 0.0,
+          "min_ms": 3.3636,
+          "max_ms": 3.3636
+        },
+        "throughput": {
+          "gflops": 44.93,
+          "bandwidth_gb_s": 0.37
+        },
+        "theory": {
+          "flops": 151126016,
+          "bytes": 1233284,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 26.9842,
+          "std_ms": 0.0,
+          "min_ms": 26.9842,
+          "max_ms": 26.9842
+        },
+        "throughput": {
+          "gflops": 44.8,
+          "bandwidth_gb_s": 0.37
+        },
+        "theory": {
+          "flops": 1209008128,
+          "bytes": 9866272,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 101.8798,
+          "std_ms": 0.0,
+          "min_ms": 101.8798,
+          "max_ms": 101.8798
+        },
+        "throughput": {
+          "gflops": 47.47,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 4836032512,
+          "bytes": 39465088,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 200.9003,
+          "std_ms": 0.0,
+          "min_ms": 200.9003,
+          "max_ms": 200.9003
+        },
+        "throughput": {
+          "gflops": 48.14,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 77742208,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 400.949,
+          "std_ms": 0.0,
+          "min_ms": 400.949,
+          "max_ms": 400.949
+        },
+        "throughput": {
+          "gflops": 48.25,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 155484416,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 807.5361,
+          "std_ms": 0.0,
+          "min_ms": 807.5361,
+          "max_ms": 807.5361
+        },
+        "throughput": {
+          "gflops": 47.91,
+          "bandwidth_gb_s": 0.38
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 308592896,
+          "arithmetic_intensity": 125.37
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 818.5608,
+          "std_ms": 0.0,
+          "min_ms": 818.5608,
+          "max_ms": 818.5608
+        },
+        "throughput": {
+          "gflops": 47.26,
+          "bandwidth_gb_s": 0.38
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 310968832,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.3917,
+          "std_ms": 0.0,
+          "min_ms": 3.3917,
+          "max_ms": 3.3917
+        },
+        "throughput": {
+          "gflops": 44.56,
+          "bandwidth_gb_s": 0.36
+        },
+        "theory": {
+          "flops": 151126016,
+          "bytes": 1233284,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 25.8117,
+          "std_ms": 0.0,
+          "min_ms": 25.8117,
+          "max_ms": 25.8117
+        },
+        "throughput": {
+          "gflops": 46.84,
+          "bandwidth_gb_s": 0.38
+        },
+        "theory": {
+          "flops": 1209008128,
+          "bytes": 9866272,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 102.015,
+          "std_ms": 0.0,
+          "min_ms": 102.015,
+          "max_ms": 102.015
+        },
+        "throughput": {
+          "gflops": 47.41,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 4836032512,
+          "bytes": 39465088,
+          "arithmetic_intensity": 122.54
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 204.5622,
+          "std_ms": 0.0,
+          "min_ms": 204.5622,
+          "max_ms": 204.5622
+        },
+        "throughput": {
+          "gflops": 47.28,
+          "bandwidth_gb_s": 0.38
+        },
+        "theory": {
+          "flops": 9672065024,
+          "bytes": 77742208,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 407.4186,
+          "std_ms": 0.0,
+          "min_ms": 407.4186,
+          "max_ms": 407.4186
+        },
+        "throughput": {
+          "gflops": 47.48,
+          "bandwidth_gb_s": 0.38
+        },
+        "theory": {
+          "flops": 19344130048,
+          "bytes": 155484416,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 813.5583,
+          "std_ms": 0.0,
+          "min_ms": 813.5583,
+          "max_ms": 813.5583
+        },
+        "throughput": {
+          "gflops": 47.55,
+          "bandwidth_gb_s": 0.38
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 308592896,
+          "arithmetic_intensity": 125.37
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 800.2102,
+          "std_ms": 0.0,
+          "min_ms": 800.2102,
+          "max_ms": 800.2102
+        },
+        "throughput": {
+          "gflops": 48.35,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 38688260096,
+          "bytes": 310968832,
+          "arithmetic_intensity": 124.41
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.3124,
+          "std_ms": 0.0,
+          "min_ms": 3.3124,
+          "max_ms": 3.3124
+        },
+        "throughput": {
+          "gflops": 68.44,
+          "bandwidth_gb_s": 0.38
+        },
+        "theory": {
+          "flops": 226689024,
+          "bytes": 1251844,
+          "arithmetic_intensity": 181.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 25.4118,
+          "std_ms": 0.0,
+          "min_ms": 25.4118,
+          "max_ms": 25.4118
+        },
+        "throughput": {
+          "gflops": 71.36,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 1813512192,
+          "bytes": 10014752,
+          "arithmetic_intensity": 181.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 101.4362,
+          "std_ms": 0.0,
+          "min_ms": 101.4362,
+          "max_ms": 101.4362
+        },
+        "throughput": {
+          "gflops": 71.51,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 7254048768,
+          "bytes": 40059008,
+          "arithmetic_intensity": 181.08
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 200.6093,
+          "std_ms": 0.0,
+          "min_ms": 200.6093,
+          "max_ms": 200.6093
+        },
+        "throughput": {
+          "gflops": 72.32,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 14508097536,
+          "bytes": 78336128,
+          "arithmetic_intensity": 185.2
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 400.8056,
+          "std_ms": 0.0,
+          "min_ms": 400.8056,
+          "max_ms": 400.8056
+        },
+        "throughput": {
+          "gflops": 72.39,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 29016195072,
+          "bytes": 156672256,
+          "arithmetic_intensity": 185.2
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 803.9258,
+          "std_ms": 0.0,
+          "min_ms": 803.9258,
+          "max_ms": 803.9258
+        },
+        "throughput": {
+          "gflops": 72.19,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 58032390144,
+          "bytes": 309780736,
+          "arithmetic_intensity": 187.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "definition": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 805.8478,
+          "std_ms": 0.0,
+          "min_ms": 805.8478,
+          "max_ms": 805.8478
+        },
+        "throughput": {
+          "gflops": 72.01,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 58032390144,
+          "bytes": 313344512,
+          "arithmetic_intensity": 185.2
+        }
+      },
+      "impl_info": {
+        "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+        "type": "pytorch",
+        "platform": "metax"
+      }
+    }
+  ]
+}

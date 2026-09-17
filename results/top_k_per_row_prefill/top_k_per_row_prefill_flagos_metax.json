@@ -1,0 +1,2259 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T05:07:08.578230",
+    "provider": "flagos",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 70
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4101,
+          "std_ms": 0.0,
+          "min_ms": 0.4101,
+          "max_ms": 0.4101
+        },
+        "throughput": {
+          "gflops": 0.0,
+          "bandwidth_gb_s": 0.0
+        },
+        "theory": {
+          "flops": 1024,
+          "bytes": 1064,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1503,
+          "std_ms": 0.0,
+          "min_ms": 0.1503,
+          "max_ms": 0.1503
+        },
+        "throughput": {
+          "gflops": 0.05,
+          "bandwidth_gb_s": 0.06
+        },
+        "theory": {
+          "flops": 8192,
+          "bytes": 8512,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1354,
+          "std_ms": 0.0,
+          "min_ms": 0.1354,
+          "max_ms": 0.1354
+        },
+        "throughput": {
+          "gflops": 0.24,
+          "bandwidth_gb_s": 0.25
+        },
+        "theory": {
+          "flops": 32768,
+          "bytes": 34048,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1334,
+          "std_ms": 0.0,
+          "min_ms": 0.1334,
+          "max_ms": 0.1334
+        },
+        "throughput": {
+          "gflops": 0.49,
+          "bandwidth_gb_s": 0.51
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 68096,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1303,
+          "std_ms": 0.0,
+          "min_ms": 0.1303,
+          "max_ms": 0.1303
+        },
+        "throughput": {
+          "gflops": 1.01,
+          "bandwidth_gb_s": 1.05
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 136192,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1347,
+          "std_ms": 0.0,
+          "min_ms": 0.1347,
+          "max_ms": 0.1347
+        },
+        "throughput": {
+          "gflops": 1.95,
+          "bandwidth_gb_s": 2.02
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 272384,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1431,
+          "std_ms": 0.0,
+          "min_ms": 0.1431,
+          "max_ms": 0.1431
+        },
+        "throughput": {
+          "gflops": 3.66,
+          "bandwidth_gb_s": 3.81
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 544768,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1754,
+          "std_ms": 0.0,
+          "min_ms": 0.1754,
+          "max_ms": 0.1754
+        },
+        "throughput": {
+          "gflops": 5.98,
+          "bandwidth_gb_s": 6.21
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 1089536,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2647,
+          "std_ms": 0.0,
+          "min_ms": 0.2647,
+          "max_ms": 0.2647
+        },
+        "throughput": {
+          "gflops": 7.92,
+          "bandwidth_gb_s": 8.23
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 2179072,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4703,
+          "std_ms": 0.0,
+          "min_ms": 0.4703,
+          "max_ms": 0.4703
+        },
+        "throughput": {
+          "gflops": 8.92,
+          "bandwidth_gb_s": 9.27
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 4358144,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1229,
+          "std_ms": 0.0,
+          "min_ms": 0.1229,
+          "max_ms": 0.1229
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 1024,
+          "bytes": 1056,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1221,
+          "std_ms": 0.0,
+          "min_ms": 0.1221,
+          "max_ms": 0.1221
+        },
+        "throughput": {
+          "gflops": 0.07,
+          "bandwidth_gb_s": 0.07
+        },
+        "theory": {
+          "flops": 8192,
+          "bytes": 8448,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1201,
+          "std_ms": 0.0,
+          "min_ms": 0.1201,
+          "max_ms": 0.1201
+        },
+        "throughput": {
+          "gflops": 0.27,
+          "bandwidth_gb_s": 0.28
+        },
+        "theory": {
+          "flops": 32768,
+          "bytes": 33792,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1216,
+          "std_ms": 0.0,
+          "min_ms": 0.1216,
+          "max_ms": 0.1216
+        },
+        "throughput": {
+          "gflops": 0.54,
+          "bandwidth_gb_s": 0.56
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 67584,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1229,
+          "std_ms": 0.0,
+          "min_ms": 0.1229,
+          "max_ms": 0.1229
+        },
+        "throughput": {
+          "gflops": 1.07,
+          "bandwidth_gb_s": 1.1
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 135168,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1229,
+          "std_ms": 0.0,
+          "min_ms": 0.1229,
+          "max_ms": 0.1229
+        },
+        "throughput": {
+          "gflops": 2.13,
+          "bandwidth_gb_s": 2.2
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 270336,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.139,
+          "std_ms": 0.0,
+          "min_ms": 0.139,
+          "max_ms": 0.139
+        },
+        "throughput": {
+          "gflops": 3.77,
+          "bandwidth_gb_s": 3.89
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 540672,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1682,
+          "std_ms": 0.0,
+          "min_ms": 0.1682,
+          "max_ms": 0.1682
+        },
+        "throughput": {
+          "gflops": 6.23,
+          "bandwidth_gb_s": 6.43
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 1081344,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2575,
+          "std_ms": 0.0,
+          "min_ms": 0.2575,
+          "max_ms": 0.2575
+        },
+        "throughput": {
+          "gflops": 8.14,
+          "bandwidth_gb_s": 8.4
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 2162688,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.471,
+          "std_ms": 0.0,
+          "min_ms": 0.471,
+          "max_ms": 0.471
+        },
+        "throughput": {
+          "gflops": 8.9,
+          "bandwidth_gb_s": 9.18
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 4325376,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1216,
+          "std_ms": 0.0,
+          "min_ms": 0.1216,
+          "max_ms": 0.1216
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 1536,
+          "bytes": 1568,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1213,
+          "std_ms": 0.0,
+          "min_ms": 0.1213,
+          "max_ms": 0.1213
+        },
+        "throughput": {
+          "gflops": 0.1,
+          "bandwidth_gb_s": 0.1
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 12544,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1213,
+          "std_ms": 0.0,
+          "min_ms": 0.1213,
+          "max_ms": 0.1213
+        },
+        "throughput": {
+          "gflops": 0.41,
+          "bandwidth_gb_s": 0.41
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 50176,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1196,
+          "std_ms": 0.0,
+          "min_ms": 0.1196,
+          "max_ms": 0.1196
+        },
+        "throughput": {
+          "gflops": 0.82,
+          "bandwidth_gb_s": 0.84
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 100352,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1203,
+          "std_ms": 0.0,
+          "min_ms": 0.1203,
+          "max_ms": 0.1203
+        },
+        "throughput": {
+          "gflops": 1.63,
+          "bandwidth_gb_s": 1.67
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 200704,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1236,
+          "std_ms": 0.0,
+          "min_ms": 0.1236,
+          "max_ms": 0.1236
+        },
+        "throughput": {
+          "gflops": 3.18,
+          "bandwidth_gb_s": 3.25
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 401408,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1352,
+          "std_ms": 0.0,
+          "min_ms": 0.1352,
+          "max_ms": 0.1352
+        },
+        "throughput": {
+          "gflops": 5.82,
+          "bandwidth_gb_s": 5.94
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 802816,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1725,
+          "std_ms": 0.0,
+          "min_ms": 0.1725,
+          "max_ms": 0.1725
+        },
+        "throughput": {
+          "gflops": 9.12,
+          "bandwidth_gb_s": 9.31
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1605632,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2813,
+          "std_ms": 0.0,
+          "min_ms": 0.2813,
+          "max_ms": 0.2813
+        },
+        "throughput": {
+          "gflops": 11.18,
+          "bandwidth_gb_s": 11.41
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 3211264,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5253,
+          "std_ms": 0.0,
+          "min_ms": 0.5253,
+          "max_ms": 0.5253
+        },
+        "throughput": {
+          "gflops": 11.98,
+          "bandwidth_gb_s": 12.23
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 6422528,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1247,
+          "std_ms": 0.0,
+          "min_ms": 0.1247,
+          "max_ms": 0.1247
+        },
+        "throughput": {
+          "gflops": 0.0,
+          "bandwidth_gb_s": 0.0
+        },
+        "theory": {
+          "flops": 256,
+          "bytes": 280,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1208,
+          "std_ms": 0.0,
+          "min_ms": 0.1208,
+          "max_ms": 0.1208
+        },
+        "throughput": {
+          "gflops": 0.02,
+          "bandwidth_gb_s": 0.02
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 2240,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1208,
+          "std_ms": 0.0,
+          "min_ms": 0.1208,
+          "max_ms": 0.1208
+        },
+        "throughput": {
+          "gflops": 0.07,
+          "bandwidth_gb_s": 0.07
+        },
+        "theory": {
+          "flops": 8192,
+          "bytes": 8960,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1213,
+          "std_ms": 0.0,
+          "min_ms": 0.1213,
+          "max_ms": 0.1213
+        },
+        "throughput": {
+          "gflops": 0.14,
+          "bandwidth_gb_s": 0.15
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 17920,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1231,
+          "std_ms": 0.0,
+          "min_ms": 0.1231,
+          "max_ms": 0.1231
+        },
+        "throughput": {
+          "gflops": 0.27,
+          "bandwidth_gb_s": 0.29
+        },
+        "theory": {
+          "flops": 32768,
+          "bytes": 35840,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1288,
+          "std_ms": 0.0,
+          "min_ms": 0.1288,
+          "max_ms": 0.1288
+        },
+        "throughput": {
+          "gflops": 0.51,
+          "bandwidth_gb_s": 0.56
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 71680,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1393,
+          "std_ms": 0.0,
+          "min_ms": 0.1393,
+          "max_ms": 0.1393
+        },
+        "throughput": {
+          "gflops": 0.94,
+          "bandwidth_gb_s": 1.03
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 143360,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1682,
+          "std_ms": 0.0,
+          "min_ms": 0.1682,
+          "max_ms": 0.1682
+        },
+        "throughput": {
+          "gflops": 1.56,
+          "bandwidth_gb_s": 1.7
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 286720,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2575,
+          "std_ms": 0.0,
+          "min_ms": 0.2575,
+          "max_ms": 0.2575
+        },
+        "throughput": {
+          "gflops": 2.04,
+          "bandwidth_gb_s": 2.23
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 573440,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4626,
+          "std_ms": 0.0,
+          "min_ms": 0.4626,
+          "max_ms": 0.4626
+        },
+        "throughput": {
+          "gflops": 2.27,
+          "bandwidth_gb_s": 2.48
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 1146880,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1208,
+          "std_ms": 0.0,
+          "min_ms": 0.1208,
+          "max_ms": 0.1208
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 1536,
+          "bytes": 1576,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1221,
+          "std_ms": 0.0,
+          "min_ms": 0.1221,
+          "max_ms": 0.1221
+        },
+        "throughput": {
+          "gflops": 0.1,
+          "bandwidth_gb_s": 0.1
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 12608,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1203,
+          "std_ms": 0.0,
+          "min_ms": 0.1203,
+          "max_ms": 0.1203
+        },
+        "throughput": {
+          "gflops": 0.41,
+          "bandwidth_gb_s": 0.42
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 50432,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1196,
+          "std_ms": 0.0,
+          "min_ms": 0.1196,
+          "max_ms": 0.1196
+        },
+        "throughput": {
+          "gflops": 0.82,
+          "bandwidth_gb_s": 0.84
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 100864,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1247,
+          "std_ms": 0.0,
+          "min_ms": 0.1247,
+          "max_ms": 0.1247
+        },
+        "throughput": {
+          "gflops": 1.58,
+          "bandwidth_gb_s": 1.62
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 201728,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1236,
+          "std_ms": 0.0,
+          "min_ms": 0.1236,
+          "max_ms": 0.1236
+        },
+        "throughput": {
+          "gflops": 3.18,
+          "bandwidth_gb_s": 3.26
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 403456,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1367,
+          "std_ms": 0.0,
+          "min_ms": 0.1367,
+          "max_ms": 0.1367
+        },
+        "throughput": {
+          "gflops": 5.75,
+          "bandwidth_gb_s": 5.9
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 806912,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1736,
+          "std_ms": 0.0,
+          "min_ms": 0.1736,
+          "max_ms": 0.1736
+        },
+        "throughput": {
+          "gflops": 9.06,
+          "bandwidth_gb_s": 9.3
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1613824,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2688,
+          "std_ms": 0.0,
+          "min_ms": 0.2688,
+          "max_ms": 0.2688
+        },
+        "throughput": {
+          "gflops": 11.7,
+          "bandwidth_gb_s": 12.01
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 3227648,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5322,
+          "std_ms": 0.0,
+          "min_ms": 0.5322,
+          "max_ms": 0.5322
+        },
+        "throughput": {
+          "gflops": 11.82,
+          "bandwidth_gb_s": 12.13
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 6455296,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4541,
+          "std_ms": 0.0,
+          "min_ms": 0.4541,
+          "max_ms": 0.4541
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 3584,
+          "bytes": 3656,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1897,
+          "std_ms": 0.0,
+          "min_ms": 0.1897,
+          "max_ms": 0.1897
+        },
+        "throughput": {
+          "gflops": 0.15,
+          "bandwidth_gb_s": 0.15
+        },
+        "theory": {
+          "flops": 28672,
+          "bytes": 29248,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1769,
+          "std_ms": 0.0,
+          "min_ms": 0.1769,
+          "max_ms": 0.1769
+        },
+        "throughput": {
+          "gflops": 0.65,
+          "bandwidth_gb_s": 0.66
+        },
+        "theory": {
+          "flops": 114688,
+          "bytes": 116992,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1869,
+          "std_ms": 0.0,
+          "min_ms": 0.1869,
+          "max_ms": 0.1869
+        },
+        "throughput": {
+          "gflops": 1.23,
+          "bandwidth_gb_s": 1.25
+        },
+        "theory": {
+          "flops": 229376,
+          "bytes": 233984,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1725,
+          "std_ms": 0.0,
+          "min_ms": 0.1725,
+          "max_ms": 0.1725
+        },
+        "throughput": {
+          "gflops": 2.66,
+          "bandwidth_gb_s": 2.71
+        },
+        "theory": {
+          "flops": 458752,
+          "bytes": 467968,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1746,
+          "std_ms": 0.0,
+          "min_ms": 0.1746,
+          "max_ms": 0.1746
+        },
+        "throughput": {
+          "gflops": 5.26,
+          "bandwidth_gb_s": 5.36
+        },
+        "theory": {
+          "flops": 917504,
+          "bytes": 935936,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1777,
+          "std_ms": 0.0,
+          "min_ms": 0.1777,
+          "max_ms": 0.1777
+        },
+        "throughput": {
+          "gflops": 10.33,
+          "bandwidth_gb_s": 10.54
+        },
+        "theory": {
+          "flops": 1835008,
+          "bytes": 1871872,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2025,
+          "std_ms": 0.0,
+          "min_ms": 0.2025,
+          "max_ms": 0.2025
+        },
+        "throughput": {
+          "gflops": 18.12,
+          "bandwidth_gb_s": 18.49
+        },
+        "theory": {
+          "flops": 3670016,
+          "bytes": 3743744,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3172,
+          "std_ms": 0.0,
+          "min_ms": 0.3172,
+          "max_ms": 0.3172
+        },
+        "throughput": {
+          "gflops": 23.14,
+          "bandwidth_gb_s": 23.61
+        },
+        "theory": {
+          "flops": 7340032,
+          "bytes": 7487488,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6602,
+          "std_ms": 0.0,
+          "min_ms": 0.6602,
+          "max_ms": 0.6602
+        },
+        "throughput": {
+          "gflops": 22.23,
+          "bandwidth_gb_s": 22.68
+        },
+        "theory": {
+          "flops": 14680064,
+          "bytes": 14974976,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1641,
+          "std_ms": 0.0,
+          "min_ms": 0.1641,
+          "max_ms": 0.1641
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 2096,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.162,
+          "std_ms": 0.0,
+          "min_ms": 0.162,
+          "max_ms": 0.162
+        },
+        "throughput": {
+          "gflops": 0.1,
+          "bandwidth_gb_s": 0.1
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 16768,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1672,
+          "std_ms": 0.0,
+          "min_ms": 0.1672,
+          "max_ms": 0.1672
+        },
+        "throughput": {
+          "gflops": 0.39,
+          "bandwidth_gb_s": 0.4
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 67072,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.16,
+          "std_ms": 0.0,
+          "min_ms": 0.16,
+          "max_ms": 0.16
+        },
+        "throughput": {
+          "gflops": 0.82,
+          "bandwidth_gb_s": 0.84
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 134144,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1631,
+          "std_ms": 0.0,
+          "min_ms": 0.1631,
+          "max_ms": 0.1631
+        },
+        "throughput": {
+          "gflops": 1.61,
+          "bandwidth_gb_s": 1.65
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 268288,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1661,
+          "std_ms": 0.0,
+          "min_ms": 0.1661,
+          "max_ms": 0.1661
+        },
+        "throughput": {
+          "gflops": 3.16,
+          "bandwidth_gb_s": 3.23
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 536576,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.169,
+          "std_ms": 0.0,
+          "min_ms": 0.169,
+          "max_ms": 0.169
+        },
+        "throughput": {
+          "gflops": 6.21,
+          "bandwidth_gb_s": 6.35
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 1073152,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2004,
+          "std_ms": 0.0,
+          "min_ms": 0.2004,
+          "max_ms": 0.2004
+        },
+        "throughput": {
+          "gflops": 10.46,
+          "bandwidth_gb_s": 10.71
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 2146304,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2839,
+          "std_ms": 0.0,
+          "min_ms": 0.2839,
+          "max_ms": 0.2839
+        },
+        "throughput": {
+          "gflops": 14.77,
+          "bandwidth_gb_s": 15.12
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 4292608,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5304,
+          "std_ms": 0.0,
+          "min_ms": 0.5304,
+          "max_ms": 0.5304
+        },
+        "throughput": {
+          "gflops": 15.81,
+          "bandwidth_gb_s": 16.19
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 8585216,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems._metax.top_k_per_row_prefill (block=256,cand<=512)",
+        "type": "triton"
+      }
+    }
+  ]
+}

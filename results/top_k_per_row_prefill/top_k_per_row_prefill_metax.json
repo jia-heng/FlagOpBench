@@ -1,0 +1,2329 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T05:07:08.575507",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 70
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0343,
+          "std_ms": 0.0,
+          "min_ms": 0.0343,
+          "max_ms": 0.0343
+        },
+        "throughput": {
+          "gflops": 0.03,
+          "bandwidth_gb_s": 0.03
+        },
+        "theory": {
+          "flops": 1024,
+          "bytes": 1064,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0212,
+          "std_ms": 0.0,
+          "min_ms": 0.0212,
+          "max_ms": 0.0212
+        },
+        "throughput": {
+          "gflops": 0.39,
+          "bandwidth_gb_s": 0.4
+        },
+        "theory": {
+          "flops": 8192,
+          "bytes": 8512,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.021,
+          "std_ms": 0.0,
+          "min_ms": 0.021,
+          "max_ms": 0.021
+        },
+        "throughput": {
+          "gflops": 1.56,
+          "bandwidth_gb_s": 1.62
+        },
+        "theory": {
+          "flops": 32768,
+          "bytes": 34048,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0,
+          "min_ms": 0.0215,
+          "max_ms": 0.0215
+        },
+        "throughput": {
+          "gflops": 3.05,
+          "bandwidth_gb_s": 3.17
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 68096,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0228,
+          "std_ms": 0.0,
+          "min_ms": 0.0228,
+          "max_ms": 0.0228
+        },
+        "throughput": {
+          "gflops": 5.75,
+          "bandwidth_gb_s": 5.98
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 136192,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0287,
+          "std_ms": 0.0,
+          "min_ms": 0.0287,
+          "max_ms": 0.0287
+        },
+        "throughput": {
+          "gflops": 9.14,
+          "bandwidth_gb_s": 9.5
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 272384,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0379,
+          "std_ms": 0.0,
+          "min_ms": 0.0379,
+          "max_ms": 0.0379
+        },
+        "throughput": {
+          "gflops": 13.84,
+          "bandwidth_gb_s": 14.38
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 544768,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0589,
+          "std_ms": 0.0,
+          "min_ms": 0.0589,
+          "max_ms": 0.0589
+        },
+        "throughput": {
+          "gflops": 17.81,
+          "bandwidth_gb_s": 18.5
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 1089536,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0991,
+          "std_ms": 0.0,
+          "min_ms": 0.0991,
+          "max_ms": 0.0991
+        },
+        "throughput": {
+          "gflops": 21.17,
+          "bandwidth_gb_s": 21.99
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 2179072,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1792,
+          "std_ms": 0.0,
+          "min_ms": 0.1792,
+          "max_ms": 0.1792
+        },
+        "throughput": {
+          "gflops": 23.41,
+          "bandwidth_gb_s": 24.32
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 4358144,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0189,
+          "std_ms": 0.0,
+          "min_ms": 0.0189,
+          "max_ms": 0.0189
+        },
+        "throughput": {
+          "gflops": 0.05,
+          "bandwidth_gb_s": 0.06
+        },
+        "theory": {
+          "flops": 1024,
+          "bytes": 1056,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0207,
+          "std_ms": 0.0,
+          "min_ms": 0.0207,
+          "max_ms": 0.0207
+        },
+        "throughput": {
+          "gflops": 0.4,
+          "bandwidth_gb_s": 0.41
+        },
+        "theory": {
+          "flops": 8192,
+          "bytes": 8448,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0207,
+          "std_ms": 0.0,
+          "min_ms": 0.0207,
+          "max_ms": 0.0207
+        },
+        "throughput": {
+          "gflops": 1.58,
+          "bandwidth_gb_s": 1.63
+        },
+        "theory": {
+          "flops": 32768,
+          "bytes": 33792,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0212,
+          "std_ms": 0.0,
+          "min_ms": 0.0212,
+          "max_ms": 0.0212
+        },
+        "throughput": {
+          "gflops": 3.08,
+          "bandwidth_gb_s": 3.18
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 67584,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0228,
+          "std_ms": 0.0,
+          "min_ms": 0.0228,
+          "max_ms": 0.0228
+        },
+        "throughput": {
+          "gflops": 5.75,
+          "bandwidth_gb_s": 5.93
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 135168,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0279,
+          "std_ms": 0.0,
+          "min_ms": 0.0279,
+          "max_ms": 0.0279
+        },
+        "throughput": {
+          "gflops": 9.39,
+          "bandwidth_gb_s": 9.69
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 270336,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0361,
+          "std_ms": 0.0,
+          "min_ms": 0.0361,
+          "max_ms": 0.0361
+        },
+        "throughput": {
+          "gflops": 14.52,
+          "bandwidth_gb_s": 14.98
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 540672,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.055,
+          "std_ms": 0.0,
+          "min_ms": 0.055,
+          "max_ms": 0.055
+        },
+        "throughput": {
+          "gflops": 19.05,
+          "bandwidth_gb_s": 19.65
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 1081344,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0919,
+          "std_ms": 0.0,
+          "min_ms": 0.0919,
+          "max_ms": 0.0919
+        },
+        "throughput": {
+          "gflops": 22.82,
+          "bandwidth_gb_s": 23.53
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 2162688,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1644,
+          "std_ms": 0.0,
+          "min_ms": 0.1644,
+          "max_ms": 0.1644
+        },
+        "throughput": {
+          "gflops": 25.52,
+          "bandwidth_gb_s": 26.32
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 4325376,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0195,
+          "std_ms": 0.0,
+          "min_ms": 0.0195,
+          "max_ms": 0.0195
+        },
+        "throughput": {
+          "gflops": 0.08,
+          "bandwidth_gb_s": 0.08
+        },
+        "theory": {
+          "flops": 1536,
+          "bytes": 1568,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "std_ms": 0.0,
+          "min_ms": 0.0202,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 0.61,
+          "bandwidth_gb_s": 0.62
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 12544,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.02,
+          "std_ms": 0.0,
+          "min_ms": 0.02,
+          "max_ms": 0.02
+        },
+        "throughput": {
+          "gflops": 2.46,
+          "bandwidth_gb_s": 2.51
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 50176,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0205,
+          "std_ms": 0.0,
+          "min_ms": 0.0205,
+          "max_ms": 0.0205
+        },
+        "throughput": {
+          "gflops": 4.8,
+          "bandwidth_gb_s": 4.9
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 100352,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0,
+          "min_ms": 0.0215,
+          "max_ms": 0.0215
+        },
+        "throughput": {
+          "gflops": 9.14,
+          "bandwidth_gb_s": 9.33
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 200704,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0274,
+          "std_ms": 0.0,
+          "min_ms": 0.0274,
+          "max_ms": 0.0274
+        },
+        "throughput": {
+          "gflops": 14.36,
+          "bandwidth_gb_s": 14.65
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 401408,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0348,
+          "std_ms": 0.0,
+          "min_ms": 0.0348,
+          "max_ms": 0.0348
+        },
+        "throughput": {
+          "gflops": 22.59,
+          "bandwidth_gb_s": 23.06
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 802816,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0504,
+          "std_ms": 0.0,
+          "min_ms": 0.0504,
+          "max_ms": 0.0504
+        },
+        "throughput": {
+          "gflops": 31.19,
+          "bandwidth_gb_s": 31.84
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1605632,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0837,
+          "std_ms": 0.0,
+          "min_ms": 0.0837,
+          "max_ms": 0.0837
+        },
+        "throughput": {
+          "gflops": 37.58,
+          "bandwidth_gb_s": 38.36
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 3211264,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1487,
+          "std_ms": 0.0,
+          "min_ms": 0.1487,
+          "max_ms": 0.1487
+        },
+        "throughput": {
+          "gflops": 42.3,
+          "bandwidth_gb_s": 43.18
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 6422528,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0212,
+          "std_ms": 0.0,
+          "min_ms": 0.0212,
+          "max_ms": 0.0212
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 256,
+          "bytes": 280,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.021,
+          "std_ms": 0.0,
+          "min_ms": 0.021,
+          "max_ms": 0.021
+        },
+        "throughput": {
+          "gflops": 0.1,
+          "bandwidth_gb_s": 0.11
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 2240,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0207,
+          "std_ms": 0.0,
+          "min_ms": 0.0207,
+          "max_ms": 0.0207
+        },
+        "throughput": {
+          "gflops": 0.4,
+          "bandwidth_gb_s": 0.43
+        },
+        "theory": {
+          "flops": 8192,
+          "bytes": 8960,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0205,
+          "std_ms": 0.0,
+          "min_ms": 0.0205,
+          "max_ms": 0.0205
+        },
+        "throughput": {
+          "gflops": 0.8,
+          "bandwidth_gb_s": 0.88
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 17920,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0225,
+          "std_ms": 0.0,
+          "min_ms": 0.0225,
+          "max_ms": 0.0225
+        },
+        "throughput": {
+          "gflops": 1.45,
+          "bandwidth_gb_s": 1.59
+        },
+        "theory": {
+          "flops": 32768,
+          "bytes": 35840,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.03,
+          "std_ms": 0.0,
+          "min_ms": 0.03,
+          "max_ms": 0.03
+        },
+        "throughput": {
+          "gflops": 2.19,
+          "bandwidth_gb_s": 2.39
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 71680,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0379,
+          "std_ms": 0.0,
+          "min_ms": 0.0379,
+          "max_ms": 0.0379
+        },
+        "throughput": {
+          "gflops": 3.46,
+          "bandwidth_gb_s": 3.78
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 143360,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0581,
+          "std_ms": 0.0,
+          "min_ms": 0.0581,
+          "max_ms": 0.0581
+        },
+        "throughput": {
+          "gflops": 4.51,
+          "bandwidth_gb_s": 4.93
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 286720,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1009,
+          "std_ms": 0.0,
+          "min_ms": 0.1009,
+          "max_ms": 0.1009
+        },
+        "throughput": {
+          "gflops": 5.2,
+          "bandwidth_gb_s": 5.69
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 573440,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1833,
+          "std_ms": 0.0,
+          "min_ms": 0.1833,
+          "max_ms": 0.1833
+        },
+        "throughput": {
+          "gflops": 5.72,
+          "bandwidth_gb_s": 6.26
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 1146880,
+          "arithmetic_intensity": 0.91
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.02,
+          "std_ms": 0.0,
+          "min_ms": 0.02,
+          "max_ms": 0.02
+        },
+        "throughput": {
+          "gflops": 0.08,
+          "bandwidth_gb_s": 0.08
+        },
+        "theory": {
+          "flops": 1536,
+          "bytes": 1576,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "std_ms": 0.0,
+          "min_ms": 0.0202,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 0.61,
+          "bandwidth_gb_s": 0.62
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 12608,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0205,
+          "std_ms": 0.0,
+          "min_ms": 0.0205,
+          "max_ms": 0.0205
+        },
+        "throughput": {
+          "gflops": 2.4,
+          "bandwidth_gb_s": 2.46
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 50432,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0205,
+          "std_ms": 0.0,
+          "min_ms": 0.0205,
+          "max_ms": 0.0205
+        },
+        "throughput": {
+          "gflops": 4.8,
+          "bandwidth_gb_s": 4.93
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 100864,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0225,
+          "std_ms": 0.0,
+          "min_ms": 0.0225,
+          "max_ms": 0.0225
+        },
+        "throughput": {
+          "gflops": 8.73,
+          "bandwidth_gb_s": 8.95
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 201728,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0276,
+          "std_ms": 0.0,
+          "min_ms": 0.0276,
+          "max_ms": 0.0276
+        },
+        "throughput": {
+          "gflops": 14.22,
+          "bandwidth_gb_s": 14.59
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 403456,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0364,
+          "std_ms": 0.0,
+          "min_ms": 0.0364,
+          "max_ms": 0.0364
+        },
+        "throughput": {
+          "gflops": 21.63,
+          "bandwidth_gb_s": 22.2
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 806912,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0545,
+          "std_ms": 0.0,
+          "min_ms": 0.0545,
+          "max_ms": 0.0545
+        },
+        "throughput": {
+          "gflops": 28.85,
+          "bandwidth_gb_s": 29.6
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1613824,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0888,
+          "std_ms": 0.0,
+          "min_ms": 0.0888,
+          "max_ms": 0.0888
+        },
+        "throughput": {
+          "gflops": 35.41,
+          "bandwidth_gb_s": 36.33
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 3227648,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1605,
+          "std_ms": 0.0,
+          "min_ms": 0.1605,
+          "max_ms": 0.1605
+        },
+        "throughput": {
+          "gflops": 39.2,
+          "bandwidth_gb_s": 40.22
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 6455296,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0241,
+          "std_ms": 0.0,
+          "min_ms": 0.0241,
+          "max_ms": 0.0241
+        },
+        "throughput": {
+          "gflops": 0.15,
+          "bandwidth_gb_s": 0.15
+        },
+        "theory": {
+          "flops": 3584,
+          "bytes": 3656,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0212,
+          "std_ms": 0.0,
+          "min_ms": 0.0212,
+          "max_ms": 0.0212
+        },
+        "throughput": {
+          "gflops": 1.35,
+          "bandwidth_gb_s": 1.38
+        },
+        "theory": {
+          "flops": 28672,
+          "bytes": 29248,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.02,
+          "std_ms": 0.0,
+          "min_ms": 0.02,
+          "max_ms": 0.02
+        },
+        "throughput": {
+          "gflops": 5.74,
+          "bandwidth_gb_s": 5.86
+        },
+        "theory": {
+          "flops": 114688,
+          "bytes": 116992,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.021,
+          "std_ms": 0.0,
+          "min_ms": 0.021,
+          "max_ms": 0.021
+        },
+        "throughput": {
+          "gflops": 10.93,
+          "bandwidth_gb_s": 11.15
+        },
+        "theory": {
+          "flops": 229376,
+          "bytes": 233984,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0,
+          "min_ms": 0.0215,
+          "max_ms": 0.0215
+        },
+        "throughput": {
+          "gflops": 21.33,
+          "bandwidth_gb_s": 21.76
+        },
+        "theory": {
+          "flops": 458752,
+          "bytes": 467968,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0282,
+          "std_ms": 0.0,
+          "min_ms": 0.0282,
+          "max_ms": 0.0282
+        },
+        "throughput": {
+          "gflops": 32.58,
+          "bandwidth_gb_s": 33.24
+        },
+        "theory": {
+          "flops": 917504,
+          "bytes": 935936,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0356,
+          "std_ms": 0.0,
+          "min_ms": 0.0356,
+          "max_ms": 0.0356
+        },
+        "throughput": {
+          "gflops": 51.57,
+          "bandwidth_gb_s": 52.6
+        },
+        "theory": {
+          "flops": 1835008,
+          "bytes": 1871872,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.054,
+          "std_ms": 0.0,
+          "min_ms": 0.054,
+          "max_ms": 0.054
+        },
+        "throughput": {
+          "gflops": 67.94,
+          "bandwidth_gb_s": 69.31
+        },
+        "theory": {
+          "flops": 3670016,
+          "bytes": 3743744,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0878,
+          "std_ms": 0.0,
+          "min_ms": 0.0878,
+          "max_ms": 0.0878
+        },
+        "throughput": {
+          "gflops": 83.59,
+          "bandwidth_gb_s": 85.27
+        },
+        "theory": {
+          "flops": 7340032,
+          "bytes": 7487488,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1572,
+          "std_ms": 0.0,
+          "min_ms": 0.1572,
+          "max_ms": 0.1572
+        },
+        "throughput": {
+          "gflops": 93.39,
+          "bandwidth_gb_s": 95.27
+        },
+        "theory": {
+          "flops": 14680064,
+          "bytes": 14974976,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0218,
+          "std_ms": 0.0,
+          "min_ms": 0.0218,
+          "max_ms": 0.0218
+        },
+        "throughput": {
+          "gflops": 0.09,
+          "bandwidth_gb_s": 0.1
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 2096,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0207,
+          "std_ms": 0.0,
+          "min_ms": 0.0207,
+          "max_ms": 0.0207
+        },
+        "throughput": {
+          "gflops": 0.79,
+          "bandwidth_gb_s": 0.81
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 16768,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0205,
+          "std_ms": 0.0,
+          "min_ms": 0.0205,
+          "max_ms": 0.0205
+        },
+        "throughput": {
+          "gflops": 3.2,
+          "bandwidth_gb_s": 3.28
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 67072,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.021,
+          "std_ms": 0.0,
+          "min_ms": 0.021,
+          "max_ms": 0.021
+        },
+        "throughput": {
+          "gflops": 6.24,
+          "bandwidth_gb_s": 6.39
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 134144,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0215,
+          "std_ms": 0.0,
+          "min_ms": 0.0215,
+          "max_ms": 0.0215
+        },
+        "throughput": {
+          "gflops": 12.19,
+          "bandwidth_gb_s": 12.48
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 268288,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0276,
+          "std_ms": 0.0,
+          "min_ms": 0.0276,
+          "max_ms": 0.0276
+        },
+        "throughput": {
+          "gflops": 18.96,
+          "bandwidth_gb_s": 19.41
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 536576,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0366,
+          "std_ms": 0.0,
+          "min_ms": 0.0366,
+          "max_ms": 0.0366
+        },
+        "throughput": {
+          "gflops": 28.64,
+          "bandwidth_gb_s": 29.31
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 1073152,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0532,
+          "std_ms": 0.0,
+          "min_ms": 0.0532,
+          "max_ms": 0.0532
+        },
+        "throughput": {
+          "gflops": 39.38,
+          "bandwidth_gb_s": 40.31
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 2146304,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0881,
+          "std_ms": 0.0,
+          "min_ms": 0.0881,
+          "max_ms": 0.0881
+        },
+        "throughput": {
+          "gflops": 47.63,
+          "bandwidth_gb_s": 48.74
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 4292608,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "top_k_per_row_prefill",
+      "definition": "top_k_per_row_prefill",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.158,
+          "std_ms": 0.0,
+          "min_ms": 0.158,
+          "max_ms": 0.158
+        },
+        "throughput": {
+          "gflops": 53.11,
+          "bandwidth_gb_s": 54.35
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 8585216,
+          "arithmetic_intensity": 0.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.ops._C.top_k_per_row_prefill (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    }
+  ]
+}

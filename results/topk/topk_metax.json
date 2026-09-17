@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-16T06:16:13.788893",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 10
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1884,
+          "std_ms": 0.0,
+          "min_ms": 0.1884,
+          "max_ms": 0.1884
+        },
+        "throughput": {
+          "gflops": 3.4,
+          "bandwidth_gb_s": 1.36
+        },
+        "theory": {
+          "flops": 640000,
+          "bytes": 256300,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1989,
+          "std_ms": 0.0,
+          "min_ms": 0.1989,
+          "max_ms": 0.1989
+        },
+        "throughput": {
+          "gflops": 25.74,
+          "bandwidth_gb_s": 10.31
+        },
+        "theory": {
+          "flops": 5120000,
+          "bytes": 2050400,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2639,
+          "std_ms": 0.0,
+          "min_ms": 0.2639,
+          "max_ms": 0.2639
+        },
+        "throughput": {
+          "gflops": 77.59,
+          "bandwidth_gb_s": 31.07
+        },
+        "theory": {
+          "flops": 20480000,
+          "bytes": 8201600,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.394,
+          "std_ms": 0.0,
+          "min_ms": 0.394,
+          "max_ms": 0.394
+        },
+        "throughput": {
+          "gflops": 103.96,
+          "bandwidth_gb_s": 41.63
+        },
+        "theory": {
+          "flops": 40960000,
+          "bytes": 16403200,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6141,
+          "std_ms": 0.0,
+          "min_ms": 0.6141,
+          "max_ms": 0.6141
+        },
+        "throughput": {
+          "gflops": 133.39,
+          "bandwidth_gb_s": 53.42
+        },
+        "theory": {
+          "flops": 81920000,
+          "bytes": 32806400,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0414,
+          "std_ms": 0.0,
+          "min_ms": 1.0414,
+          "max_ms": 1.0414
+        },
+        "throughput": {
+          "gflops": 157.33,
+          "bandwidth_gb_s": 63.0
+        },
+        "theory": {
+          "flops": 163840000,
+          "bytes": 65612800,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.8222,
+          "std_ms": 0.0,
+          "min_ms": 1.8222,
+          "max_ms": 1.8222
+        },
+        "throughput": {
+          "gflops": 179.83,
+          "bandwidth_gb_s": 72.01
+        },
+        "theory": {
+          "flops": 327680000,
+          "bytes": 131225600,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.3917,
+          "std_ms": 0.0,
+          "min_ms": 3.3917,
+          "max_ms": 3.3917
+        },
+        "throughput": {
+          "gflops": 193.22,
+          "bandwidth_gb_s": 77.38
+        },
+        "theory": {
+          "flops": 655360000,
+          "bytes": 262451200,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.5316,
+          "std_ms": 0.0,
+          "min_ms": 6.5316,
+          "max_ms": 6.5316
+        },
+        "throughput": {
+          "gflops": 200.67,
+          "bandwidth_gb_s": 80.36
+        },
+        "theory": {
+          "flops": 1310720000,
+          "bytes": 524902400,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "topk",
+      "definition": "topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 12.8243,
+          "std_ms": 0.0,
+          "min_ms": 12.8243,
+          "max_ms": 12.8243
+        },
+        "throughput": {
+          "gflops": 204.41,
+          "bandwidth_gb_s": 81.86
+        },
+        "theory": {
+          "flops": 2621440000,
+          "bytes": 1049804800,
+          "arithmetic_intensity": 2.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.topk (adapted)",
+        "type": "native",
+        "platform": "metax"
+      }
+    }
+  ]
+}

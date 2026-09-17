@@ -1,0 +1,1419 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T03:26:54.329576",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 40
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0404,
+          "std_ms": 0.0,
+          "min_ms": 0.0404,
+          "max_ms": 0.0404
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 384,
+          "bytes": 400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0189,
+          "std_ms": 0.0,
+          "min_ms": 0.0189,
+          "max_ms": 0.0189
+        },
+        "throughput": {
+          "gflops": 0.16,
+          "bandwidth_gb_s": 0.17
+        },
+        "theory": {
+          "flops": 3072,
+          "bytes": 3200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0182,
+          "std_ms": 0.0,
+          "min_ms": 0.0182,
+          "max_ms": 0.0182
+        },
+        "throughput": {
+          "gflops": 0.68,
+          "bandwidth_gb_s": 0.7
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 12800,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0,
+          "min_ms": 0.0172,
+          "max_ms": 0.0172
+        },
+        "throughput": {
+          "gflops": 1.43,
+          "bandwidth_gb_s": 1.49
+        },
+        "theory": {
+          "flops": 24576,
+          "bytes": 25600,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0166,
+          "std_ms": 0.0,
+          "min_ms": 0.0166,
+          "max_ms": 0.0166
+        },
+        "throughput": {
+          "gflops": 2.95,
+          "bandwidth_gb_s": 3.08
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 51200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0,
+          "min_ms": 0.0177,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 5.57,
+          "bandwidth_gb_s": 5.8
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 102400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0154,
+          "std_ms": 0.0,
+          "min_ms": 0.0154,
+          "max_ms": 0.0154
+        },
+        "throughput": {
+          "gflops": 12.8,
+          "bandwidth_gb_s": 13.33
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 204800,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0159,
+          "std_ms": 0.0,
+          "min_ms": 0.0159,
+          "max_ms": 0.0159
+        },
+        "throughput": {
+          "gflops": 24.77,
+          "bandwidth_gb_s": 25.81
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 409600,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0,
+          "min_ms": 0.0172,
+          "max_ms": 0.0172
+        },
+        "throughput": {
+          "gflops": 45.85,
+          "bandwidth_gb_s": 47.76
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 819200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0205,
+          "std_ms": 0.0,
+          "min_ms": 0.0205,
+          "max_ms": 0.0205
+        },
+        "throughput": {
+          "gflops": 76.8,
+          "bandwidth_gb_s": 80.0
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1638400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0161,
+          "std_ms": 0.0,
+          "min_ms": 0.0161,
+          "max_ms": 0.0161
+        },
+        "throughput": {
+          "gflops": 0.02,
+          "bandwidth_gb_s": 0.02
+        },
+        "theory": {
+          "flops": 384,
+          "bytes": 400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0,
+          "min_ms": 0.0172,
+          "max_ms": 0.0172
+        },
+        "throughput": {
+          "gflops": 0.18,
+          "bandwidth_gb_s": 0.19
+        },
+        "theory": {
+          "flops": 3072,
+          "bytes": 3200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0146,
+          "std_ms": 0.0,
+          "min_ms": 0.0146,
+          "max_ms": 0.0146
+        },
+        "throughput": {
+          "gflops": 0.84,
+          "bandwidth_gb_s": 0.88
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 12800,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0166,
+          "std_ms": 0.0,
+          "min_ms": 0.0166,
+          "max_ms": 0.0166
+        },
+        "throughput": {
+          "gflops": 1.48,
+          "bandwidth_gb_s": 1.54
+        },
+        "theory": {
+          "flops": 24576,
+          "bytes": 25600,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0159,
+          "std_ms": 0.0,
+          "min_ms": 0.0159,
+          "max_ms": 0.0159
+        },
+        "throughput": {
+          "gflops": 3.1,
+          "bandwidth_gb_s": 3.23
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 51200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0154,
+          "std_ms": 0.0,
+          "min_ms": 0.0154,
+          "max_ms": 0.0154
+        },
+        "throughput": {
+          "gflops": 6.4,
+          "bandwidth_gb_s": 6.67
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 102400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0141,
+          "std_ms": 0.0,
+          "min_ms": 0.0141,
+          "max_ms": 0.0141
+        },
+        "throughput": {
+          "gflops": 13.96,
+          "bandwidth_gb_s": 14.55
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 204800,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0,
+          "min_ms": 0.0156,
+          "max_ms": 0.0156
+        },
+        "throughput": {
+          "gflops": 25.18,
+          "bandwidth_gb_s": 26.23
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 409600,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0166,
+          "std_ms": 0.0,
+          "min_ms": 0.0166,
+          "max_ms": 0.0166
+        },
+        "throughput": {
+          "gflops": 47.26,
+          "bandwidth_gb_s": 49.23
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 819200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "std_ms": 0.0,
+          "min_ms": 0.0202,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 77.77,
+          "bandwidth_gb_s": 81.01
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1638400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0,
+          "min_ms": 0.0156,
+          "max_ms": 0.0156
+        },
+        "throughput": {
+          "gflops": 0.02,
+          "bandwidth_gb_s": 0.03
+        },
+        "theory": {
+          "flops": 384,
+          "bytes": 400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0146,
+          "std_ms": 0.0,
+          "min_ms": 0.0146,
+          "max_ms": 0.0146
+        },
+        "throughput": {
+          "gflops": 0.21,
+          "bandwidth_gb_s": 0.22
+        },
+        "theory": {
+          "flops": 3072,
+          "bytes": 3200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0161,
+          "std_ms": 0.0,
+          "min_ms": 0.0161,
+          "max_ms": 0.0161
+        },
+        "throughput": {
+          "gflops": 0.76,
+          "bandwidth_gb_s": 0.79
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 12800,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0,
+          "min_ms": 0.0156,
+          "max_ms": 0.0156
+        },
+        "throughput": {
+          "gflops": 1.57,
+          "bandwidth_gb_s": 1.64
+        },
+        "theory": {
+          "flops": 24576,
+          "bytes": 25600,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0151,
+          "std_ms": 0.0,
+          "min_ms": 0.0151,
+          "max_ms": 0.0151
+        },
+        "throughput": {
+          "gflops": 3.25,
+          "bandwidth_gb_s": 3.39
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 51200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0143,
+          "std_ms": 0.0,
+          "min_ms": 0.0143,
+          "max_ms": 0.0143
+        },
+        "throughput": {
+          "gflops": 6.86,
+          "bandwidth_gb_s": 7.14
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 102400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0164,
+          "std_ms": 0.0,
+          "min_ms": 0.0164,
+          "max_ms": 0.0164
+        },
+        "throughput": {
+          "gflops": 12.0,
+          "bandwidth_gb_s": 12.5
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 204800,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0151,
+          "std_ms": 0.0,
+          "min_ms": 0.0151,
+          "max_ms": 0.0151
+        },
+        "throughput": {
+          "gflops": 26.03,
+          "bandwidth_gb_s": 27.12
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 409600,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0166,
+          "std_ms": 0.0,
+          "min_ms": 0.0166,
+          "max_ms": 0.0166
+        },
+        "throughput": {
+          "gflops": 47.26,
+          "bandwidth_gb_s": 49.23
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 819200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "std_ms": 0.0,
+          "min_ms": 0.0202,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 77.77,
+          "bandwidth_gb_s": 81.01
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1638400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0159,
+          "std_ms": 0.0,
+          "min_ms": 0.0159,
+          "max_ms": 0.0159
+        },
+        "throughput": {
+          "gflops": 0.02,
+          "bandwidth_gb_s": 0.03
+        },
+        "theory": {
+          "flops": 384,
+          "bytes": 400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0154,
+          "std_ms": 0.0,
+          "min_ms": 0.0154,
+          "max_ms": 0.0154
+        },
+        "throughput": {
+          "gflops": 0.2,
+          "bandwidth_gb_s": 0.21
+        },
+        "theory": {
+          "flops": 3072,
+          "bytes": 3200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0,
+          "min_ms": 0.0156,
+          "max_ms": 0.0156
+        },
+        "throughput": {
+          "gflops": 0.79,
+          "bandwidth_gb_s": 0.82
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 12800,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0154,
+          "std_ms": 0.0,
+          "min_ms": 0.0154,
+          "max_ms": 0.0154
+        },
+        "throughput": {
+          "gflops": 1.6,
+          "bandwidth_gb_s": 1.67
+        },
+        "theory": {
+          "flops": 24576,
+          "bytes": 25600,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0148,
+          "std_ms": 0.0,
+          "min_ms": 0.0148,
+          "max_ms": 0.0148
+        },
+        "throughput": {
+          "gflops": 3.31,
+          "bandwidth_gb_s": 3.45
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 51200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0,
+          "min_ms": 0.0156,
+          "max_ms": 0.0156
+        },
+        "throughput": {
+          "gflops": 6.3,
+          "bandwidth_gb_s": 6.56
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 102400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0156,
+          "std_ms": 0.0,
+          "min_ms": 0.0156,
+          "max_ms": 0.0156
+        },
+        "throughput": {
+          "gflops": 12.59,
+          "bandwidth_gb_s": 13.11
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 204800,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0151,
+          "std_ms": 0.0,
+          "min_ms": 0.0151,
+          "max_ms": 0.0151
+        },
+        "throughput": {
+          "gflops": 26.03,
+          "bandwidth_gb_s": 27.12
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 409600,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0166,
+          "std_ms": 0.0,
+          "min_ms": 0.0166,
+          "max_ms": 0.0166
+        },
+        "throughput": {
+          "gflops": 47.26,
+          "bandwidth_gb_s": 49.23
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 819200,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "definition": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "std_ms": 0.0,
+          "min_ms": 0.0202,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 77.77,
+          "bandwidth_gb_s": 81.01
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1638400,
+          "arithmetic_intensity": 0.96
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    }
+  ]
+}

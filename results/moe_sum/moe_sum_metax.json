@@ -1,0 +1,2739 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T03:23:55.285950",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 80
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0525,
+          "std_ms": 0.0,
+          "min_ms": 0.0525,
+          "max_ms": 0.0525
+        },
+        "throughput": {
+          "gflops": 0.96,
+          "bandwidth_gb_s": 2.46
+        },
+        "theory": {
+          "flops": 50176,
+          "bytes": 129024,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0218,
+          "std_ms": 0.0,
+          "min_ms": 0.0218,
+          "max_ms": 0.0218
+        },
+        "throughput": {
+          "gflops": 18.45,
+          "bandwidth_gb_s": 47.44
+        },
+        "theory": {
+          "flops": 401408,
+          "bytes": 1032192,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0228,
+          "std_ms": 0.0,
+          "min_ms": 0.0228,
+          "max_ms": 0.0228
+        },
+        "throughput": {
+          "gflops": 70.47,
+          "bandwidth_gb_s": 181.21
+        },
+        "theory": {
+          "flops": 1605632,
+          "bytes": 4128768,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0225,
+          "std_ms": 0.0,
+          "min_ms": 0.0225,
+          "max_ms": 0.0225
+        },
+        "throughput": {
+          "gflops": 142.55,
+          "bandwidth_gb_s": 366.55
+        },
+        "theory": {
+          "flops": 3211264,
+          "bytes": 8257536,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0287,
+          "std_ms": 0.0,
+          "min_ms": 0.0287,
+          "max_ms": 0.0287
+        },
+        "throughput": {
+          "gflops": 224.0,
+          "bandwidth_gb_s": 576.0
+        },
+        "theory": {
+          "flops": 6422528,
+          "bytes": 16515072,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0394,
+          "std_ms": 0.0,
+          "min_ms": 0.0394,
+          "max_ms": 0.0394
+        },
+        "throughput": {
+          "gflops": 325.82,
+          "bandwidth_gb_s": 837.82
+        },
+        "theory": {
+          "flops": 12845056,
+          "bytes": 33030144,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0604,
+          "std_ms": 0.0,
+          "min_ms": 0.0604,
+          "max_ms": 0.0604
+        },
+        "throughput": {
+          "gflops": 425.22,
+          "bandwidth_gb_s": 1093.42
+        },
+        "theory": {
+          "flops": 25690112,
+          "bytes": 66060288,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1044,
+          "std_ms": 0.0,
+          "min_ms": 0.1044,
+          "max_ms": 0.1044
+        },
+        "throughput": {
+          "gflops": 491.92,
+          "bandwidth_gb_s": 1264.94
+        },
+        "theory": {
+          "flops": 51380224,
+          "bytes": 132120576,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1928,
+          "std_ms": 0.0,
+          "min_ms": 0.1928,
+          "max_ms": 0.1928
+        },
+        "throughput": {
+          "gflops": 533.08,
+          "bandwidth_gb_s": 1370.77
+        },
+        "theory": {
+          "flops": 102760448,
+          "bytes": 264241152,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3676,
+          "std_ms": 0.0,
+          "min_ms": 0.3676,
+          "max_ms": 0.3676
+        },
+        "throughput": {
+          "gflops": 559.06,
+          "bandwidth_gb_s": 1437.59
+        },
+        "theory": {
+          "flops": 205520896,
+          "bytes": 528482304,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "std_ms": 0.0,
+          "min_ms": 0.0202,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 1.01,
+          "bandwidth_gb_s": 2.84
+        },
+        "theory": {
+          "flops": 20480,
+          "bytes": 57344,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0,
+          "min_ms": 0.0177,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 9.28,
+          "bandwidth_gb_s": 25.97
+        },
+        "theory": {
+          "flops": 163840,
+          "bytes": 458752,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0182,
+          "std_ms": 0.0,
+          "min_ms": 0.0182,
+          "max_ms": 0.0182
+        },
+        "throughput": {
+          "gflops": 36.06,
+          "bandwidth_gb_s": 100.96
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 1835008,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0195,
+          "std_ms": 0.0,
+          "min_ms": 0.0195,
+          "max_ms": 0.0195
+        },
+        "throughput": {
+          "gflops": 67.37,
+          "bandwidth_gb_s": 188.63
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 3670016,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0228,
+          "std_ms": 0.0,
+          "min_ms": 0.0228,
+          "max_ms": 0.0228
+        },
+        "throughput": {
+          "gflops": 115.06,
+          "bandwidth_gb_s": 322.16
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 7340032,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0266,
+          "std_ms": 0.0,
+          "min_ms": 0.0266,
+          "max_ms": 0.0266
+        },
+        "throughput": {
+          "gflops": 196.92,
+          "bandwidth_gb_s": 551.38
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 14680064,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0364,
+          "std_ms": 0.0,
+          "min_ms": 0.0364,
+          "max_ms": 0.0364
+        },
+        "throughput": {
+          "gflops": 288.45,
+          "bandwidth_gb_s": 807.66
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 29360128,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0563,
+          "std_ms": 0.0,
+          "min_ms": 0.0563,
+          "max_ms": 0.0563
+        },
+        "throughput": {
+          "gflops": 372.36,
+          "bandwidth_gb_s": 1042.62
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 58720256,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0952,
+          "std_ms": 0.0,
+          "min_ms": 0.0952,
+          "max_ms": 0.0952
+        },
+        "throughput": {
+          "gflops": 440.43,
+          "bandwidth_gb_s": 1233.2
+        },
+        "theory": {
+          "flops": 41943040,
+          "bytes": 117440512,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 4096,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1715,
+          "std_ms": 0.0,
+          "min_ms": 0.1715,
+          "max_ms": 0.1715
+        },
+        "throughput": {
+          "gflops": 489.07,
+          "bandwidth_gb_s": 1369.41
+        },
+        "theory": {
+          "flops": 83886080,
+          "bytes": 234881024,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0,
+          "min_ms": 0.0174,
+          "max_ms": 0.0174
+        },
+        "throughput": {
+          "gflops": 2.06,
+          "bandwidth_gb_s": 5.76
+        },
+        "theory": {
+          "flops": 35840,
+          "bytes": 100352,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0187,
+          "std_ms": 0.0,
+          "min_ms": 0.0187,
+          "max_ms": 0.0187
+        },
+        "throughput": {
+          "gflops": 15.34,
+          "bandwidth_gb_s": 42.96
+        },
+        "theory": {
+          "flops": 286720,
+          "bytes": 802816,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0,
+          "min_ms": 0.0177,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 64.93,
+          "bandwidth_gb_s": 181.8
+        },
+        "theory": {
+          "flops": 1146880,
+          "bytes": 3211264,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0236,
+          "std_ms": 0.0,
+          "min_ms": 0.0236,
+          "max_ms": 0.0236
+        },
+        "throughput": {
+          "gflops": 97.39,
+          "bandwidth_gb_s": 272.7
+        },
+        "theory": {
+          "flops": 2293760,
+          "bytes": 6422528,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0256,
+          "std_ms": 0.0,
+          "min_ms": 0.0256,
+          "max_ms": 0.0256
+        },
+        "throughput": {
+          "gflops": 179.2,
+          "bandwidth_gb_s": 501.76
+        },
+        "theory": {
+          "flops": 4587520,
+          "bytes": 12845056,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0348,
+          "std_ms": 0.0,
+          "min_ms": 0.0348,
+          "max_ms": 0.0348
+        },
+        "throughput": {
+          "gflops": 263.53,
+          "bandwidth_gb_s": 737.88
+        },
+        "theory": {
+          "flops": 9175040,
+          "bytes": 25690112,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0515,
+          "std_ms": 0.0,
+          "min_ms": 0.0515,
+          "max_ms": 0.0515
+        },
+        "throughput": {
+          "gflops": 356.62,
+          "bandwidth_gb_s": 998.53
+        },
+        "theory": {
+          "flops": 18350080,
+          "bytes": 51380224,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0881,
+          "std_ms": 0.0,
+          "min_ms": 0.0881,
+          "max_ms": 0.0881
+        },
+        "throughput": {
+          "gflops": 416.74,
+          "bandwidth_gb_s": 1166.88
+        },
+        "theory": {
+          "flops": 36700160,
+          "bytes": 102760448,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1539,
+          "std_ms": 0.0,
+          "min_ms": 0.1539,
+          "max_ms": 0.1539
+        },
+        "throughput": {
+          "gflops": 477.07,
+          "bandwidth_gb_s": 1335.8
+        },
+        "theory": {
+          "flops": 73400320,
+          "bytes": 205520896,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 6,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2903,
+          "std_ms": 0.0,
+          "min_ms": 0.2903,
+          "max_ms": 0.2903
+        },
+        "throughput": {
+          "gflops": 505.68,
+          "bandwidth_gb_s": 1415.9
+        },
+        "theory": {
+          "flops": 146800640,
+          "bytes": 411041792,
+          "arithmetic_intensity": 0.36
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0195,
+          "std_ms": 0.0,
+          "min_ms": 0.0195,
+          "max_ms": 0.0195
+        },
+        "throughput": {
+          "gflops": 0.32,
+          "bandwidth_gb_s": 1.05
+        },
+        "theory": {
+          "flops": 6144,
+          "bytes": 20480,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0174,
+          "std_ms": 0.0,
+          "min_ms": 0.0174,
+          "max_ms": 0.0174
+        },
+        "throughput": {
+          "gflops": 2.82,
+          "bandwidth_gb_s": 9.41
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 163840,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0187,
+          "std_ms": 0.0,
+          "min_ms": 0.0187,
+          "max_ms": 0.0187
+        },
+        "throughput": {
+          "gflops": 10.52,
+          "bandwidth_gb_s": 35.07
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 655360,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0184,
+          "std_ms": 0.0,
+          "min_ms": 0.0184,
+          "max_ms": 0.0184
+        },
+        "throughput": {
+          "gflops": 21.33,
+          "bandwidth_gb_s": 71.11
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 1310720,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0,
+          "min_ms": 0.0177,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 44.52,
+          "bandwidth_gb_s": 148.41
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 2621440,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0184,
+          "std_ms": 0.0,
+          "min_ms": 0.0184,
+          "max_ms": 0.0184
+        },
+        "throughput": {
+          "gflops": 85.33,
+          "bandwidth_gb_s": 284.44
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 5242880,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0238,
+          "std_ms": 0.0,
+          "min_ms": 0.0238,
+          "max_ms": 0.0238
+        },
+        "throughput": {
+          "gflops": 132.13,
+          "bandwidth_gb_s": 440.43
+        },
+        "theory": {
+          "flops": 3145728,
+          "bytes": 10485760,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0323,
+          "std_ms": 0.0,
+          "min_ms": 0.0323,
+          "max_ms": 0.0323
+        },
+        "throughput": {
+          "gflops": 195.05,
+          "bandwidth_gb_s": 650.16
+        },
+        "theory": {
+          "flops": 6291456,
+          "bytes": 20971520,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0453,
+          "std_ms": 0.0,
+          "min_ms": 0.0453,
+          "max_ms": 0.0453
+        },
+        "throughput": {
+          "gflops": 277.69,
+          "bandwidth_gb_s": 925.65
+        },
+        "theory": {
+          "flops": 12582912,
+          "bytes": 41943040,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 4,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0722,
+          "std_ms": 0.0,
+          "min_ms": 0.0722,
+          "max_ms": 0.0722
+        },
+        "throughput": {
+          "gflops": 348.6,
+          "bandwidth_gb_s": 1161.99
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 83886080,
+          "arithmetic_intensity": 0.3
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0,
+          "min_ms": 0.0177,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 2.43,
+          "bandwidth_gb_s": 6.26
+        },
+        "theory": {
+          "flops": 43008,
+          "bytes": 110592,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0,
+          "min_ms": 0.0177,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 19.48,
+          "bandwidth_gb_s": 50.09
+        },
+        "theory": {
+          "flops": 344064,
+          "bytes": 884736,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0207,
+          "std_ms": 0.0,
+          "min_ms": 0.0207,
+          "max_ms": 0.0207
+        },
+        "throughput": {
+          "gflops": 66.37,
+          "bandwidth_gb_s": 170.67
+        },
+        "theory": {
+          "flops": 1376256,
+          "bytes": 3538944,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0223,
+          "std_ms": 0.0,
+          "min_ms": 0.0223,
+          "max_ms": 0.0223
+        },
+        "throughput": {
+          "gflops": 123.59,
+          "bandwidth_gb_s": 317.79
+        },
+        "theory": {
+          "flops": 2752512,
+          "bytes": 7077888,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0269,
+          "std_ms": 0.0,
+          "min_ms": 0.0269,
+          "max_ms": 0.0269
+        },
+        "throughput": {
+          "gflops": 204.8,
+          "bandwidth_gb_s": 526.63
+        },
+        "theory": {
+          "flops": 5505024,
+          "bytes": 14155776,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0366,
+          "std_ms": 0.0,
+          "min_ms": 0.0366,
+          "max_ms": 0.0366
+        },
+        "throughput": {
+          "gflops": 300.76,
+          "bandwidth_gb_s": 773.37
+        },
+        "theory": {
+          "flops": 11010048,
+          "bytes": 28311552,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0543,
+          "std_ms": 0.0,
+          "min_ms": 0.0543,
+          "max_ms": 0.0543
+        },
+        "throughput": {
+          "gflops": 405.74,
+          "bandwidth_gb_s": 1043.32
+        },
+        "theory": {
+          "flops": 22020096,
+          "bytes": 56623104,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0914,
+          "std_ms": 0.0,
+          "min_ms": 0.0914,
+          "max_ms": 0.0914
+        },
+        "throughput": {
+          "gflops": 481.88,
+          "bandwidth_gb_s": 1239.13
+        },
+        "theory": {
+          "flops": 44040192,
+          "bytes": 113246208,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1687,
+          "std_ms": 0.0,
+          "min_ms": 0.1687,
+          "max_ms": 0.1687
+        },
+        "throughput": {
+          "gflops": 522.1,
+          "bandwidth_gb_s": 1342.54
+        },
+        "theory": {
+          "flops": 88080384,
+          "bytes": 226492416,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 6144,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3151,
+          "std_ms": 0.0,
+          "min_ms": 0.3151,
+          "max_ms": 0.3151
+        },
+        "throughput": {
+          "gflops": 559.0,
+          "bandwidth_gb_s": 1437.43
+        },
+        "theory": {
+          "flops": 176160768,
+          "bytes": 452984832,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0179,
+          "std_ms": 0.0,
+          "min_ms": 0.0179,
+          "max_ms": 0.0179
+        },
+        "throughput": {
+          "gflops": 6.0,
+          "bandwidth_gb_s": 13.6
+        },
+        "theory": {
+          "flops": 107520,
+          "bytes": 243712,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0195,
+          "std_ms": 0.0,
+          "min_ms": 0.0195,
+          "max_ms": 0.0195
+        },
+        "throughput": {
+          "gflops": 44.21,
+          "bandwidth_gb_s": 100.21
+        },
+        "theory": {
+          "flops": 860160,
+          "bytes": 1949696,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.022,
+          "std_ms": 0.0,
+          "min_ms": 0.022,
+          "max_ms": 0.022
+        },
+        "throughput": {
+          "gflops": 156.28,
+          "bandwidth_gb_s": 354.23
+        },
+        "theory": {
+          "flops": 3440640,
+          "bytes": 7798784,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0292,
+          "std_ms": 0.0,
+          "min_ms": 0.0292,
+          "max_ms": 0.0292
+        },
+        "throughput": {
+          "gflops": 235.79,
+          "bandwidth_gb_s": 534.46
+        },
+        "theory": {
+          "flops": 6881280,
+          "bytes": 15597568,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0387,
+          "std_ms": 0.0,
+          "min_ms": 0.0387,
+          "max_ms": 0.0387
+        },
+        "throughput": {
+          "gflops": 356.03,
+          "bandwidth_gb_s": 806.99
+        },
+        "theory": {
+          "flops": 13762560,
+          "bytes": 31195136,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0581,
+          "std_ms": 0.0,
+          "min_ms": 0.0581,
+          "max_ms": 0.0581
+        },
+        "throughput": {
+          "gflops": 473.66,
+          "bandwidth_gb_s": 1073.62
+        },
+        "theory": {
+          "flops": 27525120,
+          "bytes": 62390272,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0996,
+          "std_ms": 0.0,
+          "min_ms": 0.0996,
+          "max_ms": 0.0996
+        },
+        "throughput": {
+          "gflops": 552.8,
+          "bandwidth_gb_s": 1253.02
+        },
+        "theory": {
+          "flops": 55050240,
+          "bytes": 124780544,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1828,
+          "std_ms": 0.0,
+          "min_ms": 0.1828,
+          "max_ms": 0.1828
+        },
+        "throughput": {
+          "gflops": 602.35,
+          "bandwidth_gb_s": 1365.33
+        },
+        "theory": {
+          "flops": 110100480,
+          "bytes": 249561088,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3492,
+          "std_ms": 0.0,
+          "min_ms": 0.3492,
+          "max_ms": 0.3492
+        },
+        "throughput": {
+          "gflops": 630.62,
+          "bandwidth_gb_s": 1429.4
+        },
+        "theory": {
+          "flops": 220200960,
+          "bytes": 499122176,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 7168,
+        "topk": 16,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6758,
+          "std_ms": 0.0,
+          "min_ms": 0.6758,
+          "max_ms": 0.6758
+        },
+        "throughput": {
+          "gflops": 651.64,
+          "bandwidth_gb_s": 1477.04
+        },
+        "theory": {
+          "flops": 440401920,
+          "bytes": 998244352,
+          "arithmetic_intensity": 0.44
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0192,
+          "std_ms": 0.0,
+          "min_ms": 0.0192,
+          "max_ms": 0.0192
+        },
+        "throughput": {
+          "gflops": 0.75,
+          "bandwidth_gb_s": 1.92
+        },
+        "theory": {
+          "flops": 14336,
+          "bytes": 36864,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0192,
+          "std_ms": 0.0,
+          "min_ms": 0.0192,
+          "max_ms": 0.0192
+        },
+        "throughput": {
+          "gflops": 5.97,
+          "bandwidth_gb_s": 15.36
+        },
+        "theory": {
+          "flops": 114688,
+          "bytes": 294912,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0,
+          "min_ms": 0.0177,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 25.97,
+          "bandwidth_gb_s": 66.78
+        },
+        "theory": {
+          "flops": 458752,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0195,
+          "std_ms": 0.0,
+          "min_ms": 0.0195,
+          "max_ms": 0.0195
+        },
+        "throughput": {
+          "gflops": 47.16,
+          "bandwidth_gb_s": 121.26
+        },
+        "theory": {
+          "flops": 917504,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0202,
+          "std_ms": 0.0,
+          "min_ms": 0.0202,
+          "max_ms": 0.0202
+        },
+        "throughput": {
+          "gflops": 90.73,
+          "bandwidth_gb_s": 233.32
+        },
+        "theory": {
+          "flops": 1835008,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0248,
+          "std_ms": 0.0,
+          "min_ms": 0.0248,
+          "max_ms": 0.0248
+        },
+        "throughput": {
+          "gflops": 147.79,
+          "bandwidth_gb_s": 380.04
+        },
+        "theory": {
+          "flops": 3670016,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0315,
+          "std_ms": 0.0,
+          "min_ms": 0.0315,
+          "max_ms": 0.0315
+        },
+        "throughput": {
+          "gflops": 233.11,
+          "bandwidth_gb_s": 599.41
+        },
+        "theory": {
+          "flops": 7340032,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0422,
+          "std_ms": 0.0,
+          "min_ms": 0.0422,
+          "max_ms": 0.0422
+        },
+        "throughput": {
+          "gflops": 347.54,
+          "bandwidth_gb_s": 893.67
+        },
+        "theory": {
+          "flops": 14680064,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0666,
+          "std_ms": 0.0,
+          "min_ms": 0.0666,
+          "max_ms": 0.0666
+        },
+        "throughput": {
+          "gflops": 441.11,
+          "bandwidth_gb_s": 1134.28
+        },
+        "theory": {
+          "flops": 29360128,
+          "bytes": 75497472,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 2048,
+        "topk": 8,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1162,
+          "std_ms": 0.0,
+          "min_ms": 0.1162,
+          "max_ms": 0.1162
+        },
+        "throughput": {
+          "gflops": 505.23,
+          "bandwidth_gb_s": 1299.17
+        },
+        "theory": {
+          "flops": 58720256,
+          "bytes": 150994944,
+          "arithmetic_intensity": 0.39
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0172,
+          "std_ms": 0.0,
+          "min_ms": 0.0172,
+          "max_ms": 0.0172
+        },
+        "throughput": {
+          "gflops": 4.3,
+          "bandwidth_gb_s": 10.51
+        },
+        "theory": {
+          "flops": 73728,
+          "bytes": 180224,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0177,
+          "std_ms": 0.0,
+          "min_ms": 0.0177,
+          "max_ms": 0.0177
+        },
+        "throughput": {
+          "gflops": 33.39,
+          "bandwidth_gb_s": 81.62
+        },
+        "theory": {
+          "flops": 589824,
+          "bytes": 1441792,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0238,
+          "std_ms": 0.0,
+          "min_ms": 0.0238,
+          "max_ms": 0.0238
+        },
+        "throughput": {
+          "gflops": 99.1,
+          "bandwidth_gb_s": 242.24
+        },
+        "theory": {
+          "flops": 2359296,
+          "bytes": 5767168,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0246,
+          "std_ms": 0.0,
+          "min_ms": 0.0246,
+          "max_ms": 0.0246
+        },
+        "throughput": {
+          "gflops": 192.0,
+          "bandwidth_gb_s": 469.33
+        },
+        "theory": {
+          "flops": 4718592,
+          "bytes": 11534336,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0333,
+          "std_ms": 0.0,
+          "min_ms": 0.0333,
+          "max_ms": 0.0333
+        },
+        "throughput": {
+          "gflops": 283.57,
+          "bandwidth_gb_s": 693.17
+        },
+        "theory": {
+          "flops": 9437184,
+          "bytes": 23068672,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0471,
+          "std_ms": 0.0,
+          "min_ms": 0.0471,
+          "max_ms": 0.0471
+        },
+        "throughput": {
+          "gflops": 400.7,
+          "bandwidth_gb_s": 979.48
+        },
+        "theory": {
+          "flops": 18874368,
+          "bytes": 46137344,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0801,
+          "std_ms": 0.0,
+          "min_ms": 0.0801,
+          "max_ms": 0.0801
+        },
+        "throughput": {
+          "gflops": 471.11,
+          "bandwidth_gb_s": 1151.59
+        },
+        "theory": {
+          "flops": 37748736,
+          "bytes": 92274688,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1393,
+          "std_ms": 0.0,
+          "min_ms": 0.1393,
+          "max_ms": 0.1393
+        },
+        "throughput": {
+          "gflops": 542.12,
+          "bandwidth_gb_s": 1325.18
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 184549376,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2624,
+          "std_ms": 0.0,
+          "min_ms": 0.2624,
+          "max_ms": 0.2624
+        },
+        "throughput": {
+          "gflops": 575.44,
+          "bandwidth_gb_s": 1406.63
+        },
+        "theory": {
+          "flops": 150994944,
+          "bytes": 369098752,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "moe_sum",
+      "definition": "moe_sum",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "hidden_size": 8192,
+        "topk": 10,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.51,
+          "std_ms": 0.0,
+          "min_ms": 0.51,
+          "max_ms": 0.51
+        },
+        "throughput": {
+          "gflops": 592.19,
+          "bandwidth_gb_s": 1447.58
+        },
+        "theory": {
+          "flops": 301989888,
+          "bytes": 738197504,
+          "arithmetic_intensity": 0.41
+        }
+      },
+      "impl_info": {
+        "source": "vllm._custom_ops.moe_sum",
+        "type": "cuda",
+        "platform": "metax"
+      }
+    }
+  ]
+}

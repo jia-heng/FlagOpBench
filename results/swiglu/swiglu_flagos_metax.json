@@ -1,0 +1,1939 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T01:36:01.233573",
+    "provider": "flagos",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 60
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1364,
+          "std_ms": 0.0,
+          "min_ms": 0.1364,
+          "max_ms": 0.1364
+        },
+        "throughput": {
+          "gflops": 0.08,
+          "bandwidth_gb_s": 0.09
+        },
+        "theory": {
+          "flops": 10240,
+          "bytes": 12288,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1052,
+          "std_ms": 0.0,
+          "min_ms": 0.1052,
+          "max_ms": 0.1052
+        },
+        "throughput": {
+          "gflops": 0.78,
+          "bandwidth_gb_s": 0.93
+        },
+        "theory": {
+          "flops": 81920,
+          "bytes": 98304,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1047,
+          "std_ms": 0.0,
+          "min_ms": 0.1047,
+          "max_ms": 0.1047
+        },
+        "throughput": {
+          "gflops": 3.13,
+          "bandwidth_gb_s": 3.76
+        },
+        "theory": {
+          "flops": 327680,
+          "bytes": 393216,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0532,
+          "std_ms": 0.0,
+          "min_ms": 0.0532,
+          "max_ms": 0.0532
+        },
+        "throughput": {
+          "gflops": 12.31,
+          "bandwidth_gb_s": 14.77
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 786432,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0458,
+          "std_ms": 0.0,
+          "min_ms": 0.0458,
+          "max_ms": 0.0458
+        },
+        "throughput": {
+          "gflops": 28.6,
+          "bandwidth_gb_s": 34.32
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 1572864,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0515,
+          "std_ms": 0.0,
+          "min_ms": 0.0515,
+          "max_ms": 0.0515
+        },
+        "throughput": {
+          "gflops": 50.95,
+          "bandwidth_gb_s": 61.13
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 3145728,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0443,
+          "std_ms": 0.0,
+          "min_ms": 0.0443,
+          "max_ms": 0.0443
+        },
+        "throughput": {
+          "gflops": 118.38,
+          "bandwidth_gb_s": 142.06
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 6291456,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0461,
+          "std_ms": 0.0,
+          "min_ms": 0.0461,
+          "max_ms": 0.0461
+        },
+        "throughput": {
+          "gflops": 227.56,
+          "bandwidth_gb_s": 273.07
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 12582912,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0517,
+          "std_ms": 0.0,
+          "min_ms": 0.0517,
+          "max_ms": 0.0517
+        },
+        "throughput": {
+          "gflops": 405.54,
+          "bandwidth_gb_s": 486.65
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 25165824,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 2048,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0732,
+          "std_ms": 0.0,
+          "min_ms": 0.0732,
+          "max_ms": 0.0732
+        },
+        "throughput": {
+          "gflops": 572.87,
+          "bandwidth_gb_s": 687.44
+        },
+        "theory": {
+          "flops": 41943040,
+          "bytes": 50331648,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0451,
+          "std_ms": 0.0,
+          "min_ms": 0.0451,
+          "max_ms": 0.0451
+        },
+        "throughput": {
+          "gflops": 0.34,
+          "bandwidth_gb_s": 0.41
+        },
+        "theory": {
+          "flops": 15360,
+          "bytes": 18432,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0412,
+          "std_ms": 0.0,
+          "min_ms": 0.0412,
+          "max_ms": 0.0412
+        },
+        "throughput": {
+          "gflops": 2.98,
+          "bandwidth_gb_s": 3.58
+        },
+        "theory": {
+          "flops": 122880,
+          "bytes": 147456,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0417,
+          "std_ms": 0.0,
+          "min_ms": 0.0417,
+          "max_ms": 0.0417
+        },
+        "throughput": {
+          "gflops": 11.78,
+          "bandwidth_gb_s": 14.13
+        },
+        "theory": {
+          "flops": 491520,
+          "bytes": 589824,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0422,
+          "std_ms": 0.0,
+          "min_ms": 0.0422,
+          "max_ms": 0.0422
+        },
+        "throughput": {
+          "gflops": 23.27,
+          "bandwidth_gb_s": 27.93
+        },
+        "theory": {
+          "flops": 983040,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0404,
+          "std_ms": 0.0,
+          "min_ms": 0.0404,
+          "max_ms": 0.0404
+        },
+        "throughput": {
+          "gflops": 48.61,
+          "bandwidth_gb_s": 58.33
+        },
+        "theory": {
+          "flops": 1966080,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.042,
+          "std_ms": 0.0,
+          "min_ms": 0.042,
+          "max_ms": 0.042
+        },
+        "throughput": {
+          "gflops": 93.66,
+          "bandwidth_gb_s": 112.39
+        },
+        "theory": {
+          "flops": 3932160,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0453,
+          "std_ms": 0.0,
+          "min_ms": 0.0453,
+          "max_ms": 0.0453
+        },
+        "throughput": {
+          "gflops": 173.56,
+          "bandwidth_gb_s": 208.27
+        },
+        "theory": {
+          "flops": 7864320,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0468,
+          "std_ms": 0.0,
+          "min_ms": 0.0468,
+          "max_ms": 0.0468
+        },
+        "throughput": {
+          "gflops": 335.74,
+          "bandwidth_gb_s": 402.89
+        },
+        "theory": {
+          "flops": 15728640,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.063,
+          "std_ms": 0.0,
+          "min_ms": 0.063,
+          "max_ms": 0.063
+        },
+        "throughput": {
+          "gflops": 499.51,
+          "bandwidth_gb_s": 599.41
+        },
+        "theory": {
+          "flops": 31457280,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 3072,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1098,
+          "std_ms": 0.0,
+          "min_ms": 0.1098,
+          "max_ms": 0.1098
+        },
+        "throughput": {
+          "gflops": 572.87,
+          "bandwidth_gb_s": 687.44
+        },
+        "theory": {
+          "flops": 62914560,
+          "bytes": 75497472,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0433,
+          "std_ms": 0.0,
+          "min_ms": 0.0433,
+          "max_ms": 0.0433
+        },
+        "throughput": {
+          "gflops": 0.18,
+          "bandwidth_gb_s": 0.21
+        },
+        "theory": {
+          "flops": 7680,
+          "bytes": 9216,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0402,
+          "std_ms": 0.0,
+          "min_ms": 0.0402,
+          "max_ms": 0.0402
+        },
+        "throughput": {
+          "gflops": 1.53,
+          "bandwidth_gb_s": 1.83
+        },
+        "theory": {
+          "flops": 61440,
+          "bytes": 73728,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0399,
+          "std_ms": 0.0,
+          "min_ms": 0.0399,
+          "max_ms": 0.0399
+        },
+        "throughput": {
+          "gflops": 6.15,
+          "bandwidth_gb_s": 7.38
+        },
+        "theory": {
+          "flops": 245760,
+          "bytes": 294912,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0387,
+          "std_ms": 0.0,
+          "min_ms": 0.0387,
+          "max_ms": 0.0387
+        },
+        "throughput": {
+          "gflops": 12.72,
+          "bandwidth_gb_s": 15.26
+        },
+        "theory": {
+          "flops": 491520,
+          "bytes": 589824,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0389,
+          "std_ms": 0.0,
+          "min_ms": 0.0389,
+          "max_ms": 0.0389
+        },
+        "throughput": {
+          "gflops": 25.26,
+          "bandwidth_gb_s": 30.32
+        },
+        "theory": {
+          "flops": 983040,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.041,
+          "std_ms": 0.0,
+          "min_ms": 0.041,
+          "max_ms": 0.041
+        },
+        "throughput": {
+          "gflops": 48.0,
+          "bandwidth_gb_s": 57.6
+        },
+        "theory": {
+          "flops": 1966080,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0712,
+          "std_ms": 0.0,
+          "min_ms": 0.0712,
+          "max_ms": 0.0712
+        },
+        "throughput": {
+          "gflops": 55.25,
+          "bandwidth_gb_s": 66.3
+        },
+        "theory": {
+          "flops": 3932160,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0438,
+          "std_ms": 0.0,
+          "min_ms": 0.0438,
+          "max_ms": 0.0438
+        },
+        "throughput": {
+          "gflops": 179.65,
+          "bandwidth_gb_s": 215.58
+        },
+        "theory": {
+          "flops": 7864320,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0599,
+          "std_ms": 0.0,
+          "min_ms": 0.0599,
+          "max_ms": 0.0599
+        },
+        "throughput": {
+          "gflops": 262.56,
+          "bandwidth_gb_s": 315.08
+        },
+        "theory": {
+          "flops": 15728640,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 1536,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0637,
+          "std_ms": 0.0,
+          "min_ms": 0.0637,
+          "max_ms": 0.0637
+        },
+        "throughput": {
+          "gflops": 493.49,
+          "bandwidth_gb_s": 592.19
+        },
+        "theory": {
+          "flops": 31457280,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0425,
+          "std_ms": 0.0,
+          "min_ms": 0.0425,
+          "max_ms": 0.0425
+        },
+        "throughput": {
+          "gflops": 0.72,
+          "bandwidth_gb_s": 0.87
+        },
+        "theory": {
+          "flops": 30720,
+          "bytes": 36864,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0404,
+          "std_ms": 0.0,
+          "min_ms": 0.0404,
+          "max_ms": 0.0404
+        },
+        "throughput": {
+          "gflops": 6.08,
+          "bandwidth_gb_s": 7.29
+        },
+        "theory": {
+          "flops": 245760,
+          "bytes": 294912,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0415,
+          "std_ms": 0.0,
+          "min_ms": 0.0415,
+          "max_ms": 0.0415
+        },
+        "throughput": {
+          "gflops": 23.7,
+          "bandwidth_gb_s": 28.44
+        },
+        "theory": {
+          "flops": 983040,
+          "bytes": 1179648,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0415,
+          "std_ms": 0.0,
+          "min_ms": 0.0415,
+          "max_ms": 0.0415
+        },
+        "throughput": {
+          "gflops": 47.41,
+          "bandwidth_gb_s": 56.89
+        },
+        "theory": {
+          "flops": 1966080,
+          "bytes": 2359296,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0492,
+          "std_ms": 0.0,
+          "min_ms": 0.0492,
+          "max_ms": 0.0492
+        },
+        "throughput": {
+          "gflops": 80.0,
+          "bandwidth_gb_s": 96.0
+        },
+        "theory": {
+          "flops": 3932160,
+          "bytes": 4718592,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0425,
+          "std_ms": 0.0,
+          "min_ms": 0.0425,
+          "max_ms": 0.0425
+        },
+        "throughput": {
+          "gflops": 185.06,
+          "bandwidth_gb_s": 222.07
+        },
+        "theory": {
+          "flops": 7864320,
+          "bytes": 9437184,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0494,
+          "std_ms": 0.0,
+          "min_ms": 0.0494,
+          "max_ms": 0.0494
+        },
+        "throughput": {
+          "gflops": 318.34,
+          "bandwidth_gb_s": 382.01
+        },
+        "theory": {
+          "flops": 15728640,
+          "bytes": 18874368,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0645,
+          "std_ms": 0.0,
+          "min_ms": 0.0645,
+          "max_ms": 0.0645
+        },
+        "throughput": {
+          "gflops": 487.62,
+          "bandwidth_gb_s": 585.14
+        },
+        "theory": {
+          "flops": 31457280,
+          "bytes": 37748736,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0878,
+          "std_ms": 0.0,
+          "min_ms": 0.0878,
+          "max_ms": 0.0878
+        },
+        "throughput": {
+          "gflops": 716.5,
+          "bandwidth_gb_s": 859.8
+        },
+        "theory": {
+          "flops": 62914560,
+          "bytes": 75497472,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.5_9b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 6144,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1418,
+          "std_ms": 0.0,
+          "min_ms": 0.1418,
+          "max_ms": 0.1418
+        },
+        "throughput": {
+          "gflops": 887.22,
+          "bandwidth_gb_s": 1064.66
+        },
+        "theory": {
+          "flops": 125829120,
+          "bytes": 150994944,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0433,
+          "std_ms": 0.0,
+          "min_ms": 0.0433,
+          "max_ms": 0.0433
+        },
+        "throughput": {
+          "gflops": 1.01,
+          "bandwidth_gb_s": 1.21
+        },
+        "theory": {
+          "flops": 43520,
+          "bytes": 52224,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0417,
+          "std_ms": 0.0,
+          "min_ms": 0.0417,
+          "max_ms": 0.0417
+        },
+        "throughput": {
+          "gflops": 8.34,
+          "bandwidth_gb_s": 10.01
+        },
+        "theory": {
+          "flops": 348160,
+          "bytes": 417792,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0412,
+          "std_ms": 0.0,
+          "min_ms": 0.0412,
+          "max_ms": 0.0412
+        },
+        "throughput": {
+          "gflops": 33.79,
+          "bandwidth_gb_s": 40.55
+        },
+        "theory": {
+          "flops": 1392640,
+          "bytes": 1671168,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0407,
+          "std_ms": 0.0,
+          "min_ms": 0.0407,
+          "max_ms": 0.0407
+        },
+        "throughput": {
+          "gflops": 68.43,
+          "bandwidth_gb_s": 82.11
+        },
+        "theory": {
+          "flops": 2785280,
+          "bytes": 3342336,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.042,
+          "std_ms": 0.0,
+          "min_ms": 0.042,
+          "max_ms": 0.042
+        },
+        "throughput": {
+          "gflops": 132.68,
+          "bandwidth_gb_s": 159.22
+        },
+        "theory": {
+          "flops": 5570560,
+          "bytes": 6684672,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0438,
+          "std_ms": 0.0,
+          "min_ms": 0.0438,
+          "max_ms": 0.0438
+        },
+        "throughput": {
+          "gflops": 254.5,
+          "bandwidth_gb_s": 305.4
+        },
+        "theory": {
+          "flops": 11141120,
+          "bytes": 13369344,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.055,
+          "std_ms": 0.0,
+          "min_ms": 0.055,
+          "max_ms": 0.055
+        },
+        "throughput": {
+          "gflops": 404.84,
+          "bandwidth_gb_s": 485.8
+        },
+        "theory": {
+          "flops": 22282240,
+          "bytes": 26738688,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0737,
+          "std_ms": 0.0,
+          "min_ms": 0.0737,
+          "max_ms": 0.0737
+        },
+        "throughput": {
+          "gflops": 604.44,
+          "bandwidth_gb_s": 725.33
+        },
+        "theory": {
+          "flops": 44564480,
+          "bytes": 53477376,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1103,
+          "std_ms": 0.0,
+          "min_ms": 0.1103,
+          "max_ms": 0.1103
+        },
+        "throughput": {
+          "gflops": 807.8,
+          "bandwidth_gb_s": 969.36
+        },
+        "theory": {
+          "flops": 89128960,
+          "bytes": 106954752,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_27b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 8704,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1861,
+          "std_ms": 0.0,
+          "min_ms": 0.1861,
+          "max_ms": 0.1861
+        },
+        "throughput": {
+          "gflops": 957.8,
+          "bandwidth_gb_s": 1149.36
+        },
+        "theory": {
+          "flops": 178257920,
+          "bytes": 213909504,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0415,
+          "std_ms": 0.0,
+          "min_ms": 0.0415,
+          "max_ms": 0.0415
+        },
+        "throughput": {
+          "gflops": 0.06,
+          "bandwidth_gb_s": 0.07
+        },
+        "theory": {
+          "flops": 2560,
+          "bytes": 3072,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0407,
+          "std_ms": 0.0,
+          "min_ms": 0.0407,
+          "max_ms": 0.0407
+        },
+        "throughput": {
+          "gflops": 0.5,
+          "bandwidth_gb_s": 0.6
+        },
+        "theory": {
+          "flops": 20480,
+          "bytes": 24576,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0399,
+          "std_ms": 0.0,
+          "min_ms": 0.0399,
+          "max_ms": 0.0399
+        },
+        "throughput": {
+          "gflops": 2.05,
+          "bandwidth_gb_s": 2.46
+        },
+        "theory": {
+          "flops": 81920,
+          "bytes": 98304,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0399,
+          "std_ms": 0.0,
+          "min_ms": 0.0399,
+          "max_ms": 0.0399
+        },
+        "throughput": {
+          "gflops": 4.1,
+          "bandwidth_gb_s": 4.92
+        },
+        "theory": {
+          "flops": 163840,
+          "bytes": 196608,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0399,
+          "std_ms": 0.0,
+          "min_ms": 0.0399,
+          "max_ms": 0.0399
+        },
+        "throughput": {
+          "gflops": 8.21,
+          "bandwidth_gb_s": 9.85
+        },
+        "theory": {
+          "flops": 327680,
+          "bytes": 393216,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0394,
+          "std_ms": 0.0,
+          "min_ms": 0.0394,
+          "max_ms": 0.0394
+        },
+        "throughput": {
+          "gflops": 16.62,
+          "bandwidth_gb_s": 19.95
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 786432,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.041,
+          "std_ms": 0.0,
+          "min_ms": 0.041,
+          "max_ms": 0.041
+        },
+        "throughput": {
+          "gflops": 32.0,
+          "bandwidth_gb_s": 38.4
+        },
+        "theory": {
+          "flops": 1310720,
+          "bytes": 1572864,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0407,
+          "std_ms": 0.0,
+          "min_ms": 0.0407,
+          "max_ms": 0.0407
+        },
+        "throughput": {
+          "gflops": 64.4,
+          "bandwidth_gb_s": 77.28
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 3145728,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0422,
+          "std_ms": 0.0,
+          "min_ms": 0.0422,
+          "max_ms": 0.0422
+        },
+        "throughput": {
+          "gflops": 124.12,
+          "bandwidth_gb_s": 148.95
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 6291456,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "swiglu",
+      "definition": "swiglu",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "N": 512,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.043,
+          "std_ms": 0.0,
+          "min_ms": 0.043,
+          "max_ms": 0.043
+        },
+        "throughput": {
+          "gflops": 243.81,
+          "bandwidth_gb_s": 292.57
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 12582912,
+          "arithmetic_intensity": 0.83
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.swiglu",
+        "type": "triton"
+      }
+    }
+  ]
+}
