@@ -1,0 +1,740 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T08:51:32.211427",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 20
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1863,
+          "std_ms": 0.0025,
+          "min_ms": 0.1831,
+          "max_ms": 0.198
+        },
+        "throughput": {
+          "gflops": 2177.9,
+          "bandwidth_gb_s": 34.03
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1852,
+          "std_ms": 0.0018,
+          "min_ms": 0.1825,
+          "max_ms": 0.1977
+        },
+        "throughput": {
+          "gflops": 2190.57,
+          "bandwidth_gb_s": 34.23
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1864,
+          "std_ms": 0.0036,
+          "min_ms": 0.1832,
+          "max_ms": 0.2097
+        },
+        "throughput": {
+          "gflops": 2177.37,
+          "bandwidth_gb_s": 34.02
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1852,
+          "std_ms": 0.0011,
+          "min_ms": 0.1834,
+          "max_ms": 0.1895
+        },
+        "throughput": {
+          "gflops": 2191.02,
+          "bandwidth_gb_s": 34.23
+        },
+        "theory": {
+          "flops": 405798912,
+          "bytes": 6340608,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3254,
+          "std_ms": 0.0018,
+          "min_ms": 0.3225,
+          "max_ms": 0.3351
+        },
+        "throughput": {
+          "gflops": 2494.04,
+          "bandwidth_gb_s": 38.97
+        },
+        "theory": {
+          "flops": 811597824,
+          "bytes": 12681216,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2096,
+          "std_ms": 0.0064,
+          "min_ms": 0.1988,
+          "max_ms": 0.2362
+        },
+        "throughput": {
+          "gflops": 7745.66,
+          "bandwidth_gb_s": 121.03
+        },
+        "theory": {
+          "flops": 1623195648,
+          "bytes": 25362432,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2826,
+          "std_ms": 0.0044,
+          "min_ms": 0.2778,
+          "max_ms": 0.3054
+        },
+        "throughput": {
+          "gflops": 11487.79,
+          "bandwidth_gb_s": 179.5
+        },
+        "theory": {
+          "flops": 3246391296,
+          "bytes": 50724864,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4643,
+          "std_ms": 0.0046,
+          "min_ms": 0.46,
+          "max_ms": 0.483
+        },
+        "throughput": {
+          "gflops": 13985.39,
+          "bandwidth_gb_s": 218.52
+        },
+        "theory": {
+          "flops": 6492782592,
+          "bytes": 101449728,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8555,
+          "std_ms": 0.0162,
+          "min_ms": 0.8411,
+          "max_ms": 0.8955
+        },
+        "throughput": {
+          "gflops": 15179.09,
+          "bandwidth_gb_s": 237.17
+        },
+        "theory": {
+          "flops": 12985565184,
+          "bytes": 202899456,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.6248,
+          "std_ms": 0.0281,
+          "min_ms": 1.6045,
+          "max_ms": 1.7124
+        },
+        "throughput": {
+          "gflops": 15984.29,
+          "bandwidth_gb_s": 249.75
+        },
+        "theory": {
+          "flops": 25971130368,
+          "bytes": 405798912,
+          "arithmetic_intensity": 64.0
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1979,
+          "std_ms": 0.0019,
+          "min_ms": 0.1949,
+          "max_ms": 0.2047
+        },
+        "throughput": {
+          "gflops": 2734.44,
+          "bandwidth_gb_s": 24.03
+        },
+        "theory": {
+          "flops": 541065216,
+          "bytes": 4755456,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1973,
+          "std_ms": 0.0021,
+          "min_ms": 0.1935,
+          "max_ms": 0.204
+        },
+        "throughput": {
+          "gflops": 2742.12,
+          "bandwidth_gb_s": 24.1
+        },
+        "theory": {
+          "flops": 541065216,
+          "bytes": 4755456,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1975,
+          "std_ms": 0.002,
+          "min_ms": 0.1942,
+          "max_ms": 0.2056
+        },
+        "throughput": {
+          "gflops": 2738.97,
+          "bandwidth_gb_s": 24.07
+        },
+        "theory": {
+          "flops": 541065216,
+          "bytes": 4755456,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1972,
+          "std_ms": 0.0022,
+          "min_ms": 0.193,
+          "max_ms": 0.2051
+        },
+        "throughput": {
+          "gflops": 2743.92,
+          "bandwidth_gb_s": 24.12
+        },
+        "theory": {
+          "flops": 541065216,
+          "bytes": 4755456,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3488,
+          "std_ms": 0.0026,
+          "min_ms": 0.3439,
+          "max_ms": 0.3599
+        },
+        "throughput": {
+          "gflops": 3102.68,
+          "bandwidth_gb_s": 27.27
+        },
+        "theory": {
+          "flops": 1082130432,
+          "bytes": 9510912,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2124,
+          "std_ms": 0.0043,
+          "min_ms": 0.2081,
+          "max_ms": 0.2402
+        },
+        "throughput": {
+          "gflops": 10191.26,
+          "bandwidth_gb_s": 89.57
+        },
+        "theory": {
+          "flops": 2164260864,
+          "bytes": 19021824,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3436,
+          "std_ms": 0.0038,
+          "min_ms": 0.3368,
+          "max_ms": 0.3703
+        },
+        "throughput": {
+          "gflops": 12597.15,
+          "bandwidth_gb_s": 110.72
+        },
+        "theory": {
+          "flops": 4328521728,
+          "bytes": 38043648,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.583,
+          "std_ms": 0.0026,
+          "min_ms": 0.5757,
+          "max_ms": 0.5886
+        },
+        "throughput": {
+          "gflops": 14849.63,
+          "bandwidth_gb_s": 130.51
+        },
+        "theory": {
+          "flops": 8657043456,
+          "bytes": 76087296,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0764,
+          "std_ms": 0.0058,
+          "min_ms": 1.0638,
+          "max_ms": 1.1064
+        },
+        "throughput": {
+          "gflops": 16084.97,
+          "bandwidth_gb_s": 141.37
+        },
+        "theory": {
+          "flops": 17314086912,
+          "bytes": 152174592,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_gems",
+      "definition": "chunk_gated_delta_rule_flag_gems",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "provider": "nvidia",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.0496,
+          "std_ms": 0.0105,
+          "min_ms": 2.0333,
+          "max_ms": 2.1135
+        },
+        "throughput": {
+          "gflops": 16894.93,
+          "bandwidth_gb_s": 148.49
+        },
+        "theory": {
+          "flops": 34628173824,
+          "bytes": 304349184,
+          "arithmetic_intensity": 113.78
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm non-TLE fallback (output_final_state=False)",
+        "type": "triton"
+      }
+    }
+  ]
+}

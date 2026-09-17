@@ -48,7 +48,8 @@ class MHCPostOperator(BaseOperator):
 
         x = torch.randn(N, H, dtype=dtype, device="cuda")
         residual = torch.randn(N, hc, H, dtype=dtype, device="cuda")
-        post_layer_mix = torch.randn(N, hc, dtype=torch.float32, device="cuda")
+        # 与 FlagGems/vLLM 口径一致：(N, hc, 1)
+        post_layer_mix = torch.randn(N, hc, 1, dtype=torch.float32, device="cuda")
         comb_res_mix = torch.randn(N, hc, hc, dtype=torch.float32, device="cuda")
 
         return {

@@ -111,6 +111,58 @@ class MetaxProvider(NvidiaProvider):
                     "error": f"Failed to load indexer_k_quant_and_cache: {e}"
                 }
 
+        # deepseek_v4_ops 在 vllm-metax 常缺 → torch 语义兜底，保证双边出表
+        if op_name == "compute_global_topk_indices_and_lens":
+            try:
+                impl_fn, impl_info = self._load_compute_global_topk()
+                if impl_fn is None:
+                    return None, {
+                        "error": "Failed to load compute_global_topk on metax"
+                    }
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading compute_global_topk: {e}")
+                return None, {"error": f"Failed to load compute_global_topk: {e}"}
+
+        if op_name == "fused_q_kv_rmsnorm":
+            try:
+                impl_fn, impl_info = self._load_fused_q_kv_rmsnorm()
+                if impl_fn is None:
+                    return None, {"error": "Failed to load fused_q_kv_rmsnorm on metax"}
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading fused_q_kv_rmsnorm: {e}")
+                return None, {"error": f"Failed to load fused_q_kv_rmsnorm: {e}"}
+
+        # vllm.model_executor.layers.mhc 在 vllm-metax 常缺 → flag_gems ref 兜底
+        if op_name in ("mhc_post", "mhc_pre"):
+            try:
+                load = (
+                    self._load_mhc_post if op_name == "mhc_post" else self._load_mhc_pre
+                )
+                impl_fn, impl_info = load()
+                if impl_fn is None:
+                    return None, {"error": f"Failed to load {op_name} on metax"}
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading {op_name}: {e}")
+                return None, {"error": f"Failed to load {op_name}: {e}"}
+
+        # sparse_attn / deep_gemm 在 vllm-metax 常缺；用例 d=576 也超 deep_gemm 128 限制
+        if op_name == "fp8_fp4_paged_mqa_logits":
+            try:
+                impl_fn, impl_info = self._load_fp8_fp4_paged_mqa_logits()
+                if impl_fn is None:
+                    return None, {
+                        "error": "Failed to load fp8_fp4_paged_mqa_logits on metax"
+                    }
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading fp8_fp4_paged_mqa_logits: {e}")
+                return None, {
+                    "error": f"Failed to load fp8_fp4_paged_mqa_logits: {e}"
+                }
+
         impl_fn, impl_info = super().get_impl(op_name, operator)
         if impl_fn is not None:
             impl_info = {**impl_info, "platform": "metax"}
@@ -251,3 +303,151 @@ class MetaxProvider(NvidiaProvider):
             "  [INFO] indexer_k_quant_and_cache: torch.ops/_C missing → baseline SKIP"
         )
         return None, {}
+
+    def _load_compute_global_topk(self):
+        """优先 vLLM deepseek_v4_ops；缺则 torch 语义兜底（与 FlagGems kernel 同口径）。"""
+        try:
+            impl_fn, impl_info = super()._load_compute_global_topk()
+            if impl_fn is not None:
+                return impl_fn, impl_info
+        except Exception as e:
+            print(f"  [WARN] vLLM compute_global_topk unavailable: {e}")
+
+        def fallback(
+            topk_indices,
+            token_to_req_indices,
+            block_table,
+            block_size,
+            is_valid_token=None,
+        ):
+            num_tokens, topk = topk_indices.shape
+            if is_valid_token is None:
+                is_valid_token = torch.ones(
+                    (num_tokens,), device=topk_indices.device, dtype=torch.int32
+                )
+            global_indices = torch.full_like(topk_indices, -1)
+            valid = topk_indices >= 0
+            block_idx = torch.where(valid, topk_indices // block_size, 0)
+            block_off = torch.where(valid, topk_indices - block_idx * block_size, 0)
+            req = token_to_req_indices.unsqueeze(1).expand(-1, topk)
+            # gather block_table[req, block_idx]
+            block_no = block_table[
+                req.clamp(min=0, max=block_table.shape[0] - 1),
+                block_idx.clamp(min=0, max=block_table.shape[1] - 1),
+            ]
+            slot = block_no * block_size + block_off
+            global_indices = torch.where(valid, slot, global_indices)
+            counts = valid.to(torch.int32).sum(dim=1)
+            lens = torch.where(is_valid_token != 0, counts, torch.zeros_like(counts))
+            return global_indices.to(torch.int32), lens.to(torch.int32)
+
+        print(
+            "  [INFO] compute_global_topk: deepseek_v4_ops missing → torch fallback"
+        )
+        return fallback, {
+            "source": "torch.block_table_gather (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_fused_q_kv_rmsnorm(self):
+        """优先 vLLM deepseek_v4_ops；缺则 torch RMSNorm 兜底。"""
+        try:
+            impl_fn, impl_info = super()._load_fused_q_kv_rmsnorm()
+            if impl_fn is not None:
+                return impl_fn, impl_info
+        except Exception as e:
+            print(f"  [WARN] vLLM fused_q_kv_rmsnorm unavailable: {e}")
+
+        def _rms_norm(x, weight, eps):
+            var = x.float().pow(2).mean(dim=-1, keepdim=True)
+            y = x.float() * torch.rsqrt(var + eps)
+            return (y * weight.float()).to(x.dtype)
+
+        def fallback(qr, kv, q_weight, kv_weight, eps):
+            return _rms_norm(qr, q_weight, eps), _rms_norm(kv, kv_weight, eps)
+
+        print("  [INFO] fused_q_kv_rmsnorm: deepseek_v4_ops missing → torch fallback")
+        return fallback, {
+            "source": "torch.rms_norm (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_mhc_post(self):
+        """优先 vLLM mhc；缺则 flag_gems.mhc_post_ref。"""
+        try:
+            impl_fn, impl_info = super()._load_mhc_post()
+            if impl_fn is not None:
+                return impl_fn, impl_info
+        except Exception as e:
+            print(f"  [WARN] vLLM mhc_post unavailable: {e}")
+
+        try:
+            from flag_gems.fused.mhc.mhc_post import mhc_post_ref
+
+            def wrap_ref(x, residual, post_layer_mix, comb_res_mix):
+                plm = post_layer_mix
+                if plm.ndim == 2:
+                    plm = plm.unsqueeze(-1)
+                return mhc_post_ref(x, residual, plm, comb_res_mix)
+
+            print("  [INFO] mhc_post: vllm.mhc missing → flag_gems.mhc_post_ref")
+            return wrap_ref, {
+                "source": "flag_gems.mhc_post_ref (metax fallback)",
+                "type": "torch",
+                "platform": "metax",
+            }
+        except ImportError as e:
+            print(f"  [WARN] mhc_post_ref import failed: {e}")
+
+        def fallback(x, residual, post_layer_mix, comb_res_mix):
+            plm = post_layer_mix
+            if plm.ndim == 2:
+                plm = plm.unsqueeze(-1)
+            y = x.unsqueeze(-2) * plm + torch.bmm(comb_res_mix.mT, residual.float())
+            return y.type_as(x)
+
+        print("  [INFO] mhc_post: inline torch fallback")
+        return fallback, {
+            "source": "torch.mhc_post (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_mhc_pre(self):
+        """优先 vLLM mhc；缺则 flag_gems.mhc_pre_ref。"""
+        try:
+            impl_fn, impl_info = super()._load_mhc_pre()
+            if impl_fn is not None:
+                return impl_fn, impl_info
+        except Exception as e:
+            print(f"  [WARN] vLLM mhc_pre unavailable: {e}")
+
+        try:
+            from flag_gems.fused.mhc.mhc_pre import mhc_pre_ref
+
+            print("  [INFO] mhc_pre: vllm.mhc missing → flag_gems.mhc_pre_ref")
+            return mhc_pre_ref, {
+                "source": "flag_gems.mhc_pre_ref (metax fallback)",
+                "type": "torch",
+                "platform": "metax",
+            }
+        except ImportError as e:
+            print(f"  [WARN] mhc_pre_ref import failed: {e}")
+
+        return None, {"error": "mhc_pre unavailable (no vllm.mhc / mhc_pre_ref)"}
+
+    def _load_fp8_fp4_paged_mqa_logits(self):
+        """沐曦：即使 import 到 sparse_attn，调用仍依赖 deep_gemm（缺 libcudart）→ 直接 torch。"""
+        from providers.flagos_provider import torch_fp8_fp4_paged_mqa_logits
+
+        print(
+            "  [INFO] fp8_fp4_paged_mqa_logits: skip vLLM/deep_gemm "
+            "→ torch fallback (MetaX)"
+        )
+        return torch_fp8_fp4_paged_mqa_logits, {
+            "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
+            "type": "pytorch",
+            "platform": "metax",
+        }

@@ -94,17 +94,22 @@ class FP8FP4PagedMQALogitsOperator(BaseOperator):
 
         # schedule_metadata: 由deep_gemm的get_paged_mqa_logits_metadata生成
         # flaggems_vllm (Triton)接受None, 但vLLM (deep_gemm C++)需要真实tensor
+        # 沐曦常缺 deep_gemm/libcudart，强制 None，避免 import 侧效应刷屏
         schedule_metadata = None
         try:
-            from vllm.utils.deep_gemm import get_paged_mqa_logits_metadata
-            num_sms = 132  # H100 default
-            # deep_gemm要求context_lens是2D: (B, next_n)
-            ctx_lens_2d = context_lens.unsqueeze(1).expand(B, next_n).contiguous()
-            schedule_metadata = get_paged_mqa_logits_metadata(
-                ctx_lens_2d, block_size, num_sms
-            )
+            import os
+
+            if os.environ.get("FLAGOPBENCH_FORCE_DEEPGEMM_META", "0") == "1":
+                from vllm.utils.deep_gemm import get_paged_mqa_logits_metadata
+
+                num_sms = 132  # H100 default
+                # deep_gemm要求context_lens是2D: (B, next_n)
+                ctx_lens_2d = context_lens.unsqueeze(1).expand(B, next_n).contiguous()
+                schedule_metadata = get_paged_mqa_logits_metadata(
+                    ctx_lens_2d, block_size, num_sms
+                )
         except (ImportError, Exception):
-            pass
+            schedule_metadata = None
 
         return {
             "q": (q_values, q_scale),

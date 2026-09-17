@@ -1,0 +1,2400 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-27T09:40:58.925606",
+    "provider": "nvidia",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 70
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups8_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2702,
+          "std_ms": 0.0075,
+          "min_ms": 0.2657,
+          "max_ms": 0.3328
+        },
+        "throughput": {
+          "gflops": 3476.81,
+          "bandwidth_gb_s": 871.39
+        },
+        "theory": {
+          "flops": 939524096,
+          "bytes": 235470848,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups8_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2713,
+          "std_ms": 0.0051,
+          "min_ms": 0.265,
+          "max_ms": 0.3034
+        },
+        "throughput": {
+          "gflops": 13850.73,
+          "bandwidth_gb_s": 874.37
+        },
+        "theory": {
+          "flops": 3758096384,
+          "bytes": 237240320,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups8_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2726,
+          "std_ms": 0.0061,
+          "min_ms": 0.2662,
+          "max_ms": 0.3174
+        },
+        "throughput": {
+          "gflops": 55147.52,
+          "bandwidth_gb_s": 896.3
+        },
+        "theory": {
+          "flops": 15032385536,
+          "bytes": 244318208,
+          "arithmetic_intensity": 61.53
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups32_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.9518,
+          "std_ms": 0.0114,
+          "min_ms": 0.9407,
+          "max_ms": 1.0522
+        },
+        "throughput": {
+          "gflops": 3948.54,
+          "bandwidth_gb_s": 989.61
+        },
+        "theory": {
+          "flops": 3758096384,
+          "bytes": 941883392,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups32_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.9419,
+          "std_ms": 0.001,
+          "min_ms": 0.9404,
+          "max_ms": 0.9465
+        },
+        "throughput": {
+          "gflops": 15960.1,
+          "bandwidth_gb_s": 1007.53
+        },
+        "theory": {
+          "flops": 15032385536,
+          "bytes": 948961280,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups32_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.943,
+          "std_ms": 0.0007,
+          "min_ms": 0.9416,
+          "max_ms": 0.9455
+        },
+        "throughput": {
+          "gflops": 63764.1,
+          "bandwidth_gb_s": 1036.34
+        },
+        "theory": {
+          "flops": 60129542144,
+          "bytes": 977272832,
+          "arithmetic_intensity": 61.53
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups64_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.8624,
+          "std_ms": 0.0009,
+          "min_ms": 1.8612,
+          "max_ms": 1.8667
+        },
+        "throughput": {
+          "gflops": 4035.77,
+          "bandwidth_gb_s": 1011.48
+        },
+        "theory": {
+          "flops": 7516192768,
+          "bytes": 1883766784,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups64_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.8623,
+          "std_ms": 0.0009,
+          "min_ms": 1.8609,
+          "max_ms": 1.8671
+        },
+        "throughput": {
+          "gflops": 16143.83,
+          "bandwidth_gb_s": 1019.12
+        },
+        "theory": {
+          "flops": 30064771072,
+          "bytes": 1897922560,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups128_tokens_per_group8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.704,
+          "std_ms": 0.0017,
+          "min_ms": 3.7023,
+          "max_ms": 3.7161
+        },
+        "throughput": {
+          "gflops": 8116.83,
+          "bandwidth_gb_s": 1019.7
+        },
+        "theory": {
+          "flops": 30064771072,
+          "bytes": 3776970752,
+          "arithmetic_intensity": 7.96
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups128_tokens_per_group32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.7061,
+          "std_ms": 0.0013,
+          "min_ms": 3.7036,
+          "max_ms": 3.7107
+        },
+        "throughput": {
+          "gflops": 32448.94,
+          "bandwidth_gb_s": 1034.4
+        },
+        "theory": {
+          "flops": 120259084288,
+          "bytes": 3833593856,
+          "arithmetic_intensity": 31.37
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups8_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1608,
+          "std_ms": 0.0006,
+          "min_ms": 0.159,
+          "max_ms": 0.1624
+        },
+        "throughput": {
+          "gflops": 3339.02,
+          "bandwidth_gb_s": 837.2
+        },
+        "theory": {
+          "flops": 536870912,
+          "bytes": 134610944,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups8_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.161,
+          "std_ms": 0.001,
+          "min_ms": 0.1598,
+          "max_ms": 0.1661
+        },
+        "throughput": {
+          "gflops": 13336.58,
+          "bandwidth_gb_s": 843.3
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 135790592,
+          "arithmetic_intensity": 15.81
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups8_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1606,
+          "std_ms": 0.0005,
+          "min_ms": 0.1596,
+          "max_ms": 0.1616
+        },
+        "throughput": {
+          "gflops": 53493.66,
+          "bandwidth_gb_s": 875.02
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 140509184,
+          "arithmetic_intensity": 61.13
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups32_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5607,
+          "std_ms": 0.0007,
+          "min_ms": 0.5592,
+          "max_ms": 0.5644
+        },
+        "throughput": {
+          "gflops": 3829.84,
+          "bandwidth_gb_s": 960.27
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 538443776,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups32_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5605,
+          "std_ms": 0.0006,
+          "min_ms": 0.559,
+          "max_ms": 0.563
+        },
+        "throughput": {
+          "gflops": 15326.35,
+          "bandwidth_gb_s": 969.12
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 543162368,
+          "arithmetic_intensity": 15.81
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups32_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5611,
+          "std_ms": 0.0007,
+          "min_ms": 0.5589,
+          "max_ms": 0.5631
+        },
+        "throughput": {
+          "gflops": 61236.09,
+          "bandwidth_gb_s": 1001.66
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 562036736,
+          "arithmetic_intensity": 61.13
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups64_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.081,
+          "std_ms": 0.0008,
+          "min_ms": 1.0796,
+          "max_ms": 1.0853
+        },
+        "throughput": {
+          "gflops": 3972.97,
+          "bandwidth_gb_s": 996.15
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 1076887552,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups64_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0811,
+          "std_ms": 0.0021,
+          "min_ms": 1.0796,
+          "max_ms": 1.1007
+        },
+        "throughput": {
+          "gflops": 15891.38,
+          "bandwidth_gb_s": 1004.85
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 1086324736,
+          "arithmetic_intensity": 15.81
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups128_tokens_per_group8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.1402,
+          "std_ms": 0.001,
+          "min_ms": 2.1383,
+          "max_ms": 2.1441
+        },
+        "throughput": {
+          "gflops": 8027.11,
+          "bandwidth_gb_s": 1009.27
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 2160066560,
+          "arithmetic_intensity": 7.95
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups128_tokens_per_group32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.1413,
+          "std_ms": 0.0012,
+          "min_ms": 2.1393,
+          "max_ms": 2.1446
+        },
+        "throughput": {
+          "gflops": 32092.61,
+          "bandwidth_gb_s": 1026.4
+        },
+        "theory": {
+          "flops": 68719476736,
+          "bytes": 2197815296,
+          "arithmetic_intensity": 31.27
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups8_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3806,
+          "std_ms": 0.0007,
+          "min_ms": 0.3795,
+          "max_ms": 0.3835
+        },
+        "throughput": {
+          "gflops": 3703.27,
+          "bandwidth_gb_s": 927.54
+        },
+        "theory": {
+          "flops": 1409286144,
+          "bytes": 352976896,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups8_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3807,
+          "std_ms": 0.0006,
+          "min_ms": 0.3794,
+          "max_ms": 0.3819
+        },
+        "throughput": {
+          "gflops": 14807.41,
+          "bandwidth_gb_s": 932.35
+        },
+        "theory": {
+          "flops": 5637144576,
+          "bytes": 354942976,
+          "arithmetic_intensity": 15.88
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups8_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3815,
+          "std_ms": 0.0007,
+          "min_ms": 0.3805,
+          "max_ms": 0.3841
+        },
+        "throughput": {
+          "gflops": 59107.26,
+          "bandwidth_gb_s": 951.04
+        },
+        "theory": {
+          "flops": 22548578304,
+          "bytes": 362807296,
+          "arithmetic_intensity": 62.15
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups32_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.4017,
+          "std_ms": 0.0007,
+          "min_ms": 1.4001,
+          "max_ms": 1.4038
+        },
+        "throughput": {
+          "gflops": 4021.72,
+          "bandwidth_gb_s": 1007.3
+        },
+        "theory": {
+          "flops": 5637144576,
+          "bytes": 1411907584,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups32_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.4026,
+          "std_ms": 0.0007,
+          "min_ms": 1.4012,
+          "max_ms": 1.4057
+        },
+        "throughput": {
+          "gflops": 16076.26,
+          "bandwidth_gb_s": 1012.24
+        },
+        "theory": {
+          "flops": 22548578304,
+          "bytes": 1419771904,
+          "arithmetic_intensity": 15.88
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups32_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.404,
+          "std_ms": 0.0009,
+          "min_ms": 1.4023,
+          "max_ms": 1.4063
+        },
+        "throughput": {
+          "gflops": 64242.31,
+          "bandwidth_gb_s": 1033.66
+        },
+        "theory": {
+          "flops": 90194313216,
+          "bytes": 1451229184,
+          "arithmetic_intensity": 62.15
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups64_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.7827,
+          "std_ms": 0.0008,
+          "min_ms": 2.7808,
+          "max_ms": 2.7857
+        },
+        "throughput": {
+          "gflops": 4051.61,
+          "bandwidth_gb_s": 1014.79
+        },
+        "theory": {
+          "flops": 11274289152,
+          "bytes": 2823815168,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups64_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.7838,
+          "std_ms": 0.0011,
+          "min_ms": 2.7815,
+          "max_ms": 2.7893
+        },
+        "throughput": {
+          "gflops": 16199.83,
+          "bandwidth_gb_s": 1020.02
+        },
+        "theory": {
+          "flops": 45097156608,
+          "bytes": 2839543808,
+          "arithmetic_intensity": 15.88
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups128_tokens_per_group8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.5455,
+          "std_ms": 0.0012,
+          "min_ms": 5.5432,
+          "max_ms": 5.5504
+        },
+        "throughput": {
+          "gflops": 8132.15,
+          "bandwidth_gb_s": 1020.3
+        },
+        "theory": {
+          "flops": 45097156608,
+          "bytes": 5658116096,
+          "arithmetic_intensity": 7.97
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups128_tokens_per_group32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.5474,
+          "std_ms": 0.0018,
+          "min_ms": 5.5399,
+          "max_ms": 5.5523
+        },
+        "throughput": {
+          "gflops": 32517.81,
+          "bandwidth_gb_s": 1031.3
+        },
+        "theory": {
+          "flops": 180388626432,
+          "bytes": 5721030656,
+          "arithmetic_intensity": 31.53
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups8_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0817,
+          "std_ms": 0.0152,
+          "min_ms": 0.0789,
+          "max_ms": 0.2317
+        },
+        "throughput": {
+          "gflops": 2464.92,
+          "bandwidth_gb_s": 619.04
+        },
+        "theory": {
+          "flops": 201326592,
+          "bytes": 50561024,
+          "arithmetic_intensity": 3.98
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups8_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0799,
+          "std_ms": 0.0005,
+          "min_ms": 0.0789,
+          "max_ms": 0.0809
+        },
+        "throughput": {
+          "gflops": 10082.66,
+          "bandwidth_gb_s": 641.65
+        },
+        "theory": {
+          "flops": 805306368,
+          "bytes": 51249152,
+          "arithmetic_intensity": 15.71
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups8_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0801,
+          "std_ms": 0.0005,
+          "min_ms": 0.0785,
+          "max_ms": 0.0824
+        },
+        "throughput": {
+          "gflops": 40213.2,
+          "bandwidth_gb_s": 674.15
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 54001664,
+          "arithmetic_intensity": 59.65
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups32_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2301,
+          "std_ms": 0.0005,
+          "min_ms": 0.2289,
+          "max_ms": 0.2313
+        },
+        "throughput": {
+          "gflops": 3499.36,
+          "bandwidth_gb_s": 878.83
+        },
+        "theory": {
+          "flops": 805306368,
+          "bytes": 202244096,
+          "arithmetic_intensity": 3.98
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups32_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2298,
+          "std_ms": 0.0009,
+          "min_ms": 0.2237,
+          "max_ms": 0.232
+        },
+        "throughput": {
+          "gflops": 14014.88,
+          "bandwidth_gb_s": 891.9
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 204996608,
+          "arithmetic_intensity": 15.71
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups32_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2323,
+          "std_ms": 0.0271,
+          "min_ms": 0.2242,
+          "max_ms": 0.4995
+        },
+        "throughput": {
+          "gflops": 55462.18,
+          "bandwidth_gb_s": 929.79
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 216006656,
+          "arithmetic_intensity": 59.65
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups64_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4247,
+          "std_ms": 0.0027,
+          "min_ms": 0.4199,
+          "max_ms": 0.4276
+        },
+        "throughput": {
+          "gflops": 3792.51,
+          "bandwidth_gb_s": 952.45
+        },
+        "theory": {
+          "flops": 1610612736,
+          "bytes": 404488192,
+          "arithmetic_intensity": 3.98
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups64_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4293,
+          "std_ms": 0.0419,
+          "min_ms": 0.4239,
+          "max_ms": 0.8445
+        },
+        "throughput": {
+          "gflops": 15005.95,
+          "bandwidth_gb_s": 954.97
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 409993216,
+          "arithmetic_intensity": 15.71
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups128_tokens_per_group8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8162,
+          "std_ms": 0.0006,
+          "min_ms": 0.815,
+          "max_ms": 0.8176
+        },
+        "throughput": {
+          "gflops": 7893.45,
+          "bandwidth_gb_s": 995.67
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 812646400,
+          "arithmetic_intensity": 7.93
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups128_tokens_per_group32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8167,
+          "std_ms": 0.0012,
+          "min_ms": 0.815,
+          "max_ms": 0.8227
+        },
+        "throughput": {
+          "gflops": 31552.75,
+          "bandwidth_gb_s": 1021.97
+        },
+        "theory": {
+          "flops": 25769803776,
+          "bytes": 834666496,
+          "arithmetic_intensity": 30.87
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups8_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2205,
+          "std_ms": 0.0006,
+          "min_ms": 0.2189,
+          "max_ms": 0.2232
+        },
+        "throughput": {
+          "gflops": 3651.79,
+          "bandwidth_gb_s": 915.33
+        },
+        "theory": {
+          "flops": 805306368,
+          "bytes": 201850880,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups8_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2207,
+          "std_ms": 0.0006,
+          "min_ms": 0.2194,
+          "max_ms": 0.2221
+        },
+        "throughput": {
+          "gflops": 14595.78,
+          "bandwidth_gb_s": 921.74
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 203423744,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups8_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2212,
+          "std_ms": 0.0005,
+          "min_ms": 0.2198,
+          "max_ms": 0.2232
+        },
+        "throughput": {
+          "gflops": 58259.11,
+          "bandwidth_gb_s": 948.23
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 209715200,
+          "arithmetic_intensity": 61.44
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups32_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8212,
+          "std_ms": 0.0007,
+          "min_ms": 0.82,
+          "max_ms": 0.8233
+        },
+        "throughput": {
+          "gflops": 3922.45,
+          "bandwidth_gb_s": 983.17
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 807403520,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups32_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8205,
+          "std_ms": 0.0006,
+          "min_ms": 0.8195,
+          "max_ms": 0.822
+        },
+        "throughput": {
+          "gflops": 15703.15,
+          "bandwidth_gb_s": 991.67
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 813694976,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups32_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8216,
+          "std_ms": 0.0025,
+          "min_ms": 0.8199,
+          "max_ms": 0.8452
+        },
+        "throughput": {
+          "gflops": 62728.7,
+          "bandwidth_gb_s": 1020.97
+        },
+        "theory": {
+          "flops": 51539607552,
+          "bytes": 838860800,
+          "arithmetic_intensity": 61.44
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups64_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.6026,
+          "std_ms": 0.001,
+          "min_ms": 1.6012,
+          "max_ms": 1.6075
+        },
+        "throughput": {
+          "gflops": 4020.02,
+          "bandwidth_gb_s": 1007.62
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 1614807040,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups64_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.6026,
+          "std_ms": 0.0011,
+          "min_ms": 1.6007,
+          "max_ms": 1.6087
+        },
+        "throughput": {
+          "gflops": 16079.94,
+          "bandwidth_gb_s": 1015.47
+        },
+        "theory": {
+          "flops": 25769803776,
+          "bytes": 1627389952,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups128_tokens_per_group8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.1837,
+          "std_ms": 0.0021,
+          "min_ms": 3.1818,
+          "max_ms": 3.1964
+        },
+        "throughput": {
+          "gflops": 8094.33,
+          "bandwidth_gb_s": 1017.06
+        },
+        "theory": {
+          "flops": 25769803776,
+          "bytes": 3238002688,
+          "arithmetic_intensity": 7.96
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups128_tokens_per_group32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.1846,
+          "std_ms": 0.0012,
+          "min_ms": 3.1826,
+          "max_ms": 3.1894
+        },
+        "throughput": {
+          "gflops": 32367.68,
+          "bandwidth_gb_s": 1032.56
+        },
+        "theory": {
+          "flops": 103079215104,
+          "bytes": 3288334336,
+          "arithmetic_intensity": 31.35
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups8_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0393,
+          "std_ms": 0.001,
+          "min_ms": 0.0387,
+          "max_ms": 0.0492
+        },
+        "throughput": {
+          "gflops": 1706.54,
+          "bandwidth_gb_s": 430.8
+        },
+        "theory": {
+          "flops": 67108864,
+          "bytes": 16941056,
+          "arithmetic_intensity": 3.96
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups8_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0394,
+          "std_ms": 0.0007,
+          "min_ms": 0.0388,
+          "max_ms": 0.0452
+        },
+        "throughput": {
+          "gflops": 6812.31,
+          "bandwidth_gb_s": 442.4
+        },
+        "theory": {
+          "flops": 268435456,
+          "bytes": 17432576,
+          "arithmetic_intensity": 15.4
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups8_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0399,
+          "std_ms": 0.0012,
+          "min_ms": 0.0392,
+          "max_ms": 0.0492
+        },
+        "throughput": {
+          "gflops": 26943.99,
+          "bandwidth_gb_s": 486.78
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 19398656,
+          "arithmetic_intensity": 55.35
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups32_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0901,
+          "std_ms": 0.0005,
+          "min_ms": 0.0887,
+          "max_ms": 0.091
+        },
+        "throughput": {
+          "gflops": 2978.52,
+          "bandwidth_gb_s": 751.9
+        },
+        "theory": {
+          "flops": 268435456,
+          "bytes": 67764224,
+          "arithmetic_intensity": 3.96
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups32_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.09,
+          "std_ms": 0.0007,
+          "min_ms": 0.0884,
+          "max_ms": 0.0943
+        },
+        "throughput": {
+          "gflops": 11927.5,
+          "bandwidth_gb_s": 774.59
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 69730304,
+          "arithmetic_intensity": 15.4
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups32_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0904,
+          "std_ms": 0.0008,
+          "min_ms": 0.0892,
+          "max_ms": 0.0963
+        },
+        "throughput": {
+          "gflops": 47528.03,
+          "bandwidth_gb_s": 858.66
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 77594624,
+          "arithmetic_intensity": 55.35
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups64_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1553,
+          "std_ms": 0.0006,
+          "min_ms": 0.154,
+          "max_ms": 0.1585
+        },
+        "throughput": {
+          "gflops": 3457.13,
+          "bandwidth_gb_s": 872.72
+        },
+        "theory": {
+          "flops": 536870912,
+          "bytes": 135528448,
+          "arithmetic_intensity": 3.96
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups64_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1554,
+          "std_ms": 0.0005,
+          "min_ms": 0.1544,
+          "max_ms": 0.1568
+        },
+        "throughput": {
+          "gflops": 13817.14,
+          "bandwidth_gb_s": 897.3
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 139460608,
+          "arithmetic_intensity": 15.4
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups128_tokens_per_group8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2858,
+          "std_ms": 0.0006,
+          "min_ms": 0.2847,
+          "max_ms": 0.2882
+        },
+        "throughput": {
+          "gflops": 7514.21,
+          "bandwidth_gb_s": 957.62
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 273678336,
+          "arithmetic_intensity": 7.85
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups128_tokens_per_group32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2866,
+          "std_ms": 0.002,
+          "min_ms": 0.2852,
+          "max_ms": 0.3046
+        },
+        "throughput": {
+          "gflops": 29968.58,
+          "bandwidth_gb_s": 1009.68
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 289406976,
+          "arithmetic_intensity": 29.68
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups8_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3007,
+          "std_ms": 0.0006,
+          "min_ms": 0.2996,
+          "max_ms": 0.3043
+        },
+        "throughput": {
+          "gflops": 3570.67,
+          "bandwidth_gb_s": 894.85
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 269090816,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups8_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3014,
+          "std_ms": 0.0006,
+          "min_ms": 0.3001,
+          "max_ms": 0.3028
+        },
+        "throughput": {
+          "gflops": 14249.27,
+          "bandwidth_gb_s": 899.28
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 271056896,
+          "arithmetic_intensity": 15.85
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups8_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.302,
+          "std_ms": 0.0007,
+          "min_ms": 0.3009,
+          "max_ms": 0.3055
+        },
+        "throughput": {
+          "gflops": 56887.59,
+          "bandwidth_gb_s": 923.59
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 278921216,
+          "arithmetic_intensity": 61.59
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups32_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0823,
+          "std_ms": 0.0006,
+          "min_ms": 1.0809,
+          "max_ms": 1.0839
+        },
+        "throughput": {
+          "gflops": 3968.27,
+          "bandwidth_gb_s": 994.49
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 1076363264,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups32_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0817,
+          "std_ms": 0.0009,
+          "min_ms": 1.0801,
+          "max_ms": 1.0876
+        },
+        "throughput": {
+          "gflops": 15881.74,
+          "bandwidth_gb_s": 1002.3
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 1084227584,
+          "arithmetic_intensity": 15.85
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups32_tokens_per_group64",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.0825,
+          "std_ms": 0.001,
+          "min_ms": 1.0804,
+          "max_ms": 1.088
+        },
+        "throughput": {
+          "gflops": 63481.38,
+          "bandwidth_gb_s": 1030.64
+        },
+        "theory": {
+          "flops": 68719476736,
+          "bytes": 1115684864,
+          "arithmetic_intensity": 61.59
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups64_tokens_per_group4",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.1398,
+          "std_ms": 0.0012,
+          "min_ms": 2.1377,
+          "max_ms": 2.1456
+        },
+        "throughput": {
+          "gflops": 4014.39,
+          "bandwidth_gb_s": 1006.05
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 2152726528,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups64_tokens_per_group16",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.1399,
+          "std_ms": 0.001,
+          "min_ms": 2.1382,
+          "max_ms": 2.1432
+        },
+        "throughput": {
+          "gflops": 16056.67,
+          "bandwidth_gb_s": 1013.34
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 2168455168,
+          "arithmetic_intensity": 15.85
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups128_tokens_per_group8",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.2402,
+          "std_ms": 0.0015,
+          "min_ms": 4.2375,
+          "max_ms": 4.2474
+        },
+        "throughput": {
+          "gflops": 8103.3,
+          "bandwidth_gb_s": 1017.86
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 4315938816,
+          "arithmetic_intensity": 7.96
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups128_tokens_per_group32",
+      "provider": "nvidia",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.2434,
+          "std_ms": 0.0028,
+          "min_ms": 4.239,
+          "max_ms": 4.2552
+        },
+        "throughput": {
+          "gflops": 32389.1,
+          "bandwidth_gb_s": 1031.93
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 4378853376,
+          "arithmetic_intensity": 31.39
+        }
+      },
+      "impl_info": {
+        "source": "torch._grouped_mm (CUTLASS)",
+        "type": "cutlass"
+      }
+    }
+  ]
+}

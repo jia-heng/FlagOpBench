@@ -1,0 +1,552 @@
+{
+  "metadata": {
+    "timestamp": "2026-08-31T06:55:00.843087",
+    "provider": "flagos",
+    "platform": "nvidia",
+    "num_operators": 1,
+    "num_workloads": 14
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.11.0+cu130",
+    "platform": "nvidia",
+    "cuda_version": "13.0",
+    "device_name": "NVIDIA H20",
+    "device_count": 8,
+    "device_memory_gb": 95.1
+  },
+  "results": [
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b1_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1157,
+          "std_ms": 0.0052,
+          "min_ms": 0.1109,
+          "max_ms": 0.1413
+        },
+        "throughput": {
+          "gflops": 77.18,
+          "bandwidth_gb_s": 1.57
+        },
+        "theory": {
+          "flops": 8933376,
+          "bytes": 181504,
+          "arithmetic_intensity": 49.22
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b8_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1134,
+          "std_ms": 0.0022,
+          "min_ms": 0.1102,
+          "max_ms": 0.1257
+        },
+        "throughput": {
+          "gflops": 630.04,
+          "bandwidth_gb_s": 12.8
+        },
+        "theory": {
+          "flops": 71467008,
+          "bytes": 1452032,
+          "arithmetic_intensity": 49.22
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1133,
+          "std_ms": 0.0019,
+          "min_ms": 0.1097,
+          "max_ms": 0.1207
+        },
+        "throughput": {
+          "gflops": 2522.5,
+          "bandwidth_gb_s": 51.25
+        },
+        "theory": {
+          "flops": 285868032,
+          "bytes": 5808128,
+          "arithmetic_intensity": 49.22
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1228,
+          "std_ms": 0.0137,
+          "min_ms": 0.1188,
+          "max_ms": 0.2275
+        },
+        "throughput": {
+          "gflops": 4654.28,
+          "bandwidth_gb_s": 58.29
+        },
+        "theory": {
+          "flops": 571736064,
+          "bytes": 7159808,
+          "arithmetic_intensity": 79.85
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1203,
+          "std_ms": 0.0017,
+          "min_ms": 0.1174,
+          "max_ms": 0.1285
+        },
+        "throughput": {
+          "gflops": 9501.65,
+          "bandwidth_gb_s": 118.99
+        },
+        "theory": {
+          "flops": 1143472128,
+          "bytes": 14319616,
+          "arithmetic_intensity": 79.85
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq8192",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1369,
+          "std_ms": 0.0039,
+          "min_ms": 0.1337,
+          "max_ms": 0.1683
+        },
+        "throughput": {
+          "gflops": 16702.7,
+          "bandwidth_gb_s": 144.07
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 19726336,
+          "arithmetic_intensity": 115.93
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b128_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1393,
+          "std_ms": 0.0019,
+          "min_ms": 0.1368,
+          "max_ms": 0.151
+        },
+        "throughput": {
+          "gflops": 16411.96,
+          "bandwidth_gb_s": 205.53
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 28639232,
+          "arithmetic_intensity": 79.85
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b1_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1142,
+          "std_ms": 0.0029,
+          "min_ms": 0.1104,
+          "max_ms": 0.1327
+        },
+        "throughput": {
+          "gflops": 156.5,
+          "bandwidth_gb_s": 2.81
+        },
+        "theory": {
+          "flops": 17866752,
+          "bytes": 320768,
+          "arithmetic_intensity": 55.7
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b8_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1141,
+          "std_ms": 0.0017,
+          "min_ms": 0.1117,
+          "max_ms": 0.1221
+        },
+        "throughput": {
+          "gflops": 1252.27,
+          "bandwidth_gb_s": 22.48
+        },
+        "theory": {
+          "flops": 142934016,
+          "bytes": 2566144,
+          "arithmetic_intensity": 55.7
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq2048",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1145,
+          "std_ms": 0.0027,
+          "min_ms": 0.1099,
+          "max_ms": 0.1289
+        },
+        "throughput": {
+          "gflops": 4993.67,
+          "bandwidth_gb_s": 89.65
+        },
+        "theory": {
+          "flops": 571736064,
+          "bytes": 10264576,
+          "arithmetic_intensity": 55.7
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1219,
+          "std_ms": 0.0053,
+          "min_ms": 0.1183,
+          "max_ms": 0.1529
+        },
+        "throughput": {
+          "gflops": 9378.18,
+          "bandwidth_gb_s": 95.27
+        },
+        "theory": {
+          "flops": 1143472128,
+          "bytes": 11616256,
+          "arithmetic_intensity": 98.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1391,
+          "std_ms": 0.0014,
+          "min_ms": 0.1353,
+          "max_ms": 0.1435
+        },
+        "throughput": {
+          "gflops": 16441.14,
+          "bandwidth_gb_s": 167.02
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 23232512,
+          "arithmetic_intensity": 98.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq8192",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1709,
+          "std_ms": 0.0022,
+          "min_ms": 0.167,
+          "max_ms": 0.1782
+        },
+        "throughput": {
+          "gflops": 26769.28,
+          "bandwidth_gb_s": 167.61
+        },
+        "theory": {
+          "flops": 4573888512,
+          "bytes": 28639232,
+          "arithmetic_intensity": 159.71
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b128_max_seq4096",
+      "provider": "flagos",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1788,
+          "std_ms": 0.002,
+          "min_ms": 0.1759,
+          "max_ms": 0.1892
+        },
+        "throughput": {
+          "gflops": 25579.38,
+          "bandwidth_gb_s": 259.85
+        },
+        "theory": {
+          "flops": 4573888512,
+          "bytes": 46465024,
+          "arithmetic_intensity": 98.44
+        }
+      },
+      "impl_info": {
+        "source": "flaggems_vllm.flash_mla_with_kvcache",
+        "type": "triton"
+      }
+    }
+  ]
+}
