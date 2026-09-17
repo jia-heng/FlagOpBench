@@ -63,6 +63,9 @@ class FlashMLAOperator(BaseOperator):
         h_kv = params.get("h_kv", 1)
         d = params.get("d", 576)
         dv = params.get("dv", 512)
+        # MLA：d>dv 时 KV head 应为 1；yaml 误写 h_kv=128 会把 blocked_k 撑到几十 GB
+        if d > dv and h_kv > 1:
+            h_kv = 1
         block_size = params.get("block_size", 64)
         max_seq = params.get("max_seq", 4096)
         dtype = self.get_dtype(params.get("dtype", "bfloat16"))

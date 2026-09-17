@@ -1,0 +1,2199 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:56.147876",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 70,
+    "baseline_file": "E:\\BAAI\\results\\top_k_per_row_decode\\top_k_per_row_decode_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\top_k_per_row_decode\\top_k_per_row_decode_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 70,
+    "faster": 0,
+    "slower": 70,
+    "on_par": 0,
+    "avg_speedup": 0.2806
+  },
+  "comparisons": [
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0323,
+        "std_ms": 0.0,
+        "min_ms": 0.0323,
+        "max_ms": 0.0323,
+        "bandwidth_gb_s": 0.03,
+        "gflops": 0.03,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2452,
+        "std_ms": 0.0,
+        "min_ms": 0.2452,
+        "max_ms": 0.2452,
+        "bandwidth_gb_s": 0.0,
+        "gflops": 0.0,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1317,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0284,
+        "std_ms": 0.0,
+        "min_ms": 0.0284,
+        "max_ms": 0.0284,
+        "bandwidth_gb_s": 0.3,
+        "gflops": 0.29,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1313,
+        "std_ms": 0.0,
+        "min_ms": 0.1313,
+        "max_ms": 0.1313,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.06,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2163,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0274,
+        "std_ms": 0.0,
+        "min_ms": 0.0274,
+        "max_ms": 0.0274,
+        "bandwidth_gb_s": 1.24,
+        "gflops": 1.2,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1252,
+        "std_ms": 0.0,
+        "min_ms": 0.1252,
+        "max_ms": 0.1252,
+        "bandwidth_gb_s": 0.27,
+        "gflops": 0.26,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2188,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0235,
+        "std_ms": 0.0,
+        "min_ms": 0.0235,
+        "max_ms": 0.0235,
+        "bandwidth_gb_s": 2.89,
+        "gflops": 2.79,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1275,
+        "std_ms": 0.0,
+        "min_ms": 0.1275,
+        "max_ms": 0.1275,
+        "bandwidth_gb_s": 0.53,
+        "gflops": 0.51,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1843,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0274,
+        "std_ms": 0.0,
+        "min_ms": 0.0274,
+        "max_ms": 0.0274,
+        "bandwidth_gb_s": 4.95,
+        "gflops": 4.79,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1362,
+        "std_ms": 0.0,
+        "min_ms": 0.1362,
+        "max_ms": 0.1362,
+        "bandwidth_gb_s": 1.0,
+        "gflops": 0.96,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2012,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0361,
+        "std_ms": 0.0,
+        "min_ms": 0.0361,
+        "max_ms": 0.0361,
+        "bandwidth_gb_s": 7.52,
+        "gflops": 7.26,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1403,
+        "std_ms": 0.0,
+        "min_ms": 0.1403,
+        "max_ms": 0.1403,
+        "bandwidth_gb_s": 1.93,
+        "gflops": 1.87,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2573,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0448,
+        "std_ms": 0.0,
+        "min_ms": 0.0448,
+        "max_ms": 0.0448,
+        "bandwidth_gb_s": 12.11,
+        "gflops": 11.7,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1682,
+        "std_ms": 0.0,
+        "min_ms": 0.1682,
+        "max_ms": 0.1682,
+        "bandwidth_gb_s": 3.23,
+        "gflops": 3.12,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2663,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0714,
+        "std_ms": 0.0,
+        "min_ms": 0.0714,
+        "max_ms": 0.0714,
+        "bandwidth_gb_s": 15.2,
+        "gflops": 14.68,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2409,
+        "std_ms": 0.0,
+        "min_ms": 0.2409,
+        "max_ms": 0.2409,
+        "bandwidth_gb_s": 4.51,
+        "gflops": 4.35,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2964,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1085,
+        "std_ms": 0.0,
+        "min_ms": 0.1085,
+        "max_ms": 0.1085,
+        "bandwidth_gb_s": 20.0,
+        "gflops": 19.32,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3884,
+        "std_ms": 0.0,
+        "min_ms": 0.3884,
+        "max_ms": 0.3884,
+        "bandwidth_gb_s": 5.59,
+        "gflops": 5.4,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2794,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 8,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1925,
+        "std_ms": 0.0,
+        "min_ms": 0.1925,
+        "max_ms": 0.1925,
+        "bandwidth_gb_s": 22.55,
+        "gflops": 21.79,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.7043,
+        "std_ms": 0.0,
+        "min_ms": 0.7043,
+        "max_ms": 0.7043,
+        "bandwidth_gb_s": 6.17,
+        "gflops": 5.96,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2733,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0222,
+        "std_ms": 0.0,
+        "min_ms": 0.0222,
+        "max_ms": 0.0222,
+        "bandwidth_gb_s": 0.05,
+        "gflops": 0.05,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2916,
+        "std_ms": 0.0,
+        "min_ms": 0.2916,
+        "max_ms": 0.2916,
+        "bandwidth_gb_s": 0.0,
+        "gflops": 0.0,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.0761,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0269,
+        "std_ms": 0.0,
+        "min_ms": 0.0269,
+        "max_ms": 0.0269,
+        "bandwidth_gb_s": 0.31,
+        "gflops": 0.3,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0773,
+        "std_ms": 0.0,
+        "min_ms": 0.0773,
+        "max_ms": 0.0773,
+        "bandwidth_gb_s": 0.11,
+        "gflops": 0.11,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.348,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0228,
+        "std_ms": 0.0,
+        "min_ms": 0.0228,
+        "max_ms": 0.0228,
+        "bandwidth_gb_s": 1.47,
+        "gflops": 1.43,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0755,
+        "std_ms": 0.0,
+        "min_ms": 0.0755,
+        "max_ms": 0.0755,
+        "bandwidth_gb_s": 0.45,
+        "gflops": 0.43,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.302,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0269,
+        "std_ms": 0.0,
+        "min_ms": 0.0269,
+        "max_ms": 0.0269,
+        "bandwidth_gb_s": 2.5,
+        "gflops": 2.44,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0701,
+        "std_ms": 0.0,
+        "min_ms": 0.0701,
+        "max_ms": 0.0701,
+        "bandwidth_gb_s": 0.96,
+        "gflops": 0.93,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3837,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0279,
+        "std_ms": 0.0,
+        "min_ms": 0.0279,
+        "max_ms": 0.0279,
+        "bandwidth_gb_s": 4.83,
+        "gflops": 4.7,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0671,
+        "std_ms": 0.0,
+        "min_ms": 0.0671,
+        "max_ms": 0.0671,
+        "bandwidth_gb_s": 2.01,
+        "gflops": 1.95,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.4158,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0308,
+        "std_ms": 0.0,
+        "min_ms": 0.0308,
+        "max_ms": 0.0308,
+        "bandwidth_gb_s": 8.73,
+        "gflops": 8.5,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0732,
+        "std_ms": 0.0,
+        "min_ms": 0.0732,
+        "max_ms": 0.0732,
+        "bandwidth_gb_s": 3.68,
+        "gflops": 3.58,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.4208,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.043,
+        "std_ms": 0.0,
+        "min_ms": 0.043,
+        "max_ms": 0.043,
+        "bandwidth_gb_s": 12.52,
+        "gflops": 12.19,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.095,
+        "std_ms": 0.0,
+        "min_ms": 0.095,
+        "max_ms": 0.095,
+        "bandwidth_gb_s": 5.67,
+        "gflops": 5.52,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.4526,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0622,
+        "std_ms": 0.0,
+        "min_ms": 0.0622,
+        "max_ms": 0.0622,
+        "bandwidth_gb_s": 17.32,
+        "gflops": 16.86,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1244,
+        "std_ms": 0.0,
+        "min_ms": 0.1244,
+        "max_ms": 0.1244,
+        "bandwidth_gb_s": 8.66,
+        "gflops": 8.43,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.5,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1009,
+        "std_ms": 0.0,
+        "min_ms": 0.1009,
+        "max_ms": 0.1009,
+        "bandwidth_gb_s": 21.36,
+        "gflops": 20.79,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1769,
+        "std_ms": 0.0,
+        "min_ms": 0.1769,
+        "max_ms": 0.1769,
+        "bandwidth_gb_s": 12.18,
+        "gflops": 11.86,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.5704,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 256,
+        "topk": 6,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1779,
+        "std_ms": 0.0,
+        "min_ms": 0.1779,
+        "max_ms": 0.1779,
+        "bandwidth_gb_s": 24.22,
+        "gflops": 23.57,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2913,
+        "std_ms": 0.0,
+        "min_ms": 0.2913,
+        "max_ms": 0.2913,
+        "bandwidth_gb_s": 14.79,
+        "gflops": 14.4,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.6107,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0256,
+        "std_ms": 0.0,
+        "min_ms": 0.0256,
+        "max_ms": 0.0256,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.06,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0717,
+        "std_ms": 0.0,
+        "min_ms": 0.0717,
+        "max_ms": 0.0717,
+        "bandwidth_gb_s": 0.02,
+        "gflops": 0.02,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.357,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.023,
+        "std_ms": 0.0,
+        "min_ms": 0.023,
+        "max_ms": 0.023,
+        "bandwidth_gb_s": 0.54,
+        "gflops": 0.53,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0696,
+        "std_ms": 0.0,
+        "min_ms": 0.0696,
+        "max_ms": 0.0696,
+        "bandwidth_gb_s": 0.18,
+        "gflops": 0.18,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3305,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0266,
+        "std_ms": 0.0,
+        "min_ms": 0.0266,
+        "max_ms": 0.0266,
+        "bandwidth_gb_s": 1.88,
+        "gflops": 1.85,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0686,
+        "std_ms": 0.0,
+        "min_ms": 0.0686,
+        "max_ms": 0.0686,
+        "bandwidth_gb_s": 0.73,
+        "gflops": 0.72,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3878,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0266,
+        "std_ms": 0.0,
+        "min_ms": 0.0266,
+        "max_ms": 0.0266,
+        "bandwidth_gb_s": 3.76,
+        "gflops": 3.69,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0676,
+        "std_ms": 0.0,
+        "min_ms": 0.0676,
+        "max_ms": 0.0676,
+        "bandwidth_gb_s": 1.48,
+        "gflops": 1.45,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3935,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0274,
+        "std_ms": 0.0,
+        "min_ms": 0.0274,
+        "max_ms": 0.0274,
+        "bandwidth_gb_s": 7.31,
+        "gflops": 7.18,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0699,
+        "std_ms": 0.0,
+        "min_ms": 0.0699,
+        "max_ms": 0.0699,
+        "bandwidth_gb_s": 2.86,
+        "gflops": 2.81,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.392,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0306,
+        "std_ms": 0.0,
+        "min_ms": 0.0306,
+        "max_ms": 0.0306,
+        "bandwidth_gb_s": 13.09,
+        "gflops": 12.86,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0724,
+        "std_ms": 0.0,
+        "min_ms": 0.0724,
+        "max_ms": 0.0724,
+        "bandwidth_gb_s": 5.53,
+        "gflops": 5.43,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.4227,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0377,
+        "std_ms": 0.0,
+        "min_ms": 0.0377,
+        "max_ms": 0.0377,
+        "bandwidth_gb_s": 21.23,
+        "gflops": 20.85,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0978,
+        "std_ms": 0.0,
+        "min_ms": 0.0978,
+        "max_ms": 0.0978,
+        "bandwidth_gb_s": 8.19,
+        "gflops": 8.04,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3855,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0581,
+        "std_ms": 0.0,
+        "min_ms": 0.0581,
+        "max_ms": 0.0581,
+        "bandwidth_gb_s": 27.56,
+        "gflops": 27.07,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1242,
+        "std_ms": 0.0,
+        "min_ms": 0.1242,
+        "max_ms": 0.1242,
+        "bandwidth_gb_s": 12.9,
+        "gflops": 12.67,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.4678,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.094,
+        "std_ms": 0.0,
+        "min_ms": 0.094,
+        "max_ms": 0.094,
+        "bandwidth_gb_s": 34.09,
+        "gflops": 33.48,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1833,
+        "std_ms": 0.0,
+        "min_ms": 0.1833,
+        "max_ms": 0.1833,
+        "bandwidth_gb_s": 17.47,
+        "gflops": 17.16,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.5128,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 6,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.162,
+        "std_ms": 0.0,
+        "min_ms": 0.162,
+        "max_ms": 0.162,
+        "bandwidth_gb_s": 39.53,
+        "gflops": 38.82,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2993,
+        "std_ms": 0.0,
+        "min_ms": 0.2993,
+        "max_ms": 0.2993,
+        "bandwidth_gb_s": 21.41,
+        "gflops": 21.02,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.5413,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0216,
+        "std_ms": 0.0,
+        "min_ms": 0.0216,
+        "max_ms": 0.0216,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2629,
+        "std_ms": 0.0,
+        "min_ms": 0.2629,
+        "max_ms": 0.2629,
+        "bandwidth_gb_s": 0.0,
+        "gflops": 0.0,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.0822,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0237,
+        "std_ms": 0.0,
+        "min_ms": 0.0237,
+        "max_ms": 0.0237,
+        "bandwidth_gb_s": 0.09,
+        "gflops": 0.09,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1464,
+        "std_ms": 0.0,
+        "min_ms": 0.1464,
+        "max_ms": 0.1464,
+        "bandwidth_gb_s": 0.02,
+        "gflops": 0.01,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1619,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0271,
+        "std_ms": 0.0,
+        "min_ms": 0.0271,
+        "max_ms": 0.0271,
+        "bandwidth_gb_s": 0.33,
+        "gflops": 0.3,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1405,
+        "std_ms": 0.0,
+        "min_ms": 0.1405,
+        "max_ms": 0.1405,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.06,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1929,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0234,
+        "std_ms": 0.0,
+        "min_ms": 0.0234,
+        "max_ms": 0.0234,
+        "bandwidth_gb_s": 0.75,
+        "gflops": 0.7,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1398,
+        "std_ms": 0.0,
+        "min_ms": 0.1398,
+        "max_ms": 0.1398,
+        "bandwidth_gb_s": 0.13,
+        "gflops": 0.12,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1674,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0247,
+        "std_ms": 0.0,
+        "min_ms": 0.0247,
+        "max_ms": 0.0247,
+        "bandwidth_gb_s": 1.43,
+        "gflops": 1.32,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1382,
+        "std_ms": 0.0,
+        "min_ms": 0.1382,
+        "max_ms": 0.1382,
+        "bandwidth_gb_s": 0.26,
+        "gflops": 0.24,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1787,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0348,
+        "std_ms": 0.0,
+        "min_ms": 0.0348,
+        "max_ms": 0.0348,
+        "bandwidth_gb_s": 2.03,
+        "gflops": 1.88,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1469,
+        "std_ms": 0.0,
+        "min_ms": 0.1469,
+        "max_ms": 0.1469,
+        "bandwidth_gb_s": 0.48,
+        "gflops": 0.45,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2369,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0445,
+        "std_ms": 0.0,
+        "min_ms": 0.0445,
+        "max_ms": 0.0445,
+        "bandwidth_gb_s": 3.17,
+        "gflops": 2.94,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1956,
+        "std_ms": 0.0,
+        "min_ms": 0.1956,
+        "max_ms": 0.1956,
+        "bandwidth_gb_s": 0.72,
+        "gflops": 0.67,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2275,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0621,
+        "std_ms": 0.0,
+        "min_ms": 0.0621,
+        "max_ms": 0.0621,
+        "bandwidth_gb_s": 4.55,
+        "gflops": 4.22,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2278,
+        "std_ms": 0.0,
+        "min_ms": 0.2278,
+        "max_ms": 0.2278,
+        "bandwidth_gb_s": 1.24,
+        "gflops": 1.15,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2726,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1096,
+        "std_ms": 0.0,
+        "min_ms": 0.1096,
+        "max_ms": 0.1096,
+        "bandwidth_gb_s": 5.16,
+        "gflops": 4.79,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.332,
+        "std_ms": 0.0,
+        "min_ms": 0.332,
+        "max_ms": 0.332,
+        "bandwidth_gb_s": 1.7,
+        "gflops": 1.58,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3301,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 64,
+        "topk": 4,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1958,
+        "std_ms": 0.0,
+        "min_ms": 0.1958,
+        "max_ms": 0.1958,
+        "bandwidth_gb_s": 5.77,
+        "gflops": 5.35,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5573,
+        "std_ms": 0.0,
+        "min_ms": 0.5573,
+        "max_ms": 0.5573,
+        "bandwidth_gb_s": 2.03,
+        "gflops": 1.88,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3513,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.024,
+        "std_ms": 0.0,
+        "min_ms": 0.024,
+        "max_ms": 0.024,
+        "bandwidth_gb_s": 0.07,
+        "gflops": 0.06,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.16,
+        "std_ms": 0.0,
+        "min_ms": 0.16,
+        "max_ms": 0.16,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.15,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0261,
+        "std_ms": 0.0,
+        "min_ms": 0.0261,
+        "max_ms": 0.0261,
+        "bandwidth_gb_s": 0.48,
+        "gflops": 0.47,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1585,
+        "std_ms": 0.0,
+        "min_ms": 0.1585,
+        "max_ms": 0.1585,
+        "bandwidth_gb_s": 0.08,
+        "gflops": 0.08,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1647,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.023,
+        "std_ms": 0.0,
+        "min_ms": 0.023,
+        "max_ms": 0.023,
+        "bandwidth_gb_s": 2.19,
+        "gflops": 2.14,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1582,
+        "std_ms": 0.0,
+        "min_ms": 0.1582,
+        "max_ms": 0.1582,
+        "bandwidth_gb_s": 0.32,
+        "gflops": 0.31,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1454,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0234,
+        "std_ms": 0.0,
+        "min_ms": 0.0234,
+        "max_ms": 0.0234,
+        "bandwidth_gb_s": 4.3,
+        "gflops": 4.2,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1603,
+        "std_ms": 0.0,
+        "min_ms": 0.1603,
+        "max_ms": 0.1603,
+        "bandwidth_gb_s": 0.63,
+        "gflops": 0.61,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.146,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0244,
+        "std_ms": 0.0,
+        "min_ms": 0.0244,
+        "max_ms": 0.0244,
+        "bandwidth_gb_s": 8.24,
+        "gflops": 8.05,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1516,
+        "std_ms": 0.0,
+        "min_ms": 0.1516,
+        "max_ms": 0.1516,
+        "bandwidth_gb_s": 1.33,
+        "gflops": 1.3,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1609,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0358,
+        "std_ms": 0.0,
+        "min_ms": 0.0358,
+        "max_ms": 0.0358,
+        "bandwidth_gb_s": 11.23,
+        "gflops": 10.97,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1646,
+        "std_ms": 0.0,
+        "min_ms": 0.1646,
+        "max_ms": 0.1646,
+        "bandwidth_gb_s": 2.44,
+        "gflops": 2.39,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2175,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0382,
+        "std_ms": 0.0,
+        "min_ms": 0.0382,
+        "max_ms": 0.0382,
+        "bandwidth_gb_s": 21.07,
+        "gflops": 20.58,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1992,
+        "std_ms": 0.0,
+        "min_ms": 0.1992,
+        "max_ms": 0.1992,
+        "bandwidth_gb_s": 4.04,
+        "gflops": 3.95,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.1918,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0625,
+        "std_ms": 0.0,
+        "min_ms": 0.0625,
+        "max_ms": 0.0625,
+        "bandwidth_gb_s": 25.77,
+        "gflops": 25.18,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.233,
+        "std_ms": 0.0,
+        "min_ms": 0.233,
+        "max_ms": 0.233,
+        "bandwidth_gb_s": 6.91,
+        "gflops": 6.75,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2682,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1014,
+        "std_ms": 0.0,
+        "min_ms": 0.1014,
+        "max_ms": 0.1014,
+        "bandwidth_gb_s": 31.76,
+        "gflops": 31.03,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.405,
+        "std_ms": 0.0,
+        "min_ms": 0.405,
+        "max_ms": 0.405,
+        "bandwidth_gb_s": 7.95,
+        "gflops": 7.77,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2504,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 384,
+        "topk": 8,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1738,
+        "std_ms": 0.0,
+        "min_ms": 0.1738,
+        "max_ms": 0.1738,
+        "bandwidth_gb_s": 37.04,
+        "gflops": 36.19,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.6231,
+        "std_ms": 0.0,
+        "min_ms": 0.6231,
+        "max_ms": 0.6231,
+        "bandwidth_gb_s": 10.33,
+        "gflops": 10.1,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2789,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0224,
+        "std_ms": 0.0,
+        "min_ms": 0.0224,
+        "max_ms": 0.0224,
+        "bandwidth_gb_s": 0.16,
+        "gflops": 0.16,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.286,
+        "std_ms": 0.0,
+        "min_ms": 0.286,
+        "max_ms": 0.286,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.0783,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0264,
+        "std_ms": 0.0,
+        "min_ms": 0.0264,
+        "max_ms": 0.0264,
+        "bandwidth_gb_s": 1.11,
+        "gflops": 1.09,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.096,
+        "std_ms": 0.0,
+        "min_ms": 0.096,
+        "max_ms": 0.096,
+        "bandwidth_gb_s": 0.3,
+        "gflops": 0.3,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.275,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0236,
+        "std_ms": 0.0,
+        "min_ms": 0.0236,
+        "max_ms": 0.0236,
+        "bandwidth_gb_s": 4.96,
+        "gflops": 4.86,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0891,
+        "std_ms": 0.0,
+        "min_ms": 0.0891,
+        "max_ms": 0.0891,
+        "bandwidth_gb_s": 1.31,
+        "gflops": 1.29,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2649,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0264,
+        "std_ms": 0.0,
+        "min_ms": 0.0264,
+        "max_ms": 0.0264,
+        "bandwidth_gb_s": 8.86,
+        "gflops": 8.7,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0965,
+        "std_ms": 0.0,
+        "min_ms": 0.0965,
+        "max_ms": 0.0965,
+        "bandwidth_gb_s": 2.42,
+        "gflops": 2.38,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2736,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.025,
+        "std_ms": 0.0,
+        "min_ms": 0.025,
+        "max_ms": 0.025,
+        "bandwidth_gb_s": 18.68,
+        "gflops": 18.33,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0975,
+        "std_ms": 0.0,
+        "min_ms": 0.0975,
+        "max_ms": 0.0975,
+        "bandwidth_gb_s": 4.79,
+        "gflops": 4.7,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2564,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0315,
+        "std_ms": 0.0,
+        "min_ms": 0.0315,
+        "max_ms": 0.0315,
+        "bandwidth_gb_s": 29.73,
+        "gflops": 29.17,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0868,
+        "std_ms": 0.0,
+        "min_ms": 0.0868,
+        "max_ms": 0.0868,
+        "bandwidth_gb_s": 10.77,
+        "gflops": 10.57,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3629,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0386,
+        "std_ms": 0.0,
+        "min_ms": 0.0386,
+        "max_ms": 0.0386,
+        "bandwidth_gb_s": 48.43,
+        "gflops": 47.52,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1267,
+        "std_ms": 0.0,
+        "min_ms": 0.1267,
+        "max_ms": 0.1267,
+        "bandwidth_gb_s": 14.76,
+        "gflops": 14.48,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3047,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0569,
+        "std_ms": 0.0,
+        "min_ms": 0.0569,
+        "max_ms": 0.0569,
+        "bandwidth_gb_s": 65.72,
+        "gflops": 64.5,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1687,
+        "std_ms": 0.0,
+        "min_ms": 0.1687,
+        "max_ms": 0.1687,
+        "bandwidth_gb_s": 22.17,
+        "gflops": 21.75,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3373,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0936,
+        "std_ms": 0.0,
+        "min_ms": 0.0936,
+        "max_ms": 0.0936,
+        "bandwidth_gb_s": 79.92,
+        "gflops": 78.43,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2829,
+        "std_ms": 0.0,
+        "min_ms": 0.2829,
+        "max_ms": 0.2829,
+        "bandwidth_gb_s": 26.44,
+        "gflops": 25.95,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3309,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 896,
+        "topk": 16,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1708,
+        "std_ms": 0.0,
+        "min_ms": 0.1708,
+        "max_ms": 0.1708,
+        "bandwidth_gb_s": 87.6,
+        "gflops": 85.97,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4997,
+        "std_ms": 0.0,
+        "min_ms": 0.4997,
+        "max_ms": 0.4997,
+        "bandwidth_gb_s": 29.93,
+        "gflops": 29.38,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.3418,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0238,
+        "std_ms": 0.0,
+        "min_ms": 0.0238,
+        "max_ms": 0.0238,
+        "bandwidth_gb_s": 0.09,
+        "gflops": 0.09,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2488,
+        "std_ms": 0.0,
+        "min_ms": 0.2488,
+        "max_ms": 0.2488,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.0957,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0269,
+        "std_ms": 0.0,
+        "min_ms": 0.0269,
+        "max_ms": 0.0269,
+        "bandwidth_gb_s": 0.62,
+        "gflops": 0.61,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1206,
+        "std_ms": 0.0,
+        "min_ms": 0.1206,
+        "max_ms": 0.1206,
+        "bandwidth_gb_s": 0.14,
+        "gflops": 0.14,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2231,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0224,
+        "std_ms": 0.0,
+        "min_ms": 0.0224,
+        "max_ms": 0.0224,
+        "bandwidth_gb_s": 3.0,
+        "gflops": 2.93,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1137,
+        "std_ms": 0.0,
+        "min_ms": 0.1137,
+        "max_ms": 0.1137,
+        "bandwidth_gb_s": 0.59,
+        "gflops": 0.58,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.197,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0234,
+        "std_ms": 0.0,
+        "min_ms": 0.0234,
+        "max_ms": 0.0234,
+        "bandwidth_gb_s": 5.72,
+        "gflops": 5.6,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1142,
+        "std_ms": 0.0,
+        "min_ms": 0.1142,
+        "max_ms": 0.1142,
+        "bandwidth_gb_s": 1.17,
+        "gflops": 1.15,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2049,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0241,
+        "std_ms": 0.0,
+        "min_ms": 0.0241,
+        "max_ms": 0.0241,
+        "bandwidth_gb_s": 11.09,
+        "gflops": 10.86,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1165,
+        "std_ms": 0.0,
+        "min_ms": 0.1165,
+        "max_ms": 0.1165,
+        "bandwidth_gb_s": 2.3,
+        "gflops": 2.25,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2069,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0308,
+        "std_ms": 0.0,
+        "min_ms": 0.0308,
+        "max_ms": 0.0308,
+        "bandwidth_gb_s": 17.41,
+        "gflops": 17.04,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1285,
+        "std_ms": 0.0,
+        "min_ms": 0.1285,
+        "max_ms": 0.1285,
+        "bandwidth_gb_s": 4.17,
+        "gflops": 4.08,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2397,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.042,
+        "std_ms": 0.0,
+        "min_ms": 0.042,
+        "max_ms": 0.042,
+        "bandwidth_gb_s": 25.51,
+        "gflops": 24.98,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1887,
+        "std_ms": 0.0,
+        "min_ms": 0.1887,
+        "max_ms": 0.1887,
+        "bandwidth_gb_s": 5.68,
+        "gflops": 5.56,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2226,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0566,
+        "std_ms": 0.0,
+        "min_ms": 0.0566,
+        "max_ms": 0.0566,
+        "bandwidth_gb_s": 37.82,
+        "gflops": 37.03,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2693,
+        "std_ms": 0.0,
+        "min_ms": 0.2693,
+        "max_ms": 0.2693,
+        "bandwidth_gb_s": 7.95,
+        "gflops": 7.79,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2102,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0938,
+        "std_ms": 0.0,
+        "min_ms": 0.0938,
+        "max_ms": 0.0938,
+        "bandwidth_gb_s": 45.66,
+        "gflops": 44.7,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4224,
+        "std_ms": 0.0,
+        "min_ms": 0.4224,
+        "max_ms": 0.4224,
+        "bandwidth_gb_s": 10.14,
+        "gflops": 9.93,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2221,
+      "verdict": "slower"
+    },
+    {
+      "operator": "top_k_per_row_decode",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 512,
+        "topk": 10,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1708,
+        "std_ms": 0.0,
+        "min_ms": 0.1708,
+        "max_ms": 0.1708,
+        "bandwidth_gb_s": 50.18,
+        "gflops": 49.13,
+        "impl_source": "torch.ops._C.top_k_per_row_decode (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.7634,
+        "std_ms": 0.0,
+        "min_ms": 0.7634,
+        "max_ms": 0.7634,
+        "bandwidth_gb_s": 11.22,
+        "gflops": 10.99,
+        "impl_source": "flag_gems.top_k_per_row_decode (non_tle launch, block=128)"
+      },
+      "speedup": 0.2237,
+      "verdict": "slower"
+    }
+  ]
+}

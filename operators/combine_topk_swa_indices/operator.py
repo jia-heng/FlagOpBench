@@ -60,10 +60,10 @@ class CombineTopkSwaIndicesOperator(BaseOperator):
         total_tokens = num_reqs * seq_len
         compressed_len = seq_len // compress_ratio
 
-        # query_start_loc: cumulative start positions
+        # query_start_loc: cu_seqlens 风格，长度 num_reqs+1（末尾=total_tokens）
         query_start_loc = torch.arange(
-            0, total_tokens, seq_len, dtype=torch.int32, device="cuda"
-        )
+            0, num_reqs + 1, dtype=torch.int32, device="cuda"
+        ) * seq_len
 
         seq_lens = torch.full(
             (num_reqs,), seq_len, dtype=torch.int32, device="cuda"

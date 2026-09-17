@@ -1,0 +1,881 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:55.196125",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 24,
+    "baseline_file": "E:\\BAAI\\results\\combine_topk_swa_indices\\combine_topk_swa_indices_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\combine_topk_swa_indices\\combine_topk_swa_indices_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 24,
+    "faster": 24,
+    "slower": 0,
+    "on_par": 0,
+    "avg_speedup": 294.189
+  },
+  "comparisons": [
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 17.9074,
+        "std_ms": 0.0472,
+        "min_ms": 17.868,
+        "max_ms": 17.9779,
+        "bandwidth_gb_s": 0.48,
+        "gflops": 0.12,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0739,
+        "std_ms": 0.0128,
+        "min_ms": 0.0617,
+        "max_ms": 0.094,
+        "bandwidth_gb_s": 117.12,
+        "gflops": 30.16,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 242.3194,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 19.0665,
+        "std_ms": 1.6004,
+        "min_ms": 18.3055,
+        "max_ms": 21.9282,
+        "bandwidth_gb_s": 1.82,
+        "gflops": 0.47,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.091,
+        "std_ms": 0.0043,
+        "min_ms": 0.0865,
+        "max_ms": 0.0957,
+        "bandwidth_gb_s": 380.2,
+        "gflops": 97.91,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 209.522,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 19.3132,
+        "std_ms": 0.0551,
+        "min_ms": 19.255,
+        "max_ms": 19.3981,
+        "bandwidth_gb_s": 3.58,
+        "gflops": 0.92,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1285,
+        "std_ms": 0.0033,
+        "min_ms": 0.1247,
+        "max_ms": 0.1336,
+        "bandwidth_gb_s": 538.65,
+        "gflops": 138.71,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 150.2973,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 73.865,
+        "std_ms": 1.5362,
+        "min_ms": 72.9697,
+        "max_ms": 76.6029,
+        "bandwidth_gb_s": 1.87,
+        "gflops": 0.48,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.176,
+        "std_ms": 0.0034,
+        "min_ms": 0.172,
+        "max_ms": 0.1802,
+        "bandwidth_gb_s": 786.73,
+        "gflops": 202.6,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 419.6875,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 76.79,
+        "std_ms": 0.1371,
+        "min_ms": 76.6054,
+        "max_ms": 76.9925,
+        "bandwidth_gb_s": 3.61,
+        "gflops": 0.93,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3372,
+        "std_ms": 0.0058,
+        "min_ms": 0.3331,
+        "max_ms": 0.3471,
+        "bandwidth_gb_s": 821.26,
+        "gflops": 211.49,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 227.7284,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 21.1587,
+        "std_ms": 1.6539,
+        "min_ms": 20.3543,
+        "max_ms": 24.1162,
+        "bandwidth_gb_s": 6.54,
+        "gflops": 1.68,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.227,
+        "std_ms": 0.0033,
+        "min_ms": 0.223,
+        "max_ms": 0.2322,
+        "bandwidth_gb_s": 609.97,
+        "gflops": 157.08,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 93.2101,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 17.9831,
+        "std_ms": 0.0337,
+        "min_ms": 17.9456,
+        "max_ms": 18.0196,
+        "bandwidth_gb_s": 0.13,
+        "gflops": 0.04,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0635,
+        "std_ms": 0.0132,
+        "min_ms": 0.0522,
+        "max_ms": 0.0847,
+        "bandwidth_gb_s": 37.19,
+        "gflops": 10.32,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 283.1984,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 18.3187,
+        "std_ms": 0.029,
+        "min_ms": 18.2789,
+        "max_ms": 18.3544,
+        "bandwidth_gb_s": 0.52,
+        "gflops": 0.14,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.064,
+        "std_ms": 0.0041,
+        "min_ms": 0.0602,
+        "max_ms": 0.0709,
+        "bandwidth_gb_s": 147.58,
+        "gflops": 40.96,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 286.2297,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 19.1631,
+        "std_ms": 0.0418,
+        "min_ms": 19.0968,
+        "max_ms": 19.2077,
+        "bandwidth_gb_s": 0.99,
+        "gflops": 0.27,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0772,
+        "std_ms": 0.0037,
+        "min_ms": 0.0735,
+        "max_ms": 0.0827,
+        "bandwidth_gb_s": 244.67,
+        "gflops": 67.9,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 248.2267,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 73.797,
+        "std_ms": 1.4983,
+        "min_ms": 72.9736,
+        "max_ms": 76.4662,
+        "bandwidth_gb_s": 0.51,
+        "gflops": 0.14,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0844,
+        "std_ms": 0.0024,
+        "min_ms": 0.0817,
+        "max_ms": 0.0881,
+        "bandwidth_gb_s": 447.5,
+        "gflops": 124.2,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 874.372,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 76.7405,
+        "std_ms": 0.3449,
+        "min_ms": 76.5368,
+        "max_ms": 77.3478,
+        "bandwidth_gb_s": 0.98,
+        "gflops": 0.27,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1205,
+        "std_ms": 0.0031,
+        "min_ms": 0.1175,
+        "max_ms": 0.1252,
+        "bandwidth_gb_s": 626.95,
+        "gflops": 174.0,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 636.8506,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 19.991,
+        "std_ms": 0.0556,
+        "min_ms": 19.9355,
+        "max_ms": 20.0509,
+        "bandwidth_gb_s": 1.89,
+        "gflops": 0.52,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1074,
+        "std_ms": 0.0027,
+        "min_ms": 0.105,
+        "max_ms": 0.1114,
+        "bandwidth_gb_s": 351.89,
+        "gflops": 97.66,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 186.1359,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 17.9623,
+        "std_ms": 0.0517,
+        "min_ms": 17.8842,
+        "max_ms": 18.0234,
+        "bandwidth_gb_s": 0.25,
+        "gflops": 0.07,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0659,
+        "std_ms": 0.0124,
+        "min_ms": 0.0553,
+        "max_ms": 0.0868,
+        "bandwidth_gb_s": 67.66,
+        "gflops": 17.9,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 272.569,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 18.3827,
+        "std_ms": 0.1012,
+        "min_ms": 18.2707,
+        "max_ms": 18.4909,
+        "bandwidth_gb_s": 0.97,
+        "gflops": 0.26,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0715,
+        "std_ms": 0.0035,
+        "min_ms": 0.0691,
+        "max_ms": 0.0776,
+        "bandwidth_gb_s": 249.51,
+        "gflops": 66.02,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 257.1007,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 19.2909,
+        "std_ms": 0.0859,
+        "min_ms": 19.2325,
+        "max_ms": 19.4414,
+        "bandwidth_gb_s": 1.85,
+        "gflops": 0.49,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0947,
+        "std_ms": 0.0021,
+        "min_ms": 0.0924,
+        "max_ms": 0.0978,
+        "bandwidth_gb_s": 376.77,
+        "gflops": 99.69,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 203.7054,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 73.1678,
+        "std_ms": 0.1175,
+        "min_ms": 72.9964,
+        "max_ms": 73.3238,
+        "bandwidth_gb_s": 0.97,
+        "gflops": 0.26,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1203,
+        "std_ms": 0.0021,
+        "min_ms": 0.1175,
+        "max_ms": 0.1234,
+        "bandwidth_gb_s": 593.14,
+        "gflops": 156.93,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 608.2111,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 77.0911,
+        "std_ms": 0.0799,
+        "min_ms": 76.9812,
+        "max_ms": 77.1607,
+        "bandwidth_gb_s": 1.85,
+        "gflops": 0.49,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2549,
+        "std_ms": 0.0022,
+        "min_ms": 0.2532,
+        "max_ms": 0.2588,
+        "bandwidth_gb_s": 559.66,
+        "gflops": 148.08,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 302.4366,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 20.1308,
+        "std_ms": 0.0528,
+        "min_ms": 20.0676,
+        "max_ms": 20.2102,
+        "bandwidth_gb_s": 3.54,
+        "gflops": 0.94,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1475,
+        "std_ms": 0.0037,
+        "min_ms": 0.1444,
+        "max_ms": 0.1539,
+        "bandwidth_gb_s": 483.78,
+        "gflops": 128.0,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 136.48,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 18.2694,
+        "std_ms": 0.4488,
+        "min_ms": 18.0168,
+        "max_ms": 19.0682,
+        "bandwidth_gb_s": 0.47,
+        "gflops": 0.12,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0585,
+        "std_ms": 0.0025,
+        "min_ms": 0.0561,
+        "max_ms": 0.0627,
+        "bandwidth_gb_s": 147.86,
+        "gflops": 38.08,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 312.2974,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 18.3438,
+        "std_ms": 0.0108,
+        "min_ms": 18.3309,
+        "max_ms": 18.356,
+        "bandwidth_gb_s": 1.89,
+        "gflops": 0.49,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.085,
+        "std_ms": 0.0033,
+        "min_ms": 0.0822,
+        "max_ms": 0.0899,
+        "bandwidth_gb_s": 406.98,
+        "gflops": 104.8,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 215.8094,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 19.2451,
+        "std_ms": 0.0502,
+        "min_ms": 19.1964,
+        "max_ms": 19.3298,
+        "bandwidth_gb_s": 3.6,
+        "gflops": 0.93,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1266,
+        "std_ms": 0.0035,
+        "min_ms": 0.1236,
+        "max_ms": 0.1326,
+        "bandwidth_gb_s": 546.93,
+        "gflops": 140.84,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 152.015,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 72.9902,
+        "std_ms": 0.1605,
+        "min_ms": 72.7667,
+        "max_ms": 73.2188,
+        "bandwidth_gb_s": 1.9,
+        "gflops": 0.49,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1736,
+        "std_ms": 0.0025,
+        "min_ms": 0.172,
+        "max_ms": 0.1779,
+        "bandwidth_gb_s": 797.41,
+        "gflops": 205.34,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 420.4505,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 77.0241,
+        "std_ms": 0.1232,
+        "min_ms": 76.8474,
+        "max_ms": 77.162,
+        "bandwidth_gb_s": 3.59,
+        "gflops": 0.93,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3329,
+        "std_ms": 0.0038,
+        "min_ms": 0.3287,
+        "max_ms": 0.3374,
+        "bandwidth_gb_s": 831.74,
+        "gflops": 214.19,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 231.3731,
+      "verdict": "faster"
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 20.5005,
+        "std_ms": 0.0604,
+        "min_ms": 20.4183,
+        "max_ms": 20.5609,
+        "bandwidth_gb_s": 6.75,
+        "gflops": 1.74,
+        "impl_source": "torch.combine_topk_swa_indices (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.227,
+        "std_ms": 0.0038,
+        "min_ms": 0.223,
+        "max_ms": 0.2324,
+        "bandwidth_gb_s": 609.83,
+        "gflops": 157.04,
+        "impl_source": "flag_gems.combine_topk_swa_indices"
+      },
+      "speedup": 90.3106,
+      "verdict": "faster"
+    }
+  ]
+}

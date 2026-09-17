@@ -1,0 +1,2459 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:55.617945",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 70,
+    "baseline_file": "E:\\BAAI\\results\\fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert\\fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert\\fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 70,
+    "faster": 70,
+    "slower": 0,
+    "on_par": 0,
+    "avg_speedup": 22.8238
+  },
+  "comparisons": [
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0562,
+        "std_ms": 0.0428,
+        "min_ms": 1.0171,
+        "max_ms": 1.1251,
+        "bandwidth_gb_s": 0.25,
+        "gflops": 0.16,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0446,
+        "std_ms": 0.0126,
+        "min_ms": 0.0335,
+        "max_ms": 0.0645,
+        "bandwidth_gb_s": 5.91,
+        "gflops": 3.71,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.6816,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0459,
+        "std_ms": 0.0246,
+        "min_ms": 1.0148,
+        "max_ms": 1.0829,
+        "bandwidth_gb_s": 2.02,
+        "gflops": 1.27,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0435,
+        "std_ms": 0.0099,
+        "min_ms": 0.034,
+        "max_ms": 0.0584,
+        "bandwidth_gb_s": 48.59,
+        "gflops": 30.49,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.0437,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0105,
+        "std_ms": 0.0131,
+        "min_ms": 0.9971,
+        "max_ms": 1.0245,
+        "bandwidth_gb_s": 8.36,
+        "gflops": 5.25,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0563,
+        "std_ms": 0.0084,
+        "min_ms": 0.0479,
+        "max_ms": 0.0699,
+        "bandwidth_gb_s": 150.15,
+        "gflops": 94.23,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 17.9485,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.1891,
+        "std_ms": 0.0121,
+        "min_ms": 1.1784,
+        "max_ms": 1.207,
+        "bandwidth_gb_s": 14.21,
+        "gflops": 8.92,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0674,
+        "std_ms": 0.0076,
+        "min_ms": 0.0609,
+        "max_ms": 0.0801,
+        "bandwidth_gb_s": 250.59,
+        "gflops": 157.27,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 17.6424,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.5102,
+        "std_ms": 0.0162,
+        "min_ms": 1.4838,
+        "max_ms": 1.5242,
+        "bandwidth_gb_s": 22.38,
+        "gflops": 14.04,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0901,
+        "std_ms": 0.0066,
+        "min_ms": 0.0832,
+        "max_ms": 0.1001,
+        "bandwidth_gb_s": 375.03,
+        "gflops": 235.36,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 16.7614,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.1857,
+        "std_ms": 0.0086,
+        "min_ms": 2.1765,
+        "max_ms": 2.1957,
+        "bandwidth_gb_s": 30.92,
+        "gflops": 19.41,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1342,
+        "std_ms": 0.0077,
+        "min_ms": 0.1283,
+        "max_ms": 0.1475,
+        "bandwidth_gb_s": 503.48,
+        "gflops": 315.97,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 16.2869,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.6301,
+        "std_ms": 0.0474,
+        "min_ms": 3.575,
+        "max_ms": 3.7056,
+        "bandwidth_gb_s": 37.24,
+        "gflops": 23.37,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1531,
+        "std_ms": 0.0076,
+        "min_ms": 0.1464,
+        "max_ms": 0.1659,
+        "bandwidth_gb_s": 883.02,
+        "gflops": 554.17,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.7106,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 6.383,
+        "std_ms": 0.0633,
+        "min_ms": 6.3288,
+        "max_ms": 6.4919,
+        "bandwidth_gb_s": 42.36,
+        "gflops": 26.58,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5662,
+        "std_ms": 0.0181,
+        "min_ms": 0.5453,
+        "max_ms": 0.5932,
+        "bandwidth_gb_s": 477.53,
+        "gflops": 299.69,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 11.2734,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 11.9294,
+        "std_ms": 0.1356,
+        "min_ms": 11.7414,
+        "max_ms": 12.0474,
+        "bandwidth_gb_s": 45.33,
+        "gflops": 28.45,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.1229,
+        "std_ms": 0.0234,
+        "min_ms": 1.0944,
+        "max_ms": 1.1538,
+        "bandwidth_gb_s": 481.55,
+        "gflops": 302.21,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 10.6237,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 23.3171,
+        "std_ms": 0.3525,
+        "min_ms": 22.7871,
+        "max_ms": 23.6869,
+        "bandwidth_gb_s": 46.38,
+        "gflops": 29.11,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.1807,
+        "std_ms": 0.0296,
+        "min_ms": 2.1499,
+        "max_ms": 2.2134,
+        "bandwidth_gb_s": 495.91,
+        "gflops": 311.22,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 10.6925,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0095,
+        "std_ms": 0.0209,
+        "min_ms": 0.9836,
+        "max_ms": 1.0358,
+        "bandwidth_gb_s": 0.13,
+        "gflops": 0.08,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0483,
+        "std_ms": 0.0108,
+        "min_ms": 0.0399,
+        "max_ms": 0.0653,
+        "bandwidth_gb_s": 2.75,
+        "gflops": 1.73,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 20.9006,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0187,
+        "std_ms": 0.0139,
+        "min_ms": 1.0004,
+        "max_ms": 1.0301,
+        "bandwidth_gb_s": 1.04,
+        "gflops": 0.66,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0418,
+        "std_ms": 0.0133,
+        "min_ms": 0.0323,
+        "max_ms": 0.0643,
+        "bandwidth_gb_s": 25.43,
+        "gflops": 16.0,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.3708,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0099,
+        "std_ms": 0.0193,
+        "min_ms": 0.9928,
+        "max_ms": 1.0373,
+        "bandwidth_gb_s": 4.21,
+        "gflops": 2.65,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0439,
+        "std_ms": 0.0108,
+        "min_ms": 0.0361,
+        "max_ms": 0.0627,
+        "bandwidth_gb_s": 96.96,
+        "gflops": 61.0,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.0046,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0045,
+        "std_ms": 0.0164,
+        "min_ms": 0.981,
+        "max_ms": 1.0245,
+        "bandwidth_gb_s": 8.47,
+        "gflops": 5.33,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0455,
+        "std_ms": 0.0079,
+        "min_ms": 0.0392,
+        "max_ms": 0.0584,
+        "bandwidth_gb_s": 186.94,
+        "gflops": 117.62,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.0769,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.1896,
+        "std_ms": 0.0094,
+        "min_ms": 1.1756,
+        "max_ms": 1.1976,
+        "bandwidth_gb_s": 14.31,
+        "gflops": 9.0,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0546,
+        "std_ms": 0.0078,
+        "min_ms": 0.0486,
+        "max_ms": 0.0678,
+        "bandwidth_gb_s": 311.51,
+        "gflops": 195.99,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 21.7875,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.5045,
+        "std_ms": 0.0237,
+        "min_ms": 1.4779,
+        "max_ms": 1.5352,
+        "bandwidth_gb_s": 22.62,
+        "gflops": 14.23,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0693,
+        "std_ms": 0.0083,
+        "min_ms": 0.0635,
+        "max_ms": 0.0837,
+        "bandwidth_gb_s": 491.32,
+        "gflops": 309.12,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 21.71,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.1983,
+        "std_ms": 0.0179,
+        "min_ms": 2.1824,
+        "max_ms": 2.2259,
+        "bandwidth_gb_s": 30.97,
+        "gflops": 19.48,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1032,
+        "std_ms": 0.0091,
+        "min_ms": 0.0955,
+        "max_ms": 0.1188,
+        "bandwidth_gb_s": 659.48,
+        "gflops": 414.92,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 21.3014,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.6063,
+        "std_ms": 0.0184,
+        "min_ms": 3.5889,
+        "max_ms": 3.6316,
+        "bandwidth_gb_s": 37.75,
+        "gflops": 23.75,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1632,
+        "std_ms": 0.0079,
+        "min_ms": 0.1577,
+        "max_ms": 0.1769,
+        "bandwidth_gb_s": 834.34,
+        "gflops": 524.93,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.0974,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 6.4232,
+        "std_ms": 0.1344,
+        "min_ms": 6.2807,
+        "max_ms": 6.5987,
+        "bandwidth_gb_s": 42.39,
+        "gflops": 26.67,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2883,
+        "std_ms": 0.007,
+        "min_ms": 0.2826,
+        "max_ms": 0.3,
+        "bandwidth_gb_s": 944.43,
+        "gflops": 594.2,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.2796,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 11.9433,
+        "std_ms": 0.0795,
+        "min_ms": 11.849,
+        "max_ms": 12.0031,
+        "bandwidth_gb_s": 45.6,
+        "gflops": 28.69,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5321,
+        "std_ms": 0.0105,
+        "min_ms": 0.5238,
+        "max_ms": 0.5496,
+        "bandwidth_gb_s": 1023.4,
+        "gflops": 643.88,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.4456,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0095,
+        "std_ms": 0.0141,
+        "min_ms": 0.9907,
+        "max_ms": 1.0291,
+        "bandwidth_gb_s": 0.26,
+        "gflops": 0.16,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0335,
+        "std_ms": 0.0052,
+        "min_ms": 0.0294,
+        "max_ms": 0.0425,
+        "bandwidth_gb_s": 7.88,
+        "gflops": 4.95,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 30.1343,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0214,
+        "std_ms": 0.0226,
+        "min_ms": 1.001,
+        "max_ms": 1.0583,
+        "bandwidth_gb_s": 2.07,
+        "gflops": 1.3,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0336,
+        "std_ms": 0.0035,
+        "min_ms": 0.031,
+        "max_ms": 0.0397,
+        "bandwidth_gb_s": 62.79,
+        "gflops": 39.41,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 30.3988,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0024,
+        "std_ms": 0.0149,
+        "min_ms": 0.9871,
+        "max_ms": 1.025,
+        "bandwidth_gb_s": 8.43,
+        "gflops": 5.29,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0387,
+        "std_ms": 0.0031,
+        "min_ms": 0.0364,
+        "max_ms": 0.044,
+        "bandwidth_gb_s": 218.27,
+        "gflops": 136.98,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 25.9018,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.1855,
+        "std_ms": 0.0148,
+        "min_ms": 1.1727,
+        "max_ms": 1.2101,
+        "bandwidth_gb_s": 14.25,
+        "gflops": 8.95,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0463,
+        "std_ms": 0.0032,
+        "min_ms": 0.0438,
+        "max_ms": 0.0517,
+        "bandwidth_gb_s": 364.67,
+        "gflops": 228.86,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 25.6048,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.5071,
+        "std_ms": 0.0186,
+        "min_ms": 1.4804,
+        "max_ms": 1.5252,
+        "bandwidth_gb_s": 22.42,
+        "gflops": 14.07,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0602,
+        "std_ms": 0.0038,
+        "min_ms": 0.0573,
+        "max_ms": 0.0668,
+        "bandwidth_gb_s": 561.75,
+        "gflops": 352.54,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 25.0349,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.2092,
+        "std_ms": 0.0332,
+        "min_ms": 2.1691,
+        "max_ms": 2.2484,
+        "bandwidth_gb_s": 30.6,
+        "gflops": 19.2,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0895,
+        "std_ms": 0.0031,
+        "min_ms": 0.087,
+        "max_ms": 0.094,
+        "bandwidth_gb_s": 754.79,
+        "gflops": 473.69,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.6838,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.599,
+        "std_ms": 0.0703,
+        "min_ms": 3.5169,
+        "max_ms": 3.7012,
+        "bandwidth_gb_s": 37.56,
+        "gflops": 23.57,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1476,
+        "std_ms": 0.004,
+        "min_ms": 0.1441,
+        "max_ms": 0.1521,
+        "bandwidth_gb_s": 915.8,
+        "gflops": 574.73,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.3835,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 6.4243,
+        "std_ms": 0.0737,
+        "min_ms": 6.358,
+        "max_ms": 6.5336,
+        "bandwidth_gb_s": 42.08,
+        "gflops": 26.41,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2628,
+        "std_ms": 0.0034,
+        "min_ms": 0.2583,
+        "max_ms": 0.2675,
+        "bandwidth_gb_s": 1028.73,
+        "gflops": 645.61,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.4456,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 12.0777,
+        "std_ms": 0.1964,
+        "min_ms": 11.785,
+        "max_ms": 12.2601,
+        "bandwidth_gb_s": 44.77,
+        "gflops": 28.1,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.493,
+        "std_ms": 0.0046,
+        "min_ms": 0.489,
+        "max_ms": 0.4979,
+        "bandwidth_gb_s": 1096.79,
+        "gflops": 688.32,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.4984,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 22.7894,
+        "std_ms": 0.131,
+        "min_ms": 22.58,
+        "max_ms": 22.9115,
+        "bandwidth_gb_s": 47.45,
+        "gflops": 29.78,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.9448,
+        "std_ms": 0.0059,
+        "min_ms": 0.9403,
+        "max_ms": 0.9551,
+        "bandwidth_gb_s": 1144.63,
+        "gflops": 718.35,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.1209,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0067,
+        "std_ms": 0.0125,
+        "min_ms": 0.9912,
+        "max_ms": 1.0207,
+        "bandwidth_gb_s": 0.04,
+        "gflops": 0.03,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0507,
+        "std_ms": 0.0111,
+        "min_ms": 0.0422,
+        "max_ms": 0.0696,
+        "bandwidth_gb_s": 0.84,
+        "gflops": 0.54,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 19.856,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0123,
+        "std_ms": 0.0231,
+        "min_ms": 0.9966,
+        "max_ms": 1.0524,
+        "bandwidth_gb_s": 0.34,
+        "gflops": 0.22,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0505,
+        "std_ms": 0.0117,
+        "min_ms": 0.0415,
+        "max_ms": 0.0696,
+        "bandwidth_gb_s": 6.79,
+        "gflops": 4.32,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 20.0455,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0102,
+        "std_ms": 0.0193,
+        "min_ms": 0.9874,
+        "max_ms": 1.0335,
+        "bandwidth_gb_s": 1.36,
+        "gflops": 0.86,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.039,
+        "std_ms": 0.011,
+        "min_ms": 0.0307,
+        "max_ms": 0.0573,
+        "bandwidth_gb_s": 35.14,
+        "gflops": 22.34,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 25.9026,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0105,
+        "std_ms": 0.0178,
+        "min_ms": 0.9923,
+        "max_ms": 1.0322,
+        "bandwidth_gb_s": 2.71,
+        "gflops": 1.73,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0538,
+        "std_ms": 0.0119,
+        "min_ms": 0.0417,
+        "max_ms": 0.0722,
+        "bandwidth_gb_s": 50.95,
+        "gflops": 32.4,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 18.7825,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0134,
+        "std_ms": 0.0169,
+        "min_ms": 0.9871,
+        "max_ms": 1.0332,
+        "bandwidth_gb_s": 5.41,
+        "gflops": 3.44,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0455,
+        "std_ms": 0.0095,
+        "min_ms": 0.0381,
+        "max_ms": 0.0617,
+        "bandwidth_gb_s": 120.61,
+        "gflops": 76.69,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.2725,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0512,
+        "std_ms": 0.0059,
+        "min_ms": 1.0422,
+        "max_ms": 1.057,
+        "bandwidth_gb_s": 10.43,
+        "gflops": 6.63,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.05,
+        "std_ms": 0.0087,
+        "min_ms": 0.0435,
+        "max_ms": 0.0648,
+        "bandwidth_gb_s": 219.47,
+        "gflops": 139.55,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 21.024,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.268,
+        "std_ms": 0.0121,
+        "min_ms": 1.2508,
+        "max_ms": 1.2846,
+        "bandwidth_gb_s": 17.3,
+        "gflops": 11.0,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0636,
+        "std_ms": 0.009,
+        "min_ms": 0.0556,
+        "max_ms": 0.0788,
+        "bandwidth_gb_s": 344.93,
+        "gflops": 219.32,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 19.9371,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.7142,
+        "std_ms": 0.0165,
+        "min_ms": 1.6865,
+        "max_ms": 1.7285,
+        "bandwidth_gb_s": 25.59,
+        "gflops": 16.27,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0852,
+        "std_ms": 0.0101,
+        "min_ms": 0.0778,
+        "max_ms": 0.1024,
+        "bandwidth_gb_s": 514.59,
+        "gflops": 327.21,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 20.1197,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.5538,
+        "std_ms": 0.026,
+        "min_ms": 2.5249,
+        "max_ms": 2.5894,
+        "bandwidth_gb_s": 34.36,
+        "gflops": 21.84,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1357,
+        "std_ms": 0.0089,
+        "min_ms": 0.1285,
+        "max_ms": 0.1505,
+        "bandwidth_gb_s": 646.64,
+        "gflops": 411.17,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 18.8195,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 4.3166,
+        "std_ms": 0.0395,
+        "min_ms": 4.2698,
+        "max_ms": 4.3594,
+        "bandwidth_gb_s": 40.65,
+        "gflops": 25.85,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.228,
+        "std_ms": 0.0075,
+        "min_ms": 0.2214,
+        "max_ms": 0.2406,
+        "bandwidth_gb_s": 769.47,
+        "gflops": 489.27,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 18.9325,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.9995,
+        "std_ms": 0.0145,
+        "min_ms": 0.9836,
+        "max_ms": 1.0227,
+        "bandwidth_gb_s": 0.13,
+        "gflops": 0.08,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0333,
+        "std_ms": 0.0049,
+        "min_ms": 0.0284,
+        "max_ms": 0.0415,
+        "bandwidth_gb_s": 3.99,
+        "gflops": 2.51,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 30.015,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0161,
+        "std_ms": 0.0168,
+        "min_ms": 0.9943,
+        "max_ms": 1.0355,
+        "bandwidth_gb_s": 1.05,
+        "gflops": 0.66,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0336,
+        "std_ms": 0.0042,
+        "min_ms": 0.0297,
+        "max_ms": 0.0392,
+        "bandwidth_gb_s": 31.67,
+        "gflops": 19.92,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 30.2411,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0097,
+        "std_ms": 0.0145,
+        "min_ms": 0.9969,
+        "max_ms": 1.0309,
+        "bandwidth_gb_s": 4.21,
+        "gflops": 2.65,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0357,
+        "std_ms": 0.0034,
+        "min_ms": 0.0335,
+        "max_ms": 0.0417,
+        "bandwidth_gb_s": 119.22,
+        "gflops": 75.01,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 28.2829,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0002,
+        "std_ms": 0.0098,
+        "min_ms": 0.9907,
+        "max_ms": 1.0138,
+        "bandwidth_gb_s": 8.51,
+        "gflops": 5.35,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0408,
+        "std_ms": 0.0031,
+        "min_ms": 0.0384,
+        "max_ms": 0.0461,
+        "bandwidth_gb_s": 208.78,
+        "gflops": 131.36,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.5147,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.1761,
+        "std_ms": 0.0166,
+        "min_ms": 1.163,
+        "max_ms": 1.204,
+        "bandwidth_gb_s": 14.47,
+        "gflops": 9.1,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0465,
+        "std_ms": 0.0032,
+        "min_ms": 0.0435,
+        "max_ms": 0.052,
+        "bandwidth_gb_s": 365.65,
+        "gflops": 230.06,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 25.2925,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.5238,
+        "std_ms": 0.0104,
+        "min_ms": 1.5104,
+        "max_ms": 1.5355,
+        "bandwidth_gb_s": 22.34,
+        "gflops": 14.05,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0635,
+        "std_ms": 0.0037,
+        "min_ms": 0.0612,
+        "max_ms": 0.0699,
+        "bandwidth_gb_s": 536.1,
+        "gflops": 337.29,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.9969,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.2266,
+        "std_ms": 0.0271,
+        "min_ms": 2.1978,
+        "max_ms": 2.2612,
+        "bandwidth_gb_s": 30.57,
+        "gflops": 19.23,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.096,
+        "std_ms": 0.0043,
+        "min_ms": 0.0922,
+        "max_ms": 0.1032,
+        "bandwidth_gb_s": 709.08,
+        "gflops": 446.12,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.1937,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.6231,
+        "std_ms": 0.034,
+        "min_ms": 3.5835,
+        "max_ms": 3.658,
+        "bandwidth_gb_s": 37.58,
+        "gflops": 23.64,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1577,
+        "std_ms": 0.0042,
+        "min_ms": 0.1539,
+        "max_ms": 0.1649,
+        "bandwidth_gb_s": 863.32,
+        "gflops": 543.17,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.9746,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 6.4782,
+        "std_ms": 0.0657,
+        "min_ms": 6.3718,
+        "max_ms": 6.5372,
+        "bandwidth_gb_s": 42.03,
+        "gflops": 26.44,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2822,
+        "std_ms": 0.0036,
+        "min_ms": 0.279,
+        "max_ms": 0.2883,
+        "bandwidth_gb_s": 964.99,
+        "gflops": 607.13,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.9561,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 11.814,
+        "std_ms": 0.0226,
+        "min_ms": 11.785,
+        "max_ms": 11.841,
+        "bandwidth_gb_s": 46.1,
+        "gflops": 29.0,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5287,
+        "std_ms": 0.005,
+        "min_ms": 0.5245,
+        "max_ms": 0.5363,
+        "bandwidth_gb_s": 1030.04,
+        "gflops": 648.06,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.3454,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0055,
+        "std_ms": 0.034,
+        "min_ms": 0.9687,
+        "max_ms": 1.0545,
+        "bandwidth_gb_s": 0.13,
+        "gflops": 0.08,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0321,
+        "std_ms": 0.0035,
+        "min_ms": 0.03,
+        "max_ms": 0.0381,
+        "bandwidth_gb_s": 4.15,
+        "gflops": 2.61,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 31.324,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.018,
+        "std_ms": 0.0129,
+        "min_ms": 0.9999,
+        "max_ms": 1.0296,
+        "bandwidth_gb_s": 1.04,
+        "gflops": 0.66,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0325,
+        "std_ms": 0.0041,
+        "min_ms": 0.0294,
+        "max_ms": 0.0397,
+        "bandwidth_gb_s": 32.77,
+        "gflops": 20.62,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 31.3231,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.001,
+        "std_ms": 0.0165,
+        "min_ms": 0.9861,
+        "max_ms": 1.0268,
+        "bandwidth_gb_s": 4.25,
+        "gflops": 2.67,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0352,
+        "std_ms": 0.0035,
+        "min_ms": 0.0328,
+        "max_ms": 0.0412,
+        "bandwidth_gb_s": 120.78,
+        "gflops": 75.99,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 28.4375,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0046,
+        "std_ms": 0.019,
+        "min_ms": 0.9887,
+        "max_ms": 1.0368,
+        "bandwidth_gb_s": 8.47,
+        "gflops": 5.33,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.041,
+        "std_ms": 0.0039,
+        "min_ms": 0.0376,
+        "max_ms": 0.0474,
+        "bandwidth_gb_s": 207.74,
+        "gflops": 130.7,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.5024,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.1792,
+        "std_ms": 0.0121,
+        "min_ms": 1.1676,
+        "max_ms": 1.1994,
+        "bandwidth_gb_s": 14.43,
+        "gflops": 9.08,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0474,
+        "std_ms": 0.0034,
+        "min_ms": 0.0456,
+        "max_ms": 0.0535,
+        "bandwidth_gb_s": 358.94,
+        "gflops": 225.83,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.8776,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.5058,
+        "std_ms": 0.0193,
+        "min_ms": 1.4743,
+        "max_ms": 1.5227,
+        "bandwidth_gb_s": 22.6,
+        "gflops": 14.22,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0634,
+        "std_ms": 0.0037,
+        "min_ms": 0.0604,
+        "max_ms": 0.0699,
+        "bandwidth_gb_s": 536.96,
+        "gflops": 337.84,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.7508,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.227,
+        "std_ms": 0.0258,
+        "min_ms": 2.1983,
+        "max_ms": 2.2676,
+        "bandwidth_gb_s": 30.57,
+        "gflops": 19.23,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0969,
+        "std_ms": 0.0035,
+        "min_ms": 0.0937,
+        "max_ms": 0.1016,
+        "bandwidth_gb_s": 702.71,
+        "gflops": 442.11,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.9825,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.6188,
+        "std_ms": 0.044,
+        "min_ms": 3.5671,
+        "max_ms": 3.6703,
+        "bandwidth_gb_s": 37.62,
+        "gflops": 23.67,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1568,
+        "std_ms": 0.0044,
+        "min_ms": 0.1536,
+        "max_ms": 0.1644,
+        "bandwidth_gb_s": 868.12,
+        "gflops": 546.18,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.0791,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 6.3824,
+        "std_ms": 0.0796,
+        "min_ms": 6.2715,
+        "max_ms": 6.4748,
+        "bandwidth_gb_s": 42.66,
+        "gflops": 26.84,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2829,
+        "std_ms": 0.0048,
+        "min_ms": 0.2788,
+        "max_ms": 0.2911,
+        "bandwidth_gb_s": 962.37,
+        "gflops": 605.49,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.5606,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 12.0298,
+        "std_ms": 0.2255,
+        "min_ms": 11.8054,
+        "max_ms": 12.289,
+        "bandwidth_gb_s": 45.27,
+        "gflops": 28.48,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5286,
+        "std_ms": 0.0077,
+        "min_ms": 0.5233,
+        "max_ms": 0.542,
+        "bandwidth_gb_s": 1030.24,
+        "gflops": 648.18,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.7579,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.9962,
+        "std_ms": 0.0155,
+        "min_ms": 0.9715,
+        "max_ms": 1.0138,
+        "bandwidth_gb_s": 0.2,
+        "gflops": 0.13,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0409,
+        "std_ms": 0.0132,
+        "min_ms": 0.0305,
+        "max_ms": 0.063,
+        "bandwidth_gb_s": 4.86,
+        "gflops": 3.05,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.357,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0182,
+        "std_ms": 0.0129,
+        "min_ms": 1.0038,
+        "max_ms": 1.035,
+        "bandwidth_gb_s": 1.56,
+        "gflops": 0.98,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0414,
+        "std_ms": 0.0101,
+        "min_ms": 0.0333,
+        "max_ms": 0.0586,
+        "bandwidth_gb_s": 38.34,
+        "gflops": 24.08,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 24.5942,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0071,
+        "std_ms": 0.0118,
+        "min_ms": 0.9879,
+        "max_ms": 1.015,
+        "bandwidth_gb_s": 6.31,
+        "gflops": 3.96,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0483,
+        "std_ms": 0.0111,
+        "min_ms": 0.0384,
+        "max_ms": 0.064,
+        "bandwidth_gb_s": 131.41,
+        "gflops": 82.54,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 20.8509,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0828,
+        "std_ms": 0.0086,
+        "min_ms": 1.0714,
+        "max_ms": 1.0926,
+        "bandwidth_gb_s": 11.73,
+        "gflops": 7.37,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0509,
+        "std_ms": 0.0088,
+        "min_ms": 0.0415,
+        "max_ms": 0.065,
+        "bandwidth_gb_s": 249.36,
+        "gflops": 156.62,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 21.2731,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.3274,
+        "std_ms": 0.0279,
+        "min_ms": 1.2844,
+        "max_ms": 1.3481,
+        "bandwidth_gb_s": 19.14,
+        "gflops": 12.02,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0594,
+        "std_ms": 0.0081,
+        "min_ms": 0.0527,
+        "max_ms": 0.0732,
+        "bandwidth_gb_s": 427.41,
+        "gflops": 268.46,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.3468,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.8677,
+        "std_ms": 0.0221,
+        "min_ms": 1.8437,
+        "max_ms": 1.8931,
+        "bandwidth_gb_s": 27.21,
+        "gflops": 17.09,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0829,
+        "std_ms": 0.0093,
+        "min_ms": 0.0758,
+        "max_ms": 0.0986,
+        "bandwidth_gb_s": 612.62,
+        "gflops": 384.79,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.5296,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.9194,
+        "std_ms": 0.0309,
+        "min_ms": 2.8882,
+        "max_ms": 2.9596,
+        "bandwidth_gb_s": 34.81,
+        "gflops": 21.86,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1266,
+        "std_ms": 0.0101,
+        "min_ms": 0.1183,
+        "max_ms": 0.1439,
+        "bandwidth_gb_s": 802.95,
+        "gflops": 504.34,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.06,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 5.0227,
+        "std_ms": 0.0306,
+        "min_ms": 4.9933,
+        "max_ms": 5.0644,
+        "bandwidth_gb_s": 40.47,
+        "gflops": 25.42,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2194,
+        "std_ms": 0.0103,
+        "min_ms": 0.2112,
+        "max_ms": 0.2371,
+        "bandwidth_gb_s": 926.43,
+        "gflops": 581.9,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 22.8929,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 9.1302,
+        "std_ms": 0.0863,
+        "min_ms": 9.0217,
+        "max_ms": 9.2129,
+        "bandwidth_gb_s": 44.52,
+        "gflops": 27.97,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3913,
+        "std_ms": 0.0099,
+        "min_ms": 0.383,
+        "max_ms": 0.4078,
+        "bandwidth_gb_s": 1038.93,
+        "gflops": 652.56,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.333,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 17.4959,
+        "std_ms": 0.249,
+        "min_ms": 17.3225,
+        "max_ms": 17.9328,
+        "bandwidth_gb_s": 46.47,
+        "gflops": 29.19,
+        "impl_source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.745,
+        "std_ms": 0.0153,
+        "min_ms": 0.7342,
+        "max_ms": 0.7713,
+        "bandwidth_gb_s": 1091.34,
+        "gflops": 685.48,
+        "impl_source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+      },
+      "speedup": 23.4844,
+      "verdict": "faster"
+    }
+  ]
+}

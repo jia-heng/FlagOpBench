@@ -57,7 +57,17 @@ class FlashMLAWithKVCacheFP8Operator(BaseOperator):
             topk: 每个token attend的KV数 (必须是64的倍数)
             num_kv_tokens: KV token总数
         """
-        from flaggems_vllm.ops.flash_mla_with_kvcache import FlashMLASchedMeta
+        try:
+            from flag_gems.fused.flash_mla_with_kvcache import FlashMLASchedMeta
+        except ImportError:
+            try:
+                from flaggems_vllm.ops.flash_mla_with_kvcache import FlashMLASchedMeta
+            except ImportError:
+                class FlashMLASchedMeta:  # type: ignore
+                    have_initialized = False
+                    config = None
+                    tile_scheduler_metadata = None
+                    num_splits = None
 
         b = params["b"]
         s_q = params.get("s_q", 1)

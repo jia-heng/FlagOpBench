@@ -1,0 +1,1869 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T06:44:51.439558",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 50
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2323,
+          "std_ms": 0.019,
+          "min_ms": 0.2097,
+          "max_ms": 0.2621
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 2112,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2101,
+          "std_ms": 0.0049,
+          "min_ms": 0.2043,
+          "max_ms": 0.2171
+        },
+        "throughput": {
+          "gflops": 0.08,
+          "bandwidth_gb_s": 0.05
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 9728,
+          "arithmetic_intensity": 1.68
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2095,
+          "std_ms": 0.003,
+          "min_ms": 0.2045,
+          "max_ms": 0.212
+        },
+        "throughput": {
+          "gflops": 0.31,
+          "bandwidth_gb_s": 0.17
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 35840,
+          "arithmetic_intensity": 1.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2182,
+          "std_ms": 0.0086,
+          "min_ms": 0.2115,
+          "max_ms": 0.2312
+        },
+        "throughput": {
+          "gflops": 0.6,
+          "bandwidth_gb_s": 0.32
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 70656,
+          "arithmetic_intensity": 1.86
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2291,
+          "std_ms": 0.0053,
+          "min_ms": 0.2202,
+          "max_ms": 0.2335
+        },
+        "throughput": {
+          "gflops": 1.14,
+          "bandwidth_gb_s": 0.61
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 140288,
+          "arithmetic_intensity": 1.87
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2393,
+          "std_ms": 0.0049,
+          "min_ms": 0.2307,
+          "max_ms": 0.2427
+        },
+        "throughput": {
+          "gflops": 2.19,
+          "bandwidth_gb_s": 1.17
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 279552,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2906,
+          "std_ms": 0.0086,
+          "min_ms": 0.2757,
+          "max_ms": 0.297
+        },
+        "throughput": {
+          "gflops": 3.61,
+          "bandwidth_gb_s": 1.92
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 558080,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3983,
+          "std_ms": 0.0083,
+          "min_ms": 0.3858,
+          "max_ms": 0.407
+        },
+        "throughput": {
+          "gflops": 5.26,
+          "bandwidth_gb_s": 2.8
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 1115136,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5573,
+          "std_ms": 0.0103,
+          "min_ms": 0.5391,
+          "max_ms": 0.5647
+        },
+        "throughput": {
+          "gflops": 7.53,
+          "bandwidth_gb_s": 4.0
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 2229248,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.9134,
+          "std_ms": 0.0073,
+          "min_ms": 0.9016,
+          "max_ms": 0.9201
+        },
+        "throughput": {
+          "gflops": 9.18,
+          "bandwidth_gb_s": 4.88
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 4457472,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1962,
+          "std_ms": 0.0093,
+          "min_ms": 0.1861,
+          "max_ms": 0.2104
+        },
+        "throughput": {
+          "gflops": 0.0,
+          "bandwidth_gb_s": 0.0
+        },
+        "theory": {
+          "flops": 384,
+          "bytes": 544,
+          "arithmetic_intensity": 0.71
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2034,
+          "std_ms": 0.0081,
+          "min_ms": 0.191,
+          "max_ms": 0.2104
+        },
+        "throughput": {
+          "gflops": 0.02,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 3072,
+          "bytes": 2560,
+          "arithmetic_intensity": 1.2
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1964,
+          "std_ms": 0.0069,
+          "min_ms": 0.1889,
+          "max_ms": 0.2074
+        },
+        "throughput": {
+          "gflops": 0.06,
+          "bandwidth_gb_s": 0.05
+        },
+        "theory": {
+          "flops": 12288,
+          "bytes": 9472,
+          "arithmetic_intensity": 1.3
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1916,
+          "std_ms": 0.0037,
+          "min_ms": 0.1861,
+          "max_ms": 0.1961
+        },
+        "throughput": {
+          "gflops": 0.13,
+          "bandwidth_gb_s": 0.1
+        },
+        "theory": {
+          "flops": 24576,
+          "bytes": 18688,
+          "arithmetic_intensity": 1.32
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.188,
+          "std_ms": 0.0053,
+          "min_ms": 0.1818,
+          "max_ms": 0.194
+        },
+        "throughput": {
+          "gflops": 0.26,
+          "bandwidth_gb_s": 0.2
+        },
+        "theory": {
+          "flops": 49152,
+          "bytes": 37120,
+          "arithmetic_intensity": 1.32
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1917,
+          "std_ms": 0.0023,
+          "min_ms": 0.1894,
+          "max_ms": 0.1951
+        },
+        "throughput": {
+          "gflops": 0.51,
+          "bandwidth_gb_s": 0.39
+        },
+        "theory": {
+          "flops": 98304,
+          "bytes": 73984,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1895,
+          "std_ms": 0.003,
+          "min_ms": 0.1851,
+          "max_ms": 0.1925
+        },
+        "throughput": {
+          "gflops": 1.04,
+          "bandwidth_gb_s": 0.78
+        },
+        "theory": {
+          "flops": 196608,
+          "bytes": 147712,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2127,
+          "std_ms": 0.0082,
+          "min_ms": 0.1987,
+          "max_ms": 0.2194
+        },
+        "throughput": {
+          "gflops": 1.85,
+          "bandwidth_gb_s": 1.39
+        },
+        "theory": {
+          "flops": 393216,
+          "bytes": 295168,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2258,
+          "std_ms": 0.0068,
+          "min_ms": 0.214,
+          "max_ms": 0.2317
+        },
+        "throughput": {
+          "gflops": 3.48,
+          "bandwidth_gb_s": 2.61
+        },
+        "theory": {
+          "flops": 786432,
+          "bytes": 590080,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2855,
+          "std_ms": 0.0043,
+          "min_ms": 0.2785,
+          "max_ms": 0.2898
+        },
+        "throughput": {
+          "gflops": 5.51,
+          "bandwidth_gb_s": 4.13
+        },
+        "theory": {
+          "flops": 1572864,
+          "bytes": 1179904,
+          "arithmetic_intensity": 1.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2017,
+          "std_ms": 0.0067,
+          "min_ms": 0.1928,
+          "max_ms": 0.2086
+        },
+        "throughput": {
+          "gflops": 0.01,
+          "bandwidth_gb_s": 0.01
+        },
+        "theory": {
+          "flops": 2048,
+          "bytes": 2112,
+          "arithmetic_intensity": 0.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2013,
+          "std_ms": 0.0044,
+          "min_ms": 0.1969,
+          "max_ms": 0.2081
+        },
+        "throughput": {
+          "gflops": 0.08,
+          "bandwidth_gb_s": 0.05
+        },
+        "theory": {
+          "flops": 16384,
+          "bytes": 9728,
+          "arithmetic_intensity": 1.68
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2,
+          "std_ms": 0.0039,
+          "min_ms": 0.1953,
+          "max_ms": 0.2038
+        },
+        "throughput": {
+          "gflops": 0.33,
+          "bandwidth_gb_s": 0.18
+        },
+        "theory": {
+          "flops": 65536,
+          "bytes": 35840,
+          "arithmetic_intensity": 1.83
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2012,
+          "std_ms": 0.0062,
+          "min_ms": 0.1907,
+          "max_ms": 0.2066
+        },
+        "throughput": {
+          "gflops": 0.65,
+          "bandwidth_gb_s": 0.35
+        },
+        "theory": {
+          "flops": 131072,
+          "bytes": 70656,
+          "arithmetic_intensity": 1.86
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2012,
+          "std_ms": 0.0068,
+          "min_ms": 0.1915,
+          "max_ms": 0.2081
+        },
+        "throughput": {
+          "gflops": 1.3,
+          "bandwidth_gb_s": 0.7
+        },
+        "theory": {
+          "flops": 262144,
+          "bytes": 140288,
+          "arithmetic_intensity": 1.87
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2032,
+          "std_ms": 0.0035,
+          "min_ms": 0.2002,
+          "max_ms": 0.2092
+        },
+        "throughput": {
+          "gflops": 2.58,
+          "bandwidth_gb_s": 1.38
+        },
+        "theory": {
+          "flops": 524288,
+          "bytes": 279552,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2292,
+          "std_ms": 0.0063,
+          "min_ms": 0.2181,
+          "max_ms": 0.2332
+        },
+        "throughput": {
+          "gflops": 4.57,
+          "bandwidth_gb_s": 2.43
+        },
+        "theory": {
+          "flops": 1048576,
+          "bytes": 558080,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2931,
+          "std_ms": 0.0064,
+          "min_ms": 0.2821,
+          "max_ms": 0.2975
+        },
+        "throughput": {
+          "gflops": 7.16,
+          "bandwidth_gb_s": 3.81
+        },
+        "theory": {
+          "flops": 2097152,
+          "bytes": 1115136,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3824,
+          "std_ms": 0.0052,
+          "min_ms": 0.3745,
+          "max_ms": 0.3884
+        },
+        "throughput": {
+          "gflops": 10.97,
+          "bandwidth_gb_s": 5.83
+        },
+        "theory": {
+          "flops": 4194304,
+          "bytes": 2229248,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5945,
+          "std_ms": 0.0067,
+          "min_ms": 0.585,
+          "max_ms": 0.6031
+        },
+        "throughput": {
+          "gflops": 14.11,
+          "bandwidth_gb_s": 7.5
+        },
+        "theory": {
+          "flops": 8388608,
+          "bytes": 4457472,
+          "arithmetic_intensity": 1.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2007,
+          "std_ms": 0.0019,
+          "min_ms": 0.1987,
+          "max_ms": 0.2028
+        },
+        "throughput": {
+          "gflops": 0.02,
+          "bandwidth_gb_s": 0.02
+        },
+        "theory": {
+          "flops": 3296,
+          "bytes": 3136,
+          "arithmetic_intensity": 1.05
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2018,
+          "std_ms": 0.0054,
+          "min_ms": 0.1948,
+          "max_ms": 0.2092
+        },
+        "throughput": {
+          "gflops": 0.13,
+          "bandwidth_gb_s": 0.07
+        },
+        "theory": {
+          "flops": 26373,
+          "bytes": 14336,
+          "arithmetic_intensity": 1.84
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2004,
+          "std_ms": 0.0073,
+          "min_ms": 0.1928,
+          "max_ms": 0.2109
+        },
+        "throughput": {
+          "gflops": 0.53,
+          "bandwidth_gb_s": 0.26
+        },
+        "theory": {
+          "flops": 105492,
+          "bytes": 52736,
+          "arithmetic_intensity": 2.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.199,
+          "std_ms": 0.0047,
+          "min_ms": 0.1907,
+          "max_ms": 0.2017
+        },
+        "throughput": {
+          "gflops": 1.06,
+          "bandwidth_gb_s": 0.52
+        },
+        "theory": {
+          "flops": 210984,
+          "bytes": 103936,
+          "arithmetic_intensity": 2.03
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2121,
+          "std_ms": 0.0061,
+          "min_ms": 0.2045,
+          "max_ms": 0.2212
+        },
+        "throughput": {
+          "gflops": 1.99,
+          "bandwidth_gb_s": 0.97
+        },
+        "theory": {
+          "flops": 421968,
+          "bytes": 206336,
+          "arithmetic_intensity": 2.05
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2317,
+          "std_ms": 0.0079,
+          "min_ms": 0.2179,
+          "max_ms": 0.2373
+        },
+        "throughput": {
+          "gflops": 3.64,
+          "bandwidth_gb_s": 1.77
+        },
+        "theory": {
+          "flops": 843936,
+          "bytes": 411136,
+          "arithmetic_intensity": 2.05
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2879,
+          "std_ms": 0.0144,
+          "min_ms": 0.2673,
+          "max_ms": 0.3039
+        },
+        "throughput": {
+          "gflops": 5.86,
+          "bandwidth_gb_s": 2.85
+        },
+        "theory": {
+          "flops": 1687872,
+          "bytes": 820736,
+          "arithmetic_intensity": 2.06
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3957,
+          "std_ms": 0.0077,
+          "min_ms": 0.3827,
+          "max_ms": 0.4019
+        },
+        "throughput": {
+          "gflops": 8.53,
+          "bandwidth_gb_s": 4.14
+        },
+        "theory": {
+          "flops": 3375744,
+          "bytes": 1639936,
+          "arithmetic_intensity": 2.06
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5727,
+          "std_ms": 0.0072,
+          "min_ms": 0.5604,
+          "max_ms": 0.5793
+        },
+        "throughput": {
+          "gflops": 11.79,
+          "bandwidth_gb_s": 5.72
+        },
+        "theory": {
+          "flops": 6751489,
+          "bytes": 3278336,
+          "arithmetic_intensity": 2.06
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.9819,
+          "std_ms": 0.0034,
+          "min_ms": 0.9759,
+          "max_ms": 0.9846
+        },
+        "throughput": {
+          "gflops": 13.75,
+          "bandwidth_gb_s": 6.68
+        },
+        "theory": {
+          "flops": 13502978,
+          "bytes": 6555136,
+          "arithmetic_intensity": 2.06
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2128,
+          "std_ms": 0.0036,
+          "min_ms": 0.2081,
+          "max_ms": 0.2181
+        },
+        "throughput": {
+          "gflops": 0.04,
+          "bandwidth_gb_s": 0.03
+        },
+        "theory": {
+          "flops": 8787,
+          "bytes": 7296,
+          "arithmetic_intensity": 1.2
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2136,
+          "std_ms": 0.0082,
+          "min_ms": 0.204,
+          "max_ms": 0.2266
+        },
+        "throughput": {
+          "gflops": 0.33,
+          "bandwidth_gb_s": 0.16
+        },
+        "theory": {
+          "flops": 70299,
+          "bytes": 33280,
+          "arithmetic_intensity": 2.11
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2121,
+          "std_ms": 0.0046,
+          "min_ms": 0.2043,
+          "max_ms": 0.2156
+        },
+        "throughput": {
+          "gflops": 1.33,
+          "bandwidth_gb_s": 0.58
+        },
+        "theory": {
+          "flops": 281196,
+          "bytes": 122368,
+          "arithmetic_intensity": 2.3
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2196,
+          "std_ms": 0.0087,
+          "min_ms": 0.2081,
+          "max_ms": 0.2324
+        },
+        "throughput": {
+          "gflops": 2.56,
+          "bandwidth_gb_s": 1.1
+        },
+        "theory": {
+          "flops": 562392,
+          "bytes": 241152,
+          "arithmetic_intensity": 2.33
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.272,
+          "std_ms": 0.0053,
+          "min_ms": 0.2629,
+          "max_ms": 0.276
+        },
+        "throughput": {
+          "gflops": 4.13,
+          "bandwidth_gb_s": 1.76
+        },
+        "theory": {
+          "flops": 1124785,
+          "bytes": 478720,
+          "arithmetic_intensity": 2.35
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3164,
+          "std_ms": 0.0059,
+          "min_ms": 0.3072,
+          "max_ms": 0.3233
+        },
+        "throughput": {
+          "gflops": 7.11,
+          "bandwidth_gb_s": 3.01
+        },
+        "theory": {
+          "flops": 2249571,
+          "bytes": 953856,
+          "arithmetic_intensity": 2.36
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.457,
+          "std_ms": 0.0074,
+          "min_ms": 0.4439,
+          "max_ms": 0.4613
+        },
+        "throughput": {
+          "gflops": 9.85,
+          "bandwidth_gb_s": 4.17
+        },
+        "theory": {
+          "flops": 4499143,
+          "bytes": 1904128,
+          "arithmetic_intensity": 2.36
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6711,
+          "std_ms": 0.0115,
+          "min_ms": 0.6577,
+          "max_ms": 0.6889
+        },
+        "throughput": {
+          "gflops": 13.41,
+          "bandwidth_gb_s": 5.67
+        },
+        "theory": {
+          "flops": 8998287,
+          "bytes": 3804672,
+          "arithmetic_intensity": 2.37
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.8298,
+          "std_ms": 0.0119,
+          "min_ms": 0.8197,
+          "max_ms": 0.8497
+        },
+        "throughput": {
+          "gflops": 21.69,
+          "bandwidth_gb_s": 9.17
+        },
+        "theory": {
+          "flops": 17996574,
+          "bytes": 7605760,
+          "arithmetic_intensity": 2.37
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "grouped_topk",
+      "definition": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "metax",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.2144,
+          "std_ms": 0.0043,
+          "min_ms": 1.2086,
+          "max_ms": 1.2201
+        },
+        "throughput": {
+          "gflops": 29.64,
+          "bandwidth_gb_s": 12.52
+        },
+        "theory": {
+          "flops": 35993149,
+          "bytes": 15207936,
+          "arithmetic_intensity": 2.37
+        }
+      },
+      "impl_info": {
+        "source": "torch.grouped_topk (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    }
+  ]
+}

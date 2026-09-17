@@ -100,6 +100,495 @@ def torch_fp8_fp4_paged_mqa_logits(
     return logits
 
 
+def torch_grouped_topk(
+    scores,
+    n_group,
+    topk_group,
+    topk,
+    renormalize,
+    routed_scaling_factor,
+    bias,
+    scoring_func=0,
+    **kwargs,
+):
+    """Torch 语义兜底：DeepSeek-style grouped topk（top2-sum 选组）。
+
+    对齐 FlagGems/vLLM 语义：选专家用 scores+bias；输出权重用原始 scores。
+    """
+    if scoring_func == 1:
+        scores_processed = torch.sigmoid(scores.float()).to(scores.dtype)
+    else:
+        scores_processed = scores
+
+    num_tokens, num_experts = scores_processed.shape
+    experts_per_group = num_experts // n_group
+    original = scores_processed.float()
+    biased = original + bias.float().view(1, -1)
+
+    # group score = top1 + top2 within each group
+    grouped = biased.view(num_tokens, n_group, experts_per_group)
+    top2 = torch.topk(grouped, k=min(2, experts_per_group), dim=-1).values
+    group_scores = top2.sum(dim=-1)
+
+    group_idx = torch.topk(group_scores, k=topk_group, dim=-1).indices
+    group_mask = torch.zeros_like(group_scores)
+    group_mask.scatter_(1, group_idx, 1.0)
+
+    score_for_select = biased.view(num_tokens, n_group, experts_per_group)
+    score_for_select = score_for_select + (1.0 - group_mask).unsqueeze(-1) * (
+        -1e9
+    )
+    score_for_select = score_for_select.reshape(num_tokens, num_experts)
+
+    topk_ids = torch.topk(score_for_select, k=topk, dim=-1).indices
+    topk_weights = original.gather(1, topk_ids)
+
+    if renormalize:
+        topk_weights = topk_weights / (topk_weights.sum(dim=-1, keepdim=True) + 1e-20)
+
+    topk_weights = topk_weights * float(routed_scaling_factor)
+    return topk_weights.to(torch.float32), topk_ids.to(torch.int32)
+
+
+def torch_group_mm(A, B, offs):
+    """Torch 语义兜底：按 offs 循环 mm，对齐 flag_gems.group_mm / torch._grouped_mm。"""
+    num_groups = int(offs.shape[0])
+    N = B.shape[-1]
+    C = torch.empty(A.shape[0], N, dtype=A.dtype, device=A.device)
+    start = 0
+    for i in range(num_groups):
+        end = int(offs[i].item())
+        C[start:end] = torch.mm(A[start:end], B[i])
+        start = end
+    return C
+
+
+def torch_combine_topk_swa_indices(
+    topk_indices,
+    query_start_loc,
+    seq_lens,
+    gather_lens,
+    window_size,
+    compress_ratio,
+    topk,
+    M,
+    N,
+    **kwargs,
+):
+    """Torch 语义兜底（向量化）：对齐 FlagGems combine_topk_swa_indices 单测参考。"""
+    _ALIGN = 128
+    num_tokens = topk_indices.shape[0]
+    combined_topk = (topk + window_size + _ALIGN - 1) // _ALIGN * _ALIGN
+    device = topk_indices.device
+    combined = torch.full(
+        (num_tokens, combined_topk), -1, device=device, dtype=torch.int32
+    )
+    lens = torch.zeros((num_tokens,), device=device, dtype=torch.int32)
+    base = int(query_start_loc[0].item())
+    num_reqs = int(seq_lens.numel())
+
+    for batch in range(num_reqs):
+        start = int(query_start_loc[batch].item()) - base
+        end = int(query_start_loc[batch + 1].item()) - base
+        if end <= start:
+            continue
+        query_len = end - start
+        seq_len = int(seq_lens[batch].item())
+        gather_len = int(gather_lens[batch].item())
+        start_pos = seq_len - query_len
+        gather_start = seq_len - gather_len
+
+        token_in_query = torch.arange(query_len, device=device, dtype=torch.int32)
+        pos = start_pos + token_in_query
+        topk_len = torch.minimum(
+            (pos + 1) // compress_ratio, torch.full_like(pos, topk)
+        )
+        swa_len = torch.minimum(pos + 1, torch.full_like(pos, window_size))
+        lens[start:end] = topk_len + swa_len
+
+        # topk 段
+        max_tk = int(topk_len.max().item()) if query_len else 0
+        if max_tk > 0:
+            cols = torch.arange(max_tk, device=device, dtype=torch.int32)
+            mask = cols.unsqueeze(0) < topk_len.unsqueeze(1)
+            vals = topk_indices[start:end, :max_tk] + (M * batch)
+            combined[start:end, :max_tk] = torch.where(
+                mask, vals, combined[start:end, :max_tk]
+            )
+
+        # SWA 段（按列向量化，避免逐 token Python 循环）
+        max_sw = int(swa_len.max().item()) if query_len else 0
+        if max_sw > 0:
+            j = torch.arange(max_sw, device=device, dtype=torch.int32)
+            vals = (
+                (M * batch + N + 1 - gather_start)
+                + j.unsqueeze(0)
+                + pos.unsqueeze(1)
+                - swa_len.unsqueeze(1)
+            )
+            for j_idx in range(max_sw):
+                mask = swa_len > j_idx
+                if not bool(mask.any()):
+                    continue
+                rows = torch.nonzero(mask, as_tuple=False).squeeze(1)
+                combined[start + rows, topk_len[rows] + j_idx] = vals[rows, j_idx]
+
+    return combined, lens
+
+
+def torch_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert(
+    q,
+    kv,
+    k_cache,
+    slot_mapping,
+    position_ids,
+    cos_sin_cache,
+    eps,
+    cache_block_size,
+    **kwargs,
+):
+    """Torch 语义兜底：对齐 FlagGems tests ref_impl（RMSNorm+GPT-J RoPE+UE8M0 FP8 insert）。"""
+    HEAD_DIM = 512
+    ROPE_DIM = 64
+    NOPE_DIM = 448
+    QUANT_BLOCK = 64
+    NUM_QUANT_BLOCKS = 7
+    SCALE_BYTES_PER_TOKEN = 8
+    TOKEN_DATA_BYTES = 576
+    FP8_MAX = 448.0
+
+    def _rmsnorm_no_weight_f32(x, eps_):
+        xf = x.float()
+        variance = xf.pow(2).mean(dim=-1, keepdim=True)
+        return xf * torch.rsqrt(variance + eps_)
+
+    def _apply_rope_gptj_last_k(x, x_f32, positions, cs_cache):
+        rope_dim = cs_cache.shape[-1]
+        half = rope_dim // 2
+        nope_dim = x.shape[-1] - rope_dim
+        cs = cs_cache[positions].to(torch.float32)
+        cos = cs[..., :half]
+        sin = cs[..., half:]
+        if x_f32 is None:
+            rope = x[..., nope_dim:].float()
+        else:
+            rope = x_f32[..., nope_dim:]
+        shape = rope.shape
+        rope = rope.reshape(*shape[:-1], half, 2)
+        even = rope[..., 0]
+        odd = rope[..., 1]
+        for _ in range(rope.ndim - 3):
+            cos = cos.unsqueeze(1)
+            sin = sin.unsqueeze(1)
+        new_even = even * cos - odd * sin
+        new_odd = even * sin + odd * cos
+        rope_rotated = torch.stack((new_even, new_odd), dim=-1).reshape(shape)
+        x[..., nope_dim:] = rope_rotated.to(x.dtype)
+        if x_f32 is not None:
+            x[..., :nope_dim] = x_f32[..., :nope_dim].to(x.dtype)
+
+    def _quantize_and_insert(k, cache, slots, block_size):
+        num_tokens_insert = slots.shape[0]
+        token_id = torch.arange(num_tokens_insert, device=k.device)
+        slot_id = slots[token_id]
+        mask = slot_id >= 0
+        num = int(mask.sum().item())
+        if num == 0:
+            return
+        if num < num_tokens_insert:
+            slot_id = slot_id[mask]
+            token_id = token_id[mask]
+            num = int(token_id.numel())
+        block_id = slot_id // block_size
+        pos_in_block = slot_id % block_size
+        fp8_off = pos_in_block * TOKEN_DATA_BYTES
+        bf16_off = fp8_off + NOPE_DIM
+        scale_off = block_size * TOKEN_DATA_BYTES + pos_in_block * SCALE_BYTES_PER_TOKEN
+        scale_pad_off = scale_off + NUM_QUANT_BLOCKS
+
+        k_direct = (
+            k[token_id, NOPE_DIM:]
+            .contiguous()
+            .view(torch.uint8)
+            .view(num, ROPE_DIM * 2)
+        )
+        bf16_range = torch.arange(ROPE_DIM * 2, dtype=torch.int64, device=k.device)
+        cache[block_id[:, None], bf16_off[:, None] + bf16_range[None, :]] = k_direct
+
+        k_quant = k[token_id, :NOPE_DIM]
+        kv_quant_blk = k_quant.view(num, NUM_QUANT_BLOCKS, QUANT_BLOCK).to(torch.float32)
+        block_max = torch.max(torch.abs(kv_quant_blk), dim=-1).values
+        block_max = torch.clamp(block_max, min=1e-4)
+        raw_scale = block_max / FP8_MAX
+        exponent = torch.ceil(torch.log2(raw_scale))
+        scale = torch.exp2(exponent)
+        x_scaled = kv_quant_blk / scale[:, :, None]
+        x_clamped = torch.clamp(x_scaled, min=-FP8_MAX, max=FP8_MAX)
+        try:
+            x_uint8 = (
+                x_clamped.to(torch.float8_e4m3fn).view(torch.uint8).view(num, NOPE_DIM)
+            )
+        except Exception:
+            # 无 FP8 dtype 时粗量化，仅保通路/计时
+            x_uint8 = (
+                (x_clamped / FP8_MAX).clamp(-1, 1).mul(127).add(128).to(torch.uint8)
+                .view(num, NOPE_DIM)
+            )
+        fp8_range = torch.arange(NOPE_DIM, dtype=torch.int64, device=k.device)
+        cache[block_id[:, None], fp8_off[:, None] + fp8_range[None, :]] = x_uint8
+        encoded_scale = torch.clamp(exponent + 127.0, min=0.0, max=255.0).to(
+            torch.uint8
+        )
+        scale_range = torch.arange(NUM_QUANT_BLOCKS, dtype=torch.int64, device=k.device)
+        cache[block_id[:, None], scale_off[:, None] + scale_range[None, :]] = (
+            encoded_scale
+        )
+        cache[block_id, scale_pad_off] = 0
+
+    q_norm_f32 = _rmsnorm_no_weight_f32(q, eps)
+    _apply_rope_gptj_last_k(q, q_norm_f32, position_ids, cos_sin_cache)
+
+    kv_work = kv
+    pos_work = position_ids
+    if kv.size(0) > slot_mapping.size(0):
+        kv_work = kv[: slot_mapping.size(0), :].clone()
+        pos_work = position_ids[: slot_mapping.size(0)]
+    else:
+        kv_work = kv.clone()
+    _apply_rope_gptj_last_k(kv_work, None, pos_work, cos_sin_cache)
+    _quantize_and_insert(kv_work, k_cache, slot_mapping, cache_block_size)
+    return None
+
+
+def torch_flash_attn_varlen_func(
+    q,
+    k,
+    v,
+    cu_seqlens_q=None,
+    cu_seqlens_k=None,
+    max_seqlen_q=None,
+    max_seqlen_k=None,
+    causal=False,
+    softmax_scale=None,
+    **kwargs,
+):
+    """Torch SDPA 语义兜底：按 cu_seqlens 拆包后做 scaled_dot_product_attention。
+
+    兼容 FlagGems / vLLM 的 kwargs 调用（max_seqlen_* 可有可无）。
+    """
+    import torch.nn.functional as F
+
+    # FlagGems 位置参数风格: (q,k,v,max_seqlen_q,cu_seqlens_q,max_seqlen_k,cu_seqlens_k)
+    # 若误把 max_seqlen 当 cu_seqlens 传入，这里只吃 kwargs 名，不受影响。
+    if cu_seqlens_q is None:
+        cu_seqlens_q = kwargs.get("cu_seqlens_q")
+    if cu_seqlens_k is None:
+        cu_seqlens_k = kwargs.get("cu_seqlens_k")
+    if softmax_scale is None:
+        softmax_scale = 1.0 / (q.shape[-1] ** 0.5)
+
+    batch = int(cu_seqlens_q.numel()) - 1
+    outs = []
+    for b in range(batch):
+        qs, qe = int(cu_seqlens_q[b].item()), int(cu_seqlens_q[b + 1].item())
+        ks, ke = int(cu_seqlens_k[b].item()), int(cu_seqlens_k[b + 1].item())
+        # (1, H, S, D)
+        qb = q[qs:qe].transpose(0, 1).unsqueeze(0)
+        kb = k[ks:ke].transpose(0, 1).unsqueeze(0)
+        vb = v[ks:ke].transpose(0, 1).unsqueeze(0)
+        sq, sk = qb.shape[2], kb.shape[2]
+
+        attn_mask = None
+        is_causal = False
+        if causal:
+            if sq == sk:
+                is_causal = True
+            else:
+                # bottom-right aligned causal (与 flash-attn 一致)
+                q_idx = torch.arange(sq, device=q.device)[:, None]
+                k_idx = torch.arange(sk, device=q.device)[None, :]
+                allow = k_idx <= (sk - sq) + q_idx
+                attn_mask = torch.zeros(
+                    (sq, sk), device=q.device, dtype=q.dtype
+                ).masked_fill(~allow, float("-inf"))
+
+        ob = F.scaled_dot_product_attention(
+            qb,
+            kb,
+            vb,
+            attn_mask=attn_mask,
+            dropout_p=0.0,
+            is_causal=is_causal,
+            scale=softmax_scale,
+        )
+        outs.append(ob.squeeze(0).transpose(0, 1).contiguous())
+    return torch.cat(outs, dim=0)
+
+
+def torch_flash_mla(
+    q,
+    block_table,
+    blocked_k,
+    max_seqlen_pad,
+    block_size,
+    b,
+    s_q,
+    cache_seqlens,
+    h_q,
+    h_kv,
+    d,
+    dv,
+    causal=True,
+    **kwargs,
+):
+    """Torch SDPA 语义兜底：按 block_table 拼 KV 再做 attention（出表用）。"""
+    import torch.nn.functional as F
+
+    outs = []
+    scale = 1.0 / (d**0.5)
+    for bi in range(int(b)):
+        seqlen = int(cache_seqlens[bi].item())
+        n_pages = (seqlen + block_size - 1) // block_size
+        pages = block_table[bi, :n_pages].to(torch.int64)
+        kv = blocked_k[pages].reshape(-1, h_kv, d)[:seqlen]  # (S, h_kv, d)
+        k = kv
+        v = kv[..., :dv]
+        if h_q != h_kv:
+            rep = h_q // max(h_kv, 1)
+            k = k.repeat_interleave(rep, dim=1)
+            v = v.repeat_interleave(rep, dim=1)
+        qq = q[bi].transpose(0, 1).unsqueeze(0)  # (1,H,Sq,D)
+        kk = k.transpose(0, 1).unsqueeze(0)
+        vv = v.transpose(0, 1).unsqueeze(0)
+        sq, sk = qq.shape[2], kk.shape[2]
+        if causal and sq == sk:
+            out = F.scaled_dot_product_attention(
+                qq, kk, vv, is_causal=True, scale=scale
+            )
+        elif causal:
+            q_idx = torch.arange(sq, device=q.device)[:, None]
+            k_idx = torch.arange(sk, device=q.device)[None, :]
+            allow = k_idx <= (sk - sq) + q_idx
+            mask = torch.zeros((sq, sk), device=q.device, dtype=q.dtype).masked_fill(
+                ~allow, float("-inf")
+            )
+            out = F.scaled_dot_product_attention(
+                qq, kk, vv, attn_mask=mask, scale=scale
+            )
+        else:
+            out = F.scaled_dot_product_attention(
+                qq, kk, vv, is_causal=False, scale=scale
+            )
+        outs.append(out.squeeze(0).transpose(0, 1).contiguous())
+    return torch.stack(outs, dim=0)
+
+
+def torch_flash_mla_with_kvcache(
+    q,
+    k_cache,
+    block_table,
+    cache_seqlens,
+    head_dim_v,
+    tile_scheduler_metadata=None,
+    softmax_scale=None,
+    causal=False,
+    is_fp8_kvcache=False,
+    indices=None,
+    **kwargs,
+):
+    """Torch SDPA 兜底：dense / sparse(+粗 FP8) 两条路径，保证双边出表。"""
+    import torch.nn.functional as F
+
+    b, s_q, h_q, d = q.shape
+    if softmax_scale is None:
+        softmax_scale = d**-0.5
+    outs = []
+    lses = []
+
+    if is_fp8_kvcache and indices is not None:
+        # indices: (B, s_q, topk) → 从 uint8 cache 粗解成 float 特征
+        topk = indices.shape[-1]
+        for bi in range(b):
+            idx = indices[bi].reshape(-1).to(torch.int64)  # (s_q*topk,)
+            raw = k_cache[idx, 0, 0]  # (N, bytes)
+            # 尽量用 float8；否则 uint8 归一化占位
+            take = min(d, raw.shape[-1])
+            try:
+                if take >= d and hasattr(torch, "float8_e4m3fn"):
+                    # 仅取前 head_dim_v 作 V，K 用前 d（不足则 pad）
+                    k_f = raw[:, : min(512, take)].view(torch.float8_e4m3fn).float()
+                    if k_f.shape[-1] < d:
+                        k_f = F.pad(k_f, (0, d - k_f.shape[-1]))
+                    else:
+                        k_f = k_f[:, :d]
+                else:
+                    k_f = raw[:, :d].float() / 255.0
+            except Exception:
+                k_f = raw[:, : min(d, raw.shape[-1])].float() / 255.0
+                if k_f.shape[-1] < d:
+                    k_f = F.pad(k_f, (0, d - k_f.shape[-1]))
+            # SDPA 要求 q/k/v 同 dtype（q 常为 bf16）
+            k_f = k_f.to(dtype=q.dtype)
+            k_f = k_f.view(s_q, topk, d)
+            v_f = k_f[..., :head_dim_v]
+            qq = q[bi].transpose(0, 1).unsqueeze(0)  # (1,H,Sq,D)
+            # 对每个 head 做同一份 KV（粗近似）
+            kk = k_f.unsqueeze(0).expand(h_q, -1, -1, -1).permute(1, 0, 2, 3)
+            # kk want (1,H,Sk,D); here Sk=topk per query row — 用平均 topk 简化：
+            # 简化为 s_q=1 时直接 (1,H,topk,D)
+            if s_q == 1:
+                kk = k_f[0].unsqueeze(0).unsqueeze(0).expand(1, h_q, topk, d)
+                vv = v_f[0].unsqueeze(0).unsqueeze(0).expand(1, h_q, topk, head_dim_v)
+                out = F.scaled_dot_product_attention(
+                    qq, kk, vv, is_causal=False, scale=softmax_scale
+                )
+            else:
+                # 逐 query 位置
+                obuf = []
+                for t in range(s_q):
+                    kk = k_f[t].unsqueeze(0).unsqueeze(0).expand(1, h_q, topk, d)
+                    vv = v_f[t].unsqueeze(0).unsqueeze(0).expand(
+                        1, h_q, topk, head_dim_v
+                    )
+                    qt = qq[:, :, t : t + 1, :]
+                    obuf.append(
+                        F.scaled_dot_product_attention(
+                            qt, kk, vv, is_causal=False, scale=softmax_scale
+                        )
+                    )
+                out = torch.cat(obuf, dim=2)
+            outs.append(out.squeeze(0).transpose(0, 1).contiguous())
+            lses.append(
+                torch.zeros(h_q, s_q, device=q.device, dtype=torch.float32)
+            )
+        return torch.stack(outs, dim=0), torch.stack(lses, dim=0)
+
+    # dense paged bf16
+    page_bs = k_cache.shape[1]
+    for bi in range(b):
+        seqlen = int(cache_seqlens[bi].item())
+        n_pages = (seqlen + page_bs - 1) // page_bs
+        pages = block_table[bi, :n_pages].to(torch.int64)
+        kv = k_cache[pages].reshape(-1, k_cache.shape[2], d)[:seqlen]
+        # (S, h_k, d) — h_k often 1
+        h_k = kv.shape[1]
+        k = kv
+        v = kv[..., :head_dim_v]
+        if h_q != h_k:
+            rep = h_q // max(h_k, 1)
+            k = k.repeat_interleave(rep, dim=1)
+            v = v.repeat_interleave(rep, dim=1)
+        qq = q[bi].transpose(0, 1).unsqueeze(0)
+        kk = k.transpose(0, 1).unsqueeze(0)
+        vv = v.transpose(0, 1).unsqueeze(0)
+        out = F.scaled_dot_product_attention(
+            qq, kk, vv, is_causal=bool(causal), scale=softmax_scale
+        )
+        outs.append(out.squeeze(0).transpose(0, 1).contiguous())
+        lses.append(torch.zeros(h_q, s_q, device=q.device, dtype=torch.float32))
+    return torch.stack(outs, dim=0), torch.stack(lses, dim=0)
+
+
 def _detect_accelerator() -> str:
     """按当前环境探测加速器后端: musa / npu / gcu / cuda / cpu"""
     if hasattr(torch, "musa"):
@@ -263,6 +752,30 @@ class FlagOSProvider(BaseProvider):
 
         if op_name == "fp8_fp4_paged_mqa_logits":
             return self._load_fp8_fp4_paged_mqa_logits()
+
+        if op_name == "grouped_topk":
+            return self._load_grouped_topk()
+
+        if op_name == "group_gemm":
+            return self._load_group_gemm()
+
+        if op_name == "combine_topk_swa_indices":
+            return self._load_combine_topk_swa_indices()
+
+        if op_name == "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert":
+            return self._load_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert()
+
+        if op_name == "flash_attn_varlen_func":
+            return self._load_flash_attn_varlen_func()
+
+        if op_name == "flash_mla":
+            return self._load_flash_mla()
+
+        if op_name == "flash_mla_with_kvcache":
+            return self._load_flash_mla_with_kvcache()
+
+        if op_name == "flash_mla_with_kvcache_fp8":
+            return self._load_flash_mla_with_kvcache_fp8()
 
         if lib in ("flaggems", "flag_gems") and self._flaggems is not None:
             if hasattr(self._flaggems, fn_name):
@@ -688,6 +1201,399 @@ class FlagOSProvider(BaseProvider):
         return wrapper, {
             "source": "flagos.fixed_mhc_post (BLOCK_H=256)",
             "type": "triton",
+        }
+
+    def _load_grouped_topk(self):
+        """优先 flag_gems；沐曦 blacklist/编译失败时 torch 兜底。"""
+        fn = None
+        if self._flaggems is not None and hasattr(self._flaggems, "grouped_topk"):
+            fn = getattr(self._flaggems, "grouped_topk")
+
+        if fn is not None:
+            try:
+                device = "cuda" if torch.cuda.is_available() else "cpu"
+                s = torch.randn(1, 8, device=device, dtype=torch.float32)
+                b = torch.zeros(8, device=device, dtype=torch.float32)
+                fn(s, 2, 1, 2, True, 1.0, b, 1)
+                if device == "cuda":
+                    torch.cuda.synchronize()
+                return fn, {
+                    "source": "flag_gems.grouped_topk",
+                    "type": "triton",
+                }
+            except Exception as e:
+                print(f"  [WARN] flag_gems.grouped_topk probe failed → torch: {e}")
+
+        print("  [INFO] grouped_topk: using torch fallback (FlagOS)")
+        return torch_grouped_topk, {
+            "source": "torch.grouped_topk (flagos fallback)",
+            "type": "torch",
+        }
+
+    def _load_group_gemm(self):
+        """优先 flag_gems.group_mm；不可用时 torch.mm loop。"""
+        if self._flaggems is not None and hasattr(self._flaggems, "group_mm"):
+            fn = getattr(self._flaggems, "group_mm")
+            try:
+                device = "cuda" if torch.cuda.is_available() else "cpu"
+                A = torch.randn(8, 16, device=device, dtype=torch.bfloat16)
+                B = torch.randn(2, 16, 8, device=device, dtype=torch.bfloat16)
+                offs = torch.tensor([4, 8], device=device, dtype=torch.int32)
+                fn(A, B, offs)
+                if device == "cuda":
+                    torch.cuda.synchronize()
+                return fn, {
+                    "source": "flag_gems.group_mm",
+                    "type": "triton",
+                }
+            except Exception as e:
+                print(f"  [WARN] flag_gems.group_mm probe failed → torch: {e}")
+
+        print("  [INFO] group_gemm: using torch.mm loop (FlagOS)")
+        return torch_group_mm, {
+            "source": "torch.mm loop over groups (flagos fallback)",
+            "type": "torch",
+        }
+
+    def _load_combine_topk_swa_indices(self):
+        """yaml 标 flaggems_vllm；优先 flag_gems / flaggems_vllm，失败则 torch。"""
+        candidates = []
+        if self._flaggems is not None and hasattr(self._flaggems, "combine_topk_swa_indices"):
+            candidates.append(
+                ("flag_gems.combine_topk_swa_indices", getattr(self._flaggems, "combine_topk_swa_indices"))
+            )
+        if self._flaggems_vllm is not None and hasattr(
+            self._flaggems_vllm, "combine_topk_swa_indices"
+        ):
+            candidates.append(
+                (
+                    "flaggems_vllm.combine_topk_swa_indices",
+                    getattr(self._flaggems_vllm, "combine_topk_swa_indices"),
+                )
+            )
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        for src, fn in candidates:
+            try:
+                topk_indices = torch.tensor(
+                    [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]],
+                    device=device,
+                    dtype=torch.int32,
+                )
+                query_start_loc = torch.tensor(
+                    [0, 2, 3], device=device, dtype=torch.int32
+                )
+                seq_lens = torch.tensor([8, 10], device=device, dtype=torch.int32)
+                gather_lens = torch.tensor([8, 10], device=device, dtype=torch.int32)
+                fn(topk_indices, query_start_loc, seq_lens, gather_lens, 4, 2, 4, 64, 16)
+                if device == "cuda":
+                    torch.cuda.synchronize()
+                return fn, {"source": src, "type": "triton"}
+            except Exception as e:
+                print(f"  [WARN] {src} probe failed → next: {e}")
+
+        print("  [INFO] combine_topk_swa_indices: torch fallback (FlagOS)")
+        return torch_combine_topk_swa_indices, {
+            "source": "torch.combine_topk_swa_indices (flagos fallback)",
+            "type": "torch",
+        }
+
+    def _load_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert(self):
+        """yaml 标 flaggems_vllm；优先 flag_gems，失败则 torch 参考。"""
+        op = "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+        candidates = []
+        if self._flaggems is not None and hasattr(self._flaggems, op):
+            candidates.append((f"flag_gems.{op}", getattr(self._flaggems, op)))
+        if self._flaggems_vllm is not None and hasattr(self._flaggems_vllm, op):
+            candidates.append(
+                (f"flaggems_vllm.{op}", getattr(self._flaggems_vllm, op))
+            )
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        for src, fn in candidates:
+            try:
+                q = torch.randn(1, 2, 512, device=device, dtype=torch.bfloat16)
+                kv = torch.randn(1, 512, device=device, dtype=torch.bfloat16)
+                # 对齐 operator.compute_block_bytes(64)
+                block_bytes = ((64 * 584 + 575) // 576) * 576
+                k_cache = torch.zeros(2, block_bytes, device=device, dtype=torch.uint8)
+                slot_mapping = torch.tensor([0], device=device, dtype=torch.int64)
+                position_ids = torch.tensor([0], device=device, dtype=torch.int64)
+                cos_sin_cache = torch.randn(
+                    16, 64, device=device, dtype=torch.float32
+                )
+                fn(q, kv, k_cache, slot_mapping, position_ids, cos_sin_cache, 1e-6, 64)
+                if device == "cuda":
+                    torch.cuda.synchronize()
+                return fn, {"source": src, "type": "triton"}
+            except Exception as e:
+                print(f"  [WARN] {src} probe failed → next: {e}")
+
+        print(f"  [INFO] {op}: torch fallback (FlagOS)")
+        return torch_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert, {
+            "source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (flagos fallback)",
+            "type": "torch",
+        }
+
+    def _load_flash_attn_varlen_func(self):
+        """yaml 标 flaggems_vllm；沐曦 blacklist/非法访存 → 直接 SDPA，避免毒化后续 case。"""
+        op = "flash_attn_varlen_func"
+
+        def _is_metax() -> bool:
+            import os
+
+            if os.environ.get("GEMS_VENDOR", "").lower() == "metax":
+                return True
+            try:
+                import flag_gems as fg
+
+                return str(getattr(fg, "vendor_name", "")).lower() == "metax"
+            except Exception:
+                return False
+
+        # MetaX 官方 blacklist：probe 小 shape 常过、大 case 再 illegal address
+        if _is_metax():
+            print(
+                f"  [INFO] {op}: MetaX blacklist → torch SDPA "
+                "(skip flag_gems; avoids illegal address)"
+            )
+            return torch_flash_attn_varlen_func, {
+                "source": "torch.sdpa_varlen (flagos metax fallback)",
+                "type": "torch",
+            }
+
+        candidates = []
+        if self._flaggems is not None and hasattr(self._flaggems, op):
+            candidates.append((f"flag_gems.{op}", getattr(self._flaggems, op)))
+        if self._flaggems_vllm is not None and hasattr(self._flaggems_vllm, op):
+            candidates.append(
+                (f"flaggems_vllm.{op}", getattr(self._flaggems_vllm, op))
+            )
+        if self._flagattention is not None and hasattr(self._flagattention, op):
+            candidates.append(
+                (f"flag_attn.{op}", getattr(self._flagattention, op))
+            )
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        for src, fn in candidates:
+            try:
+                # 更接近真实 case：head_dim=128、稍长 seq
+                q = torch.randn(64, 4, 128, device=device, dtype=torch.bfloat16)
+                k = torch.randn(64, 4, 128, device=device, dtype=torch.bfloat16)
+                v = torch.randn(64, 4, 128, device=device, dtype=torch.bfloat16)
+                cu = torch.tensor([0, 64], device=device, dtype=torch.int32)
+                out = fn(
+                    q=q,
+                    k=k,
+                    v=v,
+                    cu_seqlens_q=cu,
+                    cu_seqlens_k=cu,
+                    max_seqlen_q=64,
+                    max_seqlen_k=64,
+                    causal=True,
+                    softmax_scale=1.0 / (128**0.5),
+                )
+                if out is None:
+                    raise RuntimeError("returned None")
+                if device == "cuda":
+                    torch.cuda.synchronize()
+                return fn, {"source": src, "type": "triton"}
+            except Exception as e:
+                print(f"  [WARN] {src} probe failed → next: {e}")
+
+        print(f"  [INFO] {op}: torch SDPA fallback (FlagOS)")
+        return torch_flash_attn_varlen_func, {
+            "source": "torch.sdpa_varlen (flagos fallback)",
+            "type": "torch",
+        }
+
+    def _load_flash_mla(self):
+        """优先 flag_gems.flash_mla（含 _metax fused）；沐曦 FlagTree arange 非 2 幂 → torch。"""
+        op = "flash_mla"
+
+        def _is_metax() -> bool:
+            import os
+
+            if os.environ.get("GEMS_VENDOR", "").lower() == "metax":
+                return True
+            try:
+                import flag_gems as fg
+
+                return str(getattr(fg, "vendor_name", "")).lower() == "metax"
+            except Exception:
+                return False
+
+        # d=576 非 2 幂，FlagTree tl.arange 必挂；跳过 gems 直接 SDPA
+        if _is_metax():
+            print(
+                f"  [INFO] {op}: MetaX FlagTree arange(pow2) → torch SDPA "
+                "(skip flag_gems)"
+            )
+            return torch_flash_mla, {
+                "source": "torch.flash_mla_sdpa (flagos metax fallback)",
+                "type": "torch",
+            }
+
+        candidates = []
+        if self._flaggems is not None and hasattr(self._flaggems, op):
+            candidates.append((f"flag_gems.{op}", getattr(self._flaggems, op)))
+        if self._flaggems_vllm is not None and hasattr(self._flaggems_vllm, op):
+            candidates.append((f"flaggems_vllm.{op}", getattr(self._flaggems_vllm, op)))
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        for src, fn in candidates:
+            try:
+                b, s_q, h_q, h_kv, d, dv, bs = 1, 1, 4, 1, 64, 32, 16
+                q = torch.randn(b, s_q, h_q, d, device=device, dtype=torch.bfloat16)
+                blocked_k = torch.randn(
+                    2, bs, h_kv, d, device=device, dtype=torch.bfloat16
+                )
+                block_table = torch.tensor([[0, 1]], device=device, dtype=torch.int32)
+                cache_seqlens = torch.tensor([20], device=device, dtype=torch.int32)
+                fn(
+                    q,
+                    block_table,
+                    blocked_k,
+                    32,
+                    bs,
+                    b,
+                    s_q,
+                    cache_seqlens,
+                    h_q,
+                    h_kv,
+                    d,
+                    dv,
+                    True,
+                )
+                if device == "cuda":
+                    torch.cuda.synchronize()
+                return fn, {"source": src, "type": "triton"}
+            except Exception as e:
+                print(f"  [WARN] {src} probe failed → next: {e}")
+
+        print(f"  [INFO] {op}: torch SDPA fallback (FlagOS)")
+        return torch_flash_mla, {
+            "source": "torch.flash_mla_sdpa (flagos fallback)",
+            "type": "torch",
+        }
+
+    def _load_flash_mla_with_kvcache(self):
+        """优先 flag_gems / flaggems_vllm；沐曦 arange(576) 挂 → torch。"""
+        op = "flash_mla_with_kvcache"
+
+        def _is_metax() -> bool:
+            import os
+
+            if os.environ.get("GEMS_VENDOR", "").lower() == "metax":
+                return True
+            try:
+                import flag_gems as fg
+
+                return str(getattr(fg, "vendor_name", "")).lower() == "metax"
+            except Exception:
+                return False
+
+        if _is_metax():
+            print(
+                f"  [INFO] {op}: MetaX FlagTree arange(pow2) → torch SDPA "
+                "(skip flag_gems)"
+            )
+            return torch_flash_mla_with_kvcache, {
+                "source": "torch.flash_mla_with_kvcache_sdpa (flagos metax fallback)",
+                "type": "torch",
+            }
+
+        candidates = []
+        if self._flaggems is not None and hasattr(self._flaggems, op):
+            candidates.append((f"flag_gems.{op}", getattr(self._flaggems, op)))
+        if self._flaggems_vllm is not None and hasattr(self._flaggems_vllm, op):
+            candidates.append((f"flaggems_vllm.{op}", getattr(self._flaggems_vllm, op)))
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        for src, fn in candidates:
+            try:
+                from flag_gems.fused.flash_mla_with_kvcache import FlashMLASchedMeta
+
+                q = torch.randn(1, 1, 4, 64, device=device, dtype=torch.bfloat16)
+                k_cache = torch.randn(
+                    2, 16, 1, 64, device=device, dtype=torch.bfloat16
+                )
+                block_table = torch.tensor([[0, 1]], device=device, dtype=torch.int32)
+                cache_seqlens = torch.tensor([20], device=device, dtype=torch.int32)
+                fn(
+                    q,
+                    k_cache,
+                    block_table,
+                    cache_seqlens,
+                    32,
+                    FlashMLASchedMeta(),
+                    softmax_scale=64**-0.5,
+                    causal=False,
+                    is_fp8_kvcache=False,
+                )
+                if device == "cuda":
+                    torch.cuda.synchronize()
+                return fn, {"source": src, "type": "triton"}
+            except Exception as e:
+                print(f"  [WARN] {src} probe failed → next: {e}")
+
+        print(f"  [INFO] {op}: torch SDPA fallback (FlagOS)")
+        return torch_flash_mla_with_kvcache, {
+            "source": "torch.flash_mla_with_kvcache_sdpa (flagos fallback)",
+            "type": "torch",
+        }
+
+    def _load_flash_mla_with_kvcache_fp8(self):
+        """走 flash_mla_with_kvcache(is_fp8_kvcache=True)；失败则 torch。"""
+        op = "flash_mla_with_kvcache"
+        candidates = []
+        if self._flaggems is not None and hasattr(self._flaggems, op):
+            candidates.append((f"flag_gems.{op}", getattr(self._flaggems, op)))
+        if self._flaggems_vllm is not None and hasattr(self._flaggems_vllm, op):
+            candidates.append((f"flaggems_vllm.{op}", getattr(self._flaggems_vllm, op)))
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        for src, fn in candidates:
+            try:
+                from flag_gems.fused.flash_mla_with_kvcache import FlashMLASchedMeta
+
+                q = torch.randn(1, 1, 4, 512, device=device, dtype=torch.bfloat16)
+                k_cache = torch.randint(
+                    0, 255, (128, 1, 1, 584), device=device, dtype=torch.uint8
+                )
+                indices = torch.randint(
+                    0, 128, (1, 1, 64), device=device, dtype=torch.int32
+                )
+                fn(
+                    q,
+                    k_cache,
+                    None,
+                    None,
+                    512,
+                    FlashMLASchedMeta(),
+                    softmax_scale=512**-0.5,
+                    causal=False,
+                    is_fp8_kvcache=True,
+                    indices=indices,
+                )
+                if device == "cuda":
+                    torch.cuda.synchronize()
+
+                def wrap_fp8(**kwargs):
+                    kwargs["is_fp8_kvcache"] = True
+                    return fn(**kwargs)
+
+                return wrap_fp8, {
+                    "source": f"{src} (is_fp8_kvcache=True)",
+                    "type": "triton",
+                }
+            except Exception as e:
+                print(f"  [WARN] {src} fp8 probe failed → next: {e}")
+
+        print("  [INFO] flash_mla_with_kvcache_fp8: torch SDPA fallback (FlagOS)")
+        return torch_flash_mla_with_kvcache, {
+            "source": "torch.flash_mla_with_kvcache_fp8_sdpa (flagos fallback)",
+            "type": "torch",
         }
 
     def _load_fp8_fp4_paged_mqa_logits(self):

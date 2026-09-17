@@ -1,0 +1,3779 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:55.672335",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 110,
+    "baseline_file": "E:\\BAAI\\results\\fused_q_kv_rmsnorm\\fused_q_kv_rmsnorm_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\fused_q_kv_rmsnorm\\fused_q_kv_rmsnorm_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 110,
+    "faster": 104,
+    "slower": 3,
+    "on_par": 3,
+    "avg_speedup": 2.9689
+  },
+  "comparisons": [
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2071,
+        "std_ms": 0.0,
+        "min_ms": 0.2071,
+        "max_ms": 0.2071,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.04,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1741,
+        "std_ms": 0.0,
+        "min_ms": 0.1741,
+        "max_ms": 0.1741,
+        "bandwidth_gb_s": 0.07,
+        "gflops": 0.05,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 1.1895,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1882,
+        "std_ms": 0.0,
+        "min_ms": 0.1882,
+        "max_ms": 0.1882,
+        "bandwidth_gb_s": 0.37,
+        "gflops": 0.35,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0522,
+        "std_ms": 0.0,
+        "min_ms": 0.0522,
+        "max_ms": 0.0522,
+        "bandwidth_gb_s": 1.33,
+        "gflops": 1.25,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.6054,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1787,
+        "std_ms": 0.0,
+        "min_ms": 0.1787,
+        "max_ms": 0.1787,
+        "bandwidth_gb_s": 1.49,
+        "gflops": 1.47,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0481,
+        "std_ms": 0.0,
+        "min_ms": 0.0481,
+        "max_ms": 0.0481,
+        "bandwidth_gb_s": 5.53,
+        "gflops": 5.45,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.7152,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1779,
+        "std_ms": 0.0,
+        "min_ms": 0.1779,
+        "max_ms": 0.1779,
+        "bandwidth_gb_s": 2.97,
+        "gflops": 2.95,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0445,
+        "std_ms": 0.0,
+        "min_ms": 0.0445,
+        "max_ms": 0.0445,
+        "bandwidth_gb_s": 11.86,
+        "gflops": 11.77,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.9978,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1784,
+        "std_ms": 0.0,
+        "min_ms": 0.1784,
+        "max_ms": 0.1784,
+        "bandwidth_gb_s": 5.9,
+        "gflops": 5.88,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0448,
+        "std_ms": 0.0,
+        "min_ms": 0.0448,
+        "max_ms": 0.0448,
+        "bandwidth_gb_s": 23.5,
+        "gflops": 23.41,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.9821,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1802,
+        "std_ms": 0.0,
+        "min_ms": 0.1802,
+        "max_ms": 0.1802,
+        "bandwidth_gb_s": 11.66,
+        "gflops": 11.64,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0484,
+        "std_ms": 0.0,
+        "min_ms": 0.0484,
+        "max_ms": 0.0484,
+        "bandwidth_gb_s": 43.43,
+        "gflops": 43.34,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.7231,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1756,
+        "std_ms": 0.0,
+        "min_ms": 0.1756,
+        "max_ms": 0.1756,
+        "bandwidth_gb_s": 23.91,
+        "gflops": 23.88,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0499,
+        "std_ms": 0.0,
+        "min_ms": 0.0499,
+        "max_ms": 0.0499,
+        "bandwidth_gb_s": 84.1,
+        "gflops": 84.02,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.519,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.182,
+        "std_ms": 0.0,
+        "min_ms": 0.182,
+        "max_ms": 0.182,
+        "bandwidth_gb_s": 46.11,
+        "gflops": 46.09,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0622,
+        "std_ms": 0.0,
+        "min_ms": 0.0622,
+        "max_ms": 0.0622,
+        "bandwidth_gb_s": 134.91,
+        "gflops": 134.85,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.926,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2483,
+        "std_ms": 0.0,
+        "min_ms": 0.2483,
+        "max_ms": 0.2483,
+        "bandwidth_gb_s": 67.58,
+        "gflops": 67.56,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0822,
+        "std_ms": 0.0,
+        "min_ms": 0.0822,
+        "max_ms": 0.0822,
+        "bandwidth_gb_s": 204.21,
+        "gflops": 204.16,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.0207,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3878,
+        "std_ms": 0.0,
+        "min_ms": 0.3878,
+        "max_ms": 0.3878,
+        "bandwidth_gb_s": 86.53,
+        "gflops": 86.52,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1303,
+        "std_ms": 0.0,
+        "min_ms": 0.1303,
+        "max_ms": 0.1303,
+        "bandwidth_gb_s": 257.54,
+        "gflops": 257.51,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9762,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1718,
+        "std_ms": 0.0,
+        "min_ms": 0.1718,
+        "max_ms": 0.1718,
+        "bandwidth_gb_s": 0.05,
+        "gflops": 0.04,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1664,
+        "std_ms": 0.0,
+        "min_ms": 0.1664,
+        "max_ms": 0.1664,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.04,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 1.0325,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1697,
+        "std_ms": 0.0,
+        "min_ms": 0.1697,
+        "max_ms": 0.1697,
+        "bandwidth_gb_s": 0.31,
+        "gflops": 0.29,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0525,
+        "std_ms": 0.0,
+        "min_ms": 0.0525,
+        "max_ms": 0.0525,
+        "bandwidth_gb_s": 1.0,
+        "gflops": 0.94,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.2324,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1677,
+        "std_ms": 0.0,
+        "min_ms": 0.1677,
+        "max_ms": 0.1677,
+        "bandwidth_gb_s": 1.19,
+        "gflops": 1.17,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0463,
+        "std_ms": 0.0,
+        "min_ms": 0.0463,
+        "max_ms": 0.0463,
+        "bandwidth_gb_s": 4.31,
+        "gflops": 4.24,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.622,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1741,
+        "std_ms": 0.0,
+        "min_ms": 0.1741,
+        "max_ms": 0.1741,
+        "bandwidth_gb_s": 2.28,
+        "gflops": 2.26,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0481,
+        "std_ms": 0.0,
+        "min_ms": 0.0481,
+        "max_ms": 0.0481,
+        "bandwidth_gb_s": 8.23,
+        "gflops": 8.17,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.6195,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.171,
+        "std_ms": 0.0,
+        "min_ms": 0.171,
+        "max_ms": 0.171,
+        "bandwidth_gb_s": 4.62,
+        "gflops": 4.6,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0453,
+        "std_ms": 0.0,
+        "min_ms": 0.0453,
+        "max_ms": 0.0453,
+        "bandwidth_gb_s": 17.42,
+        "gflops": 17.36,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.7748,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1715,
+        "std_ms": 0.0,
+        "min_ms": 0.1715,
+        "max_ms": 0.1715,
+        "bandwidth_gb_s": 9.19,
+        "gflops": 9.17,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0448,
+        "std_ms": 0.0,
+        "min_ms": 0.0448,
+        "max_ms": 0.0448,
+        "bandwidth_gb_s": 35.18,
+        "gflops": 35.11,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8281,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.171,
+        "std_ms": 0.0,
+        "min_ms": 0.171,
+        "max_ms": 0.171,
+        "bandwidth_gb_s": 18.41,
+        "gflops": 18.4,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0479,
+        "std_ms": 0.0,
+        "min_ms": 0.0479,
+        "max_ms": 0.0479,
+        "bandwidth_gb_s": 65.78,
+        "gflops": 65.71,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.5699,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1743,
+        "std_ms": 0.0,
+        "min_ms": 0.1743,
+        "max_ms": 0.1743,
+        "bandwidth_gb_s": 36.11,
+        "gflops": 36.09,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0553,
+        "std_ms": 0.0,
+        "min_ms": 0.0553,
+        "max_ms": 0.0553,
+        "bandwidth_gb_s": 113.83,
+        "gflops": 113.78,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.1519,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2071,
+        "std_ms": 0.0,
+        "min_ms": 0.2071,
+        "max_ms": 0.2071,
+        "bandwidth_gb_s": 60.77,
+        "gflops": 60.76,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.073,
+        "std_ms": 0.0,
+        "min_ms": 0.073,
+        "max_ms": 0.073,
+        "bandwidth_gb_s": 172.51,
+        "gflops": 172.46,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.837,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1024,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3174,
+        "std_ms": 0.0,
+        "min_ms": 0.3174,
+        "max_ms": 0.3174,
+        "bandwidth_gb_s": 79.29,
+        "gflops": 79.28,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1083,
+        "std_ms": 0.0,
+        "min_ms": 0.1083,
+        "max_ms": 0.1083,
+        "bandwidth_gb_s": 232.43,
+        "gflops": 232.4,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9307,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.171,
+        "std_ms": 0.0,
+        "min_ms": 0.171,
+        "max_ms": 0.171,
+        "bandwidth_gb_s": 0.07,
+        "gflops": 0.05,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0435,
+        "std_ms": 0.0,
+        "min_ms": 0.0435,
+        "max_ms": 0.0435,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 0.19,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.931,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1733,
+        "std_ms": 0.0,
+        "min_ms": 0.1733,
+        "max_ms": 0.1733,
+        "bandwidth_gb_s": 0.4,
+        "gflops": 0.38,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0433,
+        "std_ms": 0.0,
+        "min_ms": 0.0433,
+        "max_ms": 0.0433,
+        "bandwidth_gb_s": 1.61,
+        "gflops": 1.51,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 4.0023,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1633,
+        "std_ms": 0.0,
+        "min_ms": 0.1633,
+        "max_ms": 0.1633,
+        "bandwidth_gb_s": 1.63,
+        "gflops": 1.61,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0428,
+        "std_ms": 0.0,
+        "min_ms": 0.0428,
+        "max_ms": 0.0428,
+        "bandwidth_gb_s": 6.23,
+        "gflops": 6.13,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8154,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1715,
+        "std_ms": 0.0,
+        "min_ms": 0.1715,
+        "max_ms": 0.1715,
+        "bandwidth_gb_s": 3.08,
+        "gflops": 3.06,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.044,
+        "std_ms": 0.0,
+        "min_ms": 0.044,
+        "max_ms": 0.044,
+        "bandwidth_gb_s": 12.0,
+        "gflops": 11.91,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8977,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1654,
+        "std_ms": 0.0,
+        "min_ms": 0.1654,
+        "max_ms": 0.1654,
+        "bandwidth_gb_s": 6.37,
+        "gflops": 6.34,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0435,
+        "std_ms": 0.0,
+        "min_ms": 0.0435,
+        "max_ms": 0.0435,
+        "bandwidth_gb_s": 24.19,
+        "gflops": 24.09,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8023,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1702,
+        "std_ms": 0.0,
+        "min_ms": 0.1702,
+        "max_ms": 0.1702,
+        "bandwidth_gb_s": 12.34,
+        "gflops": 12.32,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0445,
+        "std_ms": 0.0,
+        "min_ms": 0.0445,
+        "max_ms": 0.0445,
+        "bandwidth_gb_s": 47.17,
+        "gflops": 47.08,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8247,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1731,
+        "std_ms": 0.0,
+        "min_ms": 0.1731,
+        "max_ms": 0.1731,
+        "bandwidth_gb_s": 24.26,
+        "gflops": 24.24,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0479,
+        "std_ms": 0.0,
+        "min_ms": 0.0479,
+        "max_ms": 0.0479,
+        "bandwidth_gb_s": 87.7,
+        "gflops": 87.61,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.6138,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1805,
+        "std_ms": 0.0,
+        "min_ms": 0.1805,
+        "max_ms": 0.1805,
+        "bandwidth_gb_s": 46.5,
+        "gflops": 46.48,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0607,
+        "std_ms": 0.0,
+        "min_ms": 0.0607,
+        "max_ms": 0.0607,
+        "bandwidth_gb_s": 138.33,
+        "gflops": 138.26,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9736,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2435,
+        "std_ms": 0.0,
+        "min_ms": 0.2435,
+        "max_ms": 0.2435,
+        "bandwidth_gb_s": 68.93,
+        "gflops": 68.91,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0883,
+        "std_ms": 0.0,
+        "min_ms": 0.0883,
+        "max_ms": 0.0883,
+        "bandwidth_gb_s": 190.01,
+        "gflops": 189.96,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.7576,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "head_dim": 512,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3827,
+        "std_ms": 0.0,
+        "min_ms": 0.3827,
+        "max_ms": 0.3827,
+        "bandwidth_gb_s": 87.68,
+        "gflops": 87.67,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1293,
+        "std_ms": 0.0,
+        "min_ms": 0.1293,
+        "max_ms": 0.1293,
+        "bandwidth_gb_s": 259.58,
+        "gflops": 259.55,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9598,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1633,
+        "std_ms": 0.0,
+        "min_ms": 0.1633,
+        "max_ms": 0.1633,
+        "bandwidth_gb_s": 0.05,
+        "gflops": 0.03,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1595,
+        "std_ms": 0.0,
+        "min_ms": 0.1595,
+        "max_ms": 0.1595,
+        "bandwidth_gb_s": 0.05,
+        "gflops": 0.03,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 1.0238,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1649,
+        "std_ms": 0.0,
+        "min_ms": 0.1649,
+        "max_ms": 0.1649,
+        "bandwidth_gb_s": 0.26,
+        "gflops": 0.25,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0643,
+        "std_ms": 0.0,
+        "min_ms": 0.0643,
+        "max_ms": 0.0643,
+        "bandwidth_gb_s": 0.68,
+        "gflops": 0.64,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.5645,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1651,
+        "std_ms": 0.0,
+        "min_ms": 0.1651,
+        "max_ms": 0.1651,
+        "bandwidth_gb_s": 1.01,
+        "gflops": 0.99,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0438,
+        "std_ms": 0.0,
+        "min_ms": 0.0438,
+        "max_ms": 0.0438,
+        "bandwidth_gb_s": 3.8,
+        "gflops": 3.74,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.7694,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1766,
+        "std_ms": 0.0,
+        "min_ms": 0.1766,
+        "max_ms": 0.1766,
+        "bandwidth_gb_s": 1.87,
+        "gflops": 1.86,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0453,
+        "std_ms": 0.0,
+        "min_ms": 0.0453,
+        "max_ms": 0.0453,
+        "bandwidth_gb_s": 7.29,
+        "gflops": 7.23,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8985,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1654,
+        "std_ms": 0.0,
+        "min_ms": 0.1654,
+        "max_ms": 0.1654,
+        "bandwidth_gb_s": 3.98,
+        "gflops": 3.96,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.042,
+        "std_ms": 0.0,
+        "min_ms": 0.042,
+        "max_ms": 0.042,
+        "bandwidth_gb_s": 15.67,
+        "gflops": 15.61,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.9381,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1644,
+        "std_ms": 0.0,
+        "min_ms": 0.1644,
+        "max_ms": 0.1644,
+        "bandwidth_gb_s": 7.99,
+        "gflops": 7.98,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.044,
+        "std_ms": 0.0,
+        "min_ms": 0.044,
+        "max_ms": 0.044,
+        "bandwidth_gb_s": 29.83,
+        "gflops": 29.77,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.7364,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1738,
+        "std_ms": 0.0,
+        "min_ms": 0.1738,
+        "max_ms": 0.1738,
+        "bandwidth_gb_s": 15.1,
+        "gflops": 15.08,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0453,
+        "std_ms": 0.0,
+        "min_ms": 0.0453,
+        "max_ms": 0.0453,
+        "bandwidth_gb_s": 57.91,
+        "gflops": 57.85,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8366,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1674,
+        "std_ms": 0.0,
+        "min_ms": 0.1674,
+        "max_ms": 0.1674,
+        "bandwidth_gb_s": 31.33,
+        "gflops": 31.31,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.053,
+        "std_ms": 0.0,
+        "min_ms": 0.053,
+        "max_ms": 0.053,
+        "bandwidth_gb_s": 98.99,
+        "gflops": 98.94,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.1585,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1843,
+        "std_ms": 0.0,
+        "min_ms": 0.1843,
+        "max_ms": 0.1843,
+        "bandwidth_gb_s": 56.9,
+        "gflops": 56.89,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0653,
+        "std_ms": 0.0,
+        "min_ms": 0.0653,
+        "max_ms": 0.0653,
+        "bandwidth_gb_s": 160.67,
+        "gflops": 160.63,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.8224,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2847,
+        "std_ms": 0.0,
+        "min_ms": 0.2847,
+        "max_ms": 0.2847,
+        "bandwidth_gb_s": 73.68,
+        "gflops": 73.67,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0965,
+        "std_ms": 0.0,
+        "min_ms": 0.0965,
+        "max_ms": 0.0965,
+        "bandwidth_gb_s": 217.32,
+        "gflops": 217.29,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9503,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1677,
+        "std_ms": 0.0,
+        "min_ms": 0.1677,
+        "max_ms": 0.1677,
+        "bandwidth_gb_s": 0.09,
+        "gflops": 0.06,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1697,
+        "std_ms": 0.0,
+        "min_ms": 0.1697,
+        "max_ms": 0.1697,
+        "bandwidth_gb_s": 0.09,
+        "gflops": 0.06,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 0.9882,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1687,
+        "std_ms": 0.0,
+        "min_ms": 0.1687,
+        "max_ms": 0.1687,
+        "bandwidth_gb_s": 0.52,
+        "gflops": 0.49,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0545,
+        "std_ms": 0.0,
+        "min_ms": 0.0545,
+        "max_ms": 0.0545,
+        "bandwidth_gb_s": 1.6,
+        "gflops": 1.5,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.0954,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1659,
+        "std_ms": 0.0,
+        "min_ms": 0.1659,
+        "max_ms": 0.1659,
+        "bandwidth_gb_s": 2.01,
+        "gflops": 1.98,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0499,
+        "std_ms": 0.0,
+        "min_ms": 0.0499,
+        "max_ms": 0.0499,
+        "bandwidth_gb_s": 6.67,
+        "gflops": 6.56,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.3246,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1682,
+        "std_ms": 0.0,
+        "min_ms": 0.1682,
+        "max_ms": 0.1682,
+        "bandwidth_gb_s": 3.93,
+        "gflops": 3.9,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0471,
+        "std_ms": 0.0,
+        "min_ms": 0.0471,
+        "max_ms": 0.0471,
+        "bandwidth_gb_s": 14.02,
+        "gflops": 13.91,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.5711,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.169,
+        "std_ms": 0.0,
+        "min_ms": 0.169,
+        "max_ms": 0.169,
+        "bandwidth_gb_s": 7.79,
+        "gflops": 7.76,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0466,
+        "std_ms": 0.0,
+        "min_ms": 0.0466,
+        "max_ms": 0.0466,
+        "bandwidth_gb_s": 28.24,
+        "gflops": 28.13,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.6266,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1677,
+        "std_ms": 0.0,
+        "min_ms": 0.1677,
+        "max_ms": 0.1677,
+        "bandwidth_gb_s": 15.66,
+        "gflops": 15.63,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0492,
+        "std_ms": 0.0,
+        "min_ms": 0.0492,
+        "max_ms": 0.0492,
+        "bandwidth_gb_s": 53.44,
+        "gflops": 53.33,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.4085,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1733,
+        "std_ms": 0.0,
+        "min_ms": 0.1733,
+        "max_ms": 0.1733,
+        "bandwidth_gb_s": 30.28,
+        "gflops": 30.25,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.052,
+        "std_ms": 0.0,
+        "min_ms": 0.052,
+        "max_ms": 0.052,
+        "bandwidth_gb_s": 100.99,
+        "gflops": 100.89,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.3327,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1923,
+        "std_ms": 0.0,
+        "min_ms": 0.1923,
+        "max_ms": 0.1923,
+        "bandwidth_gb_s": 54.57,
+        "gflops": 54.54,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0653,
+        "std_ms": 0.0,
+        "min_ms": 0.0653,
+        "max_ms": 0.0653,
+        "bandwidth_gb_s": 160.71,
+        "gflops": 160.63,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9449,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2721,
+        "std_ms": 0.0,
+        "min_ms": 0.2721,
+        "max_ms": 0.2721,
+        "bandwidth_gb_s": 77.08,
+        "gflops": 77.06,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0932,
+        "std_ms": 0.0,
+        "min_ms": 0.0932,
+        "max_ms": 0.0932,
+        "bandwidth_gb_s": 225.11,
+        "gflops": 225.05,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9195,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4493,
+        "std_ms": 0.0,
+        "min_ms": 0.4493,
+        "max_ms": 0.4493,
+        "bandwidth_gb_s": 93.37,
+        "gflops": 93.36,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1554,
+        "std_ms": 0.0,
+        "min_ms": 0.1554,
+        "max_ms": 0.1554,
+        "bandwidth_gb_s": 269.95,
+        "gflops": 269.92,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.8912,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1687,
+        "std_ms": 0.0,
+        "min_ms": 0.1687,
+        "max_ms": 0.1687,
+        "bandwidth_gb_s": 0.07,
+        "gflops": 0.05,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0435,
+        "std_ms": 0.0,
+        "min_ms": 0.0435,
+        "max_ms": 0.0435,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 0.19,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8782,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1669,
+        "std_ms": 0.0,
+        "min_ms": 0.1669,
+        "max_ms": 0.1669,
+        "bandwidth_gb_s": 0.42,
+        "gflops": 0.39,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.042,
+        "std_ms": 0.0,
+        "min_ms": 0.042,
+        "max_ms": 0.042,
+        "bandwidth_gb_s": 1.66,
+        "gflops": 1.56,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.9738,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1677,
+        "std_ms": 0.0,
+        "min_ms": 0.1677,
+        "max_ms": 0.1677,
+        "bandwidth_gb_s": 1.59,
+        "gflops": 1.56,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0412,
+        "std_ms": 0.0,
+        "min_ms": 0.0412,
+        "max_ms": 0.0412,
+        "bandwidth_gb_s": 6.46,
+        "gflops": 6.36,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 4.0704,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1692,
+        "std_ms": 0.0,
+        "min_ms": 0.1692,
+        "max_ms": 0.1692,
+        "bandwidth_gb_s": 3.12,
+        "gflops": 3.1,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0422,
+        "std_ms": 0.0,
+        "min_ms": 0.0422,
+        "max_ms": 0.0422,
+        "bandwidth_gb_s": 12.51,
+        "gflops": 12.41,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 4.0095,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1692,
+        "std_ms": 0.0,
+        "min_ms": 0.1692,
+        "max_ms": 0.1692,
+        "bandwidth_gb_s": 6.22,
+        "gflops": 6.2,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0428,
+        "std_ms": 0.0,
+        "min_ms": 0.0428,
+        "max_ms": 0.0428,
+        "bandwidth_gb_s": 24.62,
+        "gflops": 24.53,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.9533,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1682,
+        "std_ms": 0.0,
+        "min_ms": 0.1682,
+        "max_ms": 0.1682,
+        "bandwidth_gb_s": 12.49,
+        "gflops": 12.47,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0433,
+        "std_ms": 0.0,
+        "min_ms": 0.0433,
+        "max_ms": 0.0433,
+        "bandwidth_gb_s": 48.57,
+        "gflops": 48.47,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8845,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1677,
+        "std_ms": 0.0,
+        "min_ms": 0.1677,
+        "max_ms": 0.1677,
+        "bandwidth_gb_s": 25.04,
+        "gflops": 25.01,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0471,
+        "std_ms": 0.0,
+        "min_ms": 0.0471,
+        "max_ms": 0.0471,
+        "bandwidth_gb_s": 89.13,
+        "gflops": 89.04,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.5605,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1797,
+        "std_ms": 0.0,
+        "min_ms": 0.1797,
+        "max_ms": 0.1797,
+        "bandwidth_gb_s": 46.7,
+        "gflops": 46.68,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0604,
+        "std_ms": 0.0,
+        "min_ms": 0.0604,
+        "max_ms": 0.0604,
+        "bandwidth_gb_s": 138.92,
+        "gflops": 138.85,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9752,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.254,
+        "std_ms": 0.0,
+        "min_ms": 0.254,
+        "max_ms": 0.254,
+        "bandwidth_gb_s": 66.08,
+        "gflops": 66.06,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0827,
+        "std_ms": 0.0,
+        "min_ms": 0.0827,
+        "max_ms": 0.0827,
+        "bandwidth_gb_s": 202.95,
+        "gflops": 202.9,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.0713,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3873,
+        "std_ms": 0.0,
+        "min_ms": 0.3873,
+        "max_ms": 0.3873,
+        "bandwidth_gb_s": 86.64,
+        "gflops": 86.63,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1285,
+        "std_ms": 0.0,
+        "min_ms": 0.1285,
+        "max_ms": 0.1285,
+        "bandwidth_gb_s": 261.13,
+        "gflops": 261.1,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.014,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1649,
+        "std_ms": 0.0,
+        "min_ms": 0.1649,
+        "max_ms": 0.1649,
+        "bandwidth_gb_s": 0.07,
+        "gflops": 0.05,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.043,
+        "std_ms": 0.0,
+        "min_ms": 0.043,
+        "max_ms": 0.043,
+        "bandwidth_gb_s": 0.29,
+        "gflops": 0.19,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8349,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1769,
+        "std_ms": 0.0,
+        "min_ms": 0.1769,
+        "max_ms": 0.1769,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 0.37,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0417,
+        "std_ms": 0.0,
+        "min_ms": 0.0417,
+        "max_ms": 0.0417,
+        "bandwidth_gb_s": 1.67,
+        "gflops": 1.57,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 4.2422,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1674,
+        "std_ms": 0.0,
+        "min_ms": 0.1674,
+        "max_ms": 0.1674,
+        "bandwidth_gb_s": 1.59,
+        "gflops": 1.57,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0417,
+        "std_ms": 0.0,
+        "min_ms": 0.0417,
+        "max_ms": 0.0417,
+        "bandwidth_gb_s": 6.38,
+        "gflops": 6.28,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 4.0144,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1644,
+        "std_ms": 0.0,
+        "min_ms": 0.1644,
+        "max_ms": 0.1644,
+        "bandwidth_gb_s": 3.21,
+        "gflops": 3.19,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0412,
+        "std_ms": 0.0,
+        "min_ms": 0.0412,
+        "max_ms": 0.0412,
+        "bandwidth_gb_s": 12.82,
+        "gflops": 12.72,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.9903,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1682,
+        "std_ms": 0.0,
+        "min_ms": 0.1682,
+        "max_ms": 0.1682,
+        "bandwidth_gb_s": 6.26,
+        "gflops": 6.23,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0415,
+        "std_ms": 0.0,
+        "min_ms": 0.0415,
+        "max_ms": 0.0415,
+        "bandwidth_gb_s": 25.38,
+        "gflops": 25.28,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 4.053,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1718,
+        "std_ms": 0.0,
+        "min_ms": 0.1718,
+        "max_ms": 0.1718,
+        "bandwidth_gb_s": 12.23,
+        "gflops": 12.21,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0443,
+        "std_ms": 0.0,
+        "min_ms": 0.0443,
+        "max_ms": 0.0443,
+        "bandwidth_gb_s": 47.45,
+        "gflops": 47.35,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.8781,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1697,
+        "std_ms": 0.0,
+        "min_ms": 0.1697,
+        "max_ms": 0.1697,
+        "bandwidth_gb_s": 24.74,
+        "gflops": 24.71,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0463,
+        "std_ms": 0.0,
+        "min_ms": 0.0463,
+        "max_ms": 0.0463,
+        "bandwidth_gb_s": 90.61,
+        "gflops": 90.52,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.6652,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1812,
+        "std_ms": 0.0,
+        "min_ms": 0.1812,
+        "max_ms": 0.1812,
+        "bandwidth_gb_s": 46.31,
+        "gflops": 46.28,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0594,
+        "std_ms": 0.0,
+        "min_ms": 0.0594,
+        "max_ms": 0.0594,
+        "bandwidth_gb_s": 141.31,
+        "gflops": 141.24,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.0505,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2524,
+        "std_ms": 0.0,
+        "min_ms": 0.2524,
+        "max_ms": 0.2524,
+        "bandwidth_gb_s": 66.48,
+        "gflops": 66.47,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0832,
+        "std_ms": 0.0,
+        "min_ms": 0.0832,
+        "max_ms": 0.0832,
+        "bandwidth_gb_s": 201.7,
+        "gflops": 201.65,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 3.0337,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "head_dim": 192,
+        "dtype": "bf16",
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.386,
+        "std_ms": 0.0,
+        "min_ms": 0.386,
+        "max_ms": 0.386,
+        "bandwidth_gb_s": 86.93,
+        "gflops": 86.92,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1293,
+        "std_ms": 0.0,
+        "min_ms": 0.1293,
+        "max_ms": 0.1293,
+        "bandwidth_gb_s": 259.58,
+        "gflops": 259.55,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9853,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1661,
+        "std_ms": 0.0,
+        "min_ms": 0.1661,
+        "max_ms": 0.1661,
+        "bandwidth_gb_s": 0.16,
+        "gflops": 0.1,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1764,
+        "std_ms": 0.0,
+        "min_ms": 0.1764,
+        "max_ms": 0.1764,
+        "bandwidth_gb_s": 0.15,
+        "gflops": 0.1,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 0.9416,
+      "verdict": "slower"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1661,
+        "std_ms": 0.0,
+        "min_ms": 0.1661,
+        "max_ms": 0.1661,
+        "bandwidth_gb_s": 0.89,
+        "gflops": 0.84,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0691,
+        "std_ms": 0.0,
+        "min_ms": 0.0691,
+        "max_ms": 0.0691,
+        "bandwidth_gb_s": 2.14,
+        "gflops": 2.01,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.4038,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.169,
+        "std_ms": 0.0,
+        "min_ms": 0.169,
+        "max_ms": 0.169,
+        "bandwidth_gb_s": 3.35,
+        "gflops": 3.3,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0632,
+        "std_ms": 0.0,
+        "min_ms": 0.0632,
+        "max_ms": 0.0632,
+        "bandwidth_gb_s": 8.95,
+        "gflops": 8.81,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.6741,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1684,
+        "std_ms": 0.0,
+        "min_ms": 0.1684,
+        "max_ms": 0.1684,
+        "bandwidth_gb_s": 6.67,
+        "gflops": 6.61,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0599,
+        "std_ms": 0.0,
+        "min_ms": 0.0599,
+        "max_ms": 0.0599,
+        "bandwidth_gb_s": 18.74,
+        "gflops": 18.6,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.8114,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1682,
+        "std_ms": 0.0,
+        "min_ms": 0.1682,
+        "max_ms": 0.1682,
+        "bandwidth_gb_s": 13.3,
+        "gflops": 13.25,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0599,
+        "std_ms": 0.0,
+        "min_ms": 0.0599,
+        "max_ms": 0.0599,
+        "bandwidth_gb_s": 37.34,
+        "gflops": 37.2,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.808,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1702,
+        "std_ms": 0.0,
+        "min_ms": 0.1702,
+        "max_ms": 0.1702,
+        "bandwidth_gb_s": 26.23,
+        "gflops": 26.18,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0622,
+        "std_ms": 0.0,
+        "min_ms": 0.0622,
+        "max_ms": 0.0622,
+        "bandwidth_gb_s": 71.78,
+        "gflops": 71.64,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.7363,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1843,
+        "std_ms": 0.0,
+        "min_ms": 0.1843,
+        "max_ms": 0.1843,
+        "bandwidth_gb_s": 48.4,
+        "gflops": 48.36,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0717,
+        "std_ms": 0.0,
+        "min_ms": 0.0717,
+        "max_ms": 0.0717,
+        "bandwidth_gb_s": 124.46,
+        "gflops": 124.34,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.5704,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2568,
+        "std_ms": 0.0,
+        "min_ms": 0.2568,
+        "max_ms": 0.2568,
+        "bandwidth_gb_s": 69.46,
+        "gflops": 69.42,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0991,
+        "std_ms": 0.0,
+        "min_ms": 0.0991,
+        "max_ms": 0.0991,
+        "bandwidth_gb_s": 180.02,
+        "gflops": 179.93,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.5913,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3891,
+        "std_ms": 0.0,
+        "min_ms": 0.3891,
+        "max_ms": 0.3891,
+        "bandwidth_gb_s": 91.64,
+        "gflops": 91.62,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1454,
+        "std_ms": 0.0,
+        "min_ms": 0.1454,
+        "max_ms": 0.1454,
+        "bandwidth_gb_s": 245.24,
+        "gflops": 245.18,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.6761,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.5_9b_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.6807,
+        "std_ms": 0.0,
+        "min_ms": 0.6807,
+        "max_ms": 0.6807,
+        "bandwidth_gb_s": 104.76,
+        "gflops": 104.75,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2396,
+        "std_ms": 0.0,
+        "min_ms": 0.2396,
+        "max_ms": 0.2396,
+        "bandwidth_gb_s": 297.61,
+        "gflops": 297.57,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.841,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.171,
+        "std_ms": 0.0,
+        "min_ms": 0.171,
+        "max_ms": 0.171,
+        "bandwidth_gb_s": 0.22,
+        "gflops": 0.15,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1923,
+        "std_ms": 0.0,
+        "min_ms": 0.1923,
+        "max_ms": 0.1923,
+        "bandwidth_gb_s": 0.2,
+        "gflops": 0.13,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 0.8892,
+      "verdict": "slower"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.169,
+        "std_ms": 0.0,
+        "min_ms": 0.169,
+        "max_ms": 0.169,
+        "bandwidth_gb_s": 1.29,
+        "gflops": 1.21,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0801,
+        "std_ms": 0.0,
+        "min_ms": 0.0801,
+        "max_ms": 0.0801,
+        "bandwidth_gb_s": 2.72,
+        "gflops": 2.56,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.1099,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1692,
+        "std_ms": 0.0,
+        "min_ms": 0.1692,
+        "max_ms": 0.1692,
+        "bandwidth_gb_s": 4.92,
+        "gflops": 4.84,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0742,
+        "std_ms": 0.0,
+        "min_ms": 0.0742,
+        "max_ms": 0.0742,
+        "bandwidth_gb_s": 11.21,
+        "gflops": 11.03,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.2803,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1697,
+        "std_ms": 0.0,
+        "min_ms": 0.1697,
+        "max_ms": 0.1697,
+        "bandwidth_gb_s": 9.73,
+        "gflops": 9.65,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0796,
+        "std_ms": 0.0,
+        "min_ms": 0.0796,
+        "max_ms": 0.0796,
+        "bandwidth_gb_s": 20.74,
+        "gflops": 20.58,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.1319,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.172,
+        "std_ms": 0.0,
+        "min_ms": 0.172,
+        "max_ms": 0.172,
+        "bandwidth_gb_s": 19.12,
+        "gflops": 19.05,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0727,
+        "std_ms": 0.0,
+        "min_ms": 0.0727,
+        "max_ms": 0.0727,
+        "bandwidth_gb_s": 45.25,
+        "gflops": 45.07,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.3659,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.169,
+        "std_ms": 0.0,
+        "min_ms": 0.169,
+        "max_ms": 0.169,
+        "bandwidth_gb_s": 38.86,
+        "gflops": 38.79,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0748,
+        "std_ms": 0.0,
+        "min_ms": 0.0748,
+        "max_ms": 0.0748,
+        "bandwidth_gb_s": 87.84,
+        "gflops": 87.67,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.2594,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2217,
+        "std_ms": 0.0,
+        "min_ms": 0.2217,
+        "max_ms": 0.2217,
+        "bandwidth_gb_s": 59.18,
+        "gflops": 59.12,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0893,
+        "std_ms": 0.0,
+        "min_ms": 0.0893,
+        "max_ms": 0.0893,
+        "bandwidth_gb_s": 146.85,
+        "gflops": 146.7,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.4826,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3249,
+        "std_ms": 0.0,
+        "min_ms": 0.3249,
+        "max_ms": 0.3249,
+        "bandwidth_gb_s": 80.73,
+        "gflops": 80.69,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1341,
+        "std_ms": 0.0,
+        "min_ms": 0.1341,
+        "max_ms": 0.1341,
+        "bandwidth_gb_s": 195.52,
+        "gflops": 195.42,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.4228,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5297,
+        "std_ms": 0.0,
+        "min_ms": 0.5297,
+        "max_ms": 0.5297,
+        "bandwidth_gb_s": 99.01,
+        "gflops": 98.99,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2038,
+        "std_ms": 0.0,
+        "min_ms": 0.2038,
+        "max_ms": 0.2038,
+        "bandwidth_gb_s": 257.35,
+        "gflops": 257.29,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.5991,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_27b_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 5120,
+        "num_heads": 24,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.938,
+        "std_ms": 0.0,
+        "min_ms": 0.938,
+        "max_ms": 0.938,
+        "bandwidth_gb_s": 111.8,
+        "gflops": 111.79,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3441,
+        "std_ms": 0.0,
+        "min_ms": 0.3441,
+        "max_ms": 0.3441,
+        "bandwidth_gb_s": 304.8,
+        "gflops": 304.76,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.726,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1748,
+        "std_ms": 0.0,
+        "min_ms": 0.1748,
+        "max_ms": 0.1748,
+        "bandwidth_gb_s": 0.15,
+        "gflops": 0.1,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0586,
+        "std_ms": 0.0,
+        "min_ms": 0.0586,
+        "max_ms": 0.0586,
+        "bandwidth_gb_s": 0.45,
+        "gflops": 0.3,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9829,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1669,
+        "std_ms": 0.0,
+        "min_ms": 0.1669,
+        "max_ms": 0.1669,
+        "bandwidth_gb_s": 0.89,
+        "gflops": 0.83,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0581,
+        "std_ms": 0.0,
+        "min_ms": 0.0581,
+        "max_ms": 0.0581,
+        "bandwidth_gb_s": 2.55,
+        "gflops": 2.4,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.8726,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1651,
+        "std_ms": 0.0,
+        "min_ms": 0.1651,
+        "max_ms": 0.1651,
+        "bandwidth_gb_s": 3.43,
+        "gflops": 3.37,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0566,
+        "std_ms": 0.0,
+        "min_ms": 0.0566,
+        "max_ms": 0.0566,
+        "bandwidth_gb_s": 10.0,
+        "gflops": 9.85,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.917,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1697,
+        "std_ms": 0.0,
+        "min_ms": 0.1697,
+        "max_ms": 0.1697,
+        "bandwidth_gb_s": 6.62,
+        "gflops": 6.56,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0576,
+        "std_ms": 0.0,
+        "min_ms": 0.0576,
+        "max_ms": 0.0576,
+        "bandwidth_gb_s": 19.49,
+        "gflops": 19.34,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9462,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1677,
+        "std_ms": 0.0,
+        "min_ms": 0.1677,
+        "max_ms": 0.1677,
+        "bandwidth_gb_s": 13.34,
+        "gflops": 13.29,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0586,
+        "std_ms": 0.0,
+        "min_ms": 0.0586,
+        "max_ms": 0.0586,
+        "bandwidth_gb_s": 38.16,
+        "gflops": 38.01,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.8618,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1723,
+        "std_ms": 0.0,
+        "min_ms": 0.1723,
+        "max_ms": 0.1723,
+        "bandwidth_gb_s": 25.92,
+        "gflops": 25.87,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0586,
+        "std_ms": 0.0,
+        "min_ms": 0.0586,
+        "max_ms": 0.0586,
+        "bandwidth_gb_s": 76.17,
+        "gflops": 76.02,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.9403,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1815,
+        "std_ms": 0.0,
+        "min_ms": 0.1815,
+        "max_ms": 0.1815,
+        "bandwidth_gb_s": 49.15,
+        "gflops": 49.11,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0778,
+        "std_ms": 0.0,
+        "min_ms": 0.0778,
+        "max_ms": 0.0778,
+        "bandwidth_gb_s": 114.64,
+        "gflops": 114.53,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.3329,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2598,
+        "std_ms": 0.0,
+        "min_ms": 0.2598,
+        "max_ms": 0.2598,
+        "bandwidth_gb_s": 68.64,
+        "gflops": 68.6,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0968,
+        "std_ms": 0.0,
+        "min_ms": 0.0968,
+        "max_ms": 0.0968,
+        "bandwidth_gb_s": 184.3,
+        "gflops": 184.21,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.6839,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3932,
+        "std_ms": 0.0,
+        "min_ms": 0.3932,
+        "max_ms": 0.3932,
+        "bandwidth_gb_s": 90.69,
+        "gflops": 90.67,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1469,
+        "std_ms": 0.0,
+        "min_ms": 0.1469,
+        "max_ms": 0.1469,
+        "bandwidth_gb_s": 242.68,
+        "gflops": 242.62,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.6767,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.6_35b_a3b_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 16,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.6825,
+        "std_ms": 0.0,
+        "min_ms": 0.6825,
+        "max_ms": 0.6825,
+        "bandwidth_gb_s": 104.49,
+        "gflops": 104.47,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2412,
+        "std_ms": 0.0,
+        "min_ms": 0.2412,
+        "max_ms": 0.2412,
+        "bandwidth_gb_s": 295.71,
+        "gflops": 295.68,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.8296,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1659,
+        "std_ms": 0.0,
+        "min_ms": 0.1659,
+        "max_ms": 0.1659,
+        "bandwidth_gb_s": 0.6,
+        "gflops": 0.4,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2522,
+        "std_ms": 0.0,
+        "min_ms": 0.2522,
+        "max_ms": 0.2522,
+        "bandwidth_gb_s": 0.4,
+        "gflops": 0.26,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 0.6578,
+      "verdict": "slower"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1684,
+        "std_ms": 0.0,
+        "min_ms": 0.1684,
+        "max_ms": 0.1684,
+        "bandwidth_gb_s": 3.36,
+        "gflops": 3.16,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1403,
+        "std_ms": 0.0,
+        "min_ms": 0.1403,
+        "max_ms": 0.1403,
+        "bandwidth_gb_s": 4.03,
+        "gflops": 3.8,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 1.2003,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1684,
+        "std_ms": 0.0,
+        "min_ms": 0.1684,
+        "max_ms": 0.1684,
+        "bandwidth_gb_s": 12.84,
+        "gflops": 12.64,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1352,
+        "std_ms": 0.0,
+        "min_ms": 0.1352,
+        "max_ms": 0.1352,
+        "bandwidth_gb_s": 16.0,
+        "gflops": 15.76,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 1.2456,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1692,
+        "std_ms": 0.0,
+        "min_ms": 0.1692,
+        "max_ms": 0.1692,
+        "bandwidth_gb_s": 25.37,
+        "gflops": 25.17,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1336,
+        "std_ms": 0.0,
+        "min_ms": 0.1336,
+        "max_ms": 0.1336,
+        "bandwidth_gb_s": 32.13,
+        "gflops": 31.88,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 1.2665,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1705,
+        "std_ms": 0.0,
+        "min_ms": 0.1705,
+        "max_ms": 0.1705,
+        "bandwidth_gb_s": 50.17,
+        "gflops": 49.97,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1403,
+        "std_ms": 0.0,
+        "min_ms": 0.1403,
+        "max_ms": 0.1403,
+        "bandwidth_gb_s": 60.97,
+        "gflops": 60.73,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 1.2153,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens256",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2522,
+        "std_ms": 0.0,
+        "min_ms": 0.2522,
+        "max_ms": 0.2522,
+        "bandwidth_gb_s": 67.71,
+        "gflops": 67.57,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1582,
+        "std_ms": 0.0,
+        "min_ms": 0.1582,
+        "max_ms": 0.1582,
+        "bandwidth_gb_s": 107.91,
+        "gflops": 107.7,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 1.5942,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens512",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.386,
+        "std_ms": 0.0,
+        "min_ms": 0.386,
+        "max_ms": 0.386,
+        "bandwidth_gb_s": 88.36,
+        "gflops": 88.28,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1843,
+        "std_ms": 0.0,
+        "min_ms": 0.1843,
+        "max_ms": 0.1843,
+        "bandwidth_gb_s": 185.07,
+        "gflops": 184.89,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.0944,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens1024",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.6628,
+        "std_ms": 0.0,
+        "min_ms": 0.6628,
+        "max_ms": 0.6628,
+        "bandwidth_gb_s": 102.89,
+        "gflops": 102.84,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3075,
+        "std_ms": 0.0,
+        "min_ms": 0.3075,
+        "max_ms": 0.3075,
+        "bandwidth_gb_s": 221.79,
+        "gflops": 221.68,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.1554,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens2048",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.1684,
+        "std_ms": 0.0,
+        "min_ms": 1.1684,
+        "max_ms": 1.1684,
+        "bandwidth_gb_s": 116.7,
+        "gflops": 116.67,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4841,
+        "std_ms": 0.0,
+        "min_ms": 0.4841,
+        "max_ms": 0.4841,
+        "bandwidth_gb_s": 281.66,
+        "gflops": 281.59,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.4136,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fused_q_kv_rmsnorm",
+      "workload": "qwen3.8-2.4t-a95b_prefill_num_tokens4096",
+      "parameters": {
+        "hidden_size": 8192,
+        "num_heads": 64,
+        "head_dim": 256,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.2188,
+        "std_ms": 0.0,
+        "min_ms": 2.2188,
+        "max_ms": 2.2188,
+        "bandwidth_gb_s": 122.89,
+        "gflops": 122.88,
+        "impl_source": "torch.rms_norm (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.8522,
+        "std_ms": 0.0,
+        "min_ms": 0.8522,
+        "max_ms": 0.8522,
+        "bandwidth_gb_s": 319.94,
+        "gflops": 319.9,
+        "impl_source": "flagos.chunked_fused_q_kv_rmsnorm (BLOCK=256)"
+      },
+      "speedup": 2.6036,
+      "verdict": "faster"
+    }
+  ]
+}

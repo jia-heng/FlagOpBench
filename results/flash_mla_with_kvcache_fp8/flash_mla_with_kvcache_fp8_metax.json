@@ -1,0 +1,1930 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T08:27:01.149320",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 49
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v3.2_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7051,
+          "std_ms": 0.0314,
+          "min_ms": 0.6548,
+          "max_ms": 0.735
+        },
+        "throughput": {
+          "gflops": 16.42,
+          "bandwidth_gb_s": 0.32
+        },
+        "theory": {
+          "flops": 11575296,
+          "bytes": 222464,
+          "arithmetic_intensity": 52.03
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v3.2_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.8461,
+          "std_ms": 0.1682,
+          "min_ms": 4.5583,
+          "max_ms": 4.9912
+        },
+        "throughput": {
+          "gflops": 19.11,
+          "bandwidth_gb_s": 0.37
+        },
+        "theory": {
+          "flops": 92602368,
+          "bytes": 1779712,
+          "arithmetic_intensity": 52.03
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v3.2_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 13.6092,
+          "std_ms": 5.931,
+          "min_ms": 7.3876,
+          "max_ms": 19.3876
+        },
+        "throughput": {
+          "gflops": 27.22,
+          "bandwidth_gb_s": 0.52
+        },
+        "theory": {
+          "flops": 370409472,
+          "bytes": 7118848,
+          "arithmetic_intensity": 52.03
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v3.2_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.702,
+          "std_ms": 0.2373,
+          "min_ms": 10.455,
+          "max_ms": 10.9647
+        },
+        "throughput": {
+          "gflops": 69.22,
+          "bandwidth_gb_s": 0.79
+        },
+        "theory": {
+          "flops": 740818944,
+          "bytes": 8470528,
+          "arithmetic_intensity": 87.46
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v3.2_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 22.295,
+          "std_ms": 0.4462,
+          "min_ms": 21.7961,
+          "max_ms": 22.7187
+        },
+        "throughput": {
+          "gflops": 66.46,
+          "bandwidth_gb_s": 0.76
+        },
+        "theory": {
+          "flops": 1481637888,
+          "bytes": 16941056,
+          "arithmetic_intensity": 87.46
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v3.2_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 36.6352,
+          "std_ms": 0.6831,
+          "min_ms": 36.1467,
+          "max_ms": 37.654
+        },
+        "throughput": {
+          "gflops": 80.89,
+          "bandwidth_gb_s": 0.61
+        },
+        "theory": {
+          "flops": 2963275776,
+          "bytes": 22347776,
+          "arithmetic_intensity": 132.6
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v3.2_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 44.499,
+          "std_ms": 0.4697,
+          "min_ms": 43.8436,
+          "max_ms": 44.9569
+        },
+        "throughput": {
+          "gflops": 66.59,
+          "bandwidth_gb_s": 0.76
+        },
+        "theory": {
+          "flops": 2963275776,
+          "bytes": 33882112,
+          "arithmetic_intensity": 87.46
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4171,
+          "std_ms": 0.0256,
+          "min_ms": 0.4004,
+          "max_ms": 0.4623
+        },
+        "throughput": {
+          "gflops": 21.42,
+          "bandwidth_gb_s": 0.44
+        },
+        "theory": {
+          "flops": 8933376,
+          "bytes": 181504,
+          "arithmetic_intensity": 49.22
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.6712,
+          "std_ms": 0.0948,
+          "min_ms": 2.5843,
+          "max_ms": 2.8027
+        },
+        "throughput": {
+          "gflops": 26.75,
+          "bandwidth_gb_s": 0.54
+        },
+        "theory": {
+          "flops": 71467008,
+          "bytes": 1452032,
+          "arithmetic_intensity": 49.22
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 16.0901,
+          "std_ms": 9.3232,
+          "min_ms": 10.0204,
+          "max_ms": 31.2791
+        },
+        "throughput": {
+          "gflops": 17.77,
+          "bandwidth_gb_s": 0.36
+        },
+        "theory": {
+          "flops": 285868032,
+          "bytes": 5808128,
+          "arithmetic_intensity": 49.22
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.2573,
+          "std_ms": 1.2448,
+          "min_ms": 13.6957,
+          "max_ms": 16.4841
+        },
+        "throughput": {
+          "gflops": 40.1,
+          "bandwidth_gb_s": 0.5
+        },
+        "theory": {
+          "flops": 571736064,
+          "bytes": 7159808,
+          "arithmetic_intensity": 79.85
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 88.3908,
+          "std_ms": 0.8292,
+          "min_ms": 87.2481,
+          "max_ms": 89.2703
+        },
+        "throughput": {
+          "gflops": 12.94,
+          "bandwidth_gb_s": 0.16
+        },
+        "theory": {
+          "flops": 1143472128,
+          "bytes": 14319616,
+          "arithmetic_intensity": 79.85
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 56.831,
+          "std_ms": 27.1058,
+          "min_ms": 44.2959,
+          "max_ms": 105.314
+        },
+        "throughput": {
+          "gflops": 40.24,
+          "bandwidth_gb_s": 0.35
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 19726336,
+          "arithmetic_intensity": 115.93
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_flash_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 52.2535,
+          "std_ms": 0.554,
+          "min_ms": 51.9698,
+          "max_ms": 53.2421
+        },
+        "throughput": {
+          "gflops": 43.77,
+          "bandwidth_gb_s": 0.55
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 28639232,
+          "arithmetic_intensity": 79.85
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5774,
+          "std_ms": 0.0177,
+          "min_ms": 0.5652,
+          "max_ms": 0.6088
+        },
+        "throughput": {
+          "gflops": 30.94,
+          "bandwidth_gb_s": 0.56
+        },
+        "theory": {
+          "flops": 17866752,
+          "bytes": 320768,
+          "arithmetic_intensity": 55.7
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.5915,
+          "std_ms": 0.0084,
+          "min_ms": 3.5784,
+          "max_ms": 3.5999
+        },
+        "throughput": {
+          "gflops": 39.8,
+          "bandwidth_gb_s": 0.71
+        },
+        "theory": {
+          "flops": 142934016,
+          "bytes": 2566144,
+          "arithmetic_intensity": 55.7
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 13.7368,
+          "std_ms": 0.2359,
+          "min_ms": 13.3158,
+          "max_ms": 13.8624
+        },
+        "throughput": {
+          "gflops": 41.62,
+          "bandwidth_gb_s": 0.75
+        },
+        "theory": {
+          "flops": 571736064,
+          "bytes": 10264576,
+          "arithmetic_intensity": 55.7
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 24.2069,
+          "std_ms": 1.3138,
+          "min_ms": 23.4476,
+          "max_ms": 26.539
+        },
+        "throughput": {
+          "gflops": 47.24,
+          "bandwidth_gb_s": 0.48
+        },
+        "theory": {
+          "flops": 1143472128,
+          "bytes": 11616256,
+          "arithmetic_intensity": 98.44
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 46.5405,
+          "std_ms": 0.5144,
+          "min_ms": 45.7692,
+          "max_ms": 47.198
+        },
+        "throughput": {
+          "gflops": 49.14,
+          "bandwidth_gb_s": 0.5
+        },
+        "theory": {
+          "flops": 2286944256,
+          "bytes": 23232512,
+          "arithmetic_intensity": 98.44
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 82.5081,
+          "std_ms": 0.555,
+          "min_ms": 81.7866,
+          "max_ms": 83.3311
+        },
+        "throughput": {
+          "gflops": 55.44,
+          "bandwidth_gb_s": 0.35
+        },
+        "theory": {
+          "flops": 4573888512,
+          "bytes": 28639232,
+          "arithmetic_intensity": 159.71
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "deepseek_v4_pro_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 128,
+        "h_kv": 1,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 98.2029,
+          "std_ms": 8.9815,
+          "min_ms": 91.5041,
+          "max_ms": 111.4944
+        },
+        "throughput": {
+          "gflops": 46.58,
+          "bandwidth_gb_s": 0.47
+        },
+        "theory": {
+          "flops": 4573888512,
+          "bytes": 46465024,
+          "arithmetic_intensity": 98.44
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_4.7_flash_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4087,
+          "std_ms": 0.0289,
+          "min_ms": 0.3891,
+          "max_ms": 0.4593
+        },
+        "throughput": {
+          "gflops": 5.23,
+          "bandwidth_gb_s": 0.18
+        },
+        "theory": {
+          "flops": 2136320,
+          "bytes": 75520,
+          "arithmetic_intensity": 28.29
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_4.7_flash_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.7048,
+          "std_ms": 0.0888,
+          "min_ms": 2.6386,
+          "max_ms": 2.8554
+        },
+        "throughput": {
+          "gflops": 6.32,
+          "bandwidth_gb_s": 0.22
+        },
+        "theory": {
+          "flops": 17090560,
+          "bytes": 604160,
+          "arithmetic_intensity": 28.29
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_4.7_flash_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.001,
+          "std_ms": 0.3287,
+          "min_ms": 9.4943,
+          "max_ms": 10.4156
+        },
+        "throughput": {
+          "gflops": 6.84,
+          "bandwidth_gb_s": 0.24
+        },
+        "theory": {
+          "flops": 68362240,
+          "bytes": 2416640,
+          "arithmetic_intensity": 28.29
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_4.7_flash_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.0854,
+          "std_ms": 0.2201,
+          "min_ms": 9.9208,
+          "max_ms": 10.4719
+        },
+        "throughput": {
+          "gflops": 13.56,
+          "bandwidth_gb_s": 0.37
+        },
+        "theory": {
+          "flops": 136724480,
+          "bytes": 3768320,
+          "arithmetic_intensity": 36.28
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_4.7_flash_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 19.7941,
+          "std_ms": 1.0697,
+          "min_ms": 18.914,
+          "max_ms": 21.6361
+        },
+        "throughput": {
+          "gflops": 13.81,
+          "bandwidth_gb_s": 0.38
+        },
+        "theory": {
+          "flops": 273448960,
+          "bytes": 7536640,
+          "arithmetic_intensity": 36.28
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_4.7_flash_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 19.9143,
+          "std_ms": 1.4236,
+          "min_ms": 18.5677,
+          "max_ms": 22.3427
+        },
+        "throughput": {
+          "gflops": 27.46,
+          "bandwidth_gb_s": 0.65
+        },
+        "theory": {
+          "flops": 546897920,
+          "bytes": 12943360,
+          "arithmetic_intensity": 42.25
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_4.7_flash_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 20,
+        "h_kv": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 37.7736,
+          "std_ms": 2.0088,
+          "min_ms": 36.6684,
+          "max_ms": 41.3468
+        },
+        "throughput": {
+          "gflops": 14.48,
+          "bandwidth_gb_s": 0.4
+        },
+        "theory": {
+          "flops": 546897920,
+          "bytes": 15073280,
+          "arithmetic_intensity": 36.28
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_5.2_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4028,
+          "std_ms": 0.0279,
+          "min_ms": 0.3809,
+          "max_ms": 0.4467
+        },
+        "throughput": {
+          "gflops": 16.97,
+          "bandwidth_gb_s": 0.37
+        },
+        "theory": {
+          "flops": 6836224,
+          "bytes": 148736,
+          "arithmetic_intensity": 45.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_5.2_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.913,
+          "std_ms": 0.3456,
+          "min_ms": 2.6883,
+          "max_ms": 3.5128
+        },
+        "throughput": {
+          "gflops": 18.77,
+          "bandwidth_gb_s": 0.41
+        },
+        "theory": {
+          "flops": 54689792,
+          "bytes": 1189888,
+          "arithmetic_intensity": 45.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_5.2_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.1473,
+          "std_ms": 0.2043,
+          "min_ms": 9.9873,
+          "max_ms": 10.5034
+        },
+        "throughput": {
+          "gflops": 21.56,
+          "bandwidth_gb_s": 0.47
+        },
+        "theory": {
+          "flops": 218759168,
+          "bytes": 4759552,
+          "arithmetic_intensity": 45.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_5.2_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.25,
+          "std_ms": 0.1815,
+          "min_ms": 10.1266,
+          "max_ms": 10.5533
+        },
+        "throughput": {
+          "gflops": 42.68,
+          "bandwidth_gb_s": 0.6
+        },
+        "theory": {
+          "flops": 437518336,
+          "bytes": 6111232,
+          "arithmetic_intensity": 71.59
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_5.2_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 19.8828,
+          "std_ms": 0.353,
+          "min_ms": 19.4319,
+          "max_ms": 20.4101
+        },
+        "throughput": {
+          "gflops": 44.01,
+          "bandwidth_gb_s": 0.61
+        },
+        "theory": {
+          "flops": 875036672,
+          "bytes": 12222464,
+          "arithmetic_intensity": 71.59
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_5.2_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 30.1864,
+          "std_ms": 2.4004,
+          "min_ms": 28.2906,
+          "max_ms": 34.0447
+        },
+        "throughput": {
+          "gflops": 57.98,
+          "bandwidth_gb_s": 0.58
+        },
+        "theory": {
+          "flops": 1750073344,
+          "bytes": 17629184,
+          "arithmetic_intensity": 99.27
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "glm_5.2_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 35.034,
+          "std_ms": 0.3751,
+          "min_ms": 34.5887,
+          "max_ms": 35.4051
+        },
+        "throughput": {
+          "gflops": 49.95,
+          "bandwidth_gb_s": 0.7
+        },
+        "theory": {
+          "flops": 1750073344,
+          "bytes": 24444928,
+          "arithmetic_intensity": 71.59
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k2.6_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3144,
+          "std_ms": 0.0238,
+          "min_ms": 0.2944,
+          "max_ms": 0.354
+        },
+        "throughput": {
+          "gflops": 18.41,
+          "bandwidth_gb_s": 0.42
+        },
+        "theory": {
+          "flops": 5787648,
+          "bytes": 132352,
+          "arithmetic_intensity": 43.73
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k2.6_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.9932,
+          "std_ms": 0.0726,
+          "min_ms": 1.9494,
+          "max_ms": 2.1217
+        },
+        "throughput": {
+          "gflops": 23.23,
+          "bandwidth_gb_s": 0.53
+        },
+        "theory": {
+          "flops": 46301184,
+          "bytes": 1058816,
+          "arithmetic_intensity": 43.73
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k2.6_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 7.4205,
+          "std_ms": 0.0922,
+          "min_ms": 7.295,
+          "max_ms": 7.5515
+        },
+        "throughput": {
+          "gflops": 24.96,
+          "bandwidth_gb_s": 0.57
+        },
+        "theory": {
+          "flops": 185204736,
+          "bytes": 4235264,
+          "arithmetic_intensity": 43.73
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k2.6_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 7.4782,
+          "std_ms": 0.0765,
+          "min_ms": 7.4168,
+          "max_ms": 7.6091
+        },
+        "throughput": {
+          "gflops": 49.53,
+          "bandwidth_gb_s": 0.75
+        },
+        "theory": {
+          "flops": 370409472,
+          "bytes": 5586944,
+          "arithmetic_intensity": 66.3
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k2.6_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 13.9675,
+          "std_ms": 0.2835,
+          "min_ms": 13.7203,
+          "max_ms": 14.3222
+        },
+        "throughput": {
+          "gflops": 53.04,
+          "bandwidth_gb_s": 0.8
+        },
+        "theory": {
+          "flops": 740818944,
+          "bytes": 11173888,
+          "arithmetic_intensity": 66.3
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k2.6_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 20.7652,
+          "std_ms": 0.2899,
+          "min_ms": 20.4362,
+          "max_ms": 20.9897
+        },
+        "throughput": {
+          "gflops": 71.35,
+          "bandwidth_gb_s": 0.8
+        },
+        "theory": {
+          "flops": 1481637888,
+          "bytes": 16580608,
+          "arithmetic_intensity": 89.36
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k2.6_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 64,
+        "h_kv": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 30.9685,
+          "std_ms": 7.5602,
+          "min_ms": 27.1662,
+          "max_ms": 44.4746
+        },
+        "throughput": {
+          "gflops": 47.84,
+          "bandwidth_gb_s": 0.72
+        },
+        "theory": {
+          "flops": 1481637888,
+          "bytes": 22347776,
+          "arithmetic_intensity": 66.3
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k3_decode_b1_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4024,
+          "std_ms": 0.0254,
+          "min_ms": 0.3735,
+          "max_ms": 0.4424
+        },
+        "throughput": {
+          "gflops": 21.57,
+          "bandwidth_gb_s": 0.44
+        },
+        "theory": {
+          "flops": 8681472,
+          "bytes": 177408,
+          "arithmetic_intensity": 48.94
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k3_decode_b8_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.5323,
+          "std_ms": 0.06,
+          "min_ms": 2.4538,
+          "max_ms": 2.594
+        },
+        "throughput": {
+          "gflops": 27.43,
+          "bandwidth_gb_s": 0.56
+        },
+        "theory": {
+          "flops": 69451776,
+          "bytes": 1419264,
+          "arithmetic_intensity": 48.94
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k3_decode_b32_max_seq2048",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 9.9353,
+          "std_ms": 0.0829,
+          "min_ms": 9.8058,
+          "max_ms": 9.9988
+        },
+        "throughput": {
+          "gflops": 27.96,
+          "bandwidth_gb_s": 0.57
+        },
+        "theory": {
+          "flops": 277807104,
+          "bytes": 5677056,
+          "arithmetic_intensity": 48.94
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k3_decode_b32_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.5061,
+          "std_ms": 0.0709,
+          "min_ms": 14.4082,
+          "max_ms": 14.5938
+        },
+        "throughput": {
+          "gflops": 38.3,
+          "bandwidth_gb_s": 0.48
+        },
+        "theory": {
+          "flops": 555614208,
+          "bytes": 7028736,
+          "arithmetic_intensity": 79.05
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k3_decode_b64_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 28.8989,
+          "std_ms": 0.2875,
+          "min_ms": 28.4933,
+          "max_ms": 29.2122
+        },
+        "throughput": {
+          "gflops": 38.45,
+          "bandwidth_gb_s": 0.49
+        },
+        "theory": {
+          "flops": 1111228416,
+          "bytes": 14057472,
+          "arithmetic_intensity": 79.05
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k3_decode_b64_max_seq8192",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 45.6681,
+          "std_ms": 0.2638,
+          "min_ms": 45.4751,
+          "max_ms": 46.1266
+        },
+        "throughput": {
+          "gflops": 48.67,
+          "bandwidth_gb_s": 0.43
+        },
+        "theory": {
+          "flops": 2222456832,
+          "bytes": 19464192,
+          "arithmetic_intensity": 114.18
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "flash_mla_with_kvcache_fp8",
+      "definition": "flash_mla_with_kvcache_fp8",
+      "workload": "kimi_k3_decode_b128_max_seq4096",
+      "provider": "metax",
+      "parameters": {
+        "s_q": 1,
+        "h_q": 96,
+        "h_kv": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "quant": "fp8",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 35.0,
+          "std_ms": 0.0407,
+          "min_ms": 34.9399,
+          "max_ms": 35.0472
+        },
+        "throughput": {
+          "gflops": 63.5,
+          "bandwidth_gb_s": 0.8
+        },
+        "theory": {
+          "flops": 2222456832,
+          "bytes": 28114944,
+          "arithmetic_intensity": 79.05
+        }
+      },
+      "impl_info": {
+        "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    }
+  ]
+}

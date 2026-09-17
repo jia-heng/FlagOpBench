@@ -1,0 +1,2251 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T07:35:10.429423",
+    "provider": "flagos",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 62
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5929,
+          "std_ms": 0.0096,
+          "min_ms": 0.5847,
+          "max_ms": 0.608
+        },
+        "throughput": {
+          "gflops": 169.77,
+          "bandwidth_gb_s": 339.7
+        },
+        "theory": {
+          "flops": 100663296,
+          "bytes": 201424896,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 18.3821,
+          "std_ms": 0.0716,
+          "min_ms": 18.3073,
+          "max_ms": 18.4832
+        },
+        "throughput": {
+          "gflops": 175.24,
+          "bandwidth_gb_s": 350.64
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 6445596672,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 60.7844,
+          "std_ms": 0.0553,
+          "min_ms": 60.7309,
+          "max_ms": 60.8753
+        },
+        "throughput": {
+          "gflops": 211.98,
+          "bandwidth_gb_s": 424.06
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 25776095232,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4261,
+          "std_ms": 0.005,
+          "min_ms": 0.4206,
+          "max_ms": 0.4332
+        },
+        "throughput": {
+          "gflops": 30236.48,
+          "bandwidth_gb_s": 236.22
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 100663296,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.4525,
+          "std_ms": 0.0022,
+          "min_ms": 3.4499,
+          "max_ms": 3.455
+        },
+        "throughput": {
+          "gflops": 59713.36,
+          "bandwidth_gb_s": 116.63
+        },
+        "theory": {
+          "flops": 206158430208,
+          "bytes": 402653184,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 12.5614,
+          "std_ms": 0.0115,
+          "min_ms": 12.545,
+          "max_ms": 12.5757
+        },
+        "throughput": {
+          "gflops": 65648.19,
+          "bandwidth_gb_s": 64.11
+        },
+        "theory": {
+          "flops": 824633720832,
+          "bytes": 805306368,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 13.8153,
+          "std_ms": 0.0315,
+          "min_ms": 13.7597,
+          "max_ms": 13.8345
+        },
+        "throughput": {
+          "gflops": 59689.69,
+          "bandwidth_gb_s": 116.58
+        },
+        "theory": {
+          "flops": 824633720832,
+          "bytes": 1610612736,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.3396,
+          "std_ms": 0.0215,
+          "min_ms": 2.3191,
+          "max_ms": 2.3672
+        },
+        "throughput": {
+          "gflops": 57.37,
+          "bandwidth_gb_s": 114.79
+        },
+        "theory": {
+          "flops": 134217728,
+          "bytes": 268566528,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 76.8189,
+          "std_ms": 0.1166,
+          "min_ms": 76.6669,
+          "max_ms": 76.9449
+        },
+        "throughput": {
+          "gflops": 55.91,
+          "bandwidth_gb_s": 111.88
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 8594128896,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 178.2008,
+          "std_ms": 0.1634,
+          "min_ms": 178.0652,
+          "max_ms": 178.4136
+        },
+        "throughput": {
+          "gflops": 96.41,
+          "bandwidth_gb_s": 192.86
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 34368126976,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.0525,
+          "std_ms": 0.0085,
+          "min_ms": 3.0415,
+          "max_ms": 3.062
+        },
+        "throughput": {
+          "gflops": 5628.05,
+          "bandwidth_gb_s": 43.97
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 134217728,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 27.5171,
+          "std_ms": 0.0945,
+          "min_ms": 27.3797,
+          "max_ms": 27.6429
+        },
+        "throughput": {
+          "gflops": 9989.34,
+          "bandwidth_gb_s": 19.51
+        },
+        "theory": {
+          "flops": 274877906944,
+          "bytes": 536870912,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 102.4231,
+          "std_ms": 0.0416,
+          "min_ms": 102.3782,
+          "max_ms": 102.4904
+        },
+        "throughput": {
+          "gflops": 10734.99,
+          "bandwidth_gb_s": 10.48
+        },
+        "theory": {
+          "flops": 1099511627776,
+          "bytes": 1073741824,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 110.383,
+          "std_ms": 0.1867,
+          "min_ms": 110.0977,
+          "max_ms": 110.6068
+        },
+        "throughput": {
+          "gflops": 9960.88,
+          "bandwidth_gb_s": 19.45
+        },
+        "theory": {
+          "flops": 1099511627776,
+          "bytes": 2147483648,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.376,
+          "std_ms": 0.0096,
+          "min_ms": 4.3653,
+          "max_ms": 4.3884
+        },
+        "throughput": {
+          "gflops": 61.34,
+          "bandwidth_gb_s": 122.74
+        },
+        "theory": {
+          "flops": 268435456,
+          "bytes": 537133056,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 140.2162,
+          "std_ms": 0.1244,
+          "min_ms": 140.0108,
+          "max_ms": 140.3423
+        },
+        "throughput": {
+          "gflops": 61.26,
+          "bandwidth_gb_s": 122.58
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 17188257792,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.1274,
+          "std_ms": 0.0089,
+          "min_ms": 5.119,
+          "max_ms": 5.1387
+        },
+        "throughput": {
+          "gflops": 6701.24,
+          "bandwidth_gb_s": 52.35
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 268435456,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 53.9961,
+          "std_ms": 0.0174,
+          "min_ms": 53.9804,
+          "max_ms": 54.0237
+        },
+        "throughput": {
+          "gflops": 10181.39,
+          "bandwidth_gb_s": 19.89
+        },
+        "theory": {
+          "flops": 549755813888,
+          "bytes": 1073741824,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 205.8635,
+          "std_ms": 0.1157,
+          "min_ms": 205.6773,
+          "max_ms": 205.9948
+        },
+        "throughput": {
+          "gflops": 10681.95,
+          "bandwidth_gb_s": 10.43
+        },
+        "theory": {
+          "flops": 2199023255552,
+          "bytes": 2147483648,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 216.0208,
+          "std_ms": 0.2163,
+          "min_ms": 215.7675,
+          "max_ms": 216.3499
+        },
+        "throughput": {
+          "gflops": 10179.68,
+          "bandwidth_gb_s": 19.88
+        },
+        "theory": {
+          "flops": 2199023255552,
+          "bytes": 4294967296,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4921,
+          "std_ms": 0.0131,
+          "min_ms": 0.4756,
+          "max_ms": 0.5061
+        },
+        "throughput": {
+          "gflops": 42.62,
+          "bandwidth_gb_s": 85.28
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 41963520,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.8027,
+          "std_ms": 0.0385,
+          "min_ms": 14.7438,
+          "max_ms": 14.8411
+        },
+        "throughput": {
+          "gflops": 45.34,
+          "bandwidth_gb_s": 90.72
+        },
+        "theory": {
+          "flops": 671088640,
+          "bytes": 1342832640,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 43.673,
+          "std_ms": 0.0554,
+          "min_ms": 43.5999,
+          "max_ms": 43.746
+        },
+        "throughput": {
+          "gflops": 61.46,
+          "bandwidth_gb_s": 122.96
+        },
+        "theory": {
+          "flops": 2684354560,
+          "bytes": 5370019840,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.306,
+          "std_ms": 0.0037,
+          "min_ms": 0.3028,
+          "max_ms": 0.3103
+        },
+        "throughput": {
+          "gflops": 8773.23,
+          "bandwidth_gb_s": 68.54
+        },
+        "theory": {
+          "flops": 2684354560,
+          "bytes": 20971520,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5969,
+          "std_ms": 0.0028,
+          "min_ms": 0.5926,
+          "max_ms": 0.5996
+        },
+        "throughput": {
+          "gflops": 71955.81,
+          "bandwidth_gb_s": 140.54
+        },
+        "theory": {
+          "flops": 42949672960,
+          "bytes": 83886080,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.7481,
+          "std_ms": 0.0024,
+          "min_ms": 1.7449,
+          "max_ms": 1.751
+        },
+        "throughput": {
+          "gflops": 98276.17,
+          "bandwidth_gb_s": 95.97
+        },
+        "theory": {
+          "flops": 171798691840,
+          "bytes": 167772160,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.4543,
+          "std_ms": 0.0056,
+          "min_ms": 2.4476,
+          "max_ms": 2.4627
+        },
+        "throughput": {
+          "gflops": 69999.86,
+          "bandwidth_gb_s": 136.72
+        },
+        "theory": {
+          "flops": 171798691840,
+          "bytes": 335544320,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3942,
+          "std_ms": 0.0089,
+          "min_ms": 0.3863,
+          "max_ms": 0.405
+        },
+        "throughput": {
+          "gflops": 127.67,
+          "bandwidth_gb_s": 255.46
+        },
+        "theory": {
+          "flops": 50331648,
+          "bytes": 100712448,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 12.3212,
+          "std_ms": 0.0295,
+          "min_ms": 12.2721,
+          "max_ms": 12.3507
+        },
+        "throughput": {
+          "gflops": 130.72,
+          "bandwidth_gb_s": 261.56
+        },
+        "theory": {
+          "flops": 1610612736,
+          "bytes": 3222798336,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 37.0401,
+          "std_ms": 0.2062,
+          "min_ms": 36.8822,
+          "max_ms": 37.334
+        },
+        "throughput": {
+          "gflops": 173.93,
+          "bandwidth_gb_s": 347.95
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 12888047616,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2749,
+          "std_ms": 0.0031,
+          "min_ms": 0.2714,
+          "max_ms": 0.278
+        },
+        "throughput": {
+          "gflops": 23431.87,
+          "bandwidth_gb_s": 183.06
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 50331648,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.6965,
+          "std_ms": 0.0023,
+          "min_ms": 1.6942,
+          "max_ms": 1.7004
+        },
+        "throughput": {
+          "gflops": 60761.33,
+          "bandwidth_gb_s": 118.67
+        },
+        "theory": {
+          "flops": 103079215104,
+          "bytes": 201326592,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.9469,
+          "std_ms": 0.0036,
+          "min_ms": 5.9428,
+          "max_ms": 5.9507
+        },
+        "throughput": {
+          "gflops": 69332.71,
+          "bandwidth_gb_s": 67.71
+        },
+        "theory": {
+          "flops": 412316860416,
+          "bytes": 402653184,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.7685,
+          "std_ms": 0.0163,
+          "min_ms": 6.743,
+          "max_ms": 6.7884
+        },
+        "throughput": {
+          "gflops": 60916.68,
+          "bandwidth_gb_s": 118.98
+        },
+        "theory": {
+          "flops": 412316860416,
+          "bytes": 805306368,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.401,
+          "std_ms": 0.0081,
+          "min_ms": 0.3912,
+          "max_ms": 0.4134
+        },
+        "throughput": {
+          "gflops": 188.25,
+          "bandwidth_gb_s": 376.68
+        },
+        "theory": {
+          "flops": 75497472,
+          "bytes": 151068672,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 12.5635,
+          "std_ms": 0.0288,
+          "min_ms": 12.5299,
+          "max_ms": 12.609
+        },
+        "throughput": {
+          "gflops": 192.3,
+          "bandwidth_gb_s": 384.78
+        },
+        "theory": {
+          "flops": 2415919104,
+          "bytes": 4834197504,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 39.9681,
+          "std_ms": 0.0671,
+          "min_ms": 39.8572,
+          "max_ms": 40.0256
+        },
+        "throughput": {
+          "gflops": 241.79,
+          "bandwidth_gb_s": 483.69
+        },
+        "theory": {
+          "flops": 9663676416,
+          "bytes": 19332071424,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3544,
+          "std_ms": 0.0044,
+          "min_ms": 0.3492,
+          "max_ms": 0.3604
+        },
+        "throughput": {
+          "gflops": 27267.22,
+          "bandwidth_gb_s": 213.03
+        },
+        "theory": {
+          "flops": 9663676416,
+          "bytes": 75497472,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.5972,
+          "std_ms": 0.0028,
+          "min_ms": 2.5938,
+          "max_ms": 2.6007
+        },
+        "throughput": {
+          "gflops": 59532.38,
+          "bandwidth_gb_s": 116.27
+        },
+        "theory": {
+          "flops": 154618822656,
+          "bytes": 301989888,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 9.3393,
+          "std_ms": 0.0095,
+          "min_ms": 9.3274,
+          "max_ms": 9.3537
+        },
+        "throughput": {
+          "gflops": 66222.95,
+          "bandwidth_gb_s": 64.67
+        },
+        "theory": {
+          "flops": 618475290624,
+          "bytes": 603979776,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.3748,
+          "std_ms": 0.0297,
+          "min_ms": 10.3534,
+          "max_ms": 10.4236
+        },
+        "throughput": {
+          "gflops": 59613.47,
+          "bandwidth_gb_s": 116.43
+        },
+        "theory": {
+          "flops": 618475290624,
+          "bytes": 1207959552,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4838,
+          "std_ms": 0.0089,
+          "min_ms": 0.4751,
+          "max_ms": 0.4964
+        },
+        "throughput": {
+          "gflops": 34.68,
+          "bandwidth_gb_s": 69.39
+        },
+        "theory": {
+          "flops": 16777216,
+          "bytes": 33570816,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.7713,
+          "std_ms": 0.0551,
+          "min_ms": 14.7087,
+          "max_ms": 14.8562
+        },
+        "throughput": {
+          "gflops": 36.35,
+          "bandwidth_gb_s": 72.73
+        },
+        "theory": {
+          "flops": 536870912,
+          "bytes": 1074266112,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 43.6815,
+          "std_ms": 0.0619,
+          "min_ms": 43.5766,
+          "max_ms": 43.7391
+        },
+        "throughput": {
+          "gflops": 49.16,
+          "bandwidth_gb_s": 98.35
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 4296015872,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2412,
+          "std_ms": 0.0021,
+          "min_ms": 0.2381,
+          "max_ms": 0.2437
+        },
+        "throughput": {
+          "gflops": 8903.21,
+          "bandwidth_gb_s": 69.56
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 16777216,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5152,
+          "std_ms": 0.0045,
+          "min_ms": 0.5087,
+          "max_ms": 0.5215
+        },
+        "throughput": {
+          "gflops": 66688.73,
+          "bandwidth_gb_s": 130.25
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 67108864,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.4276,
+          "std_ms": 0.0056,
+          "min_ms": 1.4221,
+          "max_ms": 1.4364
+        },
+        "throughput": {
+          "gflops": 96272.08,
+          "bandwidth_gb_s": 94.02
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 134217728,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.018,
+          "std_ms": 0.0047,
+          "min_ms": 2.0132,
+          "max_ms": 2.0252
+        },
+        "throughput": {
+          "gflops": 68104.9,
+          "bandwidth_gb_s": 133.02
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 268435456,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4787,
+          "std_ms": 0.0069,
+          "min_ms": 0.4718,
+          "max_ms": 0.4879
+        },
+        "throughput": {
+          "gflops": 52.57,
+          "bandwidth_gb_s": 105.2
+        },
+        "theory": {
+          "flops": 25165824,
+          "bytes": 50356224,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.7862,
+          "std_ms": 0.0406,
+          "min_ms": 14.7484,
+          "max_ms": 14.8483
+        },
+        "throughput": {
+          "gflops": 54.46,
+          "bandwidth_gb_s": 108.98
+        },
+        "theory": {
+          "flops": 805306368,
+          "bytes": 1611399168,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 43.8938,
+          "std_ms": 0.0986,
+          "min_ms": 43.7809,
+          "max_ms": 44.0522
+        },
+        "throughput": {
+          "gflops": 73.39,
+          "bandwidth_gb_s": 146.81
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 6444023808,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2108,
+          "std_ms": 0.0034,
+          "min_ms": 0.2048,
+          "max_ms": 0.2132
+        },
+        "throughput": {
+          "gflops": 15277.94,
+          "bandwidth_gb_s": 119.36
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 25165824,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6767,
+          "std_ms": 0.0053,
+          "min_ms": 0.6725,
+          "max_ms": 0.6856
+        },
+        "throughput": {
+          "gflops": 76161.98,
+          "bandwidth_gb_s": 148.75
+        },
+        "theory": {
+          "flops": 51539607552,
+          "bytes": 100663296,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.0604,
+          "std_ms": 0.0061,
+          "min_ms": 2.0536,
+          "max_ms": 2.0703
+        },
+        "throughput": {
+          "gflops": 100055.46,
+          "bandwidth_gb_s": 97.71
+        },
+        "theory": {
+          "flops": 206158430208,
+          "bytes": 201326592,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.7173,
+          "std_ms": 0.0145,
+          "min_ms": 2.7059,
+          "max_ms": 2.7407
+        },
+        "throughput": {
+          "gflops": 75869.23,
+          "bandwidth_gb_s": 148.18
+        },
+        "theory": {
+          "flops": 206158430208,
+          "bytes": 402653184,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4784,
+          "std_ms": 0.0077,
+          "min_ms": 0.471,
+          "max_ms": 0.49
+        },
+        "throughput": {
+          "gflops": 140.29,
+          "bandwidth_gb_s": 280.71
+        },
+        "theory": {
+          "flops": 67108864,
+          "bytes": 134283264,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 14.9384,
+          "std_ms": 0.1864,
+          "min_ms": 14.8367,
+          "max_ms": 15.2712
+        },
+        "throughput": {
+          "gflops": 143.76,
+          "bandwidth_gb_s": 287.65
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 4297064448,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 46.4434,
+          "std_ms": 0.2716,
+          "min_ms": 46.0147,
+          "max_ms": 46.6967
+        },
+        "throughput": {
+          "gflops": 184.96,
+          "bandwidth_gb_s": 370.0
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 17184063488,
+          "arithmetic_intensity": 0.5
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2834,
+          "std_ms": 0.0049,
+          "min_ms": 0.2775,
+          "max_ms": 0.29
+        },
+        "throughput": {
+          "gflops": 30305.66,
+          "bandwidth_gb_s": 236.76
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 67108864,
+          "arithmetic_intensity": 128.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.5671,
+          "std_ms": 0.0072,
+          "min_ms": 1.5621,
+          "max_ms": 1.5798
+        },
+        "throughput": {
+          "gflops": 87701.08,
+          "bandwidth_gb_s": 171.29
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 268435456,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 5.5909,
+          "std_ms": 0.0147,
+          "min_ms": 5.5777,
+          "max_ms": 5.6113
+        },
+        "throughput": {
+          "gflops": 98330.83,
+          "bandwidth_gb_s": 96.03
+        },
+        "theory": {
+          "flops": 549755813888,
+          "bytes": 536870912,
+          "arithmetic_intensity": 1024.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "definition": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.2595,
+          "std_ms": 0.0201,
+          "min_ms": 6.2321,
+          "max_ms": 6.283
+        },
+        "throughput": {
+          "gflops": 87828.05,
+          "bandwidth_gb_s": 171.54
+        },
+        "theory": {
+          "flops": 549755813888,
+          "bytes": 1073741824,
+          "arithmetic_intensity": 512.0
+        }
+      },
+      "impl_info": {
+        "source": "torch.sdpa_varlen (flagos metax fallback)",
+        "type": "torch"
+      }
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:55.042084",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 10,
+    "baseline_file": "E:\\BAAI\\results\\chunk_gated_delta_rule_flag_attn\\chunk_gated_delta_rule_flag_attn_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\chunk_gated_delta_rule_flag_attn\\chunk_gated_delta_rule_flag_attn_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 10,
+    "faster": 1,
+    "slower": 6,
+    "on_par": 3,
+    "avg_speedup": 0.9406
+  },
+  "comparisons": [
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.6656,
+        "std_ms": 0.0,
+        "min_ms": 0.6656,
+        "max_ms": 0.6656,
+        "bandwidth_gb_s": 9.53,
+        "gflops": 609.67,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.7788,
+        "std_ms": 0.0,
+        "min_ms": 0.7788,
+        "max_ms": 0.7788,
+        "bandwidth_gb_s": 8.14,
+        "gflops": 521.09,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 0.8546,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5827,
+        "std_ms": 0.0,
+        "min_ms": 0.5827,
+        "max_ms": 0.5827,
+        "bandwidth_gb_s": 10.88,
+        "gflops": 696.46,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5819,
+        "std_ms": 0.0,
+        "min_ms": 0.5819,
+        "max_ms": 0.5819,
+        "bandwidth_gb_s": 10.9,
+        "gflops": 697.38,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 1.0014,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5624,
+        "std_ms": 0.0,
+        "min_ms": 0.5624,
+        "max_ms": 0.5624,
+        "bandwidth_gb_s": 11.27,
+        "gflops": 721.51,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5637,
+        "std_ms": 0.0,
+        "min_ms": 0.5637,
+        "max_ms": 0.5637,
+        "bandwidth_gb_s": 11.25,
+        "gflops": 719.87,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9977,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5535,
+        "std_ms": 0.0,
+        "min_ms": 0.5535,
+        "max_ms": 0.5535,
+        "bandwidth_gb_s": 11.46,
+        "gflops": 733.19,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5609,
+        "std_ms": 0.0,
+        "min_ms": 0.5609,
+        "max_ms": 0.5609,
+        "bandwidth_gb_s": 11.3,
+        "gflops": 723.48,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9868,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "parameters": {
+        "num_heads": 96,
+        "num_value_heads": 96,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.1039,
+        "std_ms": 0.0,
+        "min_ms": 1.1039,
+        "max_ms": 1.1039,
+        "bandwidth_gb_s": 11.49,
+        "gflops": 735.23,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.1786,
+        "std_ms": 0.0,
+        "min_ms": 1.1786,
+        "max_ms": 1.1786,
+        "bandwidth_gb_s": 10.76,
+        "gflops": 688.6,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 0.9366,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens1",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5868,
+        "std_ms": 0.0,
+        "min_ms": 0.5868,
+        "max_ms": 0.5868,
+        "bandwidth_gb_s": 8.1,
+        "gflops": 922.14,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.8159,
+        "std_ms": 0.0,
+        "min_ms": 0.8159,
+        "max_ms": 0.8159,
+        "bandwidth_gb_s": 5.83,
+        "gflops": 663.17,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 0.7192,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens8",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4941,
+        "std_ms": 0.0,
+        "min_ms": 0.4941,
+        "max_ms": 0.4941,
+        "bandwidth_gb_s": 9.62,
+        "gflops": 1095.1,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5752,
+        "std_ms": 0.0,
+        "min_ms": 0.5752,
+        "max_ms": 0.5752,
+        "bandwidth_gb_s": 8.27,
+        "gflops": 940.6,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 0.859,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens32",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4777,
+        "std_ms": 0.0,
+        "min_ms": 0.4777,
+        "max_ms": 0.4777,
+        "bandwidth_gb_s": 9.95,
+        "gflops": 1132.66,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5752,
+        "std_ms": 0.0,
+        "min_ms": 0.5752,
+        "max_ms": 0.5752,
+        "bandwidth_gb_s": 8.27,
+        "gflops": 940.6,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 0.8305,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_tokens64",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4879,
+        "std_ms": 0.0,
+        "min_ms": 0.4879,
+        "max_ms": 0.4879,
+        "bandwidth_gb_s": 9.75,
+        "gflops": 1108.89,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5665,
+        "std_ms": 0.0,
+        "min_ms": 0.5665,
+        "max_ms": 0.5665,
+        "bandwidth_gb_s": 8.39,
+        "gflops": 955.05,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 0.8613,
+      "verdict": "slower"
+    },
+    {
+      "operator": "chunk_gated_delta_rule_flag_attn",
+      "workload": "qwen3.8-2.4t-a95b_mixed_num_tokens128",
+      "parameters": {
+        "num_heads": 16,
+        "num_value_heads": 128,
+        "head_dim_k": 128,
+        "head_dim_v": 128,
+        "batch_size": 1,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.429,
+        "std_ms": 0.0,
+        "min_ms": 1.429,
+        "max_ms": 1.429,
+        "bandwidth_gb_s": 6.66,
+        "gflops": 757.27,
+        "impl_source": "flaggems_vllm non-TLE fallback (output_final_state=False)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.0519,
+        "std_ms": 0.0,
+        "min_ms": 1.0519,
+        "max_ms": 1.0519,
+        "bandwidth_gb_s": 9.04,
+        "gflops": 1028.74,
+        "impl_source": "flagattention.chunk_gated_delta_rule"
+      },
+      "speedup": 1.3585,
+      "verdict": "faster"
+    }
+  ]
+}

@@ -1,0 +1,2199 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:55.354683",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 62,
+    "baseline_file": "E:\\BAAI\\results\\flash_attn_varlen_func\\flash_attn_varlen_func_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\flash_attn_varlen_func\\flash_attn_varlen_func_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 62,
+    "faster": 2,
+    "slower": 0,
+    "on_par": 60,
+    "avg_speedup": 1.0045
+  },
+  "comparisons": [
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.6239,
+        "std_ms": 0.0274,
+        "min_ms": 0.5949,
+        "max_ms": 0.6625,
+        "bandwidth_gb_s": 322.84,
+        "gflops": 161.34,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5929,
+        "std_ms": 0.0096,
+        "min_ms": 0.5847,
+        "max_ms": 0.608,
+        "bandwidth_gb_s": 339.7,
+        "gflops": 169.77,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0523,
+      "verdict": "faster"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 18.2828,
+        "std_ms": 0.0782,
+        "min_ms": 18.1855,
+        "max_ms": 18.3969,
+        "bandwidth_gb_s": 352.55,
+        "gflops": 176.19,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 18.3821,
+        "std_ms": 0.0716,
+        "min_ms": 18.3073,
+        "max_ms": 18.4832,
+        "bandwidth_gb_s": 350.64,
+        "gflops": 175.24,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9946,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 60.7761,
+        "std_ms": 0.0772,
+        "min_ms": 60.7053,
+        "max_ms": 60.898,
+        "bandwidth_gb_s": 424.12,
+        "gflops": 212.01,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 60.7844,
+        "std_ms": 0.0553,
+        "min_ms": 60.7309,
+        "max_ms": 60.8753,
+        "bandwidth_gb_s": 424.06,
+        "gflops": 211.98,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9999,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4253,
+        "std_ms": 0.002,
+        "min_ms": 0.4234,
+        "max_ms": 0.428,
+        "bandwidth_gb_s": 236.71,
+        "gflops": 30298.37,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4261,
+        "std_ms": 0.005,
+        "min_ms": 0.4206,
+        "max_ms": 0.4332,
+        "bandwidth_gb_s": 236.22,
+        "gflops": 30236.48,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9981,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.4538,
+        "std_ms": 0.0024,
+        "min_ms": 3.4509,
+        "max_ms": 3.4575,
+        "bandwidth_gb_s": 116.58,
+        "gflops": 59689.46,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.4525,
+        "std_ms": 0.0022,
+        "min_ms": 3.4499,
+        "max_ms": 3.455,
+        "bandwidth_gb_s": 116.63,
+        "gflops": 59713.36,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0004,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 12.5681,
+        "std_ms": 0.0134,
+        "min_ms": 12.5486,
+        "max_ms": 12.5798,
+        "bandwidth_gb_s": 64.08,
+        "gflops": 65613.16,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 12.5614,
+        "std_ms": 0.0115,
+        "min_ms": 12.545,
+        "max_ms": 12.5757,
+        "bandwidth_gb_s": 64.11,
+        "gflops": 65648.19,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0005,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 13.7772,
+        "std_ms": 0.0405,
+        "min_ms": 13.7272,
+        "max_ms": 13.8127,
+        "bandwidth_gb_s": 116.9,
+        "gflops": 59854.94,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 13.8153,
+        "std_ms": 0.0315,
+        "min_ms": 13.7597,
+        "max_ms": 13.8345,
+        "bandwidth_gb_s": 116.58,
+        "gflops": 59689.69,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9972,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.3676,
+        "std_ms": 0.0142,
+        "min_ms": 2.3532,
+        "max_ms": 2.3895,
+        "bandwidth_gb_s": 113.43,
+        "gflops": 56.69,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.3396,
+        "std_ms": 0.0215,
+        "min_ms": 2.3191,
+        "max_ms": 2.3672,
+        "bandwidth_gb_s": 114.79,
+        "gflops": 57.37,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.012,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 75.9182,
+        "std_ms": 0.0688,
+        "min_ms": 75.8001,
+        "max_ms": 75.9749,
+        "bandwidth_gb_s": 113.2,
+        "gflops": 56.57,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 76.8189,
+        "std_ms": 0.1166,
+        "min_ms": 76.6669,
+        "max_ms": 76.9449,
+        "bandwidth_gb_s": 111.88,
+        "gflops": 55.91,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9883,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 177.9331,
+        "std_ms": 0.8883,
+        "min_ms": 177.4579,
+        "max_ms": 179.5197,
+        "bandwidth_gb_s": 193.15,
+        "gflops": 96.55,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 178.2008,
+        "std_ms": 0.1634,
+        "min_ms": 178.0652,
+        "max_ms": 178.4136,
+        "bandwidth_gb_s": 192.86,
+        "gflops": 96.41,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9985,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.0708,
+        "std_ms": 0.0072,
+        "min_ms": 3.0592,
+        "max_ms": 3.0774,
+        "bandwidth_gb_s": 43.71,
+        "gflops": 5594.64,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.0525,
+        "std_ms": 0.0085,
+        "min_ms": 3.0415,
+        "max_ms": 3.062,
+        "bandwidth_gb_s": 43.97,
+        "gflops": 5628.05,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.006,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 27.5891,
+        "std_ms": 0.1045,
+        "min_ms": 27.4627,
+        "max_ms": 27.7317,
+        "bandwidth_gb_s": 19.46,
+        "gflops": 9963.27,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 27.5171,
+        "std_ms": 0.0945,
+        "min_ms": 27.3797,
+        "max_ms": 27.6429,
+        "bandwidth_gb_s": 19.51,
+        "gflops": 9989.34,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0026,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 102.3549,
+        "std_ms": 0.0616,
+        "min_ms": 102.2766,
+        "max_ms": 102.4479,
+        "bandwidth_gb_s": 10.49,
+        "gflops": 10742.14,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 102.4231,
+        "std_ms": 0.0416,
+        "min_ms": 102.3782,
+        "max_ms": 102.4904,
+        "bandwidth_gb_s": 10.48,
+        "gflops": 10734.99,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9993,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 110.2731,
+        "std_ms": 0.0576,
+        "min_ms": 110.1932,
+        "max_ms": 110.3429,
+        "bandwidth_gb_s": 19.47,
+        "gflops": 9970.8,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 110.383,
+        "std_ms": 0.1867,
+        "min_ms": 110.0977,
+        "max_ms": 110.6068,
+        "bandwidth_gb_s": 19.45,
+        "gflops": 9960.88,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.999,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 4.5332,
+        "std_ms": 0.0425,
+        "min_ms": 4.5082,
+        "max_ms": 4.6088,
+        "bandwidth_gb_s": 118.49,
+        "gflops": 59.21,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 4.376,
+        "std_ms": 0.0096,
+        "min_ms": 4.3653,
+        "max_ms": 4.3884,
+        "bandwidth_gb_s": 122.74,
+        "gflops": 61.34,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0359,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 140.2711,
+        "std_ms": 0.1176,
+        "min_ms": 140.1894,
+        "max_ms": 140.479,
+        "bandwidth_gb_s": 122.54,
+        "gflops": 61.24,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 140.2162,
+        "std_ms": 0.1244,
+        "min_ms": 140.0108,
+        "max_ms": 140.3423,
+        "bandwidth_gb_s": 122.58,
+        "gflops": 61.26,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0004,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 5.1598,
+        "std_ms": 0.0215,
+        "min_ms": 5.1274,
+        "max_ms": 5.1871,
+        "bandwidth_gb_s": 52.02,
+        "gflops": 6659.14,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 5.1274,
+        "std_ms": 0.0089,
+        "min_ms": 5.119,
+        "max_ms": 5.1387,
+        "bandwidth_gb_s": 52.35,
+        "gflops": 6701.24,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0063,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 54.0221,
+        "std_ms": 0.0792,
+        "min_ms": 53.9756,
+        "max_ms": 54.1612,
+        "bandwidth_gb_s": 19.88,
+        "gflops": 10176.49,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 53.9961,
+        "std_ms": 0.0174,
+        "min_ms": 53.9804,
+        "max_ms": 54.0237,
+        "bandwidth_gb_s": 19.89,
+        "gflops": 10181.39,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0005,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 205.7492,
+        "std_ms": 0.1807,
+        "min_ms": 205.5649,
+        "max_ms": 206.0524,
+        "bandwidth_gb_s": 10.44,
+        "gflops": 10687.88,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 205.8635,
+        "std_ms": 0.1157,
+        "min_ms": 205.6773,
+        "max_ms": 205.9948,
+        "bandwidth_gb_s": 10.43,
+        "gflops": 10681.95,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9994,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "deepseek_v4_pro_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 128,
+        "head_dim": 512,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 215.9033,
+        "std_ms": 0.0424,
+        "min_ms": 215.8659,
+        "max_ms": 215.9557,
+        "bandwidth_gb_s": 19.89,
+        "gflops": 10185.22,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 216.0208,
+        "std_ms": 0.2163,
+        "min_ms": 215.7675,
+        "max_ms": 216.3499,
+        "bandwidth_gb_s": 19.88,
+        "gflops": 10179.68,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9995,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4964,
+        "std_ms": 0.0205,
+        "min_ms": 0.4721,
+        "max_ms": 0.5225,
+        "bandwidth_gb_s": 84.54,
+        "gflops": 42.25,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4921,
+        "std_ms": 0.0131,
+        "min_ms": 0.4756,
+        "max_ms": 0.5061,
+        "bandwidth_gb_s": 85.28,
+        "gflops": 42.62,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0087,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 14.8473,
+        "std_ms": 0.0588,
+        "min_ms": 14.7781,
+        "max_ms": 14.9243,
+        "bandwidth_gb_s": 90.44,
+        "gflops": 45.2,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 14.8027,
+        "std_ms": 0.0385,
+        "min_ms": 14.7438,
+        "max_ms": 14.8411,
+        "bandwidth_gb_s": 90.72,
+        "gflops": 45.34,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.003,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 43.7294,
+        "std_ms": 0.0423,
+        "min_ms": 43.6987,
+        "max_ms": 43.8034,
+        "bandwidth_gb_s": 122.8,
+        "gflops": 61.39,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 43.673,
+        "std_ms": 0.0554,
+        "min_ms": 43.5999,
+        "max_ms": 43.746,
+        "bandwidth_gb_s": 122.96,
+        "gflops": 61.46,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0013,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3134,
+        "std_ms": 0.0066,
+        "min_ms": 0.3064,
+        "max_ms": 0.3244,
+        "bandwidth_gb_s": 66.91,
+        "gflops": 8564.0,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.306,
+        "std_ms": 0.0037,
+        "min_ms": 0.3028,
+        "max_ms": 0.3103,
+        "bandwidth_gb_s": 68.54,
+        "gflops": 8773.23,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0242,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5997,
+        "std_ms": 0.0031,
+        "min_ms": 0.597,
+        "max_ms": 0.6034,
+        "bandwidth_gb_s": 139.88,
+        "gflops": 71617.93,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5969,
+        "std_ms": 0.0028,
+        "min_ms": 0.5926,
+        "max_ms": 0.5996,
+        "bandwidth_gb_s": 140.54,
+        "gflops": 71955.81,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0047,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.7527,
+        "std_ms": 0.0025,
+        "min_ms": 1.7498,
+        "max_ms": 1.7554,
+        "bandwidth_gb_s": 95.72,
+        "gflops": 98020.66,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.7481,
+        "std_ms": 0.0024,
+        "min_ms": 1.7449,
+        "max_ms": 1.751,
+        "bandwidth_gb_s": 95.97,
+        "gflops": 98276.17,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0026,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_4.7_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 20,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.4537,
+        "std_ms": 0.0075,
+        "min_ms": 2.4466,
+        "max_ms": 2.4648,
+        "bandwidth_gb_s": 136.75,
+        "gflops": 70017.39,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.4543,
+        "std_ms": 0.0056,
+        "min_ms": 2.4476,
+        "max_ms": 2.4627,
+        "bandwidth_gb_s": 136.72,
+        "gflops": 69999.86,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9998,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.394,
+        "std_ms": 0.0056,
+        "min_ms": 0.3853,
+        "max_ms": 0.4006,
+        "bandwidth_gb_s": 255.63,
+        "gflops": 127.75,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3942,
+        "std_ms": 0.0089,
+        "min_ms": 0.3863,
+        "max_ms": 0.405,
+        "bandwidth_gb_s": 255.46,
+        "gflops": 127.67,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9995,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 12.3378,
+        "std_ms": 0.0265,
+        "min_ms": 12.3159,
+        "max_ms": 12.3837,
+        "bandwidth_gb_s": 261.21,
+        "gflops": 130.54,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 12.3212,
+        "std_ms": 0.0295,
+        "min_ms": 12.2721,
+        "max_ms": 12.3507,
+        "bandwidth_gb_s": 261.56,
+        "gflops": 130.72,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0013,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 37.4343,
+        "std_ms": 1.3475,
+        "min_ms": 36.606,
+        "max_ms": 39.8198,
+        "bandwidth_gb_s": 344.28,
+        "gflops": 172.1,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 37.0401,
+        "std_ms": 0.2062,
+        "min_ms": 36.8822,
+        "max_ms": 37.334,
+        "bandwidth_gb_s": 347.95,
+        "gflops": 173.93,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0106,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.274,
+        "std_ms": 0.0018,
+        "min_ms": 0.2721,
+        "max_ms": 0.2762,
+        "bandwidth_gb_s": 183.68,
+        "gflops": 23510.67,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2749,
+        "std_ms": 0.0031,
+        "min_ms": 0.2714,
+        "max_ms": 0.278,
+        "bandwidth_gb_s": 183.06,
+        "gflops": 23431.87,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9967,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.6959,
+        "std_ms": 0.0014,
+        "min_ms": 1.6945,
+        "max_ms": 1.698,
+        "bandwidth_gb_s": 118.71,
+        "gflops": 60779.67,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.6965,
+        "std_ms": 0.0023,
+        "min_ms": 1.6942,
+        "max_ms": 1.7004,
+        "bandwidth_gb_s": 118.67,
+        "gflops": 60761.33,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9996,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 5.9517,
+        "std_ms": 0.0047,
+        "min_ms": 5.9464,
+        "max_ms": 5.9566,
+        "bandwidth_gb_s": 67.65,
+        "gflops": 69276.65,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 5.9469,
+        "std_ms": 0.0036,
+        "min_ms": 5.9428,
+        "max_ms": 5.9507,
+        "bandwidth_gb_s": 67.71,
+        "gflops": 69332.71,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0008,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 6.7772,
+        "std_ms": 0.0116,
+        "min_ms": 6.7635,
+        "max_ms": 6.7886,
+        "bandwidth_gb_s": 118.83,
+        "gflops": 60838.91,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 6.7685,
+        "std_ms": 0.0163,
+        "min_ms": 6.743,
+        "max_ms": 6.7884,
+        "bandwidth_gb_s": 118.98,
+        "gflops": 60916.68,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0013,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4009,
+        "std_ms": 0.0043,
+        "min_ms": 0.3965,
+        "max_ms": 0.4058,
+        "bandwidth_gb_s": 376.83,
+        "gflops": 188.32,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.401,
+        "std_ms": 0.0081,
+        "min_ms": 0.3912,
+        "max_ms": 0.4134,
+        "bandwidth_gb_s": 376.68,
+        "gflops": 188.25,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9998,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 12.5318,
+        "std_ms": 0.0317,
+        "min_ms": 12.5097,
+        "max_ms": 12.585,
+        "bandwidth_gb_s": 385.75,
+        "gflops": 192.78,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 12.5635,
+        "std_ms": 0.0288,
+        "min_ms": 12.5299,
+        "max_ms": 12.609,
+        "bandwidth_gb_s": 384.78,
+        "gflops": 192.3,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9975,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 40.1003,
+        "std_ms": 0.0229,
+        "min_ms": 40.0648,
+        "max_ms": 40.1198,
+        "bandwidth_gb_s": 482.09,
+        "gflops": 240.99,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 39.9681,
+        "std_ms": 0.0671,
+        "min_ms": 39.8572,
+        "max_ms": 40.0256,
+        "bandwidth_gb_s": 483.69,
+        "gflops": 241.79,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0033,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3568,
+        "std_ms": 0.0033,
+        "min_ms": 0.3538,
+        "max_ms": 0.3622,
+        "bandwidth_gb_s": 211.59,
+        "gflops": 27083.32,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3544,
+        "std_ms": 0.0044,
+        "min_ms": 0.3492,
+        "max_ms": 0.3604,
+        "bandwidth_gb_s": 213.03,
+        "gflops": 27267.22,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0068,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.5974,
+        "std_ms": 0.0051,
+        "min_ms": 2.5928,
+        "max_ms": 2.6053,
+        "bandwidth_gb_s": 116.27,
+        "gflops": 59527.68,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.5972,
+        "std_ms": 0.0028,
+        "min_ms": 2.5938,
+        "max_ms": 2.6007,
+        "bandwidth_gb_s": 116.27,
+        "gflops": 59532.38,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0001,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 9.333,
+        "std_ms": 0.0066,
+        "min_ms": 9.3279,
+        "max_ms": 9.3437,
+        "bandwidth_gb_s": 64.71,
+        "gflops": 66267.27,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 9.3393,
+        "std_ms": 0.0095,
+        "min_ms": 9.3274,
+        "max_ms": 9.3537,
+        "bandwidth_gb_s": 64.67,
+        "gflops": 66222.95,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9993,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "kimi_k3_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 96,
+        "head_dim": 192,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 10.3988,
+        "std_ms": 0.0338,
+        "min_ms": 10.3432,
+        "max_ms": 10.4276,
+        "bandwidth_gb_s": 116.16,
+        "gflops": 59475.51,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 10.3748,
+        "std_ms": 0.0297,
+        "min_ms": 10.3534,
+        "max_ms": 10.4236,
+        "bandwidth_gb_s": 116.43,
+        "gflops": 59613.47,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0023,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4828,
+        "std_ms": 0.005,
+        "min_ms": 0.4777,
+        "max_ms": 0.49,
+        "bandwidth_gb_s": 69.54,
+        "gflops": 34.75,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4838,
+        "std_ms": 0.0089,
+        "min_ms": 0.4751,
+        "max_ms": 0.4964,
+        "bandwidth_gb_s": 69.39,
+        "gflops": 34.68,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9979,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 14.8699,
+        "std_ms": 0.0282,
+        "min_ms": 14.8444,
+        "max_ms": 14.9066,
+        "bandwidth_gb_s": 72.24,
+        "gflops": 36.1,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 14.7713,
+        "std_ms": 0.0551,
+        "min_ms": 14.7087,
+        "max_ms": 14.8562,
+        "bandwidth_gb_s": 72.73,
+        "gflops": 36.35,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0067,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 43.8922,
+        "std_ms": 0.135,
+        "min_ms": 43.8062,
+        "max_ms": 44.1288,
+        "bandwidth_gb_s": 97.88,
+        "gflops": 48.93,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 43.6815,
+        "std_ms": 0.0619,
+        "min_ms": 43.5766,
+        "max_ms": 43.7391,
+        "bandwidth_gb_s": 98.35,
+        "gflops": 49.16,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0048,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2549,
+        "std_ms": 0.0131,
+        "min_ms": 0.2417,
+        "max_ms": 0.2744,
+        "bandwidth_gb_s": 65.83,
+        "gflops": 8425.68,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2412,
+        "std_ms": 0.0021,
+        "min_ms": 0.2381,
+        "max_ms": 0.2437,
+        "bandwidth_gb_s": 69.56,
+        "gflops": 8903.21,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0568,
+      "verdict": "faster"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5311,
+        "std_ms": 0.0276,
+        "min_ms": 0.5138,
+        "max_ms": 0.578,
+        "bandwidth_gb_s": 126.36,
+        "gflops": 64695.71,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5152,
+        "std_ms": 0.0045,
+        "min_ms": 0.5087,
+        "max_ms": 0.5215,
+        "bandwidth_gb_s": 130.25,
+        "gflops": 66688.73,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0309,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.4378,
+        "std_ms": 0.0038,
+        "min_ms": 1.4346,
+        "max_ms": 1.4423,
+        "bandwidth_gb_s": 93.35,
+        "gflops": 95586.46,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.4276,
+        "std_ms": 0.0056,
+        "min_ms": 1.4221,
+        "max_ms": 1.4364,
+        "bandwidth_gb_s": 94.02,
+        "gflops": 96272.08,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0071,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.5_9b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 16,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.0209,
+        "std_ms": 0.0075,
+        "min_ms": 2.0152,
+        "max_ms": 2.0291,
+        "bandwidth_gb_s": 132.83,
+        "gflops": 68010.0,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.018,
+        "std_ms": 0.0047,
+        "min_ms": 2.0132,
+        "max_ms": 2.0252,
+        "bandwidth_gb_s": 133.02,
+        "gflops": 68104.9,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0014,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4933,
+        "std_ms": 0.0218,
+        "min_ms": 0.4772,
+        "max_ms": 0.5292,
+        "bandwidth_gb_s": 102.09,
+        "gflops": 51.02,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4787,
+        "std_ms": 0.0069,
+        "min_ms": 0.4718,
+        "max_ms": 0.4879,
+        "bandwidth_gb_s": 105.2,
+        "gflops": 52.57,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0305,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 14.7645,
+        "std_ms": 0.0112,
+        "min_ms": 14.7487,
+        "max_ms": 14.7756,
+        "bandwidth_gb_s": 109.14,
+        "gflops": 54.54,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 14.7862,
+        "std_ms": 0.0406,
+        "min_ms": 14.7484,
+        "max_ms": 14.8483,
+        "bandwidth_gb_s": 108.98,
+        "gflops": 54.46,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9985,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 43.6722,
+        "std_ms": 0.0489,
+        "min_ms": 43.6234,
+        "max_ms": 43.7315,
+        "bandwidth_gb_s": 147.55,
+        "gflops": 73.76,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 43.8938,
+        "std_ms": 0.0986,
+        "min_ms": 43.7809,
+        "max_ms": 44.0522,
+        "bandwidth_gb_s": 146.81,
+        "gflops": 73.39,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.995,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.211,
+        "std_ms": 0.0055,
+        "min_ms": 0.2058,
+        "max_ms": 0.2202,
+        "bandwidth_gb_s": 119.24,
+        "gflops": 15263.12,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2108,
+        "std_ms": 0.0034,
+        "min_ms": 0.2048,
+        "max_ms": 0.2132,
+        "bandwidth_gb_s": 119.36,
+        "gflops": 15277.94,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0009,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.6781,
+        "std_ms": 0.0029,
+        "min_ms": 0.6748,
+        "max_ms": 0.6828,
+        "bandwidth_gb_s": 148.45,
+        "gflops": 76006.72,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.6767,
+        "std_ms": 0.0053,
+        "min_ms": 0.6725,
+        "max_ms": 0.6856,
+        "bandwidth_gb_s": 148.75,
+        "gflops": 76161.98,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0021,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.0611,
+        "std_ms": 0.0062,
+        "min_ms": 2.0544,
+        "max_ms": 2.068,
+        "bandwidth_gb_s": 97.68,
+        "gflops": 100025.64,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.0604,
+        "std_ms": 0.0061,
+        "min_ms": 2.0536,
+        "max_ms": 2.0703,
+        "bandwidth_gb_s": 97.71,
+        "gflops": 100055.46,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0003,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.6_27b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 24,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 2.7054,
+        "std_ms": 0.0059,
+        "min_ms": 2.6957,
+        "max_ms": 2.7105,
+        "bandwidth_gb_s": 148.83,
+        "gflops": 76202.34,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.7173,
+        "std_ms": 0.0145,
+        "min_ms": 2.7059,
+        "max_ms": 2.7407,
+        "bandwidth_gb_s": 148.18,
+        "gflops": 75869.23,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9956,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.4807,
+        "std_ms": 0.0106,
+        "min_ms": 0.469,
+        "max_ms": 0.4974,
+        "bandwidth_gb_s": 279.37,
+        "gflops": 139.62,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.4784,
+        "std_ms": 0.0077,
+        "min_ms": 0.471,
+        "max_ms": 0.49,
+        "bandwidth_gb_s": 280.71,
+        "gflops": 140.29,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0048,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size32_seqlen_q1_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 32,
+        "seqlen_q": 1,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 14.7765,
+        "std_ms": 0.0196,
+        "min_ms": 14.7528,
+        "max_ms": 14.8052,
+        "bandwidth_gb_s": 290.8,
+        "gflops": 145.33,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 14.9384,
+        "std_ms": 0.1864,
+        "min_ms": 14.8367,
+        "max_ms": 15.2712,
+        "bandwidth_gb_s": 287.65,
+        "gflops": 143.76,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9892,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size64_seqlen_q1_seqlen_k4096",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 64,
+        "seqlen_q": 1,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 46.6466,
+        "std_ms": 0.1531,
+        "min_ms": 46.4207,
+        "max_ms": 46.8065,
+        "bandwidth_gb_s": 368.39,
+        "gflops": 184.15,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 46.4434,
+        "std_ms": 0.2716,
+        "min_ms": 46.0147,
+        "max_ms": 46.6967,
+        "bandwidth_gb_s": 370.0,
+        "gflops": 184.96,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0044,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2798,
+        "std_ms": 0.0051,
+        "min_ms": 0.2742,
+        "max_ms": 0.2865,
+        "bandwidth_gb_s": 239.84,
+        "gflops": 30699.39,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2834,
+        "std_ms": 0.0049,
+        "min_ms": 0.2775,
+        "max_ms": 0.29,
+        "bandwidth_gb_s": 236.76,
+        "gflops": 30305.66,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9873,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.5765,
+        "std_ms": 0.0142,
+        "min_ms": 1.5675,
+        "max_ms": 1.6008,
+        "bandwidth_gb_s": 170.27,
+        "gflops": 87179.84,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.5671,
+        "std_ms": 0.0072,
+        "min_ms": 1.5621,
+        "max_ms": 1.5798,
+        "bandwidth_gb_s": 171.29,
+        "gflops": 87701.08,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.006,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 5.6527,
+        "std_ms": 0.0976,
+        "min_ms": 5.5869,
+        "max_ms": 5.8253,
+        "bandwidth_gb_s": 94.98,
+        "gflops": 97255.7,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 5.5909,
+        "std_ms": 0.0147,
+        "min_ms": 5.5777,
+        "max_ms": 5.6113,
+        "bandwidth_gb_s": 96.03,
+        "gflops": 98330.83,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 1.0111,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "flash_attn_varlen_func",
+      "workload": "qwen3.8-2.4t-a95b_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "parameters": {
+        "num_heads": 64,
+        "head_dim": 256,
+        "causal": true,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 6.2289,
+        "std_ms": 0.0144,
+        "min_ms": 6.2052,
+        "max_ms": 6.2403,
+        "bandwidth_gb_s": 172.38,
+        "gflops": 88258.31,
+        "impl_source": "torch.sdpa_varlen (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 6.2595,
+        "std_ms": 0.0201,
+        "min_ms": 6.2321,
+        "max_ms": 6.283,
+        "bandwidth_gb_s": 171.54,
+        "gflops": 87828.05,
+        "impl_source": "torch.sdpa_varlen (flagos metax fallback)"
+      },
+      "speedup": 0.9951,
+      "verdict": "on_par"
+    }
+  ]
+}

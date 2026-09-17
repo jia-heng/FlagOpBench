@@ -1,0 +1,349 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:56.255621",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 10,
+    "baseline_file": "E:\\BAAI\\results\\topk\\topk_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\topk\\topk_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 10,
+    "faster": 0,
+    "slower": 10,
+    "on_par": 0,
+    "avg_speedup": 0.1712
+  },
+  "comparisons": [
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1884,
+        "std_ms": 0.0,
+        "min_ms": 0.1884,
+        "max_ms": 0.1884,
+        "bandwidth_gb_s": 1.36,
+        "gflops": 3.4,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5501,
+        "std_ms": 0.0,
+        "min_ms": 0.5501,
+        "max_ms": 0.5501,
+        "bandwidth_gb_s": 0.47,
+        "gflops": 1.16,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.3425,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1989,
+        "std_ms": 0.0,
+        "min_ms": 0.1989,
+        "max_ms": 0.1989,
+        "bandwidth_gb_s": 10.31,
+        "gflops": 25.74,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.5883,
+        "std_ms": 0.0,
+        "min_ms": 0.5883,
+        "max_ms": 0.5883,
+        "bandwidth_gb_s": 3.49,
+        "gflops": 8.7,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.3381,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2639,
+        "std_ms": 0.0,
+        "min_ms": 0.2639,
+        "max_ms": 0.2639,
+        "bandwidth_gb_s": 31.07,
+        "gflops": 77.59,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1.3407,
+        "std_ms": 0.0,
+        "min_ms": 1.3407,
+        "max_ms": 1.3407,
+        "bandwidth_gb_s": 6.12,
+        "gflops": 15.28,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.1968,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.394,
+        "std_ms": 0.0,
+        "min_ms": 0.394,
+        "max_ms": 0.394,
+        "bandwidth_gb_s": 41.63,
+        "gflops": 103.96,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 2.3391,
+        "std_ms": 0.0,
+        "min_ms": 2.3391,
+        "max_ms": 2.3391,
+        "bandwidth_gb_s": 7.01,
+        "gflops": 17.51,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.1684,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.6141,
+        "std_ms": 0.0,
+        "min_ms": 0.6141,
+        "max_ms": 0.6141,
+        "bandwidth_gb_s": 53.42,
+        "gflops": 133.39,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 4.4147,
+        "std_ms": 0.0,
+        "min_ms": 4.4147,
+        "max_ms": 4.4147,
+        "bandwidth_gb_s": 7.43,
+        "gflops": 18.56,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.1391,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.0414,
+        "std_ms": 0.0,
+        "min_ms": 1.0414,
+        "max_ms": 1.0414,
+        "bandwidth_gb_s": 63.0,
+        "gflops": 157.33,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 8.5251,
+        "std_ms": 0.0,
+        "min_ms": 8.5251,
+        "max_ms": 8.5251,
+        "bandwidth_gb_s": 7.7,
+        "gflops": 19.22,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.1222,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.8222,
+        "std_ms": 0.0,
+        "min_ms": 1.8222,
+        "max_ms": 1.8222,
+        "bandwidth_gb_s": 72.01,
+        "gflops": 179.83,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 16.8018,
+        "std_ms": 0.0,
+        "min_ms": 16.8018,
+        "max_ms": 16.8018,
+        "bandwidth_gb_s": 7.81,
+        "gflops": 19.5,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.1085,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.3917,
+        "std_ms": 0.0,
+        "min_ms": 3.3917,
+        "max_ms": 3.3917,
+        "bandwidth_gb_s": 77.38,
+        "gflops": 193.22,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 33.3944,
+        "std_ms": 0.0,
+        "min_ms": 33.3944,
+        "max_ms": 33.3944,
+        "bandwidth_gb_s": 7.86,
+        "gflops": 19.62,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.1016,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 6.5316,
+        "std_ms": 0.0,
+        "min_ms": 6.5316,
+        "max_ms": 6.5316,
+        "bandwidth_gb_s": 80.36,
+        "gflops": 200.67,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 66.5841,
+        "std_ms": 0.0,
+        "min_ms": 66.5841,
+        "max_ms": 66.5841,
+        "bandwidth_gb_s": 7.88,
+        "gflops": 19.69,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.0981,
+      "verdict": "slower"
+    },
+    {
+      "operator": "topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "parameters": {
+        "N": 128000,
+        "k": 50,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 12.8243,
+        "std_ms": 0.0,
+        "min_ms": 12.8243,
+        "max_ms": 12.8243,
+        "bandwidth_gb_s": 81.86,
+        "gflops": 204.41,
+        "impl_source": "torch.topk (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 132.9705,
+        "std_ms": 0.0,
+        "min_ms": 132.9705,
+        "max_ms": 132.9705,
+        "bandwidth_gb_s": 7.9,
+        "gflops": 19.71,
+        "impl_source": "flag_gems.topk"
+      },
+      "speedup": 0.0964,
+      "verdict": "slower"
+    }
+  ]
+}

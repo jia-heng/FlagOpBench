@@ -1,0 +1,2469 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T06:54:33.481756",
+    "provider": "metax",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 70
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups8_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4803,
+          "std_ms": 0.0037,
+          "min_ms": 0.4754,
+          "max_ms": 0.4836
+        },
+        "throughput": {
+          "gflops": 1956.09,
+          "bandwidth_gb_s": 490.25
+        },
+        "theory": {
+          "flops": 939524096,
+          "bytes": 235470848,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups8_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4994,
+          "std_ms": 0.001,
+          "min_ms": 0.4987,
+          "max_ms": 0.501
+        },
+        "throughput": {
+          "gflops": 7525.92,
+          "bandwidth_gb_s": 475.09
+        },
+        "theory": {
+          "flops": 3758096384,
+          "bytes": 237240320,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups8_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.613,
+          "std_ms": 0.0035,
+          "min_ms": 0.6098,
+          "max_ms": 0.6182
+        },
+        "throughput": {
+          "gflops": 24521.95,
+          "bandwidth_gb_s": 398.55
+        },
+        "theory": {
+          "flops": 15032385536,
+          "bytes": 244318208,
+          "arithmetic_intensity": 61.53
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups32_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.8889,
+          "std_ms": 0.0279,
+          "min_ms": 1.8701,
+          "max_ms": 1.9382
+        },
+        "throughput": {
+          "gflops": 1989.6,
+          "bandwidth_gb_s": 498.65
+        },
+        "theory": {
+          "flops": 3758096384,
+          "bytes": 941883392,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups32_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.9723,
+          "std_ms": 0.0081,
+          "min_ms": 1.9633,
+          "max_ms": 1.9812
+        },
+        "throughput": {
+          "gflops": 7621.85,
+          "bandwidth_gb_s": 481.15
+        },
+        "theory": {
+          "flops": 15032385536,
+          "bytes": 948961280,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups32_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.415,
+          "std_ms": 0.0067,
+          "min_ms": 2.4059,
+          "max_ms": 2.421
+        },
+        "throughput": {
+          "gflops": 24898.87,
+          "bandwidth_gb_s": 404.68
+        },
+        "theory": {
+          "flops": 60129542144,
+          "bytes": 977272832,
+          "arithmetic_intensity": 61.53
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups64_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.787,
+          "std_ms": 0.0207,
+          "min_ms": 3.7676,
+          "max_ms": 3.8213
+        },
+        "throughput": {
+          "gflops": 1984.76,
+          "bandwidth_gb_s": 497.44
+        },
+        "theory": {
+          "flops": 7516192768,
+          "bytes": 1883766784,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups64_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.927,
+          "std_ms": 0.0057,
+          "min_ms": 3.9196,
+          "max_ms": 3.9332
+        },
+        "throughput": {
+          "gflops": 7655.84,
+          "bandwidth_gb_s": 483.3
+        },
+        "theory": {
+          "flops": 30064771072,
+          "bytes": 1897922560,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups128_tokens_per_group8",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 7.6589,
+          "std_ms": 0.0391,
+          "min_ms": 7.6196,
+          "max_ms": 7.7199
+        },
+        "throughput": {
+          "gflops": 3925.49,
+          "bandwidth_gb_s": 493.15
+        },
+        "theory": {
+          "flops": 30064771072,
+          "bytes": 3776970752,
+          "arithmetic_intensity": 7.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v3.2_decode_num_groups128_tokens_per_group32",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 8.5201,
+          "std_ms": 0.0137,
+          "min_ms": 8.502,
+          "max_ms": 8.5394
+        },
+        "throughput": {
+          "gflops": 14114.68,
+          "bandwidth_gb_s": 449.94
+        },
+        "theory": {
+          "flops": 120259084288,
+          "bytes": 3833593856,
+          "arithmetic_intensity": 31.37
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups8_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4123,
+          "std_ms": 0.0026,
+          "min_ms": 0.4099,
+          "max_ms": 0.4163
+        },
+        "throughput": {
+          "gflops": 1302.26,
+          "bandwidth_gb_s": 326.52
+        },
+        "theory": {
+          "flops": 536870912,
+          "bytes": 134610944,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups8_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4271,
+          "std_ms": 0.0018,
+          "min_ms": 0.4255,
+          "max_ms": 0.4301
+        },
+        "throughput": {
+          "gflops": 5028.54,
+          "bandwidth_gb_s": 317.97
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 135790592,
+          "arithmetic_intensity": 15.81
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups8_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5054,
+          "std_ms": 0.0018,
+          "min_ms": 0.5025,
+          "max_ms": 0.5071
+        },
+        "throughput": {
+          "gflops": 16996.47,
+          "bandwidth_gb_s": 278.02
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 140509184,
+          "arithmetic_intensity": 61.13
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups32_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.6272,
+          "std_ms": 0.0069,
+          "min_ms": 1.6195,
+          "max_ms": 1.6369
+        },
+        "throughput": {
+          "gflops": 1319.71,
+          "bandwidth_gb_s": 330.89
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 538443776,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups32_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.6938,
+          "std_ms": 0.0056,
+          "min_ms": 1.6881,
+          "max_ms": 1.7004
+        },
+        "throughput": {
+          "gflops": 5071.25,
+          "bandwidth_gb_s": 320.67
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 543162368,
+          "arithmetic_intensity": 15.81
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups32_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.9931,
+          "std_ms": 0.0219,
+          "min_ms": 1.9763,
+          "max_ms": 2.0308
+        },
+        "throughput": {
+          "gflops": 17239.23,
+          "bandwidth_gb_s": 281.99
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 562036736,
+          "arithmetic_intensity": 61.13
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups64_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.2329,
+          "std_ms": 0.0059,
+          "min_ms": 3.2274,
+          "max_ms": 3.2412
+        },
+        "throughput": {
+          "gflops": 1328.53,
+          "bandwidth_gb_s": 333.11
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 1076887552,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups64_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.3438,
+          "std_ms": 0.005,
+          "min_ms": 3.3359,
+          "max_ms": 3.3478
+        },
+        "throughput": {
+          "gflops": 5137.77,
+          "bandwidth_gb_s": 324.87
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 1086324736,
+          "arithmetic_intensity": 15.81
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups128_tokens_per_group8",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.5789,
+          "std_ms": 0.0254,
+          "min_ms": 6.5613,
+          "max_ms": 6.6222
+        },
+        "throughput": {
+          "gflops": 2611.36,
+          "bandwidth_gb_s": 328.33
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 2160066560,
+          "arithmetic_intensity": 7.95
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_flash_decode_num_groups128_tokens_per_group32",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 4096,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 7.075,
+          "std_ms": 0.0115,
+          "min_ms": 7.0615,
+          "max_ms": 7.0894
+        },
+        "throughput": {
+          "gflops": 9713.04,
+          "bandwidth_gb_s": 310.65
+        },
+        "theory": {
+          "flops": 68719476736,
+          "bytes": 2197815296,
+          "arithmetic_intensity": 31.27
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups8_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5672,
+          "std_ms": 0.005,
+          "min_ms": 0.5637,
+          "max_ms": 0.576
+        },
+        "throughput": {
+          "gflops": 2484.67,
+          "bandwidth_gb_s": 622.32
+        },
+        "theory": {
+          "flops": 1409286144,
+          "bytes": 352976896,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups8_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5915,
+          "std_ms": 0.0041,
+          "min_ms": 0.5868,
+          "max_ms": 0.5978
+        },
+        "throughput": {
+          "gflops": 9530.86,
+          "bandwidth_gb_s": 600.11
+        },
+        "theory": {
+          "flops": 5637144576,
+          "bytes": 354942976,
+          "arithmetic_intensity": 15.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups8_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7163,
+          "std_ms": 0.0019,
+          "min_ms": 0.714,
+          "max_ms": 0.7183
+        },
+        "throughput": {
+          "gflops": 31477.52,
+          "bandwidth_gb_s": 506.47
+        },
+        "theory": {
+          "flops": 22548578304,
+          "bytes": 362807296,
+          "arithmetic_intensity": 62.15
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups32_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.2247,
+          "std_ms": 0.0066,
+          "min_ms": 2.2149,
+          "max_ms": 2.2305
+        },
+        "throughput": {
+          "gflops": 2533.84,
+          "bandwidth_gb_s": 634.64
+        },
+        "theory": {
+          "flops": 5637144576,
+          "bytes": 1411907584,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups32_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.339,
+          "std_ms": 0.0095,
+          "min_ms": 2.326,
+          "max_ms": 2.3493
+        },
+        "throughput": {
+          "gflops": 9640.39,
+          "bandwidth_gb_s": 607.01
+        },
+        "theory": {
+          "flops": 22548578304,
+          "bytes": 1419771904,
+          "arithmetic_intensity": 15.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups32_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.8344,
+          "std_ms": 0.0147,
+          "min_ms": 2.816,
+          "max_ms": 2.8539
+        },
+        "throughput": {
+          "gflops": 31820.95,
+          "bandwidth_gb_s": 512.0
+        },
+        "theory": {
+          "flops": 90194313216,
+          "bytes": 1451229184,
+          "arithmetic_intensity": 62.15
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups64_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.4578,
+          "std_ms": 0.0091,
+          "min_ms": 4.4493,
+          "max_ms": 4.4692
+        },
+        "throughput": {
+          "gflops": 2529.1,
+          "bandwidth_gb_s": 633.45
+        },
+        "theory": {
+          "flops": 11274289152,
+          "bytes": 2823815168,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups64_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.7095,
+          "std_ms": 0.114,
+          "min_ms": 4.6451,
+          "max_ms": 4.9124
+        },
+        "throughput": {
+          "gflops": 9575.72,
+          "bandwidth_gb_s": 602.94
+        },
+        "theory": {
+          "flops": 45097156608,
+          "bytes": 2839543808,
+          "arithmetic_intensity": 15.88
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups128_tokens_per_group8",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 10.384,
+          "std_ms": 0.0396,
+          "min_ms": 10.347,
+          "max_ms": 10.4417
+        },
+        "throughput": {
+          "gflops": 4342.94,
+          "bandwidth_gb_s": 544.89
+        },
+        "theory": {
+          "flops": 45097156608,
+          "bytes": 5658116096,
+          "arithmetic_intensity": 7.97
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "deepseek_v4_pro_decode_num_groups128_tokens_per_group32",
+      "provider": "metax",
+      "parameters": {
+        "K": 3072,
+        "N": 7168,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 11.3682,
+          "std_ms": 0.0173,
+          "min_ms": 11.3487,
+          "max_ms": 11.3871
+        },
+        "throughput": {
+          "gflops": 15867.84,
+          "bandwidth_gb_s": 503.25
+        },
+        "theory": {
+          "flops": 180388626432,
+          "bytes": 5721030656,
+          "arithmetic_intensity": 31.53
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups8_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4367,
+          "std_ms": 0.0049,
+          "min_ms": 0.4316,
+          "max_ms": 0.4442
+        },
+        "throughput": {
+          "gflops": 460.98,
+          "bandwidth_gb_s": 115.77
+        },
+        "theory": {
+          "flops": 201326592,
+          "bytes": 50561024,
+          "arithmetic_intensity": 3.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups8_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4425,
+          "std_ms": 0.0042,
+          "min_ms": 0.4383,
+          "max_ms": 0.447
+        },
+        "throughput": {
+          "gflops": 1819.81,
+          "bandwidth_gb_s": 115.81
+        },
+        "theory": {
+          "flops": 805306368,
+          "bytes": 51249152,
+          "arithmetic_intensity": 15.71
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups8_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4663,
+          "std_ms": 0.0058,
+          "min_ms": 0.4593,
+          "max_ms": 0.4728
+        },
+        "throughput": {
+          "gflops": 6907.62,
+          "bandwidth_gb_s": 115.8
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 54001664,
+          "arithmetic_intensity": 59.65
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups32_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.751,
+          "std_ms": 0.0246,
+          "min_ms": 1.7265,
+          "max_ms": 1.7764
+        },
+        "throughput": {
+          "gflops": 459.92,
+          "bandwidth_gb_s": 115.5
+        },
+        "theory": {
+          "flops": 805306368,
+          "bytes": 202244096,
+          "arithmetic_intensity": 3.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups32_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.7622,
+          "std_ms": 0.0064,
+          "min_ms": 1.7516,
+          "max_ms": 1.7667
+        },
+        "throughput": {
+          "gflops": 1827.96,
+          "bandwidth_gb_s": 116.33
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 204996608,
+          "arithmetic_intensity": 15.71
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups32_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.9128,
+          "std_ms": 0.0147,
+          "min_ms": 1.8926,
+          "max_ms": 1.9287
+        },
+        "throughput": {
+          "gflops": 6736.03,
+          "bandwidth_gb_s": 112.93
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 216006656,
+          "arithmetic_intensity": 59.65
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups64_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.4491,
+          "std_ms": 0.0162,
+          "min_ms": 3.4281,
+          "max_ms": 3.4688
+        },
+        "throughput": {
+          "gflops": 466.97,
+          "bandwidth_gb_s": 117.27
+        },
+        "theory": {
+          "flops": 1610612736,
+          "bytes": 404488192,
+          "arithmetic_intensity": 3.98
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups64_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.5554,
+          "std_ms": 0.0202,
+          "min_ms": 3.5372,
+          "max_ms": 3.5835
+        },
+        "throughput": {
+          "gflops": 1812.0,
+          "bandwidth_gb_s": 115.31
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 409993216,
+          "arithmetic_intensity": 15.71
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups128_tokens_per_group8",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.9186,
+          "std_ms": 0.0357,
+          "min_ms": 6.8772,
+          "max_ms": 6.9706
+        },
+        "throughput": {
+          "gflops": 931.18,
+          "bandwidth_gb_s": 117.46
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 812646400,
+          "arithmetic_intensity": 7.93
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_4.7_flash_decode_num_groups128_tokens_per_group32",
+      "provider": "metax",
+      "parameters": {
+        "K": 1536,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 7.2825,
+          "std_ms": 0.0268,
+          "min_ms": 7.2394,
+          "max_ms": 7.3039
+        },
+        "throughput": {
+          "gflops": 3538.58,
+          "bandwidth_gb_s": 114.61
+        },
+        "theory": {
+          "flops": 25769803776,
+          "bytes": 834666496,
+          "arithmetic_intensity": 30.87
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups8_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5425,
+          "std_ms": 0.0037,
+          "min_ms": 0.5376,
+          "max_ms": 0.5471
+        },
+        "throughput": {
+          "gflops": 1484.39,
+          "bandwidth_gb_s": 372.06
+        },
+        "theory": {
+          "flops": 805306368,
+          "bytes": 201850880,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups8_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5674,
+          "std_ms": 0.0123,
+          "min_ms": 0.555,
+          "max_ms": 0.5804
+        },
+        "throughput": {
+          "gflops": 5676.67,
+          "bandwidth_gb_s": 358.49
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 203423744,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups8_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.6424,
+          "std_ms": 0.0061,
+          "min_ms": 0.6336,
+          "max_ms": 0.6495
+        },
+        "throughput": {
+          "gflops": 20057.24,
+          "bandwidth_gb_s": 326.45
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 209715200,
+          "arithmetic_intensity": 61.44
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups32_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.1058,
+          "std_ms": 0.0146,
+          "min_ms": 2.0915,
+          "max_ms": 2.1271
+        },
+        "throughput": {
+          "gflops": 1529.69,
+          "bandwidth_gb_s": 383.42
+        },
+        "theory": {
+          "flops": 3221225472,
+          "bytes": 807403520,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups32_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.2108,
+          "std_ms": 0.0155,
+          "min_ms": 2.1985,
+          "max_ms": 2.2362
+        },
+        "throughput": {
+          "gflops": 5828.26,
+          "bandwidth_gb_s": 368.06
+        },
+        "theory": {
+          "flops": 12884901888,
+          "bytes": 813694976,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups32_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.5138,
+          "std_ms": 0.0057,
+          "min_ms": 2.507,
+          "max_ms": 2.5185
+        },
+        "throughput": {
+          "gflops": 20502.52,
+          "bandwidth_gb_s": 333.7
+        },
+        "theory": {
+          "flops": 51539607552,
+          "bytes": 838860800,
+          "arithmetic_intensity": 61.44
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups64_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.2445,
+          "std_ms": 0.0252,
+          "min_ms": 4.2153,
+          "max_ms": 4.2798
+        },
+        "throughput": {
+          "gflops": 1517.84,
+          "bandwidth_gb_s": 380.45
+        },
+        "theory": {
+          "flops": 6442450944,
+          "bytes": 1614807040,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups64_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.3742,
+          "std_ms": 0.0153,
+          "min_ms": 4.3581,
+          "max_ms": 4.3932
+        },
+        "throughput": {
+          "gflops": 5891.36,
+          "bandwidth_gb_s": 372.05
+        },
+        "theory": {
+          "flops": 25769803776,
+          "bytes": 1627389952,
+          "arithmetic_intensity": 15.84
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups128_tokens_per_group8",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 8.5567,
+          "std_ms": 0.0519,
+          "min_ms": 8.4905,
+          "max_ms": 8.6213
+        },
+        "throughput": {
+          "gflops": 3011.63,
+          "bandwidth_gb_s": 378.42
+        },
+        "theory": {
+          "flops": 25769803776,
+          "bytes": 3238002688,
+          "arithmetic_intensity": 7.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "glm_5.2_decode_num_groups128_tokens_per_group32",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 6144,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 9.1811,
+          "std_ms": 0.0312,
+          "min_ms": 9.131,
+          "max_ms": 9.2081
+        },
+        "throughput": {
+          "gflops": 11227.29,
+          "bandwidth_gb_s": 358.16
+        },
+        "theory": {
+          "flops": 103079215104,
+          "bytes": 3288334336,
+          "arithmetic_intensity": 31.35
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups8_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3941,
+          "std_ms": 0.0066,
+          "min_ms": 0.3876,
+          "max_ms": 0.4047
+        },
+        "throughput": {
+          "gflops": 170.29,
+          "bandwidth_gb_s": 42.99
+        },
+        "theory": {
+          "flops": 67108864,
+          "bytes": 16941056,
+          "arithmetic_intensity": 3.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups8_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3981,
+          "std_ms": 0.0051,
+          "min_ms": 0.3917,
+          "max_ms": 0.404
+        },
+        "throughput": {
+          "gflops": 674.33,
+          "bandwidth_gb_s": 43.79
+        },
+        "theory": {
+          "flops": 268435456,
+          "bytes": 17432576,
+          "arithmetic_intensity": 15.4
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups8_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.4225,
+          "std_ms": 0.0062,
+          "min_ms": 0.4173,
+          "max_ms": 0.4329
+        },
+        "throughput": {
+          "gflops": 2541.69,
+          "bandwidth_gb_s": 45.92
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 19398656,
+          "arithmetic_intensity": 55.35
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups32_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.5534,
+          "std_ms": 0.0114,
+          "min_ms": 1.5391,
+          "max_ms": 1.5652
+        },
+        "throughput": {
+          "gflops": 172.8,
+          "bandwidth_gb_s": 43.62
+        },
+        "theory": {
+          "flops": 268435456,
+          "bytes": 67764224,
+          "arithmetic_intensity": 3.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups32_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.607,
+          "std_ms": 0.0103,
+          "min_ms": 1.5969,
+          "max_ms": 1.6241
+        },
+        "throughput": {
+          "gflops": 668.16,
+          "bandwidth_gb_s": 43.39
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 69730304,
+          "arithmetic_intensity": 15.4
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups32_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.7248,
+          "std_ms": 0.014,
+          "min_ms": 1.7044,
+          "max_ms": 1.7428
+        },
+        "throughput": {
+          "gflops": 2490.16,
+          "bandwidth_gb_s": 44.99
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 77594624,
+          "arithmetic_intensity": 55.35
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups64_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.1146,
+          "std_ms": 0.0296,
+          "min_ms": 3.0733,
+          "max_ms": 3.1393
+        },
+        "throughput": {
+          "gflops": 172.37,
+          "bandwidth_gb_s": 43.51
+        },
+        "theory": {
+          "flops": 536870912,
+          "bytes": 135528448,
+          "arithmetic_intensity": 3.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups64_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 3.1475,
+          "std_ms": 0.0057,
+          "min_ms": 3.1409,
+          "max_ms": 3.1534
+        },
+        "throughput": {
+          "gflops": 682.28,
+          "bandwidth_gb_s": 44.31
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 139460608,
+          "arithmetic_intensity": 15.4
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups128_tokens_per_group8",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.3034,
+          "std_ms": 0.0305,
+          "min_ms": 6.271,
+          "max_ms": 6.3514
+        },
+        "throughput": {
+          "gflops": 340.69,
+          "bandwidth_gb_s": 43.42
+        },
+        "theory": {
+          "flops": 2147483648,
+          "bytes": 273678336,
+          "arithmetic_intensity": 7.85
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.6_35b_a3b_decode_num_groups128_tokens_per_group32",
+      "provider": "metax",
+      "parameters": {
+        "K": 512,
+        "N": 2048,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 6.4347,
+          "std_ms": 0.0155,
+          "min_ms": 6.4179,
+          "max_ms": 6.4553
+        },
+        "throughput": {
+          "gflops": 1334.95,
+          "bandwidth_gb_s": 44.98
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 289406976,
+          "arithmetic_intensity": 29.68
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups8_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5705,
+          "std_ms": 0.0029,
+          "min_ms": 0.5681,
+          "max_ms": 0.5755
+        },
+        "throughput": {
+          "gflops": 1882.04,
+          "bandwidth_gb_s": 471.66
+        },
+        "theory": {
+          "flops": 1073741824,
+          "bytes": 269090816,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups8_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5872,
+          "std_ms": 0.0054,
+          "min_ms": 0.5834,
+          "max_ms": 0.5962
+        },
+        "throughput": {
+          "gflops": 7314.16,
+          "bandwidth_gb_s": 461.6
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 271056896,
+          "arithmetic_intensity": 15.85
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups8_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 8,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.7203,
+          "std_ms": 0.0061,
+          "min_ms": 0.7137,
+          "max_ms": 0.7293
+        },
+        "throughput": {
+          "gflops": 23851.6,
+          "bandwidth_gb_s": 387.24
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 278921216,
+          "arithmetic_intensity": 61.59
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups32_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.2326,
+          "std_ms": 0.0198,
+          "min_ms": 2.2118,
+          "max_ms": 2.2582
+        },
+        "throughput": {
+          "gflops": 1923.73,
+          "bandwidth_gb_s": 482.11
+        },
+        "theory": {
+          "flops": 4294967296,
+          "bytes": 1076363264,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups32_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.3617,
+          "std_ms": 0.0118,
+          "min_ms": 2.3432,
+          "max_ms": 2.3762
+        },
+        "throughput": {
+          "gflops": 7274.52,
+          "bandwidth_gb_s": 459.1
+        },
+        "theory": {
+          "flops": 17179869184,
+          "bytes": 1084227584,
+          "arithmetic_intensity": 15.85
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups32_tokens_per_group64",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 32,
+        "tokens_per_group": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.8239,
+          "std_ms": 0.005,
+          "min_ms": 2.8186,
+          "max_ms": 2.8288
+        },
+        "throughput": {
+          "gflops": 24335.09,
+          "bandwidth_gb_s": 395.09
+        },
+        "theory": {
+          "flops": 68719476736,
+          "bytes": 1115684864,
+          "arithmetic_intensity": 61.59
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups64_tokens_per_group4",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 4
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.4793,
+          "std_ms": 0.0181,
+          "min_ms": 4.4588,
+          "max_ms": 4.4972
+        },
+        "throughput": {
+          "gflops": 1917.68,
+          "bandwidth_gb_s": 480.59
+        },
+        "theory": {
+          "flops": 8589934592,
+          "bytes": 2152726528,
+          "arithmetic_intensity": 3.99
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups64_tokens_per_group16",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 64,
+        "tokens_per_group": 16
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 4.6739,
+          "std_ms": 0.0232,
+          "min_ms": 4.6369,
+          "max_ms": 4.7009
+        },
+        "throughput": {
+          "gflops": 7351.33,
+          "bandwidth_gb_s": 463.95
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 2168455168,
+          "arithmetic_intensity": 15.85
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups128_tokens_per_group8",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 9.0147,
+          "std_ms": 0.0181,
+          "min_ms": 8.9984,
+          "max_ms": 9.0427
+        },
+        "throughput": {
+          "gflops": 3811.53,
+          "bandwidth_gb_s": 478.77
+        },
+        "theory": {
+          "flops": 34359738368,
+          "bytes": 4315938816,
+          "arithmetic_intensity": 7.96
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    },
+    {
+      "operator": "group_gemm",
+      "definition": "group_gemm",
+      "workload": "qwen3.8-2.4t-a95b_decode_num_groups128_tokens_per_group32",
+      "provider": "metax",
+      "parameters": {
+        "K": 2048,
+        "N": 8192,
+        "dtype": "bf16",
+        "num_groups": 128,
+        "tokens_per_group": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 9.9601,
+          "std_ms": 0.0105,
+          "min_ms": 9.9497,
+          "max_ms": 9.9717
+        },
+        "throughput": {
+          "gflops": 13798.97,
+          "bandwidth_gb_s": 439.64
+        },
+        "theory": {
+          "flops": 137438953472,
+          "bytes": 4378853376,
+          "arithmetic_intensity": 31.39
+        }
+      },
+      "impl_info": {
+        "source": "torch.mm loop over groups (metax fallback)",
+        "type": "torch",
+        "platform": "metax"
+      }
+    }
+  ]
+}

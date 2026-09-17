@@ -163,6 +163,93 @@ class MetaxProvider(NvidiaProvider):
                     "error": f"Failed to load fp8_fp4_paged_mqa_logits: {e}"
                 }
 
+        # grouped_topk: vLLM CUDA-only；缺则 torch 语义兜底
+        if op_name == "grouped_topk":
+            try:
+                impl_fn, impl_info = self._load_grouped_topk()
+                if impl_fn is None:
+                    return None, {"error": "Failed to load grouped_topk on metax"}
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading grouped_topk: {e}")
+                return None, {"error": f"Failed to load grouped_topk: {e}"}
+
+        # group_gemm: torch._grouped_mm 在 MACA 常不可用 → mm loop
+        if op_name == "group_gemm":
+            try:
+                impl_fn, impl_info = self._load_group_gemm()
+                if impl_fn is None:
+                    return None, {"error": "Failed to load group_gemm on metax"}
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading group_gemm: {e}")
+                return None, {"error": f"Failed to load group_gemm: {e}"}
+
+        # combine_topk_swa_indices: deepseek_v4_ops 常缺 → torch
+        if op_name == "combine_topk_swa_indices":
+            try:
+                impl_fn, impl_info = self._load_combine_topk_swa_indices()
+                if impl_fn is None:
+                    return None, {
+                        "error": "Failed to load combine_topk_swa_indices on metax"
+                    }
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading combine_topk_swa_indices: {e}")
+                return None, {
+                    "error": f"Failed to load combine_topk_swa_indices: {e}"
+                }
+
+        # fused_deepseek_v4...: torch.ops._C 在 MACA 常缺 → torch 参考
+        if op_name == "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert":
+            try:
+                impl_fn, impl_info = (
+                    self._load_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert()
+                )
+                if impl_fn is None:
+                    return None, {
+                        "error": "Failed to load fused_deepseek_v4 on metax"
+                    }
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading fused_deepseek_v4: {e}")
+                return None, {"error": f"Failed to load fused_deepseek_v4: {e}"}
+
+        # flash_attn_varlen: vllm_flash_attn / FlagGems 在 MACA 常不可用 → SDPA
+        if op_name == "flash_attn_varlen_func":
+            try:
+                impl_fn, impl_info = self._load_flash_attn_varlen_func()
+                if impl_fn is None:
+                    return None, {
+                        "error": "Failed to load flash_attn_varlen_func on metax"
+                    }
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading flash_attn_varlen_func: {e}")
+                return None, {
+                    "error": f"Failed to load flash_attn_varlen_func: {e}"
+                }
+
+        # flash_mla 三件套：vLLM 常无/缺 flashmla → torch 兜底
+        if op_name in (
+            "flash_mla",
+            "flash_mla_with_kvcache",
+            "flash_mla_with_kvcache_fp8",
+        ):
+            try:
+                load = {
+                    "flash_mla": self._load_flash_mla,
+                    "flash_mla_with_kvcache": self._load_flash_mla_with_kvcache,
+                    "flash_mla_with_kvcache_fp8": self._load_flash_mla_with_kvcache_fp8,
+                }[op_name]
+                impl_fn, impl_info = load()
+                if impl_fn is None:
+                    return None, {"error": f"Failed to load {op_name} on metax"}
+                return impl_fn, {**impl_info, "platform": "metax"}
+            except Exception as e:
+                print(f"  [WARN] Exception loading {op_name}: {e}")
+                return None, {"error": f"Failed to load {op_name}: {e}"}
+
         impl_fn, impl_info = super().get_impl(op_name, operator)
         if impl_fn is not None:
             impl_info = {**impl_info, "platform": "metax"}
@@ -449,5 +536,237 @@ class MetaxProvider(NvidiaProvider):
         return torch_fp8_fp4_paged_mqa_logits, {
             "source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)",
             "type": "pytorch",
+            "platform": "metax",
+        }
+
+    def _load_grouped_topk(self):
+        """优先 vLLM；沐曦常报 only CUDA → torch 语义兜底。"""
+        from providers.flagos_provider import torch_grouped_topk
+
+        if self._vllm_ops is not None and hasattr(self._vllm_ops, "grouped_topk"):
+            vllm_fn = self._vllm_ops.grouped_topk
+            try:
+                s = torch.randn(1, 8, device="cuda", dtype=torch.float32)
+                b = torch.zeros(8, device="cuda", dtype=torch.float32)
+                vllm_fn(
+                    s,
+                    num_expert_group=2,
+                    topk_group=1,
+                    topk=2,
+                    renormalize=True,
+                    routed_scaling_factor=1.0,
+                    bias=b,
+                    scoring_func=1,
+                )
+                torch.cuda.synchronize()
+
+                def wrapper(
+                    scores,
+                    n_group,
+                    topk_group,
+                    topk,
+                    renormalize,
+                    routed_scaling_factor,
+                    bias,
+                    scoring_func=0,
+                    **kwargs,
+                ):
+                    return vllm_fn(
+                        scores,
+                        num_expert_group=n_group,
+                        topk_group=topk_group,
+                        topk=topk,
+                        renormalize=renormalize,
+                        routed_scaling_factor=routed_scaling_factor,
+                        bias=bias,
+                        scoring_func=scoring_func,
+                    )
+
+                return wrapper, {
+                    "source": "vllm._custom_ops.grouped_topk (metax)",
+                    "type": "cuda",
+                    "platform": "metax",
+                }
+            except Exception as e:
+                print(f"  [INFO] grouped_topk: vLLM probe failed → torch: {e}")
+
+        print("  [INFO] grouped_topk: torch fallback (MetaX)")
+        return torch_grouped_topk, {
+            "source": "torch.grouped_topk (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_group_gemm(self):
+        """优先 torch._grouped_mm；MACA 不可用时 mm loop（对齐 mthreads）。"""
+        from providers.flagos_provider import torch_group_mm
+
+        if hasattr(torch, "_grouped_mm"):
+            try:
+                A = torch.randn(8, 16, device="cuda", dtype=torch.bfloat16)
+                B = torch.randn(2, 16, 8, device="cuda", dtype=torch.bfloat16)
+                offs = torch.tensor([4, 8], device="cuda", dtype=torch.int32)
+                torch._grouped_mm(A, B, offs)
+                torch.cuda.synchronize()
+
+                def wrapper(A, B, offs):
+                    return torch._grouped_mm(A, B, offs)
+
+                return wrapper, {
+                    "source": "torch._grouped_mm (metax)",
+                    "type": "cutlass",
+                    "platform": "metax",
+                }
+            except Exception as e:
+                print(f"  [INFO] group_gemm: _grouped_mm probe failed → mm loop: {e}")
+
+        print("  [INFO] group_gemm: torch.mm loop (MetaX)")
+        return torch_group_mm, {
+            "source": "torch.mm loop over groups (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_combine_topk_swa_indices(self):
+        """优先 vLLM deepseek_v4_ops；缺则 torch（对齐 FlagGems 单测参考）。"""
+        from providers.flagos_provider import torch_combine_topk_swa_indices
+
+        try:
+            impl_fn, impl_info = super()._load_combine_topk_swa_indices()
+            if impl_fn is not None:
+                return impl_fn, impl_info
+        except Exception as e:
+            print(f"  [WARN] vLLM combine_topk_swa_indices unavailable: {e}")
+
+        print(
+            "  [INFO] combine_topk_swa_indices: deepseek_v4_ops missing "
+            "→ torch fallback (MetaX)"
+        )
+        return torch_combine_topk_swa_indices, {
+            "source": "torch.combine_topk_swa_indices (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert(self):
+        """优先 torch.ops._C；缺则 torch 参考（对齐 FlagGems 单测 ref_impl）。"""
+        from providers.flagos_provider import (
+            torch_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,
+        )
+
+        op = "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+        if hasattr(torch.ops, "_C") and hasattr(torch.ops._C, op):
+            try:
+                fn = getattr(torch.ops._C, op)
+                q = torch.randn(1, 2, 512, device="cuda", dtype=torch.bfloat16)
+                kv = torch.randn(1, 512, device="cuda", dtype=torch.bfloat16)
+                block_bytes = ((64 * 584 + 575) // 576) * 576
+                k_cache = torch.zeros(2, block_bytes, device="cuda", dtype=torch.uint8)
+                slot_mapping = torch.tensor([0], device="cuda", dtype=torch.int64)
+                position_ids = torch.tensor([0], device="cuda", dtype=torch.int64)
+                cos_sin_cache = torch.randn(16, 64, device="cuda", dtype=torch.float32)
+                fn(q, kv, k_cache, slot_mapping, position_ids, cos_sin_cache, 1e-6, 64)
+                torch.cuda.synchronize()
+                return fn, {
+                    "source": f"torch.ops._C.{op}",
+                    "type": "cuda",
+                    "platform": "metax",
+                }
+            except Exception as e:
+                print(f"  [INFO] {op}: torch.ops._C probe failed → torch: {e}")
+
+        print(f"  [INFO] {op}: torch fallback (MetaX)")
+        return torch_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert, {
+            "source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_flash_attn_varlen_func(self):
+        """优先 vllm_flash_attn；缺/挂则 torch SDPA（MetaX blacklist FlagGems 常挂）。"""
+        from providers.flagos_provider import torch_flash_attn_varlen_func
+
+        if self._vllm_flash_attn is not None and hasattr(
+            self._vllm_flash_attn, "flash_attn_varlen_func"
+        ):
+            fn = self._vllm_flash_attn.flash_attn_varlen_func
+            try:
+                q = torch.randn(4, 2, 64, device="cuda", dtype=torch.bfloat16)
+                k = torch.randn(4, 2, 64, device="cuda", dtype=torch.bfloat16)
+                v = torch.randn(4, 2, 64, device="cuda", dtype=torch.bfloat16)
+                cu = torch.tensor([0, 4], device="cuda", dtype=torch.int32)
+                fn(
+                    q=q,
+                    k=k,
+                    v=v,
+                    cu_seqlens_q=cu,
+                    cu_seqlens_k=cu,
+                    max_seqlen_q=4,
+                    max_seqlen_k=4,
+                    causal=True,
+                    softmax_scale=1.0 / (64**0.5),
+                )
+                torch.cuda.synchronize()
+                return fn, {
+                    "source": "vllm.vllm_flash_attn.flash_attn_varlen_func",
+                    "type": "cuda",
+                    "platform": "metax",
+                }
+            except Exception as e:
+                print(f"  [INFO] flash_attn_varlen_func: vLLM probe failed → SDPA: {e}")
+
+        print("  [INFO] flash_attn_varlen_func: torch SDPA fallback (MetaX)")
+        return torch_flash_attn_varlen_func, {
+            "source": "torch.sdpa_varlen (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_flash_mla(self):
+        """NV 无 vLLM 单算子；MetaX 用 torch SDPA 作基线。"""
+        from providers.flagos_provider import torch_flash_mla
+
+        print("  [INFO] flash_mla: no vLLM equiv → torch SDPA (MetaX)")
+        return torch_flash_mla, {
+            "source": "torch.flash_mla_sdpa (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_flash_mla_with_kvcache(self):
+        """优先 vLLM flashmla；缺则 torch。"""
+        from providers.flagos_provider import torch_flash_mla_with_kvcache
+
+        try:
+            impl_fn, impl_info = super()._load_flash_mla_with_kvcache()
+            if impl_fn is not None:
+                return impl_fn, impl_info
+        except Exception as e:
+            print(f"  [INFO] flash_mla_with_kvcache: vLLM probe failed → torch: {e}")
+
+        print("  [INFO] flash_mla_with_kvcache: torch SDPA (MetaX)")
+        return torch_flash_mla_with_kvcache, {
+            "source": "torch.flash_mla_with_kvcache_sdpa (metax fallback)",
+            "type": "torch",
+            "platform": "metax",
+        }
+
+    def _load_flash_mla_with_kvcache_fp8(self):
+        """NV map 为 None；优先试 vLLM fp8 接口，否则 torch。"""
+        from providers.flagos_provider import torch_flash_mla_with_kvcache
+
+        try:
+            impl_fn, impl_info = super()._load_flash_mla_with_kvcache_fp8()
+            if impl_fn is not None:
+                return impl_fn, impl_info
+        except Exception as e:
+            print(
+                f"  [INFO] flash_mla_with_kvcache_fp8: vLLM probe failed → torch: {e}"
+            )
+
+        print("  [INFO] flash_mla_with_kvcache_fp8: torch SDPA (MetaX)")
+        return torch_flash_mla_with_kvcache, {
+            "source": "torch.flash_mla_with_kvcache_fp8_sdpa (metax fallback)",
+            "type": "torch",
             "platform": "metax",
         }

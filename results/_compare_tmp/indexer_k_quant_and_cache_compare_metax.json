@@ -1,0 +1,1349 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:55.830073",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 40,
+    "baseline_file": "E:\\BAAI\\results\\indexer_k_quant_and_cache\\indexer_k_quant_and_cache_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\indexer_k_quant_and_cache\\indexer_k_quant_and_cache_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 40,
+    "faster": 0,
+    "slower": 40,
+    "on_par": 0,
+    "avg_speedup": 0.3046
+  },
+  "comparisons": [
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0404,
+        "std_ms": 0.0,
+        "min_ms": 0.0404,
+        "max_ms": 0.0404,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1925,
+        "std_ms": 0.0,
+        "min_ms": 0.1925,
+        "max_ms": 0.1925,
+        "bandwidth_gb_s": 0.0,
+        "gflops": 0.0,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2099,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0189,
+        "std_ms": 0.0,
+        "min_ms": 0.0189,
+        "max_ms": 0.0189,
+        "bandwidth_gb_s": 0.17,
+        "gflops": 0.16,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0684,
+        "std_ms": 0.0,
+        "min_ms": 0.0684,
+        "max_ms": 0.0684,
+        "bandwidth_gb_s": 0.05,
+        "gflops": 0.04,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2763,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0182,
+        "std_ms": 0.0,
+        "min_ms": 0.0182,
+        "max_ms": 0.0182,
+        "bandwidth_gb_s": 0.7,
+        "gflops": 0.68,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0596,
+        "std_ms": 0.0,
+        "min_ms": 0.0596,
+        "max_ms": 0.0596,
+        "bandwidth_gb_s": 0.21,
+        "gflops": 0.21,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3054,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0172,
+        "std_ms": 0.0,
+        "min_ms": 0.0172,
+        "max_ms": 0.0172,
+        "bandwidth_gb_s": 1.49,
+        "gflops": 1.43,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0512,
+        "std_ms": 0.0,
+        "min_ms": 0.0512,
+        "max_ms": 0.0512,
+        "bandwidth_gb_s": 0.5,
+        "gflops": 0.48,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3359,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0166,
+        "std_ms": 0.0,
+        "min_ms": 0.0166,
+        "max_ms": 0.0166,
+        "bandwidth_gb_s": 3.08,
+        "gflops": 2.95,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0515,
+        "std_ms": 0.0,
+        "min_ms": 0.0515,
+        "max_ms": 0.0515,
+        "bandwidth_gb_s": 1.0,
+        "gflops": 0.96,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3223,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0177,
+        "std_ms": 0.0,
+        "min_ms": 0.0177,
+        "max_ms": 0.0177,
+        "bandwidth_gb_s": 5.8,
+        "gflops": 5.57,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0622,
+        "std_ms": 0.0,
+        "min_ms": 0.0622,
+        "max_ms": 0.0622,
+        "bandwidth_gb_s": 1.65,
+        "gflops": 1.58,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2846,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0154,
+        "std_ms": 0.0,
+        "min_ms": 0.0154,
+        "max_ms": 0.0154,
+        "bandwidth_gb_s": 13.33,
+        "gflops": 12.8,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.053,
+        "std_ms": 0.0,
+        "min_ms": 0.053,
+        "max_ms": 0.053,
+        "bandwidth_gb_s": 3.86,
+        "gflops": 3.71,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2906,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0159,
+        "std_ms": 0.0,
+        "min_ms": 0.0159,
+        "max_ms": 0.0159,
+        "bandwidth_gb_s": 25.81,
+        "gflops": 24.77,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0492,
+        "std_ms": 0.0,
+        "min_ms": 0.0492,
+        "max_ms": 0.0492,
+        "bandwidth_gb_s": 8.33,
+        "gflops": 8.0,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3232,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0172,
+        "std_ms": 0.0,
+        "min_ms": 0.0172,
+        "max_ms": 0.0172,
+        "bandwidth_gb_s": 47.76,
+        "gflops": 45.85,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0525,
+        "std_ms": 0.0,
+        "min_ms": 0.0525,
+        "max_ms": 0.0525,
+        "bandwidth_gb_s": 15.61,
+        "gflops": 14.99,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3276,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0205,
+        "std_ms": 0.0,
+        "min_ms": 0.0205,
+        "max_ms": 0.0205,
+        "bandwidth_gb_s": 80.0,
+        "gflops": 76.8,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0689,
+        "std_ms": 0.0,
+        "min_ms": 0.0689,
+        "max_ms": 0.0689,
+        "bandwidth_gb_s": 23.79,
+        "gflops": 22.84,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2975,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0161,
+        "std_ms": 0.0,
+        "min_ms": 0.0161,
+        "max_ms": 0.0161,
+        "bandwidth_gb_s": 0.02,
+        "gflops": 0.02,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0525,
+        "std_ms": 0.0,
+        "min_ms": 0.0525,
+        "max_ms": 0.0525,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3067,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0172,
+        "std_ms": 0.0,
+        "min_ms": 0.0172,
+        "max_ms": 0.0172,
+        "bandwidth_gb_s": 0.19,
+        "gflops": 0.18,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0507,
+        "std_ms": 0.0,
+        "min_ms": 0.0507,
+        "max_ms": 0.0507,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.06,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3393,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0146,
+        "std_ms": 0.0,
+        "min_ms": 0.0146,
+        "max_ms": 0.0146,
+        "bandwidth_gb_s": 0.88,
+        "gflops": 0.84,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0515,
+        "std_ms": 0.0,
+        "min_ms": 0.0515,
+        "max_ms": 0.0515,
+        "bandwidth_gb_s": 0.25,
+        "gflops": 0.24,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2835,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0166,
+        "std_ms": 0.0,
+        "min_ms": 0.0166,
+        "max_ms": 0.0166,
+        "bandwidth_gb_s": 1.54,
+        "gflops": 1.48,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0525,
+        "std_ms": 0.0,
+        "min_ms": 0.0525,
+        "max_ms": 0.0525,
+        "bandwidth_gb_s": 0.49,
+        "gflops": 0.47,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3162,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0159,
+        "std_ms": 0.0,
+        "min_ms": 0.0159,
+        "max_ms": 0.0159,
+        "bandwidth_gb_s": 3.23,
+        "gflops": 3.1,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0486,
+        "std_ms": 0.0,
+        "min_ms": 0.0486,
+        "max_ms": 0.0486,
+        "bandwidth_gb_s": 1.05,
+        "gflops": 1.01,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3272,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0154,
+        "std_ms": 0.0,
+        "min_ms": 0.0154,
+        "max_ms": 0.0154,
+        "bandwidth_gb_s": 6.67,
+        "gflops": 6.4,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0494,
+        "std_ms": 0.0,
+        "min_ms": 0.0494,
+        "max_ms": 0.0494,
+        "bandwidth_gb_s": 2.07,
+        "gflops": 1.99,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3117,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0141,
+        "std_ms": 0.0,
+        "min_ms": 0.0141,
+        "max_ms": 0.0141,
+        "bandwidth_gb_s": 14.55,
+        "gflops": 13.96,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0517,
+        "std_ms": 0.0,
+        "min_ms": 0.0517,
+        "max_ms": 0.0517,
+        "bandwidth_gb_s": 3.96,
+        "gflops": 3.8,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2727,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0156,
+        "std_ms": 0.0,
+        "min_ms": 0.0156,
+        "max_ms": 0.0156,
+        "bandwidth_gb_s": 26.23,
+        "gflops": 25.18,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0604,
+        "std_ms": 0.0,
+        "min_ms": 0.0604,
+        "max_ms": 0.0604,
+        "bandwidth_gb_s": 6.78,
+        "gflops": 6.51,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2583,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0166,
+        "std_ms": 0.0,
+        "min_ms": 0.0166,
+        "max_ms": 0.0166,
+        "bandwidth_gb_s": 49.23,
+        "gflops": 47.26,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0563,
+        "std_ms": 0.0,
+        "min_ms": 0.0563,
+        "max_ms": 0.0563,
+        "bandwidth_gb_s": 14.55,
+        "gflops": 13.96,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2948,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 512,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0202,
+        "std_ms": 0.0,
+        "min_ms": 0.0202,
+        "max_ms": 0.0202,
+        "bandwidth_gb_s": 81.01,
+        "gflops": 77.77,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0655,
+        "std_ms": 0.0,
+        "min_ms": 0.0655,
+        "max_ms": 0.0655,
+        "bandwidth_gb_s": 25.0,
+        "gflops": 24.0,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3084,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0156,
+        "std_ms": 0.0,
+        "min_ms": 0.0156,
+        "max_ms": 0.0156,
+        "bandwidth_gb_s": 0.03,
+        "gflops": 0.02,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.052,
+        "std_ms": 0.0,
+        "min_ms": 0.052,
+        "max_ms": 0.052,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0146,
+        "std_ms": 0.0,
+        "min_ms": 0.0146,
+        "max_ms": 0.0146,
+        "bandwidth_gb_s": 0.22,
+        "gflops": 0.21,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0517,
+        "std_ms": 0.0,
+        "min_ms": 0.0517,
+        "max_ms": 0.0517,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.06,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2824,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0161,
+        "std_ms": 0.0,
+        "min_ms": 0.0161,
+        "max_ms": 0.0161,
+        "bandwidth_gb_s": 0.79,
+        "gflops": 0.76,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0494,
+        "std_ms": 0.0,
+        "min_ms": 0.0494,
+        "max_ms": 0.0494,
+        "bandwidth_gb_s": 0.26,
+        "gflops": 0.25,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3259,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0156,
+        "std_ms": 0.0,
+        "min_ms": 0.0156,
+        "max_ms": 0.0156,
+        "bandwidth_gb_s": 1.64,
+        "gflops": 1.57,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0499,
+        "std_ms": 0.0,
+        "min_ms": 0.0499,
+        "max_ms": 0.0499,
+        "bandwidth_gb_s": 0.51,
+        "gflops": 0.49,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3126,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0151,
+        "std_ms": 0.0,
+        "min_ms": 0.0151,
+        "max_ms": 0.0151,
+        "bandwidth_gb_s": 3.39,
+        "gflops": 3.25,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0466,
+        "std_ms": 0.0,
+        "min_ms": 0.0466,
+        "max_ms": 0.0466,
+        "bandwidth_gb_s": 1.1,
+        "gflops": 1.05,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.324,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0143,
+        "std_ms": 0.0,
+        "min_ms": 0.0143,
+        "max_ms": 0.0143,
+        "bandwidth_gb_s": 7.14,
+        "gflops": 6.86,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0497,
+        "std_ms": 0.0,
+        "min_ms": 0.0497,
+        "max_ms": 0.0497,
+        "bandwidth_gb_s": 2.06,
+        "gflops": 1.98,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2877,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0164,
+        "std_ms": 0.0,
+        "min_ms": 0.0164,
+        "max_ms": 0.0164,
+        "bandwidth_gb_s": 12.5,
+        "gflops": 12.0,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0479,
+        "std_ms": 0.0,
+        "min_ms": 0.0479,
+        "max_ms": 0.0479,
+        "bandwidth_gb_s": 4.28,
+        "gflops": 4.11,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3424,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0151,
+        "std_ms": 0.0,
+        "min_ms": 0.0151,
+        "max_ms": 0.0151,
+        "bandwidth_gb_s": 27.12,
+        "gflops": 26.03,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0481,
+        "std_ms": 0.0,
+        "min_ms": 0.0481,
+        "max_ms": 0.0481,
+        "bandwidth_gb_s": 8.51,
+        "gflops": 8.17,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3139,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0166,
+        "std_ms": 0.0,
+        "min_ms": 0.0166,
+        "max_ms": 0.0166,
+        "bandwidth_gb_s": 49.23,
+        "gflops": 47.26,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0576,
+        "std_ms": 0.0,
+        "min_ms": 0.0576,
+        "max_ms": 0.0576,
+        "bandwidth_gb_s": 14.22,
+        "gflops": 13.65,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2882,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "parameters": {
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "index_topk": 1024,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0202,
+        "std_ms": 0.0,
+        "min_ms": 0.0202,
+        "max_ms": 0.0202,
+        "bandwidth_gb_s": 81.01,
+        "gflops": 77.77,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0643,
+        "std_ms": 0.0,
+        "min_ms": 0.0643,
+        "max_ms": 0.0643,
+        "bandwidth_gb_s": 25.5,
+        "gflops": 24.48,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3142,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0159,
+        "std_ms": 0.0,
+        "min_ms": 0.0159,
+        "max_ms": 0.0159,
+        "bandwidth_gb_s": 0.03,
+        "gflops": 0.02,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0474,
+        "std_ms": 0.0,
+        "min_ms": 0.0474,
+        "max_ms": 0.0474,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3354,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0154,
+        "std_ms": 0.0,
+        "min_ms": 0.0154,
+        "max_ms": 0.0154,
+        "bandwidth_gb_s": 0.21,
+        "gflops": 0.2,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0468,
+        "std_ms": 0.0,
+        "min_ms": 0.0468,
+        "max_ms": 0.0468,
+        "bandwidth_gb_s": 0.07,
+        "gflops": 0.07,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3291,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0156,
+        "std_ms": 0.0,
+        "min_ms": 0.0156,
+        "max_ms": 0.0156,
+        "bandwidth_gb_s": 0.82,
+        "gflops": 0.79,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0484,
+        "std_ms": 0.0,
+        "min_ms": 0.0484,
+        "max_ms": 0.0484,
+        "bandwidth_gb_s": 0.26,
+        "gflops": 0.25,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3223,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0154,
+        "std_ms": 0.0,
+        "min_ms": 0.0154,
+        "max_ms": 0.0154,
+        "bandwidth_gb_s": 1.67,
+        "gflops": 1.6,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0481,
+        "std_ms": 0.0,
+        "min_ms": 0.0481,
+        "max_ms": 0.0481,
+        "bandwidth_gb_s": 0.53,
+        "gflops": 0.51,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3202,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0148,
+        "std_ms": 0.0,
+        "min_ms": 0.0148,
+        "max_ms": 0.0148,
+        "bandwidth_gb_s": 3.45,
+        "gflops": 3.31,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0494,
+        "std_ms": 0.0,
+        "min_ms": 0.0494,
+        "max_ms": 0.0494,
+        "bandwidth_gb_s": 1.04,
+        "gflops": 0.99,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2996,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0156,
+        "std_ms": 0.0,
+        "min_ms": 0.0156,
+        "max_ms": 0.0156,
+        "bandwidth_gb_s": 6.56,
+        "gflops": 6.3,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0489,
+        "std_ms": 0.0,
+        "min_ms": 0.0489,
+        "max_ms": 0.0489,
+        "bandwidth_gb_s": 2.09,
+        "gflops": 2.01,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.319,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0156,
+        "std_ms": 0.0,
+        "min_ms": 0.0156,
+        "max_ms": 0.0156,
+        "bandwidth_gb_s": 13.11,
+        "gflops": 12.59,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0594,
+        "std_ms": 0.0,
+        "min_ms": 0.0594,
+        "max_ms": 0.0594,
+        "bandwidth_gb_s": 3.45,
+        "gflops": 3.31,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2626,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0151,
+        "std_ms": 0.0,
+        "min_ms": 0.0151,
+        "max_ms": 0.0151,
+        "bandwidth_gb_s": 27.12,
+        "gflops": 26.03,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0497,
+        "std_ms": 0.0,
+        "min_ms": 0.0497,
+        "max_ms": 0.0497,
+        "bandwidth_gb_s": 8.25,
+        "gflops": 7.92,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3038,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0166,
+        "std_ms": 0.0,
+        "min_ms": 0.0166,
+        "max_ms": 0.0166,
+        "bandwidth_gb_s": 49.23,
+        "gflops": 47.26,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0535,
+        "std_ms": 0.0,
+        "min_ms": 0.0535,
+        "max_ms": 0.0535,
+        "bandwidth_gb_s": 15.31,
+        "gflops": 14.7,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.3103,
+      "verdict": "slower"
+    },
+    {
+      "operator": "indexer_k_quant_and_cache",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "parameters": {
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "index_topk": 2048,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.0202,
+        "std_ms": 0.0,
+        "min_ms": 0.0202,
+        "max_ms": 0.0202,
+        "bandwidth_gb_s": 81.01,
+        "gflops": 77.77,
+        "impl_source": "vllm._custom_ops.indexer_k_quant_and_cache (adapted)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0676,
+        "std_ms": 0.0,
+        "min_ms": 0.0676,
+        "max_ms": 0.0676,
+        "bandwidth_gb_s": 24.24,
+        "gflops": 23.27,
+        "impl_source": "flaggems_vllm.indexer_k_quant_and_cache"
+      },
+      "speedup": 0.2988,
+      "verdict": "slower"
+    }
+  ]
+}

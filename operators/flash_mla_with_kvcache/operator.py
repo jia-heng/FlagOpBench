@@ -49,13 +49,25 @@ class FlashMLAWithKVCacheOperator(BaseOperator):
             block_size: page大小
             max_seq: 最大序列长度
         """
-        from flaggems_vllm.ops.flash_mla_with_kvcache import FlashMLASchedMeta
+        try:
+            from flag_gems.fused.flash_mla_with_kvcache import FlashMLASchedMeta
+        except ImportError:
+            try:
+                from flaggems_vllm.ops.flash_mla_with_kvcache import FlashMLASchedMeta
+            except ImportError:
+                # 最小占位：flag_gems 路径会自己初始化 sched_meta
+                class FlashMLASchedMeta:  # type: ignore
+                    have_initialized = False
+                    config = None
+                    tile_scheduler_metadata = None
+                    num_splits = None
 
         b = params["b"]
         s_q = params.get("s_q", 1)
         h_q = params.get("h_q", 128)
-        head_dim_k = params.get("head_dim_k", 576)
-        head_dim_v = params.get("head_dim_v", 512)
+        # case yaml 常用 d/dv；兼容 head_dim_k/v
+        head_dim_k = params.get("head_dim_k") or params.get("d", 576)
+        head_dim_v = params.get("head_dim_v") or params.get("dv", 512)
         block_size = params.get("block_size", 64)
         max_seq = params.get("max_seq", 4096)
 

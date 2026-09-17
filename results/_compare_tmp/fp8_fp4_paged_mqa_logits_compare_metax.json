@@ -1,0 +1,1744 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:55.565430",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 49,
+    "baseline_file": "E:\\BAAI\\results\\fp8_fp4_paged_mqa_logits\\fp8_fp4_paged_mqa_logits_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\fp8_fp4_paged_mqa_logits\\fp8_fp4_paged_mqa_logits_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 49,
+    "faster": 29,
+    "slower": 1,
+    "on_par": 19,
+    "avg_speedup": 1.386
+  },
+  "comparisons": [
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b1_max_seq2048",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 20.2181,
+        "std_ms": 0.0,
+        "min_ms": 20.2181,
+        "max_ms": 20.2181,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 14.95,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.3272,
+        "std_ms": 0.0,
+        "min_ms": 3.3272,
+        "max_ms": 3.3272,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 90.84,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 6.0766,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b8_max_seq2048",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 148.7076,
+        "std_ms": 0.0,
+        "min_ms": 148.7076,
+        "max_ms": 148.7076,
+        "bandwidth_gb_s": 0.07,
+        "gflops": 16.26,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 25.5862,
+        "std_ms": 0.0,
+        "min_ms": 25.5862,
+        "max_ms": 25.5862,
+        "bandwidth_gb_s": 0.4,
+        "gflops": 94.5,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 5.812,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b32_max_seq2048",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 131.21,
+        "std_ms": 0.0,
+        "min_ms": 131.21,
+        "max_ms": 131.21,
+        "bandwidth_gb_s": 0.31,
+        "gflops": 73.71,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 101.1525,
+        "std_ms": 0.0,
+        "min_ms": 101.1525,
+        "max_ms": 101.1525,
+        "bandwidth_gb_s": 0.4,
+        "gflops": 95.62,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.2972,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b32_max_seq4096",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 257.7672,
+        "std_ms": 0.0,
+        "min_ms": 257.7672,
+        "max_ms": 257.7672,
+        "bandwidth_gb_s": 0.31,
+        "gflops": 75.04,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 203.5351,
+        "std_ms": 0.0,
+        "min_ms": 203.5351,
+        "max_ms": 203.5351,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 95.04,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.2665,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b64_max_seq4096",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 520.1567,
+        "std_ms": 0.0,
+        "min_ms": 520.1567,
+        "max_ms": 520.1567,
+        "bandwidth_gb_s": 0.3,
+        "gflops": 74.38,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 405.2895,
+        "std_ms": 0.0,
+        "min_ms": 405.2895,
+        "max_ms": 405.2895,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 95.46,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.2834,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b64_max_seq8192",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1378.6957,
+        "std_ms": 0.0,
+        "min_ms": 1378.6957,
+        "max_ms": 1378.6957,
+        "bandwidth_gb_s": 0.23,
+        "gflops": 56.12,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 809.0027,
+        "std_ms": 0.0,
+        "min_ms": 809.0027,
+        "max_ms": 809.0027,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 95.64,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.7042,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v3.2_decode_b128_max_seq4096",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1096.6239,
+        "std_ms": 0.0,
+        "min_ms": 1096.6239,
+        "max_ms": 1096.6239,
+        "bandwidth_gb_s": 0.29,
+        "gflops": 70.56,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 812.2143,
+        "std_ms": 0.0,
+        "min_ms": 812.2143,
+        "max_ms": 812.2143,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 95.27,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3502,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b1_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 4.4728,
+        "std_ms": 0.0,
+        "min_ms": 4.4728,
+        "max_ms": 4.4728,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 33.79,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.3649,
+        "std_ms": 0.0,
+        "min_ms": 3.3649,
+        "max_ms": 3.3649,
+        "bandwidth_gb_s": 0.37,
+        "gflops": 44.91,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3293,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b8_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 34.4847,
+        "std_ms": 0.0,
+        "min_ms": 34.4847,
+        "max_ms": 34.4847,
+        "bandwidth_gb_s": 0.29,
+        "gflops": 35.06,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 25.5404,
+        "std_ms": 0.0,
+        "min_ms": 25.5404,
+        "max_ms": 25.5404,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.34,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3502,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 136.82,
+        "std_ms": 0.0,
+        "min_ms": 136.82,
+        "max_ms": 136.82,
+        "bandwidth_gb_s": 0.29,
+        "gflops": 35.35,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 101.3867,
+        "std_ms": 0.0,
+        "min_ms": 101.3867,
+        "max_ms": 101.3867,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.7,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3495,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b32_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 274.0121,
+        "std_ms": 0.0,
+        "min_ms": 274.0121,
+        "max_ms": 274.0121,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 35.3,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 202.3621,
+        "std_ms": 0.0,
+        "min_ms": 202.3621,
+        "max_ms": 202.3621,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.8,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3541,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 551.626,
+        "std_ms": 0.0,
+        "min_ms": 551.626,
+        "max_ms": 551.626,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 35.07,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 402.6002,
+        "std_ms": 0.0,
+        "min_ms": 402.6002,
+        "max_ms": 402.6002,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 48.05,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3702,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b64_max_seq8192",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1108.3021,
+        "std_ms": 0.0,
+        "min_ms": 1108.3021,
+        "max_ms": 1108.3021,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 34.91,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 803.7286,
+        "std_ms": 0.0,
+        "min_ms": 803.7286,
+        "max_ms": 803.7286,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 48.14,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.379,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_flash_decode_b128_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1104.9081,
+        "std_ms": 0.0,
+        "min_ms": 1104.9081,
+        "max_ms": 1104.9081,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 35.01,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 821.4402,
+        "std_ms": 0.0,
+        "min_ms": 821.4402,
+        "max_ms": 821.4402,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.1,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3451,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b1_max_seq2048",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 4.5722,
+        "std_ms": 0.0,
+        "min_ms": 4.5722,
+        "max_ms": 4.5722,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 66.11,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.3923,
+        "std_ms": 0.0,
+        "min_ms": 3.3923,
+        "max_ms": 3.3923,
+        "bandwidth_gb_s": 0.37,
+        "gflops": 89.1,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3478,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b8_max_seq2048",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 34.9036,
+        "std_ms": 0.0,
+        "min_ms": 34.9036,
+        "max_ms": 34.9036,
+        "bandwidth_gb_s": 0.29,
+        "gflops": 69.28,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 25.8284,
+        "std_ms": 0.0,
+        "min_ms": 25.8284,
+        "max_ms": 25.8284,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 93.62,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3514,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq2048",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 138.1898,
+        "std_ms": 0.0,
+        "min_ms": 138.1898,
+        "max_ms": 138.1898,
+        "bandwidth_gb_s": 0.29,
+        "gflops": 69.99,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 103.1063,
+        "std_ms": 0.0,
+        "min_ms": 103.1063,
+        "max_ms": 103.1063,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 93.81,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3403,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b32_max_seq4096",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 285.1699,
+        "std_ms": 0.0,
+        "min_ms": 285.1699,
+        "max_ms": 285.1699,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 67.83,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 205.1722,
+        "std_ms": 0.0,
+        "min_ms": 205.1722,
+        "max_ms": 205.1722,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 94.28,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3899,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq4096",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 562.3229,
+        "std_ms": 0.0,
+        "min_ms": 562.3229,
+        "max_ms": 562.3229,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 68.8,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 408.7765,
+        "std_ms": 0.0,
+        "min_ms": 408.7765,
+        "max_ms": 408.7765,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 94.64,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3756,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b64_max_seq8192",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1116.6036,
+        "std_ms": 0.0,
+        "min_ms": 1116.6036,
+        "max_ms": 1116.6036,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 69.3,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 815.4534,
+        "std_ms": 0.0,
+        "min_ms": 815.4534,
+        "max_ms": 815.4534,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 94.89,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3693,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "deepseek_v4_pro_decode_b128_max_seq4096",
+      "parameters": {
+        "h_q": 128,
+        "d": 576,
+        "dv": 512,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1112.5341,
+        "std_ms": 0.0,
+        "min_ms": 1112.5341,
+        "max_ms": 1112.5341,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 69.55,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 808.7509,
+        "std_ms": 0.0,
+        "min_ms": 808.7509,
+        "max_ms": 808.7509,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 95.67,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3756,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b1_max_seq2048",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 4.5061,
+        "std_ms": 0.0,
+        "min_ms": 4.5061,
+        "max_ms": 4.5061,
+        "bandwidth_gb_s": 0.27,
+        "gflops": 10.48,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.338,
+        "std_ms": 0.0,
+        "min_ms": 3.338,
+        "max_ms": 3.338,
+        "bandwidth_gb_s": 0.36,
+        "gflops": 14.15,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3499,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b8_max_seq2048",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 34.9716,
+        "std_ms": 0.0,
+        "min_ms": 34.9716,
+        "max_ms": 34.9716,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 10.8,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 25.6228,
+        "std_ms": 0.0,
+        "min_ms": 25.6228,
+        "max_ms": 25.6228,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 14.75,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3649,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b32_max_seq2048",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 138.4934,
+        "std_ms": 0.0,
+        "min_ms": 138.4934,
+        "max_ms": 138.4934,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 10.91,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 101.2247,
+        "std_ms": 0.0,
+        "min_ms": 101.2247,
+        "max_ms": 101.2247,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 14.93,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3682,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b32_max_seq4096",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 279.8697,
+        "std_ms": 0.0,
+        "min_ms": 279.8697,
+        "max_ms": 279.8697,
+        "bandwidth_gb_s": 0.27,
+        "gflops": 10.8,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 203.318,
+        "std_ms": 0.0,
+        "min_ms": 203.318,
+        "max_ms": 203.318,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 14.87,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3765,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b64_max_seq4096",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 561.6921,
+        "std_ms": 0.0,
+        "min_ms": 561.6921,
+        "max_ms": 561.6921,
+        "bandwidth_gb_s": 0.27,
+        "gflops": 10.76,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 406.8454,
+        "std_ms": 0.0,
+        "min_ms": 406.8454,
+        "max_ms": 406.8454,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 14.86,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3806,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b64_max_seq8192",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1101.3319,
+        "std_ms": 0.0,
+        "min_ms": 1101.3319,
+        "max_ms": 1101.3319,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 10.98,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 818.5216,
+        "std_ms": 0.0,
+        "min_ms": 818.5216,
+        "max_ms": 818.5216,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 14.77,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.3455,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_4.7_flash_decode_b128_max_seq4096",
+      "parameters": {
+        "h_q": 20,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 850.2822,
+        "std_ms": 0.0,
+        "min_ms": 850.2822,
+        "max_ms": 850.2822,
+        "bandwidth_gb_s": 0.36,
+        "gflops": 14.22,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 809.1694,
+        "std_ms": 0.0,
+        "min_ms": 809.1694,
+        "max_ms": 809.1694,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 14.94,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0508,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b1_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.3636,
+        "std_ms": 0.0,
+        "min_ms": 3.3636,
+        "max_ms": 3.3636,
+        "bandwidth_gb_s": 0.37,
+        "gflops": 44.93,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.3167,
+        "std_ms": 0.0,
+        "min_ms": 3.3167,
+        "max_ms": 3.3167,
+        "bandwidth_gb_s": 0.37,
+        "gflops": 45.56,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0141,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b8_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 26.9842,
+        "std_ms": 0.0,
+        "min_ms": 26.9842,
+        "max_ms": 26.9842,
+        "bandwidth_gb_s": 0.37,
+        "gflops": 44.8,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 25.4548,
+        "std_ms": 0.0,
+        "min_ms": 25.4548,
+        "max_ms": 25.4548,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.5,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0601,
+      "verdict": "faster"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b32_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 101.8798,
+        "std_ms": 0.0,
+        "min_ms": 101.8798,
+        "max_ms": 101.8798,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.47,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 101.2598,
+        "std_ms": 0.0,
+        "min_ms": 101.2598,
+        "max_ms": 101.2598,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.76,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0061,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b32_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 200.9003,
+        "std_ms": 0.0,
+        "min_ms": 200.9003,
+        "max_ms": 200.9003,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 48.14,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 202.3406,
+        "std_ms": 0.0,
+        "min_ms": 202.3406,
+        "max_ms": 202.3406,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.8,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9929,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b64_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 400.949,
+        "std_ms": 0.0,
+        "min_ms": 400.949,
+        "max_ms": 400.949,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 48.25,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 403.8953,
+        "std_ms": 0.0,
+        "min_ms": 403.8953,
+        "max_ms": 403.8953,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.89,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9927,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b64_max_seq8192",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 807.5361,
+        "std_ms": 0.0,
+        "min_ms": 807.5361,
+        "max_ms": 807.5361,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.91,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 813.1774,
+        "std_ms": 0.0,
+        "min_ms": 813.1774,
+        "max_ms": 813.1774,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.58,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9931,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "glm_5.2_decode_b128_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 256,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 818.5608,
+        "std_ms": 0.0,
+        "min_ms": 818.5608,
+        "max_ms": 818.5608,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.26,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 807.2384,
+        "std_ms": 0.0,
+        "min_ms": 807.2384,
+        "max_ms": 807.2384,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.93,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.014,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b1_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.3917,
+        "std_ms": 0.0,
+        "min_ms": 3.3917,
+        "max_ms": 3.3917,
+        "bandwidth_gb_s": 0.36,
+        "gflops": 44.56,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.38,
+        "std_ms": 0.0,
+        "min_ms": 3.38,
+        "max_ms": 3.38,
+        "bandwidth_gb_s": 0.36,
+        "gflops": 44.71,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0035,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b8_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 25.8117,
+        "std_ms": 0.0,
+        "min_ms": 25.8117,
+        "max_ms": 25.8117,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 46.84,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 25.545,
+        "std_ms": 0.0,
+        "min_ms": 25.545,
+        "max_ms": 25.545,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.33,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0104,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b32_max_seq2048",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 102.015,
+        "std_ms": 0.0,
+        "min_ms": 102.015,
+        "max_ms": 102.015,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.41,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 101.0534,
+        "std_ms": 0.0,
+        "min_ms": 101.0534,
+        "max_ms": 101.0534,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.86,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0095,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b32_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 204.5622,
+        "std_ms": 0.0,
+        "min_ms": 204.5622,
+        "max_ms": 204.5622,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.28,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 202.4852,
+        "std_ms": 0.0,
+        "min_ms": 202.4852,
+        "max_ms": 202.4852,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.77,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0103,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b64_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 407.4186,
+        "std_ms": 0.0,
+        "min_ms": 407.4186,
+        "max_ms": 407.4186,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.48,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 403.2929,
+        "std_ms": 0.0,
+        "min_ms": 403.2929,
+        "max_ms": 403.2929,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 47.97,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0102,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b64_max_seq8192",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 813.5583,
+        "std_ms": 0.0,
+        "min_ms": 813.5583,
+        "max_ms": 813.5583,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.55,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 807.5914,
+        "std_ms": 0.0,
+        "min_ms": 807.5914,
+        "max_ms": 807.5914,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.91,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0074,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k2.6_decode_b128_max_seq4096",
+      "parameters": {
+        "h_q": 64,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 800.2102,
+        "std_ms": 0.0,
+        "min_ms": 800.2102,
+        "max_ms": 800.2102,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 48.35,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 810.6314,
+        "std_ms": 0.0,
+        "min_ms": 810.6314,
+        "max_ms": 810.6314,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 47.73,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9871,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b1_max_seq2048",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 1,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 3.3124,
+        "std_ms": 0.0,
+        "min_ms": 3.3124,
+        "max_ms": 3.3124,
+        "bandwidth_gb_s": 0.38,
+        "gflops": 68.44,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 3.4089,
+        "std_ms": 0.0,
+        "min_ms": 3.4089,
+        "max_ms": 3.4089,
+        "bandwidth_gb_s": 0.37,
+        "gflops": 66.5,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9717,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b8_max_seq2048",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 8,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 25.4118,
+        "std_ms": 0.0,
+        "min_ms": 25.4118,
+        "max_ms": 25.4118,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 71.36,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 25.5122,
+        "std_ms": 0.0,
+        "min_ms": 25.5122,
+        "max_ms": 25.5122,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 71.08,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9961,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b32_max_seq2048",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 101.4362,
+        "std_ms": 0.0,
+        "min_ms": 101.4362,
+        "max_ms": 101.4362,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 71.51,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 102.0216,
+        "std_ms": 0.0,
+        "min_ms": 102.0216,
+        "max_ms": 102.0216,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 71.1,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9943,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b32_max_seq4096",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 32,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 200.6093,
+        "std_ms": 0.0,
+        "min_ms": 200.6093,
+        "max_ms": 200.6093,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 72.32,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 201.8811,
+        "std_ms": 0.0,
+        "min_ms": 201.8811,
+        "max_ms": 201.8811,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 71.86,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9937,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b64_max_seq4096",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 400.8056,
+        "std_ms": 0.0,
+        "min_ms": 400.8056,
+        "max_ms": 400.8056,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 72.39,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 404.3492,
+        "std_ms": 0.0,
+        "min_ms": 404.3492,
+        "max_ms": 404.3492,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 71.76,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.9912,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b64_max_seq8192",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 64,
+        "max_seq": 8192
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 803.9258,
+        "std_ms": 0.0,
+        "min_ms": 803.9258,
+        "max_ms": 803.9258,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 72.19,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 803.4258,
+        "std_ms": 0.0,
+        "min_ms": 803.4258,
+        "max_ms": 803.4258,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 72.23,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 1.0006,
+      "verdict": "on_par"
+    },
+    {
+      "operator": "fp8_fp4_paged_mqa_logits",
+      "workload": "kimi_k3_decode_b128_max_seq4096",
+      "parameters": {
+        "h_q": 96,
+        "d": 576,
+        "dv": 128,
+        "block_size": 64,
+        "dtype": "bf16",
+        "b": 128,
+        "max_seq": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 805.8478,
+        "std_ms": 0.0,
+        "min_ms": 805.8478,
+        "max_ms": 805.8478,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 72.01,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 1007.9145,
+        "std_ms": 0.0,
+        "min_ms": 1007.9145,
+        "max_ms": 1007.9145,
+        "bandwidth_gb_s": 0.31,
+        "gflops": 57.58,
+        "impl_source": "torch.fp8_fp4_paged_mqa_logits (metax FlagOS fallback)"
+      },
+      "speedup": 0.7995,
+      "verdict": "slower"
+    }
+  ]
+}

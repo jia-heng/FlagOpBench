@@ -1,0 +1,2519 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T07:14:14.920428",
+    "provider": "flagos",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 70
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0446,
+          "std_ms": 0.0126,
+          "min_ms": 0.0335,
+          "max_ms": 0.0645
+        },
+        "throughput": {
+          "gflops": 3.71,
+          "bandwidth_gb_s": 5.91
+        },
+        "theory": {
+          "flops": 165696,
+          "bytes": 264024,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0435,
+          "std_ms": 0.0099,
+          "min_ms": 0.034,
+          "max_ms": 0.0584
+        },
+        "throughput": {
+          "gflops": 30.49,
+          "bandwidth_gb_s": 48.59
+        },
+        "theory": {
+          "flops": 1325568,
+          "bytes": 2112192,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0563,
+          "std_ms": 0.0084,
+          "min_ms": 0.0479,
+          "max_ms": 0.0699
+        },
+        "throughput": {
+          "gflops": 94.23,
+          "bandwidth_gb_s": 150.15
+        },
+        "theory": {
+          "flops": 5302272,
+          "bytes": 8448768,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0674,
+          "std_ms": 0.0076,
+          "min_ms": 0.0609,
+          "max_ms": 0.0801
+        },
+        "throughput": {
+          "gflops": 157.27,
+          "bandwidth_gb_s": 250.59
+        },
+        "theory": {
+          "flops": 10604544,
+          "bytes": 16897536,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0901,
+          "std_ms": 0.0066,
+          "min_ms": 0.0832,
+          "max_ms": 0.1001
+        },
+        "throughput": {
+          "gflops": 235.36,
+          "bandwidth_gb_s": 375.03
+        },
+        "theory": {
+          "flops": 21209088,
+          "bytes": 33795072,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1342,
+          "std_ms": 0.0077,
+          "min_ms": 0.1283,
+          "max_ms": 0.1475
+        },
+        "throughput": {
+          "gflops": 315.97,
+          "bandwidth_gb_s": 503.48
+        },
+        "theory": {
+          "flops": 42418176,
+          "bytes": 67590144,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1531,
+          "std_ms": 0.0076,
+          "min_ms": 0.1464,
+          "max_ms": 0.1659
+        },
+        "throughput": {
+          "gflops": 554.17,
+          "bandwidth_gb_s": 883.02
+        },
+        "theory": {
+          "flops": 84836352,
+          "bytes": 135180288,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5662,
+          "std_ms": 0.0181,
+          "min_ms": 0.5453,
+          "max_ms": 0.5932
+        },
+        "throughput": {
+          "gflops": 299.69,
+          "bandwidth_gb_s": 477.53
+        },
+        "theory": {
+          "flops": 169672704,
+          "bytes": 270360576,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 1.1229,
+          "std_ms": 0.0234,
+          "min_ms": 1.0944,
+          "max_ms": 1.1538
+        },
+        "throughput": {
+          "gflops": 302.21,
+          "bandwidth_gb_s": 481.55
+        },
+        "theory": {
+          "flops": 339345408,
+          "bytes": 540721152,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 2.1807,
+          "std_ms": 0.0296,
+          "min_ms": 2.1499,
+          "max_ms": 2.2134
+        },
+        "throughput": {
+          "gflops": 311.22,
+          "bandwidth_gb_s": 495.91
+        },
+        "theory": {
+          "flops": 678690816,
+          "bytes": 1081442304,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0483,
+          "std_ms": 0.0108,
+          "min_ms": 0.0399,
+          "max_ms": 0.0653
+        },
+        "throughput": {
+          "gflops": 1.73,
+          "bandwidth_gb_s": 2.75
+        },
+        "theory": {
+          "flops": 83648,
+          "bytes": 132952,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0418,
+          "std_ms": 0.0133,
+          "min_ms": 0.0323,
+          "max_ms": 0.0643
+        },
+        "throughput": {
+          "gflops": 16.0,
+          "bandwidth_gb_s": 25.43
+        },
+        "theory": {
+          "flops": 669184,
+          "bytes": 1063616,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0439,
+          "std_ms": 0.0108,
+          "min_ms": 0.0361,
+          "max_ms": 0.0627
+        },
+        "throughput": {
+          "gflops": 61.0,
+          "bandwidth_gb_s": 96.96
+        },
+        "theory": {
+          "flops": 2676736,
+          "bytes": 4254464,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0455,
+          "std_ms": 0.0079,
+          "min_ms": 0.0392,
+          "max_ms": 0.0584
+        },
+        "throughput": {
+          "gflops": 117.62,
+          "bandwidth_gb_s": 186.94
+        },
+        "theory": {
+          "flops": 5353472,
+          "bytes": 8508928,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0546,
+          "std_ms": 0.0078,
+          "min_ms": 0.0486,
+          "max_ms": 0.0678
+        },
+        "throughput": {
+          "gflops": 195.99,
+          "bandwidth_gb_s": 311.51
+        },
+        "theory": {
+          "flops": 10706944,
+          "bytes": 17017856,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0693,
+          "std_ms": 0.0083,
+          "min_ms": 0.0635,
+          "max_ms": 0.0837
+        },
+        "throughput": {
+          "gflops": 309.12,
+          "bandwidth_gb_s": 491.32
+        },
+        "theory": {
+          "flops": 21413888,
+          "bytes": 34035712,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1032,
+          "std_ms": 0.0091,
+          "min_ms": 0.0955,
+          "max_ms": 0.1188
+        },
+        "throughput": {
+          "gflops": 414.92,
+          "bandwidth_gb_s": 659.48
+        },
+        "theory": {
+          "flops": 42827776,
+          "bytes": 68071424,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1632,
+          "std_ms": 0.0079,
+          "min_ms": 0.1577,
+          "max_ms": 0.1769
+        },
+        "throughput": {
+          "gflops": 524.93,
+          "bandwidth_gb_s": 834.34
+        },
+        "theory": {
+          "flops": 85655552,
+          "bytes": 136142848,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2883,
+          "std_ms": 0.007,
+          "min_ms": 0.2826,
+          "max_ms": 0.3
+        },
+        "throughput": {
+          "gflops": 594.2,
+          "bandwidth_gb_s": 944.43
+        },
+        "theory": {
+          "flops": 171311104,
+          "bytes": 272285696,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 4096,
+        "num_heads": 64,
+        "q_lora_rank": 1024,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5321,
+          "std_ms": 0.0105,
+          "min_ms": 0.5238,
+          "max_ms": 0.5496
+        },
+        "throughput": {
+          "gflops": 643.88,
+          "bandwidth_gb_s": 1023.4
+        },
+        "theory": {
+          "flops": 342622208,
+          "bytes": 544571392,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0335,
+          "std_ms": 0.0052,
+          "min_ms": 0.0294,
+          "max_ms": 0.0425
+        },
+        "throughput": {
+          "gflops": 4.95,
+          "bandwidth_gb_s": 7.88
+        },
+        "theory": {
+          "flops": 165696,
+          "bytes": 264024,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0336,
+          "std_ms": 0.0035,
+          "min_ms": 0.031,
+          "max_ms": 0.0397
+        },
+        "throughput": {
+          "gflops": 39.41,
+          "bandwidth_gb_s": 62.79
+        },
+        "theory": {
+          "flops": 1325568,
+          "bytes": 2112192,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0387,
+          "std_ms": 0.0031,
+          "min_ms": 0.0364,
+          "max_ms": 0.044
+        },
+        "throughput": {
+          "gflops": 136.98,
+          "bandwidth_gb_s": 218.27
+        },
+        "theory": {
+          "flops": 5302272,
+          "bytes": 8448768,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0463,
+          "std_ms": 0.0032,
+          "min_ms": 0.0438,
+          "max_ms": 0.0517
+        },
+        "throughput": {
+          "gflops": 228.86,
+          "bandwidth_gb_s": 364.67
+        },
+        "theory": {
+          "flops": 10604544,
+          "bytes": 16897536,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0602,
+          "std_ms": 0.0038,
+          "min_ms": 0.0573,
+          "max_ms": 0.0668
+        },
+        "throughput": {
+          "gflops": 352.54,
+          "bandwidth_gb_s": 561.75
+        },
+        "theory": {
+          "flops": 21209088,
+          "bytes": 33795072,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0895,
+          "std_ms": 0.0031,
+          "min_ms": 0.087,
+          "max_ms": 0.094
+        },
+        "throughput": {
+          "gflops": 473.69,
+          "bandwidth_gb_s": 754.79
+        },
+        "theory": {
+          "flops": 42418176,
+          "bytes": 67590144,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1476,
+          "std_ms": 0.004,
+          "min_ms": 0.1441,
+          "max_ms": 0.1521
+        },
+        "throughput": {
+          "gflops": 574.73,
+          "bandwidth_gb_s": 915.8
+        },
+        "theory": {
+          "flops": 84836352,
+          "bytes": 135180288,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2628,
+          "std_ms": 0.0034,
+          "min_ms": 0.2583,
+          "max_ms": 0.2675
+        },
+        "throughput": {
+          "gflops": 645.61,
+          "bandwidth_gb_s": 1028.73
+        },
+        "theory": {
+          "flops": 169672704,
+          "bytes": 270360576,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.493,
+          "std_ms": 0.0046,
+          "min_ms": 0.489,
+          "max_ms": 0.4979
+        },
+        "throughput": {
+          "gflops": 688.32,
+          "bandwidth_gb_s": 1096.79
+        },
+        "theory": {
+          "flops": 339345408,
+          "bytes": 540721152,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "deepseek_v4_pro_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 128,
+        "q_lora_rank": 1536,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.9448,
+          "std_ms": 0.0059,
+          "min_ms": 0.9403,
+          "max_ms": 0.9551
+        },
+        "throughput": {
+          "gflops": 718.35,
+          "bandwidth_gb_s": 1144.63
+        },
+        "theory": {
+          "flops": 678690816,
+          "bytes": 1081442304,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0507,
+          "std_ms": 0.0111,
+          "min_ms": 0.0422,
+          "max_ms": 0.0696
+        },
+        "throughput": {
+          "gflops": 0.54,
+          "bandwidth_gb_s": 0.84
+        },
+        "theory": {
+          "flops": 27240,
+          "bytes": 42840,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0505,
+          "std_ms": 0.0117,
+          "min_ms": 0.0415,
+          "max_ms": 0.0696
+        },
+        "throughput": {
+          "gflops": 4.32,
+          "bandwidth_gb_s": 6.79
+        },
+        "theory": {
+          "flops": 217920,
+          "bytes": 342720,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.039,
+          "std_ms": 0.011,
+          "min_ms": 0.0307,
+          "max_ms": 0.0573
+        },
+        "throughput": {
+          "gflops": 22.34,
+          "bandwidth_gb_s": 35.14
+        },
+        "theory": {
+          "flops": 871680,
+          "bytes": 1370880,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0538,
+          "std_ms": 0.0119,
+          "min_ms": 0.0417,
+          "max_ms": 0.0722
+        },
+        "throughput": {
+          "gflops": 32.4,
+          "bandwidth_gb_s": 50.95
+        },
+        "theory": {
+          "flops": 1743360,
+          "bytes": 2741760,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0455,
+          "std_ms": 0.0095,
+          "min_ms": 0.0381,
+          "max_ms": 0.0617
+        },
+        "throughput": {
+          "gflops": 76.69,
+          "bandwidth_gb_s": 120.61
+        },
+        "theory": {
+          "flops": 3486720,
+          "bytes": 5483520,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.05,
+          "std_ms": 0.0087,
+          "min_ms": 0.0435,
+          "max_ms": 0.0648
+        },
+        "throughput": {
+          "gflops": 139.55,
+          "bandwidth_gb_s": 219.47
+        },
+        "theory": {
+          "flops": 6973440,
+          "bytes": 10967040,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0636,
+          "std_ms": 0.009,
+          "min_ms": 0.0556,
+          "max_ms": 0.0788
+        },
+        "throughput": {
+          "gflops": 219.32,
+          "bandwidth_gb_s": 344.93
+        },
+        "theory": {
+          "flops": 13946880,
+          "bytes": 21934080,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0852,
+          "std_ms": 0.0101,
+          "min_ms": 0.0778,
+          "max_ms": 0.1024
+        },
+        "throughput": {
+          "gflops": 327.21,
+          "bandwidth_gb_s": 514.59
+        },
+        "theory": {
+          "flops": 27893760,
+          "bytes": 43868160,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1357,
+          "std_ms": 0.0089,
+          "min_ms": 0.1285,
+          "max_ms": 0.1505
+        },
+        "throughput": {
+          "gflops": 411.17,
+          "bandwidth_gb_s": 646.64
+        },
+        "theory": {
+          "flops": 55787520,
+          "bytes": 87736320,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 2048,
+        "num_heads": 20,
+        "q_lora_rank": 768,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.228,
+          "std_ms": 0.0075,
+          "min_ms": 0.2214,
+          "max_ms": 0.2406
+        },
+        "throughput": {
+          "gflops": 489.27,
+          "bandwidth_gb_s": 769.47
+        },
+        "theory": {
+          "flops": 111575040,
+          "bytes": 175472640,
+          "arithmetic_intensity": 0.64
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0333,
+          "std_ms": 0.0049,
+          "min_ms": 0.0284,
+          "max_ms": 0.0415
+        },
+        "throughput": {
+          "gflops": 2.51,
+          "bandwidth_gb_s": 3.99
+        },
+        "theory": {
+          "flops": 83648,
+          "bytes": 132952,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0336,
+          "std_ms": 0.0042,
+          "min_ms": 0.0297,
+          "max_ms": 0.0392
+        },
+        "throughput": {
+          "gflops": 19.92,
+          "bandwidth_gb_s": 31.67
+        },
+        "theory": {
+          "flops": 669184,
+          "bytes": 1063616,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0357,
+          "std_ms": 0.0034,
+          "min_ms": 0.0335,
+          "max_ms": 0.0417
+        },
+        "throughput": {
+          "gflops": 75.01,
+          "bandwidth_gb_s": 119.22
+        },
+        "theory": {
+          "flops": 2676736,
+          "bytes": 4254464,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0408,
+          "std_ms": 0.0031,
+          "min_ms": 0.0384,
+          "max_ms": 0.0461
+        },
+        "throughput": {
+          "gflops": 131.36,
+          "bandwidth_gb_s": 208.78
+        },
+        "theory": {
+          "flops": 5353472,
+          "bytes": 8508928,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0465,
+          "std_ms": 0.0032,
+          "min_ms": 0.0435,
+          "max_ms": 0.052
+        },
+        "throughput": {
+          "gflops": 230.06,
+          "bandwidth_gb_s": 365.65
+        },
+        "theory": {
+          "flops": 10706944,
+          "bytes": 17017856,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0635,
+          "std_ms": 0.0037,
+          "min_ms": 0.0612,
+          "max_ms": 0.0699
+        },
+        "throughput": {
+          "gflops": 337.29,
+          "bandwidth_gb_s": 536.1
+        },
+        "theory": {
+          "flops": 21413888,
+          "bytes": 34035712,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.096,
+          "std_ms": 0.0043,
+          "min_ms": 0.0922,
+          "max_ms": 0.1032
+        },
+        "throughput": {
+          "gflops": 446.12,
+          "bandwidth_gb_s": 709.08
+        },
+        "theory": {
+          "flops": 42827776,
+          "bytes": 68071424,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1577,
+          "std_ms": 0.0042,
+          "min_ms": 0.1539,
+          "max_ms": 0.1649
+        },
+        "throughput": {
+          "gflops": 543.17,
+          "bandwidth_gb_s": 863.32
+        },
+        "theory": {
+          "flops": 85655552,
+          "bytes": 136142848,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2822,
+          "std_ms": 0.0036,
+          "min_ms": 0.279,
+          "max_ms": 0.2883
+        },
+        "throughput": {
+          "gflops": 607.13,
+          "bandwidth_gb_s": 964.99
+        },
+        "theory": {
+          "flops": 171311104,
+          "bytes": 272285696,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 6144,
+        "num_heads": 64,
+        "q_lora_rank": 2048,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5287,
+          "std_ms": 0.005,
+          "min_ms": 0.5245,
+          "max_ms": 0.5363
+        },
+        "throughput": {
+          "gflops": 648.06,
+          "bandwidth_gb_s": 1030.04
+        },
+        "theory": {
+          "flops": 342622208,
+          "bytes": 544571392,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0321,
+          "std_ms": 0.0035,
+          "min_ms": 0.03,
+          "max_ms": 0.0381
+        },
+        "throughput": {
+          "gflops": 2.61,
+          "bandwidth_gb_s": 4.15
+        },
+        "theory": {
+          "flops": 83648,
+          "bytes": 132952,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0325,
+          "std_ms": 0.0041,
+          "min_ms": 0.0294,
+          "max_ms": 0.0397
+        },
+        "throughput": {
+          "gflops": 20.62,
+          "bandwidth_gb_s": 32.77
+        },
+        "theory": {
+          "flops": 669184,
+          "bytes": 1063616,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0352,
+          "std_ms": 0.0035,
+          "min_ms": 0.0328,
+          "max_ms": 0.0412
+        },
+        "throughput": {
+          "gflops": 75.99,
+          "bandwidth_gb_s": 120.78
+        },
+        "theory": {
+          "flops": 2676736,
+          "bytes": 4254464,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.041,
+          "std_ms": 0.0039,
+          "min_ms": 0.0376,
+          "max_ms": 0.0474
+        },
+        "throughput": {
+          "gflops": 130.7,
+          "bandwidth_gb_s": 207.74
+        },
+        "theory": {
+          "flops": 5353472,
+          "bytes": 8508928,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0474,
+          "std_ms": 0.0034,
+          "min_ms": 0.0456,
+          "max_ms": 0.0535
+        },
+        "throughput": {
+          "gflops": 225.83,
+          "bandwidth_gb_s": 358.94
+        },
+        "theory": {
+          "flops": 10706944,
+          "bytes": 17017856,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0634,
+          "std_ms": 0.0037,
+          "min_ms": 0.0604,
+          "max_ms": 0.0699
+        },
+        "throughput": {
+          "gflops": 337.84,
+          "bandwidth_gb_s": 536.96
+        },
+        "theory": {
+          "flops": 21413888,
+          "bytes": 34035712,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0969,
+          "std_ms": 0.0035,
+          "min_ms": 0.0937,
+          "max_ms": 0.1016
+        },
+        "throughput": {
+          "gflops": 442.11,
+          "bandwidth_gb_s": 702.71
+        },
+        "theory": {
+          "flops": 42827776,
+          "bytes": 68071424,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1568,
+          "std_ms": 0.0044,
+          "min_ms": 0.1536,
+          "max_ms": 0.1644
+        },
+        "throughput": {
+          "gflops": 546.18,
+          "bandwidth_gb_s": 868.12
+        },
+        "theory": {
+          "flops": 85655552,
+          "bytes": 136142848,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2829,
+          "std_ms": 0.0048,
+          "min_ms": 0.2788,
+          "max_ms": 0.2911
+        },
+        "throughput": {
+          "gflops": 605.49,
+          "bandwidth_gb_s": 962.37
+        },
+        "theory": {
+          "flops": 171311104,
+          "bytes": 272285696,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 64,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.5286,
+          "std_ms": 0.0077,
+          "min_ms": 0.5233,
+          "max_ms": 0.542
+        },
+        "throughput": {
+          "gflops": 648.18,
+          "bandwidth_gb_s": 1030.24
+        },
+        "theory": {
+          "flops": 342622208,
+          "bytes": 544571392,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0409,
+          "std_ms": 0.0132,
+          "min_ms": 0.0305,
+          "max_ms": 0.063
+        },
+        "throughput": {
+          "gflops": 3.05,
+          "bandwidth_gb_s": 4.86
+        },
+        "theory": {
+          "flops": 124672,
+          "bytes": 198488,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 8
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0414,
+          "std_ms": 0.0101,
+          "min_ms": 0.0333,
+          "max_ms": 0.0586
+        },
+        "throughput": {
+          "gflops": 24.08,
+          "bandwidth_gb_s": 38.34
+        },
+        "theory": {
+          "flops": 997376,
+          "bytes": 1587904,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 32
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0483,
+          "std_ms": 0.0111,
+          "min_ms": 0.0384,
+          "max_ms": 0.064
+        },
+        "throughput": {
+          "gflops": 82.54,
+          "bandwidth_gb_s": 131.41
+        },
+        "theory": {
+          "flops": 3989504,
+          "bytes": 6351616,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 64
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0509,
+          "std_ms": 0.0088,
+          "min_ms": 0.0415,
+          "max_ms": 0.065
+        },
+        "throughput": {
+          "gflops": 156.62,
+          "bandwidth_gb_s": 249.36
+        },
+        "theory": {
+          "flops": 7979008,
+          "bytes": 12703232,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 128
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0594,
+          "std_ms": 0.0081,
+          "min_ms": 0.0527,
+          "max_ms": 0.0732
+        },
+        "throughput": {
+          "gflops": 268.46,
+          "bandwidth_gb_s": 427.41
+        },
+        "theory": {
+          "flops": 15958016,
+          "bytes": 25406464,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 256
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0829,
+          "std_ms": 0.0093,
+          "min_ms": 0.0758,
+          "max_ms": 0.0986
+        },
+        "throughput": {
+          "gflops": 384.79,
+          "bandwidth_gb_s": 612.62
+        },
+        "theory": {
+          "flops": 31916032,
+          "bytes": 50812928,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1266,
+          "std_ms": 0.0101,
+          "min_ms": 0.1183,
+          "max_ms": 0.1439
+        },
+        "throughput": {
+          "gflops": 504.34,
+          "bandwidth_gb_s": 802.95
+        },
+        "theory": {
+          "flops": 63832064,
+          "bytes": 101625856,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 1024
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2194,
+          "std_ms": 0.0103,
+          "min_ms": 0.2112,
+          "max_ms": 0.2371
+        },
+        "throughput": {
+          "gflops": 581.9,
+          "bandwidth_gb_s": 926.43
+        },
+        "theory": {
+          "flops": 127664128,
+          "bytes": 203251712,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3913,
+          "std_ms": 0.0099,
+          "min_ms": 0.383,
+          "max_ms": 0.4078
+        },
+        "throughput": {
+          "gflops": 652.56,
+          "bandwidth_gb_s": 1038.93
+        },
+        "theory": {
+          "flops": 255328256,
+          "bytes": 406503424,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "definition": "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "provider": "flagos",
+      "parameters": {
+        "hidden_size": 7168,
+        "num_heads": 96,
+        "q_lora_rank": 1536,
+        "kv_lora_rank": 512,
+        "qk_rope_head_dim": 64,
+        "dtype": "bf16",
+        "num_tokens": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.745,
+          "std_ms": 0.0153,
+          "min_ms": 0.7342,
+          "max_ms": 0.7713
+        },
+        "throughput": {
+          "gflops": 685.48,
+          "bandwidth_gb_s": 1091.34
+        },
+        "theory": {
+          "flops": 510656512,
+          "bytes": 813006848,
+          "arithmetic_intensity": 0.63
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
+        "type": "triton"
+      }
+    }
+  ]
+}

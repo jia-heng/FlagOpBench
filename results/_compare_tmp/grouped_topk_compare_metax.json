@@ -1,0 +1,1779 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T17:01:55.778100",
+    "type": "compare",
+    "platform": "metax",
+    "baseline_provider": "metax",
+    "flagos_provider": "flagos",
+    "num_workloads": 50,
+    "baseline_file": "E:\\BAAI\\results\\grouped_topk\\grouped_topk_metax.json",
+    "flagos_file": "E:\\BAAI\\results\\grouped_topk\\grouped_topk_flagos_metax.json"
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "summary": {
+    "total": 50,
+    "faster": 50,
+    "slower": 0,
+    "on_par": 0,
+    "avg_speedup": 2.5988
+  },
+  "comparisons": [
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2323,
+        "std_ms": 0.019,
+        "min_ms": 0.2097,
+        "max_ms": 0.2621,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1155,
+        "std_ms": 0.0218,
+        "min_ms": 0.095,
+        "max_ms": 0.1513,
+        "bandwidth_gb_s": 0.02,
+        "gflops": 0.02,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.0113,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2101,
+        "std_ms": 0.0049,
+        "min_ms": 0.2043,
+        "max_ms": 0.2171,
+        "bandwidth_gb_s": 0.05,
+        "gflops": 0.08,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1063,
+        "std_ms": 0.0135,
+        "min_ms": 0.0955,
+        "max_ms": 0.1257,
+        "bandwidth_gb_s": 0.09,
+        "gflops": 0.15,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.9765,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2095,
+        "std_ms": 0.003,
+        "min_ms": 0.2045,
+        "max_ms": 0.212,
+        "bandwidth_gb_s": 0.17,
+        "gflops": 0.31,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1059,
+        "std_ms": 0.0134,
+        "min_ms": 0.094,
+        "max_ms": 0.1272,
+        "bandwidth_gb_s": 0.34,
+        "gflops": 0.62,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.9783,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2182,
+        "std_ms": 0.0086,
+        "min_ms": 0.2115,
+        "max_ms": 0.2312,
+        "bandwidth_gb_s": 0.32,
+        "gflops": 0.6,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0973,
+        "std_ms": 0.0057,
+        "min_ms": 0.0927,
+        "max_ms": 0.1055,
+        "bandwidth_gb_s": 0.73,
+        "gflops": 1.35,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.2425,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2291,
+        "std_ms": 0.0053,
+        "min_ms": 0.2202,
+        "max_ms": 0.2335,
+        "bandwidth_gb_s": 0.61,
+        "gflops": 1.14,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0949,
+        "std_ms": 0.0033,
+        "min_ms": 0.0914,
+        "max_ms": 0.0988,
+        "bandwidth_gb_s": 1.48,
+        "gflops": 2.76,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.4141,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2393,
+        "std_ms": 0.0049,
+        "min_ms": 0.2307,
+        "max_ms": 0.2427,
+        "bandwidth_gb_s": 1.17,
+        "gflops": 2.19,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.097,
+        "std_ms": 0.0046,
+        "min_ms": 0.0916,
+        "max_ms": 0.1037,
+        "bandwidth_gb_s": 2.88,
+        "gflops": 5.41,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.467,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2906,
+        "std_ms": 0.0086,
+        "min_ms": 0.2757,
+        "max_ms": 0.297,
+        "bandwidth_gb_s": 1.92,
+        "gflops": 3.61,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1026,
+        "std_ms": 0.0027,
+        "min_ms": 0.0986,
+        "max_ms": 0.1052,
+        "bandwidth_gb_s": 5.44,
+        "gflops": 10.22,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.8324,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3983,
+        "std_ms": 0.0083,
+        "min_ms": 0.3858,
+        "max_ms": 0.407,
+        "bandwidth_gb_s": 2.8,
+        "gflops": 5.26,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1271,
+        "std_ms": 0.0026,
+        "min_ms": 0.1249,
+        "max_ms": 0.1311,
+        "bandwidth_gb_s": 8.77,
+        "gflops": 16.5,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 3.1338,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5573,
+        "std_ms": 0.0103,
+        "min_ms": 0.5391,
+        "max_ms": 0.5647,
+        "bandwidth_gb_s": 4.0,
+        "gflops": 7.53,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1881,
+        "std_ms": 0.0031,
+        "min_ms": 0.1851,
+        "max_ms": 0.193,
+        "bandwidth_gb_s": 11.85,
+        "gflops": 22.3,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.9628,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "deepseek_v3.2_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 8,
+        "topk_group": 4,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.9134,
+        "std_ms": 0.0073,
+        "min_ms": 0.9016,
+        "max_ms": 0.9201,
+        "bandwidth_gb_s": 4.88,
+        "gflops": 9.18,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.3131,
+        "std_ms": 0.0032,
+        "min_ms": 0.3098,
+        "max_ms": 0.318,
+        "bandwidth_gb_s": 14.24,
+        "gflops": 26.79,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.9173,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1962,
+        "std_ms": 0.0093,
+        "min_ms": 0.1861,
+        "max_ms": 0.2104,
+        "bandwidth_gb_s": 0.0,
+        "gflops": 0.0,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0871,
+        "std_ms": 0.0177,
+        "min_ms": 0.0714,
+        "max_ms": 0.1147,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.0,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.2526,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2034,
+        "std_ms": 0.0081,
+        "min_ms": 0.191,
+        "max_ms": 0.2104,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.02,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0872,
+        "std_ms": 0.0144,
+        "min_ms": 0.0776,
+        "max_ms": 0.1124,
+        "bandwidth_gb_s": 0.03,
+        "gflops": 0.04,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.3326,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1964,
+        "std_ms": 0.0069,
+        "min_ms": 0.1889,
+        "max_ms": 0.2074,
+        "bandwidth_gb_s": 0.05,
+        "gflops": 0.06,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0826,
+        "std_ms": 0.0114,
+        "min_ms": 0.0722,
+        "max_ms": 0.1014,
+        "bandwidth_gb_s": 0.11,
+        "gflops": 0.15,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.3777,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1916,
+        "std_ms": 0.0037,
+        "min_ms": 0.1861,
+        "max_ms": 0.1961,
+        "bandwidth_gb_s": 0.1,
+        "gflops": 0.13,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0722,
+        "std_ms": 0.0044,
+        "min_ms": 0.0686,
+        "max_ms": 0.0778,
+        "bandwidth_gb_s": 0.26,
+        "gflops": 0.34,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.6537,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.188,
+        "std_ms": 0.0053,
+        "min_ms": 0.1818,
+        "max_ms": 0.194,
+        "bandwidth_gb_s": 0.2,
+        "gflops": 0.26,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0702,
+        "std_ms": 0.0029,
+        "min_ms": 0.0678,
+        "max_ms": 0.0753,
+        "bandwidth_gb_s": 0.53,
+        "gflops": 0.7,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.6781,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1917,
+        "std_ms": 0.0023,
+        "min_ms": 0.1894,
+        "max_ms": 0.1951,
+        "bandwidth_gb_s": 0.39,
+        "gflops": 0.51,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0743,
+        "std_ms": 0.0058,
+        "min_ms": 0.0691,
+        "max_ms": 0.0837,
+        "bandwidth_gb_s": 1.0,
+        "gflops": 1.32,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.5801,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.1895,
+        "std_ms": 0.003,
+        "min_ms": 0.1851,
+        "max_ms": 0.1925,
+        "bandwidth_gb_s": 0.78,
+        "gflops": 1.04,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0733,
+        "std_ms": 0.0027,
+        "min_ms": 0.0712,
+        "max_ms": 0.0776,
+        "bandwidth_gb_s": 2.01,
+        "gflops": 2.68,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.5853,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2127,
+        "std_ms": 0.0082,
+        "min_ms": 0.1987,
+        "max_ms": 0.2194,
+        "bandwidth_gb_s": 1.39,
+        "gflops": 1.85,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0784,
+        "std_ms": 0.001,
+        "min_ms": 0.0773,
+        "max_ms": 0.0796,
+        "bandwidth_gb_s": 3.76,
+        "gflops": 5.01,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.713,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2258,
+        "std_ms": 0.0068,
+        "min_ms": 0.214,
+        "max_ms": 0.2317,
+        "bandwidth_gb_s": 2.61,
+        "gflops": 3.48,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0849,
+        "std_ms": 0.003,
+        "min_ms": 0.0819,
+        "max_ms": 0.0893,
+        "bandwidth_gb_s": 6.95,
+        "gflops": 9.26,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.6596,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_4.7_flash_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 64,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 4,
+        "routed_scaling_factor": 1.8,
+        "scoring_func": 0,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2855,
+        "std_ms": 0.0043,
+        "min_ms": 0.2785,
+        "max_ms": 0.2898,
+        "bandwidth_gb_s": 4.13,
+        "gflops": 5.51,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1084,
+        "std_ms": 0.0041,
+        "min_ms": 0.1044,
+        "max_ms": 0.1152,
+        "bandwidth_gb_s": 10.88,
+        "gflops": 14.5,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.6338,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2017,
+        "std_ms": 0.0067,
+        "min_ms": 0.1928,
+        "max_ms": 0.2086,
+        "bandwidth_gb_s": 0.01,
+        "gflops": 0.01,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1071,
+        "std_ms": 0.0177,
+        "min_ms": 0.0906,
+        "max_ms": 0.1329,
+        "bandwidth_gb_s": 0.02,
+        "gflops": 0.02,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.8833,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2013,
+        "std_ms": 0.0044,
+        "min_ms": 0.1969,
+        "max_ms": 0.2081,
+        "bandwidth_gb_s": 0.05,
+        "gflops": 0.08,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1012,
+        "std_ms": 0.0112,
+        "min_ms": 0.0927,
+        "max_ms": 0.119,
+        "bandwidth_gb_s": 0.1,
+        "gflops": 0.16,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.9891,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2,
+        "std_ms": 0.0039,
+        "min_ms": 0.1953,
+        "max_ms": 0.2038,
+        "bandwidth_gb_s": 0.18,
+        "gflops": 0.33,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1021,
+        "std_ms": 0.0146,
+        "min_ms": 0.0924,
+        "max_ms": 0.1272,
+        "bandwidth_gb_s": 0.35,
+        "gflops": 0.64,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.9589,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2012,
+        "std_ms": 0.0062,
+        "min_ms": 0.1907,
+        "max_ms": 0.2066,
+        "bandwidth_gb_s": 0.35,
+        "gflops": 0.65,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0927,
+        "std_ms": 0.0059,
+        "min_ms": 0.0881,
+        "max_ms": 0.1027,
+        "bandwidth_gb_s": 0.76,
+        "gflops": 1.41,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.1704,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2012,
+        "std_ms": 0.0068,
+        "min_ms": 0.1915,
+        "max_ms": 0.2081,
+        "bandwidth_gb_s": 0.7,
+        "gflops": 1.3,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0899,
+        "std_ms": 0.0039,
+        "min_ms": 0.0863,
+        "max_ms": 0.0945,
+        "bandwidth_gb_s": 1.56,
+        "gflops": 2.92,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.238,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2032,
+        "std_ms": 0.0035,
+        "min_ms": 0.2002,
+        "max_ms": 0.2092,
+        "bandwidth_gb_s": 1.38,
+        "gflops": 2.58,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.091,
+        "std_ms": 0.0026,
+        "min_ms": 0.087,
+        "max_ms": 0.094,
+        "bandwidth_gb_s": 3.07,
+        "gflops": 5.76,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.233,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2292,
+        "std_ms": 0.0063,
+        "min_ms": 0.2181,
+        "max_ms": 0.2332,
+        "bandwidth_gb_s": 2.43,
+        "gflops": 4.57,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0971,
+        "std_ms": 0.0086,
+        "min_ms": 0.0909,
+        "max_ms": 0.1121,
+        "bandwidth_gb_s": 5.75,
+        "gflops": 10.8,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.3605,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2931,
+        "std_ms": 0.0064,
+        "min_ms": 0.2821,
+        "max_ms": 0.2975,
+        "bandwidth_gb_s": 3.81,
+        "gflops": 7.16,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.114,
+        "std_ms": 0.0046,
+        "min_ms": 0.1106,
+        "max_ms": 0.1213,
+        "bandwidth_gb_s": 9.78,
+        "gflops": 18.4,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.5711,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3824,
+        "std_ms": 0.0052,
+        "min_ms": 0.3745,
+        "max_ms": 0.3884,
+        "bandwidth_gb_s": 5.83,
+        "gflops": 10.97,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1413,
+        "std_ms": 0.0029,
+        "min_ms": 0.1367,
+        "max_ms": 0.1444,
+        "bandwidth_gb_s": 15.78,
+        "gflops": 29.68,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.7063,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "glm_5.2_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 256,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.5,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5945,
+        "std_ms": 0.0067,
+        "min_ms": 0.585,
+        "max_ms": 0.6031,
+        "bandwidth_gb_s": 7.5,
+        "gflops": 14.11,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1969,
+        "std_ms": 0.0023,
+        "min_ms": 0.1946,
+        "max_ms": 0.2007,
+        "bandwidth_gb_s": 22.64,
+        "gflops": 42.6,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 3.0193,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2007,
+        "std_ms": 0.0019,
+        "min_ms": 0.1987,
+        "max_ms": 0.2028,
+        "bandwidth_gb_s": 0.02,
+        "gflops": 0.02,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.111,
+        "std_ms": 0.0208,
+        "min_ms": 0.0891,
+        "max_ms": 0.1398,
+        "bandwidth_gb_s": 0.03,
+        "gflops": 0.03,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.8081,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2018,
+        "std_ms": 0.0054,
+        "min_ms": 0.1948,
+        "max_ms": 0.2092,
+        "bandwidth_gb_s": 0.07,
+        "gflops": 0.13,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1054,
+        "std_ms": 0.0153,
+        "min_ms": 0.0932,
+        "max_ms": 0.1311,
+        "bandwidth_gb_s": 0.14,
+        "gflops": 0.25,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.9146,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2004,
+        "std_ms": 0.0073,
+        "min_ms": 0.1928,
+        "max_ms": 0.2109,
+        "bandwidth_gb_s": 0.26,
+        "gflops": 0.53,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1096,
+        "std_ms": 0.0144,
+        "min_ms": 0.0973,
+        "max_ms": 0.1329,
+        "bandwidth_gb_s": 0.48,
+        "gflops": 0.96,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.8285,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.199,
+        "std_ms": 0.0047,
+        "min_ms": 0.1907,
+        "max_ms": 0.2017,
+        "bandwidth_gb_s": 0.52,
+        "gflops": 1.06,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0936,
+        "std_ms": 0.0037,
+        "min_ms": 0.0911,
+        "max_ms": 0.1001,
+        "bandwidth_gb_s": 1.11,
+        "gflops": 2.25,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.1261,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2121,
+        "std_ms": 0.0061,
+        "min_ms": 0.2045,
+        "max_ms": 0.2212,
+        "bandwidth_gb_s": 0.97,
+        "gflops": 1.99,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0924,
+        "std_ms": 0.0036,
+        "min_ms": 0.0893,
+        "max_ms": 0.0983,
+        "bandwidth_gb_s": 2.23,
+        "gflops": 4.57,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.2955,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2317,
+        "std_ms": 0.0079,
+        "min_ms": 0.2179,
+        "max_ms": 0.2373,
+        "bandwidth_gb_s": 1.77,
+        "gflops": 3.64,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.0959,
+        "std_ms": 0.0029,
+        "min_ms": 0.0916,
+        "max_ms": 0.0996,
+        "bandwidth_gb_s": 4.29,
+        "gflops": 8.8,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.4161,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2879,
+        "std_ms": 0.0144,
+        "min_ms": 0.2673,
+        "max_ms": 0.3039,
+        "bandwidth_gb_s": 2.85,
+        "gflops": 5.86,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1015,
+        "std_ms": 0.0037,
+        "min_ms": 0.0965,
+        "max_ms": 0.1052,
+        "bandwidth_gb_s": 8.08,
+        "gflops": 16.62,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.8365,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3957,
+        "std_ms": 0.0077,
+        "min_ms": 0.3827,
+        "max_ms": 0.4019,
+        "bandwidth_gb_s": 4.14,
+        "gflops": 8.53,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1131,
+        "std_ms": 0.0019,
+        "min_ms": 0.1108,
+        "max_ms": 0.116,
+        "bandwidth_gb_s": 14.5,
+        "gflops": 29.85,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 3.4987,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.5727,
+        "std_ms": 0.0072,
+        "min_ms": 0.5604,
+        "max_ms": 0.5793,
+        "bandwidth_gb_s": 5.72,
+        "gflops": 11.79,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1433,
+        "std_ms": 0.0021,
+        "min_ms": 0.1411,
+        "max_ms": 0.1459,
+        "bandwidth_gb_s": 22.88,
+        "gflops": 47.11,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 3.9965,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k2.6_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 384,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 8,
+        "routed_scaling_factor": 2.827,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.9819,
+        "std_ms": 0.0034,
+        "min_ms": 0.9759,
+        "max_ms": 0.9846,
+        "bandwidth_gb_s": 6.68,
+        "gflops": 13.75,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.2041,
+        "std_ms": 0.0038,
+        "min_ms": 0.2007,
+        "max_ms": 0.2104,
+        "bandwidth_gb_s": 32.11,
+        "gflops": 66.15,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 4.8109,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens1",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 1
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2128,
+        "std_ms": 0.0036,
+        "min_ms": 0.2081,
+        "max_ms": 0.2181,
+        "bandwidth_gb_s": 0.03,
+        "gflops": 0.04,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1208,
+        "std_ms": 0.0177,
+        "min_ms": 0.1083,
+        "max_ms": 0.151,
+        "bandwidth_gb_s": 0.06,
+        "gflops": 0.07,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.7616,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens8",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 8
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2136,
+        "std_ms": 0.0082,
+        "min_ms": 0.204,
+        "max_ms": 0.2266,
+        "bandwidth_gb_s": 0.16,
+        "gflops": 0.33,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1198,
+        "std_ms": 0.0143,
+        "min_ms": 0.1062,
+        "max_ms": 0.1416,
+        "bandwidth_gb_s": 0.28,
+        "gflops": 0.59,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.783,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens32",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 32
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2121,
+        "std_ms": 0.0046,
+        "min_ms": 0.2043,
+        "max_ms": 0.2156,
+        "bandwidth_gb_s": 0.58,
+        "gflops": 1.33,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1164,
+        "std_ms": 0.0133,
+        "min_ms": 0.1032,
+        "max_ms": 0.1377,
+        "bandwidth_gb_s": 1.05,
+        "gflops": 2.42,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 1.8222,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_decode_num_tokens64",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 64
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.2196,
+        "std_ms": 0.0087,
+        "min_ms": 0.2081,
+        "max_ms": 0.2324,
+        "bandwidth_gb_s": 1.1,
+        "gflops": 2.56,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1061,
+        "std_ms": 0.0029,
+        "min_ms": 0.1032,
+        "max_ms": 0.1103,
+        "bandwidth_gb_s": 2.27,
+        "gflops": 5.3,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.0697,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_mixed_num_tokens128",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 128
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.272,
+        "std_ms": 0.0053,
+        "min_ms": 0.2629,
+        "max_ms": 0.276,
+        "bandwidth_gb_s": 1.76,
+        "gflops": 4.13,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1075,
+        "std_ms": 0.002,
+        "min_ms": 0.1055,
+        "max_ms": 0.1106,
+        "bandwidth_gb_s": 4.45,
+        "gflops": 10.47,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.5302,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_mixed_num_tokens256",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 256
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.3164,
+        "std_ms": 0.0059,
+        "min_ms": 0.3072,
+        "max_ms": 0.3233,
+        "bandwidth_gb_s": 3.01,
+        "gflops": 7.11,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1107,
+        "std_ms": 0.0045,
+        "min_ms": 0.1055,
+        "max_ms": 0.1175,
+        "bandwidth_gb_s": 8.62,
+        "gflops": 20.32,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 2.8582,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens512",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 512
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.457,
+        "std_ms": 0.0074,
+        "min_ms": 0.4439,
+        "max_ms": 0.4613,
+        "bandwidth_gb_s": 4.17,
+        "gflops": 9.85,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1175,
+        "std_ms": 0.0039,
+        "min_ms": 0.1124,
+        "max_ms": 0.1221,
+        "bandwidth_gb_s": 16.21,
+        "gflops": 38.31,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 3.8894,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens1024",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 1024
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.6711,
+        "std_ms": 0.0115,
+        "min_ms": 0.6577,
+        "max_ms": 0.6889,
+        "bandwidth_gb_s": 5.67,
+        "gflops": 13.41,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.1518,
+        "std_ms": 0.004,
+        "min_ms": 0.1475,
+        "max_ms": 0.1582,
+        "bandwidth_gb_s": 25.07,
+        "gflops": 59.29,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 4.4209,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens2048",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 2048
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 0.8298,
+        "std_ms": 0.0119,
+        "min_ms": 0.8197,
+        "max_ms": 0.8497,
+        "bandwidth_gb_s": 9.17,
+        "gflops": 21.69,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.209,
+        "std_ms": 0.0041,
+        "min_ms": 0.2043,
+        "max_ms": 0.2156,
+        "bandwidth_gb_s": 36.39,
+        "gflops": 86.11,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 3.9703,
+      "verdict": "faster"
+    },
+    {
+      "operator": "grouped_topk",
+      "workload": "kimi_k3_prefill_num_tokens4096",
+      "parameters": {
+        "num_experts": 896,
+        "n_group": 1,
+        "topk_group": 1,
+        "topk": 16,
+        "routed_scaling_factor": 1.0,
+        "scoring_func": 1,
+        "num_tokens": 4096
+      },
+      "baseline": {
+        "provider": "metax",
+        "mean_ms": 1.2144,
+        "std_ms": 0.0043,
+        "min_ms": 1.2086,
+        "max_ms": 1.2201,
+        "bandwidth_gb_s": 12.52,
+        "gflops": 29.64,
+        "impl_source": "torch.grouped_topk (metax fallback)"
+      },
+      "flagos": {
+        "provider": "flagos",
+        "mean_ms": 0.322,
+        "std_ms": 0.0024,
+        "min_ms": 0.32,
+        "max_ms": 0.3256,
+        "bandwidth_gb_s": 47.23,
+        "gflops": 111.78,
+        "impl_source": "flag_gems.grouped_topk"
+      },
+      "speedup": 3.7714,
+      "verdict": "faster"
+    }
+  ]
+}

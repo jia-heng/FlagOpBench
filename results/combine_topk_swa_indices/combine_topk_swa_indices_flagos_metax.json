@@ -1,0 +1,895 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-17T07:05:04.056932",
+    "provider": "flagos",
+    "platform": "metax",
+    "num_operators": 1,
+    "num_workloads": 24
+  },
+  "environment": {
+    "python_version": "3.12.13",
+    "torch_version": "2.10.0+metax3.8.1.0",
+    "platform": "metax",
+    "device_name": "MetaX C550",
+    "device_count": 2,
+    "device_memory_gb": 63.6
+  },
+  "results": [
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0739,
+          "std_ms": 0.0128,
+          "min_ms": 0.0617,
+          "max_ms": 0.094
+        },
+        "throughput": {
+          "gflops": 30.16,
+          "bandwidth_gb_s": 117.12
+        },
+        "theory": {
+          "flops": 2228224,
+          "bytes": 8652812,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.091,
+          "std_ms": 0.0043,
+          "min_ms": 0.0865,
+          "max_ms": 0.0957
+        },
+        "throughput": {
+          "gflops": 97.91,
+          "bandwidth_gb_s": 380.2
+        },
+        "theory": {
+          "flops": 8912896,
+          "bytes": 34611212,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1285,
+          "std_ms": 0.0033,
+          "min_ms": 0.1247,
+          "max_ms": 0.1336
+        },
+        "throughput": {
+          "gflops": 138.71,
+          "bandwidth_gb_s": 538.65
+        },
+        "theory": {
+          "flops": 17825792,
+          "bytes": 69222412,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.176,
+          "std_ms": 0.0034,
+          "min_ms": 0.172,
+          "max_ms": 0.1802
+        },
+        "throughput": {
+          "gflops": 202.6,
+          "bandwidth_gb_s": 786.73
+        },
+        "theory": {
+          "flops": 35651584,
+          "bytes": 138444848,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3372,
+          "std_ms": 0.0058,
+          "min_ms": 0.3331,
+          "max_ms": 0.3471
+        },
+        "throughput": {
+          "gflops": 211.49,
+          "bandwidth_gb_s": 821.26
+        },
+        "theory": {
+          "flops": 71303168,
+          "bytes": 276889648,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v3.2_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.227,
+          "std_ms": 0.0033,
+          "min_ms": 0.223,
+          "max_ms": 0.2322
+        },
+        "throughput": {
+          "gflops": 157.08,
+          "bandwidth_gb_s": 609.97
+        },
+        "theory": {
+          "flops": 35651584,
+          "bytes": 138444812,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0635,
+          "std_ms": 0.0132,
+          "min_ms": 0.0522,
+          "max_ms": 0.0847
+        },
+        "throughput": {
+          "gflops": 10.32,
+          "bandwidth_gb_s": 37.19
+        },
+        "theory": {
+          "flops": 655360,
+          "bytes": 2361356,
+          "arithmetic_intensity": 0.28
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.064,
+          "std_ms": 0.0041,
+          "min_ms": 0.0602,
+          "max_ms": 0.0709
+        },
+        "throughput": {
+          "gflops": 40.96,
+          "bandwidth_gb_s": 147.58
+        },
+        "theory": {
+          "flops": 2621440,
+          "bytes": 9445388,
+          "arithmetic_intensity": 0.28
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0772,
+          "std_ms": 0.0037,
+          "min_ms": 0.0735,
+          "max_ms": 0.0827
+        },
+        "throughput": {
+          "gflops": 67.9,
+          "bandwidth_gb_s": 244.67
+        },
+        "theory": {
+          "flops": 5242880,
+          "bytes": 18890764,
+          "arithmetic_intensity": 0.28
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0844,
+          "std_ms": 0.0024,
+          "min_ms": 0.0817,
+          "max_ms": 0.0881
+        },
+        "throughput": {
+          "gflops": 124.2,
+          "bandwidth_gb_s": 447.5
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 37781552,
+          "arithmetic_intensity": 0.28
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1205,
+          "std_ms": 0.0031,
+          "min_ms": 0.1175,
+          "max_ms": 0.1252
+        },
+        "throughput": {
+          "gflops": 174.0,
+          "bandwidth_gb_s": 626.95
+        },
+        "theory": {
+          "flops": 20971520,
+          "bytes": 75563056,
+          "arithmetic_intensity": 0.28
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_flash_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 512,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1074,
+          "std_ms": 0.0027,
+          "min_ms": 0.105,
+          "max_ms": 0.1114
+        },
+        "throughput": {
+          "gflops": 97.66,
+          "bandwidth_gb_s": 351.89
+        },
+        "theory": {
+          "flops": 10485760,
+          "bytes": 37781516,
+          "arithmetic_intensity": 0.28
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0659,
+          "std_ms": 0.0124,
+          "min_ms": 0.0553,
+          "max_ms": 0.0868
+        },
+        "throughput": {
+          "gflops": 17.9,
+          "bandwidth_gb_s": 67.66
+        },
+        "theory": {
+          "flops": 1179648,
+          "bytes": 4458508,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0715,
+          "std_ms": 0.0035,
+          "min_ms": 0.0691,
+          "max_ms": 0.0776
+        },
+        "throughput": {
+          "gflops": 66.02,
+          "bandwidth_gb_s": 249.51
+        },
+        "theory": {
+          "flops": 4718592,
+          "bytes": 17833996,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0947,
+          "std_ms": 0.0021,
+          "min_ms": 0.0924,
+          "max_ms": 0.0978
+        },
+        "throughput": {
+          "gflops": 99.69,
+          "bandwidth_gb_s": 376.77
+        },
+        "theory": {
+          "flops": 9437184,
+          "bytes": 35667980,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1203,
+          "std_ms": 0.0021,
+          "min_ms": 0.1175,
+          "max_ms": 0.1234
+        },
+        "throughput": {
+          "gflops": 156.93,
+          "bandwidth_gb_s": 593.14
+        },
+        "theory": {
+          "flops": 18874368,
+          "bytes": 71335984,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.2549,
+          "std_ms": 0.0022,
+          "min_ms": 0.2532,
+          "max_ms": 0.2588
+        },
+        "throughput": {
+          "gflops": 148.08,
+          "bandwidth_gb_s": 559.66
+        },
+        "theory": {
+          "flops": 37748736,
+          "bytes": 142671920,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "deepseek_v4_pro_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 1024,
+        "index_n_heads": 64,
+        "index_head_dim": 128,
+        "sliding_window": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1475,
+          "std_ms": 0.0037,
+          "min_ms": 0.1444,
+          "max_ms": 0.1539
+        },
+        "throughput": {
+          "gflops": 128.0,
+          "bandwidth_gb_s": 483.78
+        },
+        "theory": {
+          "flops": 18874368,
+          "bytes": 71335948,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q512_seqlen_k512",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 512,
+        "seqlen_k": 512
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.0585,
+          "std_ms": 0.0025,
+          "min_ms": 0.0561,
+          "max_ms": 0.0627
+        },
+        "throughput": {
+          "gflops": 38.08,
+          "bandwidth_gb_s": 147.86
+        },
+        "theory": {
+          "flops": 2228224,
+          "bytes": 8652812,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.085,
+          "std_ms": 0.0033,
+          "min_ms": 0.0822,
+          "max_ms": 0.0899
+        },
+        "throughput": {
+          "gflops": 104.8,
+          "bandwidth_gb_s": 406.98
+        },
+        "theory": {
+          "flops": 8912896,
+          "bytes": 34611212,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1266,
+          "std_ms": 0.0035,
+          "min_ms": 0.1236,
+          "max_ms": 0.1326
+        },
+        "throughput": {
+          "gflops": 140.84,
+          "bandwidth_gb_s": 546.93
+        },
+        "theory": {
+          "flops": 17825792,
+          "bytes": 69222412,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q2048_seqlen_k2048",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 2048,
+        "seqlen_k": 2048
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.1736,
+          "std_ms": 0.0025,
+          "min_ms": 0.172,
+          "max_ms": 0.1779
+        },
+        "throughput": {
+          "gflops": 205.34,
+          "bandwidth_gb_s": 797.41
+        },
+        "theory": {
+          "flops": 35651584,
+          "bytes": 138444848,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size4_seqlen_q4096_seqlen_k4096",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 4,
+        "seqlen_q": 4096,
+        "seqlen_k": 4096
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.3329,
+          "std_ms": 0.0038,
+          "min_ms": 0.3287,
+          "max_ms": 0.3374
+        },
+        "throughput": {
+          "gflops": 214.19,
+          "bandwidth_gb_s": 831.74
+        },
+        "theory": {
+          "flops": 71303168,
+          "bytes": 276889648,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    },
+    {
+      "operator": "combine_topk_swa_indices",
+      "definition": "combine_topk_swa_indices",
+      "workload": "glm_5.2_decode_batch_size1_seqlen_q8192_seqlen_k8192",
+      "provider": "flagos",
+      "parameters": {
+        "index_topk": 2048,
+        "index_n_heads": 32,
+        "index_head_dim": 128,
+        "dtype": "bf16",
+        "batch_size": 1,
+        "seqlen_q": 8192,
+        "seqlen_k": 8192
+      },
+      "performance": {
+        "device_time": {
+          "mean_ms": 0.227,
+          "std_ms": 0.0038,
+          "min_ms": 0.223,
+          "max_ms": 0.2324
+        },
+        "throughput": {
+          "gflops": 157.04,
+          "bandwidth_gb_s": 609.83
+        },
+        "theory": {
+          "flops": 35651584,
+          "bytes": 138444812,
+          "arithmetic_intensity": 0.26
+        }
+      },
+      "impl_info": {
+        "source": "flag_gems.combine_topk_swa_indices",
+        "type": "triton"
+      }
+    }
+  ]
+}
