@@ -6,6 +6,7 @@ FlagOS跨平台算子实现加载器。
 from typing import Tuple, Callable, Dict, Optional
 
 import torch
+import torch.nn.functional as F
 
 from framework.base_operator import BaseOperator
 from .base_provider import BaseProvider
@@ -726,6 +727,12 @@ class FlagOSProvider(BaseProvider):
         fn_name = getattr(operator, "impl_name", op_name)
 
         # Special handling for operators with parameter name differences
+        if op_name == "swiglu":
+            return self._load_swiglu()
+
+        if op_name == "topk":
+            return self._load_topk()
+
         if op_name == "cp_gather_indexer_k_quant_cache":
             return self._load_cp_gather_indexer_k_quant_cache()
 
@@ -818,8 +825,112 @@ class FlagOSProvider(BaseProvider):
 
         return wrapper, {"source": "flaggems_vllm.cp_gather_indexer_k_quant_cache (wrapped)", "type": "triton"}
 
+    def _load_topk(self):
+        """昇腾 flag_gems.topk 易 UB overflow (BiShangIR)；NPU 走 torch.topk。"""
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu":
+            def wrapper(x, k, dim=-1, largest=True, sorted=True):
+                return torch.topk(x, k, dim=dim, largest=largest, sorted=sorted)
+
+            print("  [INFO] topk: NPU → torch.topk (skip flag_gems UB overflow)")
+            return wrapper, {
+                "source": "torch.topk (flagos npu fallback)",
+                "type": "torch",
+            }
+
+        if self._flaggems is not None and hasattr(self._flaggems, "topk"):
+            return self._flaggems.topk, {
+                "source": "flag_gems.topk",
+                "type": "triton",
+            }
+        return None, {"error": "topk not found in flag_gems"}
+
+    def _load_swiglu(self):
+        """昇腾：flag_gems.swiglu 硬要求 is_cuda；优先 torch.ops._C，否则 F.silu*mul。"""
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu":
+            if hasattr(torch.ops, "_C") and hasattr(torch.ops._C, "silu_and_mul"):
+                print("  [INFO] swiglu: NPU → torch.ops._C.silu_and_mul (skip flag_gems is_cuda)")
+                return torch.ops._C.silu_and_mul, {
+                    "source": "torch.ops._C.silu_and_mul (flagos npu)",
+                    "type": "torch",
+                }
+
+            def wrapper(input_tensor, **kwargs):
+                d = input_tensor.shape[-1] // 2
+                return torch.nn.functional.silu(input_tensor[..., :d]) * input_tensor[..., d:]
+
+            print("  [INFO] swiglu: NPU → F.silu*mul (flag_gems requires is_cuda)")
+            return wrapper, {
+                "source": "torch.nn.functional.silu * mul (flagos npu fallback)",
+                "type": "torch",
+            }
+
+        if self._flaggems is not None and hasattr(self._flaggems, "swiglu"):
+            return self._flaggems.swiglu, {
+                "source": "flag_gems.swiglu",
+                "type": "triton",
+            }
+        return None, {"error": "swiglu not found in flag_gems"}
+
     def _load_topk_softplus_sqrt(self):
-        """flaggems_vllm 常绑定 torch.ops._moe_C；沐曦镜像可能只有 vllm topk_hash_softplus_sqrt。"""
+        """flaggems_vllm 常绑定 torch.ops._moe_C；昇腾 flag_gems 易 UB，NPU 走 torch。"""
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu":
+
+            def fallback(
+                topk_weights,
+                topk_indices,
+                token_expert_indices,
+                gating_output,
+                renormalize,
+                routed_scaling_factor,
+                correction_bias=None,
+                input_ids=None,
+                tid2eid=None,
+                **kwargs,
+            ):
+                scores = F.softplus(gating_output.float()).sqrt()
+                original_scores = scores
+                if correction_bias is not None:
+                    scores_for_choice = scores + correction_bias.unsqueeze(0)
+                else:
+                    scores_for_choice = scores
+
+                topk = topk_weights.shape[1]
+                if tid2eid is not None:
+                    topk_ids = tid2eid[input_ids.long()]
+                else:
+                    topk_ids = torch.topk(
+                        scores_for_choice, k=topk, dim=-1, sorted=True
+                    )[1]
+
+                weights = original_scores.gather(1, topk_ids.long())
+                if renormalize:
+                    weights = weights / weights.sum(dim=-1, keepdim=True)
+                if routed_scaling_factor != 1.0:
+                    weights = weights * routed_scaling_factor
+
+                topk_weights.copy_(weights.to(torch.float32))
+                topk_indices.copy_(topk_ids.to(torch.int32))
+                num_tokens = topk_weights.shape[0]
+                tei = (
+                    torch.arange(num_tokens, device=topk_weights.device).unsqueeze(1)
+                    * topk
+                    + torch.arange(topk, device=topk_weights.device)
+                ).to(torch.int32)
+                token_expert_indices.copy_(tei)
+                return topk_weights, topk_indices, token_expert_indices
+
+            print(
+                "  [INFO] topk_softplus_sqrt: NPU → torch softplus+topk "
+                "(skip flag_gems UB / _moe_C)"
+            )
+            return fallback, {
+                "source": "torch.softplus+topk (flagos npu fallback)",
+                "type": "torch",
+            }
+
         moe_ok = hasattr(torch.ops, "_moe_C") and hasattr(
             torch.ops._moe_C, "topk_softplus_sqrt"
         )
@@ -846,7 +957,6 @@ class FlagOSProvider(BaseProvider):
             return fn, {"source": "flag_gems.topk_softplus_sqrt", "type": "triton"}
 
         return None, {"error": "topk_softplus_sqrt not available in flaggems_vllm/flag_gems"}
-
     def _torch_op_present(self, *candidates) -> bool:
         """candidates: (namespace, op_name) pairs on torch.ops."""
         for ns_name, op_name in candidates:
@@ -893,7 +1003,48 @@ class FlagOSProvider(BaseProvider):
         }
 
     def _load_compute_global_topk_indices_and_lens(self):
-        """FlagOS：用无 libtuner 的固定 kernel（BLOCK=256），避免 Conflicting meta-parameters。"""
+        """FlagOS：昇腾走 torch；沐曦等用固定 Triton kernel（BLOCK=256）。"""
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu":
+
+            def fallback(
+                topk_indices,
+                token_to_req_indices,
+                block_table,
+                block_size,
+                is_valid_token=None,
+            ):
+                num_tokens, topk = topk_indices.shape
+                if is_valid_token is None:
+                    is_valid_token = torch.ones(
+                        (num_tokens,), device=topk_indices.device, dtype=torch.int32
+                    )
+                global_indices = torch.full_like(topk_indices, -1)
+                valid = topk_indices >= 0
+                block_idx = torch.where(valid, topk_indices // block_size, 0)
+                block_off = torch.where(valid, topk_indices - block_idx * block_size, 0)
+                req = token_to_req_indices.unsqueeze(1).expand(-1, topk)
+                block_no = block_table[
+                    req.clamp(min=0, max=block_table.shape[0] - 1),
+                    block_idx.clamp(min=0, max=block_table.shape[1] - 1),
+                ]
+                slot = block_no * block_size + block_off
+                global_indices = torch.where(valid, slot, global_indices)
+                counts = valid.to(torch.int32).sum(dim=1)
+                lens = torch.where(
+                    is_valid_token != 0, counts, torch.zeros_like(counts)
+                )
+                return global_indices.to(torch.int32), lens.to(torch.int32)
+
+            print(
+                "  [INFO] compute_global_topk: NPU → torch block_table_gather "
+                "(skip Triton)"
+            )
+            return fallback, {
+                "source": "torch.block_table_gather (flagos npu fallback)",
+                "type": "torch",
+            }
+
         import triton
         import triton.language as tl
 
@@ -1011,7 +1162,26 @@ class FlagOSProvider(BaseProvider):
         }
 
     def _load_fused_q_kv_rmsnorm(self):
-        """沐曦：原 kernel BLOCK=next_pow2(dim) 可达 2048；改为分块 BLOCK=256。"""
+        """昇腾走 torch RMSNorm；沐曦用分块 Triton kernel（BLOCK=256）。"""
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu":
+
+            def _rms_norm(x, weight, eps):
+                var = x.float().pow(2).mean(dim=-1, keepdim=True)
+                y = x.float() * torch.rsqrt(var + eps)
+                return (y * weight.float()).to(x.dtype)
+
+            def fallback(qr, kv, q_weight, kv_weight, eps):
+                return _rms_norm(qr, q_weight, eps), _rms_norm(kv, kv_weight, eps)
+
+            print(
+                "  [INFO] fused_q_kv_rmsnorm: NPU → torch.rms_norm (skip Triton)"
+            )
+            return fallback, {
+                "source": "torch.rms_norm (flagos npu fallback)",
+                "type": "torch",
+            }
+
         import triton
         import triton.language as tl
 
@@ -1100,9 +1270,23 @@ class FlagOSProvider(BaseProvider):
         }
 
     def _load_mhc(self, op_name: str):
-        """mhc_post/pre：优先 flaggems_vllm；mhc_post 沐曦用固定 BLOCK_H=256。"""
+        """mhc_post/pre：昇腾走 ref/torch；沐曦 mhc_post 用固定 BLOCK_H=256。"""
         if op_name == "mhc_post":
             return self._load_mhc_post_flagos()
+
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu" and op_name == "mhc_pre":
+            try:
+                from flag_gems.fused.mhc.mhc_pre import mhc_pre_ref
+
+                print("  [INFO] mhc_pre: NPU → flag_gems.mhc_pre_ref (skip Triton)")
+                return mhc_pre_ref, {
+                    "source": "flag_gems.mhc_pre_ref (flagos npu fallback)",
+                    "type": "torch",
+                }
+            except Exception as e:
+                print(f"  [WARN] mhc_pre_ref on NPU failed: {e}")
+                return None, {"error": f"mhc_pre unavailable on npu: {e}"}
 
         if self._flaggems_vllm is not None and hasattr(self._flaggems_vllm, op_name):
             fn = getattr(self._flaggems_vllm, op_name)
@@ -1130,7 +1314,25 @@ class FlagOSProvider(BaseProvider):
         return None, {"error": f"{op_name} not in flaggems_vllm/flag_gems"}
 
     def _load_mhc_post_flagos(self):
-        """沐曦：不用 autotune（BLOCK_H 可达 1024）；hc=4 固定 BLOCK_H=256。"""
+        """昇腾走 torch；沐曦用固定 BLOCK_H=256 Triton。"""
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu":
+
+            def fallback(x, residual, post_layer_mix, comb_res_mix):
+                plm = post_layer_mix
+                if plm.ndim == 2:
+                    plm = plm.unsqueeze(-1)
+                y = x.unsqueeze(-2) * plm + torch.bmm(
+                    comb_res_mix.mT, residual.float()
+                )
+                return y.type_as(x)
+
+            print("  [INFO] mhc_post: NPU → torch.mhc_post (skip Triton)")
+            return fallback, {
+                "source": "torch.mhc_post (flagos npu fallback)",
+                "type": "torch",
+            }
+
         import triton
         import triton.language as tl
 
@@ -1204,18 +1406,28 @@ class FlagOSProvider(BaseProvider):
         }
 
     def _load_grouped_topk(self):
-        """优先 flag_gems；沐曦 blacklist/编译失败时 torch 兜底。"""
+        """优先 flag_gems；沐曦/昇腾等失败时 torch 兜底。"""
         fn = None
         if self._flaggems is not None and hasattr(self._flaggems, "grouped_topk"):
             fn = getattr(self._flaggems, "grouped_topk")
 
         if fn is not None:
             try:
-                device = "cuda" if torch.cuda.is_available() else "cpu"
+                accel = self._accel or _detect_accelerator()
+                if accel == "npu":
+                    device = "npu:0"
+                elif accel == "musa":
+                    device = "musa:0"
+                elif accel == "cuda":
+                    device = "cuda"
+                else:
+                    device = "cpu"
                 s = torch.randn(1, 8, device=device, dtype=torch.float32)
                 b = torch.zeros(8, device=device, dtype=torch.float32)
                 fn(s, 2, 1, 2, True, 1.0, b, 1)
-                if device == "cuda":
+                if accel == "npu":
+                    torch.npu.synchronize()
+                elif accel == "cuda":
                     torch.cuda.synchronize()
                 return fn, {
                     "source": "flag_gems.grouped_topk",
@@ -1272,7 +1484,15 @@ class FlagOSProvider(BaseProvider):
                 )
             )
 
-        device = "cuda" if torch.cuda.is_available() else "cpu"
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu":
+            device = "npu:0"
+        elif accel == "musa":
+            device = "musa:0"
+        elif torch.cuda.is_available():
+            device = "cuda"
+        else:
+            device = "cpu"
         for src, fn in candidates:
             try:
                 topk_indices = torch.tensor(
@@ -1286,7 +1506,9 @@ class FlagOSProvider(BaseProvider):
                 seq_lens = torch.tensor([8, 10], device=device, dtype=torch.int32)
                 gather_lens = torch.tensor([8, 10], device=device, dtype=torch.int32)
                 fn(topk_indices, query_start_loc, seq_lens, gather_lens, 4, 2, 4, 64, 16)
-                if device == "cuda":
+                if accel == "npu":
+                    torch.npu.synchronize()
+                elif device == "cuda":
                     torch.cuda.synchronize()
                 return fn, {"source": src, "type": "triton"}
             except Exception as e:
@@ -1299,8 +1521,16 @@ class FlagOSProvider(BaseProvider):
         }
 
     def _load_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert(self):
-        """yaml 标 flaggems_vllm；优先 flag_gems，失败则 torch 参考。"""
+        """yaml 标 flaggems_vllm；昇腾走 torch；其它优先 flag_gems。"""
         op = "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert"
+        accel = self._accel or _detect_accelerator()
+        if accel == "npu":
+            print(f"  [INFO] {op}: NPU → torch fallback (skip flag_gems)")
+            return torch_fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert, {
+                "source": "torch.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert (flagos npu fallback)",
+                "type": "torch",
+            }
+
         candidates = []
         if self._flaggems is not None and hasattr(self._flaggems, op):
             candidates.append((f"flag_gems.{op}", getattr(self._flaggems, op)))
